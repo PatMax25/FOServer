@@ -3281,7 +3281,7 @@ void ApplyDamage(AttackStruct& attack, Critter& target, int rounds, bool isCriti
             WearItem(target, armor_, ((100 - armorDr) * rounds + 2 * totalDmg) / 3);
         }
         else
-            WearItem(target, armor_, ((100 - armorDr) * rounds + totalDmg) /  target.Param[ST_LUCK]);
+            WearItem(target, armor_, rounds);
     }
 
     // 30-08-2013 Cubik: Banhammer effect - kick player from game

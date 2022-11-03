@@ -7210,7 +7210,7 @@ void ApplyDamage(AttackStruct&attack,Critter&target,int rounds,bool isCritical,b
 			WearItem(target,armor_,((100-armorDr)*rounds+2*totalDmg)/3);
 		}
 		else
-		WearItem(target,armor_,((100-armorDr)*rounds+totalDmg)/target.Param[(6)]);
+		WearItem(target,armor_,rounds);
 	} 
 	
 	if(isOffGame)
