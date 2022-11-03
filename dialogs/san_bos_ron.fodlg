@@ -1,0 +1,122 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+50 1010 D _script dialog@d_IsNotMember 0  #
+2 1020 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 #
+5 3020 R _var n name_mem_npc_player = 1 #
+0 3030 @
+4 4000 Attack 0 #
+65505 4010 #
+0 4020 @
+5 5000 None 0 #
+0 5010 @
+50 6000 Attack 0 &
+
+[engl]
+{100}{}{Ron}
+{200}{}{You see a Brotherhood's scribe.}
+{210}{}{You see Ron. It looks like he takes care of the technical stuff around here.}
+{1000}{}{Predialogue installations}
+{1010}{}{not BoS member}
+{1020}{}{member}
+{2000}{}{You gotta have a hell of a reason to interrupt me like that!}
+{2010}{}{Sorry, just wanted to ask you some questions.}
+{2020}{}{Ah, nothing. Sorry.}
+{3000}{}{Be quick, gotta lot of stuff to take care of today.}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Yeah, right.}
+{4000}{}{It sure as hell ain't an information center! Talk to the guy on the entrance.}
+{4010}{}{I see. Let me ask you something else then.}
+{4020}{}{Right. I'm gonna pay him a visit then.}
+{5000}{}{I'm looking after this damn machinery here. Most of the time I'm trying to keep the power supply system online. Tough job, you don't wanna know about it, trust me.}
+{5010}{}{Nope, I think I'll leave you to your work then.}
+{6000}{}{What are you doing down here?@@Intruders, intruders!@@Alarm, we've got breach!@@You'll regret entering here without permission!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{not BoS member}
+{1020}{}{member}
+{2000}{}{You gotta have a hell of a reason to interrupt me like that!}
+{2010}{}{Sorry, just wanted to ask you some questions.}
+{2020}{}{Ah, nothing. Sorry.}
+{3000}{}{Be quick, gotta lot of stuff to take care of today.}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Yeah, right.}
+{4000}{}{It sure as hell ain't an information center! Talk to the guy on the entrance.}
+{4010}{}{I see. Let me ask you something else then.}
+{4020}{}{Right. I'm gonna pay him a visit then.}
+{5000}{}{I'm looking after this damn machinery here. Most of the time I'm trying to keep the power supply system online. Tough job, you don't wanna know about it, trust me.}
+{5010}{}{Nope, I think I'll leave you to your work then.}
+{6000}{}{What are you doing down here?@@Intruders, intruders!@@Alarm, we've got breach!@@You'll regret entering here without permission!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{not BoS member}
+{1020}{}{member}
+{2000}{}{You gotta have a hell of a reason to interrupt me like that!}
+{2010}{}{Sorry, just wanted to ask you some questions.}
+{2020}{}{Ah, nothing. Sorry.}
+{3000}{}{Be quick, gotta lot of stuff to take care of today.}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Yeah, right.}
+{4000}{}{It sure as hell ain't an information center! Talk to the guy on the entrance.}
+{4010}{}{I see. Let me ask you something else then.}
+{4020}{}{Right. I'm gonna pay him a visit then.}
+{5000}{}{I'm looking after this damn machinery here. Most of the time I'm trying to keep the power supply system online. Tough job, you don't wanna know about it, trust me.}
+{5010}{}{Nope, I think I'll leave you to your work then.}
+{6000}{}{What are you doing down here?@@Intruders, intruders!@@Alarm, we've got breach!@@You'll regret entering here without permission!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{not BoS member}
+{1020}{}{member}
+{2000}{}{You gotta have a hell of a reason to interrupt me like that!}
+{2010}{}{Sorry, just wanted to ask you some questions.}
+{2020}{}{Ah, nothing. Sorry.}
+{3000}{}{Be quick, gotta lot of stuff to take care of today.}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Yeah, right.}
+{4000}{}{It sure as hell ain't an information center! Talk to the guy on the entrance.}
+{4010}{}{I see. Let me ask you something else then.}
+{4020}{}{Right. I'm gonna pay him a visit then.}
+{5000}{}{I'm looking after this damn machinery here. Most of the time I'm trying to keep the power supply system online. Tough job, you don't wanna know about it, trust me.}
+{5010}{}{Nope, I think I'll leave you to your work then.}
+{6000}{}{What are you doing down here?@@Intruders, intruders!@@Alarm, we've got breach!@@You'll regret entering here without permission!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{not BoS member}
+{1020}{}{member}
+{2000}{}{You gotta have a hell of a reason to interrupt me like that!}
+{2010}{}{Sorry, just wanted to ask you some questions.}
+{2020}{}{Ah, nothing. Sorry.}
+{3000}{}{Be quick, gotta lot of stuff to take care of today.}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Yeah, right.}
+{4000}{}{It sure as hell ain't an information center! Talk to the guy on the entrance.}
+{4010}{}{I see. Let me ask you something else then.}
+{4020}{}{Right. I'm gonna pay him a visit then.}
+{5000}{}{I'm looking after this damn machinery here. Most of the time I'm trying to keep the power supply system online. Tough job, you don't wanna know about it, trust me.}
+{5010}{}{Nope, I think I'll leave you to your work then.}
+{6000}{}{What are you doing down here?@@Intruders, intruders!@@Alarm, we've got breach!@@You'll regret entering here without permission!}
+

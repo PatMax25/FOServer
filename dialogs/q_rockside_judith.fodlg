@@ -1,0 +1,194 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+7 2020 D _var p q_v99_judith_beer = 0 #
+8 2030 D _var p q_v99_judith_beer = 2 #
+9 2040 D _var p q_v99_judith_beer = 3 D _item p PID_ROENTGEN_RUM = 1 R _var p q_v99_judith_beer = 4 R _item p PID_CIGARETTES + 2 R _item p PID_10MM_JHP + 15 R _item p PID_CLUB + 1 R _item p PID_ROENTGEN_RUM - 1 #
+0 2050 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+14 6010 @
+7 7000 None 0 #
+11 7010 R _var p q_v99_judith_beer = 1 #
+12 7020 @
+8 8000 None 0 #
+13 8010 @
+9 9000 None 0 #
+0 9010 @
+11 10000 None 0 @
+12 11000 None 0 @
+13 12000 None 0 @
+14 13000 None 0 @
+15 14000 None 0 &
+
+[engl]
+{100}{}{Judith}
+{200}{}{Judith}
+{210}{}{Very sad looking woman.}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Hey, do you need something?}
+{2010}{}{Hey there, who are you?}
+{2020}{}{Can I help you somehow?}
+{2030}{}{Cooker doesn't want to give you beer because you didn't pay for the last time.}
+{2040}{}{Got a rum for ya.}
+{2050}{}{Nah, nothing. [ end dialogue ]}
+{3000}{}{Name's Judith, I am a scout.}
+{3010}{}{Scout?}
+{4000}{}{Yeah, I was keeping track of NCR spy activity for different organizations.}
+{4010}{}{So you are a spy, right?}
+{5000}{}{Yes, I was mostly working with the Enclave. But now it is all in past...}
+{5010}{}{How come?}
+{6000}{}{Well, when war came our department faced certain... restrictions. It doesn't matter anyway.}
+{6010}{}{I see... Sad to hear.}
+{7000}{}{Sure, bring some rum, Cooker must have one bottle for me.}
+{7010}{}{Sure, I will bring it to you. [ end dialogue ]}
+{7020}{}{I will think about it. [ end dialogue ]}
+{8000}{}{Damn asshole... Eh, well, I dont have any Currency. Would you mind paying for me?}
+{8010}{}{I will think about it. [ end dialogue ]}
+{9000}{}{Thank you a lot, here, take this. You are a nice person, hope you survive in this freaking disgusting world.}
+{9010}{}{Thanks, now I need to go. [ end dialogue ]}
+{10000}{}{Thanks.}
+{11000}{}{Aha, sure, it is worthy of being thought about.}
+{12000}{}{Yeah, sure... It requires a long thinking process, I understand.}
+{13000}{}{Very sad, indeed.}
+{14000}{}{Spam? Who is... Ah... Oh I, I see... Yeah, Spam... right. Sure, I will call other guys, we will think about it.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Hey, do you need something?}
+{2010}{}{Hey there, who are you?}
+{2020}{}{Can I help you somehow?}
+{2030}{}{Cooker doesn't want to give you beer because you didn't pay for the last time.}
+{2040}{}{Got a rum for ya.}
+{2050}{}{Nah, nothing.}
+{3000}{}{Name's Judith, I am a scout.}
+{3010}{}{Scout?}
+{4000}{}{Yeah, I was holding NCR spy activity in different organisations.}
+{4010}{}{So you are a spy, right?}
+{5000}{}{Yes, I was mostly spying Enclave. But now it is in past...}
+{5010}{}{How come?}
+{6000}{}{Well, when war came our department faced certain... restrictions. It doesn't matter anyway.}
+{6010}{}{I see... Sad to hear.}
+{7000}{}{Sure, bring some rum, Cooker must have one local for me.}
+{7010}{}{Sure, I will bring you it.}
+{7020}{}{I will think about it.}
+{8000}{}{Damn asshole... Eh, well, I dont have any Currency. Would you mind to pay for me?}
+{8010}{}{I will think about it.}
+{9000}{}{Thank you a lot, here, take this. You are a nice person, hope you will survive in this freaking disgusting world.}
+{9010}{}{Thanks, now I need to go.}
+{10000}{}{Thanks.}
+{11000}{}{Aha, sure, it is worth of being thought about.}
+{12000}{}{Yeah, sure... It requires a long thinking process, I understand.}
+{13000}{}{Very sad, indeed.}
+{14000}{}{Spam? Who is... Ah... Oh I, I see... Yeah, Spam... right. Sure, I will call other guys, we will think about it.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Hey, do you need something?}
+{2010}{}{Hey there, who are you?}
+{2020}{}{Can I help you somehow?}
+{2030}{}{Cooker doesn't want to give you beer because you didn't pay for the last time.}
+{2040}{}{Got a rum for ya.}
+{2050}{}{Nah, nothing.}
+{3000}{}{Name's Judith, I am a scout.}
+{3010}{}{Scout?}
+{4000}{}{Yeah, I was holding NCR spy activity in different organisations.}
+{4010}{}{So you are a spy, right?}
+{5000}{}{Yes, I was mostly spying Enclave. But now it is in past...}
+{5010}{}{How come?}
+{6000}{}{Well, when war came our department faced certain... restrictions. It doesn't matter anyway.}
+{6010}{}{I see... Sad to hear.}
+{7000}{}{Sure, bring some rum, Cooker must have one local for me.}
+{7010}{}{Sure, I will bring you it.}
+{7020}{}{I will think about it.}
+{8000}{}{Damn asshole... Eh, well, I dont have any Currency. Would you mind to pay for me?}
+{8010}{}{I will think about it.}
+{9000}{}{Thank you a lot, here, take this. You are a nice person, hope you will survive in this freaking disgusting world.}
+{9010}{}{Thanks, now I need to go.}
+{10000}{}{Thanks.}
+{11000}{}{Aha, sure, it is worth of being thought about.}
+{12000}{}{Yeah, sure... It requires a long thinking process, I understand.}
+{13000}{}{Very sad, indeed.}
+{14000}{}{Spam? Who is... Ah... Oh I, I see... Yeah, Spam... right. Sure, I will call other guys, we will think about it.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Hey, do you need something?}
+{2010}{}{Hey there, who are you?}
+{2020}{}{Can I help you somehow?}
+{2030}{}{Cooker doesn't want to give you beer because you didn't pay for the last time.}
+{2040}{}{Got a rum for ya.}
+{2050}{}{Nah, nothing.}
+{3000}{}{Name's Judith, I am a scout.}
+{3010}{}{Scout?}
+{4000}{}{Yeah, I was holding NCR spy activity in different organisations.}
+{4010}{}{So you are a spy, right?}
+{5000}{}{Yes, I was mostly spying Enclave. But now it is in past...}
+{5010}{}{How come?}
+{6000}{}{Well, when war came our department faced certain... restrictions. It doesn't matter anyway.}
+{6010}{}{I see... Sad to hear.}
+{7000}{}{Sure, bring some rum, Cooker must have one local for me.}
+{7010}{}{Sure, I will bring you it.}
+{7020}{}{I will think about it.}
+{8000}{}{Damn asshole... Eh, well, I dont have any Currency. Would you mind to pay for me?}
+{8010}{}{I will think about it.}
+{9000}{}{Thank you a lot, here, take this. You are a nice person, hope you will survive in this freaking disgusting world.}
+{9010}{}{Thanks, now I need to go.}
+{10000}{}{Thanks.}
+{11000}{}{Aha, sure, it is worth of being thought about.}
+{12000}{}{Yeah, sure... It requires a long thinking process, I understand.}
+{13000}{}{Very sad, indeed.}
+{14000}{}{Spam? Who is... Ah... Oh I, I see... Yeah, Spam... right. Sure, I will call other guys, we will think about it.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Hey, do you need something?}
+{2010}{}{Hey there, who are you?}
+{2020}{}{Can I help you somehow?}
+{2030}{}{Cooker doesn't want to give you beer because you didn't pay for the last time.}
+{2040}{}{Got a rum for ya.}
+{2050}{}{Nah, nothing.}
+{3000}{}{Name's Judith, I am a scout.}
+{3010}{}{Scout?}
+{4000}{}{Yeah, I was holding NCR spy activity in different organisations.}
+{4010}{}{So you are a spy, right?}
+{5000}{}{Yes, I was mostly spying Enclave. But now it is in past...}
+{5010}{}{How come?}
+{6000}{}{Well, when war came our department faced certain... restrictions. It doesn't matter anyway.}
+{6010}{}{I see... Sad to hear.}
+{7000}{}{Sure, bring some rum, Cooker must have one local for me.}
+{7010}{}{Sure, I will bring you it.}
+{7020}{}{I will think about it.}
+{8000}{}{Damn asshole... Eh, well, I dont have any Currency. Would you mind to pay for me?}
+{8010}{}{I will think about it.}
+{9000}{}{Thank you a lot, here, take this. You are a nice person, hope you will survive in this freaking disgusting world.}
+{9010}{}{Thanks, now I need to go.}
+{10000}{}{Thanks.}
+{11000}{}{Aha, sure, it is worth of being thought about.}
+{12000}{}{Yeah, sure... It requires a long thinking process, I understand.}
+{13000}{}{Very sad, indeed.}
+{14000}{}{Spam? Who is... Ah... Oh I, I see... Yeah, Spam... right. Sure, I will call other guys, we will think about it.}
+

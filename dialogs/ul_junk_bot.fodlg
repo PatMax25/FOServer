@@ -1,0 +1,366 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _var p driver_license = 0 #
+0 2030 @
+3 3000 None 0 #
+4 3010 D _var p driver_license = 0 #
+2 3020 @
+4 4000 None 0 #
+5 4010 #
+0 4020 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 #
+0 6020 @
+7 7000 None 0 #
+0 7010 #
+8 7020 @
+8 8000 None 0 #
+0 8010 #
+9 8020 @
+9 9000 None 0 #
+10 9010 #
+0 9020 @
+10 10000 None 0 #
+11 10010 #
+0 10020 @
+11 11000 None 0 #
+0 11010 #
+12 11020 @
+12 12000 None 0 #
+13 12010 #
+0 12020 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 @
+15 15000 None 0 #
+0 15010 R _script dialog@r_ToDead 1 Anim2DeadPulseDust #
+0 15020 R _script dialog@r_ToDead 1 Anim2DeadPulseDust #
+16 15030 #
+0 15040 R _script dialog@r_ToDead 1 Anim2DeadPulseDust @
+16 16000 None 0 #
+17 16010 #
+0 16020 R _script dialog@r_ToDead 1 Anim2DeadPulseDust #
+0 16030 R _script dialog@r_ToDead 1 Anim2DeadPulseDust @
+17 17000 None 0 #
+0 17010 R _script dialog@r_ToDead 1 Anim2DeadPulseDust #
+0 17020 R _script dialog@r_ToDead 1 Anim2DeadPulseDust #
+18 17030 @
+18 18000 None 0 #
+0 18010 R _script dialog@r_ToDead 1 Anim2DeadPulseDust #
+0 18020 R _script dialog@r_ToDead 1 Anim2DeadPulseDust #
+19 18030 R _var p driver_license = 1 R _param p ST_EXPERIENCE + 1000 R _param p ST_PILOT = 1 @
+19 19000 None 0 &
+
+[engl]
+{100}{}{Bot-O-Driver}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Initiating program... Greetings, fellow citizen! I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. How may I assist you today? *you can read a small sign on its back - "Voice modulator is broken. I have no idea how to fix it."*}
+{2010}{}{What the...? What are you?}
+{2020}{}{I heard you can teach me how to drive a car. Please show me?}
+{2030}{}{Whatever. I am just passing by. [ end dialogue ]}
+{3000}{}{I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. Constructed for "Unreal Real Surreal School of driving of San Francisco". My task is to teach and show citizens how to operate with new generations of atomic automobiles!}
+{3010}{}{So you are a driving teacher. Just what I need! Can you teach me how to drive a car?}
+{3020}{}{Great... Let's switch the topic.}
+{4000}{}{With pleasure! May I know your name first? I need to check my list.}
+{4010}{}{I am @pname@.}
+{4020}{}{On the second thought... Fuck it, I am better without a car. [ end dialogue ]}
+{5000}{}{@pname@? I don't have you in my courses list, I believe you didn't go to your instructor for signup... Not a big deal, just don't forget to do it after our courses. Also be aware, that you will pay the whole price of the education right away. All your data has already been given to our office. Now... Ready to start our course?}
+{5010}{}{Sure. So shall we start then?}
+{6000}{}{Alright. We shall start with the theory! Before the great switch to atomic energy, vehicles used fuel sources such as steam and petrol. After the invention of the Microfusion cell, many nuclear-powered vehicles appeared on the market. Current diesel/gasoline vehicles were also present, and corporations such as Red Rocket took the opportunity to appeal to those that still drove these vehicles by offering both diesel and gas...}
+{6010}{}{[ Listen further ]}
+{6020}{}{[ Fall asleep... ]}
+{7000}{}{ ... But it was thanks to our colleagues from Poseidon, General Atomics and other companies that allowed us to start a new era of atomic fusion in American history. Unlike old cars, the current models work on atomic power, which cost you less and also they are perfectly safe. Do not believe in stupid rumors spread by amateurs about our cars exploding for no reason! This is nothing but a superstition! American companies would never sell a dangerous product...}
+{7010}{}{[ Fall asleep... ]}
+{7020}{}{[ Listen further ]}
+{8000}{}{... In fact having a car is not that expensive in nowadays America. Afterall you can always take a loan from our sponsor - "Easy Life" American Bank. "Easy Life" - the life has never been so easy ...}
+{8010}{}{[ Fall asleep... ]}
+{8020}{}{[ Listen further ]}
+{9000}{}{... Just take a look at this lovely car. It is made by Chryslus Corvega - the best car production company in America and one of our sponsors too ...}
+{9010}{}{[ Listen further ]}
+{9020}{}{[ Fall asleep... ]}
+{10000}{}{... And also let me assure you that Nuka Cola is what you need while driving! Buy Nuka Cola - one of our biggest sponsors ...}
+{10010}{}{[ Listen further ]}
+{10020}{}{[ Fall asleep... ]}
+{11000}{}{... Why be afraid to miss your car in the nuclear armageddon when you can buy a separate shelter for your beauty! Go for Vault Tec - our number 1 sponsor ...}
+{11010}{}{[ Fall asleep... ]}
+{11020}{}{[ Listen further ]}
+{12000}{}{Now let's finally get to practice! Look at the car standing behind me. We will use it to learn how to drive properly... Now, please come closer *he starts telling and showing you different techniques of driving*...}
+{12010}{}{[ Try to remember everything the robots tells you... ]}
+{12020}{}{[ Fuck it, you've already spent enough of your time listening to commercials! ]}
+{13000}{}{... *after advertising at least 10 more sponsors the robot also tells you about traffic rules and signs, then gives you few tips of how to fool the police* ...}
+{13010}{}{[ Next ]}
+{14000}{}{Now the most important part! It is important to know HOW to recharge your vehicle PROPERLY. Once you run out of your MFCs, follow these steps: 1) Take extra MFCs and get to your car's Fuel Control Module. 2) Press the red button on your Fuel Control Module and remove empty cells. 3) Then press the red button again and hold it, till you hear a click. This means that FCM stopped your mini nuclear reactor in your car and is ready for taking new charge of MFCs. 4) Import your new cell into the FCM and press the red button. 5) You are done!... Now try it on this car! *he hands you a MFC pack*}
+{14010}{}{[ You take the cell and approach the car... ]}
+{15000}{}{[ You approach the car with MFC cell in your hads and go to the FCM. What now? ]}
+{15010}{}{[ Press the rad button... ]}
+{15020}{}{[ Press the green button... ]}
+{15030}{}{[ Press the red button... ]}
+{15040}{}{[ Slightly kick FCM ]}
+{16000}{}{[ Just as you press the button, the empty car cell is falling out of the FCM. What now? ]}
+{16010}{}{[ Press and hold the red button ]}
+{16020}{}{[ Insert a fresh cell in FCM ]}
+{16030}{}{[ Press the green button ]}
+{17000}{}{[ You press a red button for a while and then you hear a click. What now? ]}
+{17010}{}{[ Keep holding the button ]}
+{17020}{}{[ Kick FCM ]}
+{17030}{}{[ Insert the fresh MFC in FCM ]}
+{18000}{}{[ You inserted a full cell into the FCM. What now? ]}
+{18010}{}{[ Press the green button ]}
+{18020}{}{[ Press and hold the red button ]}
+{18030}{}{[ Press the red button ]}
+{19000}{}{[ Done! You are now an experienced driver! Or not... Whatever. At least you have your license now. ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Initiating program... Greetings, fellow citizen! I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. How may I assist you today? *you can read a small sign on its back - "Voice modulator is broken. I have no idea how to fix it."*}
+{2010}{}{What the...? What are you?}
+{2020}{}{I heard you can teach me how to drive a car. Please show me?}
+{2030}{}{Whatever. I am just passing by. [ end dialogue ]}
+{3000}{}{I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. Constructed for "Unreal Real Surreal School of driving of San Francisco". My task is to teach and show citizens how to operate with new generations of atomic automobiles!}
+{3010}{}{So you are a driving teacher. Just what I need! Can you teach me how to drive a car?}
+{3020}{}{Great... Let's switch the topic.}
+{4000}{}{With pleasure! May I know your name first? I need to check my list.}
+{4010}{}{I am @pname@.}
+{4020}{}{On the second thought... Fuck it, I am better without a car. [ end dialogue ]}
+{5000}{}{@pname@? I don't have you in my courses list, I believe you didn't go to your instructor for signup... Not a big deal, just don't forget to do it after our courses. Also be aware, that you will pay the whole price of the education right away. All your data has already been given to our office. Now... Ready to start our course?}
+{5010}{}{Sure. So shall we start then?}
+{6000}{}{Alright. We shall start with the theory! Before the great switch to atomic energy, vehicles used fuel sources such as steam and petrol. After the invention of the Microfusion cell, many nuclear-powered vehicles appeared on the market. Current diesel/gasoline vehicles were also present, and corporations such as Red Rocket took the opportunity to appeal to those that still drove these vehicles by offering both diesel and gas...}
+{6010}{}{[ Listen further ]}
+{6020}{}{[ Fall asleep... ]}
+{7000}{}{ ... But it was thanks to our colleagues from Poseidon, General Atomics and other companies that allowed us to start a new era of atomic fusion in American history. Unlike old cars, the current models work on atomic power, which cost you less and also they are perfectly safe. Do not believe in stupid rumors spread by amateurs about our cars exploding for no reason! This is nothing but a superstition! American companies would never sell a dangerous product...}
+{7010}{}{[ Fall asleep... ]}
+{7020}{}{[ Listen further ]}
+{8000}{}{... In fact having a car is not that expensive in nowadays America. Afterall you can always take a loan from our sponsor - "Easy Life" American Bank. "Easy Life" - the life has never been so easy ...}
+{8010}{}{[ Fall asleep... ]}
+{8020}{}{[ Listen further ]}
+{9000}{}{... Just take a look at this lovely car. It is made by Chryslus Corvega - the best car production company in America and one of our sponsors too ...}
+{9010}{}{[ Listen further ]}
+{9020}{}{[ Fall asleep... ]}
+{10000}{}{... And also let me assure you that Nuka Cola is what you need while driving! Buy Nuka Cola - one of our biggest sponsors ...}
+{10010}{}{[ Listen further ]}
+{10020}{}{[ Fall asleep... ]}
+{11000}{}{... Why be afraid to miss your car in the nuclear armageddon when you can buy a separate shelter for your beauty! Go for Vault Tec - our number 1 sponsor ...}
+{11010}{}{[ Fall asleep... ]}
+{11020}{}{[ Listen further ]}
+{12000}{}{Now let's finally get to practice! Look at the car standing behind me. We will use it to learn how to drive properly... Now, please come closer *he starts telling and showing you different techniques of driving*...}
+{12010}{}{[ Try to remember everything the robots tells you... ]}
+{12020}{}{[ Fuck it, you've already spent enough of your time listening to commercials! ]}
+{13000}{}{... *after advertising at least 10 more sponsors the robot also tells you about traffic rules and signs, then gives you few tips of how to fool the police* ...}
+{13010}{}{[ Next ]}
+{14000}{}{Now the most important part! It is important to know HOW to recharge your vehicle PROPERLY. Once you run out of your MFCs, follow these steps: 1) Take extra MFCs and get to your car's Fuel Control Module. 2) Press the red button on your Fuel Control Module and remove empty cells. 3) Then press the red button again and hold it, till you hear a click. This means that FCM stopped your mini nuclear reactor in your car and is ready for taking new charge of MFCs. 4) Import your new cell into the FCM and press the red button. 5) You are done!... Now try it on this car! *he hands you a MFC pack*}
+{14010}{}{[ You take the cell and approach the car... ]}
+{15000}{}{[ You approach the car with MFC cell in your hads and go to the FCM. What now? ]}
+{15010}{}{[ Press the rad button... ]}
+{15020}{}{[ Press the green button... ]}
+{15030}{}{[ Press the red button... ]}
+{15040}{}{[ Slightly kick FCM ]}
+{16000}{}{[ Just as you press the button, the empty car cell is falling out of the FCM. What now? ]}
+{16010}{}{[ Press and hold the red button ]}
+{16020}{}{[ Insert a fresh cell in FCM ]}
+{16030}{}{[ Press the green button ]}
+{17000}{}{[ You press a red button for a while and then you hear a click. What now? ]}
+{17010}{}{[ Keep holding the button ]}
+{17020}{}{[ Kick FCM ]}
+{17030}{}{[ Insert the fresh MFC in FCM ]}
+{18000}{}{[ You inserted a full cell into the FCM. What now? ]}
+{18010}{}{[ Press the green button ]}
+{18020}{}{[ Press and hold the red button ]}
+{18030}{}{[ Press the red button ]}
+{19000}{}{[ Done! You are now an experienced driver! Or not... Whatever. At least you have your license now. ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Initiating program... Greetings, fellow citizen! I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. How may I assist you today? *you can read a small sign on its back - "Voice modulator is broken. I have no idea how to fix it."*}
+{2010}{}{What the...? What are you?}
+{2020}{}{I heard you can teach me how to drive a car. Please show me?}
+{2030}{}{Whatever. I am just passing by. [ end dialogue ]}
+{3000}{}{I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. Constructed for "Unreal Real Surreal School of driving of San Francisco". My task is to teach and show citizens how to operate with new generations of atomic automobiles!}
+{3010}{}{So you are a driving teacher. Just what I need! Can you teach me how to drive a car?}
+{3020}{}{Great... Let's switch the topic.}
+{4000}{}{With pleasure! May I know your name first? I need to check my list.}
+{4010}{}{I am @pname@.}
+{4020}{}{On the second thought... Fuck it, I am better without a car. [ end dialogue ]}
+{5000}{}{@pname@? I don't have you in my courses list, I believe you didn't go to your instructor for signup... Not a big deal, just don't forget to do it after our courses. Also be aware, that you will pay the whole price of the education right away. All your data has already been given to our office. Now... Ready to start our course?}
+{5010}{}{Sure. So shall we start then?}
+{6000}{}{Alright. We shall start with the theory! Before the great switch to atomic energy, vehicles used fuel sources such as steam and petrol. After the invention of the Microfusion cell, many nuclear-powered vehicles appeared on the market. Current diesel/gasoline vehicles were also present, and corporations such as Red Rocket took the opportunity to appeal to those that still drove these vehicles by offering both diesel and gas...}
+{6010}{}{[ Listen further ]}
+{6020}{}{[ Fall asleep... ]}
+{7000}{}{ ... But it was thanks to our colleagues from Poseidon, General Atomics and other companies that allowed us to start a new era of atomic fusion in American history. Unlike old cars, the current models work on atomic power, which cost you less and also they are perfectly safe. Do not believe in stupid rumors spread by amateurs about our cars exploding for no reason! This is nothing but a superstition! American companies would never sell a dangerous product...}
+{7010}{}{[ Fall asleep... ]}
+{7020}{}{[ Listen further ]}
+{8000}{}{... In fact having a car is not that expensive in nowadays America. Afterall you can always take a loan from our sponsor - "Easy Life" American Bank. "Easy Life" - the life has never been so easy ...}
+{8010}{}{[ Fall asleep... ]}
+{8020}{}{[ Listen further ]}
+{9000}{}{... Just take a look at this lovely car. It is made by Chryslus Corvega - the best car production company in America and one of our sponsors too ...}
+{9010}{}{[ Listen further ]}
+{9020}{}{[ Fall asleep... ]}
+{10000}{}{... And also let me assure you that Nuka Cola is what you need while driving! Buy Nuka Cola - one of our biggest sponsors ...}
+{10010}{}{[ Listen further ]}
+{10020}{}{[ Fall asleep... ]}
+{11000}{}{... Why be afraid to miss your car in the nuclear armageddon when you can buy a separate shelter for your beauty! Go for Vault Tec - our number 1 sponsor ...}
+{11010}{}{[ Fall asleep... ]}
+{11020}{}{[ Listen further ]}
+{12000}{}{Now let's finally get to practice! Look at the car standing behind me. We will use it to learn how to drive properly... Now, please come closer *he starts telling and showing you different techniques of driving*...}
+{12010}{}{[ Try to remember everything the robots tells you... ]}
+{12020}{}{[ Fuck it, you've already spent enough of your time listening to commercials! ]}
+{13000}{}{... *after advertising at least 10 more sponsors the robot also tells you about traffic rules and signs, then gives you few tips of how to fool the police* ...}
+{13010}{}{[ Next ]}
+{14000}{}{Now the most important part! It is important to know HOW to recharge your vehicle PROPERLY. Once you run out of your MFCs, follow these steps: 1) Take extra MFCs and get to your car's Fuel Control Module. 2) Press the red button on your Fuel Control Module and remove empty cells. 3) Then press the red button again and hold it, till you hear a click. This means that FCM stopped your mini nuclear reactor in your car and is ready for taking new charge of MFCs. 4) Import your new cell into the FCM and press the red button. 5) You are done!... Now try it on this car! *he hands you a MFC pack*}
+{14010}{}{[ You take the cell and approach the car... ]}
+{15000}{}{[ You approach the car with MFC cell in your hads and go to the FCM. What now? ]}
+{15010}{}{[ Press the rad button... ]}
+{15020}{}{[ Press the green button... ]}
+{15030}{}{[ Press the red button... ]}
+{15040}{}{[ Slightly kick FCM ]}
+{16000}{}{[ Just as you press the button, the empty car cell is falling out of the FCM. What now? ]}
+{16010}{}{[ Press and hold the red button ]}
+{16020}{}{[ Insert a fresh cell in FCM ]}
+{16030}{}{[ Press the green button ]}
+{17000}{}{[ You press a red button for a while and then you hear a click. What now? ]}
+{17010}{}{[ Keep holding the button ]}
+{17020}{}{[ Kick FCM ]}
+{17030}{}{[ Insert the fresh MFC in FCM ]}
+{18000}{}{[ You inserted a full cell into the FCM. What now? ]}
+{18010}{}{[ Press the green button ]}
+{18020}{}{[ Press and hold the red button ]}
+{18030}{}{[ Press the red button ]}
+{19000}{}{[ Done! You are now an experienced driver! Or not... Whatever. At least you have your license now. ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Initiating program... Greetings, fellow citizen! I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. How may I assist you today? *you can read a small sign on its back - "Voice modulator is broken. I have no idea how to fix it."*}
+{2010}{}{What the...? What are you?}
+{2020}{}{I heard you can teach me how to drive a car. Please show me?}
+{2030}{}{Whatever. I am just passing by. [ end dialogue ]}
+{3000}{}{I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. Constructed for "Unreal Real Surreal School of driving of San Francisco". My task is to teach and show citizens how to operate with new generations of atomic automobiles!}
+{3010}{}{So you are a driving teacher. Just what I need! Can you teach me how to drive a car?}
+{3020}{}{Great... Let's switch the topic.}
+{4000}{}{With pleasure! May I know your name first? I need to check my list.}
+{4010}{}{I am @pname@.}
+{4020}{}{On the second thought... Fuck it, I am better without a car. [ end dialogue ]}
+{5000}{}{@pname@? I don't have you in my courses list, I believe you didn't go to your instructor for signup... Not a big deal, just don't forget to do it after our courses. Also be aware, that you will pay the whole price of the education right away. All your data has already been given to our office. Now... Ready to start our course?}
+{5010}{}{Sure. So shall we start then?}
+{6000}{}{Alright. We shall start with the theory! Before the great switch to atomic energy, vehicles used fuel sources such as steam and petrol. After the invention of the Microfusion cell, many nuclear-powered vehicles appeared on the market. Current diesel/gasoline vehicles were also present, and corporations such as Red Rocket took the opportunity to appeal to those that still drove these vehicles by offering both diesel and gas...}
+{6010}{}{[ Listen further ]}
+{6020}{}{[ Fall asleep... ]}
+{7000}{}{ ... But it was thanks to our colleagues from Poseidon, General Atomics and other companies that allowed us to start a new era of atomic fusion in American history. Unlike old cars, the current models work on atomic power, which cost you less and also they are perfectly safe. Do not believe in stupid rumors spread by amateurs about our cars exploding for no reason! This is nothing but a superstition! American companies would never sell a dangerous product...}
+{7010}{}{[ Fall asleep... ]}
+{7020}{}{[ Listen further ]}
+{8000}{}{... In fact having a car is not that expensive in nowadays America. Afterall you can always take a loan from our sponsor - "Easy Life" American Bank. "Easy Life" - the life has never been so easy ...}
+{8010}{}{[ Fall asleep... ]}
+{8020}{}{[ Listen further ]}
+{9000}{}{... Just take a look at this lovely car. It is made by Chryslus Corvega - the best car production company in America and one of our sponsors too ...}
+{9010}{}{[ Listen further ]}
+{9020}{}{[ Fall asleep... ]}
+{10000}{}{... And also let me assure you that Nuka Cola is what you need while driving! Buy Nuka Cola - one of our biggest sponsors ...}
+{10010}{}{[ Listen further ]}
+{10020}{}{[ Fall asleep... ]}
+{11000}{}{... Why be afraid to miss your car in the nuclear armageddon when you can buy a separate shelter for your beauty! Go for Vault Tec - our number 1 sponsor ...}
+{11010}{}{[ Fall asleep... ]}
+{11020}{}{[ Listen further ]}
+{12000}{}{Now let's finally get to practice! Look at the car standing behind me. We will use it to learn how to drive properly... Now, please come closer *he starts telling and showing you different techniques of driving*...}
+{12010}{}{[ Try to remember everything the robots tells you... ]}
+{12020}{}{[ Fuck it, you've already spent enough of your time listening to commercials! ]}
+{13000}{}{... *after advertising at least 10 more sponsors the robot also tells you about traffic rules and signs, then gives you few tips of how to fool the police* ...}
+{13010}{}{[ Next ]}
+{14000}{}{Now the most important part! It is important to know HOW to recharge your vehicle PROPERLY. Once you run out of your MFCs, follow these steps: 1) Take extra MFCs and get to your car's Fuel Control Module. 2) Press the red button on your Fuel Control Module and remove empty cells. 3) Then press the red button again and hold it, till you hear a click. This means that FCM stopped your mini nuclear reactor in your car and is ready for taking new charge of MFCs. 4) Import your new cell into the FCM and press the red button. 5) You are done!... Now try it on this car! *he hands you a MFC pack*}
+{14010}{}{[ You take the cell and approach the car... ]}
+{15000}{}{[ You approach the car with MFC cell in your hads and go to the FCM. What now? ]}
+{15010}{}{[ Press the rad button... ]}
+{15020}{}{[ Press the green button... ]}
+{15030}{}{[ Press the red button... ]}
+{15040}{}{[ Slightly kick FCM ]}
+{16000}{}{[ Just as you press the button, the empty car cell is falling out of the FCM. What now? ]}
+{16010}{}{[ Press and hold the red button ]}
+{16020}{}{[ Insert a fresh cell in FCM ]}
+{16030}{}{[ Press the green button ]}
+{17000}{}{[ You press a red button for a while and then you hear a click. What now? ]}
+{17010}{}{[ Keep holding the button ]}
+{17020}{}{[ Kick FCM ]}
+{17030}{}{[ Insert the fresh MFC in FCM ]}
+{18000}{}{[ You inserted a full cell into the FCM. What now? ]}
+{18010}{}{[ Press the green button ]}
+{18020}{}{[ Press and hold the red button ]}
+{18030}{}{[ Press the red button ]}
+{19000}{}{[ Done! You are now an experienced driver! Or not... Whatever. At least you have your license now. ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Initiating program... Greetings, fellow citizen! I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. How may I assist you today? *you can read a small sign on its back - "Voice modulator is broken. I have no idea how to fix it."*}
+{2010}{}{What the...? What are you?}
+{2020}{}{I heard you can teach me how to drive a car. Please show me?}
+{2030}{}{Whatever. I am just passing by. [ end dialogue ]}
+{3000}{}{I am Bot-O-Driver model 4. Software developed by General Atomics, license number 776G1#44H11, all rights reserved. Constructed for "Unreal Real Surreal School of driving of San Francisco". My task is to teach and show citizens how to operate with new generations of atomic automobiles!}
+{3010}{}{So you are a driving teacher. Just what I need! Can you teach me how to drive a car?}
+{3020}{}{Great... Let's switch the topic.}
+{4000}{}{With pleasure! May I know your name first? I need to check my list.}
+{4010}{}{I am @pname@.}
+{4020}{}{On the second thought... Fuck it, I am better without a car. [ end dialogue ]}
+{5000}{}{@pname@? I don't have you in my courses list, I believe you didn't go to your instructor for signup... Not a big deal, just don't forget to do it after our courses. Also be aware, that you will pay the whole price of the education right away. All your data has already been given to our office. Now... Ready to start our course?}
+{5010}{}{Sure. So shall we start then?}
+{6000}{}{Alright. We shall start with the theory! Before the great switch to atomic energy, vehicles used fuel sources such as steam and petrol. After the invention of the Microfusion cell, many nuclear-powered vehicles appeared on the market. Current diesel/gasoline vehicles were also present, and corporations such as Red Rocket took the opportunity to appeal to those that still drove these vehicles by offering both diesel and gas...}
+{6010}{}{[ Listen further ]}
+{6020}{}{[ Fall asleep... ]}
+{7000}{}{ ... But it was thanks to our colleagues from Poseidon, General Atomics and other companies that allowed us to start a new era of atomic fusion in American history. Unlike old cars, the current models work on atomic power, which cost you less and also they are perfectly safe. Do not believe in stupid rumors spread by amateurs about our cars exploding for no reason! This is nothing but a superstition! American companies would never sell a dangerous product...}
+{7010}{}{[ Fall asleep... ]}
+{7020}{}{[ Listen further ]}
+{8000}{}{... In fact having a car is not that expensive in nowadays America. Afterall you can always take a loan from our sponsor - "Easy Life" American Bank. "Easy Life" - the life has never been so easy ...}
+{8010}{}{[ Fall asleep... ]}
+{8020}{}{[ Listen further ]}
+{9000}{}{... Just take a look at this lovely car. It is made by Chryslus Corvega - the best car production company in America and one of our sponsors too ...}
+{9010}{}{[ Listen further ]}
+{9020}{}{[ Fall asleep... ]}
+{10000}{}{... And also let me assure you that Nuka Cola is what you need while driving! Buy Nuka Cola - one of our biggest sponsors ...}
+{10010}{}{[ Listen further ]}
+{10020}{}{[ Fall asleep... ]}
+{11000}{}{... Why be afraid to miss your car in the nuclear armageddon when you can buy a separate shelter for your beauty! Go for Vault Tec - our number 1 sponsor ...}
+{11010}{}{[ Fall asleep... ]}
+{11020}{}{[ Listen further ]}
+{12000}{}{Now let's finally get to practice! Look at the car standing behind me. We will use it to learn how to drive properly... Now, please come closer *he starts telling and showing you different techniques of driving*...}
+{12010}{}{[ Try to remember everything the robots tells you... ]}
+{12020}{}{[ Fuck it, you've already spent enough of your time listening to commercials! ]}
+{13000}{}{... *after advertising at least 10 more sponsors the robot also tells you about traffic rules and signs, then gives you few tips of how to fool the police* ...}
+{13010}{}{[ Next ]}
+{14000}{}{Now the most important part! It is important to know HOW to recharge your vehicle PROPERLY. Once you run out of your MFCs, follow these steps: 1) Take extra MFCs and get to your car's Fuel Control Module. 2) Press the red button on your Fuel Control Module and remove empty cells. 3) Then press the red button again and hold it, till you hear a click. This means that FCM stopped your mini nuclear reactor in your car and is ready for taking new charge of MFCs. 4) Import your new cell into the FCM and press the red button. 5) You are done!... Now try it on this car! *he hands you a MFC pack*}
+{14010}{}{[ You take the cell and approach the car... ]}
+{15000}{}{[ You approach the car with MFC cell in your hads and go to the FCM. What now? ]}
+{15010}{}{[ Press the rad button... ]}
+{15020}{}{[ Press the green button... ]}
+{15030}{}{[ Press the red button... ]}
+{15040}{}{[ Slightly kick FCM ]}
+{16000}{}{[ Just as you press the button, the empty car cell is falling out of the FCM. What now? ]}
+{16010}{}{[ Press and hold the red button ]}
+{16020}{}{[ Insert a fresh cell in FCM ]}
+{16030}{}{[ Press the green button ]}
+{17000}{}{[ You press a red button for a while and then you hear a click. What now? ]}
+{17010}{}{[ Keep holding the button ]}
+{17020}{}{[ Kick FCM ]}
+{17030}{}{[ Insert the fresh MFC in FCM ]}
+{18000}{}{[ You inserted a full cell into the FCM. What now? ]}
+{18010}{}{[ Press the green button ]}
+{18020}{}{[ Press and hold the red button ]}
+{18030}{}{[ Press the red button ]}
+{19000}{}{[ Done! You are now an experienced driver! Or not... Whatever. At least you have your license now. ]}
+

@@ -1,0 +1,56 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65507 2010 #
+65507 2020 &
+
+[engl]
+{100}{}{Slaver}
+{200}{}{You see a slaver with a large tattoo on their forehead.}
+{210}{}{You are sure if you ask this person any questions, they will answer you in an extremely unpleasant way.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{These will fetch a good price at market.@@Try not to damage the merchandise.@@You'll make a spirited slave.@@Remember, we need 'em alive!@@Run 'em down and rope 'em up!@@Take out threats, leave the rest alive!@@It's round up time!@@It's pay day!@@Make sure these get tied more tightly than last time...@@No escape for you!@@We're making excellent profit today!@@Hey, check it out! We just found another "volunteer"!@@Grab 'em!}
+{2010}{}{Aw, c'mon fellas. There's no need to-}
+{2020}{}{YOU WANT SOME OF THIS? YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{These will fetch a good price at market.@@Try not to damage the merchandise.@@You'll make a spirited slave.}
+{2010}{}{Aw, c'mon fellas. There's no need to-}
+{2020}{}{YOU WANT SOME OF THIS? YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{These will fetch a good price at market.@@Try not to damage the merchandise.@@You'll make a spirited slave.}
+{2010}{}{Aw, c'mon fellas. There's no need to-}
+{2020}{}{YOU WANT SOME OF THIS? YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{These will fetch a good price at market.@@Try not to damage the merchandise.@@You'll make a spirited slave.}
+{2010}{}{Aw, c'mon fellas. There's no need to-}
+{2020}{}{YOU WANT SOME OF THIS? YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{These will fetch a good price at market.@@Try not to damage the merchandise.@@You'll make a spirited slave.}
+{2010}{}{Aw, c'mon fellas. There's no need to-}
+{2020}{}{YOU WANT SOME OF THIS? YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+

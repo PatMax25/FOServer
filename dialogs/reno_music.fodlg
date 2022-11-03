@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 D _var p reno_secret2 = 0 R _item p PID_BLOW_UP_DOLL + 1 R _item p PID_BLUE_CONDOM + 8 R _item p PID_BLACK_COC_BADGE + 2 R _item p PID_RED_CONDOM + 5 R _item p PID_BALL_GAG + 1 R _var p reno_secret2 = 1 #
+0 2020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ very out of the way, you take a closer look and find a hidden package behind it. ]}
+{2010}{}{Take the stuff}
+{2020}{}{Leave}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ It seems to be a simple toilet, but you suddenly notice something hidden behind it... ]}
+{2010}{}{Answer text}
+{2020}{}{Answer text}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ It seems to be a simple toilet, but you suddenly notice something hidden behind it... ]}
+{2010}{}{Answer text}
+{2020}{}{Answer text}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ It seems to be a simple toilet, but you suddenly notice something hidden behind it... ]}
+{2010}{}{Answer text}
+{2020}{}{Answer text}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ It seems to be a simple toilet, but you suddenly notice something hidden behind it... ]}
+{2010}{}{Answer text}
+{2020}{}{Answer text}
+

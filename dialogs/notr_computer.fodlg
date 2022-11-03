@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _item p PID_BLUE_PASS_KEY } 1 R _item p PID_BLUE_PASS_KEY - 1 R _script dialog@r_OpenDoor 1 401 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... PLEASE INSERT THE KEYCARD ]}
+{2010}{}{[ Insert the keycard ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ OPERATING... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... PLEASE INSERT THE KEYCARD ]}
+{2010}{}{[ Insert the keycard ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ OPERATING... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... PLEASE INSERT THE KEYCARD ]}
+{2010}{}{[ Insert the keycard ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ OPERATING... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... PLEASE INSERT THE KEYCARD ]}
+{2010}{}{[ Insert the keycard ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ OPERATING... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... PLEASE INSERT THE KEYCARD ]}
+{2010}{}{[ Insert the keycard ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ OPERATING... ]}
+

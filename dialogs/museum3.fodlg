@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Cars are a huge part of our lives! But only our great Nation can suggest you to buy cars that work on atomic engines! Forget about fuel! Atomic energy is our future! Here you can see a great example of the "Corvega" pick-up truck for your work needs and "Corvega" Cruiser for daily drives in the city. America is very greateful to [ ERROR ] for creating the atomic engine and bringing the energy of the future to every house. ]}
+{2010}{}{[ Leave ]}
+

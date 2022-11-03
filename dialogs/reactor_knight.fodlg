@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 R _script dialog@r_PlaySound 1 61 @
+2 2000 None 0 #
+3 2010 D _param p ST_TEAM_ID = 2 R _script dialog@r_PlaySound 1 62 R _script dialog@r_OpenDoor 2 57 20 #
+4 2020 R _script dialog@r_OpenDoor 2 57 20 R _script dialog@r_PlaySound 1 63 #
+0 2030 #
+0 2040 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Speak to the intercom. Who are you and what do you need?}
+{2010}{}{[ Brotherhood of Steel ] It's knight @pname@. I am here to chat.}
+{2020}{}{Don't worry, I mean no harm. I am here just to talk.}
+{2030}{}{Nothing, just passing by. [ end dialogue ]}
+{2040}{}{Oh shit! The voice of ghosts from the cemetery! I better go... [ end dialogue ]}
+{3000}{}{Ah, it’s you, brother. Very well, get in.}
+{4000}{}{Fine, keep your weapon down. Door is open.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Speak to the intercom. Who are you and what do you need?}
+{2010}{}{[ Brotherhood of Steel ] It's knight @pname@. I am here to chat.}
+{2020}{}{Don't worry, I mean no harm. I am here just to talk.}
+{2030}{}{Nothing, just passing by.}
+{2040}{}{Oh shit! The voice of ghousts from the cemetery! I better go...}
+{3000}{}{Ah, it’s you, brother. Very well, get in.}
+{4000}{}{Fine, keep your weapon down. Door is open.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Speak to the intercom. Who are you and what do you need?}
+{2010}{}{[ Brotherhood of Steel ] It's knight @pname@. I am here to chat.}
+{2020}{}{Don't worry, I mean no harm. I am here just to talk.}
+{2030}{}{Nothing, just passing by.}
+{2040}{}{Oh shit! The voice of ghousts from the cemetery! I better go...}
+{3000}{}{Ah, it’s you, brother. Very well, get in.}
+{4000}{}{Fine, keep your weapon down. Door is open.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Speak to the intercom. Who are you and what do you need?}
+{2010}{}{[ Brotherhood of Steel ] It's knight @pname@. I am here to chat.}
+{2020}{}{Don't worry, I mean no harm. I am here just to talk.}
+{2030}{}{Nothing, just passing by.}
+{2040}{}{Oh shit! The voice of ghousts from the cemetery! I better go...}
+{3000}{}{Ah, it’s you, brother. Very well, get in.}
+{4000}{}{Fine, keep your weapon down. Door is open.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Speak to the intercom. Who are you and what do you need?}
+{2010}{}{[ Brotherhood of Steel ] It's knight @pname@. I am here to chat.}
+{2020}{}{Don't worry, I mean no harm. I am here just to talk.}
+{2030}{}{Nothing, just passing by.}
+{2040}{}{Oh shit! The voice of ghousts from the cemetery! I better go...}
+{3000}{}{Ah, it’s you, brother. Very well, get in.}
+{4000}{}{Fine, keep your weapon down. Door is open.}
+

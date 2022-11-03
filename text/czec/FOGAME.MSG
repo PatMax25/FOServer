@@ -1,0 +1,3258 @@
+# Create 08.2007 Cvet
+# Use some original Fallout2 texts
+# Translate by Ion on 30.05.2008
+
+
+# Version info
+{1}{}{FOnline 3 v3.0
+
+####################################################################################################################################
+#
+#       Months, Day of week
+#
+####################################################################################################################################
+{21}{}{Leden}
+{22}{}{Únor}
+{23}{}{Březen}
+{24}{}{Duben}
+{25}{}{Květen}
+{26}{}{Červen}
+{27}{}{Červenec}
+{28}{}{Srpen}
+{29}{}{Září}
+{30}{}{Říjen}
+{31}{}{Listopad}
+{32}{}{Prosinec}
+
+{33}{}{Neděle}
+{34}{}{Pondělí}
+{35}{}{Úterý}
+{36}{}{Středa}
+{37}{}{Čtvrtek}
+{38}{}{Pátek}
+{39}{}{Sobota}
+
+####################################################################################################################################
+#
+#       Material Types (from PROTO.MSG)
+#
+####################################################################################################################################
+
+{40}{}{Sklo}
+{41}{}{Kov}
+{42}{}{Plast}
+{43}{}{Dřevo}
+{44}{}{Hlína}
+{45}{}{Kámen}
+{46}{}{Cement}
+{47}{}{Kůže}
+
+####################################################################################################################################
+#
+#       Misc
+#
+####################################################################################################################################
+
+{50}{}{.}
+{52}{}{,}
+{53}{}{ }
+{54}{}{ a }
+{55}{}{ nebo }
+
+####################################################################################################################################
+#
+#       Music/Video
+#
+####################################################################################################################################
+
+# Main theme
+{80}{}{06vault.acm}
+
+####################################################################################################################################
+#
+#       Chat
+#
+####################################################################################################################################
+
+# On head messages
+{100}{}{|0xF8F993 %s}                     # Normal
+{102}{}{|0xFF0000 %s}                     # Shout
+{104}{}{|0xFF00FF **%s**}                 # Emote
+{106}{}{|0x00FFFF ...%s...}               # Whisp
+{108}{}{|0xFFFFFF %s}                     # Social
+
+# Message box
+{120}{}{%s: |0xF8F993 %s}                 # Normal
+{122}{}{%s: |0xFF0000 %s}                 # Shout
+{124}{}{%s: |0xFF00FF **%s**}             # Emote
+{126}{}{%s: |0x00FFFF ...%s...}           # Whisp
+{128}{}{%s: |0xFFFFFF %s}                 # Social
+{130}{}{Rádio %u> |0xFFFFFE ss..%s..ss}   # Radio
+{132}{}{%s}                               # NetMsg
+
+####################################################################################################################################
+#
+#       FixBoy
+#
+####################################################################################################################################
+
+{200}{}{Požadavky:}
+{201}{}{Nářadí:}
+{202}{}{Materiál:}
+{205}{}{kus(ů).}
+{206}{}{Máš }
+{210}{}{Úspěšně jsi vyrobil předmět.}
+{211}{}{Nepodačilo se ti to vyrobit.}
+{212}{}{Zmáhá tě únava, zkus to později.}
+
+####################################################################################################################################
+#
+#       Interface text
+#
+####################################################################################################################################
+
+{250}{}{|4291317840 This feature is not yet implemented. Use the FOConfig.exe to edit the game settings.}
+{251}{}{Snímek obrazovky uložen.}
+{252}{}{Snímek obrazovky se nepodařilo uložit.}
+{253}{}{Záznam uložen.}
+{254}{}{Záznam se nepodařilo uložit.}
+
+{260}{}{Přiblížení %d %%}
+{265}{}{Hra pozastavena}
+
+# Dialog
+{275}{}{Obchodovat}
+{276}{}{Mluvit}
+{277}{}{Záznam}
+# Barter
+{280}{}{Nabídka}
+{281}{}{Mluvit}
+{282}{}{Konec}
+{283}{}{Mluv}
+# Menu
+{290}{}{Uložit}    # Singleplayer
+{291}{}{Nahrát}    # Singleplayer
+{292}{}{Nastavení}
+{293}{}{Konec}
+{294}{}{Návrat do hry}
+# Login
+{300}{}{New game}     # Singleplayer
+{301}{}{Load game}    # Singleplayer
+{302}{}{HRÁT}         # Multiplayer
+{303}{}{ZAREGISTROVAT} # Multiplayer
+{304}{}{NASTAVENÍ}
+{305}{}{PODĚKOVÁNÍ}
+{306}{}{KONEC}
+
+# Dialog box
+{310}{}{Zrušit}
+{311}{}{Ok}
+{312}{}{Následovat}
+{313}{}{Otevřený mód}
+{314}{}{Skrytý mód}
+{315}{}{Reálný čas}
+{316}{}{Tahová hra}
+# Reg name
+{320}{}{Jméno}
+{321}{}{Heslo}
+# Cha
+{325}{}{OK}
+{326}{}{ZPĚT}
+#{327}{}{Tisk} # see client_online_stats@InjectButton::Draw
+{327}{}{}
+{328}{}{DOVEDNOSTI}
+{329}{}{Doved. body}
+# Reg
+{335}{}{Vyber dovednost}
+{336}{}{CHAR. BODY}
+# Perk
+{340}{}{Vybrat}
+{341}{}{ZPĚT}
+# Global map
+{350}{}{Nemůžeš vést tuto skupinu.}
+{351}{}{Koordináty: %d : %d\nZóna: %d : %d}
+{352}{}{Koordináty: %d : %d\nZóna: %d : %d\n%s\n%s}
+{353}{}{%s\n%s}
+# Aim
+{360}{}{Něco ti stojí v cestě.}
+# Split
+{365}{}{Přesunout předměty}
+{366}{}{Vše}
+# Timer
+{370}{}{Nastav časovač}
+# Say screen
+{375}{}{Hotovo}
+{376}{}{Zpět}
+{377}{}{Mluvit...}
+# Input box
+{380}{}{Psát}
+{381}{}{Zpět}
+# Town view
+{385}{}{Zpět}
+{386}{}{Vstoupit}
+{387}{}{Obrysy}
+# Save/Load
+{390}{}{Uložit}
+{391}{}{Nahrát}
+{392}{}{Hotovo}
+{393}{}{Zpět}
+{394}{}{Nový záznam}
+{395}{}{Uveď jméno záznamu}
+
+
+####################################################################################################################################
+#
+#       Inventory
+#
+####################################################################################################################################
+
+{400}{}{SÍ}
+{401}{}{VN}
+{402}{}{OD}
+{403}{}{CH}
+{404}{}{IN}
+{405}{}{OB}
+{406}{}{ŠT}
+{407}{}{Body zdraví}
+{408}{}{Třída zbroje }
+{409}{}{  Normal}
+{410}{}{  Laser}
+{411}{}{  Oheň}
+{412}{}{  Plazma}
+{413}{}{  Exploze}
+{414}{}{Žádná věc}
+{415}{}{Poškození:}
+{416}{}{Dosah:}
+{417}{}{Munice:}
+{418}{}{(Neoblečen)}
+{419}{}{Nemáš dostatek akčních bodů k použití inventáře.}
+{420}{}{náklad:}
+{421}{}{PŘESUŇ PŘEDMĚTY}
+{422}{}{VŠE}
+{423}{}{NASTAV ČASOVAČ}
+{424}{}{Pošk. beze zbraně:}
+{425}{}{Nemůžeš to vzít. Víc už toho neuneseš.}
+{426}{}{Pro tuhle věc tu není dostatek volného místa.}
+{429}{}{|0xFFFFFF Získáváš %d zkuš. bodů za úspěšné použití dovednosti "Ukrást".}
+{430}{}{Váha}
+{433}{}{Nemůžeš najít nic, co bys vzal.}
+{434}{}{Munice: VALUE/MAX_VALUE, AMMO}
+{435}{}{Váha: VALUE gramů}
+{436}{}{Váha: VALUE funt}
+{437}{}{Cena: $VALUE}
+{438}{}{Obchodní cena: $VALUE}
+{440}{}{Přetížení}
+{441}{}{Plížení}
+{442}{}{Level}
+{443}{}{Otrava}
+{444}{}{Ozáření}
+{445}{}{Zranění}
+{446}{}{Závislost}
+{447}{}{Časový limit VALUE}
+{448}{}{Nadměrná velikost}
+{449}{}{Tvůj tah VALUE}
+{450}{}{Tahová hra}
+
+####################################################################################################################################
+#
+#       Radio
+#
+####################################################################################################################################
+
+{455}{}{Rádio}
+{456}{}{Kanál}
+{457}{}{Obnovit}
+{458}{}{Broadcast}
+{459}{}{Příjem}
+{460}{}{Všude}
+{461}{}{5 zón}
+{462}{}{2 zóny}
+{463}{}{Lokace}
+{464}{}{Mapa}
+{465}{}{Vysílání zahájeno.}
+{466}{}{Vysílání ukončeno.}
+{467}{}{Ve vysílání došlo ke změně.}
+{468}{}{Příjem signálu zahájen.}
+{469}{}{Příjem signálu ukončen.}
+{470}{}{V příjmu signálu došlo ke změně.}
+{471}{}{Kanál změněn.}
+{474}{}{Nepodařilo se změnit kanál.}
+{475}{}{Nepodařilo se změnit vysílání.}
+{476}{}{Nepodařilo se změnit příjem.}
+{477}{}{Nepodařilo se změnit typ vysílání.}
+{478}{}{Nepodařilo se změnit typ příjmu.}
+{479}{}{Nemáš nastavenou vysílačku pro vysílání.}
+
+####################################################################################################################################
+#
+#       Barter
+#
+####################################################################################################################################
+
+{480}{}{Souhlasím. To je dobrý obchod.}
+{481}{}{Ne, tvoje nabídka není dost dobrá.}
+{482}{}{Promiň, ale víc už neuneseš.}
+{483}{}{Promiň, je to příliš těžké.}
+{484}{}{V okamžiku obchodu nebyl vybrán žádný předmět.}
+{485}{}{Promiň, ale už jsem něco z toho prodal.}
+{486}{}{Teď nemůžeš obchodovat.}
+{487}{}{S touto osobou nemůžeš obchodovat.}
+{490}{}{%s s tebou chce obchodovat. Mód obchodu : %s.}
+{491}{}{otevřený}
+{492}{}{skrytý}
+{493}{}{Teď s touto osobou nemůžeš obchodovat. Zkus to později.}
+{495}{}{Obchod s %s. Tvůj mód: %s, mód druhé osoby: %s.}
+{496}{}{%s je připraven na obchod.}
+
+####################################################################################################################################
+#
+#       Items info
+#
+####################################################################################################################################
+
+#Wear
+{500}{}{Kondice: VALUE%/MAXVALUE%}
+{501}{}{Vypadá, že už pár oprav zažila.}
+{502}{}{Vypadá, že prošla výraznou údržbou.}
+{503}{}{Vypadá trochu poškozeně.}
+{504}{}{Vypadá dost poškozeně.}
+{505}{}{Stěží drží pohromadě.}
+{506}{}{Je neopravitelná.}
+{507}{}{Zničeno: VALUE x.}
+
+{510}{}{Už jsi provedl údržbu.}
+{511}{}{Údržba provedena úspěšně.}
+{512}{}{Údržba selhala.}
+{515}{}{Podařilo se ti opravil předmět.}
+{516}{}{Nepodařilo se ti opravit předmět.}
+
+{520}{}{Tvá zbroj se rozbila.}
+{521}{}{Tvá zbraň se rozbila.}
+
+#Key
+{550}{}{Klíč číslo: KEY_ID}
+
+#Car
+{560}{}{SPZ: CAR_ID.}
+{561}{}{Palivo: VALUE/MAX_VALUE.}
+{562}{}{Poškození: VALUE%.}
+
+####################################################################################################################################
+#
+#       PipBoy, Timeouts
+#
+####################################################################################################################################
+
+{700}{}{----- Status -----}
+{701}{}{}
+{702}{}{}
+{703}{}{}
+{704}{}{}
+{705}{}{Počet návštěv nemocnice}
+{706}{}{%d x}
+{720}{}{----- Úkoly -----}
+{723}{}{<<<<< Statistiky >>>>>}
+{725}{}{----- Mapy -----}
+{730}{}{----- Info -----}
+
+{740}{}{----- Časový limit -----}
+{741}{}{%s sekund}
+{742}{}{%s minut}
+{790}{}{Přechodový časový limit. čekej.}
+{791}{}{Bojový časový limit. Čekej.}
+{792}{}{Časový limit plížení. Čekej.}
+
+####################################################################################################################################
+#
+#       Dialogs
+#
+####################################################################################################################################
+
+{800}{}{Nejeví zájem s tebou promluvit.}
+{801}{}{Teď nemůže mluvit.}
+{802}{}{Vypadá zaneprázdněně. Promluv s ním později.}
+{803}{}{Musíš stát blíže, aby jsi s ním mohl promluvit.}
+{804}{}{Ahoj.} # No dialogs.
+{805}{}{Mluví s příliš lidmi najednou. Zkus to později.}
+{806}{}{Jak se máš?} # Predialog tuning error.
+{807}{}{Interní chyba serveru #dlg1: Odkaz na dialog poškozen.}
+{808}{}{Interní chyba serveru #dlg2: Chyba sestavení dialogu.}
+{809}{}{NPC nenalezeno.}
+{810}{}{Interní chyba serveru #dlg3: Odkaz na dialog je neplatný.}
+
+####################################################################################################################################
+#
+#       Global map
+#
+####################################################################################################################################
+
+{900}{}{Nenalezl jsi lokaci. Byla pohlcena pouští.}
+{901}{}{Lokace se k tvému překvapení přesunula.}
+{902}{}{Nenalezl jsi vstup do lokace.}
+{903}{}{V lokaci není kde zaparkovat vozidlo.}
+{904}{}{Lokace je plná, zkus to později.}
+{950}{}{Jsi připraven následovat %s do %s?}
+{952}{}{Připrav se následování %s do %s.}
+{970}{}{cizinec}
+{972}{}{pustina}
+
+####################################################################################################################################
+#
+#       Maintenance
+#
+####################################################################################################################################
+
+{1001}{}{|4291317840 Nesprávné uživatelské jméno.}
+{1002}{}{|4291317840 Nesprávné heslo.}
+{1003}{}{|4291317840 Účet s tímt ojménem už existuje, vyber jiné jméno.}
+{1004}{}{|4291317840 Hráč s tímto účtem je již ve hře.}
+{1005}{}{|4291317840 Nesprávná SPECIAL data.}
+{1006}{}{|4291317840 Registrace úspěšná.}
+{1007}{}{|4291317840 Připojuji se k serveru.}
+{1008}{}{|4291317840 Pokus o připojení selhal! V případě setrvávajících problémů se obrať na administrátora serveru.}
+{1009}{}{|4291317840 Nesprávné uživatelské jméno nebo heslo}
+{1010}{}{|4291317840 Připojení navázáno, ověřuji...}
+{1012}{}{|4291317840 Místo pro vstup  do lokace jsou užívána, zkus vstoupit do hry o něco později.}
+{1013}{}{|4291317840 Na základě instrukce hráče vypínám.}
+{1014}{}{|4291317840 Nesprávné jméno, nejspíš příliš krátké, nebo příliš dlouhé.}
+{1015}{}{|4291317840 Jedna z deklinací jména je nesprávná. is incorrect. Nejspíš příliš krátká nebo příliš dlouhá.}
+{1016}{}{|4291317840 Neesprávné pohlaví.}
+{1017}{}{|4291317840 Nesprávný věk.}
+{1018}{}{|4291317840 Nepodařilo se připojit k serveru.}
+{1019}{}{|4291317840 Vložena nesprávná data.}
+{1020}{}{|4291317840 Chyba v hledání vstupní lokace, kontaktuj administrátora serveru.}
+{1021}{}{|4291317840 Chyba v načtení mapy, kontaktuj administrátora serveru.}
+{1022}{}{|4291317840 Chyba při hledání startovních koordinát, kontaktuj administrátora serveru.}
+{1023}{}{|4291317840 Chyba databáze, kontaktuj administrátora serveru.}
+{1024}{}{|4291317840 Verze síťového protokolu nesprávná, aktualizuj herního klienta.}
+{1025}{}{|4291317840 Chyba v přenosu souborů, zkus to znovu.}
+{1026}{}{|4291317840 Síťová zpráva nesprávná.}
+{1027}{}{|4291317840 Interní chyba serveru #1, kontaktuj administrátora serveru.}
+{1028}{}{|4291317840 Ověření úspěšné, načítám mapu.}
+{1029}{}{|4291317840 Vyber a označ tři skilly.}
+{1030}{}{|4291317840 Jméno musí být v jednom jazyce.}
+{1031}{}{|4291317840 Jméno musí obsahovat alespoň 70% písmen.}
+{1032}{}{|4291317840 Nemůžeš použít mezeru jako první nebo poslední symbol ve jméně.}
+{1033}{}{|4291317840 Ve jméně nemůžeš použít dvě mezery za sebou.}
+{1034}{}{|4291317840 Tvůj účet byl zablokován.}
+{1035}{}{|4291317840 Nesprávné symboly ve jméně.}
+{1036}{}{|4291317840 Nesprávné symboly v hesle.}
+{1037}{}{|4291317840 Načítání uživatelského rozhraní selhalo.}
+{1038}{}{|4291317840 Provedení startovacího scriptu selhalo.}
+{1039}{}{|4291317840 Zvolený jazyk nepodporován. Měním jazyk na přednastavený.}
+{1040}{}{|4291317840 Hra nemusí správně fungovat v rozlišení menším než 800x600 nebo větším než 1280x1024.}
+{1041}{}{|4291317840 Klepy klep, je tam někdo?}
+{1042}{}{|4291317840 Zjištěno velké užití IP k registraci. Zkus to znovu později.}
+{1043}{}{|4291317840 Tvá IP je zablokována.}
+{1044}{}{|4291317840 Minimální čas pro jeden počítač a jednu IP je 3 minuty.}
+{1045}{}{|4291317840 Zbývá času: @lex time@ minut.}
+{1046}{}{|4291317840 Byl jsi zablokován.}
+{1047}{}{|4291317840 Blokace udělena: @lex banby@, Čas: @lex time@ hodin, Komentář: @lex reason@.}
+{1048}{}{|4291317840 Chyba skriptů, kontaktuj administrátora serveru.}
+{1049}{}{|4291317840 Toto jméno je blokováno pro administrátora serveru, zkus nějaké jiné.}
+{1050}{}{|4291317840 Přezdívka rezervována.}
+
+# Singleplayer messages
+{1070}{}{|4291317840 Hra uložena.}
+{1071}{}{|4291317840 Chyba při ukládání hry.}
+{1072}{}{|4291317840 Hra načtena.}
+{1073}{}{|4291317840 Chyba při načítání hry.}
+{1074}{}{|4291317840 Nová hra započata.}
+{1075}{}{|4291317840 Nepodařilo se začít novou hru.}
+
+####################################################################################################################################
+#
+#       Character
+#
+####################################################################################################################################
+
+#
+# STAT LEVEL DESCRIPTIONS
+#
+{2301}{}{Ubohé}
+{2302}{}{Hrozné}
+{2303}{}{špatné}
+{2304}{}{Slušné}
+{2305}{}{Průměr}
+{2306}{}{Dobré}
+{2307}{}{Bezva}         # Abbreviated for character editor
+{2308}{}{Super}
+{2309}{}{Skvělé}
+{2310}{}{Úžasné}
+
+#Abbreviated, for editor
+{2311}{}{Ubohé}
+{2312}{}{Hrozné}
+{2313}{}{špatné}
+{2314}{}{Slušné}
+{2315}{}{Průměr}
+{2316}{}{Dobré}
+{2317}{}{Bezva}
+{2318}{}{Super}
+{2319}{}{Skvělé}
+{2320}{}{Úžasné}
+
+#
+#   SKILL ATTRIBUTES
+#
+#   Updated: 6/5/97 KSW
+#   Updated to New Skill System: 9/16/98 rwh2
+#
+{3300}{}{+ (4 x HB)}
+{3301}{}{+ (2 x HB)}
+{3302}{}{+ (2 x HB)}
+{3303}{}{+ (2 x (HB + SÍ))}
+{3304}{}{+ (2 x (HB + ST))}
+{3305}{}{+ (4 x HB)}
+{3306}{}{+ (2 x (VN + IN))}
+{3307}{}{+ (PE + IN)}
+{3308}{}{+ (3 x HB)}
+{3309}{}{+ (PE + HB)}
+{3310}{}{+ (3 x HB)}
+{3311}{}{+ (PE + HB)}
+{3312}{}{+ (4 x IN)}
+{3313}{}{+ (3 x IN)}
+{3314}{}{+ (5 x CH)}
+{3315}{}{+ (4 x CH)}
+{3316}{}{+ (5 x ŠT)}
+{3317}{}{+ (2 x (VN + IN))}
+#
+# SKILLDEX
+#
+{3340}{}{Schopnosti}
+{3341}{}{ZRUŠIT}
+
+#
+#   Skill Use Text
+#
+{3400}{}{Nemůžeš vyléčit mrtvé.}
+{3400}{}{Nech mrtvé odpočívat v pokoji.}
+{3400}{}{Je to mrtvé, vzdej to.}
+{3401}{}{Už jsi tuto schopnost použil v maximální míře.  Vydrž chvíli.}
+{3401}{}{Jsi příliš unaven.}
+{3401}{}{To vypětí by tě mohlo zabít.}
+{3402}{}{První pomoc není nutná.}
+{3403}{}{Operace není potřeba.}
+{3404}{}{K vyléčení budeš muset použít schopnost Doktor.}
+{3405}{}{K vyléčení použij schopnost První pomoc.}
+{3406}{}{Tvůj schopný zásah pomohl a }
+{3407}{}{Selhal jsi v léčení a stále se cítíš slabý.}
+{3408}{}{ se cítí mnohem lépe.}
+{3409}{}{Selhal jsi v léčení a tvůj pacient se stále cítí dost sláb.}
+
+{3412}{}{Vyléčil jsi zranění oka.}
+{3413}{}{Vyléčil jsi ochromenou pravou ruku.}
+{3414}{}{Vyléčil jsi ochromenou levou ruku.}
+{3415}{}{Vyléčil jsi ochromenou pravou nohu.}
+{3416}{}{Vyléčil jsi ochromenou levou nohu.}
+{3422}{}{Léčení oka selhalo.}
+{3423}{}{Léčení ochromené pravé ruky selhalo.}
+{3424}{}{Léčení ochromené levé ruky selhalo.}
+{3425}{}{Léčení ochromené pravé nohy selhalo.}
+{3426}{}{Léčení ochromené levé nohy selhalo.}
+
+{3430}{}{Někdo se tě pokusil okrást!}
+{3431}{}{Někdo se ti pokusil vnutit předmět!}
+
+{3440}{}{Nepodařilo se ti vypáčit zámek.}
+{3443}{}{Zámek úspěšně vypáčen.}
+
+{3450}{}{Vyléčil jsi %d bodů zdraví.}
+{3451}{}{Už vypadáš zdravě.}
+{3452}{}{%s vypadá zdravě.}
+{3453}{}{Léčení se nezdařilo.}
+{3455}{}{Získal jsi %d zkušenostních bodů za použií schopnosti.}
+{3459}{}{\nskill_use: užita nesprávná schopnost.}
+{3461}{}{Nenalezl jsi žádnou past.}
+{3462}{}{Nic nového jsi se nenaučil.}
+{3463}{}{to nemůžeš opravit.}
+{3470}{}{Byl jsi přistižen při krádeži %s.}
+{3471}{}{Ukradl jsi %s.}
+{3472}{}{Byl jsi přistižen při vkládání %s.}
+{3473}{}{Vložil jsi %s.}
+{3495}{}{Tvá schopnost není dostatečná pro léčbu zmrzačení.}
+{3496}{}{Robot je mimo možnosti opravy.}
+
+#
+#    PC STAT NAMES
+#
+{4000}{}{Charakterové body}
+{4001}{}{Další úroveň}
+{4002}{}{Nevyužité dovednostní body}
+{4003}{}{Level}
+{4004}{}{Zkušenost}
+{4005}{}{Reputace}
+{4006}{}{Karma}
+{4007}{}{Perky}
+{4008}{}{Zářezy}
+{4009}{}{Dovednostní body}
+{4010}{}{Talenty}
+{4011}{}{Charakterové rysy}
+{4012}{}{Dovednosti}
+#
+#    PC STAT DESCRIPTIONS
+#
+{4050}{}{Množství bodů, které se dají přidat k některé ze základních vlastností.}
+{4051}{}{Množství zkušenostních bodů, které potřebuješ k postupu na další úroveň.}
+{4052}{}{Volné dovednostní body můžeš použít ke zvýšení úrovně některé ze schopností.  Jak se bude tvá postava postupně zdokonalovat, bude tě i každé nové procento stát více dovednostních bodů.}
+{4053}{}{Obecná způsobilost tvé postavy. Míra tvých zkušeností a schopností.}
+{4054}{}{Odměna za dokončení specifických úkolů nebo za porážku nepřátel v boji. Nasbírání dostatečného počtu zkušenostních bodů je podmínkou pro dosažení další úrovně.}
+{4055}{}{To, co okolní svět ví o tvých skutcích. Tento parametr rovněž ovlivňuje reakce NPC ve hře.}
+{4056}{}{Následky tvých činů ve hře. Zvlášť důležité informace budou speciálně zobrazeny.}
+{4057}{}{Perky přidávají tvé postavě speciální schopnosti. Každou třetí úroveň si můžeš zvolit nový perk.}
+{4058}{}{Počítadlo zaznamenávající typ a počet stvoření, která zemřela v tvé blízkosti nebo byla tebou zabita.}
+{4059}{}{Volné dovednostní body můžeš použít ke zvýšení úrovně některé z dovedností. Jak se bude tvá postava postupně zdokonalovat, bude tě i každé nové procento stát více dovednostních bodů.}
+{4060}{}{Talenty jsou dovednosti, na které se tvá postava specializuje. U každého talentu získá postava do začátku bonus +20% a zároveň se v něm zdokonaluje dvojnásobně rychle. Musíš vybrat tři.}
+{4061}{}{Charakterové rysy popisují tvou postavu do větších podrobností. Každý z nich má pozitivní i negativní efekty. Během tvorby postavy si můžeš zvolit dva.}
+{4062}{}{Dovednosti jsou odborné znalosti. Dovednosti se zlepšují zkušenostmi nebo speciálními událostmi během hry. Čím je dovednost vyšší, tím je tvá postava v daném oboru lepší.}
+
+#
+#  Experience-gain messages
+#
+{4090}{}{|0xFFFFFF Postupuješ na další úroveň.}
+{4091}{}{|0xFFFFFF Získáváš VALUE Zkušenostních bodů.}
+{4092}{}{|0xFFFFFF Získáváš %d zkušenostních bodů za zabití: %s.}
+{4093}{}{|0xFFFFFF %s získáváš %d zkušenostních bodů.}
+{4094}{}{|0xFFFFFF Za poražení nepřátel, }  # 622-626 prepend to line 621
+{4095}{}{|0xFFFFFF Za zničení svých nepřátel, }
+{4096}{}{|0xFFFFFF Vítězíš v boji, }
+{4097}{}{|0xFFFFFF Za rozdrcení nepřátel, }
+{4098}{}{|0xFFFFFF Za zničení nepřátel bez jedniného škrábance, }
+
+{4099}{}{|0xFFFFFF Tvůj následovník, @lex name@, postoupil na další úroveň.}
+
+#
+# Editor
+#
+{4104}{}{VĚK}
+{4105}{}{POHLAVÍ}
+{4106}{}{JMÉNO}
+{4107}{}{MUŽ}
+{4108}{}{ŽENA}
+{4109}{}{PERKY}
+{4110}{}{KARMA}
+{4111}{}{ZÁŘEZY}
+{4112}{}{DOVED. BODY}
+{4113}{}{Úroveň: %d}
+{4114}{}{Zkuš.: %d}
+{4115}{}{Další úroveň: %d}
+
+#
+# Damage info texts
+#
+
+{4250}{}{Body zdraví  %d/%d}
+
+
+#
+# Mob Wave warnings.
+#
+{5000}{}{|4291317840 Slyšíš křik.}   # Humans
+{5001}{}{|4291317840 Slyšíš dupot.}   # Super mutants
+{5002}{}{|4291317840 Slyšíš kňučení.}   # Ghouls
+{5003}{}{|4291317840 Slyšíš bučení.}     # Brahmins
+{5004}{}{|4291317840 Slyšíš chrastění.}   # Radscorpions
+{5005}{}{|4291317840 Slyšíš pískání.}  # Rats
+{5006}{}{|4291317840 Slyšíš kvičení.}  # Pigrats
+{5007}{}{|4291317840 Slyšíš frkání.}   # Molerats
+{5008}{}{|4291317840 Slyšíš mlaskání.}   # Floaters
+{5009}{}{|4291317840 Slyšíš sténání.}    # Centaurs
+{5010}{}{|4291317840 Slyšíš pípání.}    # Robots
+{5011}{}{|4291317840 Slyšíš vytí.}    # Dogs
+{5012}{}{|4291317840 Slyšíš šustění.}   # Mantis
+{5013}{}{|4291317840 Slyšíš vrčení.}   # Deathclaws
+{5014}{}{|4291317840 Slyšíš praskání.}  # Desert stalkers
+{5015}{}{|4291317840 Slyšíš syčení.}    # Geckos
+{5016}{}{|4291317840 Slyšíš vřískání.}  # Aliens
+{5017}{}{|4291317840 Slyšíš klapání.}   # Ants, Centipedes
+{5018}{}{|4291317840 Slyšíš kuňkání.}   # Rad toads
+
+{5099}{}{|4291317840 Něco slyšíš.}  # Other
+
+
+#
+# Karma
+#
+
+{6000}{}{Karma}
+{6001}{}{: %d (%s)}  # Value, Desc
+{6002}{}{Tato položka reprezentuje tvoji obecnou reputaci. Čím je číslo vyšší, tím jsi známější a uznávanější. Pokud je tvá reputace negativní, lidé tě nenávidí pro tvé zločiny.}
+
+{6099}{}{9} # Max values
+{6100}{}{1000} # Min value
+{6101}{}{Ochránce zatracených} # Desc
+{6102}{}{2000} # Picture index
+{6103}{}{750}
+{6104}{}{Strážce pouště}
+{6105}{}{2001}
+{6106}{}{500}
+{6107}{}{Štít naděje}
+{6108}{}{2002}
+{6109}{}{250}
+{6110}{}{Obránce}
+{6111}{}{2003}
+{6112}{}{-249}
+{6113}{}{Poutník}
+{6114}{}{2004}
+{6115}{}{-500}
+{6116}{}{Zrádce}
+{6117}{}{2005}
+{6118}{}{-750}
+{6119}{}{Meč zoufalství}
+{6120}{}{2006}
+{6121}{}{-1000}
+{6122}{}{Metla Pouště}
+{6123}{}{2007}
+{6124}{}{-2147483648}
+{6125}{}{Ďáblův spratek}
+{6126}{}{2008}
+
+#
+# Town reputation
+#
+
+{6405}{}{Reputace}
+{6406}{}{Tato položka reprezentuje tvou pověst v různých lokacích.}
+
+# Name
+{6500}{}{Idol}
+{6501}{}{Oblíbený}
+{6502}{}{Uznávaný}
+{6503}{}{Neutrál}
+{6504}{}{Neoblíbený}
+{6505}{}{Nenáviděný}
+{6506}{}{Nepřítel č. 1}
+
+# Desc
+{6550}{}{Tady by se ti chtěl každý podobat. Jsi miláčkem města a pro všechny zářným příkladem a ukázkou toho, jak vypadá opravdový hrdina.}
+{6551}{}{Lidé tě vítají a oslavují, kdykoliv jen vejdeš na toto místo. Všichni o tobě slyšeli a všem se to, co slyšeli, moc líbilo.}
+{6552}{}{Ačkoliv nejsi vítán přímo s otevřenou náručí, většina lidí ti v tomto místě na pozdrav odpoví. Nejsi pro ně ničím zvlášť výjimečným.}
+{6553}{}{Ačkoliv jsou obvykle vůči cizincům podezřívaví, proti tobě lidé na tomto místě nic nemají. Zatím.}
+{6554}{}{Pro lidi v tomhle místě jsi jen dalším cizincem. Nutno dodat, že nijak zvlášť vítaným.}
+{6555}{}{Lidem na tomto místě jsi dokázal, že jejich počáteční odpor vůči tobě, byl víc než oprávněný. Všichni zmlknou, když se k nim přiblížíš. Vědí, že tvá přítomnost něvěstí nic dobrého.}
+{6556}{}{Když kráčíš ulicí, všichni zmlknou a s nenávistí a strachem tě pozorují. Každý se ti snaží vyhnout. Všichni ví, že ty jsi ta nejhorší věc, která kdy vkročila na toto místo.}
+
+
+
+#
+# Addiction title
+#
+
+{6900}{}{Závislosti}
+{6901}{}{Věci, na kterých ses stal závislý.}
+
+
+####################################################################################################################################
+#
+#        Items games
+#
+####################################################################################################################################
+
+# Message when pointing the cursor on an object
+{10000}{}{Vidíš NAME.}
+# Object inspecting message
+{10001}{}{NAME}
+# Name or info not found
+{10010}{}{Nevidíš nic zvláštního.}
+# Item not found in container (possible another critter take it)
+{10020}{}{Předmět nenalezen, možná ho vzal někdo jiný.}
+
+# Container
+{10100}{}{Potřebuješ klíč.}
+{10101}{}{Prohledáváš %s.}
+{10102}{}{Zavíráš %s.}
+
+#
+# Use text messages
+#
+{10200}{}{Použil jsi předmět: %s.}
+{10201}{}{Použil jsi předmět: %s na objekt: %s.}
+{10202}{}{Nic to nedělá.}
+{10203}{}{Ke svému zděšení zjišťuješ, že už se díváš jen na mrtvolu.}
+{10204}{}{Když jsi se sehnul, poznal jsi, že už se díváš jen na mrtvolu.}
+{10205}{}{Bohužel, příliš pozdě...} # This is relating to a critter being dead.
+{10206}{}{Na mrtvole ti to fungovat nebude.}
+{10207}{}{Zapaluješ světlici.}
+{10208}{}{Světlice je už zapálená.}
+{10209}{}{Nastavil jsi časovat.}
+{10210}{}{Časovač už běží! Tik.. Tik.. Tik..}
+{10211}{}{Vchod je zablokován.}
+
+# Solar scorcher
+{10230}{}{Na dobití tohoto předmětu není dost světla.}
+
+# Car (vehicle)
+{10240}{}{Doplňuješ do auta energii.}
+{10241}{}{Zásobník auta už je plný.}
+{10242}{}{Vozidlo bylo úspěšně opraveno.}
+{10243}{}{Vozidlo nepotřebuje údržbu.}
+{10244}{}{Motor tento typ paliva nezvládne použít.}
+{10245}{}{Došlo palivo.}
+{10246}{}{Vozidlo je rozbité.}
+{10247}{}{Vozidlo tolik lidí neuveze, musíš někoho nechat na místě.}
+{10248}{}{Nemáš dostatečné charisma, abys vedl tolik lidí. Musíš tu nějaké nechat.}
+{10249}{}{Abys mohl vozidlo opravit, musíš se vybavit nějakým vhodnějším nářadím.}
+{10250}{}{Při dokončování oprav jsi zničil své nářádí.}
+{10251}{}{Nemůžeš odejít, dokud je skupina nad vodou.}
+
+# Caravan
+{10260}{}{Dal jsi brahmíně napít vody.}
+{10261}{}{Brahmína už další vodu nechce.}
+{10262}{}{Vozík úspěšně opraven.}
+{10263}{}{Tento vozík údržbu nepotřebuje.}
+{10264}{}{Tohle ti brahmína pít nebude.}
+{10265}{}{Brahmína je unavená a dehydrovaná.}
+{10266}{}{Vozík je rozbitý.}
+{10267}{}{Vůz není dost velký pro tolik  lidí, musíš tu nějaké nechat} # won't happen
+{10268}{}{Nejsi dost šarmantní pro ovládání tak velké skupiny, musíš tu někoho nechat.}
+{10269}{}{Abys mohl vozík opravit, musíš se vybavit nějakým vhodnějším nářadím.}
+{10270}{}{Při dokončování oprav jsi zničil své nářádí.}
+
+# Barge / Raft
+{10280}{}{Přidal jsi do nádrže čerstvou vodu.}
+{10281}{}{Nádrž na vodu už je plná.}
+{10282}{}{Raft byl úspěšně opraven.}
+{10283}{}{Tenhle raft opravu nepotřebuje.}
+{10284}{}{Raft tohle nepotřebuje.}
+{10285}{}{Nádrž na vodu je prázdná.}
+{10286}{}{Raft je rozbitý.}
+{10287}{}{Raft není na tolik lidí stavěný, musíš tu některé nechat.}
+{10288}{}{Nemáš dost šarmu, abys vedl tak velkou skupinu, musíš tu některé lidi nechat.}
+{10289}{}{Abys mohl raft opravit, musíš se vybavit nějakým vhodnějším nářadím.}
+{10290}{}{Při dokončování oprav jsi zničil své nářádí.}
+
+# Drugs
+{10300}{}{Získáváš @lex value@ @lex name@.}
+{10301}{}{Ztrácíš @lex value@ @lex name@.}
+{10302}{}{Cítíš se lépe.}
+{10303}{}{Postihl tě prudký srdeční záchvat z předávkování chemikáliemi.}
+{10304}{}{To až tak moc nedělá.}
+{10305}{}{%s podlehl nepíznivým účinkům chemikálií.}
+{10306}{}{Byl jsi nečím omámen!}
+{10307}{}{Někdo se tě pokusil něčím omámit!}
+# Geiger
+{10350}{}{Geigerův počítač je vybitý.}
+{10351}{}{Geigerův počítač je zaplý.}
+{10352}{}{Geigerův počítač je vyplý.}
+{10353}{}{Přejíždíš si Geigerovým počítačem po těle. Display ukazuje: @lex rem@.}
+{10354}{}{Display ukazuje: @lex rem@.}
+{10355}{}{Nic se nestalo.}
+{10356}{}{Geigerův počítač nabit.}
+{10357}{}{Nabítí Geigerova počítače je @lex cur@/@lex max@.}
+# Weapon Damage strings
+{10400}{}{Lehké}
+{10401}{}{Střední}
+{10402}{}{Těžké}
+{10403}{}{Extrémní}
+# Weapon Range strings
+{10410}{}{Krátký}
+{10411}{}{Střední}
+{10412}{}{Dlouhý}
+# Books
+{10450}{}{Přečetl jsi knihu.}
+{10451}{}{Nenaučil jsi se nic nového.}
+{10452}{}{Získal jsi nové vědecké poznatky.}
+{10453}{}{Naučil ses hodně o opravování poškozené elektroniky.}
+{10454}{}{Naučil ses, jak lépe léčit zranění.}
+{10455}{}{Naučil ses lépe zacházet s lehkými střelnými zbraněmi.}
+{10456}{}{Naučil ses lépe zacházet s energetickými zbraněmi.}
+{10457}{}{Naučil ses lépe, jak přežít v pustině.}
+{10458}{}{Naučil ses toho hodně o uzavírání obchodů.}
+{10459}{}{Naučil ses lépe zacházet s těžkými střelnými zbraněmi.}
+{10460}{}{Naučil ses speciální způsoby léčby zranění.}
+{10461}{}{Naučil ses lépe zacházet s energetickými zbraněmi.}
+{10462}{}{Naučil ses lépe plížit.}
+{10463}{}{Naučil ses toho hodně o kradení.}
+{10464}{}{Naučil ses lépe vylamovat zámky.}
+{10465}{}{Naučil ses lepší techniku hodu do dálky.}
+{10466}{}{Naučil ses toho hodně o výbušninách.}
+{10467}{}{Naučil ses bojovat lépe.}
+# Use on
+{10500}{}{Zdravotnický materiál z doktorského kufříku už došel.}
+{10501}{}{Zdravotnický materiál ze soupravy první pomoci už došel.}
+{10502}{}{V průběhu boje tohle udělat nemůžeš.}
+{10503}{}{Tato osoba s tebou obchodovat nebude.}
+{10504}{}{Tato osoba ti nemá co říct.}
+{10505}{}{Tento předmět nemůžeš sebrat. Už toho víc neuneseš.}
+{10506}{}{Zdravotnický materiál ze záchranářské brašny už došel.}
+{10507}{}{Zdravotnický materiál z polní lékařské soupravy první pomoci už došel.}
+{10508}{}{Tenhle tvor nemůže nic nosit.}
+
+####################################################################################################################################
+#
+#       Weapon perks
+#
+####################################################################################################################################
+{10851}{}{Dalekonosný}
+{10852}{}{Přesný}
+{10853}{}{Průrazný}
+{10854}{}{Sražení zpět}
+{10855}{}{Zaměřovač}
+{10856}{}{Rychlodobíjení}
+{10857}{}{Noční vidění}
+{10858}{}{Ohnivák}
+{10859}{}{Pokročilé KO}
+
+####################################################################################################################################
+#
+#       Calibers (from PROTO.MSG)
+#
+####################################################################################################################################
+
+#
+# Caliber Types for weapons
+#
+{10900}{}{-}
+{10901}{}{Raketa}
+{10902}{}{Náplň do plamenometu}
+{10903}{}{Energetický článek typ C}
+{10904}{}{Energetický článek typ D}
+{10905}{}{.223}
+{10906}{}{5mm}
+{10907}{}{.40 cal}
+{10908}{}{10mm}
+{10909}{}{.44 cal}
+{10910}{}{14mm}
+{10911}{}{Brokové náboje ráže 12}
+{10912}{}{9mm}
+{10913}{}{Broky}
+{10914}{}{.45 cal}
+{10915}{}{2mm}
+{10916}{}{4.7mm beznábojnicová}
+{10917}{}{HN jehlová}
+{10918}{}{7.62mm}
+{10919}{}{.22 cal}
+{10920}{}{40mm}
+
+####################################################################################################################################
+#
+#       Critters game
+#
+####################################################################################################################################
+
+#
+#   Male
+#
+
+##First words
+#For age and conditions
+{11000}{}{Vidíš: }
+{11001}{}{To jsi ty }
+#For special
+{11002}{}{Vypadá, že }
+#For damages
+{11003}{}{Jeho }
+
+#Self look
+{11005}{}{Kurva, to ses ty.}
+{11005}{}{Hej! To jsi ty!.}
+{11005}{}{Kdo to je?}
+{11005}{}{Kámo, toho můžeš ovládat.}
+{11005}{}{Nečum na mě!!!}
+
+#Default view
+{11010}{}{Vidíš: NAME.}
+{11011}{}{Vidíš: NAME. Je v bezvědomí.}
+{11012}{}{Vidíš mrtvé tělo. Je to NAME.}
+{11013}{}{Vidíš pozůstatky: NAME.}
+{11014}{}{Nic zvláštního nevidíš.}
+
+##Age, max age 99
+#<=16
+{11116}{}{teenager}
+#<=30
+{11130}{}{mladý muž}
+#<=40
+{11140}{}{muž ve středním věku}
+#<=60
+{11160}{}{starší muž}
+#>60
+{11199}{}{starý muž}
+
+##Conditions
+#Prepare to fight
+{11212}{}{je napjatý. Vypadá to, že je připraven zaútočit}
+#Knock out face up
+{11221}{}{leží na zádech}
+#Knock out face down
+{11222}{}{líbá hlínu}
+#Dead normal face up
+{11231}{}{nedýchá}
+#Dead normal face down
+{11232}{}{nedýchá}
+
+##Special
+#S
+{11301}{}{velmi slabý}
+{11302}{}{slabý}
+{11303}{}{ošuntělý}
+{11308}{}{přiměřeně silný}
+{11309}{}{statný}
+{11310}{}{napumpovaný steroidama}
+#P
+#E
+{11321}{}{ztrácí se před očima}
+{11322}{}{jemné stavby}
+{11325}{}{robustní}
+{11326}{}{statný jak zděná kadibudka}
+#C
+{11331}{}{znetvořený}
+{11332}{}{ošklivý}
+{11333}{}{nevrlý}
+{11337}{}{společenský}
+{11338}{}{elegantní}
+{11339}{}{zdvořilý}
+{11340}{}{zrozen k vedení}
+#I
+{11341}{}{idiot}
+{11342}{}{imbecil}
+{11343}{}{debil}
+{11347}{}{kretén}
+{11348}{}{docela chytrý}
+{11349}{}{intelektuál}
+{11350}{}{génius}
+#A
+{11351}{}{nemotorný}
+{11352}{}{lehce nešikovný}
+{11357}{}{hbitý}
+{11358}{}{tasí rychle}
+{11359}{}{velmi rychlý}
+{11360}{}{dokáže se vyhnout kulkám}
+#L
+{11361}{}{v depresi}
+{11362}{}{nešťastný}
+{11363}{}{podrážděný}
+{11368}{}{spokojený}
+{11369}{}{veselý}
+{11370}{}{šťastný}
+
+##Damages
+#Poisoned
+{11400}{}{bledá kůže. Vypadá nemocně}
+#Radiated
+{11401}{}{Celé tělo podivně září}
+#Eyes
+{11402}{}{oči vypadají poškozeně}
+#Right Arm
+{11403}{}{pravá ruka visí bezvládně na straně}
+#Left Arm
+{11404}{}{levá ruka vypadá zlomeně}
+#Right Leg
+{11405}{}{pravá noha vypadá zlomeně, při chůzi kulhá}
+#Left Leg
+{11406}{}{levá noha je pokryta krví}
+
+#
+#   Female
+#
+
+##First words
+#For age and conditions
+{12000}{}{Vidíš: }
+{12001}{}{To jsi ty }
+#For special
+{12002}{}{Vypadá to, že je }
+#For damages
+{12003}{}{Její }
+
+#Self look
+{12005}{}{Kurva, to jsi ty, ty slepice.}
+{12005}{}{Whoa! To jsi ty!}
+{12005}{}{Kdo je to?}
+{12005}{}{Nečum na mě!!!}
+{12005}{}{Jsem sexy, nebo ne?}
+
+##Age, max age 99
+#<=16
+{12116}{}{teenager}
+#<=30
+{12130}{}{mladá žena}
+#<=40
+{12140}{}{žena středního věku}
+#<=60
+{12160}{}{starší žena}
+#>60
+{12199}{}{stará žena}
+
+##Conditions
+#Prepare to fight
+{12212}{}{je napjatá. Zdá se být připravená k boji}
+#Knock out face up
+{12221}{}{leží na zádech}
+#Knock out face down
+{12222}{}{líbá zem}
+#Dead normal face up
+{12231}{}{nedýchá}
+#Dead normal face down
+{12232}{}{nedýchá}
+
+##Special
+#S
+{12301}{}{velmi slabá}
+{12302}{}{slabá}
+{12303}{}{ošuntělá}
+{12308}{}{přiměřeně silná}
+{12309}{}{statná}
+{12310}{}{napumpovaná steroidama}
+#P
+#E
+{12321}{}{ztrácí se před očima}
+{12322}{}{jemně stavěná}
+{12325}{}{pružná}
+{12326}{}{statná jak zděná kadibudka}
+#C
+{12331}{}{znetvořená}
+{12332}{}{ošklivá}
+{12333}{}{nevrlá}
+{12337}{}{společenský}
+{12338}{}{okouzlující}
+{12339}{}{nádherná}
+{12340}{}{zrozena k vedení}
+#I
+{12341}{}{idiot}
+{12342}{}{imbecil}
+{12343}{}{debil}
+{12347}{}{kretén}
+{12348}{}{docela chytrá}
+{12349}{}{intelektuálka}
+{12350}{}{génius}
+#A
+{12351}{}{nemotorná}
+{12352}{}{nešikovná}
+{12357}{}{hbitá}
+{12358}{}{tasí rychle}
+{12359}{}{velmi rychlá}
+{12360}{}{dokáže se vyhnout kulkám}
+#L
+{12361}{}{depresivní}
+{12362}{}{nešťastná}
+{12363}{}{podrážděná}
+{12368}{}{spokojená}
+{12369}{}{veselá}
+{12370}{}{šťastná}
+
+##Damages
+#Poisoned
+{12400}{}{bílá kůže. Vypadá nemocně}
+#Radiated
+{12401}{}{celé tělo září}
+#Eyes
+{12402}{}{oči vypadají poškozeně}
+#Right Arm
+{12403}{}{pravá ruka jí bezvládně visí}
+#Left Arm
+{12404}{}{levá ruka vypadá zlomeně}
+#Right Leg
+{12405}{}{pravá noha vypadá zlomeně, při chůzi kulhá}
+#Left Leg
+{12406}{}{levá noha je pokryta krví}
+
+#
+# Without awareness: 0 + 1 + [2]
+# With awareness: 3 + [2] + [4]
+#
+{12500}{}{Vypadá: }    # Male
+{12501}{}{Vypadá: }   # Female
+{12502}{}{Vypadá: }    # It
+{12510}{}{po smrti}             # Dead condition
+{12511}{}{na umření}      # <34% hp
+{12512}{}{prabídně} # <67% hp
+{12513}{}{zraněně}          # <100% hp
+{12514}{}{v pořádku}           # 100% hp
+{12520}{}{a má zmrzačené končetiny}        # Male hurt
+{12521}{}{, ale má zmrzačené končetiny}  # Male unhurt
+{12522}{}{a má zmrzačené končetiny}       # Female hurt
+{12523}{}{, ale má zmrzačené končetiny} # Female unhurt
+{12524}{}{a má zmrzačené končetiny}       # It hurt
+{12525}{}{, ale má zmrzačené končetiny} # It unhurt
+{12530}{}{Má CUR/MAX bodů života}  # Male
+{12531}{}{Má CUR/MAX bodů života} # Female
+{12532}{}{Má CUR/MAX bodů života}  # It
+{12540}{}{ a drží WEAPON}                            # Gun without holder
+{12541}{}{ a drží WEAPON s CUR/MAX náboji AMMO} # Gun with holder
+{12542}{}{ a drží předmět: MISC}                               # Any other item
+
+####################################################################################################################################
+#
+#       Plagues
+#
+####################################################################################################################################
+
+{12800}{}{Zvedá se ti žaludek.}
+{12801}{}{Zvedl se ti žaludek a začínáš zvracet. Přemáháš únavu.}
+{12802}{}{Cítíš únavu, velmi často zvracíš a stále častěji si potřebuješ odpočinout.}
+{12803}{}{Silně krvácíš. Máš nemoc ze záření, vlasy ti vypadávají po celých pramenech.}
+{12804}{}{Nepřetržitě silně krvácíš. Ve tvých zvratcích se objevuje krev. Kůže se ti loupe o obnažuje až na holé maso.}
+{12805}{}{Trpíš silným vnitřním krvácením a vodnatými průjmy. Cítíš se nafouklý a zmítáš se v téměř nepřetržité bolestivé agónii.}
+{12806}{}{Smrt vlivem nemoci z ozáření.}
+{12807}{}{Zasažení silnou dávkou radiace.}
+{12808}{}{Geigerův počítač tiká.}
+{12809}{}{Geigerův počítač divoce tiká.}
+{12810}{}{Otrava!}
+{12811}{}{Poškození způsobené jedem.}
+{12812}{}{Cítíš se o trochu lépe.}
+{12813}{}{Cítíš se lépe.}
+{12814}{}{Smrt v důsledku otravy!}
+
+#
+# Other descriptions (karma/perk-related)
+#
+{12900}{}{Má na čele tetování!} # male slaver
+{12901}{}{Má na čele tetování!} # female slaver
+
+####################################################################################################################################
+#
+#       Scores
+#
+####################################################################################################################################
+
+{13000}{}{Transgender}
+{13001}{}{Největší záporák (nejnižší karma)}
+{13011}{}{Největší hrdina (nejvyšší karma)}
+{13021}{}{Poslední události (největší změna karmy v průběhu poslední hodiny)}
+
+{13030}{}{Lídři}
+{13031}{}{Mistr tlachání - nejvíce chatových zpráv}
+{13041}{}{Nejlepší obchodník - nejvíce obchodů}
+{13051}{}{Cena Ostudy - nejvíce smrtí}
+{13061}{}{Sympaťák - nejvíce okouzlující}
+{13071}{}{Cena Berserkera - nejvíce zabití}
+{13081}{}{Opravdový muž Pustiny - nejprocestovalekší}
+{13091}{}{Cena Zlatého stetoskopu: Nejlpeší doktor v Pustině}
+{13101}{}{Cassidiova cena - nejlepší střelec}
+{13111}{}{Sulikova cena - mistrovství v boji na blízko}
+{13121}{}{Jungle Gym Platinum Club - nejlepší rohovník}
+{13131}{}{Loxleyho Cena - nejlepší zloděj}
+{13141}{}{Nejlepší Ochránce - strážce Pustiny}
+
+
+{13150}{}{Profesionálové}
+{13151}{}{Vůdce lidstva (převezeno nejvíce lidí)}
+{13161}{}{Chladnokrevný zabiják (nejvíce zabití příšer)}
+{13171}{}{Ostřelovač (nejvíce kritických zásahů)}
+{13181}{}{Pravý dobrodruh (splněno nejvíce úkolů)}
+{13191}{}{Zloděj Kočka (nejvíce úspěšných vylomení zámků)}
+{13201}{}{Drtič kostí (nejvíce poškození v bojí beze zbraně)}
+{13211}{}{Starší (nejvíc zkušeností)}
+
+#{13220}{}{Vyvolení}
+{13221}{}{Vyvolený (nejlepší z nejlepších)}
+{13231}{}{Expert v likvidaci exkrementů}
+{13241}{}{Nejlepší platnéř (vyrobeno nejvíce kvalitních brnění)}
+{13251}{}{Nejlepší zbrojař (vyrobeno nejvíce kvalitních zbraní)}
+
+{13260}{}{Kontrola měst}
+{13261}{}{Skupina ovládající Modoc}
+{13271}{}{Skupina ovládající Klamath}
+{13281}{}{Skupina ovládající Gecko}
+{13291}{}{Skupina ovládající Broken Hills}
+{13301}{}{Skupina ovládající Den}
+{13311}{}{Skupina ovládající Redding}
+{13321}{}{Skupina ovládající Necropolis}
+
+{13360}{}{Dominace}
+{13361}{}{Skupina dominující v Modocu}
+{13371}{}{Skupina dominující v Klamathu}
+{13381}{}{Skupina dominující v Gecku}
+{13391}{}{Skupina dominující v Broken Hills}
+{13401}{}{Skupina dominující v Denu}
+{13411}{}{Skupina dominující v Reddingu}
+{13421}{}{Skupina dominující v Necropolis}
+
+{13450}{}{Kontrola základen}
+{13451}{}{Aktuální dohled nad Water Works}
+{13461}{}{Aktuální dohled nad Area 51}
+{13471}{}{Aktuální dohled nad Nuka Cola Bottle Plant}
+{13481}{}{Aktuální dohled nad Mariposa Military Base}
+{13491}{}{Aktuální dohled nad Hawthorne Base}
+
+{13510}{}{Eventy}
+{13511}{}{Válečný veterán (nejlepší ve válečných eventách)}
+{13521}{}{Rambo (nejlepší v PvP eventách)}
+{13531}{}{Přeživší (nejlepší v PvE eventách)}
+{13541}{}{Stratég (nejlepší v tahových eventách)}
+{13551}{}{Boháč (nejúspěšnější v GM aukcích)}
+{13561}{}{Skupinové PvP (turnaje)}
+
+{13570}{}{Odborná ocenění}
+{13571}{}{Nejlepší výrobce High-tech předmětů (nejvíce vytvořených T4 předmětů)}
+{13581}{}{Karavanář (nejvíc dokončených karavan)}
+{13591}{}{Obyvatel Rockside (nejvíce času stráveného v Rockside)}
+{13601}{}{Goliáš (nejvíce zabitých Bossů v setkáních)}
+{13611}{}{Fanda Vault-Tec (nejvíce otevřených VT kufříků)}
+{13621}{}{Mistr Arény (Nejlepší poměr zabití/smrti v Hinkley)}
+
+{13630}{}{Kontrola tahových lokací}
+{13631}{}{Skupina ovládající zónu: San Francisco}
+{13641}{}{Skupina ovládající zónu: Adytum}
+{13651}{}{Skupina ovládající zónu: New Reno}
+{13661}{}{Skupina ovládající zónu: Themepark}
+
+####################################################################################################################################
+#
+#       Stats (with STAT.MSG + 2000)
+#
+####################################################################################################################################
+
+# ST_STRENGTH
+{100001}{}{Síla}
+{100002}{}{Hrubá fyzická síla. Vysoká hodnota SÍLY je vhodná pro postavy specializující se na boj zblízka. Ovlivňuje: množství hit bodů, poškození při boji zblízka a nosnost.}
+
+# ST_PERCEPTION
+{100011}{}{Vnímání}
+{100012}{}{Schopnost vidět, slyšet, vycítit a postřehnout neobvyklé věci. Vysoká hodnota VNÍMÁNÍ je důležitá zejména pro postavy milující boj na delší vzdálenost. Ovlivňuje: Dohled, postřeh a šanci uspět ve střelbě.}
+# ST_ENDURANCE
+{100021}{}{Odolnost}
+{100022}{}{Fyzická odolnost a vytrvalost. Postava s vysokou hodnotou ODOLNOSTI přežije tam, kde jiní umírají. Ovlivňuje: počet hit bodů, odolnost vůči radiaci a jedům, schopnost uzdravit se a množství nově přidělených hit bodů.}
+# ST_CHARISMA
+{100031}{}{Charisma}
+{100032}{}{Kombinace fyzického vzhledu a osobního kouzla. Vysoká hodnota CHARISMA je důležitá pro postavy, které chtějí ovlivňovat své okolí nenásilně, tj. řečí. Ovlivňuje: reakce NPC, ceny v obchodech a množství společníků.}
+# ST_INTELLECT
+{100041}{}{Inteligence}
+{100042}{}{Znalosti, moudrost a schopnost bystrého uvažování. Vysoká hodnota INTELIGENCE je důležitá pro všechny postavy. Ovlivňuje: počet nově přidělených dovednostních bodů za úroveň, bohatost volby dialogu s NPC a mnoho nebojových dovedností.}
+# ST_AGILITY
+{100051}{}{Hbitost}
+{100052}{}{Svalová koordinace a schopnost rychlého pohybu. Vysoká hodnota HBITOSTI je důležitá pro všechny aktivní postavy. Ovlivňuje: počet akčních bodů, třídu zbroje, postřeh a mnoho dovedností.}
+# ST_LUCK
+{100061}{}{Štěstí}
+{100062}{}{Osud. Karma. Extremně vysoká nebo nízká hodnota ŠTĚSTÍ postavu nějakým způsobem ovlivní. Události a jejich následky se změní podle toho, jakou má postava kliku nebo smůlu.}
+# ST_MAX_LIFE
+{100071}{}{Maximální počet bodů života}
+{100072}{}{Určují, kolik zásahů vydrží tvá postava, než zemře.}
+# ST_ACTION_POINTS
+{100081}{}{Maximální akční body}
+{100082}{}{ Počet akcí, které může tvá postava v boji během svého tahu učinit. Různé akce samozřejmě spotřebovávají i různé množství akčních bodů.}
+{100083}{}{Akční body}
+# ST_ARMOR_CLASS
+{100091}{}{Třída zbroje}
+{100092}{}{Ovlivňuje šanci, že bude postava zasažena pokud běží.}
+{100093}{}{Třída zbroje}
+# ST_MELEE_DAMAGE
+{100101}{}{Poškození v boji zblízka}
+{100102}{}{Množství bonusového poškození, které tvá postava způsobí soupeři v boji zblízka.}
+{100103}{}{Škody nablízko}
+# ST_CARRY_WEIGHT
+{100111}{}{Nosnost}
+{100112}{}{Maximální množství nákladu, které postava unese (v librách).}
+{100113}{}{Nosnost}
+# ST_SEQUENCE
+{100121}{}{Sekvence}
+{100122}{}{Určuje, jak rychle je tvá postava schopna v boji reagovat, což v tahovém boji znamená, kdo bude mít první tah. Souboj vždy začíná postava s vyšší hodnotou postřeh.}
+{100123}{}{Sekvence}
+# ST_HEALING_RATE
+{100131}{}{Rychlost hojení}
+{100132}{}{Počet bodů života, které se tvé postavě obnoví každých 30 vteřin.}
+{100133}{}{Rychlost hojení}
+# ST_CRITICAL_CHANCE
+{100141}{}{Kritická šance}
+{100142}{}{Šance způsobit v boji soupeři kritický zásah se navyšuje touto hodnotou.}
+{100143}{}{Kritická šance}
+# ST_MAX_CRITICAL
+{100151}{}{Lepší kritický zásah}
+{100152}{}{Lepší kritický zásah}
+# ST_NORMAL_ABSORB
+{100161}{}{Práh odolnosti}
+{100162}{}{Práh odolnosti}
+# ST_LASER_ABSORB
+{100171}{}{Práh odolnosti vůči laseru}
+{100172}{}{Práh odolnosti vůči laseru}
+# ST_FIRE_ABSORB
+{100181}{}{Práh odolnosti vůči ohni}
+{100182}{}{Práh odolnosti vůči ohni}
+# ST_PLASMA_ABSORB
+{100191}{}{Práh odolnosti vůči plazmě}
+{100192}{}{Práh odolnosti vůči plazmě}
+# ST_ELECTRO_ABSORB
+{100201}{}{Práh odolnosti vůči elektřině}
+{100202}{}{Práh odolnosti vůči elektřině}
+# ST_EMP_ABSORB
+{100211}{}{Práh odolnosti vůči EMP}
+{100212}{}{Práh odolnosti vůči EMP}
+# ST_EXPLODE_ABSORB
+{100221}{}{Práh odolnosti vůči explozi}
+{100222}{}{Práh odolnosti vůči explozi}
+# ST_NORMAL_RESIST
+{100231}{}{Odolnost vůči poškození (OVP)}
+{100232}{}{Jakýkoliv zásah, který tvá postava utrpí se redukuje touto hodotou. Odolnost vůči poškození lze zvýšit nošením zbroje.}
+{100233}{}{Odol. vůči pošk.}
+# ST_LASER_RESIST
+{100241}{}{Odolnost vůči laseru}
+{100242}{}{Odolnost vůči laseru}
+# ST_FIRE_RESIST
+{100251}{}{Odolnost vůči ohni}
+{100252}{}{Odolnost vůči ohni}
+# ST_PLASMA_RESIST
+{100261}{}{Odolnost vůči plazmě}
+{100262}{}{Odolnost vůči plazmě}
+# ST_ELECTRO_RESIST
+{100271}{}{Odolnost vůči elektřině}
+{100272}{}{Odolnost vůči elektřině}
+# ST_EMP_RESIST
+{100281}{}{Odolnost vůči EMP}
+{100282}{}{Odolnost vůči EMP}
+# ST_EXPLODE_RESIST
+{100291}{}{Odolnost vůči explozi}
+{100292}{}{Odolnost vůči explozi}
+# ST_RADIATION_RESISTANCE
+{100301}{}{Odolnost vůči radiaci}
+{100302}{}{Množství radiace, které jsi vystaven, je redukováno tímto procentem. Odolnost vůči radiaci může být zvýšena oblečenou zbrojí a použitím anti-radiačních chemikálií.}
+{100303}{}{Odol. vůči radiaci}
+# ST_POISON_RESISTANCE
+{100311}{}{Odolnost vůči jedům}
+{100312}{}{Touto hodnotou jsou redukována zranění způsobená jedy.}
+{100313}{}{Odol. vůči jedům}
+
+# 100700
+# ST_AGE
+{100701}{}{Věk}
+{100702}{}{Věk}
+# ST_GENDER
+{100711}{}{Pohlaví}
+{100712}{}{Pohlaví}
+# ST_CURRENT_HP
+{100721}{}{Momentální Body zdraví}
+{100722}{}{Momentální Body zdraví}
+# ST_POISONING_LEVEL
+{100731}{}{Momentální stupeň otravy}
+{100732}{}{Momentální stupeň otravy}
+{100733}{}{Mom. stup. otravy}
+# ST_RADIATION_LEVEL
+{100741}{}{Momentální stupeň ozáření}
+{100742}{}{Momentální stupeň ozáření}
+{100743}{}{Mom. stup. ozáření}
+
+# 100760
+# ST_EXPERIENCE
+{100761}{}{Zkušenosti}
+{100762}{}{Odměna za dokončení specifických úkolů nebo za porážku nepřátel v boji. Nasbírání dostatečného počtu zkušenostních bodů je podmínkou pro dosažení další úrovně.}
+# ST_LEVEL
+{100771}{}{Level}
+{100772}{}{The general competency of the player character. A measure of your experience and abilities.}
+# ST_UNSPENT_SKILL_POINTS
+{100781}{}{Nevyužité dovednostní body}
+{100782}{}{Množství bodů obdržených při postupu na další úroveň. Běžné dovednosti lze zvýšit o 1% za každý bod. U "talentu" se tyto zvyšují o 2% za bod.}
+# ST_UNSPENT_PERKS
+{100791}{}{Nevyužité body schopností}
+{100792}{}{Body získané postupem na vyšší úroveň. Můžou být užity pro vylepšení úrovně schopnosti nebo k získání nové schopnosti.}
+
+# 100800
+# ST_KARMA
+{100801}{}{Karma}
+{100802}{}{Následky tvých činů ve hře. Zvlášť důležité informace budou speciálně zobrazeny.}
+
+{101121}{}{Typ postavy}
+{101231}{}{Limit drog}
+# 3d layers
+{101501}{}{Kůže}
+{101511}{}{Pravá ruka}
+{101521}{}{Levá ruka}
+{101531}{}{Tělo}
+{101541}{}{Chodidla}
+{101551}{}{Ruce}
+{101561}{}{Hlava}
+{101571}{}{Vlasy}
+{101581}{}{Oči}
+{101591}{}{Knír}
+{101601}{}{Culík}
+{101611}{}{Vousy}
+{101621}{}{Rameno}
+{101631}{}{Náručník}
+{101641}{}{Záda}
+{101651}{}{Batoh}
+
+####################################################################################################################################
+#
+#       Skills (with SKILL.MSG + 3000)
+#
+####################################################################################################################################
+
+# 102000
+# SK_SMALL_GUNS
+{102001}{}{Lehké střelné zbraně}
+{102002}{}{Používání, údržba a obecné znalosti o lehkých střelných zbraních, jako jsou pistole, samopaly a pušky.}
+# SK_BIG_GUNS
+{102011}{}{Těžké střelné zbraně}
+{102012}{}{Používání, údržba a obecné znalosti o těžkých střelných zbraních, jako jsou miniguny, kulomety, raketomety, plamenomety apod.}
+# SK_ENERGY_WEAPONS
+{102021}{}{Energetické zbraně}
+{102022}{}{oužívání, údržba a obecné znalosti o energetických zbraních. Technika ovládání zbraní založených na laserové nebo plazmové technologii.}
+# SK_UNARMED
+{102031}{}{Boj nablízko}
+{102032}{}{Kombinace bojových umění, boxu a dalších technik boje beze zbraně a chladných zbraní na krátkou vzdálenost, jako např. nože, kladiva, kopí, kyje apod.}
+SK_MELEE_WEAPONS
+{102041}{}{Inženýrství}
+{102042}{}{Znalost výroby porkočilých konstrukcí.}
+# SK_THROWING
+{102051}{}{Házení}
+{102052}{}{Dovednost zacházení s vrhacími zbraněmi jako např. vrhací nože, oštěpy a granáty.}
+# SK_FIRST_AID
+{102061}{}{První pomoc}
+{102062}{}{Obecné léčitelské znalosti, používané k vyléčení drobnějších řezných ran, odřenin a všeobecně lehčích zranění. Vyšší úroveň první pomoci může vyléčit více bodů zdraví.}
+{102063}{}{Pr. pomoc}
+# SK_DOCTOR
+{102071}{}{Doktor}
+{102072}{}{Léčení vážných zranění a polámaných končetin. Bez použití této dovednosti, bude trvat mnohem déle, než se zraněné údy vyléčí natolik, aby byly znovu použitelné.}
+{102073}{}{Doktor}
+# SK_SNEAK
+{102081}{}{Plížení}
+{102082}{}{Dovednost se tiše a nepozorovaně pohybovat. Pro ostatní je mnohem těžší tě odhalit. Plížení a běh není možné používat najednou.}
+{102083}{}{Plížení}
+# SK_LOCKPICK
+{102091}{}{Páčení zámků}
+{102092}{}{Dovednost otevírat zámky bez originálního klíče. Použití paklíče nebo elektronického paklíče značně zvyšuje tuto dovednost a tedy šanci na úspěšné otevření zámku.}
+{102093}{}{Páč.zám.}
+# SK_STEAL
+{102101}{}{Kradení}
+{102102}{}{Dovednost udělat z cizích věcí věci vlastní. Používá se pro okrádání lidí.}
+{102103}{}{Kradení}
+# SK_TRAPS
+{102111}{}{Pasti a výbušniny}
+{102112}{}{Dovednost nalézt a odstranit pasti. Zahrnuje rovněž nastavení, deaktivaci a zacházení s výbušninami určených k demoličním účelům.}
+{102113}{}{Pasti}
+# SK_SCIENCE
+{102121}{}{Věda}
+{102122}{}{Zahrnuje znalosti celé škály vyspělých technologií, jako např. znalost počítačů, biologie, fyziky a geologie.}
+{102123}{}{Věda}
+# SK_REPAIR
+{102131}{}{Opravování}
+{102132}{}{Praktické aplikování technických znalostí pro opravu zničených zařízení, strojů a elektroniky.}
+{102133}{}{Oprava}
+# SK_SPEECH
+{102141}{}{Řeč}
+{102142}{}{Dovednost prakticky a efektivně komunikovat. Umění přesvědčit ostatní, že tvůj názor je ten správný. Schopnost lhát a nebýt odhalen. Nezbytná dovednost každého politika.}
+# SK_BARTER
+{102151}{}{Obchodování}
+{102152}{}{Obchodování a příbuzné aktivity. Schopnost získat vyšší ceny za věci, které prodáváš a nižší za ty, které kupuješ.}
+# SK_GAMBLING
+{102161}{}{Hazardní hry}
+{102162}{}{Znalosti a praktické dovednosti týkající se sázení a hazardních her. Zručnost v hraní karet, kostek a ostatních hrách.}
+# SK_OUTDOORSMAN
+{102171}{}{Přežití v pustině}
+{102172}{}{Praktické znalosti přírody a dovednost přežití ve volné přírodě. Znalost rostlin a zvířat.}
+
+# 102300
+# TO_SK_FIRST_AID, timeouts
+{102241}{}{Léčící prášek}
+{102251}{}{Roentgenův Rum}
+{102261}{}{Rot Gut}
+{102271}{}{After Burner gum}
+{102281}{}{Mutie}
+{102291}{}{Voodoo}
+{102301}{}{První pomoc}
+# TO_SK_DOCTOR, timeouts
+{102311}{}{Doktor}
+# TO_SK_REPAIR, timeouts
+{102321}{}{Oprava}
+# TO_SK_SCIENCE, timeouts
+{102331}{}{Věda}
+# TO_SK_LOCKPICK, timeouts
+{102341}{}{Páčení zámků}
+# TO_SK_STEAL, timeouts
+{102351}{}{Kradení}
+# TO_WEAKENED
+# {102361}{}{Weakened}
+# TO_FIXBOY
+{102371}{}{Výroba}
+# 102380
+# TO_BATTLE, timeouts
+{102381}{}{Bitva}
+# # TO_TRANSFER, timeouts
+# {102391}{}{Přechod}
+# TO_REMOVE_FROM_GAME, timeouts
+# {102401}{}{Odejít ze hry}
+# TO_REPLICATION, timeouts
+{102411}{}{Oživení}
+# TO_KARMA_VOTING, timeouts
+#{102421}{}{Hlasování}
+# TO_GATHERING
+{102431}{}{Sběr}
+# TO_SNEAK, timeouts
+# {102432}{}{Plížení}
+{102572}{}{Alkohol}
+{102582}{}{Pivo Gamma Gulp}
+
+####################################################################################################################################
+#
+#       Kills (from PROTO.MSG)
+#
+####################################################################################################################################
+
+#
+# Kill Types names
+#
+
+# 102600
+# BT_MEN..BT_BIG_BAD_BOSS, bodytypes
+{102601}{}{Muži}
+{102602}{}{Tato řádka ukazuje, kolik mužů jsi zabil během svého putování.}
+{102611}{}{Ženy}
+{102612}{}{Tato řádka ukazuje, kolik žen jsi zabil během svého putování.}
+{102621}{}{Děti}
+{102622}{}{Tato řádka ukazuje počet dětí, které jsi zabil během svého putování.}
+{102631}{}{Supermutanti}
+{102632}{}{Počet supermutantů, které jsi během svého dobrodružství odstranil ze světa.}
+{102641}{}{Ghoulové}
+{102642}{}{Tato řádka ukazuje počet ghoulů (mužů i žen), které jsi zabil během tvého putování.}
+{102651}{}{Brahmíny}
+{102652}{}{Tato řádka ukazuje, kolik brahmín (zmutovaných krav) jsi během svého putování rozsekal do guláše.}
+{102661}{}{Radškorpióni}
+{102662}{}{Počet zmutovaných radškorpiónů, které jsi během svého putování odeslal na onen svět.}
+{102671}{}{Krysy}
+{102672}{}{Počet zabitých krys, na kterých jsi provedl mechanickou deratizaci. Včetně všech genetických příbuzných tohoto hlodavce.}
+{102681}{}{Floateři}
+{102682}{}{Počet floaterů, které jsi rozsekal na cucky.}
+{102691}{}{Kentauři}
+{102692}{}{Tvoje zářezy za mrtvé kentaury.}
+{102701}{}{Roboti}
+{102702}{}{Počet robotů, které jsi definitivně poslal do křemíkového nebe.}
+{102711}{}{Psi}
+{102712}{}{Celkový počet psů expresně odeslaných do velkého psince v nebi.}
+{102721}{}{Mantisové}
+{102722}{}{Tato řádka ukazuje celkový počet zabitých mantisů nebo jiného, stejně hnusného hmyzu, na kterém jsi provedl dezinsekci.}
+{102731}{}{Párači}
+{102732}{}{Tato řádka ti ukazuje, kolik jsi zlikvidoval páračů. Počítáno včetně všech jejich odrůd.}
+{102741}{}{Rostliny}
+{102742}{}{Počet kytek, které díky tobě už nikdy nezavoní.}
+{102751}{}{Geckoni}
+{102752}{}{Počet ještěrek, které už nic lovit nebudou.}
+{102761}{}{Vetřelci}
+{102762}{}{Počítadlo vetřelců, jež jsi vlastnoručně skolil.}
+{102771}{}{Obří mravenci}
+{102772}{}{Počet hmyzáků, které jsi v pustině rozmačkal.}
+{102781}{}{Velký hnusný Šéf}
+{102782}{}{Počet geneticky vytvořených vražedných kyborgských maniaků, které jsi oddělal.}
+{102791}{}{Pouštní stopaři}
+{102792}{}{Počet poustních stopařů, které jsi během svého putování odeslal na onen svět.}
+{102801}{}{Venus Man Traps}
+{102802}{}{Tato řádka ukazuje počet rostlin, které po tvém zásahu uvadly.}
+{102811}{}{Rad Toads}
+{102812}{}{Tato řádka ukazuje počet radioaktivních žab, které jsi během svého putování usmrtil.}
+{102821}{}{Thornslingers}
+{102822}{}{Tato řádka ukazuje počet rostlin, které po tvém zásahu uvadly.}
+{102831}{}{Pashtshuurs}
+{102832}{}{Počet příšer, které jsi při svých cestách zprovodil ze světa.}
+{102841}{}{Players}
+{102842}{}{Počet hráčů, kteří se po setkání s tebou už nezvedli.}
+
+
+####################################################################################################################################
+#
+#       Perks (with PERK.MSG)
+#
+####################################################################################################################################
+
+# 103000
+# PE_BOOKWORM
+{103001}{}{Implantát: Agresivní senzory}
+{103002}{}{speciálně vyvinut k vylepšení škody při kritických zásazích.}
+# PE_AWARENESS
+{103011}{}{Všímavost}
+{103012}{}{Dokážeš postřehnout více detailů o lidech okolo. Když někoho prozkoumáš, díky perku "Všímavost" se o něm dozvíš více podrobnějších informací. Zjistíš čím je ozbrojen i přesný počet jeho hit bodů.}
+# PE_BONUS_HTH_ATTACKS
+{103021}{}{Bonus rychl. v boji zblízka}
+{103022}{}{Buď jsi studoval tajná bojová umění Východu nebo prostě jen dokážeš udeřit rychleji. V každém případě tě tvoje údery při boji zblízka stojí o 1 akční bod méně. Pokud máš i bonus škody v boji zblízka, bonus rychlosti se navyšuje.}
+# PE_BONUS_HTH_DAMAGE
+{103031}{}{Bonus pošk. v boji zblízka}
+{103032}{}{Tvoje zkušenosti v boji zblízka z tebe udělaly pěkně ostrého protivníka. Za každý stupeň tohoto perku, způsobíš soupeři při boji beze zbraně a v boji chladnými zbraněmi o 2 body poškození navíc. Pokud máš i bonus škody v boji zblízka, bonus rychlosti se navyšuje.}
+# PE_BONUS_MOVE
+{103041}{}{Bonus pohybu}
+{103042}{}{a každý stupeň tohoto perku dostaneš ve svém tahu o 2 akční body víc. Tyto body ale mohou být využity pouze pro pohyb. Jinými slovy, za každý level tohoto perku, se ve svém tahu budeš moci pohnout o 2 hexy navíc. Také získáváš bonus k rychlosti pohybu.}
+# PE_BONUS_RANGED_DAMAGE
+{103051}{}{Bonus pošk. v boji na dálku}
+{103052}{}{Tvůj trénink se zbraněmi v boji na dlouhou vzdálenost z tebe dělá smrtelně nebezpečného protivníka. Za každou úroveň tohoto perku způsobíš o 2 body poškození víc.}
+# PE_BONUS_RATE_OF_FIRE
+{103061}{}{Bonus kadence}
+{103062}{}{Tento perk ti umožní zmáčknout spoušť o něco rychleji a přesto střílet stejně přesně jako předtím. Používání zbraní pro boj na dlouhou vzdálenost tě stojí o jeden akční bod méně.}
+# PE_EARLIER_SEQUENCE
+{103071}{}{Lepší postřeh}
+{103072}{}{V boji jsi schopen reagovat rychleji než tvoji nepřátelé, protože tvůj Sekvence je navýšena o 5 bodů.}
+# PE_FASTER_HEALING
+{103081}{}{Rychlejší uzdravování}
+{103082}{}{S touto schopností záskáváš bonus 15 bodů k rychlosi uzdravování. Čili -- uzdravuješ se rychleji.}
+# PE_MORE_CRITICALS
+{103091}{}{Více kritických zásahů}
+{103092}{}{Pokud máš tento perk, máš větší šanci způsobit v boji soupeři kritický zásah. Každý stupeň ti přidá +5% šanci na kritický zásah. To docela ujde, ne?}
+# PE_NIGHT_VISION
+{103101}{}{Implantát: Agresivní senzor MK.II}
+{103102}{}{Vyvinut ke zvýšení síly kritických zásahů}
+# PE_PRESENCE
+{103111}{}{Implantát: Systém Drak}
+{103112}{}{Vyvinut k navýšení frekvence kritických zásahů.}
+# PE_RAD_RESISTANCE
+{103121}{}{Odolný proti radiaci}
+{103122}{}{Lépe odoláváš radioaktivitě a jejím zhoubným následkům. Každý level tohoto perku ti přidá 30% na Odolnosti proti radiaci a 20% odolnosti proti jedům.}
+# PE_TOUGHNESS
+{103131}{}{Houževnatý}
+{103132}{}{Jsi-li houževnatý, utrpěná zranění tě méně poškozují. Každý level tohoto perku ti zvyšuje tvou celkovou Odolnosti proti poškození.}
+# PE_STRONG_BACK
+{103141}{}{Silná záda}
+{103142}{}{Máš sílu jako mezek. Za každý stupeň tohoto perku uneseš o 50 liber vybavení víc.}
+# PE_SHARPSHOOTER
+{103151}{}{Ostrostřelec}
+{103152}{}{áš talent zasáhnout cíl na dlouhou vzdálenost. Za každý stupeň tohoto perku dostaneš +2 bonus ke své schopnosti VNÍMÁNÍ vždy, když budeš bojovat na delší vzdálenost.  Také získáváš drobný bonus k šanci na zásach. Zabíjet z patřičného odstupu je proto jednodušší!}
+# PE_SILENT_RUNNING
+{103161}{}{Tichošlápek}
+{103162}{}{S tímto perkem se můžeš pohybovat rychle a přesto tiše. Můžeš běhat a používat PLÍŽENÍ najednou. Bez tohoto perku se při běhu PLÍŽENÍ automaticky zruší.}
+# PE_SURVIVALIST
+{103171}{}{Mistr v přežití}
+{103172}{}{Jsi opravdový táborník. Tento perk ti propůjčuje schopnost získat ze zabitých zvírat dvojnásobek masa.}
+# PE_MASTER_TRADER
+{103181}{}{Implantát: Dračí OS}
+{103182}{}{Vyvinut ke zlepšení frekvence kritických zásahů.}
+# PE_EDUCATED
+{103191}{}{Vzdělanec}
+{103192}{}{Každá úroveň "Vzdělance" ti přidá 2 dovednostní body navíc k počtu, který obdržíš při dosažení nové zkušenostní úrovně.  Čím dřív si ve hře tento perk vezmeš, tím víc se ti pochopitelně zúročí.}
+# PE_HEALER
+{103201}{}{Léčitel}
+{103202}{}{Tento perk zvyšuje tvoje léčitelské schopnosti.  Každá jeho úroveň ti přidá 15-30 bodů zdraví při použití dovednosti První pomoc.}
+# PE_FORTUNE_FINDER
+{103211}{}{Implantát: Dračí OS}
+{103212}{}{Vyvinut ke zlepšení frekvence kritických zásahů.}
+# PE_BETTER_CRITICALS
+{103221}{}{Lepší kritický zásah}
+{103222}{}{Kritické zásahy, které v boji způsobuješ soupeřům jsou ještě ničivější než dosud.  Obdržíš 20%-ní bonus k účinku každého kritického zásahu.  Což ovšem nemá žádný vliv na samotnou šanci kritický zásah docílit.}
+# PE_EMPATHY
+{103231}{}{Implantát: Tygří pohyb}
+{103232}{}{Vyvinut ke zlepšení pohybu.}
+# PE_SLAYER
+{103241}{}{Implantát: Rychlost tygra}
+{103242}{}{Vyvinut ke zlepšení pohybu.}
+# PE_SNIPER
+{103251}{}{Implantát: Modul dráp}
+{103252}{}{Vyvinut ke zlepšení škod při zásahu kulkou.}
+# PE_SILENT_DEATH
+{103261}{}{Tichá smrt}
+{103262}{}{Když při plížení zasáhneš svého protivníka zezadu, způsobíš automaticky kritický zásah s bonusem +10 k hodu, pokud byl útok proveden bojem zblízka, hodem nebo jednoruční zbraní. Tomu se říká Tichá (a rychlá) smrt.}
+# PE_ACTION_BOY
+{103271}{}{Akční hoch}
+{103272}{}{Každý level Akčního hocha (nebo dívky, chceš-li) ti v boji při tvém tahu přidá 2 akční body. Tyto body můžeš použít na libovolnou činnost.}
+# PE_MENTAL_BLOCK
+{103281}{}{Implantát: Modul Dráp mk.II}
+{103282}{}{Vyvinut ke zlepšení škod při zásahu kulkou.}
+# PE_LIFEGIVER
+{103291}{}{Životodárce}
+{103292}{}{Jednotlivé levely tohoto perku ti přidájí 40, 40 a 30 bodů zdraví navíc. Možná to na první pohled vypadá, že to nic moc není, ale nemusí pršet, jen když kape.}
+# PE_DODGER
+{103301}{}{Mrštný}
+{103302}{}{V boji je mnohem těžší tě zasáhnout, máš-li tento perk. Každý jeho stupeň přidává +20 ke tvé Třídě zbroje, bez ohledu na typ oblečené zbroje.}
+# PE_SNAKEATER
+{103311}{}{Polykač hadů}
+{103312}{}{Mňam! Chutnají jako pečená kuřata. Jsi imunní proti jedům, jinými slovy dostaneš +30% ke své Odolnosti proti jedům a navíc +20% k Odolnosti proti radiaci.}
+# PE_MR_FIXIT
+{103321}{}{Všeuměl}
+{103322}{}{Všeuměl dokáže opravit předměty lépe, než lidé v jeho okolí.}
+# PE_MEDIC
+{103331}{}{Medik}
+{103332}{}{Medik má poloviční čas na zotavenípo použití schopností První pomoci a Doktor. Také vyléčíš o 15 až 30 bodů zdraví víc při použití schopnosti První pomoc.}
+# PE_MASTER_THIEF
+{103341}{}{Mistr zloděj}
+{103342}{}{Jsi mistr zloděj je zběhlý v kradení a páčení zámků. Může užít své zlodějské schopností dvakrát častěji}
+# PE_SPEAKER
+{103351}{}{Mluvka}
+{103352}{}{Být mluvka znamená, že loajalita tvých následovníků se snižuje poloviční rychlostí.}
+# PE_HEAVE_HO
+{103361}{}{Vrhač!}
+{103362}{}{Každý level tohoto perku ti přidá +1 SÍLY (až do výše 10), když použiješ některou z vrhacích zbraní. Tento perk rovněž ovlivňuje dosah použité zbraně.}
+# PE_FRIENDLY_FOE
+{103371}{}{Implantát: Taktický čip}
+{103372}{}{Vyvinut ke zvyšení vnímání na bojišti}
+# PE_PICKPOCKET
+{103381}{}{Kapsář}
+{103382}{}{Jsi rozený zloděj. Můžeš se směle zařadit po bok těch nejlepších kapsářů, protože s tímto perkem se modifikátory velikosti kradeného předmětu a polohy vůči okrádané osobě snižují na polovic.}
+# PE_GHOST
+{103391}{}{Duch}
+{103392}{}{Máš-li tento perk, pak tvoje chvíle přichází po západu slunce nebo ve špatně osvětlených prostorách. Můžeš se pohybovat neslyšně jako duch. Dostáváš bonus pokud se zdržuješ do 5 polí od zdí.}
+# PE_CULT_OF_PERSONALITY
+{103401}{}{Implantát: Taktická čipová sada}
+{103402}{}{Vyvinut ke zvyšení vnímání na bojišti}
+# PE_SCROUNGER
+{103411}{}{Počet Implantátů "S.P.E.C.I.A.L"}
+{103412}{}{počet implantátů v tvém těle}
+# PE_EXPLORER
+{103421}{}{Průzkumník}
+{103422}{}{The mark of the Explorer is to search out new and interesting locations.  With this Perk, you ignore half of speed penalties for terrain on the world map.}
+# PE_FLOWER_CHILD
+{103431}{}{Limit bojových implantátů}
+{103432}{}{počet implantátů v tvém těle.}
+# PE_PATHFINDER
+{103441}{}{Průvodce}
+{103442}{}{Průvodce má schopnost nalézt nejratší cestu, která existuje.  S tímto perkem se tvá rychlost cestování po mapě navyšuje o 15%.}
+# PE_ANIMAL_FRIEND
+{103451}{}{Třída: Supermutant}
+{103452}{}{Infekce Forced Evolutionary Virus (FEV). Jsi vyšší, zdatnější a silnější než obyčejný človek, máš zelenou kůži, jsi odolný proti nemocem a radiaci a nadán nadliskou odolností, která zdvojnásobuje tvé body života.}
+# PE_SCOUT
+{103461}{}{Pozorovatel}
+{103462}{}{Získal jsi schopnost dohlédnout i na vzdálenější lokace. Při svých cestách po mapě Falloutu odkrýváš v každém směru o jeden čtverec víc. Máš rovněž větší šanci najít speciální lokace.}
+# PE_MYSTERIOUS_STRANGER
+{103471}{}{Perk třídy: Kyborg}
+{103472}{}{Kyborg je biologický organismus, jehož psychické či mentální schopnosti jsou rozšířeny nad normální omezení využitím elektronických, mechanických či robotických součástek zabudovaných přímo do těla subjektu. Umožňuje překročit běžný limit implantátů.}
+# PE_RANGER
+{103481}{}{Ranger}
+{103482}{}{Díky hromadě času stráveného v pustině jsi se naučil vytořit ty správné předměty a nářadí pro přežití. Odteď namísto stanu získáš Bezpečný dům.}
+# PE_QUICK_POCKETS
+{103491}{}{Puntičkář}
+{103492}{}{Naučil ses lépe uspořádat svoje vybavení, tvá zvýšená hbitost ti umožňuje sebrat a uložit předměty za polovic času.}
+# PE_SMOOTH_TALKER
+{103501}{}{Bavič}
+{103502}{}{Bavič ti dává schopnost zvětšit počet voleb v dialozích.  Každý level tohoto perku zvyšuje tvou INTELIGENCI o +1 (až do výše 10). Ovšem pouze po dobu konverzace s NPC.}
+# PE_SWIFT_LEARNER
+{103511}{}{Bystrý učedník}
+{103512}{}{S tímto perkem jsi opravdu Bystrý učedník, protože každý jeho level ti dává +10% bonus, kdykoliv ve hře obdržíš zkušenostní body.  Čím dřív si perk vezmeš, tím víc se ti pochopitelně zúročí.}
+# PE_TAG
+{103521}{}{Třída: Párač}
+{103522}{}{Párač je termín odkazující na geneticky vytvořená zvířata armádou US k náhradě lidí při bojích zblízka nebo v misích typu najdi a znič. Jako genetický základ protato nejsilnější a nejstrašlivější tvory, jací se kdy v pustině objevili, byl užit obyčejný Jacksonův chameleon.}
+# PE_MUTATE
+{103531}{}{Třída: Lovec odměn}
+{103532}{}{Lovec odměn je postava najímaná k nalezení zločinců, nepřátel či ztracených osob. Co lovec odměn udělá, když svůj cíl najde, závisí na mnoha faktorech bez ohledu na to, zda je to legální či nikoli. Lovci jsou trénovaní k očistě těla, takže nemohou užívat žádné drogy.}
+# PE_PROFESSION_ARMORER
+{103541}{}{Profese: Platnéř}
+{103542}{}{Každodenní masově produkované oblečení není nic pro tebe. Žiješ pro vlastnoruční osobní tvorbu ochranných oděvů.}
+# PE_PROFESSION_GUNSMITH_S
+{103551}{}{Profession: Zbrojíř (Lehké palné zbraně)}
+{103552}{}{Cítíš se, jako by tvůj život bez pistolí, pušek a jejich munice neměl žádný smysl. Využíváš každou šanci k tomu vyrobit něco s čím nebo na co se dá střílet.}
+# PE_PROFESSION_GUNSMITH_B
+{103561}{}{Profese: Gunsmith (Těžké palné zbraně)}
+{103562}{}{Cítíš se, jako by tvůj život bez těžkých palných zbraní a jejich munice neměl žádný smysl. Při každé příležitosti vyrobíš něco, co dá velkou ránu.}
+# PE_PROFESSION_ENERGY_EXPERT
+{103571}{}{Profese: Expert přes energii}
+{103572}{}{Tvůj život má jediný smysl: být mistrem v ovládnutí proudu energie a jejího ukládání. Je skvěleé, že se to dá uplatnit i když se šťouráš v energetických zbraních.}
+# PE_PROFESSION_DEMOLITION_EXPERT
+{103581}{}{Profese: Demoliční expert}
+{103582}{}{Pokud to nedělá BUM, tak to není nic pro tebe. Jsi opravdu posedlý výbušninami.}
+# PE_PROFESSION_DOCTOR
+{103591}{}{Profese: Doktor}
+{103592}{}{Pomáhat lidem, když jsou nemocní nebo zranění je vše, oč se zajímáš. Ušlechtilá profese, vskutku.}
+# PE_PROFESSION_BARMAN
+{103601}{}{Profese: Barman}
+{103602}{}{S takovým talentem nemusíš pít vlastní moč. Nikdy více...}
+# PE_PROFESSION_IRONMASTER
+{103611}{}{Profese: Mistr železa}
+{103612}{}{Kovy a jejich slitiny - máš je v malíčku všechny. Víš, jak je odlítm aby nebyly moc křehké ani moc měkké.}
+# PE_PROFESSION_IRONWORKER
+{103621}{}{Profese: Kovář}
+{103622}{}{Jsi nenahraditelný. Kovařina je dnes velkou vzácností.}
+# PE_PROFESSION_SCOUT
+{103631}{}{Profese: Průzkumník}
+{103632}{}{Na světě není krysí díra, kterou bys nedokázal najít. Otázkou je jen kolik na to budeš potřebovat času.}
+# PE_ADRENALINE_RUSH
+{103801}{}{Nápor adrenalinu}
+{103802}{}{S tímtoperkem získáváš bonus +5% k Odolnosti proti poškození a +1 k Prahu odolnosti  proti poškození za každou čtvrtinu bodů života, které jsi v boji ztratil.}
+# PE_CAUTIOUS_NATURE
+{103811}{}{Opatrná nátura}
+{103812}{}{Jsi velmi opatrný a nepřátelé se k tobě nemohou nepozorovaně příbližit.  S tímto perkem získáš v náhodných setkáních, když se rozhoduje o rozmístění protivníků, +3 ke svému VNÍMÁNÍ.}
+# PE_COMPREHENSION
+{103821}{}{Trída: Kněz}
+{103822}{}{Bojuješ s vírou a milosrdenstvím, každé léčení je zdvojené, ale tvá nosnost je poloviční.}
+# PE_DEMOLITION_EXPERT
+{103831}{}{Demoliční expert}
+{103832}{}{Jsi expert na zacházení s výbušninami. Vždy vybouchnou, když se to od nich žádá, a vždy jsou extra účinné.}
+# PE_GAMBLER
+{103841}{}{Třída: Vyvolený}
+{103842}{}{Máš před sebou velkou misi se spoustou nástrah. Proto získáváš další tři perky a +3 body charisma, ale tvá regenerace zdraví je poloviční.}
+# PE_GAIN_STRENGTH
+{103851}{}{Síla +2}
+{103852}{}{Tento perk ti přidá +2 ke tvé SÍLE.}
+# PE_GAIN_PERCEPTION
+{103861}{}{Vnímání +2}
+{103862}{}{Tento perk ti přidá +2 ke tvému VNÍMÁNÍ.}
+# PE_GAIN_ENDURANCE
+{103871}{}{Odolnost +2}
+{103872}{}{Tento perk ti přidá +2 ke tvé ODOLNOSTI.}
+# PE_GAIN_CHARISMA
+{103881}{}{Charisma +2}
+{103882}{}{Tento perk ti přidá +2 ke tvému CHARISMA.}
+# PE_GAIN_INTELLIGENCE
+{103891}{}{Inteligence +2}
+{103892}{}{Tento perk ti přidá +2 ke tvé INTELIGENCI.}
+# PE_GAIN_AGILITY
+{103901}{}{Hbitost +2}
+{103902}{}{Tento perk ti přidá +2 ke tvé HBITOSTI.}
+# PE_GAIN_LUCK
+{103911}{}{Štěstí +2}
+{103912}{}{Tento perk ti přidá +2 ke tvému ŠTĚSTÍ.}
+# PE_HARMLESS
+{103921}{}{Neviňátko}
+{103922}{}{Tvoje nevinná tvářička ti pomáhá lépe okrádat lidi. Při kradení ztrácíš jen polovinu reputace.}
+# PE_HERE_AND_NOW
+{103931}{}{Třída: Chlapec náhody}
+{103932}{}{Se štěstím nebo bez, celý život je pro tebe jedna velká hra o náhodě.}
+# PE_HTH_EVADE
+{103941}{}{Lepší krytí}
+{103942}{}{Máš-li obě ruce prázdné, získáváš dalších 20 bodů ke své třídě zbroje.}
+# PE_KAMA_SUTRA_MASTER
+{103951}{}{Třída: Voják}
+{103952}{}{Zkušený voják je lepší v každé situaci, i kdyby to mělo být jen o 1%. Všechny vlastnosti navýšeny, ale je zde větší riziko, že budeš sražen k zemi.}
+# PE_KARMA_BEACON
+{103961}{}{Pramen karmy}
+{103962}{}{Tvá karma září zvlášť silně. Ať uděláš cokoliv (dobrého nebo špatného) získáš dvojnásobné množství karmy než normálně.}
+# PE_LIGHT_STEP
+{103971}{}{Lehký krok}
+{103972}{}{Jsi hbitý, opatrný a máš notnou dávku štěstí. Tentoperk snižuje šanci spustit past na polovic.}
+# PE_LIVING_ANATOMY
+{103981}{}{Znalec anatomie}
+{103982}{}{Máš velmi dobrý přehled o anatomii a o silných i slabých stránkách různých druhů živočichů. Při léčení zažíváš více kritických úspěchů a méně kritických neúspěchů, také způsobuješ o 5 bodů větší zranění při útoku na živé tvory.}
+# PE_MAGNETIC_PERSONALITY
+{103991}{}{Magnetická osobnost}
+{103992}{}{Lidé prostě milují, když jsi poblíž. Získáváš 50 bodů k omezení následovníků.}
+# PE_NEGOTIATOR
+{104001}{}{Vyjednávač}
+{104002}{}{Jsi velmi schopný vyjednávač.  Typ o kterém se říká, že "dokáže vymámit z jalové krávy tele". S tímto perkem je i nejhorší reputace považována za neutrální.}
+# PE_PACK_RAT
+{104011}{}{Balič}
+{104012}{}{Umíš si své věci dobře poskládat a uspořádat a to ti umožňuje nosit jich u sebe o něco víc.}
+# PE_PYROMANIAC
+{104021}{}{Pyromaniak}
+{104022}{}{S hořlavinami a zbraněmi založenými na této bázi umíš zvlášť dobře zacházet. Dá se o tobě říct, že "máš oheň v těle". Tvoji nepřátelé ho pak obvykle mívají na těle.}
+# PE_QUICK_RECOVERY
+{104031}{}{Vstaváček}
+{104032}{}{Jsi-li sražen k zemi, umíš se rychle otřepat a vstát. Rocky a Rambo ti můžou jen z dálky závidět!}
+# PE_SALESMAN
+{104041}{}{Třída: Zabiják}
+{104042}{}{Jsi perfektní zabiják, za každé zabití hráče se ti obnoví všechny tvé akční body, za zabití npc však získáš jen pár akčních bodů. Ale zabiják nemá rád, když je sám zabit, oživení proto trvá 5x déle.}
+# PE_STONEWALL
+{104051}{}{Tvrďák}
+{104052}{}{V boji tě jen tak někdo k zemi nesrazí!}
+# PE_THIEF
+{104061}{}{Zloděj}
+{104062}{}{Tvými žilami proudí krev pravého lupiče. Máš šanci štěstí/50 neobdžet žádný časový limit pokud tvá krádež selže.   Luck/50 chance for no timeout when failing to steal.  Dobře zajištěný zloděj, je živý zloděj.}
+# PE_WEAPON_HANDLING
+{104071}{}{Zacházení se zbraněmi}
+{104072}{}{Umíš svoje bouchačky zvlášť dobře ovládat. Kdykoliv manipuluješ se zbraní získáváš ke své SÍLE +2.}
+# PE_VAULT_CITY_TRAINING
+{104081}{}{Třída: Vrah}
+{104082}{}{Jsi schopný zabíjet během plížení bez odhalení, ale poškození se snižuje o 75% pokud se neplížíš.}
+# PE_EXPERT_EXCREMENT
+{104171}{}{Expert Expedice Exkrementů}
+{104172}{}{Přijde-li na kydání hnoje, můžeš se směle postavit po bok těm nejlepším kydačům.}
+# PE_JINXED_II
+{104191}{}{Poznamenaný}
+{104192}{}{The good thing is that everyone around you has more critical failures in combat. The bad thing is that you do too!}
+# PE_TERMINATOR
+{104201}{}{Terminátor}
+{104202}{}{Zapomeň na oochromené končetiny, ztrátu zraku nebo sražení k zemi! Tvá kostra a orgány z titanové slitiny se nepoškodí, ani pokud přes tebe přejede tank. Všechny kritické zásahy ignorovány.}
+# PE_TREE_TRUNK_THIGHS        (421)
+{104211}{}{Stehna jako kmen stromu}
+{104212}{}{Máš extrémně velké nohy. Dokážeš ustát rány, které by jiného porazily k zemi.}
+# PE_IRON_GRIP                (422)
+{104221}{}{Končetiny ze železa}
+{104222}{}{Zbraň budou muset vyrvat z rukou tvé mrtvoly, pokud tě vůbec dostanou. Je menší šance, že přijdeš v boji o zbraň nebo že utrpíš ochromující zásah končetiny.}
+# PE_MAN_OF_STEEL             (423)
+{104231}{}{Muž ze Železa}
+{104232}{}{Jsi tvrdý, jak jen to jde. Kritické zásahy tě neovlivňují tak jako ostatní.}
+# PE_EVEN_MORE_CRITICALS       (424)
+{104241}{}{Ještě více kritických zásahů}
+{104242}{}{Pokud máš tento perk, máš větší šanci způsobit v boji soupeři kritický zásah. Získách +10% k šanci na kritický zásah.}
+# PE_RIGHT_BETWEEN_THE_EYES   (425)
+{104251}{}{Přímo mezi oči}
+{104252}{}{Jsi schopný trefit cíl s neuvěřitelnou přesností! Přilba cíle přitom nehraje žádnou roli!}
+# PE_FAST_RELOAD              (426)
+{104261}{}{Rychlé dobíjení}
+{104262}{}{Jsi schopen dobít zbraň velmi rychle. Stojí tě to jen 1 akční bod.}
+# PE_SPRAY_AND_PRAY           (427)
+{104271}{}{Krop a modli se}
+{104272}{}{Když svůj cíl zasypeš kulkami... některá už si nechráněné místo najde. Ignoruješ Kritický Modifikátor zbroje cíle.}
+# PE_MORE_RANGED_DAMAGE       (428)
+{104281}{}{Více škody z dálky}
+{104282}{}{Tvůj pokročilý trénink se střelnými a zvláště dalekonosnými zbraněmi tě učinil ještě více smrtícím v boji z dálky. Způsobuješ o +3 bodů zranění více se zbraněmi na dálku.{}
+# PE_LIVEWIRE                 (429)
+{104291}{}{Pod proudem}
+{104292}{}{Naučil ses využívat svou přebytečnou energii a v bitvě jsi jako šmouha. Zdvojený bonus k třídě zbroje z Hbitosti v bitvě.}
+# PE_GECKO_SKINNING
+{104301}{}{Stahovač Geckonů}
+{104302}{}{Víš, jak správně stáhnout geckona, aby se nepoškodila jeho kůže.}
+# PE_VAULT_CITY_INOCULATIONS
+{104311}{}{Očkování z Vault City}
+{104312}{}{Získal jsi +10% bonus k odolnosti proti jedům a radiaci.}
+# PE_DERMAL_IMPACT
+{104321}{}{Implantát: Podkožní nárazová zbroj}              #pokračovat
+{104322}{}{Poskytuje zvýšenou ochranu před fyzickými útoky.}
+# PE_DERMAL_IMPACT_ENH
+{104331}{}{Implantán: Podkožní útočné vylepšení}
+{104332}{}{Poskytuje vylepšenou ochranu před fyzickými útoky.}
+# PE_PHOENIX_IMPLANTS
+{104341}{}{Implantát: Zbrojový implantát Fénix}
+{104342}{}{Poskytuje zvýšenou ochranu před energetickými útoky.}
+# PE_PHOENIX_IMPLANTS_ENH
+{104351}{}{Implantát: Útočné vylepšení Fénix}
+{104352}{}{Poskytuje vylepšenou ochranu před energetickými útoky.}
+# PE_HTH_EVADE_II             (436)
+{104361}{}{Úhyb+ v boji beze zbraně}
+{104362}{}{Pokud jsou obě tvé ruce prázdné získáváš +40 bodů k třídě zbroje.}
+# PE_DODGER_II                (437)
+{104371}{}{Mrštný+}
+{104372}{}{S tímt operkem je ještě těžší zasáhnout tě v boji. Získáváš +40 k tvé třídě zbroje.}
+# PE_EVEN_TOUGHER             (438)
+{104381}{}{Ještě houževnatější}
+{104382}{}{Jelikoš jsi ještě houževnatější, je méně pravděpodobné, že utrpíš zranění. Získáváš +10% k Odolnosti proti poškození a +3 k prahu poškození.}
+# PE_HEALER_II                (439)
+{104391}{}{Zabiják ohnivých geckonů}
+{104392}{}{Způsobuješ vyšší poškození ohnivým geckonům (pouze NPC)}
+# PE_BLESSED_ARE_THE_WEAK     (440)
+{104401}{}{Zabiják floaterů}
+{104402}{}{Způsobuješ vyšší poškození floaterům (pouze NPC)}
+# PE_NIGHT_PERSON             (441)
+{104411}{}{Třída: Vůdce}
+{104412}{}{Umožňuje ti umístit vlajku, která přidává všem lidem z tvé frakce bonus,ale tento bonus se tobě odečítá.}
+# PE_MELT_INTO_SHADOW         (442)
+{104421}{}{Ničitel robotů}
+{104422}{}{Způsobuješ vyšší poškození robotům (pouze NPC)}
+# PE_BONUS_HTH_DAMAGE_II      (443)
+{104431}{}{Více kritických úderů v boji zblízka}
+{104432}{}{Mistrovství v boji beze zbraně ti dává výhodu, když příjde na způsobení zranění v boji zblízka. Získáváš +15% šanci na kritický úder při boji beze zbraně nebo v boji s chladnými zbraněmi.}
+# PE_IN_YOUR_FACE             (444)
+{104441}{}{Přímo do ksichtu!}
+{104442}{}{Při blízkém kontaktu působí tvá postava velmi zastrašujícím dojmem, což podvědomě nutí ostatní přikrčit se. Nepřítel má 50% šanci tě minou, stojí-li na poli vedle tebe.}
+# PE_HIT_THE_GAPS             (445)
+{104451}{}{Zásah do mezery}
+{104452}{}{Jsi expertem v zásazích do slabých míst brnění. Kritický modifikátor zbroje je snížen o 50%}
+# PE_HTH_CRITICALS            (446)
+{104461}{}{Lepší kritické zásahy v boji zblízka}
+{104462}{}{Kritické údery, které způsobíš při boji z blízka jsou silnější. Získáváš bonus 25 bodů v tabulce kritických zásahů. To neovliňuje tvou šanci na způsobení kritického zásahu.}
+# PE_HEAVE_HO_II              (447)
+{104471}{}{Zabiják kentaurů}
+{104472}{}{Způsobuješ vyšší poškození kentaurům (pouze NPC)}
+# PE_JUNK_MERCHANT            (448)
+{104481}{}{Zabiják páračů}
+{104482}{}{Způsobuješ vyšší poškození  páračům (pouze NPC)}
+# PE_BULK_TRADER              (449)
+{104491}{}{Vražda}
+{104492}{}{Způsobuješ vyšší poškození lidem (pouze NPC)}
+# PE_PARAMEDIC             (450)
+{104501}{}{Záchranář}
+{104502}{}{Tento perk vypíná časové omezení použití schopností První pomoc a Doktor. Taktéž umožňuje hráči oživit mrtvé postavy. Nicméně způsobuješ pouze poloviční poškození.}
+# PE_BORN_LEADER              (451)
+{104511}{}{Zabiják mutantů}
+{104512}{}{Způsobuješ vyšší poškození mutantům (pouze NPC)}
+# PE_TRAPPER                  (452)
+{104521}{}{Ochránce Země}
+{104522}{}{Způsobuješ vyšší poškození alienům (pouze NPC)}
+# PE_HAND_LOADER              (453)
+{104531}{}{Polo-průvodce}
+{104532}{}{Jako průvodce jsi přeborník v nalézání zkratek v terénu.S tímto perkem se tvá rychlost cestování po mapě světa zrychluje o 5%.}
+# PE_STEALTH_GIRL             (454)
+{104541}{}{Neviditelná dívka}
+{104542}{}{Tvé intuitivní chápání fungování Stealth Boy ti umožňuje tato zařízení užívat po dvojnásobnou dobu.}
+# PE_BEST_OF_A_BAD_LOT        (455)
+{104551}{}{Nejlepší z vadné várky}
+{104552}{}{Jsi přeborník v záchraně vybavení, které je hraně rozpadu. Kondice všech předmětů horší než 15% se pro účely opravy počítá za 15%.}
+# PE_DISMANTLER               (456)
+{104561}{}{Rozebírač}
+{104562}{}{Jsi typem osoby, které vždycky zbudou náhradní šroubky po rozebrání a opětovném složení zařízení. Při rozebrání předmětů získáváš dvojnásobek obvyklého množství surovin.}
+# PE_VIGILANT_RECYCLER        (457)
+{104571}{}{Mini houževnatost}
+{104572}{}{Zvyšuje tvou odolnost v boji proti NPC}
+# PE_RETENTION                (458)
+{104581}{}{Silná záda - mini}
+{104582}{}{Uneseš o 5kg vybavení více.}
+# PE_TREASURE_HUNTER          (459)
+{104591}{}{Lovec pokladů}
+{104592}{}{Jsi neobyčejně schopný, co se týče nálezů dávno ztracených cenností. Při  náhodnýchsetkáních nacházíš ve skříňkách bohatší obsah.}
+# PE_LOCKPICK_PERK_2          (460)
+{104601}{}{Malý bonus ke škodě na dálku}
+{104602}{}{Tvé poškození vůči NPC v boji na dálku se zvyšuje o 1}
+# PE_DEAD_MAN_WALKING         (461)
+{104611}{}{Chodící mrtvole}
+{104612}{}{Stejně jako u Rasputina, je horší tě dorazit. Tvé body života mohou dosáhnout dvojité záporné hodnoty než opravdu zemřeš.}
+# PE_NEMEAN_ARMOR             (462)
+{104621}{}{Implantát: Zbroj Nemean}
+{104622}{}{Byl navržen tak, aby poskytoval zvýšenou odolnost proti poškození posílením kožních buněk uživatele železem.}
+# PE_IMP_STRENGTH             (463)
+{104631}{}{Implantát: Hypertrofický akcelerátor}
+{104632}{}{Je navržen tak, aby posílil svalovou hmotu osoby, ve které je nainstalován, tím, že funguje jako automatický dávkovač steroidů a nutí tělo, aby vytvořilo velké množství svalové hmoty.}
+# PE_IMP_PERCEPTION           (464)
+{104641}{}{Implantát: Optický zesilovač}
+{104642}{}{Je navržen tak, aby zlepšoval zrak osoby a dohled uživatele implantátu.}
+# PE_IMP_ENDURANCE            (465)
+{104651}{}{Implantát: Nociception Regulátor}
+{104652}{}{Je určen ke zlepšení senzorických receptorů v těle, které detekují potenciálně škodlivé podněty (jako je tlak nebo teplo) a posílají nervové signály do mozku a míchy.}
+# PE_IMP_CHARISMA             (466)
+{104661}{}{Implantát: Syntetizátor empatie}
+{104662}{}{Je navržen tak, aby předvídal možné reakce ostatních lidí a navrhoval další postup svému uživateli.}
+# PE_IMP_INTELLIGENCE         (467)
+{104671}{}{Implantát: Logický Co-processor}
+{104672}{}{Je navržen tak, aby zlešil logické myšlení osoby, v níž je nainstalován, a to prostřednictvím propočtu možných důsledků jejího jednání, čímž pomáhá řešit problémy a činit ta správná rozhodnutí.}
+# PE_IMP_AGILITY              (468)
+{104681}{}{Implantát: Posilovač reflexů}
+{104682}{}{Je navržen tak, aby posiloval reakční dobu nositel, tím, že vede proud v nervové soustavě a posílá impulsy do oblasti, kde je jich třeba.}
+# PE_IMP_LUCK                 (469)
+{104691}{}{Implantát: Kalkulátor převděpodobnosti}
+{104692}{}{Byl navržen tak, aby pomohl osobě, v níž je nainstalován, provedením rychlého výpočtu šance na každou pravděpodobnou variantu, která by mohla nastat. To uživateli umožňuje vybrat to nejlepší řešení v každé situaci.}
+# PE_IMP_LUCK                 (470)
+# 104700
+# ADDICTION_NUKA_COLA, addictions
+{104701}{}{Závislost na Nuka-Cole}
+{104702}{}{Potřebuješ další Nuka-Colu.}
+# ADDICTION_BUFFOUT, addictions
+{104711}{}{Závislost na Buffoutu}
+{104712}{}{Celý se třeseš.}
+# ADDICTION_MENTATS, addictions
+{104721}{}{Závislost na Mentats}
+{104722}{}{Je ti nanic.}
+# ADDICTION_PSYCHO, addictions
+{104731}{}{Závislost na Psychu}
+{104732}{}{Motá se ti hlava.}
+# ADDICTION_RADAWAY, addictions
+{104741}{}{Závislost na Radaway}
+{104742}{}{Zvedá se ti žaludek.}
+# ADDICTION_JET, addictions
+{104751}{}{Závislost na Jetu}
+{104752}{}{Všechno se pohybuje tak pomalu... potřebuješ si vzít další Jet, teď HNED!}
+# ADDICTION_TRAGIC, addictions
+{104761}{}{Závislost na Tragicu}
+{104762}{}{Cítíš spalující touhu otevřít další balíček karet Tragicu.}
+# ADDICTION_CIGARETTES, addictions
+{104771}{}{Závislost na tabáku}
+{104772}{}{Toužíš po další cigaretě.}
+# ADDICTION_CIGARETTES, addictions
+{104781}{}{Závislost na alkoholu}
+{104782}{}{Tvé tělo si žádá více alkoholu... A ještě víc.. A ještě...}
+# ADDICTION_CIGARETTES, addictions
+{104791}{}{Závislost na Léčivém prášku}
+{104792}{}{Ten prášek z tebe dělá šílence, ale stále chceš další jako by to byl brufen}
+# ADDICTION_CIGARETTES, addictions
+{104801}{}{Závislost na After Burner Gum}
+{104802}{}{Celý hoříš.}
+# ADDICTION_CIGARETTES, addictions
+{104811}{}{Závislost na Mutie}
+{104812}{}{Milujeme tě za to jaký jsi, i když vypadáš jako mutant.}
+# ADDICTION_CIGARETTES, addictions
+{104821}{}{Závislost na Voodoo}
+{104822}{}{Když trpíš závislosti na voodoo, trpíš o to víc.}
+
+# 104800
+# KARMA_BERSERKER
+{104831}{}{Berserk}
+{104832}{}{Zabil jsi spoustu lidí. A to není moc dobrý způsob, jak se proslavit. Lidé z podsvětí si tě ale váží a respektují tě.}
+# KARMA_CHAMPION
+{104841}{}{Šampión}
+{104842}{}{Tvé činy z tebe udělaly v očích lidí šampiona. Tvůj boj se zlem a hanebností je všeobecně známý. Čestní lidé si tě váží a uznávají tě.}
+# KARMA_CHILDKILLER
+{104851}{}{Vrah dětí}
+{104852}{}{Zabíjíš děti, no a co? Koho to zajímá? To se stává, i děcka umírají. Aspoň je o pár otravných harantů míň.}
+# KARMA_SEXPERT
+{104861}{}{Posedlost sexem}
+{104862}{}{Toužíš po stále nových sexuálních zážitcích. Jsi ochotná spát s čímkoliv, co má dvě nohy. A čas od času ti počet dolních končetin přijde jako nechutně diskriminující faktor.}
+# KARMA_PRIZEFIGHTER
+{104871}{}{Vítěz ringu}
+{104872}{}{Jsi šampiónem ringu ve Ztracené čtvrti. Postavit se dobrovolně holýma rukama proti zabijáckým zvířatům ti v Seditu vyneslo pověst nejdrsnějšího bijce a zároveň největšího šílence.}
+# KARMA_GRAVE_DIGGER
+{104881}{}{Vylupovač hrobů}
+{104882}{}{"Jsou mrtví, tak jim to může být ukradené" zní tvé heslo. Vykopávání mrtvol je pro tebe už něčím víc než jen koníčkem.}
+# KARMA_MARRIED
+{104891}{}{Manžel}
+{104892}{}{Nechal ses dotáhnout k oltáři. Nekoukej se tak, to je tvůj problém, ne náš.}
+# KARMA_PORN_STAR
+{104901}{}{Pornohvězda}
+{104902}{}{Jsi veliká a zářivá hvězda domácího videa. Tvoje sexuální výkony plus tvar a velikost tvých pohlavních orgánů jsou známé v celém New Reno.}
+# KARMA_SLAVER
+{104911}{}{Otrokář}
+{104912}{}{Byl jsi označen jako člen Gildy otrokářů. Máš na čele tetování a tak každý, kdo tě potká, ví hned, s kým má tu čest.}
+# KARMA_VIRGIN_WASTES
+{104921}{}{Pouštní panic}
+{104922}{}{No, opravdu by sis měl některé věci asi trochu víc procvičit. Tvoje sexuální výkony byly mírně řečeno... neuspokojivé.}
+# KARMA_MAN_SALVATORE
+{104931}{}{Člen rodiny Salvatorů}
+{104932}{}{si váženým členem Rodiny Salvatorů. Každý tě zná, každý tě respektuje a v tom klobouku vypadáš zatraceně dobře.}
+# KARMA_MAN_BISHOP
+{104941}{}{Člen rodiny Bishopů}
+{104942}{}{si váženým členem Rodiny Bishopů. Každý tě zná, každý tě respektuje a v tom klobouku vypadáš zatraceně dobře.}
+# KARMA_MAN_MORDINO
+{104951}{}{Člen rodiny Mordino}
+{104952}{}{Jsi váženým členem Rodiny Mordino. Každý tě zná, každý tě respektuje a v tom klobouku vypadáš zatraceně dobře.}
+# KARMA_MAN_WRIGHT
+{104961}{}{Člen rodiny Wrightů}
+{104962}{}{Jsi váženým členem Rodiny Wrightů. Každý tě zná, každý tě respektuje a v tom klobouku vypadáš zatraceně dobře.}
+# KARMA_SEPARATED
+{104971}{}{Rozvedený}
+{104972}{}{Tvá druhá polovička už s tebou není. Doufám, že jsi šťastný..}
+# KARMA_SLAVER
+{104981}{}{Ranger}
+{104982}{}{Nesnášíš otrokáře a zasvětil jsi život osvobozování otroků!}
+# 105000
+# DAMAGE_POISONED, damages
+{105001}{}{Otrava}
+{105002}{}{Tvá postava byla otrávena. Jed tě bude v pravidelných intervalech zraňovat, dokud se nevyléčíš nebo dokud se nedostane z tvého oběhového systému.}
+# DAMAGE_RADIATED, damages
+{105011}{}{Ozáření}
+{105012}{}{Tvá postava trpí nemocí z ozáření. Čím víc radiace, tím smrtící jsou účinky.}
+# DAMAGE_EYE, damages
+{105021}{}{Poškození očí}
+{105022}{}{Tvá postava byla vážně zasažena do jednoho nebo obou očí. To má negativní vliv na tvé VNÍMÁNÍ. Tvá přesnost v boji se výrazně sníží.}
+# DAMAGE_RIGHT_ARM, damages
+{105031}{}{Chromá pravá ruka}
+{105032}{}{Tvá pravá ruka je vážně zraněna. Pokud máš zraněnou jednu ruku, nemůžeš používat obouruční zbraně. Pokud obě, nemůžeš používat žádnou zbraň.}
+# DAMAGE_LEFT_ARM, damages
+{105041}{}{Chromá levá ruka}
+{105042}{}{Tvá levá ruka je vážně zraněna. Pokud máš zraněnou jednu ruku, nemůžeš používat obouruční zbraně. Pokud obě, nemůžeš používat žádnou zbraň.}
+# DAMAGE_RIGHT_LEG, damages
+{105051}{}{Chromá pravá nova}
+{105052}{}{Tvá pravá noha je vážně zraněna.}
+# DAMAGE_LEFT_LEG, damages
+{105061}{}{Chromá levá noha}
+{105062}{}{Tvá levá noha je vážně zraněna.}
+
+
+####################################################################################################################################
+#
+#       Traits (with TRAIT.MSG)
+#
+####################################################################################################################################
+
+# 105500
+# TRAIT_FAST_METABOLISM
+{105501}{}{Rychlý metabolismus}
+{105502}{}{Tvoje látková výměna je dvakrát rychlejší než u normálních lidí. To znamená, že se uzdravuješ každých 10 vteřin, ale přirozená imunita proti jedům a radiaci je nulová. Efekty drog trvají poloviční dobu.}
+# TRAIT_BRUISER
+{105511}{}{Rváč}
+{105512}{}{Trochu pomalejší, ale trochu mohutnější. Možná svého soupeře až tak často nezasáhneš, ale když ano, tak to setsakramentsky pocítí! Rychlost pohybu je snížena, ale tvá Síla je navýšena. Také působíš mnohem více zranění v boji nablízko.}
+# TRAIT_SMALL_FRAME
+{105521}{}{Mrňous}
+{105522}{}{Nejsi tak urostlý jako ostatní lidé, ale to tě nikdy netrápilo. Neuneseš sice moc nákladu, zato jsi hbitější.}
+# TRAIT_ONE_HANDER
+{105531}{}{Jednoruký}
+{105532}{}{edna z tvých rukou je neobvykle dominantní. Exceluješ s jednoručními zbraněmi, zato ovládání dvouručních ti dělá problémy.}
+# TRAIT_FINESSE
+{105541}{}{Finesa}
+{105542}{}{Tvoje útoky vykazují velkou míru šikovnosti. Nezpůsobuješ soupeřům až tolik poškození, zato se ti častěji podaří kritický zásah.}
+# TRAIT_KAMIKAZE
+{105551}{}{Kamikaze}
+{105552}{}{Protože nebereš ohled na případné nebezpečí, můžeš v boji mnohem rychleji reagovat.  To snižuje tvou odolnosti proti poškození, ale zvyšuje způsobené škody o 10%.}
+# TRAIT_HEAVY_HANDED
+{105561}{}{Těžká ruka}
+{105562}{}{To, že umíš udeřit tvrději, neznamená, že to děláš lépe. Tvé útoky se vyznačují velkou brutalitou, ale postrádají obratnost. Jen málokdy se ti podaří kritický zásah, ale vždy naděláš hodně škody. V boji zblízka máš navíc šanci srazit svého nepřítele k zemi.}
+# TRAIT_FAST_SHOT
+{105571}{}{Rychlostřelec}
+{105572}{}{Nemáš čas na to, abys pečlivě zaměřil svůj útok, protože útočíš rychleji než druzí.  Na druhou stranu tě používání palných a vrhacích zbraní stojí o jeden akční bod méně. Bohužel to také snižuje sílu kritických zásahů.}
+# TRAIT_BLOODY_MESS
+{105581}{}{Krvák}
+{105582}{}{Nějakým podivným řízením osudu lidé kolem tebe umírají násilně.  Vždy uvidíš ten nejhorší možný způsob, jakým mohou ostatní zemřít. Za každé zabití se ti doplní část tvých akčních bodů.}
+# TRAIT_JINXED
+{105591}{}{Poznamenaný}
+{105592}{}{Ta dobrá zpráva je, že všem okolo tebe v boji častěji něco selže. Ta špatná zpráva je, že se to stává i tobě!}
+# TRAIT_GOOD_NATURED
+{105601}{}{Dobrák}
+{105602}{}{Vyzařuje z tebe pozitivní aura. Lidé jsou ochotnější následovat tě, ale nemůžeš vlastnit žádné otroky.}
+# TRAIT_CHEM_RELIANT
+{105611}{}{Narkoman}
+{105612}{}{Snadněji se stáváš závislým na chemikáliích.  Všechny závislosti na drogách jsou trvalé, ale efekty drog trvají dvojnásobnou dobu.}
+# TRAIT_CHEM_RESISTANT
+{105621}{}{Kanibal}
+{105622}{}{}
+# TRAIT_BONEHEAD
+{105631}{}{Pitomec}
+{105632}{}{Silnější a tvrdší lebka znamená, že můžeš ustát zásahy do hlavy, které by jiného porazily. Na druhou stranu to uvnitř nenechalo dost místa na jiné věci, jako je třeba mozek.}
+# TRAIT_SKILLED
+{105641}{}{Talentovaný}
+{105642}{}{Máš více vrozených schopností než ostatní. Tvoje základní vlastnosti budou každá navýšena o 1, ale dostáváš mnohem méně dovednostních bodů za dosažení nové úrovně.}
+# TRAIT_LONER
+{105651}{}{Samotář}
+{105652}{}{Máš radši přírodu než společnost dalších lidí. Získáváš o 10% víc zkušeností, ale nemůžeš mít žádného následovníka.}
+# TRAIT_GIFTED
+{105661}{}{Gifted}
+{105662}{}{You have more innate abilities than most, so you have not spent as much time honing your skills.  Your primary statistics are each +1, but you lose -10% on all skills to start, and receive 5 less skill points per level.}
+
+######################
+#
+# Reputation groups
+#
+######################
+
+# REPUTATION_UNKNOWN
+{106001}{}{Should not be visible.}
+# REPUTATION_NONE
+{106011}{}{Should not be visible.}
+# REPUTATION_BOS
+{106021}{}{Brotherhood of steel}
+# REPUTATION_ENCLAVE
+{106031}{}{The Enclave}
+# REPUTATION_UNITY
+{106041}{}{The Unity}
+# REPUTATION_NCR
+{106051}{}{New California Republic}
+# REPUTATION_VAULT_CITY
+{106061}{}{Citizens of Vault City}
+# REPUTATION_RAIDERS
+{106071}{}{Raiders}
+# REPUTATION_MORDINOS
+{106081}{}{Mordino Family}
+# REPUTATION_SLAVERS_GUILD
+{106091}{}{Slaver's Guild}
+# REPUTATION_SLAGS
+{106101}{}{The Slags}
+# REPUTATION_KOKOWEEF
+{106111}{}{Kokoweef Mine}
+# REPUTATION_MORNINGSTAR
+{106121}{}{Morningstar Mine}
+# REPUTATION_BH_HUMANS
+{106131}{}{Broken Hills Humans}
+# REPUTATION_BH_MUTANTS
+{106141}{}{Broken Hills Mutants}
+# REPUTATION_WRIGHTS
+{106151}{}{Wright Family}
+# REPUTATION_BISHOPS
+{106161}{}{Bishop Family}
+# REPUTATION_SALVATORES
+{106171}{}{Salvatore Family}
+# REPUTATION_NCR_RANGERS
+{106181}{}{NCR Rangers}
+# REPUTATION_VORTIS_SLAVERS
+{106191}{}{Vortis' Slavers}
+# REPUTATION_COMMUNISTS
+{106201}{}{Communists}
+# REPUTATION_VAGRANTS
+{106211}{}{Tanker Vagrants}
+# REPUTATION_CRYPTS
+{106221}{}{Crypts}
+# REPUTATION_FOOLS
+{106231}{}{Fools}
+# REPUTATION_HUB_CRIMINALS
+{106241}{}{Hub Criminals}
+# REPUTATION_CRIMSON_CARAVANS
+{106251}{}{Crimson Caravans}
+# REPUTATION_FARGO_TRADERS
+{106261}{}{Far Go Traders}
+# REPUTATION_WATER_MERCHANTS
+{106271}{}{Water Merchants}
+# REPUTATION_HEIGHTS
+{106281}{}{The Heights Residents}
+# REPUTATION_REGULATORS
+{106291}{}{Regulators}
+# REPUTATION_SCAVENGERS
+{106301}{}{LA Scavengers}
+# REPUTATION_GUNRUNNERS
+{106311}{}{Gun Runners}
+# REPUTATION_FOLLOWERS
+{106321}{}{Followers of the Apocalypse}
+# REPUTATION_BOUNTY_HUNTERS
+{106331}{}{Bounty Hunters}
+# REPUTATION_FREE_TRADERS
+{106341}{}{Free Traders}
+# REPUTATION_GUTTERSNIPES
+{106351}{}{Guttersnipes}
+# REPUTATION_FLC
+{106361}{}{FLC}
+# REPUTATION_SLAVES
+{106371}{}{Slaves}
+# REPUTATION_LARAS_GANG
+{106381}{}{Lara's Gang}
+# REPUTATION_CHILDREN
+{106391}{}{Children of the Cathedral}
+# REPUTATION_NR_PIMPS
+{106401}{}{New Reno Sex Workers}
+# REPUTATION_ELRONOLOGISTS
+{106411}{}{Hubologist}
+# REPUTATION_CATHEDRAL
+{106421}{}{Cathedral of the Lost}
+# REPUTATION_CORSICAN_BROTHERS
+{106431}{}{New Reno Corsican Brothers}
+# REPUTATION_KLAMATH
+{106801}{}{Klamath Citizens}
+# REPUTATION_DEN
+{106811}{}{Den Citizens}
+# REPUTATION_MODOC
+{106821}{}{Modoc Citizens}
+# REPUTATION_COURTYARD
+{106831}{}{Courtyard Citizens}
+# REPUTATION_GECKO
+{106841}{}{Gecko Ghouls}
+# REPUTATION_REDDING
+{106851}{}{Redding Citizens}
+# REPUTATION_BH_GHOULS
+{106861}{}{Broken Hills Ghouls}
+# REPUTATION_NEW_RENO
+{106871}{}{Population of New Reno}
+# REPUTATION_NECROPOLIS
+{106881}{}{Necropolis Ghouls}
+# REPUTATION_JUNKTOWN
+{106891}{}{Junktown Citizens}
+# REPUTATION_HUB
+{106901}{}{Hub Citizens}
+# REPUTATION_LA
+{106911}{}{LA Citizens}
+# REPUTATION_VEGAS
+{106921}{}{Las Vegas Citizens}
+# REPUTATION_SALTLAKE
+{106931}{}{Salt Lake Citizens}
+# REPUTATION_CARPENTER
+{106941}{}{Carpenter & Steel Inc.}
+# REPUTATION_REPEX
+{106951}{}{RepEx: NCR Services}
+# REPUTATION_BRAHMIN_FARMS
+{106961}{}{Brahmin Farms}
+# REPUTATION_MARIPOSA_MUTANTS
+{106971}{}{Mutants from Mariposa}
+# REPUTATION_AREA51_SYSTEM
+{106981}{}{Area 51 Secure System}
+# REPUTATION_ARMY_OF_HAWTHORNE
+{106991}{}{Army of Hawthorne}
+
+####################
+#
+# 3d attributes
+#
+####################
+
+# Skin
+{150000}{}{White 1}
+{150001}{}{White 2}
+{150002}{}{White 3}
+{150003}{}{Black 1}
+{150004}{}{Black 2}
+{150005}{}{Black 3}
+{150006}{}{Brown 1}
+{150007}{}{Brown 2}
+{150008}{}{Brown 3}
+{150009}{}{Red 1}
+{150010}{}{Red 2}
+{150011}{}{Red 3}
+{150012}{}{Tan 1}
+{150013}{}{Tan 2}
+{150014}{}{Tan 3}
+{150015}{}{Yellow 1}
+{150016}{}{Yellow 2}
+{150017}{}{Yellow 3}
+
+# Hair male
+{157010}{}{Afro}
+{157020}{}{Bald} #short hair, bald is missing.
+{157030}{}{Bowl}
+{157040}{}{Crown}
+{157050}{}{Greaser}
+{157060}{}{Long}
+{157070}{}{Military}
+{157080}{}{Mohawk}
+{157090}{}{Ponytail}
+{157100}{}{Shaggy}
+{157110}{}{Short}
+{157120}{}{Shoulder}
+
+# Hair female
+{157210}{}{Afro}
+{157220}{}{Frizzy}
+{157230}{}{Beehive}
+{157240}{}{Betty Page}
+{157250}{}{Bob}
+{157260}{}{Bun}
+{157270}{}{Chin}
+{157280}{}{Flip}
+{157290}{}{Bald}
+{157300}{}{Long}
+{157310}{}{Mohawk}
+{157320}{}{Ponytail}
+{157330}{}{Pulled}
+{157340}{}{Short}
+
+# Mustache male
+{159000}{}{None}
+{159010}{}{Full}
+{159020}{}{Fu Manchu}
+{159030}{}{Goatee}
+{159040}{}{Guvner}
+{159050}{}{Handlebar}
+{159060}{}{Hermit}
+{159070}{}{Mutton}
+{159080}{}{Small}
+{159090}{}{Stubble}
+
+# Mustache generic
+{159200}{}{Mad Max}
+
+# Ponytail
+{160000}{}{None}
+{160010}{}{Ponytail 1}
+{160020}{}{Ponytail 2}
+
+# Beard male
+{161000}{}{None}
+{161010}{}{Amish}
+{161020}{}{Full}
+{161030}{}{FuManchu}
+{161040}{}{Goatee}
+{161050}{}{Guvner}
+{161060}{}{Hermit}
+{161070}{}{Stubble}
+
+# Hair colors
+{199999}{}{Hair Color}
+{200000}{}{Brown}
+{200001}{}{Grey Brown}
+{200002}{}{Black}
+{200003}{}{Grey Black}
+{200004}{}{White}
+{200005}{}{Grey White}
+{200006}{}{Blonde}
+{200007}{}{Grey Blonde}
+{200008}{}{Red}
+{200009}{}{Grey Red}
+
+# Body types
+{300200}{}{Normal}
+{300201}{}{Wiry}
+{300202}{}{Strong}
+{300203}{}{Fat}
+
+####################################################################################################################################
+#
+#       Misc2 values names (100000 + pid*10 + number of val)
+#
+####################################################################################################################################
+
+{1001000}{}{Çŕđ˙ä}
+{1001001}{}{}
+{1001002}{}{}
+
+####################################################################################################################################
+#
+#       Intellect words
+#
+####################################################################################################################################
+
+{1999000000}{}{
+
+}
+
+{1999000001}{}{
+
+}
+
+####################################################################################################################################
+#
+#       Help
+#
+####################################################################################################################################
+
+# F7 - zobrazení jména npc vypnuto/zapnuto.
+# F9 - zobrazení ukazatele bodu zdraví vypnuto/zapnuto
+
+{2000000000}{}{
+Hot keys:
+
+F1 - Nápověda zapnuto/vypnuto.
+F2 - Uloží obsah chatového okna do souboru.
+F3 - Pořídí snímek obrazovky.
+F4 - Přepínání zobrazení herního rozhraní.
+F5 - Rozšíření chatového okna.
+F6 - Zobrazení jmen hráčů zapnuto/vypnuto.
+F8 - Blokace posunu obrazovky myší (při hře v okně).
+F10 - Přepínání zobrazení hranic zóny kontroly města.
+Shift + F10 - Přepínání zpráv při Kontrole Měst.
+F11 - Přepínání režimu celé obrazovky a zobrazení v okně.
+F12 - Minimalizuje klienta.
+Smerové šipky - posun po obrazovce.
+Esc - Menu.
+Pause/Break - automatická změna jazyka v příkazovém řádku.
+ScrollLock - Vycentruje obrazovku na umístění postavy.
+<,> - Otáčení postavy po a proti směru hodinových ručiček.
+Home - Vycentrování na lokaci s postavou na globální mapě.
+A - Zaútočit (vyvolá zaměřovač).
+C - Zobrazení charakteristik postavy.
+G - Seber předmět ze země.
+I - Inventář.
+P - Pipboy.
+F - Fixboy.
+B - Přepínání mezi předměty v rukou.
+M - Přepnout menu myši.
+N - Přepínání mezi módy předmětů.
+S - Skilldex (seznam skillů pro rychlé použití).
+Z - Přiblížení mapy (ovládání kolečkem myši).
+T - Zobraz týmové informace.
+Q - Zobrazení hranice dohledu.
+W - Zobrazení hranice dosahu zbraně.
+1-8 - Rychlé použití skillů.
+? - Aktuální herní čas.
++,- - Úprava jasu.
+Ctrl + +,- - Úprava zvuku.
+Shift + +,- - Úprava hudby.
+Alt + +,- - Úprava spánku.
+
+Vybrané příkazy pro chatové okno:
+~combatmode rt/tb/both
+~invite player*name
+~accept faction_id
+~cb X
+~myinfo
+~factioninfo
+~ffn
+~cmd
+
+}
+
+####################################################################################################################################
+#
+#       Credits
+#
+####################################################################################################################################
+
+# # == "|0xff8c8c84 "
+# @ == "|0xff706050 "
+# normal == "|0xff907824 "
+
+{2000001000}{}{20} # Speed
+{2000001010}{}{
+|0xff8c8c84 FOnline 3
+|0xff907824 I BURST DEV-TEAM
+
+Special thanks to
+FOnline: Aftertimes
+FOnline: Desert Europe
+FOnline: Reloaded
+FOnline: TLA MKII
+and
+FOnline: 2238
+dev teams
+for sharing
+the sources
+
+|0xff706050 Developers:
+|0xff907824 KompreSor
+Commisar Vinet
+Wezu
+
+|0xff706050 Supporters:
+|0xff907824 Armored Figure
+Atticus
+Awgan
+Black Window
+Buozius
+Ceci
+Doctor Mengelito
+Donnie Darko
+Equaa
+Evil
+Fantatic
+Fargust
+Fored
+General Oliver
+Gimper
+Goiridth
+Hololasima
+Kuzza
+Lash
+Majkl
+Medic
+Pewu
+Preacher
+Pyra
+Seki
+Senteza
+Silence
+TKs-Prorok
+TKs-Suka
+Wiedzmon
+War Machine
+FreQ
+
+
+|0xff706050 Contributors:
+|0xff907824 Ares
+Baklazhan
+BigGunTard
+Bungo
+Evil
+Donnie Darko
+Druto
+Gaunt
+GGBot
+Melt
+OldHero
+Psotnik
+TKs-Gimper
+TKs-Mengelito
+TZanubis
+Vilo512
+Wezu
+Worldremaker
+Андрей Якимов
+✝Emperor Stanwyck✝
+
+|0xff706050 Wiki Editors:
+|0xff907824 BeheGrzmot
+DodyCZE
+Fucy
+Generic Scout
+McDolan
+Senteza
+TKs-Gimper
+Wezu
+
+|0xff706050 Game Masters:
+|0xff907824 Gimper
+Pyra(ex GM)
+
+
+|0xff8c8c84 FOnline
+
+
+|0xff706050 Project Leader
+|0xff907824 Anton "Cvet" Tsvetinskiy
+
+|0xff706050 Core Developer
+|0xff907824 Anton "Cvet" Tsvetinskiy
+Oleg "olegmmm" Mareskin
+
+|0xff706050 Original Content by
+|0xff907824 The Black Isle Studios
+
+|0xff706050 Fallout of Nevada Content by
+|0xff907824 Nevada Band Studio
+
+|0xff8c8c84 The FOnline: 2238 Dev-Team
+
+|0xff706050 Project Leader
+|0xff907824 AHS-9
+
+|0xff706050 Lead Programming
+|0xff907824 Bartosz "scypior" Przygoda
+Markus "Ghosthack" Oberg
+Grzegorz "Atom" Jagiella
+
+|0xff706050 Programming
+|0xff907824 Bartosz "scypior" Przygoda
+Markus "Ghosthack" Oberg
+Grzegorz "Atom" Jagiella
+Anton "Cvet" Tsvetinskiy
+Slaven "Lisac2k" Ostojic
+Wipe
+Mayck
+JovankaB
+
+|0xff706050 Reverse engineering
+|0xff907824 Markus "Ghosthack" Oberg
+Grzegorz "Atom" Jagiella
+
+|0xff706050 Utility programming
+|0xff907824 Markus "Ghosthack" Oberg
+Grzegorz "Atom" Jagiella
+
+|0xff706050 Content Managers
+|0xff907824 Slaven "Lisac2k" Ostojic
+Stefan "Lexx" Kessner
+
+|0xff706050 Content Conceptual Design
+|0xff907824 Bartosz "scypior" Przygoda
+Slaven "Lisac2k" Ostojic
+Stefan "Lexx" Kessner
+Ben "Slim Charles" Jenkins
+Markus "Ghosthack" Oberg
+Grzegorz "Atom" Jagiella
+Tom "Solar" Jones
+
+|0xff706050 Maps
+|0xff907824 Stefan "Lexx" Kessner
+Slaven "Lisac2k" Ostojic
+Frank "Surf Solar" Schimski
+Anton "ASDu" Sergeevich Dudarko
+Gunduz Yavuzer
+Johnny Nuclear
+SmoothJesus
+Visco
+VintarBC
+Wichura
+
+|0xff706050 2D graphics
+|0xff907824 Stefan "Lexx" Kessner
+Slaven "Lisac2k" Ostojic
+Skejwen
+
+|0xff706050 Dialog Writers
+|0xff907824 Ben "Slim Charles" Jenkins
+Slaven "Lisac2k" Ostojic
+Stefan "Lexx" Kessner
+Frank "Surf Solar" Schimski
+Gunduz Yavuzer
+SmoothJesus
+Corosive
+Hooper/Prefontaine/Lazlo
+
+|0xff706050 SFX and music
+|0xff907824 Frank "Surf Solar" Schimski
+
+|0xff706050 Proofreading
+|0xff907824 Ben "Slim Charles" Jenkins
+Tom "Solar" Jones
+
+|0xff706050 Proto Masters
+|0xff907824 Slaven "Lisac2k" Ostojic
+Grzegorz "Atom" Jagiella
+
+|0xff706050 Public Relations
+|0xff907824 Slaven "Lisac2k" Ostojic
+
+|0xff706050 Internal Testers
+|0xff907824 Tom "Solar" Jones
+Aki "Jack" Friman
+
+|0xff706050 Technical Support
+|0xff907824 Michal "likedat" Rzemieniecki
+
+|0xff706050 We also would like to thank:
+|0xff907824 "The Life After" Dev-Team
+
+|0xff706050 Music By
+|0xff907824 XcentricNoizz
+
+|0xff706050 Additional sound samples
+|0xff907824 scypior
+Used freesound.org samples by:
+dobroide
+jrssandoval
+SpazTastic
+LG
+
+|0xff706050 Our kind hosts
+|0xff907824 LLITiF
+Tab10id
+
+|0xff706050 AngelScript Library
+|0xff907824 Andreas "WitchLord" Jonsson
+
+|0xff706050 Testers
+|0xff907824 Izual
+Hawk-Eye
+The rest of the French testing group
+Iguana Bob/RoadWarrior
+burzum
+Tails
+SmartCheetah
+Nails/coliphorbs
+BeF1990
+
+|0xff706050 Short story "Joyride":
+|0xff907824 Cerebro
+Cando Garon
+randy Mc rupp
+
+Many thanks to all past and present Game Masters
+
+Special thanks to all FOnline: 2238 Wiki editors
+
+Very special thanks to
+BeF1990 for our FOnline: 2238 Logo
+Gerald Jelitto for "Nuka-Beer" in the manual
+The BGE-Team for some of the new graphics
+Continuum for some great art
+
+xil, Josan12, Mash and Brother Soifran
+For the long hair dude and other new critters!
+
+NA2RAL for the desert combat armor
+WHINE Team for many, many things
+
+and all others we forgot right now...
+
+... sorry! :(
+}
+
+# Shift + Credits
+{2000001020}{}{
+|0xff907824  Everything said in this channel can and will be used
+against you in the future, thanks to logging.
+|0xff706050 -- Ghosthack
+
+
+
+
+|0xff907824 Wait, i try another internet.
+|0xff706050 -- cvet
+
+
+|0xff907824 Multipronged research was undertaken in the long-run
+conspiracy of thousand-year plan of autoevolution.
+|0xff706050 -- AHS-9
+
+
+|0xff907824 German language is funny. Like in porno.
+Oh dast is fantastish, ja ja.
+|0xff706050 -- cvet
+
+
+|0xff907824 German pornos are so embarassing.
+|0xff706050 -- MrLexx
+
+
+|0xff907824 Slim got those 50+ year old babes around him, the rest
+of us had one girl for a day on the channel...
+man, that's what i call a good sex!
+|0xff706050 -- lisac
+
+
+|0xff907824 Then I'll be able to film my movie called
+Broken Hills Mountains.
+|0xff706050 -- Rusty
+
+
+|0xff907824 So shorter means better.
+|0xff706050 -- scypior
+
+
+|0xff907824 Teleporn. Wasn't it supposed to be: 'teleport'?
+|0xff706050 -- scypior
+
+
+|0xff907824 Need drink vodka and eat hot food.
+|0xff706050 -- cvet
+
+
+|0xff907824 Female are bitches.
+|0xff706050 -- scypior
+|0xff907824 It was about female mosquitos.
+|0xff706050 -- scypior
+
+
+|0xff907824 I have shat my pants while playing MDK...
+well, I was very young back then.
+|0xff706050 -- MrLexx
+|0xff907824 20?
+|0xff706050 -- Rusty
+
+
+|0xff907824 I am installing the english version of Fallout 2 right now.
+After that, I need one or two people for screenshots.
+|0xff706050 -- MrLexx
+
+
+|0xff907824 Posing gladly, naked for money only.
+|0xff706050 -- lisac
+
+
+|0xff907824 Where there's a hole, there's a way.
+|0xff706050 -- Rusty
+
+
+|0xff907824 Did ya fix the HOLE in da wall, bitch?
+|0xff706050 -- Rusty
+
+
+|0xff907824 Okay, enough radiation for me today,
+going back to slave business.
+|0xff706050 -- Atom
+
+
+|0xff907824 Why the fuck are molerats so strong?! I had metal armor
+and grease gun, took 3 burst fires to kill one of the
+fucks, they raped the shit out of me as if i wasn't
+wearing anything at all. Fuck. Those rats are bigger
+than fucking bears.
+|0xff706050 -- Rusty
+
+
+|0xff907824 Server crashes more often then shuts normally haha.
+|0xff706050 -- scypior
+
+
+|0xff907824 Some traders in Hub are missing.
+|0xff706050 -- MrLexx
+|0xff907824 Kidnapped, killed and buried god knows where...
+we need the LYNCH MOB!
+|0xff706050 -- lisac
+
+
+|0xff907824 Jack is highwayman-spawning machine.
+|0xff706050 -- Atom
+
+
+|0xff907824 I don't like using this brain thing. It's annoying.
+|0xff706050 -- MrLexx
+
+
+|0xff907824 I got small penis too... but i'm THE technician.
+Can do things you mortals can only dream of.
+|0xff706050 -- lisac
+
+
+|0xff907824 My team leader is my penis.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 And my GF interested after your second video -
+where from SlimCharles?
+|0xff706050 -- LLITiF
+
+
+|0xff907824 Every girl in russia is dreaming about Lexx.
+|0xff706050 -- scypior
+
+
+|0xff907824 So he won't lose interest, he's strong
+third party asses right now.
+|0xff706050 -- Atom
+
+
+|0xff907824 But talking about rape is somewhat boring.
+I am not really interested in that.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 Eventually there will be a 6 hour cybersex with Lynette.
+|0xff706050 -- SlimCharles
+
+
+|0xff907824 Nevertheless, if you're full of beer you
+don't mind where you piss at all.
+|0xff706050 -- scypior
+
+
+|0xff907824 Well, but it's simple biology.
+You watch hot female, you get a hard one.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 Damn lesbians, didn't shut the fuck up.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 I am the kaizer from shaizer.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 Maybe we should try something similar with fonline.
+|0xff706050 -- lisac
+
+
+|0xff907824 Filming nerdy polaks doesn't sound that good.
+|0xff706050 -- Rusty
+
+
+|0xff907824 Atom you are drunked?
+|0xff706050 -- cvet
+|0xff907824 Nope, he's retarded.
+|0xff706050 -- Rusty
+
+
+|0xff907824 They should rather learn from Trotsky and make a good
+deal of revolution, not this kind of pussy cat fight.
+|0xff706050 -- Atom
+
+
+|0xff907824 Bleh, that quest idea has become shitty now
+I need something new, that is at least medium-size.
+|0xff706050 -- Mrlexx
+|0xff907824 My dick.
+|0xff706050 -- Rusty
+|0xff907824 That's not a quest, that's a joke.
+|0xff706050 -- Mrlexx
+|0xff907824 So I've heard.
+|0xff706050 -- Rusty
+
+
+|0xff907824 Scyp's designing hairstyles now.
+|0xff706050 -- Solar
+
+
+|0xff907824 I can't fucking believe it... The Rotators -
+The most gay group in the whole universe!
+|0xff706050 -- lisac
+
+
+|0xff907824 He might have become gay too, while being in here.
+|0xff706050 -- Ghosthack
+
+
+|0xff907824 Lexx is a sex slave?
+|0xff706050 -- Solar
+
+
+|0xff907824 Ass too wiry.
+|0xff706050 -- cvet
+
+
+|0xff907824 It was hard for me to remove
+"your eyes were poured by a boiling water".
+|0xff706050 -- SlimCharles
+
+
+|0xff907824 I met a russian, he's great. I said 'secret',
+he said 'secret anal'.
+|0xff706050 -- SlimCharles
+
+
+|0xff907824 Need big gan. Usa man yel in ncr, his wann
+maney bat me keel him and tack his item.
+|0xff706050 -- Ghosthack
+
+
+|0xff907824 Better teach him something that
+will make him insult Lexx later.
+|0xff706050 -- Atom
+
+
+|0xff907824 "Russian powergamers" would be great
+for a special encounter.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 Germany's in crysis. Time to start a war.
+|0xff706050 -- scypior
+
+
+|0xff907824 Man, I jammed my balls while walking.
+Dunno how, but I can't sit now.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 It's not a true jrpg, if you don't
+have a homo hero to play.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 Gay dinosaurs, bad idea.
+|0xff706050 -- Rusty
+
+
+|0xff907824 The kids should play with real guns.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 Fact is that homo can cook, and can cook good. Or its all just a coincidence, or there is a constant that needs deeper research.
+|0xff706050 -- Wipe
+
+
+|0xff907824 I will sacrifice my body to ZAX.
+|0xff706050 -- Wipe
+
+
+|0xff907824 No, its cultural program.
+|0xff706050 -- cvet
+
+
+|0xff907824 I see lisac is almost working.
+|0xff706050 -- scypior
+
+
+|0xff907824 My kitchen looks like ass.
+|0xff706050 -- Mrlexx
+
+
+|0xff907824 I'm already crazy... town_h.fos, enough said.
+|0xff706050 -- Ghosthack
+
+
+|0xff907824 Therefore a little bit oil is enough to get the job done.
+|0xff706050 -- MrLexx
+
+
+|0xff907824 Can be solved by timeout.
+|0xff706050 -- Ghosthack
+
+
+|0xff907824 Why do you complicate my life
+|0xff706050 -- scypior
+|0xff907824 I love to complicate your life. When i woke up this morning, i thought
+"Hm. I should complicate scyps life a bit today"
+|0xff706050 -- MrLexx
+
+
+|0xff907824 I steal from rich devs and give other stuff to poor devs.
+I am Robin Hood of coding.
+|0xff706050 -- Atom
+
+
+|0xff907824 What the- I tested it, I swear!
+|0xff706050 -- Wipe
+
+
+|0xff907824 Bots!
+|0xff706050 -- Atom
+|0xff907824 Perl.
+|0xff706050 -- Wipe
+|0xff907824 Evil.
+What these three words have in common?
+|0xff706050 -- Atom
+|0xff907824 Where bot is the question, Perl is the answer.
+|0xff706050 -- Wipe
+|0xff907824 Evil is the result!
+|0xff706050 -- MrLexx
+
+
+|0xff907824 I just want red head girl, damn the lack of progress!
+|0xff706050 -- Solar
+
+
+|0xff907824 It's incredibly stupid, complicated and it doesn't work.
+|0xff706050 -- Lisac
+
+
+|0xff907824 I make more sense than players even when drunk, so it's ok.
+|0xff706050 -- Solar
+
+
+|0xff907824 Ah, Rotators. Music, physics, links to weird porn, bad jokes about jobs
+that we have, or don't have, and occasionally some words about FOnline!
+|0xff706050 -- Atom
+
+
+|0xff907824 My bed needs some rage.
+|0xff706050 -- Ghosthack
+|0xff907824 Was it pick-up line?
+|0xff706050 -- Wipe
+
+
+|0xff907824 I would love to have a black girlfriend. This makes you totally a hipster.
+|0xff706050 -- MrLexx
+
+
+|0xff907824 When something doesn't make sense in FOnline. Just ask yourself:
+"Is it a bug?" No...
+"Is it a feature?" No...
+Then it's prehistoric stuff.
+|0xff706050 -- Mayck
+
+
+|0xff907824 I should proceed with that, as vals hater.
+|0xff706050 -- Wipe
+|0xff907824 Vals, rats, what else?
+|0xff706050 -- Atom
+|0xff907824 Beer.
+|0xff706050 -- Wipe
+|0xff907824 There's a lot of hate inside you. To anger this leads, and anger leads
+to the dark side. Can't we just all hate JavaScript? And only that.
+I'm joking of course.
+Why hate something that is unending source of amusement.
+|0xff706050 -- Atom
+
+
+|0xff907824 Almost any engine problem can be solved by spawning more items.
+|0xff706050 -- JovankaB
+
+
+|0xff907824 Uncrustify destroyed drugs_data.fos, it looks like space invaders now.
+|0xff706050 -- Atom
+}
+
+{3000000001}{}{Události}
+{3000000002}{}{FRAKCE}
+{3000000003}{}{SEZNAM
+ÚKOLŮ}
+{3000000004}{}{BANKA}
+{3000000005}{}{Nový úkol}
+{3000000006}{}{Úkol doplněn}
+{3000000007}{}{Úkol splněn}
+{3000000008}{}{Prosím zkus to znovu za chvíli.}
+{3000000009}{}{Střílej na pole}
+{3000000010}{}{Musíš být vůdce skupiny}
+{3000000011}{}{Nemůžeš postavit základnu.}
+{3000000012}{}{Základna úspěšně postavena.}
+{3000000013}{}{Tady nemůžeš postavit základnu.}
+{3000000014}{}{Praštil jsi se do hlavy tak silně, že jsi zapomněl cestu na toto místo.}
+{3000000015}{}{RÁDIO}
+{3000000016}{}{ZAVŘÍT}
+{3000000017}{}{JINÉ}
+# Chat
+{3000000200}{}{GLOBÁLNÍ}
+{3000000201}{}{Globální chat}
+{3000000202}{}{PODPORA}
+{3000000203}{}{Chat s podporou}
+{3000000204}{}{FRAKCE}
+{3000000205}{}{Frakční chat}
+{3000000206}{}{SOUKROMÝ}
+{3000000207}{}{Soukromý chat}
+{3000000208}{}{Soukromý chat s}
+{3000000209}{}{                                    Napiš jméno hráče to okna MLUV}
+{3000000210}{}{                                    k zahájení soukromého chatu}
+{3000000211}{}{Mluv}
+{3000000212}{}{Hráč není online.}
+{3000000213}{}{Tomuto zvířeti není možné posílat zprávy.}
+{3000000214}{}{Nemůžeš mluvit sám se sebou (vypadal bys jako blázen)}
+{3000000215}{}{Nejsi členem žádné frakce.}
+{3000000216}{}{Nesprávné jméno hráče.}
+{3000000217}{}{Tento hráč je offline nebo neexistuje.}

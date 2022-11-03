@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a Pump Machine. The note near the control pannel says: "Can pump 40 bottles of water every 3 hours. Requires a charge of 250 MFC every 10 hours. It can also filter basic chemicals into the milk. Can you believe it? Dear Janna, it cost me a LOT of money to get this crap working, please keep it clean and watch for sand getting inside the control pannel. If this thing appears to be broken due to the sand - then use an Oil Can. Have fun. ]}
+{2010}{}{[ Status ]}
+{2020}{}{[ Status ]}
+{3000}{}{[ Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism. ]}
+{4000}{}{[ Status: Online. ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic 9000. This unit is in charge of monitoring Nukie mushrooms growing. Each flower bed production - 6 Nukes every 8 hours. Watering requires once per 24 hours and need 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Water all mushrooms ]}
+{2020}{}{[ Status ]}
+{3000}{}{Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism.}
+{4000}{}{[ Status: Online. ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic 9000. This unit is in charge of monitoring Nukie mushrooms growing. Each flower bed production - 6 Nukes every 8 hours. Watering requires once per 24 hours and need 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Water all mushrooms ]}
+{2020}{}{[ Status ]}
+{3000}{}{Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism.}
+{4000}{}{[ Status: Online. ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic 9000. This unit is in charge of monitoring Nukie mushrooms growing. Each flower bed production - 6 Nukes every 8 hours. Watering requires once per 24 hours and need 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Water all mushrooms ]}
+{2020}{}{[ Status ]}
+{3000}{}{Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism.}
+{4000}{}{[ Status: Online. ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic 9000. This unit is in charge of monitoring Nukie mushrooms growing. Each flower bed production - 6 Nukes every 8 hours. Watering requires once per 24 hours and need 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Water all mushrooms ]}
+{2020}{}{[ Status ]}
+{3000}{}{Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism.}
+{4000}{}{[ Status: Online. ]}
+

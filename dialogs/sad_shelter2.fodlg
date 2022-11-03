@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p sas_garage = 0 R _var p sas_garage = 1 #
+0 2020 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ S.A.S. Command Terminal online ]}
+{2010}{}{[ give Base Override confirmation ]}
+{2020}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ Confirmation granted ]}
+{4000}{}{[ Opening the door... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ S.A.S. Command Terminal online ]}
+{2010}{}{[ Give base override confirmation ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Confirmation granted ]}
+{4000}{}{[ Opening the door... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ S.A.S. Command Terminal online ]}
+{2010}{}{[ Give base override confirmation ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Confirmation granted ]}
+{4000}{}{[ Opening the door... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ S.A.S. Command Terminal online ]}
+{2010}{}{[ Give base override confirmation ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Confirmation granted ]}
+{4000}{}{[ Opening the door... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ S.A.S. Command Terminal online ]}
+{2010}{}{[ Give base override confirmation ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Confirmation granted ]}
+{4000}{}{[ Opening the door... ]}
+

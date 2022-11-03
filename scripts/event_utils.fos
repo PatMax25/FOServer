@@ -1,0 +1,560 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// event_utils.fos
+//
+
+// Utilities for GMs and events, spawning stuff, etc.
+#include "_macros.fos"
+#include "follower_common_h.fos"
+#include "groups_h.fos"
+#include "lexems_h.fos"
+#include "pids_groups.fos"
+#include "utils_h.fos"
+#include "weap_anim_table_h.fos"
+
+#define _AddItem           # (group, max, chance) { if((value > 0) && Random(0, chance) == 0) { uint item = random_from_array(group); uint ival = Random(0, max); containers[j].AddItem(item, ival, 0); value -= BaseItemValue(item, true) * ival; DLog("deducting: " + (BaseItemValue(item, true) * ival) + " for " + item); } }
+// Spawn some stuff in containers on map where issuer is
+//
+
+#define WT_NO_ITEMS        (0x01)
+#define WT_DELETE_ITEMS    (0x02)
+#define WT_NO_FOLLOWERS    (0x04)
+
+#include "broadcast_h.fos"
+
+array<Item@> FindContainers(Map@ map)
+{
+    array<Item@> containers;
+
+    for(uint16 x = 0; x < map.GetWidth(); x++)
+    {
+        for(uint16 y = 0; y < map.GetHeight(); y++)
+        {
+            array<Item@> items;
+            uint         num = map.GetItems(x, y, items);
+            for(uint j = 0; j < num; j++)
+            {
+                if(items[j].GetType() == ITEM_TYPE_CONTAINER)
+                    containers.insertLast(items[j]);
+            }
+        }
+    }
+    return containers;
+}
+
+void spawncontitems(Critter& cr, int techlvl, int startvalue, int p2)
+{
+    uint players = 0;
+    uint avglvl = 0; // average level
+    Map@ map = cr.GetMap();
+
+    if(startvalue == 0)
+        startvalue = 25000;
+
+    array<Critter@> crits;
+    players = map.GetCritters(0, FIND_ALL | FIND_ONLY_PLAYERS, crits);
+    for(uint i = 0; i < players; i++)
+    {
+        avglvl += crits[i].Param[ST_LEVEL];
+    }
+    avglvl /= players;
+    DLog("Average lvl is " + avglvl);
+
+    if(techlvl == 0)
+    {
+        if(avglvl < 6)
+            techlvl = 1;
+        else if(avglvl < 12)
+            techlvl = 2;
+        else
+            techlvl = 3;
+        DLog("Choosing techlevel " + techlvl);
+    }
+
+    int value = (startvalue * (players * avglvl)) * techlvl;
+
+    DLog("value is: " + value);
+
+    array<Item@> containers = FindContainers(map);
+    while(value > 0)
+    {
+        for(uint j = 0; j < containers.length(); j++)
+        {
+            uint contpid = containers[j].GetProtoId();
+            if(!(contpid == PID_GRAVESITE_V || contpid == PID_GRAVESITE_H))
+            {
+                if(techlvl == 1)
+                    _AddItem(Pids_ArmorLight, 1, 10);
+                if(techlvl > 1)
+                {
+                    _AddItem(Pids_ArmorMedium, 1, 10);
+                    _AddItem(Pids_WeaponPistolMachineGun, 1, 10);
+                    _AddItem(Pids_WeaponRifles, 1, 10);
+                    _AddItem(Pids_WeaponGrenade, 1, 10);
+                    _AddItem(Pids_WeaponThrowing, 1, 10);
+                    _AddItem(Pids_WeaponPistols, 1, 10);
+                }
+                if(techlvl > 2)
+                {
+                    _AddItem(Pids_WeaponLaser, 1, 14);
+                    _AddItem(Pids_WeaponBigGuns, 1, 15);
+                    _AddItem(Pids_WeaponPlasma, 1, 12);
+                    _AddItem(Pids_WeaponPulse, 1, 12);
+                    _AddItem(Pids_WeaponEnergo, 1, 11);
+                    _AddItem(Pids_ArmorHeavy, 1, 13);
+                    _AddItem(Pids_ArmorRobes, 1, 12);
+                    _AddItem(Pids_AllAmmo, 10, 2);
+                }
+                _AddItem(Pids_Ammo, 10, 2);
+                _AddItem(Pids_AllDrugs, 2, 5);
+                _AddItem(Pids_WeaponShotguns, 1, 7);
+                _AddItem(Pids_WeaponUnarmed, 1, 7);
+                _AddItem(Pids_WeaponMelee, 1, 7);
+                _AddItem(Pids_MiscOther, 1, 6);
+
+                DLog("Value now: " + value);
+            }
+        }
+    }
+}
+
+void removeitems(Critter& cr, int p0, int p1, int p2)
+{
+    Map@            map = cr.GetMap();
+    array<Critter@> crits;
+    uint            players = map.GetCritters(0, FIND_ALL | FIND_ONLY_PLAYERS, crits);
+    for(uint i = 0; i < players; i++)
+    {
+        array<Item@> items;
+        uint         num = crits[i].GetItems(-1, items);
+        for(uint i = 0; i < num; i++)
+            DeleteItem(items[i]);
+    }
+}
+
+void dlg_TeleportToVarMap(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+
+    if(!valid(npc))
+    {
+        Log("dlg_TeleportToVarMap failed, npc not found");
+        return;
+    }
+
+    int    mapId = GetLvar(npc, LVAR_warzone_terminal_destination);
+    string mapName = "";
+
+    if(mapId == 0)
+    {
+        Map@ map = GetMapByPid(MAP_NCR, 0);
+        if(valid(map))
+        {
+            SetLvar(npc, LVAR_warzone_terminal_destination, map.Id);
+            mapId = map.Id;
+        }
+        else
+        {
+            Log("r_TeleportToVarMap failed, NCR not found!!!");
+            return;
+        }
+    }
+
+    int policy = GetLvar(npc, LVAR_warzone_terminal_policy);
+    if(policy == 0)
+    {
+        SETFLAG(policy, WT_DELETE_ITEMS);
+        SetLvar(npc, LVAR_warzone_terminal_policy, policy);
+    }
+
+    if(IsLexem(npc, "$destination"))
+        mapName = GetLexem(npc, "$destination");
+    else
+    {
+        Map@ map = GetMap(mapId);
+        if(valid(map))
+            mapName = "@msg gm " + ((map.GetProtoId() + 1) * 10 + 0) + "@";
+        else
+            mapName = "[invalid data]";
+    }
+
+    text = "$destination" + mapName;
+	string money;
+	string prefix;
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 1: money = "Dollars";
+	case 2: money =  "Chips";
+	case 3: money =  "Scrips";
+	case 4: money =  "Pounds";
+	case 5: money =  "Rings";
+	default: money =  "Caps";
+	}
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 1: prefix = "Enclave ";
+	case 2: prefix =  "Memory ";
+	case 3: prefix =  "NCR ";
+	case 4: prefix =  "Vault City ";
+	case 5: prefix =  "Pull ";
+	default: prefix = "Bottle ";
+	}
+	text += ("$prefix" + prefix);
+	text += ("$money" + money);
+}
+
+uint r_TeleportToVarMap(Critter& player, Critter@npc)
+{
+    if(!valid(npc))
+    {
+        Log("r_TeleportToVarMap failed, npc not found");
+        return(DIALOG_END);
+    }
+
+    int mapId = GetLvar(npc, LVAR_warzone_terminal_destination);
+
+    if(mapId == 0)
+    {
+        Log("r_TeleportToVarMap failed, LVAR is 0");
+        return(DIALOG_END);
+    }
+
+    Map@ map = GetMap(mapId);
+    if(!valid(map))
+    {
+        Log("r_TeleportToVarMap failed, map " + mapId + " not found.");
+        return(DIALOG_END);
+    }
+
+    int teleportPolicy = GetLvar(npc, LVAR_warzone_terminal_policy);
+
+    if(teleportPolicy != 0)
+    {
+        if(FLAG(teleportPolicy, WT_NO_ITEMS) || FLAG(teleportPolicy, WT_DELETE_ITEMS))
+        {
+            array<Item@> items;
+            int          count = player.GetItems(-1, items);
+            if(FLAG(teleportPolicy, WT_DELETE_ITEMS))
+                DeleteItems(items);
+            else
+                return(0);
+        }
+
+        if(FLAG(teleportPolicy, WT_NO_FOLLOWERS))
+        {
+            array<Critter@> crits;
+            GetFollowers(player, player.GetMap(), crits, false);
+            bool            following = false;
+            for(uint c = 0, cLen = crits.length(); c < cLen; c++)
+            {
+                if(IsFollowing(crits[c]))
+                {
+                    following = true;
+                    break;
+                }
+            }
+            if(following)
+                return(0);
+        }
+    }
+
+    player.TransitToMap(map.Id, 0);
+    return(DIALOG_END);
+}
+
+uint r_TeleportToVarMapCoordinates(Critter& player, Critter@npc)
+{
+    if(!valid(npc))
+    {
+        Log("r_TeleportToVarMap failed, npc not found");
+        return(DIALOG_END);
+    }
+
+    int mapId = GetLvar(npc, LVAR_warzone_terminal_destination);
+
+    if(mapId == 0)
+    {
+        Log("r_TeleportToVarMapCoordinates failed, LVAR is 0");
+        return(DIALOG_END);
+    }
+
+    Map@ map = GetMap(mapId);
+    if(!valid(map))
+    {
+        Log("r_TeleportToVarMapCoordinates failed, map " + mapId + " not found.");
+        return(DIALOG_END);
+    }
+
+    uint16 hexX = 0x0000FFFF & npc.Param[ST_VAR1];
+    uint16 hexY = 0x0000FFFF & (npc.Param[ST_VAR1] >> 16);
+
+    if(hexX > map.GetWidth() - 2 || hexY > map.GetHeight() - 2 || hexY < 2 || hexY < 2)
+    {
+        Log("r_TeleportToVarMapCoordinates failed, invalid coordinates x: " + hexX + "  y: " + hexY + ".");
+        return(DIALOG_END);
+    }
+
+    int teleportPolicy = GetLvar(npc, LVAR_warzone_terminal_policy);
+
+    if(teleportPolicy != 0)
+    {
+        if(FLAG(teleportPolicy, WT_NO_ITEMS))
+        {
+            array<Item@> items;
+            int          count = player.GetItems(-1, items);
+            if(count > 0)
+            {
+                player.Say(SAY_NETMSG, "No items allowed.");
+                return(0);
+            }
+
+        }
+
+        if(FLAG(teleportPolicy, WT_NO_FOLLOWERS))
+        {
+            array<Critter@> crits;
+            GetFollowers(player, player.GetMap(), crits, false);
+            bool            following = false;
+            for(uint c = 0, cLen = crits.length(); c < cLen; c++)
+            {
+                if(IsFollowing(crits[c]))
+                {
+                    following = true;
+                    break;
+                }
+            }
+            if(following)
+            {
+                player.Say(SAY_NETMSG, "No followers allowed.");
+                return(0);
+            }
+        }
+    }
+
+    player.TransitToMap(map.Id, hexX, hexY, Random(0, 5));
+    return(DIALOG_END);
+}
+
+bool d_IsAuth(Critter& player, Critter@ npc)
+{
+    return(d_IsTester(player, npc));
+}
+
+bool d_IsTester(Critter& player, Critter@ npc)
+{
+    return(player.GetAccess() >= ACCESS_TESTER);
+}
+
+bool d_IsModer(Critter& player, Critter@ npc)
+{
+    return(player.GetAccess() >= ACCESS_MODER);
+}
+
+bool d_IsAdmin(Critter& player, Critter@ npc)
+{
+    return(player.GetAccess() == ACCESS_ADMIN);
+}
+import void SpawnBuffItem(Item& container, uint16 pid) from "spawner_pve";
+
+void item_gt(Item& item, bool firstTime)
+{
+    CreateTimeEvent(AFTER(REAL_SECOND(1)), "e_gt", item.Id, false);
+}
+
+uint e_gt(array<uint>@ values)
+{
+    Item@ item = GetItem(values[0]);
+    if(!valid(item))
+        return 0;
+    for( int i =1; i <= Random(1,2); i++ )
+    {
+        switch (Random(1,108))
+            {
+            case 1:     {item.AddItem(PID_ABSORBER, 1, 0); break;}
+            case 2:     {item.AddItem(PID_ADVANCED_SHELL, 1, 0); break;}
+            case 3:     {item.AddItem(PID_CARBON_POLYMER, 1, 0); break;}
+            case 4:     {item.AddItem(PID_CYLINDRICAL_LOCK, 1, 0); break;}
+            case 5:     {item.AddItem(PID_ELECTRIC_AMPLIFIER, 1, 0); break;}
+            case 6:     {item.AddItem(PID_ELECTROMAGNETIC, 1, 0); break;}
+            case 7:     {item.AddItem(PID_HIFLO, 1, 0); break;}
+            case 8:     {item.AddItem(PID_PA_FUEL, 1, 0); break;}
+            case 9:     {item.AddItem(PID_PLASMA_ACCELERATOR, 1, 0); break;}
+            case 10:    {item.AddItem(PID_PLASMA_PARTS, 1, 0); break;}
+            case 11:    {item.AddItem(PID_ROTARY_CHAMBER, 1, 0); break;}
+            case 12:    {item.AddItem(PID_SERVOMOTORS, 1, 0); break;}
+            case 13:    {item.AddItem(PID_PA_SHELL, 1, 0); break;}
+            case 14:    {item.AddItem(PID_BIOGEL_ADV_NEW, 1, 0); break;}
+            case 15:    {item.AddItem(PID_TECH_DELINER, 1, 0); break;}
+            case 16:    {item.AddItem(PID_TECH_ELE_ENGINE   , 1, 0); break;}
+            case 17:    {item.AddItem(PID_TECH_SEMI_TRIGGER, 1, 0); break;}
+            case 18:    {item.AddItem(PID_TECH_GUN_CONTROL, 1, 0); break;}
+            case 19:    {item.AddItem(PID_TECH_AUTO_TRIGGER, 1, 0); break;}
+            case 20:    {item.AddItem(PID_TECH_MECH_ENGINE, 1, 0); break;}
+            case 21:    {item.AddItem(PID_TECH_SCOPE, 1, 0); break;}
+            case 22:    {item.AddItem(PID_TECH_MICROCHIPS, 1, 0); break;}
+            case 23:    {item.AddItem(PID_TECH_CONDEN, 1, 0); break;}
+            case 24:    {item.AddItem(PID_TECH_TRANSFORMATOR, 1, 0); break;}
+            case 25:    {item.AddItem(PID_TECH_ELE_WIRES, 1, 0); break;}
+            case 26:    {item.AddItem(PID_TECH_PLASMA, 1, 0); break;}
+            case 27:    {item.AddItem(PID_ARM_CERAMIC, 1, 0); break;}
+            case 28:    {item.AddItem(PID_ARM_KEVLAR, 1, 0); break;}
+            case 29:    {item.AddItem(PID_ARM_CARBON, 1, 0); break;}
+            case 30:    {item.AddItem(PID_ARM_GORETEX, 1, 0); break;}
+            case 31:    {item.AddItem(PID_ARM_LEATHER_HIDE, 1, 0); break;}
+            case 32:    {item.AddItem(PID_ARM_POLYMER, 1, 0); break;}
+            case 33:    {item.AddItem(PID_ARM_POLYMER_ADV   , 1, 0); break;}
+            case 34:    {item.AddItem(PID_ARM_POLYMER_LASER, 1, 0); break;}
+            case 35:    {item.AddItem(PID_ARM_POLYCARBONITE, 1, 0); break;}
+            case 36:    {item.AddItem(PID_ARM_STEEL, 1, 0); break;}
+            case 37:    {item.AddItem(PID_VAULT_TEC_BOX, 1, 0); break;}
+            case 38:    {item.AddItem(PID_IMPLANT_STRENGTH, 1, 0); break;}
+            case 39:    {item.AddItem(PID_IMPLANT_PERCEPTION, 1, 0); break;}
+            case 40:    {item.AddItem(PID_IMPLANT_ENDURANCE, 1, 0); break;}
+            case 41:    {item.AddItem(PID_IMPLANT_CHARISMA, 1, 0); break;}
+            case 42:    {item.AddItem(PID_IMPLANT_INTELLIGENCE, 1, 0); break;}
+            case 43:    {item.AddItem(PID_IMPLANT_AGILITY, 1, 0); break;}
+            case 44:    {item.AddItem(PID_IMPLANT_LUCK, 1, 0); break;}
+            case 45:    {item.AddItem(PID_MAP_TO_DUNG4, 1, 0); break;}
+            case 46:    {item.AddItem(PID_IMPLANT_AGRO, 1, 0); break;}
+            case 47:    {item.AddItem(PID_IMPLANT_DRAGON, 1, 0); break;}
+            case 48:    {item.AddItem(PID_IMPLANT_TIGER, 1, 0); break;}
+            case 49:    {item.AddItem(PID_IMPLANT_CLAW, 1, 0); break;}
+            case 50:    {item.AddItem(PID_IMPLANT_TACTICS, 1, 0); break;}
+            case 51:    {item.AddItem(PID_IMPLANT_NEMEAN, 1, 0); break;}
+            case 52:    {item.AddItem(PID_IMPLANT_DERMAL, 1, 0); break;}
+            case 53:    {item.AddItem(PID_IMPLANT_PHOENIX, 1, 0); break;}
+            case 54:    {item.AddItem(PID_MAP_TO_DUNG3, 1, 0); break;}
+            case 55:    {item.AddItem(PID_BLUEPRINT_POWER_HELMET,1, 0); break;}
+            case 56:    {item.AddItem(PID_BLUEPRINT_HARDENED_POWER_HELMET,1, 0); break;}
+            case 57:    {item.AddItem(PID_BLUEPRINT_ADVANCED_POWER_HELMET_MK2,1, 0); break;}
+            case 58:    {item.AddItem(PID_BLUEPRINT_ADVANCED_POWER_HELMET_MK2,1, 0); break;}
+            case 59:    {item.AddItem(PID_BLUEPRINT_ADVANCED_POWER_ARMOR,1, 0); break;}
+            case 60:    {item.AddItem(PID_BLUEPRINT_ADVANCED_POWER_ARMOR_MK2,1, 0); break;}
+            case 61:    {item.AddItem(PID_BLUEPRINT_HK_G11,1, 0); break;}
+            case 62:    {item.AddItem(PID_BLUEPRINT_HK_G11E,1, 0); break;}
+            case 63:    {item.AddItem(PID_BLUEPRINT_PK12_GAUSS_PISTOL,1, 0); break;}
+            case 64:    {item.AddItem(PID_BLUEPRINT_M72_GAUSS_RIFLE,1, 0); break;}
+            case 65:    {item.AddItem(PID_BLUEPRINT_NAPALM,1, 0); break;}
+            case 66:    {item.AddItem(PID_BLUEPRINT_BOZAR,1, 0); break;}
+            case 67:    {item.AddItem(PID_BLUEPRINT_M203,1, 0); break;}
+            case 68:    {item.AddItem(PID_BLUEPRINT_VINDICATOR_MINIGUN,1, 0); break;}
+            case 69:    {item.AddItem(PID_BLUEPRINT_TURBO_PLASMA_RIFLE,1, 0); break;}
+            case 70:    {item.AddItem(PID_BLUEPRINT_YK42B_PULSE_RIFLE,1, 0); break;}
+            case 71:    {item.AddItem(PID_BLUEPRINT_HK_G11E,1, 0); break;}
+            case 72:    {item.AddItem(PID_BLUEPRINT_PK12_GAUSS_PISTOL,1, 0); break;}
+            case 73:    {item.AddItem(PID_BLUEPRINT_M72_GAUSS_RIFLE,1, 0); break;}
+            case 74:    {item.AddItem(PID_BLUEPRINT_SOLAR_SCORCHER,1, 0); break;}
+            case 75:    {item.AddItem(PID_BLUEPRINT_NAPALM,1, 0); break;}
+            case 76:    {item.AddItem(PID_BLUEPRINT_BOZAR,1, 0); break;}
+            case 77:    {item.AddItem(PID_BLUEPRINT_M203,1, 0); break;}
+            case 78:    {item.AddItem(PID_BLUEPRINT_VINDICATOR_MINIGUN,1, 0); break;}
+            case 79:    {item.AddItem(PID_BLUEPRINT_TURBO_PLASMA_RIFLE,1, 0); break;}
+            case 80:    {item.AddItem(PID_BLUEPRINT_YK42B_PULSE_RIFLE,1, 0); break;}
+            case 81: {item.AddItem(PID_VERTIBIRD_PLANS, 1,0); break;}
+            case 82: {item.AddItem(PID_NAVCOM_PARTS, 1,0); break;}
+            case 83: {item.AddItem(PID_EXCAVATOR_CHIP, 1,0); break;}
+            case 84: {item.AddItem(PID_MOTIVATOR, 1,0); break;}
+            case 85: {item.AddItem(PID_CAR_FUEL_INJECTION, 1,0); break;}
+            case 86: {SpawnBuffItem(item, PID_PLASMA_GATLING); item.AddItem(PID_MICRO_FUSION_CELL,Random(90,300),0);break;}
+            case 87: {SpawnBuffItem(item, PID_POWERED_ARMOR); break;}
+            case 88: {SpawnBuffItem(item, PID_ADVANCED_POWER_ARMOR); break;}
+            case 89: {SpawnBuffItem(item, PID_M72_GAUSS_RIFLE); item.AddItem(PID_2MM_EC_AMMO,Random(50,400),0); break;}
+            case 90: {SpawnBuffItem(item, PID_APA_HELMET); break;}
+            case 91: {SpawnBuffItem(item, PID_HK_G11E); item.AddItem(PID_4_7MM_CASELESS,Random(500,2500),0); break;}
+            case 92: {SpawnBuffItem(item, PID_VINDICATOR_MINIGUN); item.AddItem(PID_4_7MM_CASELESS,Random(1200,4600),0); break;}
+            case 93: {SpawnBuffItem(item, PID_BOZAR); item.AddItem(PID_223_FMJ,Random(1200,1500),0); break;}
+            case 94: {SpawnBuffItem(item, PID_YK42B_PULSE_RIFLE); item.AddItem(PID_MICRO_FUSION_CELL,Random(120,900),0); break;}
+            case 95: {SpawnBuffItem(item, PID_HARDENED_POWER_ARMOR); break;}
+            case 96: {SpawnBuffItem(item, PID_ADVANCED_POWER_ARMOR_MK2); break;}
+            case 97: {SpawnBuffItem(item, PID_APA_HELMET_MK2); break;}
+            case 98: {SpawnBuffItem(item, PID_HARDENED_POWER_HELMET); break;}
+            case 99: {SpawnBuffItem(item, PID_PK12_GAUSS_PISTOL); break;}
+            case 100: {SpawnBuffItem(item, PID_SAIGA12); break;}
+            case 101: {SpawnBuffItem(item, PID_HK_G11); break;}
+            case 102: {SpawnBuffItem(item, PID_M203); break;}
+            case 103: {SpawnBuffItem(item, PID_TURBO_PLASMA_RIFLE); break;}
+            case 104: {SpawnBuffItem(item, PID_PLASMA_TORCH); break;}
+            case 105: {SpawnBuffItem(item, PID_NAPALM); break;}
+            case 106: {item.AddItem(PID_HOLY_HAND_GRENADE, Random(5,10),0); break;}
+            case 107: {item.AddItem(PID_HYPO, Random(5,10),0); break;}
+            case 108: {item.AddItem(PID_MONUMENT_CHUNCK, 1,0); break;}
+            }
+    }
+    item.AddItem(PID_BOTTLE_CAPS, 10000 , 100000);
+    //if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+
+    return REAL_MINUTE(20);
+}
+
+
+
+///////////////event treasure
+
+void ForceEvent(Critter& cr, int howmany, int whatkind, int team)
+{
+    array<uint> filldata = {howmany, whatkind, team};
+    CreateTimeEvent(AFTER(REAL_MINUTE(howmany)), "e_EventTreasure", filldata, false);
+}
+
+void init_treasures()
+{
+    array<uint> filldata = {};
+    CreateTimeEvent(AFTER(REAL_MINUTE(Random(10,95))), "e_EventTreasure", filldata, false);
+}
+
+uint e_EventTreasure(array<uint>@ values)
+{
+	int type = 21;
+	array<Critter@> players;
+	array<uint> maps = {3, 1, 8, 15, 176, 70, 18, 104	};
+	uint16 hexX = 0;
+    uint16 hexY = 0;
+	uint location = maps[Random(0,7)];
+	string map_name = "";
+	switch(location)
+	{
+	case 3: map_name = "Klamath"; break;
+	case 1: map_name = "Den"; break;
+	case 8: map_name = "Modoc"; break;
+	case 15: map_name = "Gecko"; break;
+	case 176: map_name = "Salt Lake City"; break;
+	case 70: map_name = "Redding"; break;
+	case 18: map_name = "Broken Hills"; break;
+	case 104: map_name = "Necropolis"; break;
+	}
+	 Map@ map = GetMap(location);
+	 int entires = map.CountEntire	(420);
+	map.GetEntireCoords(420, Random(0,entires), hexX, hexY);
+	int gravepid = PID_GRAVESITE_V;
+	if(Random(1,2)==1)
+		gravepid = PID_GRAVESITE_H;
+	Item@ grave = map.AddItem(hexX, hexY, gravepid, 1);
+	
+	for( int i =1; i <= Random(1,10); i++ )
+    {
+	grave.AddItem(AddT3Item(),1,1);
+	grave.AddItem(AddT3Item(),1,1);
+	grave.AddItem(AddTypicalAmmo(),30,100);
+	}
+	if(Random(1,60)==2)
+		grave.AddItem(AddImplant(),1,1);
+		
+	int time = REAL_MINUTE(15);
+	string message = "Hidden Treasure is in " + map_name + " %COUNTDOWN% left.";
+	ServerEventCNTSet(message, location, type, time);
+	CreateTimeEvent(AFTER(time), "e_deletegrave", grave.Id, false);
+	return REAL_MINUTE(Random(200,500));
+}
+
+uint e_deletegrave(array<uint>@ values)
+{
+	Item@ grave = GetItem(values[0]);
+	DeleteItem(grave);
+	return 0;
+}

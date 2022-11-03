@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _item p PID_BOTTLE_CAPS } 10 R _item p PID_BOTTLE_CAPS - 10 R _item p PID_MUTATED_FRUIT + 1 #
+3 2020 D _item p PID_BOTTLE_CAPS } 10 R _item p PID_BOTTLE_CAPS - 10 R _item p PID_IGUANA_ON_A_STICK + 1 #
+3 2030 D _item p PID_BOTTLE_CAPS } 10 R _item p PID_BOTTLE_CAPS - 10 R _item p PID_GAMMA_GULP_BEER + 1 #
+3 2040 D _item p PID_BOTTLE_CAPS } 10 R _item p PID_BOTTLE_CAPS - 10 R _item p PID_BOX_OF_NOODLES + 1 #
+3 2050 D _item p PID_BOTTLE_CAPS } 10 R _item p PID_BOTTLE_CAPS - 10 R _item p PID_FROZEN_DINNER + 1 #
+0 2060 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Vending Machine}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*in front of you stands a vending machine made by "Stay Hungry" company... it asks for 10 caps for any sort of food it has inside*}
+{2010}{}{[ Fruit ]}
+{2020}{}{[ Iguana on a stick ]}
+{2030}{}{[ Gamma Gulp ]}
+{2040}{}{[ Box of Noodles ]}
+{2050}{}{[ Television Dinner ]}
+{2060}{}{[ Leave ]}
+{3000}{}{Thank you for purchase.}
+

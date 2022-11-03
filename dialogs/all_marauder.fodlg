@@ -1,0 +1,68 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65507 2010 #
+65507 2020 #
+65507 2030 #
+65507 2040 &
+
+[engl]
+{100}{}{Marauder}
+{200}{}{You see a rough-looking person.}
+{210}{}{You see a marauder. Of all the bloodthirsty psychopaths you face, this one might be the most obvious.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Surrender!@@Your money or your life.@@Freeze! This is a stick up.@@Give me all your valuables.@@Put yer hands up.@@Stick 'em up.@@Don't panic; this will be over in a minute.@@Let's see those hands there.@@Cover me, fellas.@@I love my job.@@Don't make me use any more ammo than I have to!@@Come closer, let's "talk" about it, hehe.@@Drop your valuables! No funny business!@@No second chances.@@No witnesses!@@No survivors!@@This is my favorite part...@@Scared yet?@@You're about to have a really bad day...@@Business is business, sorry!@@Trust me, it's nothing personal, but...@@Hands in the air, NOW! I'm taking it all!@@This should be an easy mark.@@Pay day!@@You are in so much trouble!}
+{2010}{}{Aw, crap.}
+{2020}{}{Shoot.}
+{2030}{}{Dang.}
+{2040}{}{YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Surrender!@@Your money or your life.@@This is a stick up.@@Give me all your valuables.@@Put yer hands up.@@Stick 'em up.@@Don't panic; this will be over in a minute.@@Let's see those hands there.@@Cover me, fellas.}
+{2010}{}{Aw, crap.}
+{2020}{}{Shoot.}
+{2030}{}{Dang.}
+{2040}{}{YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Surrender!@@Your money or your life.@@This is a stick up.@@Give me all your valuables.@@Put yer hands up.@@Stick 'em up.@@Don't panic; this will be over in a minute.@@Let's see those hands there.@@Cover me, fellas.}
+{2010}{}{Aw, crap.}
+{2020}{}{Shoot.}
+{2030}{}{Dang.}
+{2040}{}{YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Surrender!@@Your money or your life.@@This is a stick up.@@Give me all your valuables.@@Put yer hands up.@@Stick 'em up.@@Don't panic; this will be over in a minute.@@Let's see those hands there.@@Cover me, fellas.}
+{2010}{}{Aw, crap.}
+{2020}{}{Shoot.}
+{2030}{}{Dang.}
+{2040}{}{YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Surrender!@@Your money or your life.@@This is a stick up.@@Give me all your valuables.@@Put yer hands up.@@Stick 'em up.@@Don't panic; this will be over in a minute.@@Let's see those hands there.@@Cover me, fellas.}
+{2010}{}{Aw, crap.}
+{2020}{}{Shoot.}
+{2030}{}{Dang.}
+{2040}{}{YOU WANT SOME OF THIS? WELL COME AND GET IT MOTHERF-}
+

@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+65506 3010 #
+4 3020 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Forter}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. Wanna buy something?}
+{2010}{}{Show me your stock. [ Barter ]}
+{2020}{}{Hey. Who are...}
+{2030}{}{I will be going. [ end dialogue ]}
+{3000}{}{Look. Ain't have time for the friendly shit talks, ya get me?}
+{3010}{}{Alright. Lets barter. [ Barter ]}
+{3020}{}{Fine then, dickhead. [ end dialogue ]}
+{4000}{}{Fuck off, jackass.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. Wanna buy something?}
+{2010}{}{Show me your stock.}
+{2020}{}{Hey. Who are...}
+{2030}{}{I will be going.}
+{3000}{}{Look. Ain't have time for the friendly shit talks, ya get me?}
+{3010}{}{Alright. Lets barter.}
+{3020}{}{Fine then, dickhead.}
+{4000}{}{Fuck off, jackass.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. Wanna buy something?}
+{2010}{}{Show me your stock.}
+{2020}{}{Hey. Who are...}
+{2030}{}{I will be going.}
+{3000}{}{Look. Ain't have time for the friendly shit talks, ya get me?}
+{3010}{}{Alright. Lets barter.}
+{3020}{}{Fine then, dickhead.}
+{4000}{}{Fuck off, jackass.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. Wanna buy something?}
+{2010}{}{Show me your stock.}
+{2020}{}{Hey. Who are...}
+{2030}{}{I will be going.}
+{3000}{}{Look. Ain't have time for the friendly shit talks, ya get me?}
+{3010}{}{Alright. Lets barter.}
+{3020}{}{Fine then, dickhead.}
+{4000}{}{Fuck off, jackass.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. Wanna buy something?}
+{2010}{}{Show me your stock.}
+{2020}{}{Hey. Who are...}
+{2030}{}{I will be going.}
+{3000}{}{Look. Ain't have time for the friendly shit talks, ya get me?}
+{3010}{}{Alright. Lets barter.}
+{3020}{}{Fine then, dickhead.}
+{4000}{}{Fuck off, jackass.}
+

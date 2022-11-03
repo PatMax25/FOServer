@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_bh_max = 1 R _var p q_bh_max = 2 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ MACHINE STATUS TERMINAL OPERATING... WELCOME! ]}
+{2010}{}{[ Download data ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ INFORMATION COPIED TO YOUR PIP BOY ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ MACHINE STATUS TERMINAL OPERATING... WELCOME! ]}
+{2010}{}{[ Download data ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ INFORMATION COPIED TO YOUR PIP BOY ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ MACHINE STATUS TERMINAL OPERATING... WELCOME! ]}
+{2010}{}{[ Download data ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ INFORMATION COPIED TO YOUR PIP BOY ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ MACHINE STATUS TERMINAL OPERATING... WELCOME! ]}
+{2010}{}{[ Download data ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ INFORMATION COPIED TO YOUR PIP BOY ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ MACHINE STATUS TERMINAL OPERATING... WELCOME! ]}
+{2010}{}{[ Download data ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ INFORMATION COPIED TO YOUR PIP BOY ]}
+

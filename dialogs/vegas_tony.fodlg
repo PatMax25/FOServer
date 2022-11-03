@@ -1,0 +1,43 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _item p PID_DOLLAR } 1 D _item p PID_BOTTLE_CAPS = 0 #
+3 1020 D _item p PID_DOLLAR < 1 D _script dialog@d_havepropermoney 1 1 @
+2 2000 None 0 #
+65506 2010 #
+0 2020 #
+4 2030 @
+3 3000 None 0 @
+4 4000 None 0 #
+0 4010 #
+5 4020 D _item p PID_COFFEE } 1 R _item p PID_COFFEE - 1 R _item p PID_DOLLAR + 5 R _param p ST_EXPERIENCE + 1000 #
+6 4030 D _item p PID_WHISKEY } 1 R _item p PID_WHISKEY - 1 R _item p PID_DOLLAR + 15 R _param p ST_EXPERIENCE + 2400 @
+5 5000 None 0 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Tony}
+{200}{}{You see bartender Tony.}
+{210}{}{You see a chubby man behind the bar. He smiles to each visitor.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{Answer text}
+{2000}{}{Welcome to the most expensive and exclusive bar in the entire wasteland. What'cha need, bud?}
+{2010}{}{Booze. Show me what do you have.}
+{2020}{}{Nothing... Thanks.}
+{2030}{}{Do you guys buy rare drinks and stuff?}
+{3000}{}{Sorry mate, we trade only for dollars here. And no caps. Once I see you have dollars without caps, we can trade.}
+{4000}{}{Sure, bud! We are ready to buy exclusive drinks... If you have any of course.}
+{4010}{}{I will come later.}
+{4020}{}{I have some coffee here.}
+{4030}{}{Check this out. A bottle of vinatge whiskey.}
+{5000}{}{Ah, I so much love coffee! And so do our rich clients. Here, take these 5 dollars for it.
+}
+{6000}{}{Oh dear, where did you even find it? It's a real bottle of 100% vintage whiskey! Our VIPs will love it. Here, take 15 dollars for it.}
+

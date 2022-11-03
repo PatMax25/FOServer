@@ -1,0 +1,216 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+6 2020 #
+8 2030 #
+9 2040 D _var p q_hawthorne_christ = 0 #
+0 2050 #
+12 2060 D _var p q_hawthorne_christ = 2 D _item p PID_CATS_PAW_ISSUE_5 } 1 R _var p q_hawthorne_christ = 3 R _item p PID_CATS_PAW_ISSUE_5 - 1 R _item p PID_BUFFOUT + 4 R _item p PID_BOTTLE_CAPS + 1400 R _item p PID_DAISIES + 1 R _param p ST_EXPERIENCE + 1100 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 #
+2 4020 #
+0 4030 @
+5 5000 None 0 #
+6 5010 #
+2 5020 @
+6 6000 None 1 #
+7 6010 @
+7 7000 None 1 #
+2 7010 @
+8 8000 None 1 #
+2 8010 @
+9 9000 None 1 #
+10 9010 D _var p q_hawthorne_christ = 0 R _var p q_hawthorne_christ = 1 #
+0 9020 @
+10 10000 None 1 @
+12 11000 None 1 #
+13 11010 #
+0 11020 @
+13 12000 None 1 &
+
+[engl]
+{100}{}{Christian}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Strange to see people here... I heard this place was nothing but ruins.}
+{2030}{}{Any places of interest here?}
+{2040}{}{I am looking for a job.}
+{2050}{}{I don't think so.}
+{2060}{}{I got the thing you had hidden there...}
+{3000}{}{Are you a newcomer in the city? Well, nice to see new faces! This is Hawthorne, a small but kinda unqiue settlement.}
+{3010}{}{What is the story of this place?}
+{4000}{}{Well, as I know, the settlement was built before the War. It seems like it was a small town near the local military base.}
+{4010}{}{Military base?}
+{4020}{}{Alright. I want to ask you about something else.}
+{4030}{}{You are so damn boring. I better go.}
+{5000}{}{Yeah, indeed. There is a military installation to the North. You better stay away from it, there is a local "army", mostly full of deserters and outcasts from different organisations. They generally don't like strangers.}
+{5010}{}{I see. Strange, I heard that there are no people living here...}
+{5020}{}{There is something else I wish to talk with you about.}
+{6000}{}{It used to be just a ruined city, but recently we decided to elect a mayor and now the city got a new breath.}
+{6010}{}{A mayor? Can you tell me some more details?}
+{7000}{}{Well the first mayor was Inspector Gabber. A deathclaw... But then he disappeared and so next was Evil American. We ruled well till the moment when... Vault City came. They burrned the city to the ground and now they have it in their Empire. Solo became our new ruler... Or how they called him... "Governor". Unfortunately then war with Brotherhood of Steel came and those damn tech fans kicked Vault City forces away from the city. The town was long abandoned, but now we have a new mayor - Yamantaka.}
+{7010}{}{I see. I have one more question.}
+{8000}{}{You can check Fernandez's shop and Joe's shop. I am pretty sure they have some interesting stock that might lighten your wallet.}
+{8010}{}{Fine. I have something else to ask.}
+{9000}{}{Well, one thing can be done... Look, there is something I forgot in another side of the town. There is a broken electrical board and... SOMETHING is hidden there. Can you get it out and bring it back to me, please?}
+{9010}{}{I will do it.}
+{9020}{}{I am not a running boy!}
+{10000}{}{Also, be careful, there still might be functional electricity cables and wires...}
+{11000}{}{Oh hey, you found it! Thank you. Take this as a reward for your job.}
+{11010}{}{Did you really ask me to get some freaking porn journal for you?}
+{11020}{}{Yeah, you are welcome.}
+{12000}{}{Why? What is the problem? Can't a man enjoy a little happiness?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Strange to see people here... I heard that the place is nothing but ruins,}
+{2030}{}{Any places of interest here?}
+{2040}{}{I am looking for a job.}
+{2050}{}{I don't think so.}
+{2060}{}{I got the thing you had hidden there...}
+{3000}{}{Are you a newcomer in the city? Well, nice to see new faces! This is Hawthorne, a small but kinda unqiue settlement.}
+{3010}{}{What is the story of this place?}
+{4000}{}{Well, as I know, the settlement was built before the War. It seems like it was a small town near local military base.}
+{4010}{}{Military base?}
+{4020}{}{Alright. I want to ask you about something else.}
+{4030}{}{You are so damn boring. I better go.}
+{5000}{}{Yeah, indeed. There is a military installation on North. You better stay away from it, local "army", mostly grouped by deserters and outcasts from different organisations, doesn't like strangers.}
+{5010}{}{I see. Strange, I heard that there are no people living here...}
+{5020}{}{There is something else I wish to talk with you about.}
+{6000}{}{It used to be just a ruined city, but recently we decided to elect a mayor and now the city got a new breath.}
+{6010}{}{A mayor? Can you tell me some more details?}
+{7000}{}{Well the first mayor was Inspector Gabber. A deathclaw... But then he disappeared and so next was Evil American. We ruled well till the moment when... Vault City came. They burrned the city to the ground and now they have it in their Empire. Solo became our new ruler... Or how they called him... "Governor". Unfortunately then war with Brotherhood of Steel came and those damn tech fans kicked Vault City focres away from the city. The town was long abandoned, but now we have a new mayor - Yamantaka.}
+{7010}{}{I see. I have one more question.}
+{8000}{}{You can check Fernandez's shop and Joe's shop. I am pretty sure they have some intereting stock that might get you interested.}
+{8010}{}{Fine. I have something else to ask.}
+{9000}{}{Well, one thing can be done... Look, there is something I forgot in another side of the town. There must be a broken electrical board and... SOMETHING is hidden there. Can you get it out and bring it back to me, please?}
+{9010}{}{I will do it.}
+{9020}{}{I am not a running boy!}
+{10000}{}{Also, be careful, there still might be functional electricity cables and wires...}
+{11000}{}{Oh hey, you found it! Tank you. Take this as a reward for your job.}
+{11010}{}{Did you reall ask me to get some freaking porn journal for you?}
+{11020}{}{Yeah, you are welcome.}
+{12000}{}{Why? What is the problem? Can't the man enjoy own little happiness?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Strange to see people here... I heard that the place is nothing but ruins,}
+{2030}{}{Any places of interest here?}
+{2040}{}{I am looking for a job.}
+{2050}{}{I don't think so.}
+{2060}{}{I got the thing you had hidden there...}
+{3000}{}{Are you a newcomer in the city? Well, nice to see new faces! This is Hawthorne, a small but kinda unqiue settlement.}
+{3010}{}{What is the story of this place?}
+{4000}{}{Well, as I know, the settlement was built before the War. It seems like it was a small town near local military base.}
+{4010}{}{Military base?}
+{4020}{}{Alright. I want to ask you about something else.}
+{4030}{}{You are so damn boring. I better go.}
+{5000}{}{Yeah, indeed. There is a military installation on North. You better stay away from it, local "army", mostly grouped by deserters and outcasts from different organisations, doesn't like strangers.}
+{5010}{}{I see. Strange, I heard that there are no people living here...}
+{5020}{}{There is something else I wish to talk with you about.}
+{6000}{}{It used to be just a ruined city, but recently we decided to elect a mayor and now the city got a new breath.}
+{6010}{}{A mayor? Can you tell me some more details?}
+{7000}{}{Well the first mayor was Inspector Gabber. A deathclaw... But then he disappeared and so next was Evil American. We ruled well till the moment when... Vault City came. They burrned the city to the ground and now they have it in their Empire. Solo became our new ruler... Or how they called him... "Governor". Unfortunately then war with Brotherhood of Steel came and those damn tech fans kicked Vault City focres away from the city. The town was long abandoned, but now we have a new mayor - Yamantaka.}
+{7010}{}{I see. I have one more question.}
+{8000}{}{You can check Fernandez's shop and Joe's shop. I am pretty sure they have some intereting stock that might get you interested.}
+{8010}{}{Fine. I have something else to ask.}
+{9000}{}{Well, one thing can be done... Look, there is something I forgot in another side of the town. There must be a broken electrical board and... SOMETHING is hidden there. Can you get it out and bring it back to me, please?}
+{9010}{}{I will do it.}
+{9020}{}{I am not a running boy!}
+{10000}{}{Also, be careful, there still might be functional electricity cables and wires...}
+{11000}{}{Oh hey, you found it! Tank you. Take this as a reward for your job.}
+{11010}{}{Did you reall ask me to get some freaking porn journal for you?}
+{11020}{}{Yeah, you are welcome.}
+{12000}{}{Why? What is the problem? Can't the man enjoy own little happiness?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Strange to see people here... I heard that the place is nothing but ruins,}
+{2030}{}{Any places of interest here?}
+{2040}{}{I am looking for a job.}
+{2050}{}{I don't think so.}
+{2060}{}{I got the thing you had hidden there...}
+{3000}{}{Are you a newcomer in the city? Well, nice to see new faces! This is Hawthorne, a small but kinda unqiue settlement.}
+{3010}{}{What is the story of this place?}
+{4000}{}{Well, as I know, the settlement was built before the War. It seems like it was a small town near local military base.}
+{4010}{}{Military base?}
+{4020}{}{Alright. I want to ask you about something else.}
+{4030}{}{You are so damn boring. I better go.}
+{5000}{}{Yeah, indeed. There is a military installation on North. You better stay away from it, local "army", mostly grouped by deserters and outcasts from different organisations, doesn't like strangers.}
+{5010}{}{I see. Strange, I heard that there are no people living here...}
+{5020}{}{There is something else I wish to talk with you about.}
+{6000}{}{It used to be just a ruined city, but recently we decided to elect a mayor and now the city got a new breath.}
+{6010}{}{A mayor? Can you tell me some more details?}
+{7000}{}{Well the first mayor was Inspector Gabber. A deathclaw... But then he disappeared and so next was Evil American. We ruled well till the moment when... Vault City came. They burrned the city to the ground and now they have it in their Empire. Solo became our new ruler... Or how they called him... "Governor". Unfortunately then war with Brotherhood of Steel came and those damn tech fans kicked Vault City focres away from the city. The town was long abandoned, but now we have a new mayor - Yamantaka.}
+{7010}{}{I see. I have one more question.}
+{8000}{}{You can check Fernandez's shop and Joe's shop. I am pretty sure they have some intereting stock that might get you interested.}
+{8010}{}{Fine. I have something else to ask.}
+{9000}{}{Well, one thing can be done... Look, there is something I forgot in another side of the town. There must be a broken electrical board and... SOMETHING is hidden there. Can you get it out and bring it back to me, please?}
+{9010}{}{I will do it.}
+{9020}{}{I am not a running boy!}
+{10000}{}{Also, be careful, there still might be functional electricity cables and wires...}
+{11000}{}{Oh hey, you found it! Tank you. Take this as a reward for your job.}
+{11010}{}{Did you reall ask me to get some freaking porn journal for you?}
+{11020}{}{Yeah, you are welcome.}
+{12000}{}{Why? What is the problem? Can't the man enjoy own little happiness?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Strange to see people here... I heard that the place is nothing but ruins,}
+{2030}{}{Any places of interest here?}
+{2040}{}{I am looking for a job.}
+{2050}{}{I don't think so.}
+{2060}{}{I got the thing you had hidden there...}
+{3000}{}{Are you a newcomer in the city? Well, nice to see new faces! This is Hawthorne, a small but kinda unqiue settlement.}
+{3010}{}{What is the story of this place?}
+{4000}{}{Well, as I know, the settlement was built before the War. It seems like it was a small town near local military base.}
+{4010}{}{Military base?}
+{4020}{}{Alright. I want to ask you about something else.}
+{4030}{}{You are so damn boring. I better go.}
+{5000}{}{Yeah, indeed. There is a military installation on North. You better stay away from it, local "army", mostly grouped by deserters and outcasts from different organisations, doesn't like strangers.}
+{5010}{}{I see. Strange, I heard that there are no people living here...}
+{5020}{}{There is something else I wish to talk with you about.}
+{6000}{}{It used to be just a ruined city, but recently we decided to elect a mayor and now the city got a new breath.}
+{6010}{}{A mayor? Can you tell me some more details?}
+{7000}{}{Well the first mayor was Inspector Gabber. A deathclaw... But then he disappeared and so next was Evil American. We ruled well till the moment when... Vault City came. They burrned the city to the ground and now they have it in their Empire. Solo became our new ruler... Or how they called him... "Governor". Unfortunately then war with Brotherhood of Steel came and those damn tech fans kicked Vault City focres away from the city. The town was long abandoned, but now we have a new mayor - Yamantaka.}
+{7010}{}{I see. I have one more question.}
+{8000}{}{You can check Fernandez's shop and Joe's shop. I am pretty sure they have some intereting stock that might get you interested.}
+{8010}{}{Fine. I have something else to ask.}
+{9000}{}{Well, one thing can be done... Look, there is something I forgot in another side of the town. There must be a broken electrical board and... SOMETHING is hidden there. Can you get it out and bring it back to me, please?}
+{9010}{}{I will do it.}
+{9020}{}{I am not a running boy!}
+{10000}{}{Also, be careful, there still might be functional electricity cables and wires...}
+{11000}{}{Oh hey, you found it! Tank you. Take this as a reward for your job.}
+{11010}{}{Did you reall ask me to get some freaking porn journal for you?}
+{11020}{}{Yeah, you are welcome.}
+{12000}{}{Why? What is the problem? Can't the man enjoy own little happiness?}
+

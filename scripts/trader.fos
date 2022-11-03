@@ -1,0 +1,2721 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// trader.fos
+//
+
+//
+// Generic trader script
+//
+#include "item_pools_h.fos"
+#include "_macros.fos"
+#include "economy_h.fos"
+#include "trader_h.fos"
+#include "utils_h.fos"
+#include "_maps.fos"
+#include "_dialogs.fos"
+#include "broadcast_h.fos"
+//#include "item_bonus.fos"
+#include "MsgStr.h"
+
+#define BROADCAST_DISPLAY_TIME                   (30) // in seconds, for finish messages
+
+import void InjectValue(uint x, uint y, uint amount, uint from) from "worldmap";
+import void _weapon_perk(Item& item, bool firstTime) from "item_level";
+import void _armor_perk(Item& item, bool firstTime) from "item_level";
+
+void AddSpecialBonus(Item@ it)
+{
+   it.Val0 = Random(100000,6000000);
+   it.Update();
+   
+   if(it.GetType() == ITEM_TYPE_WEAPON)
+	{
+	_weapon_perk(it, false);
+	}
+	if(it.GetType() == ITEM_TYPE_ARMOR)
+	{
+	_armor_perk(it, false);
+	}
+}
+
+// Send relevant prices to client
+bool _OnBarter(Critter& cr, Critter& player, bool attach, uint barterCount)
+{
+    if(!attach)
+        return false;
+
+    /*int[] data;
+       int[] ammo; // additional ammo array that will be appended on the end
+       Item@[] items;
+       uint itemCount = cr.GetItems(SLOT_INV, items);
+        uint pitemCount = player.GetItems(SLOT_INV, items);
+
+       itemCount+= pitemCount;
+
+       for(uint i = 0; i < itemCount; i++)
+       {
+                if(items[i].GetProtoId() == PID_BOTTLE_CAPS)
+                        continue;
+
+                bool found = false;
+                for(uint j = 0, k = data.length(); j < k; j+=2)
+                {
+                        if(data[j] == items[i].GetProtoId())
+                        {
+                                found = true;
+                                break;
+                        }
+                }
+                if(!found)
+                {
+                        uint idx = data.length();
+                        data.resize(data.length()+2);
+                        data[idx] = items[i].GetProtoId();
+                        data[idx+1] = items[i].Proto.Cost;
+                        DLog("Price of PID " + data[idx] + ": " + data[idx+1]);
+                }
+
+                // if trader has a weapon with no ammo for example, and player has same weapon with some ammo, the weapon with no ammo is already found, problem is that when it searched the first gun,
+                // it didn't contain ammo, so it didn't send ammo price and blocks all other item of same type.
+                // that's why code needs to be here
+                if (items[i].GetType() == ITEM_TYPE_WEAPON && items[i].AmmoPid>0 && items[i].AmmoPid!=65535)
+        {
+            DLog("AmmoPid: " + items[i].AmmoPid);
+            found = false;
+            for(uint j = 0, k = ammo.length(); j < k; j+=2)
+            {
+                if(ammo[j] == items[i].AmmoPid)
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found)
+            {
+                uint idx = ammo.length();
+                ammo.resize(ammo.length()+2);
+                ammo[idx] = items[i].AmmoPid;
+                ammo[idx+1] = BaseItemValue(items[i].AmmoPid, false);
+            }
+        }
+
+       }
+        DLog("Prepared: " + data.length()/2 + " item prices and " + ammo.length()/2 + " ammo prices.");
+        // concatenate arrays
+        append_array(data, ammo);*/
+
+    DLog("buymod: " + GetItemBuyModifier(player, cr));
+    DLog("sellmod: " + GetItemSellModifier(player, cr));
+
+    DLog("Sending barter prices to client");
+    player.RunClientScript("_BarterInit", GetItemBuyModifier(player, cr), GetItemSellModifier(player, cr), 0, "", null /*data*/);
+    player.RunClientScript("_BarterTraderLevels", 0, 0, 0, "", GetTraderLevels(cr));
+    return true;
+}
+
+/*void critter_init(Critter& npc, bool firstTime)
+   {
+        uint dummy;
+        if(MapType(npc.Param[ST_NPC_ROLE], null, dummy))
+        {
+                _CritSetMode(npc,MODE_NO_STEAL);
+                _CritUnsetMode(npc, MODE_NO_BARTER);
+                _CritSetExtMode(npc, MODE_EXT_TRADER);
+
+                npc.SetEvent(CRITTER_EVENT_BARTER, "_OnBarter");
+
+                npc.SetBagRefreshTime(50000);
+                int bag_bug = npc.GetBagRefreshTime();
+
+                npc.ParamBase[SK_BARTER] = 50;
+
+                CreateTimeEvent(AFTER(TRADER_UPDATE_TIME), "e_Update", npc.Id, false);
+        }
+        else
+        {
+                Log("ERR: Npc is not a trader, please change script.");
+                _CritSetMode(npc, MODE_NO_BARTER);
+                _CritUnsetExtMode(npc, MODE_EXT_TRADER);
+        }
+   }
+ */
+
+
+/**
+ * Updates trader inventory.
+ */
+uint e_Update(array<uint>@ values)
+{
+    // _TIMEBEGIN;
+    Critter@ npc = GetCritter(values[0]);
+    if(!valid(npc))
+        return 0;
+
+    AddItems(npc);
+    return TRADER_UPDATE_TIME;
+}
+
+// helper
+/*void Update(Critter& npc, uint type, uint level)
+   {
+        //npc.Say(SAY_NORM, "Checking items " + type + "/" + level);
+        // get all items in trader inventory
+    array<Item@> allItems;
+    uint num = npc.GetItems(SLOT_INV, allItems);
+        if(num == 0) return;
+
+        // take only items we're interested in, sort them while building array (from cheapest to expensive)
+
+        // this will be total value of those items
+        uint totalValue = 0;
+        uint itemsSize=0;
+        for(uint i = 0; i < num; i++) // first pass - only count items
+        {
+                if(allItems[i].GetProtoId() == PID_BOTTLE_CAPS)
+                        continue;
+
+                if(TradingItemType(allItems[i]) == type && ItemLevel(allItems[i]) == level)
+                {
+                        totalValue += BaseItemValue(allItems[i]);
+                        itemsSize++;
+                }
+        }
+
+        array<Item@> items(itemsSize); // no reallocations needed
+
+        for(uint i = 0; i < num; i++) // second pass - put them in array
+        {
+                if(allItems[i].GetProtoId() == PID_BOTTLE_CAPS)
+                        continue;
+
+                if(TradingItemType(allItems[i]) == type && ItemLevel(allItems[i]) == level)
+                        InsertItem(allItems[i], items);
+        }
+
+        if(totalValue == 0)
+                return;
+        num = items.length();
+        // now check if total value exceeds trader capacity
+        int diff = totalValue - TraderCapacity(npc, type, level);
+        //npc.Say(SAY_NORM, "Type/level diff: " + diff);
+        // remove items if level is exceeding capacity, starting from cheapest ones
+        uint i = 0;
+        while(diff > 0)
+        {
+                //npc.Say(SAY_NORM, "Removing exceeding item with price: " + BaseItemValue(items[i]));
+                diff -= BaseItemValue(items[i]);
+                npc.AddItem(PID_BOTTLE_CAPS, BaseItemValue(items[i]));
+                DeleteItem(items[i++]);
+        }
+   }
+
+   // another helper, sorts items price-wise as they're inserted
+   void InsertItem(Item@ item, array<Item@>& items)
+   {
+        item.Val0=BaseSingleItemValue(item);
+        for(uint i = items.length()-1; i > 0; i--)
+        {
+                if(item.Val0 >= items[i-1].Val0)
+                {
+                        @items[i] = item;
+                        return;
+                }
+                else
+                        @items[i] = @items[i-1];
+        }
+        @items[0] = item;
+   }*/
+
+import void SetTraderLevels(Critter@ npc, array<uint>& levels) from "economy";
+void banker(Critter& npc, bool firstTime)   // near entrance, general
+{
+	npc.ParamBase[MODE_NO_STEAL] = 1;
+    npc.ParamBase[MODE_NO_LOOT] = 1;
+    npc.ParamBase[MODE_NO_DROP] = 1;
+    npc.ParamBase[MODE_NO_BARTER] = 0;
+    npc.ParamBase[MODE_NO_TALK] = 0;
+	npc.ParamBase[ST_DESCRIPTION2] = 7;
+    npc.ParamBase[MODE_DLG_SCRIPT_BARTER] = 1;
+    npc.ParamBase[SK_BARTER] = 9999;
+	CreateTimeEvent(AFTER(REAL_SECOND(1)), "e_fill", npc.Id, false);
+
+}
+
+uint e_fill(array<uint>@ values)
+{
+    Critter@ cr = GetCritter(values[0]);
+	cr.ParamBase[ST_DESCRIPTION2] = 7;
+    cr.ParamBase[MODE_DLG_SCRIPT_BARTER] = 1;
+	uint ec = 0;
+	uint bc = 0;
+	uint nc = 0;
+	uint vc = 0;
+	uint mc = 0;
+	uint eco = 5;
+	uint bco = 5;
+	uint nco = 5;
+	uint vco = 5;
+	uint mco = 5;
+	
+	array<Item@> eitems;
+    uint         e = 0;
+    e = GetAllItems(PID_ENCLAVE_MONEY, eitems);
+	for(uint i = 0; i < e; i++)
+    {
+	ec += eitems[i].GetCount();
+	}
+	array<Item@> bitems;
+    uint         b = 0;
+    b = GetAllItems(PID_BOS_MONEY, bitems);
+	for(uint i = 0; i < b; i++)
+    {
+	bc += bitems[i].GetCount();
+	}
+	array<Item@> nitems;
+    uint         n = 0;
+    n = GetAllItems(PID_NCR_MONEY, nitems);
+	for(uint i = 0; i < n; i++)
+    {
+	nc += nitems[i].GetCount();
+	}
+	array<Item@> vitems;
+    uint         v = 0;
+    v = GetAllItems(PID_VC_MONEY, vitems);
+	for(uint i = 0; i < v; i++)
+    {
+	vc += vitems[i].GetCount();
+	}
+	array<Item@> mitems;
+    uint         m = 0;
+    m = GetAllItems(PID_MA_MONEY, mitems);
+	for(uint i = 0; i < m; i++)
+    {
+	mc += mitems[i].GetCount();
+	}
+	if(ec<bc) { eco += 5; bco +=1; }
+	if(ec>bc) { eco += 1; bco += 5; }
+	if(ec==bc) { eco += 3; bco += 3; }
+	if(ec<nc) { eco += 5; nco +=1; }
+	if(ec>nc) { eco += 1; nco += 5; }
+	if(ec==nc) { eco += 3; nco += 3; }
+	if(ec<vc) { eco += 5; vco +=1; }
+	if(ec>vc) { eco += 1; vco += 5; }
+	if(ec==vc) { eco += 3; vco += 3; }
+	if(ec<mc) { eco += 5; mco +=1; }
+	if(ec>mc) { eco += 1; mco += 5; }
+	if(ec==mc) { eco += 3; mco += 3; }
+	if(bc<nc) { bco += 5; nco +=1; }
+	if(bc>nc) { bco += 1; nco += 5; }
+	if(bc==nc) { bco += 3; nco += 3; }
+	if(bc<vc) { bco += 5; vco +=1; }
+	if(bc>vc) { bco += 1; vco += 5; }
+	if(bc==vc) { bco += 3; vco += 3; }
+	if(bc<mc) { bco += 5; mco +=1; }
+	if(bc>mc) { bco += 1; mco += 5; }
+	if(bc==mc) { bco += 3; mco += 3; }
+	if(nc<vc) { nco += 5; vco +=1; }
+	if(nc>vc) { nco += 1; vco += 5; }
+	if(nc==vc) { nco += 3; vco += 3; }
+	if(nc<mc) { nco += 5; mco +=1; }
+	if(nc>mc) { nco += 1; mco += 5; }
+	if(nc==mc) { nco += 3; mco += 3; }
+	if(mc<vc) { mco += 5; vco +=1; }
+	if(mc>vc) { mco += 1; vco += 5; }
+	if(mc==vc) { mco += 3; vco += 3; }
+	cr.ParamBase[ST_BANK1] = 1;
+	cr.ParamBase[ST_BANK2] = eco;
+	cr.ParamBase[ST_BANK3] = bco;
+	cr.ParamBase[ST_BANK4] = nco;
+	cr.ParamBase[ST_BANK5] = vco;
+	cr.ParamBase[ST_BANK6] = mco;
+	
+	 array<Item@> items;
+    int          count = cr.GetItems(SLOT_INV, items);
+    if(count > 0)
+    {
+        DeleteItems(items);
+    }
+	cr.AddItem(PID_BOTTLE_CAPS, 100000);
+	cr.AddItem(PID_ENCLAVE_MONEY, 30000);
+	cr.AddItem(PID_BOS_MONEY, 30000);
+	cr.AddItem(PID_NCR_MONEY, 30000);
+	cr.AddItem(PID_VC_MONEY, 30000);
+	//cr.AddItem(PID_MA_MONEY, 30000);
+	return REAL_MINUTE(60);
+}
+void _DenFlick(Critter& npc, bool firstTime)   // junkie house, general and weapons
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* DenFlick */ uint[] levels =
+    {
+        1, 1, 0, 1, 1, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 65;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _DenFrank(Critter& npc, bool firstTime)   // the hole man? drugs, general
+{
+    /* DenFrank */ uint[] levels =
+    {
+        0, 0, 0, 0, 0, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 50;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _DenMom(Critter& npc, bool firstTime)   // Mom's, general
+{
+    /* DenMom */ uint[] levels = { 0, 0, 0, 0, 0, 1, 1, 0, 0 };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 60;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _DenRebecca(Critter& npc, bool firstTime)   // gambling house, general
+{
+
+    /* DenRebecca */ uint[] levels =
+    {
+        1, 0, 0, 0, 1, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 50;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _DenTubby(Critter& npc, bool firstTime)   // near entrance, general and weapons
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* DenTubby */ uint[] levels =
+    {
+        1, 1, 1, 0, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 80;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _KlamathBuckner(Critter& npc, bool firstTime)   // Buckner's house, general
+{
+    //                                     1  2  3  4  5  6  A  D  A  G  M  C
+    /* KlamathBuckner */ uint[] levels =
+    {
+        1, 0, 0, 0, 0, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 40;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _ModocGrishem(Critter& npc, bool firstTime)   // near entrance, general
+{
+    //                                   1  2  3  4  5  6  A  D  A  G  M  C
+    /* ModocGrishem */ uint[] levels =
+    {
+        1, 0, 0, 0, 1, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 60;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _ModocJo(Critter& npc, bool firstTime)   // JO! general, maybe weapons
+{
+    //                              1  2  3  4  5  6  A  D  A  G  M  C
+    /* ModocJo */ uint[] levels =
+    {
+        1, 0, 1, 0, 0, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+    _CritSetMode(npc, MODE_DLG_SCRIPT_BARTER);
+}
+
+void _ModocBalthas(Critter& npc, bool firstTime)   // near well, armour
+{
+    //                                   1  2  3  4  5  6  A  D  A  G  M  C
+    /* ModocBalthas */ uint[] levels =
+    {
+        0, 0, 0, 1, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 70;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _ModocMook(Critter& npc, bool firstTime)   // maintenance center, general?
+{
+
+    /* ModocMook */ uint[] levels =
+    {
+        0, 1, 0, 0, 0, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 75;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _VCAmenities(Critter& npc, bool firstTime)
+{
+    /* void_VCAmenities */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _VCSubAmenitiesA(Critter& npc, bool firstTime)
+{
+    /* void_VCSubAmenitiesA */ uint[] levels =
+    {
+        1, 0, 0, 0, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 120;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _VCSubAmenitiesB(Critter& npc, bool firstTime)
+{
+    //                                           1  2  3  4  5  6  A  D  A  G  M  C
+    /* void_VCSubAmenitiesB */ uint[] levels =
+    {
+        0, 0, 0, 1, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 140;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _VCHappyHarry(Critter& npc, bool firstTime)   // near main gate, general, weapons, ammo, armour
+{
+    //                                   1  2  3  4  5  6  A  D  A  G  M  C
+    /* VCHappyHarry */ uint[] levels =
+    {
+        1, 1, 1, 0, 0, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 90;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _VCMacRae(Critter& npc, bool firstTime)   // cassidy, general
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* VCMacRae */ uint[] levels =
+    {
+        1, 0, 0, 0, 1, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 70;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _VCDoctorAndrew(Critter& npc, bool firstTime)   // courtyard, drugs
+{
+    //                                     1  2  3  4  5  6  A  D  A  G  M  C
+    /* VCDoctorAndrew */ uint[] levels =
+    {
+        0, 0, 0, 0, 0, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 70;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _GeckoSkeeter(Critter& npc, bool firstTime)   // old reactor, general, weapons, ammo, armours, stuff
+{
+    //                                   1  2  3  4  5  6  A  D  A  G  M  C
+    /* GeckoSkeeter */ uint[] levels =
+    {
+        1, 0, 1, 0, 1, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 70;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _GeckoPercy(Critter& npc, bool firstTime)   // old reactor, general
+{
+
+    /* GeckoPercy */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 50;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _GeckoWooz(Critter& npc, bool firstTime)   // The Harp, bartender
+{
+    //                             1  2  3  4  5  6  A  D  A  G  M  C
+    /* GeckoWooz */ uint[] levels =
+    {
+        0, 0, 0, 0, 0, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 80;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _ReddingAscorti(Critter& npc, bool firstTime)   // gambling house, general
+{
+    //                                     1  2  3  4  5  6  A  D  A  G  M  C
+    /* ReddingAscorti */ uint[] levels =
+    {
+       1, 0, 1, 0, 0, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 105;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _ReddingDocJohnson(Critter& npc, bool firstTime)   // painless at redding AND the doc in NCR! drugs
+{
+    //                                        1  2  3  4  5  6  A  D  A  G  M  C
+    /* ReddingDocJohnson */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 70;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _BrokenDocHolliday(Critter& npc, bool firstTime)   // uh, doc. drugs.
+{
+    //                                        1  2  3  4  5  6  A  D  A  G  M  C
+    /* BrokenDocHolliday */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 70;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _BrokenLiz(Critter& npc, bool firstTime)   // northern trader, general, armour, weapon
+{
+
+    /* BrokenLiz */ uint[] levels =
+    {
+        1, 1, 0, 1, 0, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 70;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _BrokenPhil(Critter& npc, bool firstTime)   // ghoul bartender, general, drugs
+{
+
+    /* BrokenPhil */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 50;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _BrokenBill(Critter& npc, bool firstTime)   // central trader, general, armour, weapon
+{
+
+    /* BrokenBill */ uint[] levels =
+    {
+        1, 1, 1, 0, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 110;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _BrokenJacob(Critter& npc, bool firstTime)   // southern trader, general, drugs
+{
+    //                                  1  2  3  4  5  6  A  D  A  G  M  C
+    /* BrokenJacob */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 80;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _RenoJules(Critter& npc, bool firstTime)   // entrance guy, drugs
+{
+
+    /* RenoJules */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 65;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _RenoEldridge(Critter& npc, bool firstTime)   // Eldridge! weapons, ammo
+{
+    //                                   1  2  3  4  5  6  A  D  A  G  M  C
+    /* RenoEldridge */ uint[] levels =
+    {
+        1, 1, 0, 0, 0, 0, 0, 1, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 300;
+	
+	npc.ParamBase[ST_DESCRIPTION2] = 8;
+    DefaultTraderInit(npc, firstTime);
+    array<uint> filldata = { npc.Id};
+    CreateTimeEvent(AFTER(REAL_MINUTE(Random(45,60))), "e_addkey", filldata, false);
+}
+
+void _RenoRenesco(Critter& npc, bool firstTime)   // drugs, general
+{
+    //                                  1  2  3  4  5  6  A  D  A  G  M  C
+    /* RenoRenesco */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 1, 1, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 300;
+	npc.ParamBase[ST_DESCRIPTION2] = 8;
+    DefaultTraderInit(npc, firstTime);
+    array<uint> filldata = { npc.Id};
+    CreateTimeEvent(AFTER(REAL_MINUTE(Random(45,60))), "e_addkey", filldata, false);
+}
+
+
+void _TreasureBar(Critter& npc, bool firstTime)   // drugs, general
+{
+    //                                  1  2  3  4  5  6  A  D  A  G  M  C
+    /* RenoRenesco */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 1, 1, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 300;
+    DefaultTraderInit(npc, firstTime);
+    array<uint> filldata = { npc.Id};
+    CreateTimeEvent(AFTER(REAL_MINUTE(Random(20,60))), "e_addmap", filldata, false);
+}
+
+uint e_addkey(array<uint>@ mobdata)
+{
+
+    Critter@ cr = GetCritter(mobdata[0]);
+    Item@ key = cr.GetItem(PID_VAULT_TEC_KEY, 1);
+    //DeleteItem(key);
+    cr.AddItem(PID_VAULT_TEC_KEY, 1);
+	ServerEventCNTSet("New Reno Vault-Tec Key provided", cr.Id, EVENT_TYPE_TRADER_1, REAL_SECOND(Random(3, 10)));
+    array<uint> filldata = { cr.Id};
+    return REAL_MINUTE(Random(45,60));
+}
+
+uint e_addmap(array<uint>@ mobdata)
+{
+
+    Critter@ cr = GetCritter(mobdata[0]);
+    //DeleteItem(key);
+    switch(Random(1,200))
+    {
+    case 1: cr.AddItem(PID_MAP_TO_DUNG4, 1); break;
+    default: cr.AddItem(PID_MAP_TO_DUNG1, 1); cr.AddItem(PID_MAP_TO_DUNG2, 1); break;
+    }
+
+    array<uint> filldata = { cr.Id};
+    return REAL_MINUTE(Random(20,60));
+}
+void _RenoBartender(Critter& npc, bool firstTime)   // several bartenders, general
+{
+    //                                    1  2  3  4  5  6  A  D  A  G  M  C
+    /* RenoBartender */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 50;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _NCRBuster(Critter& npc, bool firstTime)   // bazaar, weapons, armours, ammo
+{
+
+    /* NCRBuster */ uint[] levels =
+    {
+        1, 1, 1, 0, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 125;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _NCRDusty(Critter& npc, bool firstTime)   // cantina, bartender, general
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* NCRDusty */ uint[] levels =
+    {
+        1, 0, 0, 0, 1, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 65;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _NCRMiria(Critter& npc, bool firstTime)   // bazaar pub bartender, general
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* NCRMiria */ uint[] levels =
+    {
+        1, 0, 0, 0, 1, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 65;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _NCRShaNine(Critter& npc, bool firstTime)   // bazaar trader, general
+{
+
+    /* NCRShaNine */ uint[] levels =
+    {
+        1, 0, 0, 1, 0, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 90;
+    DefaultTraderInit(npc, firstTime);
+}
+
+
+void _SFChiang(Critter& npc, bool firstTime)   // two main traders. weapons, armour, drugs, ammo
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* SFChiang */ uint[] levels =
+    {
+        1, 0, 1, 0, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 160;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _SFDrFung(Critter& npc, bool firstTime)   // dr. drugs
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* SFDrFung */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _SFJenny(Critter& npc, bool firstTime)   // tanker trader. guns, general, ammo?
+{
+    //                              1  2  3  4  5  6  A  D  A  G  M  C
+    /* SFJenny */ uint[] levels =
+    {
+        1, 0, 0, 0, 1, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 125;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _SFKarl(Critter& npc, bool firstTime)   // tanker trader, definitely guns, ammo, armour?
+{
+    //                             1  2  3  4  5  6  A  D  A  G  M  C
+    /* SFKarl */ uint[] levels =
+    {
+        0, 1, 0, 1, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 140;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _SFSlim(Critter& npc, bool firstTime)   // tanker, bar, bartender. general.
+{
+    //                             1  2  3  4  5  6  A  D  A  G  M  C
+    /* SFSlim */ uint[] levels =
+    {
+        1, 0, 0, 0, 1, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 70;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Killian(Critter& npc, bool firstTime)   // darkwater's in junktown, general, maybe guns, ammo, armour etc.
+{
+    //                              1  2  3  4  5  6  A  D  A  G  M  C
+    /* Killian */ uint[] levels =
+    {
+        1, 1, 0, 0, 1, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 110;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Mitch(Critter& npc, bool firstTime)   // dwarf hub trader, general+stuff
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Mitch */ uint[] levels =
+    {
+        1, 0, 0, 0, 2, 0, 2, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Beth(Critter& npc, bool firstTime)   // lady in hub, general, weapons, ammo
+{
+    //                           1  2  3  4  5  6  A  D  A  G  M  C
+    /* Beth */ uint[] levels =
+    {
+        0, 0, 1, 0, 1, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 120;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Stapleton(Critter& npc, bool firstTime) // Mrs. Stapleton, book seller in Hub
+{
+    //                           1  2  3  4  5  6  A  D  A  G  M  C
+    /* Mrs. Stapleton */ uint[] levels =
+    {
+        0, 0, 0, 0, 0, 0, 0, 1, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 150;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Jacob(Critter& npc, bool firstTime)   // old town hub, weapons, ammo
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Jacob */ uint[] levels =
+    {
+        0, 1, 1, 1, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 145;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _CathShop(Critter& npc, bool firstTime)   // cathedral, general. maybe guns and armour, drugs?
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* CathShop */ uint[] levels =
+    {
+        0, 0, 1, 0, 0, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 140;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Gunsmith(Critter& npc, bool firstTime)   // audytum, weapons
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* Gunsmith */ uint[] levels =
+    {
+        1, 0, 0, 1, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 130;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Gunrunner(Critter& npc, bool firstTime)   // oh the obviousness
+{
+
+    /* Gunrunner */ uint[] levels =
+    {
+        1, 1, 1, 1, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 170;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Taylor(Critter& npc, bool firstTime)   // some audytum underground guy, general?
+{
+    //                             1  2  3  4  5  6  A  D  A  G  M  C
+    /* Taylor */ uint[] levels =
+    {
+        1, 0, 0, 0, 1, 0, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 60;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _KhansArt(Critter& npc, bool firstTime)   // caravan guy from raiders base, weapons, armour, ammo
+{
+    //                               1  2  3  4  5  6  A  D  A  G  M  C
+    /* KhansArt */ uint[] levels =
+    {
+        1, 0, 0, 1, 0, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 110;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _KhansAugustus(Critter& npc, bool firstTime)   // bartender guy from raiders base, general, drugs
+{
+    //                                    1  2  3  4  5  6  A  D  A  G  M  C
+    /* KhansAugustus */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 60;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _GasStationGordon(Critter& npc, bool firstTime)   // in the general store
+{
+    //                                        1  2  3  4  5  6  A  D  A  G  M  C
+    /* GasStationGordon */ uint[] levels = { 0,     0,      0,      0,      1,      1,      1, 0, 0 };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 80;
+    DefaultTraderInit(npc, firstTime);
+}
+
+// Vegas
+void _Tibbett(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Paul */ uint[] levels =
+    {
+        1, 1, 1, 1, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _VegasTony(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Tony */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _VegasWoody(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Tony */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Kwok(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Roger */ uint[] levels =
+    {
+        1, 1, 0, 0, 0, 1, 1, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Quok(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Steven */ uint[] levels =
+    {
+        0, 1, 1, 0, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _JovialJoe(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Joe */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _Pharmacist(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Pharmacist */ uint[] levels =
+    {
+        0, 0, 0, 0, 1, 1, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _LiquidJoe(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Joe */ uint[] levels =
+    {
+        0, 0, 1, 1, 1, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _CptFernandez(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Fernandez */ uint[] levels =
+    {
+        1, 1, 0, 0, 1, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 100;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void _VanGraf(Critter& npc, bool firstTime)
+{
+    //                            1  2  3  4  5  6  A  D  A  G  M  C
+    /* Fernandez */ uint[] levels =
+    {
+        0, 0, 1, 0, 0, 0, 0, 0, 0
+    };
+    SetTraderLevels(npc, levels);
+    npc.ParamBase[SK_BARTER] = 30;
+    DefaultTraderInit(npc, firstTime);
+}
+
+void DefaultTraderInit(Critter& npc, bool firstTime)
+{
+    _CritSetMode(npc, MODE_NO_STEAL);
+    _CritSetMode(npc, MODE_NO_LOOT);
+    _CritSetMode(npc, MODE_NO_DROP);
+    _CritUnsetMode(npc, MODE_NO_BARTER);
+    _CritSetExtMode(npc, MODE_EXT_TRADER);
+
+    npc.SetEvent(CRITTER_EVENT_BARTER, "_OnBarter");
+
+    npc.SetBagRefreshTime(uint(-1));
+    int bag_bug = npc.GetBagRefreshTime();
+
+    array<uint> eventdata = { npc.Id, 0, 0 };
+
+    // fill it with starting stuff
+    if(firstTime)
+        {
+            AddStarterItems(npc);
+        }
+
+    CreateTimeEvent(ELAPSED_TIME + TRADER_UPDATE_TIME, "e_Update", npc.Id, false);
+
+    Map@ map = npc.GetMap();
+
+    if(firstTime)
+        if(!map.GetLocation().IsEncounter())
+            CreateTimeEvent(AFTER(REAL_MINUTE(Random(600, 25400))), "e_SpecialItemEvent", eventdata, true);
+    // for debug CreateTimeEvent(AFTER(REAL_MINUTE(Random(2, 10))), "e_SpecialItemEvent", eventdata, false);
+}
+
+// import int[] knapsack (int[] weights, int W) from "utils";
+uint Addpropermoney(Critter@ npc)
+{
+	if(!valid(npc))
+		return 0;
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 0: return PID_BOTTLE_CAPS;
+	case 1: return PID_ENCLAVE_MONEY; 
+	case 2: return PID_BOS_MONEY;
+	case 3: return PID_NCR_MONEY; 
+	case 4: return PID_VC_MONEY; 
+	case 5: return PID_MA_MONEY;
+	}
+	return PID_BOTTLE_CAPS;
+
+}
+void AddStarterItems(Critter@ npc) { AddItems(npc); }
+// refills the items from the lists, basing on the values needed (ideally it should use list of demanded items?)
+// tvalues - values of the items that got removed, sorted by types/levels
+void AddItems(Critter@ npc)
+{
+
+
+	array<Item@> itemss;
+    int          count = npc.GetItems(SLOT_INV, itemss);
+	uint items_count = Random(20,40);
+	uint pid = PID_PUMP_PARTS;
+	uint pidu = PID_PUMP_PARTS;
+	_CritAnimateUse(npc);
+    DeleteItems(itemss);
+	
+    if(!IsGuarded(npc.GetMap()))
+    {
+      Item@ it = npc.AddItem(Addpropermoney(npc), Random(5000,14000));
+	  items_count += Random(1,20);
+    }
+    else
+    {
+      Item@ it = npc.AddItem(Addpropermoney(npc), Random(2500,7500));
+    }
+
+	for( uint i = 0; i <= items_count; i++ )
+        {
+		if(Random(1,200) == 1)
+			{
+			npc.AddItem(rareitem(),1);
+			continue;
+			}
+		switch(Random(1,8))
+		{
+		case 1: pid = tier3armor(); break;
+		case 2: pid = tier3helmet(); break;
+		case 3: pid = tier3weapon(); break;	
+		case 4: pid = misc(); break;
+		case 5: pidu = tier3drugs(); break;
+		default: pid = low_tier(); break;
+		}
+		switch(Random(1,12))
+		{
+		case 1: pidu = tier3bp(); break;
+		case 2: pidu = mats(); break;	
+		case 3: pidu = tier3ammo(); break;	
+		case 5: pidu = books(); break;	
+		default: pidu = tierlowammo(); break;	
+		
+		}
+		npc.AddItem(pid,1);
+		npc.AddItem(pidu,Random(3,20));
+		}
+
+}
+uint trader_events = 0;
+uint e_SpecialItemEvent(array<uint>@ values)
+{
+    trader_events += 1;
+    if(values.length() == 1)
+    {
+        values.resize(3);
+        values[1] = 0;
+        values[2] = 0;
+    }
+
+    bool GMCreated = (values[1] == 0 ? false : true);
+    uint location = 0, type = EVENT_TYPE_TRADER_UNKNOWN, baseprice, item, podniesienieceny, timeleft = REAL_MINUTE(Random(10, 15));
+    uint8 itemkind = Random(1, 9), ilosc = 1, stackable = 0; // stackable = false
+    string itemname = "something special", locationname, npctrader = "Someone", bonustype = " ";
+    Critter@ trader = GetCritter(values[0]);
+    if(!valid(trader))
+        return 0;
+
+    if(!GMCreated)
+    {
+    switch(itemkind)
+    {
+        case 1:
+        case 2:
+        case 3:
+			switch(Random(1,47))
+            {
+                case 1: item = PID_223_PISTOL; itemname = "Weapon"; break;
+                case 2: item = PID_NEEDLER_PISTOL; itemname = "Weapon"; break;
+				case 3: item = PID_INDEPENDENT; itemname = "Weapon"; break;
+				case 4: item = PID_HK_CAWS; itemname = "Weapon"; break;
+				case 5: item = PID_PANCOR_JACKHAMMER; itemname = "Weapon"; break;
+				case 6: item = PID_HK_P90C; itemname = "Weapon"; break;
+				case 7: item = PID_IMPROVED_FLAMETHROWER; itemname = "Weapon"; break;
+				case 8: item = PID_ROCKET_LAUNCHER; itemname = "Weapon"; break;
+				case 9: item = PID_AVENGER_MINIGUN; itemname = "Weapon"; break;
+				case 10: item = PID_LIGHT_SUPPORT_WEAPON; itemname = "Weapon"; break;
+				case 11: item = PID_M60; itemname = "Weapon"; break;
+				case 12: item = PID_MAGNETO_LASER_PISTOL; itemname = "Weapon"; break;
+				case 13: item = PID_SOLAR_SCORCHER; itemname = "Weapon"; break;
+				case 14: item = PID_LASER_RIFLE_EXT_CAP; itemname = "Weapon"; break;
+				case 15: item = PID_GATLING_LASER; itemname = "Weapon"; break;
+				case 16: item = PID_PLASMA_PISTOL_EXT_CART; itemname = "Weapon"; break;
+				case 17: item = PID_PLASMA_RIFLE; itemname = "Weapon"; break;
+				case 18: item = PID_PLASMA_SMG; itemname = "Weapon"; break;
+				case 19: item = PID_YK32_PULSE_PISTOL; itemname = "Weapon"; break;
+				case 20: item = PID_KNOCKBACK_RIFLE; itemname = "Weapon"; break;
+				case 21: item = PID_LIL_JESUS_WEAPON; itemname = "Weapon"; break;
+				case 22: item = PID_WAKIZASHI_BLADE; itemname = "Weapon"; break;
+				case 23: item = PID_SUPER_SLEDGE; itemname = "Weapon"; break;
+				case 24: item = PID_SUPER_CATTLE_PROD; itemname = "Weapon"; break;
+				case 25: item = PID_RIPPER; itemname = "Weapon"; break;
+				case 26: item = PID_MEGA_POWER_FIST; itemname = "Weapon"; break;
+				case 27: item = PID_M16; itemname = "Weapon"; break;
+				case 28: item = PID_EL_ROCKET_LAUNCHER; itemname = "Weapon"; break;
+				case 29: item = PID_LEATHER_ARMOR_MK_II; itemname = "Armor"; break;
+				case 30: item = PID_CURED_LEATHER_ARMOR; itemname = "Armor"; break;
+				case 31: item = PID_FIREGECKO_JACKET; itemname = "Armor"; break;
+				case 32: item = PID_METAL_ARMOR_MK_II; itemname = "Armor"; break;
+				case 33: item = PID_METAL_ARMOR_MK_III; itemname = "Armor"; break;
+				case 34: item = PID_INFERNO_ARMOR; itemname = "Armor"; break;
+				case 35: item = PID_MUT_METAL; itemname = "Armor"; break;
+				case 36: item = PID_TESLA_ARMOR; itemname = "Armor"; break;
+				case 37: item = PID_COMBAT_ARMOR_MK_II; itemname = "Armor"; break;
+				case 38: item = PID_BROTHERHOOD_COMBAT_ARMOR; itemname = "Armor"; break;
+				case 39: item = PID_CLOTHES_POLICE; itemname = "Armor"; break;
+				case 40: item = PID_NCR_ARMOR; itemname = "Armor"; break;
+				case 41: item = PID_ENCLAVE_COMBAT_ARMOR; itemname = "Armor"; break;
+				case 42: item = PID_HUBO_ROBE; itemname = "Armor"; break;
+				case 43: item = PID_FOLLOWER_ROBE; itemname = "Armor"; break;
+				case 44: item = PID_DESERT_COMBAT_ARMOR; itemname = "Armor"; break;
+				case 45: item = PID_RUSSIAN_ARMOR; itemname = "Armor"; break;
+				case 46: item = PID_RANGER_ARMOR; itemname = "Armor"; break;
+				case 47: item = PID_KEEPBRIGE_ROBE; itemname = "Armor"; break;
+            }
+            break;
+		case 4:
+            switch(Random(1,14))
+            {
+                case 1: item = PID_ABSORBER; itemname = "Rare Part"; break;
+                case 2: item = PID_ADVANCED_SHELL; itemname = "Rare Part"; break;
+                case 3: item = PID_CARBON_POLYMER; itemname = "Rare Part"; break;
+                case 4: item = PID_CYLINDRICAL_LOCK; itemname = "Rare Part"; break;
+                case 5: item = PID_ELECTRIC_AMPLIFIER; itemname = "Rare Part"; break;
+                case 6: item = PID_ELECTROMAGNETIC; itemname = "Rare Part"; break;
+                case 7: item = PID_HIFLO; itemname = "Rare Part"; break;
+                case 8: item = PID_PA_FUEL; itemname = "Rare Part"; break;
+                case 9: item = PID_PLASMA_ACCELERATOR; itemname = "Rare Part"; break;
+                case 10: item = PID_PLASMA_PARTS; itemname = "Rare Part"; break;
+                case 11: item = PID_ROTARY_CHAMBER; itemname = "Rare Part"; break;
+                case 12: item = PID_SERVOMOTORS; itemname = "Rare Part"; break;
+                case 13: item = PID_PA_SHELL; itemname = "Rare Part"; break;
+                case 14: item = PID_BIOGEL_ADV_NEW; itemname = "Rare Part"; break;
+            }
+            break;
+        case 5:
+            {
+            switch(Random(1,5))
+            {
+                case 1: item = PID_HN_HEAL_NEEDLER_CARTRIDGE; itemname = "Rare Ammo"; break;
+                case 2: item = PID_MFC_MK2; itemname = "Rare Ammo"; break;
+                case 3: item = PID_SHOTGUN_DRAGON_BREATH_SHELLS; itemname = "Rare Ammo"; break;
+                case 4: item = PID_2MM_EC_AMMO; itemname = "Rare Ammo"; break;
+                case 5: item = PID_4_7MM_CASELESS; itemname = "Rare Ammo"; break;
+            }
+            }
+            break;
+        case 6:
+            switch(Random(1,22))
+            {
+                case 1: item = PID_TECH_DELINER; itemname = "Rare Part"; break;
+                case 2: item = PID_TECH_ELE_ENGINE; itemname = "Rare Part"; break;
+                case 3: item = PID_TECH_SEMI_TRIGGER; itemname = "Rare Part"; break;
+                case 4: item = PID_TECH_GUN_CONTROL; itemname = "Rare Part"; break;
+                case 5: item = PID_TECH_AUTO_TRIGGER; itemname = "Rare Part"; break;
+                case 6: item = PID_TECH_SCOPE; itemname = "Rare Part"; break;
+                case 7: item = PID_HK_G11; itemname = "something special"; break;
+                case 8: item = PID_TECH_MICROCHIPS; itemname = "Rare Part"; break;
+                case 9: item = PID_TECH_CONDEN; itemname = "Rare Part"; break;
+                case 10: item = PID_TECH_TRANSFORMATOR; itemname = "Rare Part"; break;
+                case 11: item = PID_TECH_ELE_WIRES; itemname = "Rare Part"; break;
+                case 12: item = PID_TECH_PLASMA; itemname = "Rare Part"; break;
+                case 13: item = PID_ARM_CERAMIC; itemname = "Rare Part"; break;
+                case 14: item = PID_ARM_KEVLAR; itemname = "Rare Part"; break;
+                case 15: item = PID_ARM_CARBON; itemname = "Rare Part"; break;
+                case 16: item = PID_ARM_GORETEX; itemname = "Rare Part"; break;
+                case 17: item = PID_ARM_LEATHER_HIDE; itemname = "Rare Part"; break;
+                case 18: item = PID_ARM_POLYMER; itemname = "Rare Part"; break;
+                case 19: item = PID_ARM_POLYMER_ADV; itemname = "something special"; break;
+                case 20: item = PID_ARM_POLYMER_LASER; itemname = "Rare Part"; break;
+                case 21: item = PID_ARM_POLYCARBONITE; itemname = "Rare Part"; break;
+                case 22: item = PID_ARM_STEEL; itemname = "Rare Part"; break;
+            }
+            break;
+        case 7:
+            switch(Random(1,1000))
+            {
+                case 10: item = PID_IMPLANT_AGRO; itemname = "Implant"; break;
+                case 11: item = PID_IMPLANT_DRAGON; itemname = "Implant"; break;
+                case 12: item = PID_IMPLANT_TIGER; itemname = "Implant"; break;
+                case 13: item = PID_IMPLANT_CLAW; itemname = "Implant"; break;
+                case 14: item = PID_IMPLANT_TACTICS; itemname = "Implant"; break;
+                case 15: item = PID_IMPLANT_NEMEAN; itemname = "Implant"; break;
+                case 16: item = PID_IMPLANT_DERMAL; itemname = "Implant"; break;
+                case 17: item = PID_IMPLANT_PHOENIX; itemname = "Implant"; break;
+                case 18: item = PID_MAP_TO_DUNG3; itemname = "something special"; break;
+                default: item = PID_VAULT_TEC_KEY; itemname = "Vault-Tec Key"; break;
+            }
+            break;
+        case 8:
+            switch(Random(1,100))
+            {
+                case 1: item = PID_BLUEPRINT_NAPALM; itemname = "Blueprint"; break;
+                case 2: item = PID_BLUEPRINT_BOZAR; itemname = "Blueprint"; break;
+                case 3: item = PID_BLUEPRINT_M203; itemname = "Blueprint"; break;
+                case 4: item = PID_BLUEPRINT_VINDICATOR_MINIGUN; itemname = "Blueprint"; break;
+                case 5: item = PID_BLUEPRINT_TURBO_PLASMA_RIFLE; itemname = "Blueprint"; break;
+                case 6: item = PID_BLUEPRINT_YK42B_PULSE_RIFLE; itemname = "Blueprint"; break;
+                case 7: item = PID_BLUEPRINT_HK_G11; itemname = "Blueprint"; break;
+                case 8: item = PID_BLUEPRINT_HK_G11E; itemname = "Blueprint"; break;
+
+                case 11: item = PID_BLUEPRINT_PK12_GAUSS_PISTOL; itemname = "Blueprint"; break;
+                case 12: item = PID_BLUEPRINT_M72_GAUSS_RIFLE; itemname = "Blueprint"; break;
+
+                case 15: item = PID_BLUEPRINT_POWER_HELMET; itemname = "Blueprint"; break;
+                case 16: item = PID_BLUEPRINT_HARDENED_POWER_HELMET; itemname = "Blueprint"; break;
+                case 17: item = PID_BLUEPRINT_ADVANCED_POWER_HELMET; itemname = "Blueprint"; break;
+                case 18: item = PID_BLUEPRINT_ADVANCED_POWER_HELMET_MK2; itemname = "Blueprint"; break;
+                case 24: item = PID_BLUEPRINT_POWERED_ARMOR; itemname = "Blueprint"; break;
+                case 25: item = PID_BLUEPRINT_HARDENED_POWER_ARMOR; itemname = "Blueprint"; break;
+                case 26: item = PID_BLUEPRINT_ADVANCED_POWER_ARMOR; itemname = "Blueprint"; break;
+                case 27: item = PID_BLUEPRINT_ADVANCED_POWER_ARMOR_MK2; itemname = "Blueprint"; break;
+                case 28: item = PID_BLUEPRINT_PID_HYPO; itemname = "Blueprint"; break;
+                case 29: item = PID_BLUEPRINT_JET_ANTIDOTE; itemname = "Blueprint"; break;
+                case 30: item = PID_BLUEPRINT_SHOTGUN_DRAGON_BREATH_SHELLS; itemname = "Blueprint"; break;
+                case 31: item = PID_BLUEPRINT_4_7MM_CASELESS; itemname = "Blueprint"; break;
+                case 32: item = PID_BLUEPRINT_2MM_EC_AMMO; itemname = "Blueprint"; break;
+                case 34: item = PID_BLUEPRINT_SAIGA_12; itemname = "Blueprint"; break;
+                default: item = PID_VAULT_TEC_KEY; itemname = "Vault-Tec Key"; break;
+            }
+            break;
+        case 9:
+            switch(Random(1,50))
+            {
+                case 4: item = PID_IMPLANT_STRENGTH; itemname = "Implant"; break;
+                case 5: item = PID_IMPLANT_PERCEPTION; itemname = "Implant"; break;
+                case 6: item = PID_IMPLANT_ENDURANCE; itemname = "Implant"; break;
+                case 7: item = PID_IMPLANT_CHARISMA; itemname = "Implant"; break;
+                case 8: item = PID_IMPLANT_INTELLIGENCE; itemname = "Implant"; break;
+                case 9: item = PID_IMPLANT_AGILITY; itemname = "Implant"; break;
+                case 10: item = PID_IMPLANT_LUCK; itemname = "Implant"; break;
+                case 11: item = PID_MAP_TO_DUNG1; itemname = "map"; break;
+                case 12: item = PID_MAP_TO_DUNG2; itemname = "map"; break;
+                case 13: item = PID_MAP_TO_DUNG4; itemname = "map"; break;
+                default: item = PID_VAULT_TEC_KEY; itemname = "Vault-Tec Key"; break;
+            }
+            break;
+        default: return REAL_MINUTE(Random(120, 600));
+    }
+    }
+    else
+    {
+        item = values[2];
+        itemname = "something special";
+    }
+
+    Map@ map = trader.GetMap();
+    Location@ otherLocation = map.GetLocation();
+    location = otherLocation.GetProtoId();
+
+    switch(map.GetProtoId())
+    {
+        case MAP_DenBusiness:
+            locationname = "Den" ;
+            location = LOCATION_TheDen;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_den_flik:  // flick
+                    npctrader = "Flick" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_den_mom:
+                    npctrader = "Mom" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                case DIALOG_den_bekky: // rebecca
+                    npctrader = "Rebecca" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+                case DIALOG_den_tubby:
+                    npctrader = "Tubby" ;
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+                case DIALOG_den_billy: // it's this frank
+                    npctrader = "Frank" ;
+                    type = EVENT_TYPE_TRADER_5;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_KlamathDowntown:
+            locationname = "Klamath" ;
+            location = LOCATION_Klamath;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_klam_majda: // Maida Buckner
+                    npctrader = "Maida Buckner" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_ModocLarge:
+            locationname = "Modoc" ;
+            location = LOCATION_Modoc;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_mod_grishem: // Grisham
+                    npctrader = "Grisham" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_mod_joe: // Jo
+                    npctrader = "Jo" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                case DIALOG_mod_baltas: // Balthas
+                npctrader = "Balthas" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+                case DIALOG_mod_hose: // Mook
+                npctrader = "Mook" ;
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_VaultCityDowntown:
+            locationname = "Vault City" ;
+            location = LOCATION_VaultCity;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_vaul_macrae: // McRae
+                    npctrader = "McRae" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_vaul_garry: // Harry
+                    npctrader = "Harry" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                case DIALOG_vaul_doctor_andru: // Doctor Andrew
+                    npctrader = "Doctor Andrew" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+                case DIALOG_vaul_randal: // Randal
+                    npctrader = "Randal" ;
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+                case DIALOG_vaul_darrow: // Darrow (A)
+                    npctrader = "Darrow" ;
+                    type = EVENT_TYPE_TRADER_5;
+                    break;
+                case DIALOG_vaul_hoden: // Holden (B)
+                    npctrader = "Holden" ;
+                    type = EVENT_TYPE_TRADER_6;
+                    break;
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_GeckoSettlement:
+            locationname = "Gecko" ;
+            location = LOCATION_Gecko;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_geck_wooz: // Wooz
+                    npctrader = "Wooz" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_geck_persi: // Percy
+                    npctrader = "Percy" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                case DIALOG_geck_sceetr: // Skeeter
+                    npctrader = "Skeeter" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_Redding:
+            locationname = "Redding" ;
+            location = LOCATION_Redding;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_redd_askorti: // Ascorti
+                    npctrader = "Ascorti" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_redd_doctor: // Doc Johnson
+                    npctrader = "Doc Johnson" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+			
+		case MAP_WindOfWarMain:
+            locationname = "Wind of War" ;
+            location = LOCATION_WindOfWar;
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+				case DIALOG_redd_askorti: // Ascorti
+                    npctrader = "Ascorti" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+		case MAP_MilitaryCamp:
+            locationname = "Fort Seth" ;
+            location = LOCATION_WindOfWar;
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+				case DIALOG_redd_askorti: // Ascorti
+                    npctrader = "Ascorti" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+		case MAP_bounty_camp:
+            locationname = "Treasure Hunters Club" ;
+            location = LOCATION_WindOfWar;
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+				case DIALOG_redd_askorti: // Ascorti
+                    npctrader = "Ascorti" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+        case MAP_BrokenHills:
+            locationname = "Broken Hills" ;
+            location = LOCATION_BrokenHills;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_bh_liz: // Liz
+                    npctrader = "Liz" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_bh_outfit: // Bill
+                    npctrader = "Bill" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                case DIALOG_bh_phil: // Phil
+                    npctrader = "Phil" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+                case DIALOG_bh_jacob: // Jacob
+                    npctrader = "Jacob" ;
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+                case DIALOG_bh_doc: // DocHolliday
+                    npctrader = "Doc Holliday" ;
+                    type = EVENT_TYPE_TRADER_5;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_NewReno1:
+        case MAP_NewReno2:
+        case MAP_NewReno3:
+        case MAP_NewReno_SharkBoxing:
+        case MAP_NewReno_Wright:
+            locationname = "New Reno" ;
+            location = LOCATION_NewReno;
+
+        switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_nr_jules: // Jules
+                    npctrader = "Jules" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_nr_barmen: // Some bartender
+                    npctrader = "Some bartender" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                case DIALOG_nr_eldrid: // Eldridge
+                    npctrader = "Eldridge" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+                case DIALOG_nr_renesco: // Renesco
+                    npctrader = "Renesco" ;
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_NCR:
+            locationname = "NCR" ;
+            location = LOCATION_NCR;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_ncr_shaenine: // Seumour
+                    npctrader = "Seymour" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_ncr_trader_buster: // Buster
+                    npctrader = "Buster" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                case DIALOG_ncr_barmen_mira: // Mira
+                    npctrader = "Mira" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+                case DIALOG_ncr_barmen_dasty: // Dusty
+                    npctrader = "Dusty" ;
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+                case DIALOG_ncr_doctor_jubiley: //Doc Jubilee
+                    npctrader = "Doc Jubilee" ;
+                    type = EVENT_TYPE_TRADER_5;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_SanFranTanker:
+        case MAP_SanFranChina:
+            locationname = "San Francisco" ;
+            location = LOCATION_SanFrancisco;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_san_doctor_fung: // Dr Fung
+                    npctrader = "Fung" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_san_trader_lao: // Lao Chou
+                    npctrader = "Chou" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                case DIALOG_san_trader_karl: // Cal
+                    npctrader = "Cal" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+                case DIALOG_san_trader_jenny: // Jenna
+                    npctrader = "Jenna" ;
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+                case DIALOG_san_barmen_slim: // Slim
+                    npctrader = "Slim" ;
+                    type = EVENT_TYPE_TRADER_5;
+                    break;
+                case DIALOG_san_trader_chiang: // Ma Da Chiang
+                    npctrader = "Ma Da Chiang" ;
+                    type = EVENT_TYPE_TRADER_6;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_Junktown:
+            locationname = "Junktown" ;
+            location = LOCATION_Junktown;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_junktown_killian: // Jeremiah
+                    npctrader = "Jeremiah" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_HubDowntown:
+        case MAP_HubOldtown:
+            locationname = "Hub" ;
+            location = LOCATION_Hub;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_hub_mitch: // Mitch
+                    npctrader = "Mitch" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+                case DIALOG_hub_beth: // Beth
+                    npctrader = "Beth" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+                case DIALOG_hub_jacob: // Jacob
+                    npctrader = "Jacob" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+                case DIALOG_hub_library :
+                    npctrader = "Mrs. Stapleton";
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_NecropolisHotel:
+            locationname = "Necropolis" ;
+            location = LOCATION_Necropolis;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_cath_shopkeeper: // Shopkeeper
+                    npctrader = "Shopkeeper" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_BoneyardTrainStation:
+            locationname = "Boneyard Train Station" ;
+            location = LOCATION_Trainyard2;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_la_ady_taylor: // Taylor
+                    npctrader = "Taylor" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_Adytum:
+            locationname = "Adytum" ;
+            location = LOCATION_Boneyard;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_la_ady_gunsmith: // Jargo
+                    npctrader = "Jargo" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                case DIALOG_gun_zack: // Ralph
+                    npctrader = "Ralph" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        /*case MAP_Gunrunner:
+            locationname = "Gun Runners" ;
+            location = LOCATION_Fortress;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_gun_zack: // Ralph
+                    npctrader = "Ralph" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;*/
+
+        /*case MAP_GunRunners:
+                return 0;*/
+
+        case MAP_KhansCaveEntrance:
+
+            locationname = "Khans's Base" ;
+            location = LOCATION_Raiders;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_raiders_augustus: // Augustus
+                    npctrader = "Augustus" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                case DIALOG_raiders_art: // Art
+                    npctrader = "Art" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_GordonsGasStation:
+            locationname = "Gordnon's Gas Station" ;
+            location = LOCATION_GordonsGasStation;
+
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_ul_gas_gordon: // Gordon
+                    npctrader = "Gordon" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_Vegas:
+		case MAP_Vegas_hoover:
+		case MAP_Vegas_1st_floor:
+		case MAP_Vegas_2nd_floor:
+		case MAP_Vegas_slavertown:
+		case MAP_Vegas_slavertown_bsmnt:
+		case MAP_Vegas_cave:
+		case MAP_Vegas_basement:
+            locationname = "Las Vegas";
+            location = LOCATION_Vegas;
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_vegas_paul: // Paul Tibbett
+                    npctrader = "Paul" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                case DIALOG_vegas_tony: // Tony
+                    npctrader = "Tony" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+
+                case DIALOG_vegas_woody: // Woody
+                    npctrader = "Woody" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+
+                case DIALOG_nr_barmen: // Some bartender
+                    npctrader = "Some bartender" ;
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_SaltLake:
+            locationname = "Salt Lake City";
+            location = LOCATION_SaltLake;
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_saltlake_roger: // Roger Kwok
+                    npctrader = "Roger" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                case DIALOG_saltlake_steven: // Steven Quok
+                    npctrader = "Steven" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+
+                case DIALOG_saltlake_joe: // Jovial Joe
+                    npctrader = "Joe" ;
+                    type = EVENT_TYPE_TRADER_3;
+                    break;
+
+                case DIALOG_saltlake_pharmacist: // Pharmacist
+                    npctrader = "Pharmacist" ;
+                    type = EVENT_TYPE_TRADER_4;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        case MAP_Hawthorne:
+            locationname = "Social Accommodation of Hawthorne Military Base";
+            location = LOCATION_Hawthorne;
+            switch(trader.Param[ST_DIALOG_ID])
+            {
+                case DIALOG_hawthorne_liquidjoe: // Liquid Joe
+                    npctrader = "Joe" ;
+                    type = EVENT_TYPE_TRADER_1;
+                    break;
+
+                case DIALOG_hawthorne_fernandez: // Cpt. Fernandez
+                    npctrader = "Fernandez" ;
+                    type = EVENT_TYPE_TRADER_2;
+                    break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+            }
+            break;
+
+        default:
+            locationname = "somewhere";
+            npctrader = "Some Trader";
+            type = EVENT_TYPE_TRADER_1;
+            break;
+    }
+
+
+
+
+
+    Item@ it = trader.AddItem(item, ilosc);
+    SETFLAG(it.Flags, ITEM_ALWAYS_VIEW);
+	string lvl = "";
+    if(!it.IsStackable())
+    AddSpecialBonus(it);
+	if(it.Val1 == 3)
+		lvl = " Level 4 ";
+	if(it.Val1 == 4)
+		lvl = " Level 4 ";
+	if(it.Val1 == 5)
+		lvl = " Level 5 ";
+    baseprice = it.GetCost();
+    podniesienieceny = it.GetCost();
+
+
+
+    if(it.IsStackable())
+    {
+        if(it.GetType() == ITEM_TYPE_AMMO)
+        {
+            ilosc = Random(10, 100);
+            trader.AddItem(item, ilosc - 1);
+            bonustype = " " + ilosc + " pcs of ";
+        }
+        stackable = 1; // true
+    }
+
+
+    int oldbarter = trader.Param[SK_BARTER];
+    array<uint> eventdata = { trader.Id, item, ilosc, location, type, it.Id, stackable, values[1], oldbarter };
+    CreateTimeEvent(AFTER(timeleft), "e_SpecialItemEventErase", eventdata, true);
+    CreateTimeEvent(AFTER(REAL_SECOND(1)), "e_SpecialItemSold", eventdata, false);
+
+    if(trader.IsNpc())
+        trader.ParamBase[ST_REPLICATION_TIME] = REPLICATION_MINUTE(1);
+    trader.ParamBase[ST_BANK1] = 1;
+    // Broadcast na czas timeleft
+    if(GMCreated)
+        ServerEventCNTSet((trader.IsPlayer() ? trader.Name : npctrader ) + " in " + (GetLocationName(trader.GetMap().GetLocation().Id)) + " has" + bonustype + itemname + lvl + " for sale. %COUNTDOWN% left.", location, type, timeleft);
+    else
+        ServerEventCNTSet(npctrader + " in " + locationname + " has" + bonustype + itemname + " for sale. Time left %COUNTDOWN%.", location, type, timeleft);
+
+    if(GMCreated) return 0;
+    else return REAL_MINUTE(Random(1000, 15000));
+}
+
+uint e_SpecialItemEventErase(array<uint>@ values)
+{
+    trader_events -=1;
+    Critter@ trader = GetCritter(values[0]);
+    if(!valid(trader))
+        return 0;
+    uint item = values[1], ilosc = values[2], location = values[3], type = values[4], liczitemy;
+    uint8 stackable = values[6];
+     trader.ParamBase[ST_BANK1] = 0;
+    if(stackable == 1)
+    {
+
+        liczitemy = trader.CountItem(item);
+        trader.DeleteItem(item, liczitemy);
+        if(liczitemy != 0)
+        {
+            ServerEventMSG(BROADCAST_DISPLAY_TIME, "No offers.");
+            if(trader.IsNpc())
+                    trader.ParamBase[ST_REPLICATION_TIME] = REPLICATION_MINUTE(10);
+        }
+    }
+
+    else if(stackable == 0)
+    {
+        Item@ it = GetItem(values[5]);
+        if(!valid(it))
+            return 0;
+
+        array<Item@> items;
+        uint itemCount = trader.GetItems(SLOT_INV, items);
+
+        for(uint i = 0; i < itemCount; i++)
+            if(items[i].Id == it.Id)
+            {
+                DeleteItem(it);
+                ServerEventMSG(BROADCAST_DISPLAY_TIME, "No offers.");
+                if(trader.IsNpc())
+                    trader.ParamBase[ST_REPLICATION_TIME] = REPLICATION_MINUTE(10);
+            }
+
+        itemCount = trader.GetItems(SLOT_HAND1, items);
+        for(uint i = 0; i < itemCount; i++)
+            if(items[i].Id == it.Id)
+            {
+                DeleteItem(it);
+                ServerEventMSG(BROADCAST_DISPLAY_TIME, "No offers.");
+                if(trader.IsNpc())
+                    trader.ParamBase[ST_REPLICATION_TIME] = REPLICATION_MINUTE(10);
+            }
+    }
+
+    return 0;
+}
+
+uint e_SpecialItemSold(array<uint>@ values)
+{
+    trader_events -=1;
+    bool sold = false;
+    bool GMCreated = (values[7] == 0 ? false : true);
+
+    Critter@ trader = GetCritter(values[0]);
+    if(!valid(trader))
+        return 0;
+    trader.ParamBase[SK_BARTER] = values[8];
+    Item@ it = GetItem(values[5]);
+    if(!valid(it))
+        return 0;
+
+    uint item = values[1], location = values[3], type = values[4];
+    uint8 stackable = values[6];
+
+    if(stackable == 1)
+        if(trader.CountItem(item) == 0 && valid(it))
+        {
+            sold = true;
+        }
+
+    if(stackable == 0 && valid(it))
+    {
+        array<Item@> items;
+        uint itemCount = trader.GetItems(SLOT_INV, items);
+        sold = true;
+        for(uint i = 0; i < itemCount; i++)
+            if(items[i].Id == it.Id)
+                sold = false;
+        itemCount = trader.GetItems(SLOT_HAND1, items);
+        for(uint i = 0; i < itemCount; i++)
+            if(items[i].Id == it.Id)
+                sold = false;
+    }
+
+    if(sold)
+    {
+        string locationname, npctrader = "This someone";
+
+        Map@ map = trader.GetMap();
+        UNSETFLAG(it.Flags, ITEM_ALWAYS_VIEW);
+
+        switch(map.GetProtoId())
+        {
+            case MAP_DenBusiness:
+                locationname = "Den" ;
+                location = LOCATION_TheDen;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_den_flik:  // flick
+                        npctrader = "Flick" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_den_mom:
+                        npctrader = "Mom" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    case DIALOG_den_bekky: // rebecca
+                        npctrader = "Rebecca" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+                    case DIALOG_den_tubby:
+                        npctrader = "Tubby" ;
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+                    case DIALOG_den_billy: // it's this frank
+                        npctrader = "Frank" ;
+                        type = EVENT_TYPE_TRADER_5;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_KlamathDowntown:
+                locationname = "Klamath" ;
+                location = LOCATION_Klamath;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_klam_majda: // Maida Buckner
+                        npctrader = "Maida Buckner" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_ModocLarge:
+                locationname = "Modoc" ;
+                location = LOCATION_Modoc;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_mod_grishem: // Grisham
+                        npctrader = "Grisham" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_mod_joe: // Jo
+                        npctrader = "Jo" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    case DIALOG_mod_baltas: // Balthas
+                    npctrader = "Balthas" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+                    case DIALOG_mod_hose: // Mook
+                    npctrader = "Mook" ;
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_VaultCityDowntown:
+                locationname = "Vault City" ;
+                location = LOCATION_VaultCity;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_vaul_macrae: // McRae
+                        npctrader = "McRae" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_vaul_garry: // Harry
+                        npctrader = "Harry" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    case DIALOG_vaul_doctor_andru: // Doctor Andrew
+                        npctrader = "Doctor Andrew" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+                    case DIALOG_vaul_randal: // Randal
+                        npctrader = "Randal" ;
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+                    case DIALOG_vaul_darrow: // Darrow (A)
+                        npctrader = "Darrow" ;
+                        type = EVENT_TYPE_TRADER_5;
+                        break;
+                    case DIALOG_vaul_hoden: // Holden (B)
+                        npctrader = "Holden" ;
+                        type = EVENT_TYPE_TRADER_6;
+                        break;
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_GeckoSettlement:
+                locationname = "Gecko" ;
+                location = LOCATION_Gecko;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_geck_wooz: // Wooz
+                        npctrader = "Wooz" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_geck_persi: // Percy
+                        npctrader = "Percy" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    case DIALOG_geck_sceetr: // Skeeter
+                        npctrader = "Skeeter" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_Redding:
+                locationname = "Redding" ;
+                location = LOCATION_Redding;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_redd_askorti: // Ascorti
+                        npctrader = "Ascorti" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_redd_doctor: // Doc Johnson
+                        npctrader = "Doc Johnson" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_BrokenHills:
+                locationname = "Broken Hills" ;
+                location = LOCATION_BrokenHills;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_bh_liz: // Liz
+                        npctrader = "Liz" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_bh_outfit: // Bill
+                        npctrader = "Bill" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    case DIALOG_bh_phil: // Phil
+                        npctrader = "Phil" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+                    case DIALOG_bh_jacob: // Jacob
+                        npctrader = "Jacob" ;
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+                    case DIALOG_bh_doc: // DocHolliday
+                        npctrader = "Doc Holliday" ;
+                        type = EVENT_TYPE_TRADER_5;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_NewReno1:
+            case MAP_NewReno2:
+            case MAP_NewReno3:
+            case MAP_NewReno_SharkBoxing:
+            case MAP_NewReno_Wright:
+                locationname = "New Reno" ;
+                location = LOCATION_NewReno;
+
+            switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_nr_jules: // Jules
+                        npctrader = "Flick" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_nr_barmen: // Some bartender
+                        npctrader = "Some bartender" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    case DIALOG_nr_eldrid: // Eldridge
+                        npctrader = "Eldridge" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+                    case DIALOG_nr_renesco: // Renesco
+                        npctrader = "Renesco" ;
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_NCR:
+                locationname = "NCR" ;
+                location = LOCATION_NCR;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_ncr_shaenine: // Seumour
+                        npctrader = "Seymour" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_ncr_trader_buster: // Buster
+                        npctrader = "Buster" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    case DIALOG_ncr_barmen_mira: // Mira
+                        npctrader = "Mira" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+                    case DIALOG_ncr_barmen_dasty: // Dusty
+                        npctrader = "Dusty" ;
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+                    case DIALOG_ncr_doctor_jubiley: //Doc Jubilee
+                        npctrader = "Doc Jubilee" ;
+                        type = EVENT_TYPE_TRADER_5;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_SanFranTanker:
+            case MAP_SanFranChina:
+                locationname = "San Francisco" ;
+                location = LOCATION_SanFrancisco;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_san_doctor_fung: // Dr Fung
+                        npctrader = "Fung" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_san_trader_lao: // Lao Chou
+                        npctrader = "Chou" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    case DIALOG_san_trader_karl: // Cal
+                        npctrader = "Cal" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+                    case DIALOG_san_trader_jenny: // Jenna
+                        npctrader = "Jenna" ;
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+                    case DIALOG_san_barmen_slim: // Slim
+                        npctrader = "Slim" ;
+                        type = EVENT_TYPE_TRADER_5;
+                        break;
+                    case DIALOG_san_trader_chiang: // Ma Da Chiang
+                        npctrader = "Ma Da Chiang" ;
+                        type = EVENT_TYPE_TRADER_6;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_Junktown:
+                locationname = "Junktown" ;
+                location = LOCATION_Junktown;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_junktown_killian: // Jeremiah
+                        npctrader = "Jeremiah" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_HubDowntown:
+            case MAP_HubOldtown:
+                locationname = "Hub" ;
+                location = LOCATION_Hub;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_hub_mitch: // Mitch
+                        npctrader = "Mitch" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_hub_beth: // Beth
+                        npctrader = "Beth" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+                    case DIALOG_hub_jacob: // Jacob
+                        npctrader = "Jacob" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+                    case DIALOG_hub_library :
+                        npctrader = "Mrs. Stapleton";
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_NecropolisSeth:
+                locationname = "Necropolis" ;
+                location = LOCATION_Necropolis;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_cath_shopkeeper: // Shopkeeper
+                        npctrader = "Shopkeeper" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_BoneyardTrainStation:
+                locationname = "Boneyard Train Station" ;
+                location = LOCATION_Trainyard2;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_la_ady_taylor: // Taylor
+                        npctrader = "Taylor" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_Adytum:
+                locationname = "Adytum" ;
+                location = LOCATION_Boneyard;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_la_ady_gunsmith: // Jargo
+                        npctrader = "Jargo" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+
+                    case DIALOG_gun_zack: // Ralph
+                        npctrader = "Ralph" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            /*case MAP_Gunrunner:
+                locationname = "Gun Runners" ;
+                location = LOCATION_Fortress;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_gun_zack: // Ralph
+                        npctrader = "Ralph" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+
+                default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+            break;*/
+
+            case MAP_KhansCaveEntrance:
+
+                locationname = "Khans's Base" ;
+                location = LOCATION_Raiders;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_raiders_augustus: // Augustus
+                        npctrader = "Augustus" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+                    case DIALOG_raiders_art: // Art
+                        npctrader = "Art" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_GordonsGasStation:
+                locationname = "Gordnon's Gas Station" ;
+                location = LOCATION_GordonsGasStation;
+
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_ul_gas_gordon: // Gordon
+                        npctrader = "Gordon" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_Vegas:
+                locationname = "Las Vegas";
+                location = LOCATION_Vegas;
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_vegas_paul: // Paul Tibbett
+                        npctrader = "Paul" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+
+                    case DIALOG_vegas_tony: // Tony
+                        npctrader = "Tony" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+
+                    case DIALOG_vegas_woody: // Woody
+                        npctrader = "Woody" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+
+                    case DIALOG_nr_barmen: // Some bartender
+                        npctrader = "Some bartender" ;
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_SaltLake:
+                locationname = "Salt Lake City";
+                location = LOCATION_SaltLake;
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_saltlake_roger: // Roger Kwok
+                        npctrader = "Roger" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+
+                    case DIALOG_saltlake_steven: // Steven Quok
+                        npctrader = "Steven" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+
+                    case DIALOG_saltlake_joe: // Jovial Joe
+                        npctrader = "Joe" ;
+                        type = EVENT_TYPE_TRADER_3;
+                        break;
+
+                    case DIALOG_saltlake_pharmacist: // Pharmacist
+                        npctrader = "Pharmacist" ;
+                        type = EVENT_TYPE_TRADER_4;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            case MAP_Hawthorne:
+                locationname = "Social Accommodation of Hawthorne Military Base";
+                location = LOCATION_Hawthorne;
+                switch(trader.Param[ST_DIALOG_ID])
+                {
+                    case DIALOG_hawthorne_liquidjoe: // Liquid Joe
+                        npctrader = "Joe" ;
+                        type = EVENT_TYPE_TRADER_1;
+                        break;
+
+                    case DIALOG_hawthorne_fernandez: // Cpt. Fernandez
+                        npctrader = "Fernandez" ;
+                        type = EVENT_TYPE_TRADER_2;
+                        break;
+
+                    default: if(!GMCreated) npctrader = "Some Trader" ; type = EVENT_TYPE_TRADER_1; break;
+                }
+                break;
+
+            default:
+                locationname = "";
+                if(!GMCreated) npctrader = "That someone: ";
+                break;
+        }
+
+        ServerEventCNTStop(location, type);
+        if(trader.IsNpc())
+            trader.ParamBase[ST_REPLICATION_TIME] = REPLICATION_MINUTE(10);
+        if(GMCreated)
+            ServerEventMSG(BROADCAST_DISPLAY_TIME, (trader.IsPlayer() ? trader.Name : npctrader ) + " has sold item.");
+        else
+            ServerEventMSG(BROADCAST_DISPLAY_TIME, npctrader + " has sold item.");
+        return 0;
+    }
+
+    return REAL_SECOND(1);
+}
+
+bool IsStackItemFromEvent(uint16 pid)
+{
+    return (pid == PID_4_7MM_CASELESS || pid == PID_2MM_EC_AMMO || pid == PID_SHOTGUN_DRAGON_BREATH_SHELLS || pid == PID_MFC_MK2 || pid == PID_HN_HEAL_NEEDLER_CARTRIDGE );
+}
+/*
+   void SortItemArrays()
+   {
+   for (int index = 0, lists_length = lists.length(); index < lists_length; index++)
+   {
+    //uint[] list = lists[index];
+    uint[] vals(lists[index].length());
+    for (int i=0, j=lists[index].length(); i < j; i++)
+      vals[i]=BaseItemValue(lists[index][i], true);
+
+    //for (int i=0, j=lists[index].length(); i < j; i++)
+      //Log("index "+index+" SA PRE: "+lists[index][i]+","+vals[i]);
+
+
+
+    //for (int i=0, j=lists[index].length(); i < j; i++)
+      //Log("index "+index+" SA post "+i+": "+lists[index][i]+","+vals[i]);
+
+    }
+
+    for (int i=0, j=lists[index].length(); i < j; i++)
+      Log("index "+index+" SA: "+lists[index][i]+","+vals[i]);
+
+   }
+   }
+ */
+// starting lists
+uint[][] sg1 = { { PID_SNIPER_RIFLE, 1 }, { PID_HK_CAWS, 1 }, { PID_223_PISTOL, 1 }, { PID_INDEPENDENT, 1 }, { PID_HK_P90C, 1 }, { PID_PANCOR_JACKHAMMER, 1 },
+                 {PID_40MM_GRENADE, 10}, {PID_GRENADE_LAUNCHER,1}, {PID_GRENADE_PISTOL,1}, { PID_5MM_AP, 250 }, { PID_SHOTGUN_SHELLS, 50 }, { PID_SHOTGUN_SHELLS_FLECHETTE, 20 }, { PID_SHOTGUN_SHELLS_SLUG, 20 }, { PID_SHOTGUN_SHELLS_EMP, 20 },{ PID_10MM_AP, 50 },{ PID_M16, 1 }};
+
+uint[][] sg2 = { { PID_14MM_PISTOL, 1 }, { PID_ASSAULT_RIFLE, 1 }, { PID_10MM_SMG, 1 }, { PID_COMBAT_SHOTGUN, 1 }, { PID_SHOTGUN_SHELLS, 30 }, { PID_SHOTGUN_SHELLS_FLECHETTE, 20 }, { PID_SHOTGUN_SHELLS_EMP, 10 }, { PID_SHOTGUN_SHELLS_SLUG, 20 }, { PID_5MM_JHP, 250 }, { PID_14MM_AP, 100 },{PID_40MM_GRENADE, 10},{PID_GRENADE_LAUNCHER,1}, {PID_GRENADE_PISTOL,1},   {PID_223_FMJ, 100} };
+uint[][] sg3 = { { PID_SNIPER_RIFLE, 1 }, { PID_HK_CAWS, 1 }, { PID_223_PISTOL, 1 }, { PID_INDEPENDENT, 1 }, { PID_HK_P90C, 1 }, { PID_PANCOR_JACKHAMMER, 1 },
+                 {PID_40MM_GRENADE, 10}, {PID_GRENADE_LAUNCHER,1}, {PID_GRENADE_PISTOL,1}, { PID_5MM_AP, 250 }, { PID_SHOTGUN_SHELLS, 50 }, { PID_SHOTGUN_SHELLS_FLECHETTE, 20 }, { PID_SHOTGUN_SHELLS_SLUG, 20 }, { PID_SHOTGUN_SHELLS_EMP, 20 },{ PID_10MM_AP, 50 },{ PID_M16, 1 }};
+
+uint[][] bg1 = { { PID_5MM_AP, 250 }, { PID_ADV_SUPERBURN, 10 }, { PID_ROCKET_AP, 8 }, { PID_5MM_JHP, 250 }, {PID_223_FMJ, 100},
+                 { PID_MINIGUN, 1 }, { PID_LIGHT_SUPPORT_WEAPON, 1 }, {PID_AVENGER_MINIGUN,1}};
+uint[][] bg2 = { { PID_5MM_AP, 250 }, { PID_ADV_SUPERBURN, 10 }, { PID_ROCKET_AP, 8 }, { PID_5MM_JHP, 250 }, {PID_223_FMJ, 100},
+                 { PID_MINIGUN, 1 }, { PID_LIGHT_SUPPORT_WEAPON, 1 }, {PID_AVENGER_MINIGUN,1}};
+uint[][] bg3 = {};
+
+uint[][] en1 = { { PID_PLASMA_RIFLE, 1 }, { PID_RIPPER, 1 }, { PID_PLASMA_PISTOL, 1 }, { PID_POWER_FIST, 1 }, { PID_MICRO_FUSION_CELL, 150 }, { PID_PLASMA_GRENADE, 5 }, {PID_GEIGER_COUNTER,1}, {PID_MOTION_SENSOR,1}, { PID_GATLING_LASER, 1 }, { PID_YK32_PULSE_PISTOL, 1 }, { PID_EL_ROCKET_LAUNCHER, 1 }, { PID_SHOCK_GRENADE, 6 } , { PID_EL_ROCKET, 6 }, { PID_LASER_SPEAR, 6 }, { PID_PLASMA_SMG, 1 }, { PID_RAD_ROCKET, 6 } };
+uint[][] en2 = { { PID_PLASMA_RIFLE, 1 }, { PID_RIPPER, 1 }, { PID_PLASMA_PISTOL, 1 }, { PID_POWER_FIST, 1 }, { PID_MICRO_FUSION_CELL, 150 }, { PID_PLASMA_GRENADE, 5 }, {PID_GEIGER_COUNTER,1}, {PID_MOTION_SENSOR,1}, { PID_GATLING_LASER, 1 }, { PID_YK32_PULSE_PISTOL, 1 }, { PID_EL_ROCKET_LAUNCHER, 1 }, { PID_SHOCK_GRENADE, 6 } , { PID_EL_ROCKET, 6 }, { PID_LASER_SPEAR, 6 }, { PID_PLASMA_SMG, 1 } };
+uint[][] en3 = {};
+
+uint[][] arm1 = { { PID_TESLA_ARMOR, 1 }, { PID_METAL_ARMOR_MK_II, 1 }, { PID_COMBAT_ARMOR_MK_II, 1}, { PID_CURED_LEATHER_ARMOR, 1}, { PID_LEATHER_ARMOR_MK_II, 1}, { PID_FIREGECKO_JACKET, 1}, { PID_INFERNO_ARMOR, 1}, { PID_METAL_ARMOR_MK_III, 1}, { PID_MUT_METAL, 1}, { PID_BROTHERHOOD_COMBAT_ARMOR, 1}, { PID_ENCLAVE_COMBAT_ARMOR, 1}, { PID_DESERT_COMBAT_ARMOR, 1}, { PID_NCR_ARMOR, 1}, { PID_CLOTHES_POLICE, 1}, { PID_HUBO_ROBE, 1}, { PID_FOLLOWER_ROBE, 1}, { PID_KEEPBRIGE_ROBE, 1}, { PID_COMBAT_HELMET_MK_II, 1}, { PID_METAL_HELMET_MK2, 1}, { PID_GAS_MASK_PVP, 1 }, { PID_VC_HELMET, 1 } };
+uint[][] arm2 = { { PID_TESLA_ARMOR, 1 }, { PID_METAL_ARMOR_MK_II, 1 }, { PID_COMBAT_ARMOR_MK_II, 1}, { PID_CURED_LEATHER_ARMOR, 1}, { PID_LEATHER_ARMOR_MK_II, 1}, { PID_FIREGECKO_JACKET, 1}, { PID_INFERNO_ARMOR, 1}, { PID_METAL_ARMOR_MK_III, 1}, { PID_MUT_METAL, 1}, { PID_BROTHERHOOD_COMBAT_ARMOR, 1}, { PID_ENCLAVE_COMBAT_ARMOR, 1}, { PID_DESERT_COMBAT_ARMOR, 1}, { PID_NCR_ARMOR, 1}, { PID_CLOTHES_POLICE, 1}, { PID_HUBO_ROBE, 1}, { PID_FOLLOWER_ROBE, 1}, { PID_KEEPBRIGE_ROBE, 1}, { PID_COMBAT_HELMET_MK_II, 1}, { PID_METAL_HELMET_MK2, 1}, { PID_GAS_MASK_PVP, 1 }, { PID_VC_HELMET, 1 } };
+uint[][] arm3 = {};
+
+uint[][] drug1 = { { PID_BUFFOUT, 1 }, { PID_MENTATS, 1 }, { PID_PSYCHO, 1 }, { PID_RADAWAY, 1 }, { PID_RAD_X, 1 }, {PID_JET,1}, {PID_JET,1}, {PID_GUM,1}, {PID_MUTIE,1}, {PID_VOODOO,1}, {PID_BOOZE,1}, {PID_GAMMA_GULP_BEER,1}, {PID_ROENTGEN_RUM,1}, {PID_ROT_GUT,1}, {PID_HEALING_POWDER,1}, {PID_BLOODPACK,4} };
+uint[][] drug2 = {};
+uint[][] drug3 = {};
+
+uint[][] med1 = { { PID_STIMPAK, 1 }, { PID_SUPER_STIMPAK, 1 }, { PID_HEALING_POWDER, 1 }, { PID_ANTIDOTE, 1 }, { PID_JET_ANTIDOTE, 1}, {PID_HN_NEEDLER_CARTRIDGE, 10}, {PID_HN_AP_NEEDLER_CARTRIDGE, 10}, {PID_NEEDLER_PISTOL, 1}};
+uint[][] med2 = {};
+uint[][] med3 = {};
+
+uint[][] misc1 = { { PID_KNIFE, 5 }, { PID_SPEAR, 1 }, { PID_THROWING_KNIFE, 5 }, { PID_SLEDGEHAMMER, 1 }, { PID_ROPE, 1 }, { PID_GECKO_PELT, 1 }, { PID_GOLDEN_GECKO_PELT, 1 }, { PID_BRAHMIN_HIDE, 1 },
+                   { PID_AXE, 1 }, { PID_WATERBAG_EMPTY, 1 }, { PID_LOCKPICKS, 1 }, { PID_LOCK, 1 }, { PID_HOLODISK, 1 }, { PID_BOTTLE_GLASS, 1 } };
+uint[][] misc2 = { { PID_SUPER_SLEDGE, 1 }, { PID_GECKO_PELT, 1 }, { PID_GOLDEN_GECKO_PELT, 1 }, { PID_BRAHMIN_HIDE, 1 }, { PID_FRAG_GRENADE, 5 }};
+uint[][] misc3 = {};
+
+uint[][] books1 = { { PID_CATS_PAW, 1 }, { PID_TECHNICAL_MANUAL, 1 }, { PID_CHEMISTRY_MANUAL, 1 }, { PID_BARTER_BOOK, 1}, { PID_FIRST_AID_BOOK, 1 }, { PID_SCOUT_HANDBOOK, 1 }, { PID_GUNS_AND_BULLETS, 1 }, { PID_BIG_BOOK_OF_SCIENCE, 1 }, { PID_DEANS_ELECTRONICS, 1 }, { PID_BG_BOOK, 1 }, { PID_DOCTOR_BOOK, 1 }, { PID_EW_BOOK, 1 }, { PID_SNEAK_BOOK, 1 }, { PID_STEAL_BOOK, 1 }, { PID_LOCKPICK_BOOK, 1 }, { PID_THROWING_BOOK, 1 }, { PID_TRAPS_BOOK, 1 }, { PID_CLOSE_COMBAT_BOOK, 1 } };
+uint[][] books2 = {};
+uint[][] books3 = {};
+
+uint[][] craft1 = {};
+uint[][] craft2 = {};
+uint[][] craft3 = {};
+
+uint[][] @[] lists = { sg1, sg2, sg3, bg1, bg2, bg3, en1, en2, en3, arm1, arm2, arm3, drug1, drug2, drug3, med1, med2, med3, misc1, misc2, misc3, books1, books2, books3, craft1, craft2, craft3 };

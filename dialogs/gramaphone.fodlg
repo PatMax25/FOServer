@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 D _item p PID_VYNIL2 } 1 R _script dialog@r_PlaySound 1 29 #
+0 2020 D _item p PID_VYNIL3 } 1 R _script dialog@r_PlaySound 1 30 #
+0 2030 D _item p PID_VYNIL1 } 1 R _script dialog@r_PlaySound 1 31 #
+0 2040 D _item p PID_WEIRD_VINYL } 1 R _script dialog@r_PlaySound 1 57 &
+
+[engl]
+{100}{}{error}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*you see a very old looking rusty music mechanism... the sign on it says - "Insert the record."*}
+{2010}{}{[ Play "Battle Cry of Freedom" - Green Record ]}
+{2020}{}{[ Play "Deck the Halls" - Red Record ]}
+{2030}{}{[ Play "1812 Overture" - Yellow Record ]}
+{2040}{}{[ Play a weird vinyl ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see a very old looking rusty music mechanism. The sign on it says - "Insert the record." ]}
+{2010}{}{[ Play "Battle Cry of Freedom" - Green Record ]}
+{2020}{}{[ Play "Deck the Halls" - Red Record ]}
+{2030}{}{[ Play "1812 Overture" - Yellow Record ]}
+{2040}{}{[ Play a weird vinyl ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see a very old looking rusty music mechanism. The sign on it says - "Insert the record." ]}
+{2010}{}{[ Play "Battle Cry of Freedom" - Green Record ]}
+{2020}{}{[ Play "Deck the Halls" - Red Record ]}
+{2030}{}{[ Play "1812 Overture" - Yellow Record ]}
+{2040}{}{[ Play a weird vinyl ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see a very old looking rusty music mechanism. The sign on it says - "Insert the record." ]}
+{2010}{}{[ Play "Battle Cry of Freedom" - Green Record ]}
+{2020}{}{[ Play "Deck the Halls" - Red Record ]}
+{2030}{}{[ Play "1812 Overture" - Yellow Record ]}
+{2040}{}{[ Play a weird vinyl ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see a very old looking rusty music mechanism. The sign on it says - "Insert the record." ]}
+{2010}{}{[ Play "Battle Cry of Freedom" - Green Record ]}
+{2020}{}{[ Play "Deck the Halls" - Red Record ]}
+{2030}{}{[ Play "1812 Overture" - Yellow Record ]}
+{2040}{}{[ Play a weird vinyl ]}
+

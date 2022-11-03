@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _item p PID_BARLEY } 4 R _item p PID_BARLEY - 4 R _item p PID_SARMATIA_BEER + 1 #
+0 2020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a unique device made out of wood, microchips, wires and some insane fantasy, that allows you to make the unique "Old Sarmatian" beer. It requires 4 barley seeds to make 1 bottle of beer. ]}
+{2010}{}{[ Make 1 bottle of beer ]}
+{2020}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ The is a unique device made out of wood, microchips, wires and some insane fantasy, that allows to make the unique "Old Sarmatian" beer. It requires 4 barley seeds to make 1 bottle of beer. ]}
+{2010}{}{[ Make 1 bottle of beer ]}
+{2020}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ The is a unique device made out of wood, microchips, wires and some insane fantasy, that allows to make the unique "Old Sarmatian" beer. It requires 4 barley seeds to make 1 bottle of beer. ]}
+{2010}{}{[ Make 1 bottle of beer ]}
+{2020}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ The is a unique device made out of wood, microchips, wires and some insane fantasy, that allows to make the unique "Old Sarmatian" beer. It requires 4 barley seeds to make 1 bottle of beer. ]}
+{2010}{}{[ Make 1 bottle of beer ]}
+{2020}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ The is a unique device made out of wood, microchips, wires and some insane fantasy, that allows to make the unique "Old Sarmatian" beer. It requires 4 barley seeds to make 1 bottle of beer. ]}
+{2010}{}{[ Make 1 bottle of beer ]}
+{2020}{}{[ Exit ]}
+

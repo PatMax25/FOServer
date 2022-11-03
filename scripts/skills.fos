@@ -1,0 +1,511 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// skills.fos
+//
+
+// This script contains global handlers for use of some skills.
+
+#include "_macros.fos"
+#include "MsgStr.h"
+#include "utils_h.fos"
+#include "reputations_h.fos"
+#include "backend_h.fos"
+
+import bool TryRepairItem(Critter& cr, Item& item) from "repair";
+Item@ SelectSkillItem(Critter& cr, Item@ item, uint16 skill)
+{
+    Item@ handItem = _CritGetItemHand(cr);
+    if(valid(handItem) && handItem.Proto.Misc_ToolSkillNum == skill)
+        return handItem;
+    return item;
+}
+
+bool UseFirstAidOnCritter(Critter& cr, Critter& targetCr, Item@ item)
+{
+/*
+    if(valid(cr.GetMap()) && cr.GetMap().IsTurnBased())
+    {
+        cr.Say(SAY_NETMSG, "This skill cannot be used during turn-based combat.");
+        return true;
+    }
+*/
+
+    bool is_self = (targetCr.Id == cr.Id);
+
+    if(targetCr.IsDead())
+    {
+        cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NORESSURECT);
+        return true;
+    }
+	if(targetCr.Param[PE_CYBORG] > 0)
+	{
+		cr.Say(SAY_NETMSG, "you can't heal cyborgs like that!");
+        return true;
+	}
+    if(!_CritNeedFirstAid(targetCr))
+    {
+        if(_CritNeedDoctor(targetCr))
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NOFIRSTAID_NEEDDOCTOR);
+        else if(is_self)
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NONEED_FIRSTAID);
+        return true;
+    }
+
+    if(cr.Timeout[TO_SK_FIRST_AID] > 0)
+    {
+        if(cr.IsPlayer())
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_WEARINESS);
+        return true;
+    }
+
+    if(!is_self && cr.Param[MODE_HIDE] != 0 && cr.GetAccess() < ACCESS_TESTER)
+        cr.ParamBase[MODE_HIDE] = 0;
+
+    // without living anatomy:
+    //   5% chance for critical success/failure
+    //   it's success if Random(0,11) vs luck succeed, failure otherwise
+    // with living anatomy:
+    //   10% chance for critical success/failure
+    //   it's success if Random(0,21) vs luck+10 succeed, failure otherwise
+    bool isLiving = cr.Param[PE_LIVING_ANATOMY] > 0;
+    bool isCritFailure = Random(1, 100) <= int(isLiving ? 10 : 5);
+    bool isCritSuccess = false;
+    if(isCritFailure)
+    {
+        if(Random(0, isLiving ? 450 : 250) <= cr.Param[SK_FIRST_AID])
+        {
+            isCritFailure = false;
+            isCritSuccess = true;
+            cr.Say(SAY_NETMSG, "That was a very skillful intervention.");
+        }
+        else
+            cr.Say(SAY_NETMSG, "It went horrible.");
+    }
+
+    int sk = cr.Param[SK_FIRST_AID];
+	int toolBonus = 0;
+	
+    @item = SelectSkillItem(cr, item, SK_FIRST_AID);
+    if(valid(item))
+    {
+        sk += item.Proto.Misc_ToolSkillBonus;
+		toolBonus = item.Proto.Misc_ToolSkillBonus;
+        if(Random(0, 30) == 0)
+		{
+            cr.DeleteItem(item.GetProtoId(), 1);
+			cr.Say(SAY_NETMSG, "You ran out of medical supplies after healing yourself.");		// First Aid Kit broke
+		}
+    }
+
+	sk = CLAMP(sk,0,200);
+    int healerBonus = (cr.Param[PE_MEDIC] > 0 ? Random(15, 30) : 0) + (cr.Param[PE_HEALER] > 0 ? Random(50, 100) : 0);
+    int heal = (isCritSuccess ? (sk + healerBonus) : (isCritFailure ? Random(1, sk / 10) : (Random((sk * 2) / 4, sk) + healerBonus))) * (cr.Param[PE_PRIEST] > 0 ? 2 : 1) - cr.Param[PE_SOLDIER];
+    if(heal < 1)
+        heal = 1;
+		
+	if(cr.IsPlayer() && cr.Timeout[TO_BATTLE] > 0 && heal > 150)
+		heal = (150 + healerBonus + toolBonus) * (cr.Param[PE_PRIEST] > 0 ? 2 : 1) - cr.Param[PE_SOLDIER];
+	if(cr.Param[ST_POISONING_LEVEL] > 0)
+		heal = heal * HEAL_REDUCE;	
+    int curHp = targetCr.Param[ST_CURRENT_HP];
+    int maxHp = targetCr.Param[ST_MAX_LIFE];
+    if(curHp + heal > maxHp)
+        heal = maxHp - curHp;
+    targetCr.ParamBase[ST_CURRENT_HP] += heal;
+	if(cr.Param[PE_HEALER]>0 && cr.Param[PE_MEDIC]>0 && cr.Param[PE_LIVING_ANATOMY]>0 && !is_self)
+		cr.ParamBase[ST_CURRENT_HP] += heal/2;
+
+    if(is_self)
+        VerboseAction(cr, "patches wounds");
+    else
+        VerboseAction(cr, targetCr, "treats wounds of TARGET");
+    cr.Say(SAY_NETMSG, "Hit Points +" + heal);
+    if(!is_self)
+        targetCr.Say(SAY_NETMSG, "Hit Points +" + heal);
+	if(!is_self && targetCr.Param[ST_NPC_ROLE] > 203)	
+		cr.ParamBase[WE_RANKED_GAME] += heal;
+	int cd_fa = 245 - sk;
+	if(cr.Param[PE_MEDIC]>0)
+		cd_fa /= 2;
+	if(cr.Param[PE_PARAMEDIC] == 0)
+		_SetTimeout(cr, TO_SK_FIRST_AID, REAL_SECOND(cd_fa));
+	else _SetTimeout(cr, TO_SK_FIRST_AID, REAL_SECOND(3));
+	
+    //if(isCritFailure)
+    //    _SetTimeout(targetCr, TO_WEAKENED, WEAKENED_TIMEOUT(targetCr));
+
+    if(cr.Param[PE_PARAMEDIC] == 0) cr.ParamBase[ST_EXPERIENCE] += heal * 3*(GetGvar(GVAR_experience_multipler));
+    if(_IsTrueNpc(targetCr) && cr.Id != targetCr.Id && IsHumanoid(targetCr) && !IsCurrentEnemy(targetCr, cr.Id))
+    {
+        if(_ValidReputationIndex(targetCr.Param[ST_TEAM_ID]))
+            AddReputation(cr, targetCr.Param[ST_TEAM_ID], heal / 20, REP_FIRST_AID_CAP);
+        if(cr.IsSeenBy(targetCr))
+            targetCr.Say(SAY_NORM_ON_HEAD, "Thank you.");
+    }
+
+    if(cr.IsPlayer())
+    {
+        LogExperience(cr, heal * 3*(GetGvar(GVAR_experience_multipler)), SK_FIRST_AID, targetCr.GetProtoId());
+        AddScore(cr, SCORE_DOCTOR, heal);
+    }
+	if(cr.Param[PE_PARAMEDIC]>0)
+		cr.ParamBase[ST_CURRENT_AP] += 400;
+
+    return true;
+}
+
+bool UseDoctorOnCritter(Critter& cr, Critter& targetCr, Item@ item)
+{
+/*
+    if(valid(cr.GetMap()) && cr.GetMap().IsTurnBased())
+    {
+        cr.Say(SAY_NETMSG, "This skill cannot be used during turn-based combat.");
+        return true;
+    }
+*/
+
+    bool is_self = (targetCr.Id == cr.Id);
+	
+    if(targetCr.IsDead() && cr.Param[PE_PARAMEDIC] == 0)
+    {
+        cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NORESSURECT);
+        return true;
+    }
+	
+	
+	
+	if(targetCr.Param[PE_CYBORG] > 0)
+	{
+		cr.Say(SAY_NETMSG, "you can't heal cyborgs like that!");
+        return true;
+	}
+	
+   
+
+    if(cr.Timeout[TO_SK_DOCTOR] > 0)
+    {
+        if(cr.IsPlayer())
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_WEARINESS);
+        return true;
+    }
+	
+	if(targetCr.IsPlayer() && targetCr.IsDead() && cr.Param[PE_PARAMEDIC] != 0)
+    {
+        targetCr.ToLife();
+		targetCr.ParamBase[ST_CURRENT_HP] += Random(20,50);
+		_SetTimeout(cr, TO_SK_DOCTOR, (cr.Param[PE_MEDIC] > 0 ? REAL_SECOND(240 - cr.Param[ST_INTELLECT]*10) : REAL_SECOND(480 - cr.Param[ST_INTELLECT]*5)));
+		return true;
+    }
+	 //if((!_CritNeedDoctor(targetCr)) && !targetCr.IsKnockout() )
+    if((!_CritNeedDoctor(targetCr)) && (cr.Param[PE_MEDIC] == 0 || !targetCr.IsKnockout()) )   //version with Medic perk required to remove KO 
+    {
+        if(_CritNeedFirstAid(targetCr))
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NODOCTOR_NEEDFIRSTAID);
+        else if(is_self)
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NONEED_DOCTOR);
+        return true;
+    }
+    if(!is_self && cr.Param[MODE_HIDE] != 0 && cr.GetAccess() < ACCESS_TESTER)
+        cr.ParamBase[MODE_HIDE] = 0;
+	
+    int sk = cr.Param[SK_DOCTOR];
+
+    @item = SelectSkillItem(cr, item, SK_DOCTOR);
+    if(valid(item))
+    {
+        sk += item.Proto.Misc_ToolSkillBonus;
+        if(Random(0, 30) == 0)
+            cr.DeleteItem(item.GetProtoId(), 1);
+    }
+
+    int uninjured = 0;
+    int injured = 0;
+
+    for(int i = DAMAGE_EYE; i <= DAMAGE_LEFT_LEG; ++i)
+    {
+        if(!_CritHasInjureBody(targetCr, i))
+            continue;
+        injured++;
+        if(sk > Random(5, 95))
+        {
+            _CritUninjureBody(targetCr, i);
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_HEAL_DMG(i - DAMAGE_POISONED));
+            uninjured++;
+        }
+        else
+        {
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NOHEAL_DMG(i - DAMAGE_POISONED));
+        }
+        sk -= 35;
+    }
+
+    //if(targetCr.IsKnockout())
+    if(targetCr.IsKnockout() && cr.Param[PE_MEDIC] != 0 )      //version with Medic perk required to remove KO
+    {
+        targetCr.ParamBase[ST_CURRENT_AP] = 0;
+    }
+	int cd_doc = 350 - sk;
+	if(cr.Param[PE_MEDIC]>0)
+		cd_doc /= 2;
+	//druto
+	_SetTimeout(cr, TO_SK_DOCTOR, REAL_SECOND(cd_doc));
+
+    if(uninjured > 0)
+    {
+        if(is_self)
+            VerboseAction(cr, "applies wound dressing" + (uninjured > 1 ? "s" : ""));
+        else
+            VerboseAction(cr, targetCr, "treats injur" + (uninjured > 1 ? "ies" : "y") + " of TARGET");
+        cr.ParamBase[ST_EXPERIENCE] += uninjured * 50*(GetGvar(GVAR_experience_multipler));
+        if(_IsTrueNpc(targetCr) && !is_self && IsHumanoid(targetCr) && !IsCurrentEnemy(targetCr, cr.Id))
+        {
+            if(_ValidReputationIndex(targetCr.Param[ST_TEAM_ID]))
+                AddReputation(cr, targetCr.Param[ST_TEAM_ID], uninjured * 8, REP_DOCTOR_CAP);
+            if(cr.IsSeenBy(targetCr))
+                targetCr.Say(SAY_NORM_ON_HEAD, "Thank you.");
+        }
+    }
+	if(cr.Param[PE_PARAMEDIC]>0)
+		cr.ParamBase[ST_CURRENT_AP] += 400;
+	    return true;
+}
+
+
+bool UseRepairOnCritter(Critter& cr, Critter& targetCr, Item@ item)
+{
+	/*
+    if(valid(cr.GetMap()) && cr.GetMap().IsTurnBased())
+    {
+        cr.Say(SAY_NETMSG, "This skill cannot be used during turn-based combat.");
+        return true;
+    }*/
+
+
+    bool is_self = (targetCr.Id == cr.Id);
+
+    if(targetCr.IsDead())
+    {
+        cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NORESSURECT);
+        return true;
+    }
+	if(!targetCr.IsPlayer())
+		return true;
+	if(targetCr.Param[PE_CYBORG] == 0 && !is_self)
+	{
+		cr.Say(SAY_NETMSG, "It does nothing");
+        return true;
+	}
+	if(is_self && cr.Param[PE_CYBORG] == 0)
+	{
+		cr.Say(SAY_NETMSG, "It does nothing");
+        return true;
+	}
+    if(!_CritNeedFirstAid(targetCr))
+    {
+        if(_CritNeedDoctor(targetCr))
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NOFIRSTAID_NEEDDOCTOR);
+        else if(is_self)
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NONEED_FIRSTAID);
+        return true;
+    }
+
+    if(cr.Timeout[TO_SK_REPAIR] > 0)
+    {
+        if(cr.IsPlayer())
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_WEARINESS);
+        return true;
+    }
+
+    if(!is_self && cr.Param[MODE_HIDE] != 0 && cr.GetAccess() < ACCESS_TESTER)
+        cr.ParamBase[MODE_HIDE] = 0;
+
+    // without living anatomy:
+    //   5% chance for critical success/failure
+    //   it's success if Random(0,11) vs luck succeed, failure otherwise
+    // with living anatomy:
+    //   10% chance for critical success/failure
+    //   it's success if Random(0,21) vs luck+10 succeed, failure otherwise
+    bool isLiving = cr.Param[PE_CYBORG] > 0;
+    bool isCritFailure = Random(1, 100) <= int(isLiving ? 10 : 5);
+    bool isCritSuccess = false;
+    if(isCritFailure)
+    {
+        if(Random(0, isLiving ? 450 : 250) <= cr.Param[SK_REPAIR])
+        {
+            isCritFailure = false;
+            isCritSuccess = true;
+            cr.Say(SAY_NETMSG, "That was a very skillful intervention.");
+        }
+        else
+            cr.Say(SAY_NETMSG, "It went horrible.");
+    }
+
+    int sk = cr.Param[SK_REPAIR];
+	int toolBonus = 0;
+	
+    @item = SelectSkillItem(cr, item, SK_REPAIR);
+    if(valid(item))
+    {
+        sk += item.Proto.Misc_ToolSkillBonus;
+		toolBonus = item.Proto.Misc_ToolSkillBonus;
+        if(Random(0, 30) == 0)
+		{
+            cr.DeleteItem(item.GetProtoId(), 1);
+			cr.Say(SAY_NETMSG, "You ran out of medical supplies after healing yourself.");		// First Aid Kit broke
+		}
+    }
+
+	sk = CLAMP(sk,0,200);
+    int healerBonus = (cr.Param[PE_MR_FIXIT] > 0 ? Random(15, 30) : 0) + (cr.Param[PE_LIVING_ANATOMY] > 0 ? Random(20, 40) : 0);
+    int heal = isCritSuccess ? (sk + healerBonus) : (isCritFailure ? Random(1, sk / 10) : (Random((sk * 2) / 4, sk) + healerBonus));
+    if(heal < 1)
+        heal = 1;
+		
+	if(cr.IsPlayer() && cr.Timeout[TO_BATTLE] > 0 && heal > 150)
+		heal = 150 + healerBonus + toolBonus;
+	if(cr.Param[ST_POISONING_LEVEL] > 0)
+		heal = heal * HEAL_REDUCE;
+	if(cr.Param[PE_HEALER]>0 && cr.Param[PE_MEDIC]>0 && cr.Param[PE_LIVING_ANATOMY]>0 && !is_self)
+		cr.ParamBase[ST_CURRENT_HP] += heal/2;	
+    int curHp = targetCr.Param[ST_CURRENT_HP];
+    int maxHp = targetCr.Param[ST_MAX_LIFE];
+    if(curHp + heal > maxHp)
+        heal = maxHp - curHp;
+    targetCr.ParamBase[ST_CURRENT_HP] += heal;
+
+    if(is_self)
+        VerboseAction(cr, "Repairing");
+    else
+        VerboseAction(cr, targetCr, "Repairing TARGET");
+    cr.Say(SAY_NETMSG, "Hit Points +" + heal);
+    if(!is_self)
+        targetCr.Say(SAY_NETMSG, "Hit Points +" + heal);
+
+    _SetTimeout(cr, TO_SK_REPAIR, REPAIR_TIMEOUT(cr));
+	
+    //if(isCritFailure)
+    //    _SetTimeout(targetCr, TO_WEAKENED, WEAKENED_TIMEOUT(targetCr));
+
+    if(cr.Param[ST_LEVEL]<999) cr.ParamBase[ST_EXPERIENCE] += heal * 3*(GetGvar(GVAR_experience_multipler));
+
+    if(cr.IsPlayer())
+    {
+        LogExperience(cr, heal * 3*(GetGvar(GVAR_experience_multipler)), SK_REPAIR, targetCr.GetProtoId());
+        AddScore(cr, SCORE_DOCTOR, 1);
+    }
+
+    return true;
+}
+
+bool UseScienceOnCritter(Critter& cr, Critter& targetCr, Item@ item)
+{
+/*
+    if(valid(cr.GetMap()) && cr.GetMap().IsTurnBased())
+    {
+        cr.Say(SAY_NETMSG, "This skill cannot be used during turn-based combat.");
+        return true;
+    }
+*/
+
+    bool is_self = (targetCr.Id == cr.Id);
+	
+    if(targetCr.IsDead())
+    {
+        cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NORESSURECT);
+        return true;
+    }
+	if(!targetCr.IsPlayer())
+		return true;
+	if(targetCr.Param[PE_CYBORG] == 0)
+	{
+		cr.Say(SAY_NETMSG, "It does nothing!");
+        return true;
+	}
+		if(is_self && cr.Param[PE_CYBORG] == 0)
+	{
+		cr.Say(SAY_NETMSG, "It does nothing");
+        return true;
+	}
+	
+    //if((!_CritNeedDoctor(targetCr)) && !targetCr.IsKnockout() )
+    if((!_CritNeedDoctor(targetCr)) && (cr.Param[PE_MEDIC] == 0 || !targetCr.IsKnockout()) )   //version with Medic perk required to remove KO 
+    {
+        if(_CritNeedFirstAid(targetCr))
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NODOCTOR_NEEDFIRSTAID);
+        else if(is_self)
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NONEED_DOCTOR);
+        return true;
+    }
+
+    if(cr.Timeout[TO_SK_DOCTOR] > 0)
+    {
+        if(cr.IsPlayer())
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_WEARINESS);
+        return true;
+    }
+
+    if(!is_self && cr.Param[MODE_HIDE] != 0 && cr.GetAccess() < ACCESS_TESTER)
+        cr.ParamBase[MODE_HIDE] = 0;
+
+    int sk = cr.Param[SK_SCIENCE];
+
+    @item = SelectSkillItem(cr, item, SK_SCIENCE);
+    if(valid(item))
+    {
+        sk += item.Proto.Misc_ToolSkillBonus;
+        if(Random(0, 30) == 0)
+            cr.DeleteItem(item.GetProtoId(), 1);
+    }
+
+    int uninjured = 0;
+    int injured = 0;
+
+    for(int i = DAMAGE_EYE; i <= DAMAGE_LEFT_LEG; ++i)
+    {
+        if(!_CritHasInjureBody(targetCr, i))
+            continue;
+        injured++;
+        if(sk > Random(5, 95))
+        {
+            _CritUninjureBody(targetCr, i);
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_HEAL_DMG(i - DAMAGE_POISONED));
+            uninjured++;
+        }
+        else
+        {
+            cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_SKILL_NOHEAL_DMG(i - DAMAGE_POISONED));
+        }
+        sk -= 35;
+    }
+
+    //if(targetCr.IsKnockout())
+    if(targetCr.IsKnockout() && cr.Param[PE_MEDIC] != 0 )      //version with Medic perk required to remove KO
+    {
+        targetCr.ParamBase[ST_CURRENT_AP] = 0;
+    }
+
+	//druto
+	int cd_sc = 350 - sk;
+	if(cr.Param[PE_MEDIC]>0)
+		cd_sc /= 2;
+	_SetTimeout(cr, TO_SK_SCIENCE, REAL_SECOND(cd_sc));
+
+    if(uninjured > 0)
+    {
+        if(is_self)
+            VerboseAction(cr, "applies wound dressing" + (uninjured > 1 ? "s" : ""));
+        else
+            VerboseAction(cr, targetCr, "treats injur" + (uninjured > 1 ? "ies" : "y") + " of TARGET");
+        cr.ParamBase[ST_EXPERIENCE] += uninjured * 50*(GetGvar(GVAR_experience_multipler));
+        if(_IsTrueNpc(targetCr) && !is_self && IsHumanoid(targetCr) && !IsCurrentEnemy(targetCr, cr.Id))
+        {
+            if(_ValidReputationIndex(targetCr.Param[ST_TEAM_ID]))
+                AddReputation(cr, targetCr.Param[ST_TEAM_ID], uninjured * 8, REP_DOCTOR_CAP);
+            if(cr.IsSeenBy(targetCr))
+                targetCr.Say(SAY_NORM_ON_HEAD, "Thank you.");
+        }
+    }
+	    return true;
+}

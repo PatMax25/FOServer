@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Strange Person}
+{200}{}{A very strange looking person.}
+{210}{}{It seems like he is holding a weapon in his pocket.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey... ehm... buddy? You better talk with Chris.@@ Look, I am just a simple wastelander, just talk with Chris.@@Sorry, but it is up on Chris to chat with strangers.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey... ehm... buddy? You better talk with Chris.@@ Look, I am just a simple wastelander, just talk with Chris.@@Sorry, but it is up on Chris to chat with strangers.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey... ehm... buddy? You better talk with Chris.@@ Look, I am just a simple wastelander, just talk with Chris.@@Sorry, but it is up on Chris to chat with strangers.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey... ehm... buddy? You better talk with Chris.@@ Look, I am just a simple wastelander, just talk with Chris.@@Sorry, but it is up on Chris to chat with strangers.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey... ehm... buddy? You better talk with Chris.@@ Look, I am just a simple wastelander, just talk with Chris.@@Sorry, but it is up on Chris to chat with strangers.}
+

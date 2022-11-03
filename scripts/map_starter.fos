@@ -1,0 +1,191 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// map_starter.fos
+//
+
+#include "_macros.fos"
+#include "mob_dynamic.fos"
+
+//import void SetQuestGarbager(uint time, uint playerid, uint locid, uint var, uint val) from "utils";
+
+// Map script for starter locations
+void map_init(Map& map, bool firstTime)
+{
+    map.SetEvent(MAP_EVENT_OUT_CRITTER, "_OnLeaveMap");
+   // if(firstTime)
+    //    SetQuestGarbager(3 * 60, 0, map.GetLocation().Id, 0, 0);
+		
+			CreateTimeEvent(AFTER(REAL_MINUTE(60)), "e_DeleteStartLocation", map.GetLocation().Id, false);
+	
+}
+void rockside(Map& map, bool firstTime)
+{
+	map.SetEvent(MAP_EVENT_CRITTER_DEAD, "_DeadCritter");
+}
+void fuck_go_back(Critter& player, Critter@npc)
+{
+	int newloc = CreateLocation(LOCATION_Spawnpoint1, player.WorldX, player.WorldY, null);
+    Location@   loc = GetLocation(newloc);
+	array<Map@> maps;
+    loc.GetMaps(maps);
+	if(!valid(maps[0]))
+		return;
+	player.TransitToMap(maps[0].Id, 0);
+
+
+}
+
+void hunting(Map& map, bool firstTime)
+{
+	int mobsgroup;
+	switch(Random(1,4))
+	{
+	case 1:  mobsgroup = 16 ; break; 
+	case 2:  mobsgroup = 17 ; break; 
+	case 3:  mobsgroup = 18 ; break; 
+	case 4:  mobsgroup = 23 ; break; 
+	}
+	map.SetEvent(MAP_EVENT_CRITTER_DEAD, "_DeadCritterhuting");
+	FillMapByMobs(map, Random(1,6),  mobsgroup, Random(0,5),Random(0,5));
+}
+
+void q_hunting(Critter& player, Critter@ terminal)
+{
+	Critter@[] crits = { player };
+	//uint loc = CreateLocation( LOCATION_pole, Random(1600,1800), Random(1850,2200), crits);
+	//Location@ location = GetLocation(loc);
+	//if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+   //     SetTurnBasedAvailability(location);
+	player.AddItem(PID_SCOPED_HUNTING_RIFLE, 1);
+	player.AddItem(PID_223_FMJ, Random(14, 35));
+	//player.TransitToMap(location.Id, 1, false);
+ 
+}
+
+void _DeadCritter(Map& map, Critter& cr, Critter@ killer)
+{
+	int MOBBt = cr.Param[ST_BODY_TYPE];
+	if(MOBBt == BT_RADSCORPION)
+		AddScore(killer, SCORE_ROCKSIDE, 1);
+	if(MOBBt == BT_PLANT)
+		AddScore(killer, SCORE_ROCKSIDE, 1);
+}
+
+void _DeadCritterhuting(Map& map, Critter& cr, Critter@ killer)
+{
+	if(cr.IsPlayer())
+	cr.TransitToMap(250, 5, false); 
+	CreateTimeEvent(AFTER(REAL_MINUTE(3)), "e_DeleteStartLocation", map.GetLocation().Id, false);
+	
+}
+
+void q_plants(Critter& player, Critter@ terminal)
+{
+	if(player.Param[ST_VAR4] > 4)
+	{
+	player.AddItem(PID_BOTTLE_CAPS, 100);
+	player.ParamBase[ST_EXPERIENCE] += Random(200, 200 * player.Param[ST_LUCK]);
+	terminal.Say(SAY_NORM_ON_HEAD, "Good job, it's your payment.");
+	}
+	else
+	{
+	terminal.Say(SAY_NORM_ON_HEAD, "you didn't finish your work.");
+	}
+}
+
+void q_scorpions(Critter& player, Critter@ terminal)
+{
+	if(player.Param[ST_VAR3] > 4)
+	{
+	player.AddItem(PID_BOTTLE_CAPS, 200);
+	player.ParamBase[ST_EXPERIENCE] += Random(300, 300 * player.Param[ST_LUCK]);
+	terminal.Say(SAY_NORM_ON_HEAD, "Good job, it's your payment.");
+	}
+	else
+	{
+	terminal.Say(SAY_NORM_ON_HEAD, "you didn't finish your work.");
+	}
+}
+
+void Exit(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+	//player.Say(SAY_NORM_ON_HEAD, "I forgot Server starting tommorow.");
+	Map@   map = player.GetMap();
+	uint ga = 258;
+		if(player.IsLife() && entered)	
+			switch(Random(0,9))
+				{
+				case 0: { player.TransitToMap(ga, 0, false); break; }
+				case 1: { player.TransitToMap(ga+2, 0, false); break; }
+				case 2: { player.TransitToMap(ga+4, 0, false); break; }
+				case 3: { player.TransitToMap(ga+6, 0, false); break; }
+				case 4: { player.TransitToMap(ga+8, 0, false); break; }
+				case 5: { player.TransitToMap(ga+10, 0, false); break; }
+				case 6: { player.TransitToMap(ga+12, 0, false); break; }
+				case 7: { player.TransitToMap(ga+14, 0, false); break; }
+				case 8: { player.TransitToMap(ga+16, 0, false); break; }
+				case 9: { player.TransitToMap(ga+18, 0, false); break; }
+				}
+		
+}
+
+void Exit2(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+	Map@   map = player.GetMap();
+		if(player.IsLife() && entered)				
+		player.TransitToMap(307, 0, false); 
+		
+	array<Item@> items;
+    uint         n = player.GetItems(-1, items);
+    for(uint i = 0; i < n; i++)
+        DeleteItem(items[i]);
+}
+
+void Exit3(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+	Map@   map = player.GetMap();
+		if(player.IsLife() && entered)				
+		player.TransitToMap(map.Id + 1, 0, false); 
+}
+
+void Exit4(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+	Map@   map = player.GetMap();
+
+	Item@ fa = player.GetItem(PID_SCOPED_HUNTING_RIFLE, -1);
+
+		if(player.IsLife() && entered)
+		{
+		CreateTimeEvent(AFTER(REAL_MINUTE(3)), "e_DeleteStartLocation", player.GetMap().GetLocation().Id, false);
+			if(valid(fa))
+			{
+			DeleteItem(fa);
+			}
+		player.TransitToMap(275, 0, false); 
+		
+		}
+
+}
+
+void _OnLeaveMap(Map& map, Critter& cr)
+{
+    if(valid(cr.GetMap()))
+        return;
+
+    Location@ loc = map.GetLocation();
+    if(valid(loc))
+        DeleteLocation(loc.Id);
+    else
+        Log("Invalid starter location.");
+}
+
+uint e_DeleteStartLocation(array<uint>@ LocData)
+{
+	Location@ loc = GetLocation(LocData[0]);
+	if(!valid(loc)) return 0;
+	
+	DeleteLocation(loc.Id);
+	return 0;
+}

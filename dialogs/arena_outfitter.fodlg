@@ -1,0 +1,554 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _script arena@d_HasTooMuchStuff 0  #
+2 1020 @
+2 2000 None 1 #
+5 2010 #
+6 2020 #
+7 2030 #
+8 2040 #
+9 2050 #
+10 2060 #
+12 2070 #
+3 2080 R _item n PID_COMBAT_HELMET_MK_II + 1 R _item n PID_GAS_MASK_PVP + 1 R _item n PID_METAL_HELMET_MK2 + 1 R _item n PID_VC_HELMET + 1 R _script arena@r_TransferItems 0  #
+0 2090 @
+3 3000 None 0 @
+4 4000 None 0 @
+5 5000 None 0 #
+3 5010 R _item n PID_14MM_PISTOL + 1 R _script arena@r_TransferItems 0  #
+3 5020 R _item n PID_223_PISTOL + 1 R _script arena@r_TransferItems 0  #
+3 5030 R _item n PID_HK_P90C + 1 R _script arena@r_TransferItems 0  #
+3 5040 R _item n PID_PANCOR_JACKHAMMER + 1 R _script arena@r_TransferItems 0  #
+3 5050 R _item n PID_SNIPER_RIFLE + 1 R _script arena@r_TransferItems 0  #
+3 5060 R _item n PID_INDEPENDENT + 1 R _script arena@r_TransferItems 0  #
+3 5070 R _item n PID_NEEDLER_PISTOL + 1 R _script arena@r_TransferItems 0  #
+3 5080 R _item n PID_GRENADE_PISTOL + 1 R _script arena@r_TransferItems 0  #
+3 5090 R _item n PID_GRENADE_LAUNCHER + 1 R _script arena@r_TransferItems 0  #
+3 5100 R _item n PID_M16 + 1 R _script arena@r_TransferItems 0  #
+3 5110 R _item n PID_HK_CAWS + 1 R _script arena@r_TransferItems 0  @
+6 6000 None 0 #
+3 6010 R _item n PID_AVENGER_MINIGUN + 1 R _script arena@r_TransferItems 0  #
+3 6020 R _item n PID_LIGHT_SUPPORT_WEAPON + 1 R _script arena@r_TransferItems 0  #
+3 6030 R _item n PID_IMPROVED_FLAMETHROWER + 1 R _script arena@r_TransferItems 0  #
+3 6040 R _item n PID_M60 + 1 R _script arena@r_TransferItems 0  #
+3 6050 R _item n PID_ROCKET_LAUNCHER + 1 R _script arena@r_TransferItems 0  @
+7 7000 None 0 #
+3 7010 R _item n PID_LASER_RIFLE_EXT_CAP + 1 R _script arena@r_TransferItems 0  #
+3 7020 R _item n PID_PLASMA_RIFLE + 1 R _script arena@r_TransferItems 0  #
+3 7030 R _item n PID_GATLING_LASER + 1 R _script arena@r_TransferItems 0  #
+3 7040 R _item n PID_MAGNETO_LASER_PISTOL + 1 R _script arena@r_TransferItems 0  #
+3 7050 R _item n PID_PLASMA_PISTOL_EXT_CART + 1 R _script arena@r_TransferItems 0  #
+3 7060 R _item n PID_EL_ROCKET_LAUNCHER + 1 R _script arena@r_TransferItems 0  #
+3 7070 R _item n PID_YK32_PULSE_PISTOL + 1 R _script arena@r_TransferItems 0  #
+3 7080 R _item n PID_PLASMA_SMG + 1 R _script arena@r_TransferItems 0  #
+3 7090 R _item n PID_SOLAR_SCORCHER + 1 R _script arena@r_TransferItems 0  #
+3 7100 R _item n PID_KNOCKBACK_RIFLE + 1 R _script arena@r_TransferItems 0  @
+8 8000 None 0 #
+3 8010 R _item n PID_SUPER_CATTLE_PROD + 1 R _script arena@r_TransferItems 0  #
+3 8020 R _item n PID_MEGA_POWER_FIST + 1 R _script arena@r_TransferItems 0  #
+3 8030 R _item n PID_RIPPER + 1 R _script arena@r_TransferItems 0  #
+3 8040 R _item n PID_SUPER_SLEDGE + 1 R _script arena@r_TransferItems 0  #
+3 8050 R _item n PID_WAKIZASHI_BLADE + 1 R _script arena@r_TransferItems 0  @
+9 9000 None 0 #
+3 9010 R _item n PID_FAKE_FRAG_GRENADE + 8 R _script arena@r_TransferItems 0  #
+3 9020 R _item n PID_FAKE_PLASMA_GRENADE + 8 R _script arena@r_TransferItems 0  #
+3 9030 R _item n PID_FAKE_SPEAR + 5 R _script arena@r_TransferItems 0  #
+3 9040 R _item n PID_FAKE_THROWING_KNIFE + 8 R _script arena@r_TransferItems 0  @
+13 10000 None 0 #
+3 10010 R _item n PID_COMBAT_ARMOR_MK_II + 1 R _item n PID_COMBAT_HELMET_MK_II + 1 R _script arena@r_TransferItems 0  #
+3 10020 R _item n PID_DESERT_COMBAT_ARMOR + 1 R _item n PID_DESERT_COMBAT_HELMET + 1 R _script arena@r_TransferItems 0  #
+3 10030 R _item n PID_NCR_ARMOR + 1 R _item n PID_NCR_HELMET + 1 R _script arena@r_TransferItems 0  #
+3 10040 R _item n PID_CLOTHES_POLICE + 1 R _item n PID_ENCLAVE_COMBAT_HELMET + 1 R _script arena@r_TransferItems 0  #
+3 10050 R _item n PID_BROTHERHOOD_COMBAT_ARMOR + 1 R _item n PID_BROTHERHOOD_HELMET + 1 R _script arena@r_TransferItems 0  #
+3 10060 R _item n PID_ENCLAVE_COMBAT_ARMOR + 1 R _item n PID_ENCLAVE_COMBAT_HELMET + 1 R _script arena@r_TransferItems 0  #
+3 10070 R _item n PID_RANGER_ARMOR + 1 R _item n PID_GAS_MASK_PVP + 1 R _script arena@r_TransferItems 0  #
+3 10080 R _item n PID_SOVIET_ARMOR + 1 R _item n PID_GAS_MASK_PVP + 1 R _script arena@r_TransferItems 0  @
+11 11000 None 0 #
+0 11010 @
+12 12000 None 0 #
+2 12010 #
+0 12020 @
+10 13000 None 0 #
+13 13010 #
+14 13020 #
+15 13030 #
+16 13040 @
+14 14000 None 0 #
+3 14010 R _item n PID_METAL_HELMET_MK2 + 1 R _item n PID_METAL_ARMOR_MK_II + 1 R _script arena@r_TransferItems 0  #
+3 14020 R _item n PID_METAL_HELMET_MK2 + 1 R _item n PID_METAL_ARMOR_MK_III + 1 R _script arena@r_TransferItems 0  #
+3 14030 R _item n PID_METAL_HELMET_MK2 + 1 R _item n PID_TESLA_ARMOR + 1 R _script arena@r_TransferItems 0  #
+3 14040 R _item n PID_METAL_HELMET_MK2 + 1 R _item n PID_MUT_METAL + 1 R _script arena@r_TransferItems 0  #
+3 14050 R _item n PID_METAL_HELMET_MK2 + 1 R _item n PID_INFERNO_ARMOR + 1 R _script arena@r_TransferItems 0  @
+15 15000 None 0 #
+3 15010 R _item n PID_KEEPBRIGE_ROBE + 1 R _item n PID_COMBAT_HELMET_MK_II + 1 R _script arena@r_TransferItems 0  #
+3 15020 R _item n PID_HUBO_ROBE + 1 R _item n PID_COMBAT_HELMET_MK_II + 1 R _script arena@r_TransferItems 0  #
+3 15030 R _item n PID_FOLLOWER_ROBE + 1 R _item n PID_COMBAT_HELMET_MK_II + 1 R _script arena@r_TransferItems 0  @
+16 16000 None 0 #
+3 16010 R _item n PID_CURED_LEATHER_ARMOR + 1 R _item n PID_COMBAT_HELMET_MK_II + 1 R _script arena@r_TransferItems 0  #
+3 16020 R _item n PID_LEATHER_ARMOR_MK_II + 1 R _item n PID_COMBAT_HELMET_MK_II + 1 R _script arena@r_TransferItems 0  #
+3 16030 R _item n PID_FIREGECKO_JACKET + 1 R _item n PID_COMBAT_HELMET_MK_II + 1 R _script arena@r_TransferItems 0  &
+
+[engl]
+{100}{}{Outfitter}
+{200}{}{This is the arena outfitter.}
+{210}{}{This person can supply you with gear for the arena!}
+{1000}{}{Preddialogue settings}
+{1010}{}{Too much stuff}
+{1020}{}{ }
+{2000}{}{Well hello. What  do you need?}
+{2010}{}{I would like to receive a fake small gun.}
+{2020}{}{Give me a certain big gun...}
+{2030}{}{What's in your stock of energy weaponry?}
+{2040}{}{Something to bash my opponents with!}
+{2050}{}{Something to throw, perhaps?}
+{2060}{}{A body armor.}
+{2070}{}{Is there.. you know, some way for me to get.. uhm.. "better" in the fight? You know, like popping the big B.. Taking a flight, psyching out and stuff, you know, the good shit.. ?}
+{2080}{}{Sets of helmets}
+{2090}{}{Nothing. [ end dialogue ]}
+{3000}{}{Here you go.}
+{4000}{}{Slow down a bit, you've taken enough for now.}
+{5000}{}{What gun would that be?}
+{5010}{}{A 14mm Pistol.}
+{5020}{}{A .223 pistol.}
+{5030}{}{A P90 submachinegun.}
+{5040}{}{A Pancor Jackhammer combat shotgun.}
+{5050}{}{A Sniper Rifle.}
+{5060}{}{A XL70E}
+{5070}{}{A Needler Pistol}
+{5080}{}{FN 69A1 Grenade Pistol}
+{5090}{}{M79 Grenade Launcher.}
+{5100}{}{M16}
+{5110}{}{A HK CAWS}
+{6000}{}{Which one?}
+{6010}{}{An Avenger Minigun. Tear them into pieces.}
+{6020}{}{A Light Support Weapon.}
+{6030}{}{An Incinerator.}
+{6040}{}{An M60.}
+{6050}{}{A Rocket Launcher. The one with deluxe trigger.}
+{7000}{}{Take your pick.}
+{7010}{}{A Laser Rifle (Ext. Cap.)}
+{7020}{}{A Plasma Rifle.}
+{7030}{}{Gatling Laser, please.}
+{7040}{}{Give me a Magneto Laser Pistol.}
+{7050}{}{A Plasma Pistol with extended magazine would be good.}
+{7060}{}{Electric Rocket Launcher}
+{7070}{}{A Pulse Pistol}
+{7080}{}{A Plasma SMG}
+{7090}{}{Solar Scorcher}
+{7100}{}{Gravity Gun}
+{8000}{}{By all means, suit yourself.}
+{8010}{}{Can I get a Super Cattle Prod?}
+{8020}{}{A Mega Power Fist!}
+{8030}{}{Give me a Ripper, now.}
+{8040}{}{A Super Sledgehammer.}
+{8050}{}{A Wakizashi Blade.}
+{9000}{}{And what exactly?}
+{9010}{}{Eight frags, please.}
+{9020}{}{I'll take eight plasma ones.}
+{9030}{}{Actually... You have some Spears in stock?}
+{9040}{}{Give me some Throwing Knifes, please.}
+{10000}{}{What kind of armor?}
+{10010}{}{One suit of Combat Armor mark II.}
+{10020}{}{One suit of Desert Combat Armor.}
+{10030}{}{One suit of NCR Armor}
+{10040}{}{One suit of Vault City Armor}
+{10050}{}{One suit of Brotherhood Armor}
+{10060}{}{One suit of Enclave Armor}
+{10070}{}{Ranger Armor}
+{10080}{}{Conscript Battle Armor}
+{11000}{}{Sorry, no. Even if those are fake weapons, I don't believe they can be safely given to someone with your... condition. You can still watch the fights, while you are here.}
+{11010}{}{Uh?}
+{12000}{}{If I were you I would try my luck at the bar right over there... [points at the other end of the room]}
+{12010}{}{Ok, how about some basic gear?}
+{12020}{}{Gotcha!}
+{13000}{}{What type of Armor?}
+{13010}{}{Combat ones}
+{13020}{}{Metal ones}
+{13030}{}{Robes}
+{13040}{}{Maybe something for sneak}
+{14000}{}{What kind of Armor?}
+{14010}{}{Metal Armor MKII}
+{14020}{}{Metal Armor MK 3}
+{14030}{}{Tesla Armor}
+{14040}{}{Super Mutant Armor}
+{14050}{}{Maybe Infernal Armor}
+{15000}{}{What kind of Armor?}
+{15010}{}{Bridgekeeper's Robes}
+{15020}{}{Hubologist's Robes}
+{15030}{}{Unity Robes}
+{16000}{}{What kind of Armor?}
+{16010}{}{Combat jacket}
+{16020}{}{Leather Armor MK II}
+{16030}{}{Firegecko Armor}
+
+[czec]
+{100}{}{none}
+{1000}{}{Preddialogue settings}
+{1010}{}{Too much stuff}
+{1020}{}{ }
+{2000}{}{Well hello.  What  do you need?}
+{2010}{}{I would like to receive a fake small gun.}
+{2020}{}{Give me a certain big gun...}
+{2030}{}{What's in your stock of energy weaponry?}
+{2040}{}{Something to bash my opponents with!}
+{2050}{}{Something to throw, perhaps?}
+{2060}{}{A body armor.}
+{2070}{}{Is there.. you know, some way for me to get.. uhm.. "better" in the fight? You know, like popping the big B.. Taking a flight, psyching out and stuff, you know, the good shit.. ?}
+{2080}{}{Sets of helmets}
+{2090}{}{Nothing.}
+{3000}{}{Here you go.}
+{4000}{}{Slow down a bit, you've taken enough for now.}
+{5000}{}{What gun would that be?}
+{5010}{}{A 14mm Pistol.}
+{5020}{}{A .223 pistol.}
+{5030}{}{A P90 submachinegun.}
+{5040}{}{A Pancor Jackhammer combat shotgun.}
+{5050}{}{A Sniper Rifle.}
+{5060}{}{A XL70E}
+{5070}{}{A Needler Pistol}
+{5080}{}{FN 69A1 Grenade Pistol}
+{5090}{}{M79 Grenade Launcher.}
+{5100}{}{M16}
+{5110}{}{A HK CAWS}
+{6000}{}{Which one?}
+{6010}{}{An Avenger Minigun. Tear them into pieces.}
+{6020}{}{A Light Support Weapon.}
+{6030}{}{An Incinerator.}
+{6040}{}{An M60.}
+{6050}{}{A Rocket Launcher. The one with deluxe trigger.}
+{7000}{}{Take your pick.}
+{7010}{}{A Laser Rifle (Ext. Cap.)}
+{7020}{}{A Plasma Rifle.}
+{7030}{}{Gatling Laser, please.}
+{7040}{}{Give me a Magneto Laser Pistol.}
+{7050}{}{Some Plasma Pistol with extended magazine would be good.}
+{7060}{}{Eletric RL}
+{7070}{}{A Pulse Pistol}
+{7080}{}{A Plasma SMG}
+{7090}{}{Solar}
+{7100}{}{Gravity Gun}
+{8000}{}{By all means, suit yourself.}
+{8010}{}{What about some Super Cattle Prod?}
+{8020}{}{A Mega Power Fist!}
+{8030}{}{Give me a Ripper, now.}
+{8040}{}{A Super Sledgehammer.}
+{8050}{}{A Wakizashi Blade.}
+{9000}{}{And what exactly?}
+{9010}{}{Eight frags, please.}
+{9020}{}{I'll take eight plasma ones.}
+{9030}{}{Actually... You have some Spears in stock?}
+{9040}{}{Give me some Throwing Knifes, please.}
+{10000}{}{What kind of armor?}
+{10010}{}{One suit of Combat Armor mark II.}
+{10020}{}{One suit of Desert Combat Armor.}
+{10030}{}{One suit of NCR Armor}
+{10040}{}{One suit of Vault City Armor}
+{10050}{}{One suit of Brotherhood Armor}
+{10060}{}{One suit of Enclave Armor}
+{10070}{}{Ranger Armor}
+{10080}{}{Conscript Battle Armor}
+{11000}{}{Sorry, no. Even if those are fake weapons, I don't believe they can be safely given to someone with your... condition. You can still watch the fights, while you are here.}
+{11010}{}{Uh?}
+{12000}{}{If I were you I would try my luck at the bar right over there... [points at the other end of the room]}
+{12010}{}{Ok, how about some basic gear?}
+{12020}{}{Gotcha!}
+{13000}{}{What type of Armor?}
+{13010}{}{Combat ones}
+{13020}{}{Metal ones}
+{13030}{}{Robes}
+{13040}{}{Maybe something for sneak}
+{14000}{}{What kind of Armor?}
+{14010}{}{Metal Armor MKII}
+{14020}{}{Metal Armor MK 3}
+{14030}{}{Tesla Armor}
+{14040}{}{Super Mutant Armor}
+{14050}{}{Maybe Infernal Armor}
+{15000}{}{What kind of Armor?}
+{15010}{}{BK Robes}
+{15020}{}{Hubogolist Robes}
+{15030}{}{Follower Robes}
+{16000}{}{What kind of Armor?}
+{16010}{}{Combat jacket}
+{16020}{}{Leather Armor MK II}
+{16030}{}{Firegecko Armor}
+
+[pols]
+{100}{}{none}
+{1000}{}{Preddialogue settings}
+{1010}{}{Too much stuff}
+{1020}{}{ }
+{2000}{}{Well hello.  What  do you need?}
+{2010}{}{I would like to receive a fake small gun.}
+{2020}{}{Give me a certain big gun...}
+{2030}{}{What's in your stock of energy weaponry?}
+{2040}{}{Something to bash my opponents with!}
+{2050}{}{Something to throw, perhaps?}
+{2060}{}{A body armor.}
+{2070}{}{Is there.. you know, some way for me to get.. uhm.. "better" in the fight? You know, like popping the big B.. Taking a flight, psyching out and stuff, you know, the good shit.. ?}
+{2080}{}{Sets of helmets}
+{2090}{}{Nothing.}
+{3000}{}{Here you go.}
+{4000}{}{Slow down a bit, you've taken enough for now.}
+{5000}{}{What gun would that be?}
+{5010}{}{A 14mm Pistol.}
+{5020}{}{A .223 pistol.}
+{5030}{}{A P90 submachinegun.}
+{5040}{}{A Pancor Jackhammer combat shotgun.}
+{5050}{}{A Sniper Rifle.}
+{5060}{}{A XL70E}
+{5070}{}{A Needler Pistol}
+{5080}{}{FN 69A1 Grenade Pistol}
+{5090}{}{M79 Grenade Launcher.}
+{5100}{}{M16}
+{5110}{}{A HK CAWS}
+{6000}{}{Which one?}
+{6010}{}{An Avenger Minigun. Tear them into pieces.}
+{6020}{}{A Light Support Weapon.}
+{6030}{}{An Incinerator.}
+{6040}{}{An M60.}
+{6050}{}{A Rocket Launcher. The one with deluxe trigger.}
+{7000}{}{Take your pick.}
+{7010}{}{A Laser Rifle (Ext. Cap.)}
+{7020}{}{A Plasma Rifle.}
+{7030}{}{Gatling Laser, please.}
+{7040}{}{Give me a Magneto Laser Pistol.}
+{7050}{}{Some Plasma Pistol with extended magazine would be good.}
+{7060}{}{Eletric RL}
+{7070}{}{A Pulse Pistol}
+{7080}{}{A Plasma SMG}
+{7090}{}{Solar}
+{7100}{}{Gravity Gun}
+{8000}{}{By all means, suit yourself.}
+{8010}{}{What about some Super Cattle Prod?}
+{8020}{}{A Mega Power Fist!}
+{8030}{}{Give me a Ripper, now.}
+{8040}{}{A Super Sledgehammer.}
+{8050}{}{A Wakizashi Blade.}
+{9000}{}{And what exactly?}
+{9010}{}{Eight frags, please.}
+{9020}{}{I'll take eight plasma ones.}
+{9030}{}{Actually... You have some Spears in stock?}
+{9040}{}{Give me some Throwing Knifes, please.}
+{10000}{}{What kind of armor?}
+{10010}{}{One suit of Combat Armor mark II.}
+{10020}{}{One suit of Desert Combat Armor.}
+{10030}{}{One suit of NCR Armor}
+{10040}{}{One suit of Vault City Armor}
+{10050}{}{One suit of Brotherhood Armor}
+{10060}{}{One suit of Enclave Armor}
+{10070}{}{Ranger Armor}
+{10080}{}{Conscript Battle Armor}
+{11000}{}{Sorry, no. Even if those are fake weapons, I don't believe they can be safely given to someone with your... condition. You can still watch the fights, while you are here.}
+{11010}{}{Uh?}
+{12000}{}{If I were you I would try my luck at the bar right over there... [points at the other end of the room]}
+{12010}{}{Ok, how about some basic gear?}
+{12020}{}{Gotcha!}
+{13000}{}{What type of Armor?}
+{13010}{}{Combat ones}
+{13020}{}{Metal ones}
+{13030}{}{Robes}
+{13040}{}{Maybe something for sneak}
+{14000}{}{What kind of Armor?}
+{14010}{}{Metal Armor MKII}
+{14020}{}{Metal Armor MK 3}
+{14030}{}{Tesla Armor}
+{14040}{}{Super Mutant Armor}
+{14050}{}{Maybe Infernal Armor}
+{15000}{}{What kind of Armor?}
+{15010}{}{BK Robes}
+{15020}{}{Hubogolist Robes}
+{15030}{}{Follower Robes}
+{16000}{}{What kind of Armor?}
+{16010}{}{Combat jacket}
+{16020}{}{Leather Armor MK II}
+{16030}{}{Firegecko Armor}
+
+[span]
+{100}{}{none}
+{1000}{}{Preddialogue settings}
+{1010}{}{Too much stuff}
+{1020}{}{ }
+{2000}{}{Well hello.  What  do you need?}
+{2010}{}{I would like to receive a fake small gun.}
+{2020}{}{Give me a certain big gun...}
+{2030}{}{What's in your stock of energy weaponry?}
+{2040}{}{Something to bash my opponents with!}
+{2050}{}{Something to throw, perhaps?}
+{2060}{}{A body armor.}
+{2070}{}{Is there.. you know, some way for me to get.. uhm.. "better" in the fight? You know, like popping the big B.. Taking a flight, psyching out and stuff, you know, the good shit.. ?}
+{2080}{}{Sets of helmets}
+{2090}{}{Nothing.}
+{3000}{}{Here you go.}
+{4000}{}{Slow down a bit, you've taken enough for now.}
+{5000}{}{What gun would that be?}
+{5010}{}{A 14mm Pistol.}
+{5020}{}{A .223 pistol.}
+{5030}{}{A P90 submachinegun.}
+{5040}{}{A Pancor Jackhammer combat shotgun.}
+{5050}{}{A Sniper Rifle.}
+{5060}{}{A XL70E}
+{5070}{}{A Needler Pistol}
+{5080}{}{FN 69A1 Grenade Pistol}
+{5090}{}{M79 Grenade Launcher.}
+{5100}{}{M16}
+{5110}{}{A HK CAWS}
+{6000}{}{Which one?}
+{6010}{}{An Avenger Minigun. Tear them into pieces.}
+{6020}{}{A Light Support Weapon.}
+{6030}{}{An Incinerator.}
+{6040}{}{An M60.}
+{6050}{}{A Rocket Launcher. The one with deluxe trigger.}
+{7000}{}{Take your pick.}
+{7010}{}{A Laser Rifle (Ext. Cap.)}
+{7020}{}{A Plasma Rifle.}
+{7030}{}{Gatling Laser, please.}
+{7040}{}{Give me a Magneto Laser Pistol.}
+{7050}{}{Some Plasma Pistol with extended magazine would be good.}
+{7060}{}{Eletric RL}
+{7070}{}{A Pulse Pistol}
+{7080}{}{A Plasma SMG}
+{7090}{}{Solar}
+{7100}{}{Gravity Gun}
+{8000}{}{By all means, suit yourself.}
+{8010}{}{What about some Super Cattle Prod?}
+{8020}{}{A Mega Power Fist!}
+{8030}{}{Give me a Ripper, now.}
+{8040}{}{A Super Sledgehammer.}
+{8050}{}{A Wakizashi Blade.}
+{9000}{}{And what exactly?}
+{9010}{}{Eight frags, please.}
+{9020}{}{I'll take eight plasma ones.}
+{9030}{}{Actually... You have some Spears in stock?}
+{9040}{}{Give me some Throwing Knifes, please.}
+{10000}{}{What kind of armor?}
+{10010}{}{One suit of Combat Armor mark II.}
+{10020}{}{One suit of Desert Combat Armor.}
+{10030}{}{One suit of NCR Armor}
+{10040}{}{One suit of Vault City Armor}
+{10050}{}{One suit of Brotherhood Armor}
+{10060}{}{One suit of Enclave Armor}
+{10070}{}{Ranger Armor}
+{10080}{}{Conscript Battle Armor}
+{11000}{}{Sorry, no. Even if those are fake weapons, I don't believe they can be safely given to someone with your... condition. You can still watch the fights, while you are here.}
+{11010}{}{Uh?}
+{12000}{}{If I were you I would try my luck at the bar right over there... [points at the other end of the room]}
+{12010}{}{Ok, how about some basic gear?}
+{12020}{}{Gotcha!}
+{13000}{}{What type of Armor?}
+{13010}{}{Combat ones}
+{13020}{}{Metal ones}
+{13030}{}{Robes}
+{13040}{}{Maybe something for sneak}
+{14000}{}{What kind of Armor?}
+{14010}{}{Metal Armor MKII}
+{14020}{}{Metal Armor MK 3}
+{14030}{}{Tesla Armor}
+{14040}{}{Super Mutant Armor}
+{14050}{}{Maybe Infernal Armor}
+{15000}{}{What kind of Armor?}
+{15010}{}{BK Robes}
+{15020}{}{Hubogolist Robes}
+{15030}{}{Follower Robes}
+{16000}{}{What kind of Armor?}
+{16010}{}{Combat jacket}
+{16020}{}{Leather Armor MK II}
+{16030}{}{Firegecko Armor}
+
+[russ]
+{100}{}{none}
+{1000}{}{Preddialogue settings}
+{1010}{}{Too much stuff}
+{1020}{}{ }
+{2000}{}{Well hello.  What  do you need?}
+{2010}{}{I would like to receive a fake small gun.}
+{2020}{}{Give me a certain big gun...}
+{2030}{}{What's in your stock of energy weaponry?}
+{2040}{}{Something to bash my opponents with!}
+{2050}{}{Something to throw, perhaps?}
+{2060}{}{A body armor.}
+{2070}{}{Is there.. you know, some way for me to get.. uhm.. "better" in the fight? You know, like popping the big B.. Taking a flight, psyching out and stuff, you know, the good shit.. ?}
+{2080}{}{Sets of helmets}
+{2090}{}{Nothing.}
+{3000}{}{Here you go.}
+{4000}{}{Slow down a bit, you've taken enough for now.}
+{5000}{}{What gun would that be?}
+{5010}{}{A 14mm Pistol.}
+{5020}{}{A .223 pistol.}
+{5030}{}{A P90 submachinegun.}
+{5040}{}{A Pancor Jackhammer combat shotgun.}
+{5050}{}{A Sniper Rifle.}
+{5060}{}{A XL70E}
+{5070}{}{A Needler Pistol}
+{5080}{}{FN 69A1 Grenade Pistol}
+{5090}{}{M79 Grenade Launcher.}
+{5100}{}{M16}
+{5110}{}{A HK CAWS}
+{6000}{}{Which one?}
+{6010}{}{An Avenger Minigun. Tear them into pieces.}
+{6020}{}{A Light Support Weapon.}
+{6030}{}{An Incinerator.}
+{6040}{}{An M60.}
+{6050}{}{A Rocket Launcher. The one with deluxe trigger.}
+{7000}{}{Take your pick.}
+{7010}{}{A Laser Rifle (Ext. Cap.)}
+{7020}{}{A Plasma Rifle.}
+{7030}{}{Gatling Laser, please.}
+{7040}{}{Give me a Magneto Laser Pistol.}
+{7050}{}{Some Plasma Pistol with extended magazine would be good.}
+{7060}{}{Eletric RL}
+{7070}{}{A Pulse Pistol}
+{7080}{}{A Plasma SMG}
+{7090}{}{Solar}
+{7100}{}{Gravity Gun}
+{8000}{}{By all means, suit yourself.}
+{8010}{}{What about some Super Cattle Prod?}
+{8020}{}{A Mega Power Fist!}
+{8030}{}{Give me a Ripper, now.}
+{8040}{}{A Super Sledgehammer.}
+{8050}{}{A Wakizashi Blade.}
+{9000}{}{And what exactly?}
+{9010}{}{Eight frags, please.}
+{9020}{}{I'll take eight plasma ones.}
+{9030}{}{Actually... You have some Spears in stock?}
+{9040}{}{Give me some Throwing Knifes, please.}
+{10000}{}{What kind of armor?}
+{10010}{}{One suit of Combat Armor mark II.}
+{10020}{}{One suit of Desert Combat Armor.}
+{10030}{}{One suit of NCR Armor}
+{10040}{}{One suit of Vault City Armor}
+{10050}{}{One suit of Brotherhood Armor}
+{10060}{}{One suit of Enclave Armor}
+{10070}{}{Ranger Armor}
+{10080}{}{Conscript Battle Armor}
+{11000}{}{Sorry, no. Even if those are fake weapons, I don't believe they can be safely given to someone with your... condition. You can still watch the fights, while you are here.}
+{11010}{}{Uh?}
+{12000}{}{If I were you I would try my luck at the bar right over there... [points at the other end of the room]}
+{12010}{}{Ok, how about some basic gear?}
+{12020}{}{Gotcha!}
+{13000}{}{What type of Armor?}
+{13010}{}{Combat ones}
+{13020}{}{Metal ones}
+{13030}{}{Robes}
+{13040}{}{Maybe something for sneak}
+{14000}{}{What kind of Armor?}
+{14010}{}{Metal Armor MKII}
+{14020}{}{Metal Armor MK 3}
+{14030}{}{Tesla Armor}
+{14040}{}{Super Mutant Armor}
+{14050}{}{Maybe Infernal Armor}
+{15000}{}{What kind of Armor?}
+{15010}{}{BK Robes}
+{15020}{}{Hubogolist Robes}
+{15030}{}{Follower Robes}
+{16000}{}{What kind of Armor?}
+{16010}{}{Combat jacket}
+{16020}{}{Leather Armor MK II}
+{16030}{}{Firegecko Armor}
+

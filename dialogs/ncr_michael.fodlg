@@ -1,0 +1,46 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p ncr_michael = 0 #
+6 1020 D _var p ncr_michael = 3 #
+2 1030 D _var p ncr_michael = 1 #
+2 1040 D _var p ncr_michael = 2 @
+2 2000 None 0 #
+3 2010 #
+5 2020 D _var p ncr_michael = 1 D _item p PID_BEER } 1 R _var p ncr_michael = 2 R _item p PID_BEER - 1 R _item p PID_NCR_MONEY + 40 R _param p ST_EXPERIENCE + 350 R _param p REPUTATION_NCR + 15 #
+0 2030 @
+3 3000 None 0 #
+4 3010 D _var p ncr_michael = 0 R _var p ncr_michael = 1 #
+0 3020 D _var p ncr_michael = 0 R _var p ncr_michael = 1 @
+4 4000 None 0 #
+0 4010 #
+0 4020 @
+5 5000 None 0 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Michael}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{fff}
+{2000}{}{Hey there, bud. What is it?}
+{2010}{}{How is the duty going?}
+{2020}{}{Got your beer right here.}
+{2030}{}{Nothing, just passing by. [ end dialogue ]}
+{3000}{}{Boring... I used to be a sergeant before becoming a simple guard. The fight used to be on the distant frontiers with the enemies of the Republic... Now I fight only with the damn heat here. Hey... Look... I see you are a new face here? Can you bring me a bottle of beer, please? Damn heat will kill me...}
+{3010}{}{Drinking on post? What if I tell the sheriff about it?}
+{3020}{}{Alright, I will be right back. [ end dialogue ]}
+{4000}{}{I am... Wait... Oh come on. Do you really need to be a dickhead?}
+{4010}{}{I am just kidding. Stay here, I will be back with your beer. [ end dialogue ]}
+{4020}{}{You should have expected this. [ end dialogue ]}
+{5000}{}{Ah thank you a lot mate. Here, take this. You are a brick.}
+{6000}{}{Get lost, fucktard.@@Fucking bitch...@@I wish you a good day, motherfucker...}
+

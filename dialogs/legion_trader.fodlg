@@ -1,0 +1,88 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _item p PID_BOTTLE_CAPS } 9800 R _item p PID_BOTTLE_CAPS - 9800 R _item p PID_SIGNIFER + 1 R _item p PID_SIGNIFER_HELMET + 1 #
+2 2020 D _item p PID_BOTTLE_CAPS } 5500 R _item p PID_BOTTLE_CAPS - 5500 R _item p PID_CORNIFER + 1 R _item p PID_CORNIFER_HELMET + 1 #
+2 2030 D _item p PID_BOTTLE_CAPS } 10500 R _item p PID_BOTTLE_CAPS - 10500 R _item p PID_PUGIO + 1 #
+0 2040 #
+2 2050 D _item p PID_BOTTLE_CAPS } 4500 R _item p PID_BOTTLE_CAPS - 4500 R _item p PID_DRUKARI + 1 #
+2 2060 D _item p PID_POWERED_ARMOR } 1 R _item p PID_POWERED_ARMOR - 1 R _item p PID_LEGAT + 1 &
+
+[engl]
+{100}{}{Blacksmith}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ave. I can sell you some of our craftsmanship, Signifer Armor set - 9800 caps, Cornifer Armor set - 5500 caps. Pugio - 10500 caps, Drugari helmet - 4500 caps, Legate armor - exchange for Power Armor.}
+{2010}{}{I need Signifer Armor set.
+}
+{2020}{}{I need Cornifer Armor set.
+}
+{2030}{}{Give me Pugio.}
+{2040}{}{I will come later.}
+{2050}{}{Give me Drugari helmet.}
+{2060}{}{Give me Legate armor.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ave. I can sell you some of our craftsmanship, Signifer Armor set - 9800 caps, Cornifer Armor set - 5500 caps. Pugio - 10500 caps.}
+{2010}{}{I need Signifer Armor set.
+}
+{2020}{}{I need Cornifer Armor set.
+}
+{2030}{}{Give me Pugio.}
+{2040}{}{I will come later.}
+{2050}{}{Give me Drugari helmet.}
+{2060}{}{Give me Legat armor.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ave. I can sell you some of our craftsmanship, Signifer Armor set - 9800 caps, Cornifer Armor set - 5500 caps. Pugio - 10500 caps.}
+{2010}{}{I need Signifer Armor set.
+}
+{2020}{}{I need Cornifer Armor set.
+}
+{2030}{}{Give me Pugio.}
+{2040}{}{I will come later.}
+{2050}{}{Give me Drugari helmet.}
+{2060}{}{Give me Legat armor.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ave. I can sell you some of our craftsmanship, Signifer Armor set - 9800 caps, Cornifer Armor set - 5500 caps. Pugio - 10500 caps.}
+{2010}{}{I need Signifer Armor set.
+}
+{2020}{}{I need Cornifer Armor set.
+}
+{2030}{}{Give me Pugio.}
+{2040}{}{I will come later.}
+{2050}{}{Give me Drugari helmet.}
+{2060}{}{Give me Legat armor.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ave. I can sell you some of our craftsmanship, Signifer Armor set - 9800 caps, Cornifer Armor set - 5500 caps. Pugio - 10500 caps.}
+{2010}{}{I need Signifer Armor set.
+}
+{2020}{}{I need Cornifer Armor set.
+}
+{2030}{}{Give me Pugio.}
+{2040}{}{I will come later.}
+{2050}{}{Give me Drugari helmet.}
+{2060}{}{Give me Legat armor.}
+

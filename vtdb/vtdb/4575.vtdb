@@ -1,0 +1,11 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Wolfu;
+@gender = 0;
+@age = 23;
+
+@life = 331 331 0 0 0 0 0 0 0;
+@traits = 550 553;
+@perks = 301 306 313:2 314 329:2 380 399 427 444 450 459;
+@reputation = 605:37 627:4 631:-139 680:-2410 681:-1675 690:58;

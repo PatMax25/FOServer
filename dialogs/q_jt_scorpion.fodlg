@@ -1,0 +1,32 @@
+[comment]
+Also called "Black  Claw Scorpion" or "Mafia Scorpion"
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 &
+
+[engl]
+{100}{}{Black Claw Radscorpion}
+{200}{}{You see a Black Claw Radscorpion.}
+{210}{}{A strong venomous Black Claw Radscorpion.}
+{1000}{}{Predialogue installations}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+

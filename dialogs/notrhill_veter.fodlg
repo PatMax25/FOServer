@@ -1,0 +1,108 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+5 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+65507 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 R _var p name_mem_npc_player = 1 #
+65507 3020 R _var p name_mem_npc_player = 1 #
+0 3030 R _var p name_mem_npc_player = 1 @
+4 4000 None 0 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Veter}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey there, man. A caravaner I believe, right?}
+{2010}{}{Yeah, I am.}
+{2020}{}{No, I am not a caravaner.}
+{2030}{}{You better believe in higher powers, because only they will help you now! Prepare to die, shithead!}
+{2040}{}{Sorry, but I better go.}
+{3000}{}{He-he, I see. Look, the settlement is closed for now... Curfew and stuff, locals decided to let nobody in.}
+{3010}{}{What happened there? I saw something falling from the sky...}
+{3020}{}{What have you just said? Oh you better start praying.}
+{3030}{}{Alright, I will be going then.}
+{4000}{}{Listen, I don't have time for this... Just go away, alright. Slow and easy.}
+{5000}{}{Go. Leave... You are not welcomed here, don't you understand?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey there, man. A caravaner I believe, right?}
+{2010}{}{Yeah, I am.}
+{2020}{}{No, I am not a caravaner.}
+{2030}{}{You better believe in higher powers, because only they will help you now! Prepare to die, shithead!}
+{2040}{}{Sorry, but I better go.}
+{3000}{}{He-he, I see. Look, the settlement is closed for now... Crewfew and stuff, locals decided to let None in.}
+{3010}{}{What happened there? I saw something falling from the sky...}
+{3020}{}{What have you just said? Oh you better start praying.}
+{3030}{}{Alright, I will be going then.}
+{4000}{}{Listen, I don't have time for this... Just go away, alright. Slow and easy.}
+{5000}{}{Go. Leave... You are not welcomed here, don't you understand?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey there, man. A caravaner I believe, right?}
+{2010}{}{Yeah, I am.}
+{2020}{}{No, I am not a caravaner.}
+{2030}{}{You better believe in higher powers, because only they will help you now! Prepare to die, shithead!}
+{2040}{}{Sorry, but I better go.}
+{3000}{}{He-he, I see. Look, the settlement is closed for now... Crewfew and stuff, locals decided to let None in.}
+{3010}{}{What happened there? I saw something falling from the sky...}
+{3020}{}{What have you just said? Oh you better start praying.}
+{3030}{}{Alright, I will be going then.}
+{4000}{}{Listen, I don't have time for this... Just go away, alright. Slow and easy.}
+{5000}{}{Go. Leave... You are not welcomed here, don't you understand?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey there, man. A caravaner I believe, right?}
+{2010}{}{Yeah, I am.}
+{2020}{}{No, I am not a caravaner.}
+{2030}{}{You better believe in higher powers, because only they will help you now! Prepare to die, shithead!}
+{2040}{}{Sorry, but I better go.}
+{3000}{}{He-he, I see. Look, the settlement is closed for now... Crewfew and stuff, locals decided to let None in.}
+{3010}{}{What happened there? I saw something falling from the sky...}
+{3020}{}{What have you just said? Oh you better start praying.}
+{3030}{}{Alright, I will be going then.}
+{4000}{}{Listen, I don't have time for this... Just go away, alright. Slow and easy.}
+{5000}{}{Go. Leave... You are not welcomed here, don't you understand?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey there, man. A caravaner I believe, right?}
+{2010}{}{Yeah, I am.}
+{2020}{}{No, I am not a caravaner.}
+{2030}{}{You better believe in higher powers, because only they will help you now! Prepare to die, shithead!}
+{2040}{}{Sorry, but I better go.}
+{3000}{}{He-he, I see. Look, the settlement is closed for now... Crewfew and stuff, locals decided to let None in.}
+{3010}{}{What happened there? I saw something falling from the sky...}
+{3020}{}{What have you just said? Oh you better start praying.}
+{3030}{}{Alright, I will be going then.}
+{4000}{}{Listen, I don't have time for this... Just go away, alright. Slow and easy.}
+{5000}{}{Go. Leave... You are not welcomed here, don't you understand?}
+

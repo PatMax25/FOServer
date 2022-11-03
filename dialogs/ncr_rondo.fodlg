@@ -1,0 +1,201 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+50 1010 D _param p ST_INTELLECT > 99 #
+2 1020 D _script dialog@d_IsNotMember 0  #
+4 1030 D _var n name_mem_npc_player = 0 #
+6 1040 D _var n name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+0 2020 #
+20 2030 @
+3 3000 None 0 #
+0 3010 #
+20 3020 @
+4 4000 None 0 #
+5 4010 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+70 4020 #
+0 4030 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+70 6010 #
+0 6020 #
+20 6030 @
+20 7000 None 0 #
+0 7010 #
+21 7020 D _script dialog@d_havepropermoney 1 1999 R _script dialog@r_RemoveMoney 1 2000 R _item p PID_SUPER_TOOL_KIT + 1 @
+21 8000 None 0 #
+0 8010 @
+50 9000 None 0 &
+
+[engl]
+{100}{}{Rondo}
+{200}{}{You see a man in grease-stained clothes, probably a mechanic.}
+{210}{}{It's Rondo, owner of this joint.}
+{210}{}{You think he's a mechanic, but he is wearing a sidearm which does seem a little odd.}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR member}
+{1030}{}{NCR member unknown}
+{1040}{}{NCR member known}
+{2000}{}{What the hell are you doing here?}
+{2010}{}{What is this place?}
+{2020}{}{Nothing, I was just leaving.}
+{2030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{3000}{}{This is my workshop. You wanted something or what?}
+{3010}{}{Nothing right now.}
+{3020}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{4000}{}{Welcome to my humble workshop, ranger. What can ol' Rondo do for ya?}
+{4010}{}{Workshop?}
+{4020}{}{Do you have any blueprints for sale?}
+{4030}{}{Maybe some other time.}
+{5000}{}{Yah, we're cutting all kinda technical stuff to pieces and then putting it back together. This place can't afford to let all this junk just get rotten, when it can still be used for something.}
+{5010}{}{I see. Let me ask you something else then.}
+{5020}{}{Yes, true... I think I'll be going now.}
+{6000}{}{Yes?}
+{6010}{}{Do you have any blueprints for sale?}
+{6020}{}{Nothing right now.}
+{6030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{7000}{}{I have this Super Tool Kit, you can have it for $2000, if you're interested}
+{7010}{}{Sorry, I don't have that kind of money.}
+{7020}{}{Sure, I'm interested, here's your money}
+{8000}{}{Pleasure doing business, See you.}
+{8010}{}{Bye}
+{9000}{}{I think you took the wrong turn, pal.@@Nothing for you here.@@You should be outside, playing with kids.@@I really wonder how did you end up here.@@This is private property. Do you mind?@@Just get outta my sight.@@Do I have to repeat myself, buddy?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR member}
+{1030}{}{NCR member unknown}
+{1040}{}{NCR member known}
+{2000}{}{What the hell are you doing here?}
+{2010}{}{What is this place?}
+{2020}{}{Nothing, I was just leaving.}
+{2030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{3000}{}{This is my workshop. You wanted something or what?}
+{3010}{}{Nothing right now.}
+{3020}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{4000}{}{Welcome to my humble workshop, ranger. What can ol' Rondo do for ya?}
+{4010}{}{Workshop?}
+{4020}{}{Do you have any blueprints for sale?}
+{4030}{}{Maybe some other time.}
+{5000}{}{Yah, we're cutting all kinda technical stuff to pieces and then put it together. This place can't afford it to itself to let all this junk just get rotten, it can still be used for something.}
+{5010}{}{I see. Let me ask you something else then.}
+{5020}{}{Yes, true... I think I'll be going now.}
+{6000}{}{Yes?}
+{6010}{}{Do you have any blueprints for sale?}
+{6020}{}{Nothing right now.}
+{6030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{7000}{}{I have this Super Tool Kit, you can have it for $2000, if you're interested}
+{7010}{}{Sorry, I don't have that kind of money.}
+{7020}{}{Sure, I'm interested, here's your money}
+{8000}{}{Pleasure doing business, See you.}
+{8010}{}{Bye}
+{9000}{}{I think you took the wrong turn, pal.@@Nothing for you here.@@You should be outside, playing with kids.@@I really wonder how did you end up here.@@This is private property. Do you mind?@@Just get outta my sight.@@Do I have to repeat myself, buddy?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR member}
+{1030}{}{NCR member unknown}
+{1040}{}{NCR member known}
+{2000}{}{What the hell are you doing here?}
+{2010}{}{What is this place?}
+{2020}{}{Nothing, I was just leaving.}
+{2030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{3000}{}{This is my workshop. You wanted something or what?}
+{3010}{}{Nothing right now.}
+{3020}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{4000}{}{Welcome to my humble workshop, ranger. What can ol' Rondo do for ya?}
+{4010}{}{Workshop?}
+{4020}{}{Do you have any blueprints for sale?}
+{4030}{}{Maybe some other time.}
+{5000}{}{Yah, we're cutting all kinda technical stuff to pieces and then put it together. This place can't afford it to itself to let all this junk just get rotten, it can still be used for something.}
+{5010}{}{I see. Let me ask you something else then.}
+{5020}{}{Yes, true... I think I'll be going now.}
+{6000}{}{Yes?}
+{6010}{}{Do you have any blueprints for sale?}
+{6020}{}{Nothing right now.}
+{6030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{7000}{}{I have this Super Tool Kit, you can have it for $2000, if you're interested}
+{7010}{}{Sorry, I don't have that kind of money.}
+{7020}{}{Sure, I'm interested, here's your money}
+{8000}{}{Pleasure doing business, See you.}
+{8010}{}{Bye}
+{9000}{}{I think you took the wrong turn, pal.@@Nothing for you here.@@You should be outside, playing with kids.@@I really wonder how did you end up here.@@This is private property. Do you mind?@@Just get outta my sight.@@Do I have to repeat myself, buddy?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR member}
+{1030}{}{NCR member unknown}
+{1040}{}{NCR member known}
+{2000}{}{What the hell are you doing here?}
+{2010}{}{What is this place?}
+{2020}{}{Nothing, I was just leaving.}
+{2030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{3000}{}{This is my workshop. You wanted something or what?}
+{3010}{}{Nothing right now.}
+{3020}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{4000}{}{Welcome to my humble workshop, ranger. What can ol' Rondo do for ya?}
+{4010}{}{Workshop?}
+{4020}{}{Do you have any blueprints for sale?}
+{4030}{}{Maybe some other time.}
+{5000}{}{Yah, we're cutting all kinda technical stuff to pieces and then put it together. This place can't afford it to itself to let all this junk just get rotten, it can still be used for something.}
+{5010}{}{I see. Let me ask you something else then.}
+{5020}{}{Yes, true... I think I'll be going now.}
+{6000}{}{Yes?}
+{6010}{}{Do you have any blueprints for sale?}
+{6020}{}{Nothing right now.}
+{6030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{7000}{}{I have this Super Tool Kit, you can have it for $2000, if you're interested}
+{7010}{}{Sorry, I don't have that kind of money.}
+{7020}{}{Sure, I'm interested, here's your money}
+{8000}{}{Pleasure doing business, See you.}
+{8010}{}{Bye}
+{9000}{}{I think you took the wrong turn, pal.@@Nothing for you here.@@You should be outside, playing with kids.@@I really wonder how did you end up here.@@This is private property. Do you mind?@@Just get outta my sight.@@Do I have to repeat myself, buddy?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR member}
+{1030}{}{NCR member unknown}
+{1040}{}{NCR member known}
+{2000}{}{What the hell are you doing here?}
+{2010}{}{What is this place?}
+{2020}{}{Nothing, I was just leaving.}
+{2030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{3000}{}{This is my workshop. You wanted something or what?}
+{3010}{}{Nothing right now.}
+{3020}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{4000}{}{Welcome to my humble workshop, ranger. What can ol' Rondo do for ya?}
+{4010}{}{Workshop?}
+{4020}{}{Do you have any blueprints for sale?}
+{4030}{}{Maybe some other time.}
+{5000}{}{Yah, we're cutting all kinda technical stuff to pieces and then put it together. This place can't afford it to itself to let all this junk just get rotten, it can still be used for something.}
+{5010}{}{I see. Let me ask you something else then.}
+{5020}{}{Yes, true... I think I'll be going now.}
+{6000}{}{Yes?}
+{6010}{}{Do you have any blueprints for sale?}
+{6020}{}{Nothing right now.}
+{6030}{}{I'm looking for a tool, something better than the usual stuff you see. Do you have anything like that?}
+{7000}{}{I have this Super Tool Kit, you can have it for $2000, if you're interested}
+{7010}{}{Sorry, I don't have that kind of money.}
+{7020}{}{Sure, I'm interested, here's your money}
+{8000}{}{Pleasure doing business, See you.}
+{8010}{}{Bye}
+{9000}{}{I think you took the wrong turn, pal.@@Nothing for you here.@@You should be outside, playing with kids.@@I really wonder how did you end up here.@@This is private property. Do you mind?@@Just get outta my sight.@@Do I have to repeat myself, buddy?}
+

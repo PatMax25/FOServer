@@ -1,0 +1,604 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+40 1010 D _script dialog@d_CheckNight 0  #
+50 1020 D _param p ST_INTELLECT < 4 #
+2 1030 @
+2 2000 None 0 #
+5 2010 #
+4 2020 #
+3 2030 #
+0 2040 #
+60 2050 @
+3 3000 None 0 #
+5 3010 #
+4 3020 #
+0 3030 @
+4 4000 None 0 #
+65507 4010 #
+0 4020 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+7 6010 #
+8 6020 #
+4 6030 #
+0 6040 @
+7 7000 None 0 #
+8 7010 #
+0 7020 @
+8 8000 None 0 #
+0 8010 @
+40 9000 None 0 @
+50 10000 None 0 #
+51 10010 #
+0 10020 #
+60 10030 @
+51 11000 None 0 #
+0 11010 #
+0 11020 @
+60 12000 None 0 #
+0 12010 D _item p PID_METAL_ARMOR_MK_II > 0 D _item p PID_VC_MONEY > 999 R _script skins@r_skin 2 1 1 R _item p PID_VC_MONEY - 1000 #
+0 12020 D _item p PID_223_PISTOL > 0 D _item p PID_VC_MONEY > 999 R _script skins@r_skin 2 2 6 R _item p PID_VC_MONEY - 1000 #
+0 12030 D _item p PID_HUNTING_RIFLE > 0 D _item p PID_VC_MONEY > 999 R _script skins@r_skin 2 3 10 R _item p PID_VC_MONEY - 1000 #
+61 12040 D _item p PID_SNIPER_RIFLE > 0 D _item p PID_VC_MONEY > 999 #
+0 12050 D _item p PID_AVENGER_MINIGUN > 0 D _item p PID_VC_MONEY > 999 R _script skins@r_skin 2 5 12 R _item p PID_VC_MONEY - 1000 #
+62 12060 D _item p PID_LASER_RIFLE_EXT_CAP > 0 D _item p PID_VC_MONEY > 999 #
+0 12070 D _item p PID_PLASMA_RIFLE > 0 D _item p PID_VC_MONEY > 999 R _script skins@r_skin 2 7 2 R _item p PID_VC_MONEY - 1000 #
+0 12080 D _item p PID_DESERT_EAGLE_EXT_MAG > 0 D _item p PID_VC_MONEY > 999 R _script skins@r_skin 2 8 11 R _item p PID_VC_MONEY - 1000 #
+0 12090 D _item p PID_PLASMA_PISTOL_EXT_CART > 0 D _item p PID_VC_MONEY > 999 R _script skins@r_skin 2 9 7 R _item p PID_VC_MONEY - 1000 #
+65 12100 D _item p PID_VC_MONEY > 999 D _item p PID_METAL_HELMET_MK2 > 0 R _item p PID_VC_MONEY - 1000 #
+0 12110 D _item p PID_VC_MONEY > 999 D _item p PID_PLASMA_SMG > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 10 13 #
+63 12120 #
+0 12130 @
+61 13000 None 0 #
+0 13010 R _script skins@r_skin 2 4 8 R _item p PID_VC_MONEY - 1000 #
+0 13020 R _script skins@r_skin 2 4 5 @
+62 14000 None 0 #
+0 14010 R _script skins@r_skin 2 6 9 R _item p PID_VC_MONEY - 1000 #
+0 14020 R _script skins@r_skin 2 6 3 R _item p PID_VC_MONEY - 1000 #
+0 14030 R _script skins@r_skin 2 6 4 R _item p PID_VC_MONEY - 1000 @
+63 15000 None 0 #
+62 15010 #
+0 15020 D _item p PID_VC_MONEY > 999 D _item p PID_M16 > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 11 14 #
+0 15030 D _item p PID_VC_MONEY > 999 D _item p PID_INDEPENDENT > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 12 15 #
+66 15040 D _item p PID_VC_MONEY > 999 D _item p PID_CLOTHES_POLICE > 0 R _item p PID_VC_MONEY - 1000 #
+0 15050 D _item p PID_VC_MONEY > 999 D _item p PID_VC_HELMET > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 14 17 #
+0 15060 D _item p PID_VC_MONEY > 999 D _item p PID_M60 > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 16 19 #
+0 15070 D _item p PID_VC_MONEY > 999 D _item p PID_GRENADE_LAUNCHER > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 15 18 #
+0 15080 D _item p PID_VC_MONEY > 999 D _item p PID_LIGHT_SUPPORT_WEAPON > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 19 22 #
+0 15090 D _item p PID_VC_MONEY > 999 D _item p PID_HK_CAWS > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 20 23 #
+0 15100 D _item p PID_VC_MONEY > 999 D _item p PID_SUPER_CATTLE_PROD > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 17 20 #
+67 15110 D _item p PID_VC_MONEY > 999 D _item p PID_SUPER_SLEDGE > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 18 21 #
+64 15120 #
+0 15130 @
+64 16000 None 0 #
+63 16010 #
+0 16020 D _item p PID_VC_MONEY > 999 D _item p PID_EL_ROCKET_LAUNCHER > 0 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 21 24 #
+0 16030 D _item p PID_BROTHERHOOD_COMBAT_ARMOR > 0 D _item p PID_VC_MONEY > 999 R _item p PID_VC_MONEY - 1000 R _script skins@r_skin 2 22 25 @
+65 17000 None 0 #
+0 17010 R _script skins@r_skin 2 23 26 @
+66 18000 None 0 #
+0 18010 R _script skins@r_skin 2 13 16 @
+67 19000 None 0 #
+0 19010 R _script skins@r_skin 2 18 21 &
+
+[engl]
+{100}{}{Valerie}
+{200}{}{You see Val. Or Valerie. Or whatever.}
+{210}{}{You see a brown-haired woman dressed in brown fatigues and metal armor. She looks like a mechanic.}
+{1000}{}{Predialogue installations}
+{1010}{}{night}
+{1020}{}{dumb}
+{1030}{}{default}
+{2000}{}{Yeah, what? I haven't got time to chat all day.}
+{2010}{}{Whoa, easy. I was just stopping in to see what this place is.}
+{2020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{2030}{}{I was looking for the Vault. Can you tell me where it is?}
+{2040}{}{Actually, I was just leaving.}
+{2050}{}{Would you make my gear new Look?}
+{3000}{}{It's that big hole in the mountain to the east, past those two heavily-armed guards. Anything else you want to ask or can I get back to work?}
+{3010}{}{What is this place?}
+{3020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{3030}{}{Thanks for the directions. Goodbye.}
+{4000}{}{Get out of here. Or I'm going to summon the guards to MAKE you get out.}
+{4010}{}{Try it. I'll like it.}
+{4020}{}{All right, I'm leaving.}
+{5000}{}{It's the maintenance shed for Vault City. Or did you just HAPPEN to miss the huge sign on the side of the building?}
+{5010}{}{No, sorry. I thought this might be a shop of some sort.}
+{5020}{}{Forget it. Sorry to disturb you.}
+{6000}{}{You've got the "of some sort" right, anyway. Look, did you need something or did you just want to ask me a bunch of dumb questions?}
+{6010}{}{What do you repair here?}
+{6020}{}{What have you got in stock?}
+{6030}{}{Watch it. I'm not in the mood for any bullshit today.}
+{6040}{}{Just dumb questions today, actually. Talk to you later.}
+{7000}{}{Synthetic alcohol dispensers, radios, laser turret parts, computer monitors... you name it.}
+{7010}{}{What have you got in stock?}
+{7020}{}{Sounds like a tough job. I'll leave you to it.}
+{8000}{}{Look, I don't have anything in "stock." This isn't a store. Most of the stuff I fix here ends up in the Amenities Office... it's out the door and to your left.}
+{8010}{}{All right, all right. Goodbye.}
+{9000}{}{It's late. Come back in the morning.@@Shop's closed. After I finish this list for the First Citizen, I'm heading home.@@Need to make a list of those surplus parts for the First Citizen.}
+{10000}{}{Did you WANT something, or are you just going to stand there gawking like a moron?}
+{10010}{}{Mooo-ron}
+{10020}{}{[Shamble off]}
+{10030}{}{Would you make my gear new Look?}
+{11000}{}{As if Vault City didn't have enough human brahmin... look, you CANT BE IN HERE, OKAY? You could HURT yourself! NOW GET OUT! GO!}
+{11010}{}{*Snifff* You big meenie... *sniff*... me go sumplace n' have partee wiff clowns... *snifff*... and ice creem...and kake...and me no invit smart meen peuple like YOU!}
+{11020}{}{[Shamble off]}
+{12000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{12010}{}{Metal Armor MK II}
+{12020}{}{223 Pistol}
+{12030}{}{Hunting Rifle}
+{12040}{}{Sniper Rifle}
+{12050}{}{Avenger Minigun}
+{12060}{}{Laser Rifle ext cap}
+{12070}{}{Plasma Rifle}
+{12080}{}{Desert Eagle}
+{12090}{}{Plasma Pistol}
+{12100}{}{Metal Mask MK II}
+{12110}{}{Plasma SMG}
+{12120}{}{More}
+{12130}{}{Nevermind
+}
+{13000}{}{Sure choose skin}
+{13010}{}{DKS}
+{13020}{}{M14}
+{14000}{}{Sure choose skin}
+{14010}{}{Wattz 2000}
+{14020}{}{Coilgun}
+{14030}{}{Turbo Laser}
+{15000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{15010}{}{Less}
+{15020}{}{M16}
+{15030}{}{XL70E3}
+{15040}{}{Vault City Armor
+}
+{15050}{}{Vault City Helmet
+
+}
+{15060}{}{M60
+
+}
+{15070}{}{M79 Grenade Launcher
+}
+{15080}{}{Light Support Weapon
+}
+{15090}{}{H&K Caws
+}
+{15100}{}{Super Cattle Prod
+}
+{15110}{}{Super Sledge
+}
+{15120}{}{More
+}
+{15130}{}{Nevermind
+}
+{16000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{16010}{}{Less
+}
+{16020}{}{ELECTRO Rocket Launcher
+}
+{16030}{}{Brotherhood Armor
+}
+{17000}{}{Sure Choose Skin}
+{17010}{}{Tesla Helmet}
+{18000}{}{Sure Choose Skin}
+{18010}{}{Police Armor}
+{19000}{}{Sure Choose Skin}
+{19010}{}{Pickaxe}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{night}
+{1020}{}{dumb}
+{1030}{}{default}
+{2000}{}{Yeah, what? I haven't got time to chat all day.}
+{2010}{}{Whoa, easy. I was just stopping in to see what this place is.}
+{2020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{2030}{}{I was looking for the Vault. Can you tell me where it is?}
+{2040}{}{Actually, I was just leaving.}
+{2050}{}{Would you make my gear new Look?}
+{3000}{}{It's that big hole in the mountain to the east, past those two heavily-armed guards. Anything else you want to ask or can I get back to work?}
+{3010}{}{What is this place?}
+{3020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{3030}{}{Thanks for the directions. Goodbye.}
+{4000}{}{Get out of here. Or I'm going to summon the guards to MAKE you get out.}
+{4010}{}{Try it. I'll like it.}
+{4020}{}{All right, I'm leaving.}
+{5000}{}{It's the maintenance shed for Vault City. Or did you just HAPPEN to miss the huge sign on the side of the building?}
+{5010}{}{No, sorry. I thought this might be a shop of some sort.}
+{5020}{}{Forget it. Sorry to disturb you.}
+{6000}{}{You've got the "of some sort" right, anyway. Look, did you need something or did you just want to ask me a bunch of dumb questions?}
+{6010}{}{What do you repair here?}
+{6020}{}{What have you got in stock?}
+{6030}{}{Watch it. I'm not in the mood for any bullshit today.}
+{6040}{}{Just dumb questions today, actually. Talk to you later.}
+{7000}{}{Synthetic alcohol dispensers, radios, laser turret parts, computer monitors... you name it.}
+{7010}{}{What have you got in stock?}
+{7020}{}{Sounds like a tough job. I'll leave you to it.}
+{8000}{}{Look, I don't have anything in "stock." This isn't a store. Most of the stuff I fix here ends up in the Amenities Office... it's out the door and to your left.}
+{8010}{}{All right, all right. Goodbye.}
+{9000}{}{It's late. Come back in the morning.@@Shop's closed. After I finish this list for the First Citizen, I'm heading home.@@Need to make a list of those surplus parts for the First Citizen.}
+{10000}{}{Did you WANT something, or are you just going to stand there gawking like a moron?}
+{10010}{}{Mooo-ron}
+{10020}{}{[Shamble off]}
+{10030}{}{Would you make my gear new Look?}
+{11000}{}{As if Vault City didn't have enough human brahmin... look, you CANT BE IN HERE, OKAY? You could HURT yourself! NOW GET OUT! GO!}
+{11010}{}{*Snfff* You big meenie... *snff*... me go sumplace n' have partee wiff clowns... *snfff*... and ice creem...and kake...and me no invit smart meen peuple like YOU!}
+{11020}{}{[Shamble off]}
+{12000}{}{Sure which one?}
+{12010}{}{Metal Armor MK II}
+{12020}{}{223 Pistol}
+{12030}{}{Hunting Rifle}
+{12040}{}{Sniper Rifle}
+{12050}{}{Avenger}
+{12060}{}{Laser Rifle ext cap}
+{12070}{}{Plasma Rifle}
+{12080}{}{Desert Eagle}
+{12090}{}{Plasma Pistol}
+{12100}{}{Metal Mask MK II}
+{12110}{}{Plasma SMG}
+{12120}{}{More}
+{12130}{}{Nevermind
+}
+{13000}{}{Sure choose skin}
+{13010}{}{DKS}
+{13020}{}{M14}
+{14000}{}{Sure choose skin}
+{14010}{}{Wattz 2000}
+{14020}{}{Coilgun}
+{14030}{}{Turbo Laser}
+{15000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{15010}{}{Less}
+{15020}{}{M16}
+{15030}{}{XL70E3}
+{15040}{}{Vault City Armor
+}
+{15050}{}{Vault City Helmet
+
+}
+{15060}{}{M60
+
+}
+{15070}{}{M79 Grenade Launcher
+}
+{15080}{}{Light Support Weapon
+}
+{15090}{}{H&K Caws
+}
+{15100}{}{Super Cattle Prod
+}
+{15110}{}{Super Sledge
+}
+{15120}{}{More
+}
+{15130}{}{Nevermind
+}
+{16000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{16010}{}{Less
+}
+{16020}{}{ELECTRO Rocket Launcher
+}
+{16030}{}{Brotherhood Armor
+}
+{17000}{}{Sure Choose Skin}
+{17010}{}{Tesla Helmet}
+{18000}{}{Sure Choose Skin}
+{18010}{}{Police Armor}
+{19000}{}{Sure Choose Skin}
+{19010}{}{Pickaxe}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{night}
+{1020}{}{dumb}
+{1030}{}{default}
+{2000}{}{Yeah, what? I haven't got time to chat all day.}
+{2010}{}{Whoa, easy. I was just stopping in to see what this place is.}
+{2020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{2030}{}{I was looking for the Vault. Can you tell me where it is?}
+{2040}{}{Actually, I was just leaving.}
+{2050}{}{Would you make my gear new Look?}
+{3000}{}{It's that big hole in the mountain to the east, past those two heavily-armed guards. Anything else you want to ask or can I get back to work?}
+{3010}{}{What is this place?}
+{3020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{3030}{}{Thanks for the directions. Goodbye.}
+{4000}{}{Get out of here. Or I'm going to summon the guards to MAKE you get out.}
+{4010}{}{Try it. I'll like it.}
+{4020}{}{All right, I'm leaving.}
+{5000}{}{It's the maintenance shed for Vault City. Or did you just HAPPEN to miss the huge sign on the side of the building?}
+{5010}{}{No, sorry. I thought this might be a shop of some sort.}
+{5020}{}{Forget it. Sorry to disturb you.}
+{6000}{}{You've got the "of some sort" right, anyway. Look, did you need something or did you just want to ask me a bunch of dumb questions?}
+{6010}{}{What do you repair here?}
+{6020}{}{What have you got in stock?}
+{6030}{}{Watch it. I'm not in the mood for any bullshit today.}
+{6040}{}{Just dumb questions today, actually. Talk to you later.}
+{7000}{}{Synthetic alcohol dispensers, radios, laser turret parts, computer monitors... you name it.}
+{7010}{}{What have you got in stock?}
+{7020}{}{Sounds like a tough job. I'll leave you to it.}
+{8000}{}{Look, I don't have anything in "stock." This isn't a store. Most of the stuff I fix here ends up in the Amenities Office... it's out the door and to your left.}
+{8010}{}{All right, all right. Goodbye.}
+{9000}{}{It's late. Come back in the morning.@@Shop's closed. After I finish this list for the First Citizen, I'm heading home.@@Need to make a list of those surplus parts for the First Citizen.}
+{10000}{}{Did you WANT something, or are you just going to stand there gawking like a moron?}
+{10010}{}{Mooo-ron}
+{10020}{}{[Shamble off]}
+{10030}{}{Would you make my gear new Look?}
+{11000}{}{As if Vault City didn't have enough human brahmin... look, you CANT BE IN HERE, OKAY? You could HURT yourself! NOW GET OUT! GO!}
+{11010}{}{*Snfff* You big meenie... *snff*... me go sumplace n' have partee wiff clowns... *snfff*... and ice creem...and kake...and me no invit smart meen peuple like YOU!}
+{11020}{}{[Shamble off]}
+{12000}{}{Sure which one?}
+{12010}{}{Metal Armor MK II}
+{12020}{}{223 Pistol}
+{12030}{}{Hunting Rifle}
+{12040}{}{Sniper Rifle}
+{12050}{}{Avenger}
+{12060}{}{Laser Rifle ext cap}
+{12070}{}{Plasma Rifle}
+{12080}{}{Desert Eagle}
+{12090}{}{Plasma Pistol}
+{12100}{}{Metal Mask MK II}
+{12110}{}{Plasma SMG}
+{12120}{}{More}
+{12130}{}{Nevermind
+}
+{13000}{}{Sure choose skin}
+{13010}{}{DKS}
+{13020}{}{M14}
+{14000}{}{Sure choose skin}
+{14010}{}{Wattz 2000}
+{14020}{}{Coilgun}
+{14030}{}{Turbo Laser}
+{15000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{15010}{}{Less}
+{15020}{}{M16}
+{15030}{}{XL70E3}
+{15040}{}{Vault City Armor
+}
+{15050}{}{Vault City Helmet
+
+}
+{15060}{}{M60
+
+}
+{15070}{}{M79 Grenade Launcher
+}
+{15080}{}{Light Support Weapon
+}
+{15090}{}{H&K Caws
+}
+{15100}{}{Super Cattle Prod
+}
+{15110}{}{Super Sledge
+}
+{15120}{}{More
+}
+{15130}{}{Nevermind
+}
+{16000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{16010}{}{Less
+}
+{16020}{}{ELECTRO Rocket Launcher
+}
+{16030}{}{Brotherhood Armor
+}
+{17000}{}{Sure Choose Skin}
+{17010}{}{Tesla Helmet}
+{18000}{}{Sure Choose Skin}
+{18010}{}{Police Armor}
+{19000}{}{Sure Choose Skin}
+{19010}{}{Pickaxe}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{night}
+{1020}{}{dumb}
+{1030}{}{default}
+{2000}{}{Yeah, what? I haven't got time to chat all day.}
+{2010}{}{Whoa, easy. I was just stopping in to see what this place is.}
+{2020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{2030}{}{I was looking for the Vault. Can you tell me where it is?}
+{2040}{}{Actually, I was just leaving.}
+{2050}{}{Would you make my gear new Look?}
+{3000}{}{It's that big hole in the mountain to the east, past those two heavily-armed guards. Anything else you want to ask or can I get back to work?}
+{3010}{}{What is this place?}
+{3020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{3030}{}{Thanks for the directions. Goodbye.}
+{4000}{}{Get out of here. Or I'm going to summon the guards to MAKE you get out.}
+{4010}{}{Try it. I'll like it.}
+{4020}{}{All right, I'm leaving.}
+{5000}{}{It's the maintenance shed for Vault City. Or did you just HAPPEN to miss the huge sign on the side of the building?}
+{5010}{}{No, sorry. I thought this might be a shop of some sort.}
+{5020}{}{Forget it. Sorry to disturb you.}
+{6000}{}{You've got the "of some sort" right, anyway. Look, did you need something or did you just want to ask me a bunch of dumb questions?}
+{6010}{}{What do you repair here?}
+{6020}{}{What have you got in stock?}
+{6030}{}{Watch it. I'm not in the mood for any bullshit today.}
+{6040}{}{Just dumb questions today, actually. Talk to you later.}
+{7000}{}{Synthetic alcohol dispensers, radios, laser turret parts, computer monitors... you name it.}
+{7010}{}{What have you got in stock?}
+{7020}{}{Sounds like a tough job. I'll leave you to it.}
+{8000}{}{Look, I don't have anything in "stock." This isn't a store. Most of the stuff I fix here ends up in the Amenities Office... it's out the door and to your left.}
+{8010}{}{All right, all right. Goodbye.}
+{9000}{}{It's late. Come back in the morning.@@Shop's closed. After I finish this list for the First Citizen, I'm heading home.@@Need to make a list of those surplus parts for the First Citizen.}
+{10000}{}{Did you WANT something, or are you just going to stand there gawking like a moron?}
+{10010}{}{Mooo-ron}
+{10020}{}{[Shamble off]}
+{10030}{}{Would you make my gear new Look?}
+{11000}{}{As if Vault City didn't have enough human brahmin... look, you CANT BE IN HERE, OKAY? You could HURT yourself! NOW GET OUT! GO!}
+{11010}{}{*Snfff* You big meenie... *snff*... me go sumplace n' have partee wiff clowns... *snfff*... and ice creem...and kake...and me no invit smart meen peuple like YOU!}
+{11020}{}{[Shamble off]}
+{12000}{}{Sure which one?}
+{12010}{}{Metal Armor MK II}
+{12020}{}{223 Pistol}
+{12030}{}{Hunting Rifle}
+{12040}{}{Sniper Rifle}
+{12050}{}{Avenger}
+{12060}{}{Laser Rifle ext cap}
+{12070}{}{Plasma Rifle}
+{12080}{}{Desert Eagle}
+{12090}{}{Plasma Pistol}
+{12100}{}{Metal Mask MK II}
+{12110}{}{Plasma SMG}
+{12120}{}{More}
+{12130}{}{Nevermind
+}
+{13000}{}{Sure choose skin}
+{13010}{}{DKS}
+{13020}{}{M14}
+{14000}{}{Sure choose skin}
+{14010}{}{Wattz 2000}
+{14020}{}{Coilgun}
+{14030}{}{Turbo Laser}
+{15000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{15010}{}{Less}
+{15020}{}{M16}
+{15030}{}{XL70E3}
+{15040}{}{Vault City Armor
+}
+{15050}{}{Vault City Helmet
+
+}
+{15060}{}{M60
+
+}
+{15070}{}{M79 Grenade Launcher
+}
+{15080}{}{Light Support Weapon
+}
+{15090}{}{H&K Caws
+}
+{15100}{}{Super Cattle Prod
+}
+{15110}{}{Super Sledge
+}
+{15120}{}{More
+}
+{15130}{}{Nevermind
+}
+{16000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{16010}{}{Less
+}
+{16020}{}{ELECTRO Rocket Launcher
+}
+{16030}{}{Brotherhood Armor
+}
+{17000}{}{Sure Choose Skin}
+{17010}{}{Tesla Helmet}
+{18000}{}{Sure Choose Skin}
+{18010}{}{Police Armor}
+{19000}{}{Sure Choose Skin}
+{19010}{}{Pickaxe}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{night}
+{1020}{}{dumb}
+{1030}{}{default}
+{2000}{}{Yeah, what? I haven't got time to chat all day.}
+{2010}{}{Whoa, easy. I was just stopping in to see what this place is.}
+{2020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{2030}{}{I was looking for the Vault. Can you tell me where it is?}
+{2040}{}{Actually, I was just leaving.}
+{2050}{}{Would you make my gear new Look?}
+{3000}{}{It's that big hole in the mountain to the east, past those two heavily-armed guards. Anything else you want to ask or can I get back to work?}
+{3010}{}{What is this place?}
+{3020}{}{Watch it. I'm not in the mood for any bullshit today.}
+{3030}{}{Thanks for the directions. Goodbye.}
+{4000}{}{Get out of here. Or I'm going to summon the guards to MAKE you get out.}
+{4010}{}{Try it. I'll like it.}
+{4020}{}{All right, I'm leaving.}
+{5000}{}{It's the maintenance shed for Vault City. Or did you just HAPPEN to miss the huge sign on the side of the building?}
+{5010}{}{No, sorry. I thought this might be a shop of some sort.}
+{5020}{}{Forget it. Sorry to disturb you.}
+{6000}{}{You've got the "of some sort" right, anyway. Look, did you need something or did you just want to ask me a bunch of dumb questions?}
+{6010}{}{What do you repair here?}
+{6020}{}{What have you got in stock?}
+{6030}{}{Watch it. I'm not in the mood for any bullshit today.}
+{6040}{}{Just dumb questions today, actually. Talk to you later.}
+{7000}{}{Synthetic alcohol dispensers, radios, laser turret parts, computer monitors... you name it.}
+{7010}{}{What have you got in stock?}
+{7020}{}{Sounds like a tough job. I'll leave you to it.}
+{8000}{}{Look, I don't have anything in "stock." This isn't a store. Most of the stuff I fix here ends up in the Amenities Office... it's out the door and to your left.}
+{8010}{}{All right, all right. Goodbye.}
+{9000}{}{It's late. Come back in the morning.@@Shop's closed. After I finish this list for the First Citizen, I'm heading home.@@Need to make a list of those surplus parts for the First Citizen.}
+{10000}{}{Did you WANT something, or are you just going to stand there gawking like a moron?}
+{10010}{}{Mooo-ron}
+{10020}{}{[Shamble off]}
+{10030}{}{Would you make my gear new Look?}
+{11000}{}{As if Vault City didn't have enough human brahmin... look, you CANT BE IN HERE, OKAY? You could HURT yourself! NOW GET OUT! GO!}
+{11010}{}{*Snfff* You big meenie... *snff*... me go sumplace n' have partee wiff clowns... *snfff*... and ice creem...and kake...and me no invit smart meen peuple like YOU!}
+{11020}{}{[Shamble off]}
+{12000}{}{Sure which one?}
+{12010}{}{Metal Armor MK II}
+{12020}{}{223 Pistol}
+{12030}{}{Hunting Rifle}
+{12040}{}{Sniper Rifle}
+{12050}{}{Avenger}
+{12060}{}{Laser Rifle ext cap}
+{12070}{}{Plasma Rifle}
+{12080}{}{Desert Eagle}
+{12090}{}{Plasma Pistol}
+{12100}{}{Metal Mask MK II}
+{12110}{}{Plasma SMG}
+{12120}{}{More}
+{12130}{}{Nevermind
+}
+{13000}{}{Sure choose skin}
+{13010}{}{DKS}
+{13020}{}{M14}
+{14000}{}{Sure choose skin}
+{14010}{}{Wattz 2000}
+{14020}{}{Coilgun}
+{14030}{}{Turbo Laser}
+{15000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{15010}{}{Less}
+{15020}{}{M16}
+{15030}{}{XL70E3}
+{15040}{}{Vault City Armor
+}
+{15050}{}{Vault City Helmet
+
+}
+{15060}{}{M60
+
+}
+{15070}{}{M79 Grenade Launcher
+}
+{15080}{}{Light Support Weapon
+}
+{15090}{}{H&K Caws
+}
+{15100}{}{Super Cattle Prod
+}
+{15110}{}{Super Sledge
+}
+{15120}{}{More
+}
+{15130}{}{Nevermind
+}
+{16000}{}{Sure which one? It cost 1000 Vault City Pounds}
+{16010}{}{Less
+}
+{16020}{}{ELECTRO Rocket Launcher
+}
+{16030}{}{Brotherhood Armor
+}
+{17000}{}{Sure Choose Skin}
+{17010}{}{Tesla Helmet}
+{18000}{}{Sure Choose Skin}
+{18010}{}{Police Armor}
+{19000}{}{Sure Choose Skin}
+{19010}{}{Pickaxe}
+

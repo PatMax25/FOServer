@@ -1,0 +1,37 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Brotherhood Knight}
+{210}{}{He seems to be insane.}
+{1000}{}{Predialogue installations}
+{2000}{}{...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{2000}{}{...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{2000}{}{...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{2000}{}{...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{2000}{}{...}
+

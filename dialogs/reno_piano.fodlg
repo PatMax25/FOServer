@@ -1,0 +1,222 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p name_mem_npc_player = 0 #
+0 2020 #
+4 2030 D _var p name_mem_npc_player = 1 #
+10 2040 D _var p name_mem_npc_player = 1 #
+8 2050 D _var p name_mem_npc_player = 1 D _var p reno_piano = 0 D _param p ST_LEVEL } 7 #
+6 2060 D _var p name_mem_npc_player = 1 #
+11 2070 D _var p name_mem_npc_player = 1 D _var p reno_piano = 2 R _var p reno_piano = 3 R _param p ST_EXPERIENCE + 1500 R _item p PID_VYNIL1 + 1 R _item p PID_VAULT_TEC_BOX + 1 R _item p PID_TICKET + 1 #
+7 2080 D _var p name_mem_npc_player = 1 @
+3 3000 None 0 #
+4 3010 R _var p name_mem_npc_player = 1 #
+2 3020 R _var p name_mem_npc_player = 1 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+12 6010 D _item p PID_BOTTLE_CAPS } 30 R _script dialog@r_PlaySound 1 38 R _item p PID_BOTTLE_CAPS - 30 #
+0 6020 @
+7 7000 None 0 #
+2 7010 @
+8 8000 None 0 #
+9 8010 D _var p reno_piano = 0 R _var p reno_piano = 1 #
+0 8020 @
+9 9000 None 0 @
+10 10000 None 0 #
+2 10010 #
+2 10020 @
+11 11000 None 0 #
+0 11010 @
+12 12000 None 0 &
+
+[engl]
+{100}{}{Olavi}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ As you approach closer you can clearly see a person wiping the dust from the old piano. He notices you, smiles and waves to you ] Ah hello there, wastelander.}
+{2010}{}{Dear my! A piano? Is it working?}
+{2020}{}{[ Wave back to him and leave ]}
+{2030}{}{Aren't you afraid that somebody might rob you or steal your piano?}
+{2040}{}{How did you manage to learn how to play the piano?}
+{2050}{}{You are pretty talented. Have you ever tried to find a better job around here?}
+{2060}{}{Can you play me something?}
+{2070}{}{I had a talk with Mr. Montgomery. And he is interested in hiring you as his personal pianist.}
+{2080}{}{You have a very strange name...}
+{3000}{}{Indeed it is! And it works pretty fine. This thing is the way I get at least some money around here, hehe. As you understand, I am a public musician. Name's Olavi.}
+{3010}{}{A public musician? Aren't you afriad to stay outside in this city?}
+{3020}{}{And I am @pname@. Let me ask you about something else...}
+{4000}{}{I make free concerts quite often, so locals like me and even protect me. I have nothing to fear around here. Furthermore, nobody in their sane mind will try to do some shit near the "Honest Hearts" buiding. These guys hate a mess. Also... Nobody except for me can play piano in this city, so it hardly has any competitive value around here.}
+{4010}{}{"Honest Hearts"? Who are they?}
+{5000}{}{[ He shrugs his shoulders ] Funny thing - nobody knows much about them. They position themselves as some business company working in the food sphere. But nobody knows for sure. All what I can say is that they appeared here not so long ago...}
+{5010}{}{Alright, let's switch the topic.}
+{6000}{}{Of course. Just spare me 30 caps and I will make this baby sound great.}
+{6010}{}{Here is the money. Show me what you can do.}
+{6020}{}{Forgot my money... Just hold on here for a moment.}
+{7000}{}{Mom used to say that my name is "Finnish". Got it from some pre war book I believe. [ He thinks for a moment ] Still have no idea what "Finnish" even means.}
+{7010}{}{I see. Let's swirch the topic.}
+{8000}{}{Yeah, well I tried to find a job. Tried to work for casinos, bars, but nobody needs pianists... You know what? [ He points towards the high building not far from you ]. This is the place where "Honest Hearts" position their HQ. As far as I know this is some food distribution company or whatever... but I heard once that one of their directors is a huge lover of piano music. I tried to get in and speak with him, but the guards near the entrance wouldn't let me in. [ He smiles ] "You have a very unpresentable look, sir." - they say. [ He sadly looks at his dirty clothes and sighs ].}
+{8010}{}{Hey, I can go there and have a chat with that guy. Just wait for me here, I will be back pretty soon.}
+{8020}{}{Yeah, what a pity. Well, I need to go now.}
+{9000}{}{Thank you, you are a kind person. I will wait for news.}
+{10000}{}{We used to have an old piano in our ranch once I was a kid. My Mom tought me how to play it... Unfotunately my parents and our ranch burned down 7 years ago. [ He gets silent for a moment ] But at least my old piano survived.}
+{10010}{}{Oh I am sorry to hear that... Let' discuss something else.}
+{10020}{}{Yeah, whatever. Let's discuss something else.}
+{11000}{}{Oh that's awesome! Thank you a lot, you changed my entire life! I don't have money to pay you out unfortunately, but I have something, that may interest you. [ He opens a secret locker installed in the piano and takes something out of it ] Here, you may find it useful.}
+{11010}{}{Hah, this will be useful for sure.}
+{12000}{}{[ Puts his fingers on the keys... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ah hello there, wastelander.}
+{2010}{}{Dear my! A piano? Is it working?}
+{2020}{}{[ Wave him back and leave ]}
+{2030}{}{Aren't you afraid that somebody can rob you or steal your piano?}
+{2040}{}{How did you manage to learn how to play the piano?}
+{2050}{}{You are pretty talented. Have you ever tried to find a better job around here?}
+{2060}{}{Can you play me something?}
+{2070}{}{I had a talk with Mr. Mongomery. And he is interested in hiring you as his personal pianist.}
+{2080}{}{You have a very strange name...}
+{3000}{}{Indeed it is! And it works pretty fine. This thing is the way I get at least some money around here, hehe. As you understand, I am a public musician.}
+{3010}{}{A public musician? Aren't you afriad to stay outside in this city?}
+{3020}{}{And I am @pname@. Let me ask you about something else...}
+{4000}{}{I make free concerts quite often, so locals like me and even protect me. I have nothing to fear around here. Furthermore, nobody in their sane mind will try to do some shit near "Honest Hearts" buiding. These guys hate mess.}
+{4010}{}{"Honest Hearts"? Who are they?}
+{5000}{}{[ He shrugs his shoulders ] Funny thing - nobody knows much about them. They position themselves as some business company working in food sphere. But nobody knows for sure. All what I can say is that they appeared here not so long ago...}
+{5010}{}{Alright, let's switch the topic.}
+{6000}{}{Of course. Just spare me 30 caps and I will make this baby sound.}
+{6010}{}{Here are the money. Show me what you can.}
+{6020}{}{Forgot my money... Just hold on here for a moment.}
+{7000}{}{Mom used to say that my name is "Finnish". Got it from some pre war book I believe. [ He thinks for a moment ] Still have no idea what "Finnish" even means.}
+{7010}{}{I see. Let's swirch the topic.}
+{8000}{}{Yeah... You know what? [ He points towards the high building not far from you ]. This is the place where "Honest Hearts" position their HQ. As far as I know this is soom food distribution company or whatever... I heard once that one of their directors is a huge lover of piano music. I tried to get in and speak with him, but guards near the entrance woouldn't let me in. [ He smiles ] "You have a very unpresentable look, sir." - they say. [ He sadly looks at his dirty clothes and sighs ].}
+{8010}{}{Hey, I can go there and have a chat with that guy. Just wait for me here, I will be back pretty soon.}
+{8020}{}{Yeah, what a pity. Well, I need to go now.}
+{9000}{}{Thank you, you are a kind person. I will wait for news.}
+{10000}{}{We used to have an old piano in our ranch once I was a kid. My Mom tought me how to play it... Unfotunately my parents and our ranch burned down 7 years ago. [ He gets silent for a moment ] But at least my old piano survived.}
+{10010}{}{Oh I am sorry to hear that... Let' discuss something else.}
+{10020}{}{Yeah, whatever. Let's discuss something else.}
+{11000}{}{Oh that's awesome! Thank you a lot, you changed my entire life! I don't have money to pay you out unfortunately, but I have something, that may interest you. [ He opens a secret locker installed in the piano and takes something out of it ] Here, you may find it useful.}
+{11010}{}{Hah, this will be useful for sure.}
+{12000}{}{[ Puts his fingers on keys... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ah hello there, wastelander.}
+{2010}{}{Dear my! A piano? Is it working?}
+{2020}{}{[ Wave him back and leave ]}
+{2030}{}{Aren't you afraid that somebody can rob you or steal your piano?}
+{2040}{}{How did you manage to learn how to play the piano?}
+{2050}{}{You are pretty talented. Have you ever tried to find a better job around here?}
+{2060}{}{Can you play me something?}
+{2070}{}{I had a talk with Mr. Mongomery. And he is interested in hiring you as his personal pianist.}
+{2080}{}{You have a very strange name...}
+{3000}{}{Indeed it is! And it works pretty fine. This thing is the way I get at least some money around here, hehe. As you understand, I am a public musician.}
+{3010}{}{A public musician? Aren't you afriad to stay outside in this city?}
+{3020}{}{And I am @pname@. Let me ask you about something else...}
+{4000}{}{I make free concerts quite often, so locals like me and even protect me. I have nothing to fear around here. Furthermore, nobody in their sane mind will try to do some shit near "Honest Hearts" buiding. These guys hate mess.}
+{4010}{}{"Honest Hearts"? Who are they?}
+{5000}{}{[ He shrugs his shoulders ] Funny thing - nobody knows much about them. They position themselves as some business company working in food sphere. But nobody knows for sure. All what I can say is that they appeared here not so long ago...}
+{5010}{}{Alright, let's switch the topic.}
+{6000}{}{Of course. Just spare me 30 caps and I will make this baby sound.}
+{6010}{}{Here are the money. Show me what you can.}
+{6020}{}{Forgot my money... Just hold on here for a moment.}
+{7000}{}{Mom used to say that my name is "Finnish". Got it from some pre war book I believe. [ He thinks for a moment ] Still have no idea what "Finnish" even means.}
+{7010}{}{I see. Let's swirch the topic.}
+{8000}{}{Yeah... You know what? [ He points towards the high building not far from you ]. This is the place where "Honest Hearts" position their HQ. As far as I know this is soom food distribution company or whatever... I heard once that one of their directors is a huge lover of piano music. I tried to get in and speak with him, but guards near the entrance woouldn't let me in. [ He smiles ] "You have a very unpresentable look, sir." - they say. [ He sadly looks at his dirty clothes and sighs ].}
+{8010}{}{Hey, I can go there and have a chat with that guy. Just wait for me here, I will be back pretty soon.}
+{8020}{}{Yeah, what a pity. Well, I need to go now.}
+{9000}{}{Thank you, you are a kind person. I will wait for news.}
+{10000}{}{We used to have an old piano in our ranch once I was a kid. My Mom tought me how to play it... Unfotunately my parents and our ranch burned down 7 years ago. [ He gets silent for a moment ] But at least my old piano survived.}
+{10010}{}{Oh I am sorry to hear that... Let' discuss something else.}
+{10020}{}{Yeah, whatever. Let's discuss something else.}
+{11000}{}{Oh that's awesome! Thank you a lot, you changed my entire life! I don't have money to pay you out unfortunately, but I have something, that may interest you. [ He opens a secret locker installed in the piano and takes something out of it ] Here, you may find it useful.}
+{11010}{}{Hah, this will be useful for sure.}
+{12000}{}{[ Puts his fingers on keys... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ah hello there, wastelander.}
+{2010}{}{Dear my! A piano? Is it working?}
+{2020}{}{[ Wave him back and leave ]}
+{2030}{}{Aren't you afraid that somebody can rob you or steal your piano?}
+{2040}{}{How did you manage to learn how to play the piano?}
+{2050}{}{You are pretty talented. Have you ever tried to find a better job around here?}
+{2060}{}{Can you play me something?}
+{2070}{}{I had a talk with Mr. Mongomery. And he is interested in hiring you as his personal pianist.}
+{2080}{}{You have a very strange name...}
+{3000}{}{Indeed it is! And it works pretty fine. This thing is the way I get at least some money around here, hehe. As you understand, I am a public musician.}
+{3010}{}{A public musician? Aren't you afriad to stay outside in this city?}
+{3020}{}{And I am @pname@. Let me ask you about something else...}
+{4000}{}{I make free concerts quite often, so locals like me and even protect me. I have nothing to fear around here. Furthermore, nobody in their sane mind will try to do some shit near "Honest Hearts" buiding. These guys hate mess.}
+{4010}{}{"Honest Hearts"? Who are they?}
+{5000}{}{[ He shrugs his shoulders ] Funny thing - nobody knows much about them. They position themselves as some business company working in food sphere. But nobody knows for sure. All what I can say is that they appeared here not so long ago...}
+{5010}{}{Alright, let's switch the topic.}
+{6000}{}{Of course. Just spare me 30 caps and I will make this baby sound.}
+{6010}{}{Here are the money. Show me what you can.}
+{6020}{}{Forgot my money... Just hold on here for a moment.}
+{7000}{}{Mom used to say that my name is "Finnish". Got it from some pre war book I believe. [ He thinks for a moment ] Still have no idea what "Finnish" even means.}
+{7010}{}{I see. Let's swirch the topic.}
+{8000}{}{Yeah... You know what? [ He points towards the high building not far from you ]. This is the place where "Honest Hearts" position their HQ. As far as I know this is soom food distribution company or whatever... I heard once that one of their directors is a huge lover of piano music. I tried to get in and speak with him, but guards near the entrance woouldn't let me in. [ He smiles ] "You have a very unpresentable look, sir." - they say. [ He sadly looks at his dirty clothes and sighs ].}
+{8010}{}{Hey, I can go there and have a chat with that guy. Just wait for me here, I will be back pretty soon.}
+{8020}{}{Yeah, what a pity. Well, I need to go now.}
+{9000}{}{Thank you, you are a kind person. I will wait for news.}
+{10000}{}{We used to have an old piano in our ranch once I was a kid. My Mom tought me how to play it... Unfotunately my parents and our ranch burned down 7 years ago. [ He gets silent for a moment ] But at least my old piano survived.}
+{10010}{}{Oh I am sorry to hear that... Let' discuss something else.}
+{10020}{}{Yeah, whatever. Let's discuss something else.}
+{11000}{}{Oh that's awesome! Thank you a lot, you changed my entire life! I don't have money to pay you out unfortunately, but I have something, that may interest you. [ He opens a secret locker installed in the piano and takes something out of it ] Here, you may find it useful.}
+{11010}{}{Hah, this will be useful for sure.}
+{12000}{}{[ Puts his fingers on keys... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ah hello there, wastelander.}
+{2010}{}{Dear my! A piano? Is it working?}
+{2020}{}{[ Wave him back and leave ]}
+{2030}{}{Aren't you afraid that somebody can rob you or steal your piano?}
+{2040}{}{How did you manage to learn how to play the piano?}
+{2050}{}{You are pretty talented. Have you ever tried to find a better job around here?}
+{2060}{}{Can you play me something?}
+{2070}{}{I had a talk with Mr. Mongomery. And he is interested in hiring you as his personal pianist.}
+{2080}{}{You have a very strange name...}
+{3000}{}{Indeed it is! And it works pretty fine. This thing is the way I get at least some money around here, hehe. As you understand, I am a public musician.}
+{3010}{}{A public musician? Aren't you afriad to stay outside in this city?}
+{3020}{}{And I am @pname@. Let me ask you about something else...}
+{4000}{}{I make free concerts quite often, so locals like me and even protect me. I have nothing to fear around here. Furthermore, nobody in their sane mind will try to do some shit near "Honest Hearts" buiding. These guys hate mess.}
+{4010}{}{"Honest Hearts"? Who are they?}
+{5000}{}{[ He shrugs his shoulders ] Funny thing - nobody knows much about them. They position themselves as some business company working in food sphere. But nobody knows for sure. All what I can say is that they appeared here not so long ago...}
+{5010}{}{Alright, let's switch the topic.}
+{6000}{}{Of course. Just spare me 30 caps and I will make this baby sound.}
+{6010}{}{Here are the money. Show me what you can.}
+{6020}{}{Forgot my money... Just hold on here for a moment.}
+{7000}{}{Mom used to say that my name is "Finnish". Got it from some pre war book I believe. [ He thinks for a moment ] Still have no idea what "Finnish" even means.}
+{7010}{}{I see. Let's swirch the topic.}
+{8000}{}{Yeah... You know what? [ He points towards the high building not far from you ]. This is the place where "Honest Hearts" position their HQ. As far as I know this is soom food distribution company or whatever... I heard once that one of their directors is a huge lover of piano music. I tried to get in and speak with him, but guards near the entrance woouldn't let me in. [ He smiles ] "You have a very unpresentable look, sir." - they say. [ He sadly looks at his dirty clothes and sighs ].}
+{8010}{}{Hey, I can go there and have a chat with that guy. Just wait for me here, I will be back pretty soon.}
+{8020}{}{Yeah, what a pity. Well, I need to go now.}
+{9000}{}{Thank you, you are a kind person. I will wait for news.}
+{10000}{}{We used to have an old piano in our ranch once I was a kid. My Mom tought me how to play it... Unfotunately my parents and our ranch burned down 7 years ago. [ He gets silent for a moment ] But at least my old piano survived.}
+{10010}{}{Oh I am sorry to hear that... Let' discuss something else.}
+{10020}{}{Yeah, whatever. Let's discuss something else.}
+{11000}{}{Oh that's awesome! Thank you a lot, you changed my entire life! I don't have money to pay you out unfortunately, but I have something, that may interest you. [ He opens a secret locker installed in the piano and takes something out of it ] Here, you may find it useful.}
+{11010}{}{Hah, this will be useful for sure.}
+{12000}{}{[ Puts his fingers on keys... ]}
+

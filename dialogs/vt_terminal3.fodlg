@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1311 ]}
+{2010}{}{[ Mail: From Directors' office ]}
+{2020}{}{[ Guests from USSR ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ Hey! Is this some kind of joke? Unlock the fucking door, why is it even locked? You guys better do it fast or I will make sure you will end your lives in the junk pit. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Please send somebody to greet the USSR deligation. These guys are interested in the product, so I want a full tour for them. And be polite, you freaking dumbs, last time I had to fire the whole Block C because of the one moron who couldn't watch his language. ]}
+{4010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1311 ]}
+{2010}{}{[ Mail: From Directors' office ]}
+{2020}{}{[ Guests from USSR ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ Hey! What are these jokes? Unlock the fucking door, why is it even locked? You guys better do it fast or I will make sure you will end your lives in the junk pit. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Please send somebody to greet USSR deligation. These guys are interested in the product, so I want a full tour for them. And be polite, you freaking dumbs, last time I had to fire the whole Block C because of the one moron, who couldn't watch his language. ]}
+{4010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1311 ]}
+{2010}{}{[ Mail: From Directors' office ]}
+{2020}{}{[ Guests from USSR ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ Hey! What are these jokes? Unlock the fucking door, why is it even locked? You guys better do it fast or I will make sure you will end your lives in the junk pit. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Please send somebody to greet USSR deligation. These guys are interested in the product, so I want a full tour for them. And be polite, you freaking dumbs, last time I had to fire the whole Block C because of the one moron, who couldn't watch his language. ]}
+{4010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1311 ]}
+{2010}{}{[ Mail: From Directors' office ]}
+{2020}{}{[ Guests from USSR ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ Hey! What are these jokes? Unlock the fucking door, why is it even locked? You guys better do it fast or I will make sure you will end your lives in the junk pit. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Please send somebody to greet USSR deligation. These guys are interested in the product, so I want a full tour for them. And be polite, you freaking dumbs, last time I had to fire the whole Block C because of the one moron, who couldn't watch his language. ]}
+{4010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1311 ]}
+{2010}{}{[ Mail: From Directors' office ]}
+{2020}{}{[ Guests from USSR ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ Hey! What are these jokes? Unlock the fucking door, why is it even locked? You guys better do it fast or I will make sure you will end your lives in the junk pit. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Please send somebody to greet USSR deligation. These guys are interested in the product, so I want a full tour for them. And be polite, you freaking dumbs, last time I had to fire the whole Block C because of the one moron, who couldn't watch his language. ]}
+{4010}{}{[ Back ]}
+

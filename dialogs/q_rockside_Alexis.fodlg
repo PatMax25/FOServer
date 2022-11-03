@@ -1,0 +1,88 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+11 2030 D _var p q_v99_vangraff = 2 R _var p q_v99_vangraff = 3 R _param p ST_EXPERIENCE + 450 R _item p PID_BOTTLE_CAPS + 200 R _item p PID_NUKA_COLA_QUEST + 1 #
+0 2040 @
+3 3000 None 0 #
+4 3010 #
+2 3020 @
+4 4000 None 0 #
+5 4010 D _var p q_v99_vangraff = 0 #
+2 4020 #
+0 4030 @
+5 5000 None 0 #
+6 5010 #
+6 5020 #
+6 5030 #
+6 5040 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 #
+0 7020 @
+8 8000 None 0 #
+9 8010 #
+0 8020 @
+9 9000 None 0 #
+10 9010 #
+0 9020 @
+10 10000 None 0 #
+0 10010 R _var p q_v99_vangraff = 1 #
+0 10020 @
+11 11000 None 0 #
+0 11010 #
+0 11020 #
+0 11030 &
+
+[engl]
+{100}{}{Alexis Fritz}
+{200}{}{A very well off looking woman.}
+{210}{}{A very well off looking woman in an expensive dress.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day, may I help you?}
+{2010}{}{Hello. Who are you?}
+{2020}{}{What can you tell me about Rockside?}
+{2030}{}{Hey, I talked with Constantine. He agreed to lower the price.}
+{2040}{}{I need to go. [ end dialogue ]}
+{3000}{}{I am Alexis Fritz. The current leader of the city... A settlement, if you may.}
+{3010}{}{What can you tell me about Rockside?}
+{3020}{}{I have one more question.}
+{4000}{}{Nothing much. We started to inhabit this place 10 years ago. Before me there was another leader - Vorfox. Now he is kinda into religion, so we had to have another election 5 years ago.}
+{4010}{}{You don't sound happy. What's wrong?}
+{4020}{}{I have something else to ask.}
+{4030}{}{I need to go now. [ end dialogue ]}
+{5000}{}{The settlement suffers a very big crisis right now. I guess Francis - the guy near the entrance to the Vault has already told you about monsters that sometime emerge from the cave, has he?}
+{5010}{}{Yes.}
+{5020}{}{No.}
+{5030}{}{A cave?}
+{5040}{}{[ SARCASM ]}
+{6000}{}{Anyway... Just brief info - it is believed that the lower levels of the Vault you are from might be infested by different creatures. And sometimes, these creatures break out. So we need weapons and ammo to actually keep the situation under control.}
+{6010}{}{So?}
+{7000}{}{So 2 years ago we ordered a big shipment of weapons and ammo from Gunrunners, but it came to us half empty. So now we suffer from supply shortages.}
+{7010}{}{[ listen futher ]}
+{7020}{}{Blah-blah... I am not interested in this bullshit. [ end dialogue ]}
+{8000}{}{So we decided to get in contact with another, normal and respectful company - Van Graffs. These guys are famous for making energy weapons.}
+{8010}{}{[ listen further ]}
+{8020}{}{Look, I don't care. I am leaving, see ya, losers. [ end dialogue ]}
+{9000}{}{So now we face another problem... The shipment that Van Graffs suggest for us is very expensive and we are afraid that we won't be able to pay for this. Eh... if only they could lower the price.}
+{9010}{}{Maybe I can try to talk Van Graffs down?}
+{9020}{}{Why should I care about your problems? Goodbye. [ end dialogue ]}
+{10000}{}{Hm? Well, that would be nice... You can try it, anyway. You can find the Van Graff representative in one of the tents. His name is Constantine.}
+{10010}{}{Sure, I will do it. [ end dialogue ]}
+{10020}{}{No way, I am not up for it. [ end dialogue ]}
+{11000}{}{Oh... Oh dear! You managed to talk him down?! This is awesome! Now we can order the whole shipment. Thank you, from all of Rockside. Here, take this as a gift.}
+{11010}{}{You are welcome. [ end dialogue ]}
+{11020}{}{Just give me that! [ end dialogue ]}
+{11030}{}{Hey... it was easy. [ end dialogue ]}
+

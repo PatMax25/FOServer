@@ -1,0 +1,87 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+2 3010 #
+0 3020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #99 ]}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: Impulse Rifle Model 4 
+Test-Target: Power Armor Model 466
+
+After several changes (including a much more comfortable grip and trigger system), the test-weapon is almost ready for official submission to the US military for production contracts. Any PA can be destroyed in seconds, making this rifle a good counter-measure to "unpleasant accidents". So far the control system still requires real combat info, to selfcheck durability and loyalty of soldier's actions.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #99 ]}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: Impulse Rifle Model 4 
+Test-Target: Power Armor Model 466
+
+After several changes (including more comfortable grip and trigger system), test-weapon is almost ready to it's final version. Any PA can be destroyed in seconds, making this rifle good counter-measure to "unpleasant accidents". Required real combat info, to check durability and soldiers opinion.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #99 ]}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: Impulse Rifle Model 4 
+Test-Target: Power Armor Model 466
+
+After several changes (including more comfortable grip and trigger system), test-weapon is almost ready to it's final version. Any PA can be destroyed in seconds, making this rifle good counter-measure to "unpleasant accidents". Required real combat info, to check durability and soldiers opinion.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #99 ]}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: Impulse Rifle Model 4 
+Test-Target: Power Armor Model 466
+
+After several changes (including more comfortable grip and trigger system), test-weapon is almost ready to it's final version. Any PA can be destroyed in seconds, making this rifle good counter-measure to "unpleasant accidents". Required real combat info, to check durability and soldiers opinion.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #99 ]}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: Impulse Rifle Model 4 
+Test-Target: Power Armor Model 466
+
+After several changes (including more comfortable grip and trigger system), test-weapon is almost ready to it's final version. Any PA can be destroyed in seconds, making this rifle good counter-measure to "unpleasant accidents". Required real combat info, to check durability and soldiers opinion.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+

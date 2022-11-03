@@ -1,0 +1,586 @@
+
+//FOnline 3
+//KompreSor
+//Zone Control
+
+
+#include "_defines.fos"
+#include "factions_h.fos"
+#include "broadcast_h.fos"
+#include "npc_roles_h.fos"
+#include "npc_planes_h.fos"
+#include "flags_h.fos"
+#include "mapdata_h.fos"
+
+#include "item_pools_h.fos"
+
+#define IDLE_NORMAL       (5000)
+#define IDLE_ALERTED      (1000)
+#define IDLE_ALERTED_2    (200)
+//flags
+
+
+//spawn mobow za kazdym razem jak ostani mob umrze
+
+
+//sf, boneyard, reno, right from bh
+int sfscore = 0;
+int adytumscore = 0;
+int nrscore = 0;
+int parkscore = 0;
+//flaga
+void _zc(Item& item, bool firstTime)
+{
+	SETFLAG(item.Flags, ITEM_CAN_USE);
+	//SETFLAG(item.Flags, ITEM_CAN_PICKUP);
+	item.Update();
+    item.SetEvent(ITEM_EVENT_SKILL, "_Use");
+}
+
+bool _Use(Item& flag, Critter& cr, int skill)
+{
+	IFaction@ faction = GetFaction(cr.Param[ST_TEAM_ID]);
+	cr.ParamBase[ST_CURRENT_AP] -= 500;
+	cr.ParamBase[MODE_HIDE] = 0;
+	if(cr.Param[ST_TEAM_ID] < 2)
+	{
+	cr.Say(SAY_NETMSG," You need be in faction");
+	return true;
+	}
+	if(flag.Val0 != cr.Param[ST_TEAM_ID] && sfscore < 1 && flag.Val1 != cr.Param[ST_TEAM_ID] )
+		{
+		flag.Val0 = cr.Param[ST_TEAM_ID];
+		sfscore += 100 + cr.Param[SK_SPEECH];
+		cr.GetMap().SetData(MAP_DATA_ACTIVE_COUNTDOWN, 1);
+		ServerEventCNTSet(faction.Name + " is Starting Capture a San Francisco zone", 30, EVENT_TYPE_TRADER_1, REAL_MINUTE(1));
+		flag.Update();
+		return true;
+		}
+	if(flag.Val0 != cr.Param[ST_TEAM_ID] && sfscore > 0  && flag.Val1 != cr.Param[ST_TEAM_ID])
+		{
+		sfscore -= 100 + cr.Param[SK_SPEECH] ;
+		cr.Say(SAY_NETMSG, faction.Name + " is Defending " + sfscore/100 + "/250");
+		flag.Update();
+		return true;
+		}
+	if(flag.Val1 == cr.Param[ST_TEAM_ID] && sfscore > 0)
+		{
+		sfscore -= 100 + cr.Param[SK_SPEECH] ;
+		cr.Say(SAY_NETMSG, faction.Name + " is Defending " + sfscore/100 + "/250");
+		flag.Update();
+		return true;
+		}
+	if(sfscore<25000 && flag.Val0 == cr.Param[ST_TEAM_ID]  && flag.Val1 != cr.Param[ST_TEAM_ID])
+	{	
+	sfscore += 100 + cr.Param[SK_SPEECH];
+	cr.Say(SAY_NETMSG, faction.Name + " is Capturing " + sfscore/100 + "/250");
+	flag.Update();
+	return true;
+	}
+	if(sfscore>24999 && flag.Val0 == cr.Param[ST_TEAM_ID] )
+	{
+	flag.ChangeProto(9200 + cr.Param[ST_TEAM_ID]);
+	flag.Val1 = cr.Param[ST_TEAM_ID];
+	flag.Val0 = 0;
+	flag.Update();
+	sfscore = 0;
+	ServerEventCNTSet(faction.Name + " took control over San Francisco zone", 31, EVENT_TYPE_TRADER_1, REAL_MINUTE(1));
+        if(faction.Name == "")
+            SetBestScore(SCORE_ZC_SF, null, "None");
+        else
+            SetBestScore(SCORE_ZC_SF, null, faction.Name);
+	cr.GetMap().SetData(MAP_DATA_ACTIVE_COUNTDOWN, 0);
+	return true;
+	}
+	flag.Val0 = 0;
+	flag.Update();
+	return false;
+}
+
+void _zcA(Item& item, bool firstTime)
+{
+	SETFLAG(item.Flags, ITEM_CAN_USE);
+	item.Update();
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseA");
+}
+
+
+bool _UseA(Item& flag, Critter& cr, int skill)
+{
+	IFaction@ faction = GetFaction(cr.Param[ST_TEAM_ID]);
+	cr.ParamBase[ST_CURRENT_AP] -= 500;
+	cr.ParamBase[MODE_HIDE] = 0;
+	if(cr.Param[ST_TEAM_ID] < 2)
+	{
+	cr.Say(SAY_NETMSG," You need be in faction");
+	return true;
+	}
+	if(flag.Val0 != cr.Param[ST_TEAM_ID] && adytumscore < 1 && flag.Val1 != cr.Param[ST_TEAM_ID] )
+		{
+		flag.Val0 = cr.Param[ST_TEAM_ID];
+		adytumscore += 100 + cr.Param[SK_SPEECH];
+		cr.GetMap().SetData(MAP_DATA_ACTIVE_COUNTDOWN, 1);
+		ServerEventCNTSet(faction.Name + " is Starting Capture a Adytum zone", 32, EVENT_TYPE_TRADER_1, REAL_MINUTE(1));
+		flag.Update();
+		return true;
+		}
+	if(flag.Val0 != cr.Param[ST_TEAM_ID] && adytumscore > 0  && flag.Val1 != cr.Param[ST_TEAM_ID])
+		{
+		adytumscore -= 100 + cr.Param[SK_SPEECH] ;
+		cr.Say(SAY_NETMSG, faction.Name + " is Defending " + adytumscore/100 + "/250");
+		flag.Update();
+		return true;
+		}
+	if(flag.Val1 == cr.Param[ST_TEAM_ID] && adytumscore > 0)
+		{
+		adytumscore -= 100 + cr.Param[SK_SPEECH] ;
+		cr.Say(SAY_NETMSG, faction.Name + " is Defending " + adytumscore/100 + "/250");
+		flag.Update();
+		return true;
+		}
+	if(adytumscore<25000 && flag.Val0 == cr.Param[ST_TEAM_ID]  && flag.Val1 != cr.Param[ST_TEAM_ID])
+	{	
+	adytumscore += 100 + cr.Param[SK_SPEECH];
+	cr.Say(SAY_NETMSG, faction.Name + " is Capturing " + adytumscore/100 + "/250");
+	flag.Update();
+	return true;
+	}
+	if(adytumscore>24999 && flag.Val0 == cr.Param[ST_TEAM_ID] )
+	{
+	flag.ChangeProto(9200 + cr.Param[ST_TEAM_ID]);
+	flag.Val1 = cr.Param[ST_TEAM_ID];
+	flag.Val0 = 0;
+	flag.Update();
+	adytumscore = 0;
+	ServerEventCNTSet(faction.Name + " took control over Adytum zone", 33, EVENT_TYPE_TRADER_1, REAL_MINUTE(1));
+        if(faction.Name == "")
+            SetBestScore(SCORE_ZC_BONEYARD, null, "None");
+        else
+            SetBestScore(SCORE_ZC_BONEYARD, null, faction.Name);
+		cr.GetMap().SetData(MAP_DATA_ACTIVE_COUNTDOWN, 0);
+	return true;
+	}
+	flag.Val0 = 0;
+	flag.Update();
+	return false;
+}
+
+void _zcN(Item& item, bool firstTime)
+{
+	SETFLAG(item.Flags, ITEM_CAN_USE);
+	item.Update();
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseN");
+}
+
+
+bool _UseN(Item& flag, Critter& cr, int skill)
+{
+	IFaction@ faction = GetFaction(cr.Param[ST_TEAM_ID]);
+	cr.ParamBase[ST_CURRENT_AP] -= 500;
+	cr.ParamBase[MODE_HIDE] = 0;
+	if(cr.Param[ST_TEAM_ID] < 2)
+	{
+	cr.Say(SAY_NETMSG," You need be in faction");
+	return true;
+	}
+	if(flag.Val0 != cr.Param[ST_TEAM_ID] && nrscore < 1 && flag.Val1 != cr.Param[ST_TEAM_ID] )
+		{
+		flag.Val0 = cr.Param[ST_TEAM_ID];
+		nrscore += 100 + cr.Param[SK_SPEECH];
+		cr.GetMap().SetData(MAP_DATA_ACTIVE_COUNTDOWN, 1);
+		ServerEventCNTSet(faction.Name + " is Starting Capture a New Reno zone", 34, EVENT_TYPE_TRADER_1, REAL_MINUTE(1));
+		flag.Update();
+		return true;
+		}
+	if(flag.Val0 != cr.Param[ST_TEAM_ID] && nrscore > 0  && flag.Val1 != cr.Param[ST_TEAM_ID])
+		{
+		nrscore -= 100 + cr.Param[SK_SPEECH] ;
+		cr.Say(SAY_NETMSG, faction.Name + " is Defending " + nrscore/100 + "/250");
+		flag.Update();
+		return true;
+		}
+	if(flag.Val1 == cr.Param[ST_TEAM_ID] && nrscore > 0)
+		{
+		nrscore -= 100 + cr.Param[SK_SPEECH] ;
+		cr.Say(SAY_NETMSG, faction.Name + " is Defending " + nrscore/100 + "/250");
+		flag.Update();
+		return true;
+		}
+	if(nrscore<25000 && flag.Val0 == cr.Param[ST_TEAM_ID]  && flag.Val1 != cr.Param[ST_TEAM_ID])
+	{	
+	nrscore += 100 + cr.Param[SK_SPEECH];
+	cr.Say(SAY_NETMSG, faction.Name + " is Capturing " + nrscore/100 + "/250");
+	flag.Update();
+	return true;
+	}
+	if(nrscore>24999 && flag.Val0 == cr.Param[ST_TEAM_ID] )
+	{
+	flag.ChangeProto(9200 + cr.Param[ST_TEAM_ID]);
+	flag.Val1 = cr.Param[ST_TEAM_ID];
+	flag.Val0 = 0;
+	flag.Update();
+	nrscore = 0;
+	ServerEventCNTSet(faction.Name + " took control over New Reno zone", 35, EVENT_TYPE_TRADER_1, REAL_MINUTE(1));
+        if(faction.Name == "")
+            SetBestScore(SCORE_ZC_RENO, null, "None");
+        else
+            SetBestScore(SCORE_ZC_RENO, null, faction.Name);
+	cr.GetMap().SetData(MAP_DATA_ACTIVE_COUNTDOWN, 0);
+	return true;
+	}
+	flag.Val0 = 0;
+	flag.Update();
+	return false;
+}
+
+
+void _zcP(Item& item, bool firstTime)
+{
+	SETFLAG(item.Flags, ITEM_CAN_USE);
+	item.Update();
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseP");
+}
+
+
+bool _UseP(Item& flag, Critter& cr, int skill)
+{
+	IFaction@ faction = GetFaction(cr.Param[ST_TEAM_ID]);
+	cr.ParamBase[ST_CURRENT_AP] -= 500;
+	cr.ParamBase[MODE_HIDE] = 0;
+	if(cr.Param[ST_TEAM_ID] < 2)
+	{
+	cr.Say(SAY_NETMSG," You need be in faction");
+	return true;
+	}
+	if(flag.Val0 != cr.Param[ST_TEAM_ID] && parkscore < 1 && flag.Val1 != cr.Param[ST_TEAM_ID] )
+		{
+		flag.Val0 = cr.Param[ST_TEAM_ID];
+		parkscore += 100 + cr.Param[SK_SPEECH];
+		cr.GetMap().SetData(MAP_DATA_ACTIVE_COUNTDOWN, 1);
+		ServerEventCNTSet(faction.Name + " is Starting Capture a Themepark zone", 36, EVENT_TYPE_TRADER_1, REAL_MINUTE(1));
+		flag.Update();
+		return true;
+		}
+	if(flag.Val0 != cr.Param[ST_TEAM_ID] && parkscore > 0  && flag.Val1 != cr.Param[ST_TEAM_ID])
+		{
+		parkscore -= 100 + cr.Param[SK_SPEECH] ;
+		cr.Say(SAY_NETMSG, faction.Name + " is Defending " + parkscore/100 + "/250");
+		flag.Update();
+		return true;
+		}
+	if(flag.Val1 == cr.Param[ST_TEAM_ID] && parkscore > 0)
+		{
+		parkscore -= 100 + cr.Param[SK_SPEECH] ;
+		cr.Say(SAY_NETMSG, faction.Name + " is Defending " + parkscore/100 + "/250");
+		flag.Update();
+		return true;
+		}
+	if(parkscore<25000 && flag.Val0 == cr.Param[ST_TEAM_ID]  && flag.Val1 != cr.Param[ST_TEAM_ID])
+	{	
+	parkscore += 100 + cr.Param[SK_SPEECH];
+	cr.Say(SAY_NETMSG, faction.Name + " is Capturing " + parkscore/100 + "/250");
+	flag.Update();
+	return true;
+	}
+	if(parkscore>24999 && flag.Val0 == cr.Param[ST_TEAM_ID] )
+	{
+	flag.ChangeProto(9200 + cr.Param[ST_TEAM_ID]);
+	flag.Val1 = cr.Param[ST_TEAM_ID];
+	flag.Val0 = 0;
+	flag.Update();
+	parkscore = 0;
+	ServerEventCNTSet(faction.Name + " took control over Themepark zone", 37, EVENT_TYPE_TRADER_1, REAL_MINUTE(1));
+        if(faction.Name == "")
+            SetBestScore(SCORE_ZC_SKYTOWER, null, "None");
+        else
+            SetBestScore(SCORE_ZC_SKYTOWER, null, faction.Name);
+			
+	cr.GetMap().SetData(MAP_DATA_ACTIVE_COUNTDOWN, 0);
+	return true;
+	}
+	flag.Val0 = 0;
+	flag.Update();
+	return false;
+}
+
+void reward(Item& item, bool firstTime)
+{
+	item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(60)), "e_SpawnHigh", item.Id, false);
+}
+
+bool _UseRewardContainer(Item& item, Critter& crit, int skill)
+{
+	// Opening / Closing
+    if((skill == -1) || (skill == SK_ENGINE))
+    {
+		if(crit.Param[ST_TEAM_ID] != whocontrolling(crit.GetMap()))
+        {
+			uint16 hexX = 0;
+			uint16 hexY = 0;
+			Map@   map = item.GetMapPosition(hexX, hexY);
+			crit.Say(SAY_NETMSG," You not controlling this zone");
+			//map.SetText(hexX, hexY, COLOR_WHITE,  "The locker looks guarded.");		
+            return true;
+        }
+		
+        // open it if closed
+        if(_LockerIsClose(item))
+        {
+			//item.LockerId = 0;
+			//item.LockerId = Random(98989, 989898);
+			//item.LockerComplexity = Random(50,50);			
+            return false;
+        }
+    }
+    return false;
+}
+
+int whocontrolling(Map& map)
+{
+	uint16 hexX = 0;
+    uint16 hexY = 0;
+	int factionID = 0;
+	map.GetEntireCoords(500, 0, hexX, hexY);
+	//for(uint i = 26680; i <= 26694; i++)
+       // {
+	Item@ flag = map.GetItem(hexX, hexY, 0);
+	factionID += flag.Val1;
+	//}
+	return factionID;
+
+}
+
+uint e_SpawnHigh(array<uint>@ values)
+{
+	Item@ item = GetItem(values[0]);
+
+    if(!valid(item))
+        return 0;
+	ClearContainer(item);
+	if(Random(1,10)==10)
+		item.AddItem(PID_VAULT_TEC_BOX, 1 , 0);
+	else
+		{
+		switch (Random(1,3))
+			{			
+			case 1: 	{item.AddItem(implant(), 1 , 0); break;}
+			case 2: 	{item.AddItem(rareitem(),1, 0); break;}
+			case 3: 	{item.AddItem(tier4ammo(),1, 5); break;}			
+			}
+		
+		}
+	return REAL_MINUTE(120);
+}
+
+void zc(Map& map, bool firstTime)
+{
+	spawnmobs(map);
+	if(firstTime)
+		spawnmobs(map);
+	map.SetEvent(MAP_EVENT_CRITTER_DEAD, "_DeadCritter");
+}
+
+void _DeadCritter(Map& map, Critter& cr, Critter@ killer)
+{
+	if(map.GetNpcCount(301, FIND_LIFE_AND_KO | FIND_ONLY_NPC) < 1)
+		{
+		spawnmobs(map);
+		}
+}
+void spawnmobs(Map& map)
+{
+	uint8  dir;
+    uint16 x, y;
+    x = y = dir = 0;
+    dir = Random(0, 5);
+	for( int i =1; i <= Random(1,5); i++ )
+	{
+	//mobs with tier 2, can be lootble
+	map.GetEntireCoords(Random(0,7), Random(0,1), x, y);
+	Critter@ worker = AddNpc(map, Random(69,72),x , y, dir, 63, "zc@init_mobD", 0, 0, 0, true, 10);
+	worker.ParamBase[ST_NPC_ROLE] = 301;
+	worker.ParamBase[SK_SMALL_GUNS] = 301;
+	worker.ParamBase[SK_BIG_GUNS] = 301;
+	worker.ParamBase[ST_TEAM_ID] = whocontrolling(map);
+	worker.ParamBase[ST_REPLICATION_TIME] = 2494999;
+	worker.ParamBase[ST_ACTION_POINTS] = 13;
+	AddMobItems(worker);
+	rush(worker);
+	}
+}
+
+void AddMobItems(Critter& item)
+{	
+			switch (Random(1,11))
+			{			
+			case 1: 	{item.AddItem(PID_DESERT_EAGLE, 1 ); item.AddItem(PID_44_MAGNUM_JHP, Random(10,100) );break;}	
+			case 2: 	{item.AddItem(PID_44_MAGNUM_REVOLVER, 1 );item.AddItem(PID_44_MAGNUM_JHP, Random(10,100) ); break;}	
+			case 3: 	{item.AddItem(PID_SCOPED_HUNTING_RIFLE, 1 ); item.AddItem(PID_223_FMJ, Random(10,100) ); break;}	
+			case 4: 	{item.AddItem(PID_ASSAULT_RIFLE, 1 );item.AddItem(PID_5MM_JHP, Random(10,100) ); break;}	
+			case 5: 	{item.AddItem(PID_FN_FAL, 1 );item.AddItem(PID_7_62MM_AMMO, Random(10,100) ); break;}	
+			case 6: 	{item.AddItem(PID_SAWED_OFF_SHOTGUN, 1 );item.AddItem(PID_SHOTGUN_SHELLS, Random(10,100) ); break;}	
+			case 7: 	{item.AddItem(PID_10MM_SMG, 1 );item.AddItem(PID_10MM_JHP, Random(10,100)); break;}	
+			case 8: 	{item.AddItem(PID_FLAMER, 1 );item.AddItem(PID_FLAMETHROWER_FUEL, Random(10,20) );  break;}	
+			case 9: 	{item.AddItem(PID_COMBAT_KNIFE, 1 ); break;}	
+			case 10: 	{item.AddItem(PID_SHARP_SPEAR, 5 ); break;}	
+			case 11: 	{item.AddItem(PID_POWER_FIST, 1 ); break;}				
+			}
+}
+
+void init_mobD(Critter& mob, bool firstTime)
+{
+	mob.ParamBase[ST_KILL_EXPERIENCE] = Random(100,300);
+	_CritSetMode(mob, MODE_UNLIMITED_AMMO);
+    _CritSetMode(mob, MODE_NO_BARTER);
+	mob.SetEvent(CRITTER_EVENT_ATTACKED, "_AlertD");
+	mob.SetEvent(CRITTER_EVENT_IDLE, "_MobIdleD");
+	mob.SetEvent(CRITTER_EVENT_DEAD, "_DeleteEventMob");
+    _CritSetExtMode(mob, MODE_EXT_MOB);
+}
+
+void _DeleteEventMob(Critter& mob, Critter@ killer)
+{
+	CreateTimeEvent(AFTER(REAL_SECOND(120)), "e_deleteMob", mob.Id, true);
+}
+
+uint e_deleteMob(array<uint>@ mobdata)
+{
+	Critter@ mob = GetCritter(mobdata[0]);
+
+	if(valid(mob))
+		DeleteNpc(mob);
+		
+	return 0;
+}
+
+bool _AlertD(Critter& mob, Critter& attacker)
+{
+	if(!valid(mob))
+		return true;
+		
+	if(!valid(attacker))
+		return true;
+		
+	if(attacker.Param[ST_TEAM_ID] == whocontrolling(mob.GetMap()))
+		return true;
+	
+	uint radius = (mob.Param[ST_STRENGTH] + mob.Param[ST_ENDURANCE]) * 2;
+	
+	array<Critter@> mobstoalert;
+	mob.GetMap().GetCrittersHex(mob.HexX, mob.HexY, radius, FIND_LIFE_AND_KO | FIND_ONLY_NPC, mobstoalert);
+	
+	for(uint8 i = 0; i < mobstoalert.length(); i++)
+	{
+		if(!valid(mobstoalert[i])) continue;
+		if(mobstoalert[i].Param[ST_TEAM_ID] == whocontrolling(mob.GetMap()))
+		{
+			mobstoalert[i].AddEnemyInStack(attacker.Id);
+			AddAttackPlane(mobstoalert[i], 0, attacker);
+		}
+		
+	}
+	
+	return false;
+}
+
+void _MobIdleD(Critter& mob)
+{
+	if(!valid(mob))
+		return;
+	// the great optimizer
+    if(!mob.IsLife())
+    {
+		mob.Wait(IDLE_ALERTED);
+        return;
+    }
+	
+
+    // check critters in sight
+     array<Critter@> crits;
+    // get visible players
+    uint            num = mob.GetCritters(false, FIND_LIFE_AND_KO, crits);
+    // check distance
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+
+            if(TryAttackD(mob, crits[i])) return;
+
+    }
+	
+    if(crits.length() > 0)
+    {
+        MoveMob(mob, false);
+		mob.Wait(IDLE_ALERTED_2);
+    }
+    else
+
+    {
+        MoveMob(mob, false);
+        mob.Wait(IDLE_ALERTED_2);
+    }
+	
+}
+
+bool TryAttackD(Critter& mob, Critter@ targetCr)
+{
+
+	if((targetCr.Param[ST_TEAM_ID] != whocontrolling(mob.GetMap())))
+	{
+		NpcPlane@ plane = mob.GetCurPlane();
+		if((valid(plane)) && (plane.Identifier != AI_PLANE_ATTACK))
+			mob.DropPlanes();
+		
+		mob.AddEnemyInStack(targetCr.Id);
+		AddAttackPlane(mob, 0, targetCr);
+			return true;
+	}
+	return false;
+}
+
+void rush(Critter& cr)
+{
+    uint8[] entires = { 0 };
+    shuffle_array(entires, uint8);
+	Map@ map = cr.GetMap();
+    uint8  dir;
+    uint16 x, y;
+    x = y = dir = 0;
+    dir = Random(0, 5);
+	map.GetEntireCoords(150, Random(0,10), x, y);
+	AddWalkPlane(cr, 0, x, y, dir, true, 0);
+    cr.SetHomePos(x, y, dir);
+            return;
+}
+
+
+int GetDistance(Critter& mob)
+{
+	
+	// TODO: damaged eye??
+    int base = __LookNormal + 3 * mob.Param[ST_PERCEPTION];
+	
+    return base / 2;
+}
+
+void MoveMob(Critter& mob, bool run)
+{
+    int dist = Random(0, (mob.Param[ST_NPC_ROLE] % 100 / 10));
+    if(dist == 0)
+    {
+        mob.MoveRandom();
+    }
+    else
+    {
+        // bool AddWalkPlane(Critter& npc, uint priory, uint16 hexX, uint16 hexY, uint8 dir, bool run, uint8 cut)
+        uint16 hexX = mob.HexX;
+        uint16 hexY = mob.HexY;
+        mob.GetMap().MoveHexByDir(hexX, hexY, Random(0, 5), dist);
+        AddWalkPlane(mob, 0, hexX, hexY, 0xff, run, 0);
+    }
+}
+
+
+
+/*@}*/

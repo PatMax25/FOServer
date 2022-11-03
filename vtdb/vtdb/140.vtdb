@@ -1,0 +1,11 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Heave Ho;
+@gender = 0;
+@age = 60;
+
+@xp = 11 63824 66000;
+@life = 131 131 0 1 0 0 0 0 0;
+@stats = 30 10 99275 1 8 50 20 12 7 7;
+@skills = 63 20 20 68 52 122 88 23 47 150 36 26 42 18 5 16 5 46 0;

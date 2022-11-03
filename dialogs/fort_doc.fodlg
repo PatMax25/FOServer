@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+0 3010 R _script dialog@r_ToHeal 0  R _param p DAMAGE_POISONED = 0 R _param p DAMAGE_RADIATED = 0 R _param p DAMAGE_RIGHT_ARM = 0 R _param p DAMAGE_EYE = 0 R _param p DAMAGE_LEFT_ARM = 0 R _param p DAMAGE_RIGHT_LEG = 0 R _param p DAMAGE_LEFT_LEG = 0 #
+0 3020 &
+
+[engl]
+{100}{}{Doctor}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah? What is it, soldier?}
+{2010}{}{Doc! I am hurt! Help me.}
+{2020}{}{Nothing. [ end dialogue ]}
+{3000}{}{Ah, great. Hold on, it will sting a little.}
+{3010}{}{Alright, alright...}
+{3020}{}{On the second thought... It is not so bad. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah? What is it, soldier?}
+{2010}{}{Doc! I am hurt! Help me.}
+{2020}{}{Nothing.}
+{3000}{}{Ah, great. Hold on, it will sting a little.}
+{3010}{}{Alright, alright...}
+{3020}{}{On the second thought... It is not so bad.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah? What is it, soldier?}
+{2010}{}{Doc! I am hurt! Help me.}
+{2020}{}{Nothing.}
+{3000}{}{Ah, great. Hold on, it will sting a little.}
+{3010}{}{Alright, alright...}
+{3020}{}{On the second thought... It is not so bad.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah? What is it, soldier?}
+{2010}{}{Doc! I am hurt! Help me.}
+{2020}{}{Nothing.}
+{3000}{}{Ah, great. Hold on, it will sting a little.}
+{3010}{}{Alright, alright...}
+{3020}{}{On the second thought... It is not so bad.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah? What is it, soldier?}
+{2010}{}{Doc! I am hurt! Help me.}
+{2020}{}{Nothing.}
+{3000}{}{Ah, great. Hold on, it will sting a little.}
+{3010}{}{Alright, alright...}
+{3020}{}{On the second thought... It is not so bad.}
+

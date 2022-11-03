@@ -1,0 +1,123 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var n name_mem_npc_player = 0 #
+6 1020 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 R _var n name_mem_npc_player = 1 #
+0 3020 @
+4 4000 None 0 #
+5 4010 #
+0 4020 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+0 6010 &
+
+[engl]
+{100}{}{Quincy}
+{200}{}{You see a man in a military uniform.}
+{210}{}{You see a man in a military uniform. Judging by the grease spots you think he is more of a mechanic than a soldier.}
+{210}{}{You see a burly old mutant with a weary cast to his face. He still looks vigorous and tough.}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Name's Quincy, soldier. Why are you tapping my shoulder and looking lost?}
+{2010}{}{Hi. I need to ask you something.}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{This is maintenance. We repair pretty much anything except for the vertibirds. Even the guns. Big guns, you know what I mean?}
+{4010}{}{Where do the vertibirds get repaired?}
+{4020}{}{Bye.}
+{5000}{}{They only fit in the hangar or outdoors. You figure it out from there, okay?}
+{5010}{}{Oh, yeah. I get it.}
+{6000}{}{You again, soldier?}
+{6010}{}{Never mind.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Name's Quincy, soldier. Why are you tapping my shoulder and looking lost?}
+{2010}{}{Hi. I need to ask you something.}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{This is maintenance. We repair pretty much anything except for the vertibirds. Even the guns. Big guns, you know what I mean?}
+{4010}{}{Where do the vertibirds get repaired?}
+{4020}{}{Bye.}
+{5000}{}{They only fit in the hangar or outdoors. You figure it out from there, okay?}
+{5010}{}{Oh, yeah. I get it.}
+{6000}{}{You again, soldier?}
+{6010}{}{Never mind.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Name's Quincy, soldier. Why are you tapping my shoulder and looking lost?}
+{2010}{}{Hi. I need to ask you something.}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{This is maintenance. We repair pretty much anything except for the vertibirds. Even the guns. Big guns, you know what I mean?}
+{4010}{}{Where do the vertibirds get repaired?}
+{4020}{}{Bye.}
+{5000}{}{They only fit in the hangar or outdoors. You figure it out from there, okay?}
+{5010}{}{Oh, yeah. I get it.}
+{6000}{}{You again, soldier?}
+{6010}{}{Never mind.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Name's Quincy, soldier. Why are you tapping my shoulder and looking lost?}
+{2010}{}{Hi. I need to ask you something.}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{This is maintenance. We repair pretty much anything except for the vertibirds. Even the guns. Big guns, you know what I mean?}
+{4010}{}{Where do the vertibirds get repaired?}
+{4020}{}{Bye.}
+{5000}{}{They only fit in the hangar or outdoors. You figure it out from there, okay?}
+{5010}{}{Oh, yeah. I get it.}
+{6000}{}{You again, soldier?}
+{6010}{}{Never mind.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Name's Quincy, soldier. Why are you tapping my shoulder and looking lost?}
+{2010}{}{Hi. I need to ask you something.}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{This is maintenance. We repair pretty much anything except for the vertibirds. Even the guns. Big guns, you know what I mean?}
+{4010}{}{Where do the vertibirds get repaired?}
+{4020}{}{Bye.}
+{5000}{}{They only fit in the hangar or outdoors. You figure it out from there, okay?}
+{5010}{}{Oh, yeah. I get it.}
+{6000}{}{You again, soldier?}
+{6010}{}{Never mind.}
+

@@ -1,0 +1,24 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p vegas_sandra = 1 @
+2 2000 None 0 #
+3 2010 D _var p vegas_sandra = 1 R _var p vegas_sandra = 2 R _item p PID_SUPER_TOOL_KIT + 1 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see a bath filled with goo and trash. Do you wish to put your hands inside? ]}
+{2010}{}{[ Try to search for the tool kit ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ You got something out of it. But dear my... that was disgusting. ]}
+

@@ -1,0 +1,408 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// item_lock.fos
+//
+
+// Lock that can be used on lockers to...lock them
+#include "utils.fos"
+#include "_macros.fos"
+#include "world_common_h.fos"
+#include "item_pools_h.fos"
+import void _weapon_perk(Item& item, bool firstTime) from "item_level";
+import void _armor_perk(Item& item, bool firstTime) from "item_level";
+import void AddSpecialBonus(Item@ it) from "item_bonus";
+
+void item_init(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_Use");
+    item.LockerComplexity = Random(50, 100);
+}
+
+void item_fingerprint(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_UseFinger");
+    item.LockerComplexity = Random(175, 250);
+}
+
+/**
+ * Lock used on opened locker changes its lockerid and gives you key to it.
+ */
+
+ bool isCar(Item@ onItem)
+ {
+    if(onItem.GetProtoId() == PID_HUMMER || onItem.GetProtoId() == PID_BUGGY
+    || onItem.GetProtoId() == PID_SCOUT || onItem.GetProtoId() == PID_VERTIBIRD || onItem.GetProtoId() == PID_HIGHWAYMAN || onItem.GetProtoId() == PID_RUSTY_HIGHWAYMAN || onItem.GetProtoId() == PID_COCKROACH || onItem.GetProtoId() == PID_CORVEGA || onItem.GetProtoId() == PID_TARDIS || onItem.GetProtoId() == PID_POLICE_CAR ||onItem.GetProtoId() == PID_MOTORCYCLE ||onItem.GetProtoId() == PID_FIRETRUCK ||onItem.GetProtoId() == PID_TRUCK ||onItem.GetProtoId() == PID_NEVADA_POLICE ||onItem.GetProtoId() == PID_COZY_DELIVERY ||onItem.GetProtoId() == PID_VAULT_POLICE ||onItem.GetProtoId() == PID_HIGHWY ||onItem.GetProtoId() == PID_HIGHWY_DESERT ||onItem.GetProtoId() == PID_SUPPLIER ||onItem.GetProtoId() == PID_RALLY ||onItem.GetProtoId() == PID_CHAIKA ||onItem.GetProtoId() == PID_KIROV 
+	||onItem.GetProtoId() == PID_HUMMER_BAG ||onItem.GetProtoId() == PID_VERTIBIRD_BAG ||onItem.GetProtoId() == PID_HIGHWAYMAN_BAG ||onItem.GetProtoId() == PID_BUGGY_BAG          
+	||onItem.GetProtoId() == PID_SCOUT_BAG ||onItem.GetProtoId() ==  PID_CARAVAN_WHITE_BAG ||onItem.GetProtoId() == PID_CARAVAN_ORANGE_BAG ||onItem.GetProtoId() == PID_BOAT_BAG       ||onItem.GetProtoId() == PID_POLICE_BAG ||onItem.GetProtoId() == PID_MOTORCYCLE_BAG ||onItem.GetProtoId() == PID_FIRETRUCK_BAG ||onItem.GetProtoId() == PID_TRUCK_BAG ||onItem.GetProtoId() == PID_BARGE_BAG ||onItem.GetProtoId() == 836)
+    return true;
+    else return false;
+
+ }
+
+ bool _UseFinger(Item& item, Critter& crit, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+    if(!valid(onItem) || !isCar(onItem))
+        return false;
+    if(onItem.LockerComplexity!=0)
+        return false;
+    uint lockId = Random(1, 65535);
+
+ //   onItem.LockerId = lockId;
+ //   onItem.LockerComplexity = item.LockerComplexity;
+    onItem.Val0 = crit.Id;
+     if(item.GetCount() > 1)
+        item.SetCount(item.GetCount() - 1);
+    else
+        DeleteItem(item);
+
+    onItem.SetScript("item_lock@FP_lock");
+    onItem.Update();
+    return true;
+}
+
+void FP_lock(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseFP");
+}
+
+import void RepairCar(Critter& cr, Item& car, Item& tool) from "car";
+
+bool _UseFP(Item& car, Critter& player, int skill)
+{
+    int player_id = player.Id;
+	bool isTool = (car.Proto.Misc_ToolSkillNum == SK_REPAIR);
+	
+	if(skill == SK_REPAIR)
+    {
+        Item@ tool = _CritGetItemHand(player);
+        if(valid(tool) && (tool.Proto.Misc_ToolSkillNum == SK_REPAIR))
+            RepairCar(player, car, tool);
+        else
+            player.Say(SAY_NETMSG, "Need a tool");
+    }
+    if((skill == -1) || (skill == SK_ENGINE))
+    {
+    if(player_id == car.Val0 || player_id == car.Val1  || player_id == car.Val2  || player_id == car.Val3  || player_id == car.Val4
+         || player_id == car.Val5  || player_id == car.Val6  || player_id == car.Val7 )
+         {
+         player.Say(SAY_NETMSG, "Finger Print Scanner: access authorized, Vehicle: " + car.Id );
+         return false;
+         }
+    else
+    {
+    player.Say(SAY_NETMSG, "Finger Print Scanner: access not authorized!" );
+    return true;
+    }
+    }
+    if(skill == SK_SCIENCE)
+    {
+    if(player_id == car.Val0 || player_id == car.Val1  || player_id == car.Val2  || player_id == car.Val3  || player_id == car.Val4
+         || player_id == car.Val5  || player_id == car.Val6  || player_id == car.Val7 )
+         {
+         if(car.Val8==0)
+         {
+         player.Say(SAY_NETMSG, "Finger Print Scanner: Sharing mode enabled" );
+         car.Val8 = 1;
+         return true;
+         }
+         else
+         {
+         player.Say(SAY_NETMSG, "Finger Print Scanner: Sharing mode disabled" );
+         car.Val8 =0;
+         return true;
+         }
+         }
+    else return true;
+    }
+    if(skill == SK_TRAPS && car.Val8 > 0)
+    {
+    if(player_id == car.Val0 || player_id == car.Val1  || player_id == car.Val2  || player_id == car.Val3  || player_id == car.Val4
+         || player_id == car.Val5  || player_id == car.Val6  || player_id == car.Val7 )
+    return true;
+    if(car.Val1==0)
+        {
+        player.Say(SAY_NETMSG, "Finger Print Scanner: access has been made available" );
+        car.Val1= player_id;
+        car.Update();
+        return true;
+        }
+    else if(car.Val2==0)
+        {
+        player.Say(SAY_NETMSG, "Finger Print Scanner: access has been made available" );
+        car.Val2= player_id;
+        car.Update();
+        return true;
+        }
+    else if(car.Val3==0)
+        {
+        player.Say(SAY_NETMSG, "Finger Print Scanner: access has been made available" );
+        car.Val3= player_id;
+        car.Update();
+        return true;
+        }
+    else if(car.Val4==0)
+        {
+        player.Say(SAY_NETMSG, "Finger Print Scanner: access has been made available" );
+        car.Val4= player_id;
+        car.Update();
+        return true;
+        }
+    else if(car.Val5==0)
+        {
+        player.Say(SAY_NETMSG, "Finger Print Scanner: access has been made available" );
+        car.Val5= player_id;
+        car.Update();
+        return true;
+        }
+    else if(car.Val6==0)
+        {
+        player.Say(SAY_NETMSG, "Finger Print Scanner: access has been made available" );
+        car.Val6= player_id;
+        car.Update();
+        return true;
+        }
+    else if(car.Val7==0)
+        {
+        player.Say(SAY_NETMSG, "Finger Print Scanner: access has been made available" );
+        car.Val7= player_id;
+        car.Update();
+        return true;
+        }
+    else
+    {
+    player.Say(SAY_NETMSG, "Finger Print Scanner: Error, did not found any free finger pring slot!" );
+    return true;
+    }
+    }
+    if( skill == SK_LOCKPICK && player.Timeout[TO_SK_LOCKPICK] < 1)
+    {
+    if((IsBase(player.GetMap()) || IsTent(player.GetMap())))
+        {
+        player.Say(SAY_NETMSG, "You can't do it here" );
+        return true;
+        }
+    else
+        {
+        if(Random(250,500) < player.Param[SK_LOCKPICK] + player.Param[SK_SCIENCE])
+            {
+            car.Val0= player_id;
+            car.Val1= 0;
+            car.Val2= 0;
+            car.Val3= 0;
+            car.Val4= 0;
+            car.Val5= 0;
+            car.Val6= 0;
+            car.Val7= 0;
+			car.LockerId = 0;
+			car.LockerComplexity = 0;
+            car.Update();
+            player.Say(SAY_NETMSG, "Finger Print Scanner: access changed!" );
+            return true;
+            }
+        else
+            {
+            player.Say(SAY_NETMSG, "You fail to pick the lock" );
+            _SetTimeout(player, TO_SK_LOCKPICK, REAL_SECOND(45));
+            return true;
+            }
+        }
+    }
+    else player.Say(SAY_NETMSG, "You're too tired" );
+    player.Say(SAY_NETMSG, "Finger Print Scanner: access not authorized!" );
+    return true;
+}
+
+bool _Use(Item& item, Critter& crit, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+    if(!valid(onItem) || onItem.GetType() != ITEM_TYPE_CONTAINER)
+        return false;         // that does nothing
+
+    // already locked
+    if(_LockerIsClose(onItem))
+        return false;
+
+    uint lockId = Random(1, 65535);
+
+    onItem.LockerId = lockId;
+    onItem.LockerComplexity = Random(50,200);
+
+    // remove it
+    if(item.GetCount() > 1)
+        item.SetCount(item.GetCount() - 1);
+    else
+        DeleteItem(item);
+    // give key
+    Item@ key = crit.AddItem(PID_KEY, 1);
+    key.LockerId = lockId;
+    key.Update();
+    // info
+    crit.SayMsg(SAY_NETMSG, TEXTMSG_TEXT, 4400);
+    return true;
+}
+
+void _VaultTecInit(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_VaultTecUse");
+    item.SetEvent(ITEM_EVENT_USE_ON_ME, "_VaultTecUseOnMe");
+    item.SetEvent(ITEM_EVENT_SKILL, "_VaultTecSkill");
+}
+
+bool _VaultTecUse(Item& item, Critter& crit, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+    if(valid(onCritter) || valid(onItem) || valid(onScenery))
+        return false;
+    crit.Say(SAY_NETMSG, "This Box is locked with special, electronic lock, to open it i need special key or electronic lockpick, to open put case on floor" );
+    return true;
+}
+//#define PID_ELECTRONIC_LOCKPICKS            (77)  // +25 lockpick electronic
+//#define PID_ELEC_LOCKPICK_MKII              (411) // +50 lockpick electronic
+bool _VaultTecUseOnMe(Item& item, Critter& cr, Item@ usedItem)
+{
+    if(!valid(usedItem))
+        return false;
+    uint16 itemPid = usedItem.GetProtoId();
+    if((int(itemPid) == PID_VAULT_TEC_KEY))
+    {
+        AddScore(cr, SCORE_VT, 1);
+        epicloot(cr);
+        DeleteItem(usedItem);
+        DeleteItem(item);
+        return true;
+    }
+    if((int(itemPid) == PID_ELECTRONIC_LOCKPICKS))
+    {
+        AddScore(cr, SCORE_VT, 1);
+        epicloot(cr);
+
+        if(Random(1,5)==1)
+		{
+		//Item@ lp = cr.GetItem(PID_ELECTRONIC_LOCKPICKS, -1);
+		if(usedItem.GetCount()>1)
+		usedItem.SetCount(usedItem.GetCount() - 1);
+		else DeleteItem(usedItem);
+		
+		}
+		DeleteItem(item);
+        return true;
+    }
+    if((int(itemPid) == PID_ELEC_LOCKPICK_MKII))
+    {
+        AddScore(cr, SCORE_VT, 1);
+        epicloot(cr);
+        
+        if(Random(1,18)==1)
+			{
+			//Item@ lp = cr.GetItem(PID_ELEC_LOCKPICK_MKII, -1);
+			if(usedItem.GetCount()>1)
+				usedItem.SetCount(usedItem.GetCount() - 1);
+			else DeleteItem(usedItem);
+		}
+		DeleteItem(item);
+        return true;
+    }
+    return false;
+}
+
+bool _VaultTecSkill(Item& geiger, Critter& cr, int skill)
+{
+    if(skill == SK_LOCKPICK)
+    {
+        cr.Say(SAY_NETMSG, "use lockpicks tools on item!" );
+        return true;
+    }
+    return false;
+}
+
+void epicloot(Critter& item)
+{
+    float tier4ammochance = 0;
+	float tier4partschance = 0;
+	float tier4bpchance = 0;
+	float implantchance = 0;
+	float rarechance = 0;
+	float implant_combatchance = 0;
+	float verti_partschance = 0;
+	float addbasemapchance = 0;
+	float t4chance = 0;
+	
+	switch(week_patch)
+	{
+	case 1:
+	case 2:
+	tier4ammochance = 5; tier4partschance = 5; tier4bpchance = 0; implantchance = 25; rarechance = 15; 
+	implant_combatchance = 0.8; verti_partschance = 0; t4chance = 0; addbasemapchance = 50; break;
+	//todo other weeks
+	}
+	
+	if(tier4ammochance > 0) tier4ammochance *= doubleloot;
+	if(tier4partschance > 0) tier4partschance *= doubleloot;
+	if(tier4bpchance > 0) tier4bpchance *= doubleloot;
+	if(implantchance > 0) implantchance *= doubleloot;
+	if(rarechance > 0) rarechance *= doubleloot;
+	if(implant_combatchance > 0) implant_combatchance *= doubleloot;
+	if(verti_partschance > 0) verti_partschance *= doubleloot;
+	if(t4chance > 0) t4chance *= doubleloot;
+	if(addbasemapchance > 0) addbasemapchance *= doubleloot;
+	
+	
+	
+	if(tier4ammochance > 0) tier4ammochance += 0.1*item.Param[PE_PVE_LOOTER];
+	if(tier4partschance > 0) tier4partschance += 0.1*item.Param[PE_PVE_LOOTER];
+	if(tier4bpchance > 0) tier4bpchance += 0.1*item.Param[PE_PVE_LOOTER];
+	if(implantchance > 0) implantchance += 0.1*item.Param[PE_PVE_LOOTER];
+	if(rarechance > 0) rarechance += 0.1*item.Param[PE_PVE_LOOTER];
+	if(implant_combatchance > 0) implant_combatchance += 0.1*item.Param[PE_PVE_LOOTER];
+	if(verti_partschance > 0) verti_partschance += 0.1*item.Param[PE_PVE_LOOTER];
+	if(t4chance > 0) t4chance += 0.1*item.Param[PE_PVE_LOOTER];
+	if(addbasemapchance > 0) addbasemapchance += 0.1*item.Param[PE_PVE_LOOTER];
+	
+	
+	
+	
+        SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+		item.AddItem(tier3drugs(),  Random(1 , 5));
+    if(dropchance(tier4ammochance))
+        item.AddItem(tier4ammo(),  Random(5 , 25));
+
+    if(dropchance(tier4partschance))
+        item.AddItem(tier4parts(),  1);
+
+		
+    if(dropchance(tier4bpchance))
+        item.AddItem(tier4bp(),  1);
+    else item.AddItem(tier3bp(),  Random(5,25));
+       
+
+    if(dropchance(implantchance))
+        item.AddItem(implant(),  1);
+		
+	if(dropchance(rarechance))
+        item.AddItem(rareitem(),  1);
+
+    if(dropchance(implant_combatchance))
+        item.AddItem(implant_combat(),  1);
+		
+    if(dropchance(verti_partschance))
+        item.AddItem(verti_parts(),  1);
+    if(dropchance(t4chance))
+		item.AddItem(tier4item(),  1);
+	if(dropchance(addbasemapchance))
+		addbasemap(item);
+}
+
+void SpawnBuffItem(Critter& cr, uint pid)
+{
+	Item@ it = cr.AddItem(pid, 1);
+	it.Val0 = Random(1,25000);
+	it.Val0 *= 1 + cr.Param[PE_PVE_LOOTER];
+	it.Update();
+	if(it.GetType() == ITEM_TYPE_WEAPON)
+		_weapon_perk(it, false);
+
+	if(it.GetType() == ITEM_TYPE_ARMOR)
+		_armor_perk(it, false);
+}

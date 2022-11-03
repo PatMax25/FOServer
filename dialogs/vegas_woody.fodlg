@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _item p PID_DOLLAR } 1 D _item p PID_BOTTLE_CAPS = 0 #
+3 1020 D _item p PID_DOLLAR < 1 D _script dialog@d_havepropermoney 1 1 #
+4 1030 D _script dialog@d_havepropermoney 1 1 @
+2 2000 None 0 #
+65506 2010 #
+0 2020 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Woody}
+{200}{}{You see Woody the Barman.}
+{210}{}{This man could pass for an ordinary barman if not for the patches and bits of metal sewn into his business suit.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{How about a hot pizza?}
+{2010}{}{Let me see that menu. [ Barter ]}
+{2020}{}{No thanks. [ end dialogue ]}
+{3000}{}{Sorry, but we trade only for dollars here. And no Currency. Once I see you have dollars without Currency, we can trade.}
+{4000}{}{No Currency allowed mate. If you wish to trade, then get rid of Currency.}
+

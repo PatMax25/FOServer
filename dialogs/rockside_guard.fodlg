@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.@@Without a new shipment we won't last long...@@I am on post.@@Hello. Another bluesuit, heh?@@What a hot day...@@Doc still has his scorpions messing around.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.@@Without a new shipment we won't stand long...@@I am on post.@@Hello. Another bluesuit, heh?@@What a hot day...@@Doc still has his scorpios messing around.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.@@Without a new shipment we won't stand long...@@I am on post.@@Hello. Another bluesuit, heh?@@What a hot day...@@Doc still has his scorpios messing around.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.@@Without a new shipment we won't stand long...@@I am on post.@@Hello. Another bluesuit, heh?@@What a hot day...@@Doc still has his scorpios messing around.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.@@Without a new shipment we won't stand long...@@I am on post.@@Hello. Another bluesuit, heh?@@What a hot day...@@Doc still has his scorpios messing around.}
+

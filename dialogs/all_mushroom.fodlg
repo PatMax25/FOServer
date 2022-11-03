@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 R _script dialog@r_ToDead 1 Anim2DeadFused #
+3 2020 D _item p PID_KNIFE } 1 D _var p mushroom_perk = 0 R _item p PID_KNIFE - 1 R _item p PID_TOXIC_MUSHROOM + 2 #
+4 2030 D _item p PID_KNIFE } 1 D _var p mushroom_perk = 1 R _item p PID_KNIFE - 1 R _item p PID_TOXIC_MUSHROOM + 3 #
+0 2040 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ These are toxic mushrooms. They are... toxic. You can harvest some, but you need a knife for it. Though maybe you don't... These are just mushrooms after all, you can surely use your bare hands for harvesting. ]}
+{2010}{}{[ Try to harvest some with your bare hands ]}
+{2020}{}{[ Harvest some with a knife ]}
+{2030}{}{[ Harvest some with a knife ]}
+{2040}{}{[ Leave ]}
+{3000}{}{[ You collected 2 mushrooms ]}
+{4000}{}{[ You collected 3 mushrooms ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ These are toxic mushrooms. They are... toxic. You can harvest some, but you need a knife for it. Though maybe you don't... These are just mushrooms after all, you can surely use your bare hands for harvesting. ]}
+{2010}{}{[ Try to harvest some with your bare hands ]}
+{2020}{}{[ Harvest some with a knife ]}
+{2030}{}{[ Harvest some with a knife ]}
+{2040}{}{[ Leave ]}
+{3000}{}{[ You collected 2 mushrooms ]}
+{4000}{}{[ You collected 3 mushrooms ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ These are toxic mushrooms. They are... toxic. You can harvest some, but you need a knife for it. Though maybe you don't... These are just mushrooms after all, you can surely use your bare hands for harvesting. ]}
+{2010}{}{[ Try to harvest some with your bare hands ]}
+{2020}{}{[ Harvest some with a knife ]}
+{2030}{}{[ Harvest some with a knife ]}
+{2040}{}{[ Leave ]}
+{3000}{}{[ You collected 2 mushrooms ]}
+{4000}{}{[ You collected 3 mushrooms ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ These are toxic mushrooms. They are... toxic. You can harvest some, but you need a knife for it. Though maybe you don't... These are just mushrooms after all, you can surely use your bare hands for harvesting. ]}
+{2010}{}{[ Try to harvest some with your bare hands ]}
+{2020}{}{[ Harvest some with a knife ]}
+{2030}{}{[ Harvest some with a knife ]}
+{2040}{}{[ Leave ]}
+{3000}{}{[ You collected 2 mushrooms ]}
+{4000}{}{[ You collected 3 mushrooms ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ These are toxic mushrooms. They are... toxic. You can harvest some, but you need a knife for it. Though maybe you don't... These are just mushrooms after all, you can surely use your bare hands for harvesting. ]}
+{2010}{}{[ Try to harvest some with your bare hands ]}
+{2020}{}{[ Harvest some with a knife ]}
+{2030}{}{[ Harvest some with a knife ]}
+{2040}{}{[ Leave ]}
+{3000}{}{[ You collected 2 mushrooms ]}
+{4000}{}{[ You collected 3 mushrooms ]}
+

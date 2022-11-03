@@ -1,0 +1,3818 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// client_interface.fos
+//
+
+#ifndef __CLIENT_INTERFACE__
+#define __CLIENT_INTERFACE__
+
+#include "_client_defines.fos"
+#include "_client_maps.fos"
+#include "_defines.fos"
+#include "_macros.fos"
+#include "_colors.fos"
+#include "_basetypes.fos"
+
+#include "buffer_h.fos"
+#include "client_gui_h.fos"
+#include "groups_h.fos"
+#include "lexems_h.fos"
+#include "MsgStr.h"
+#include "polygon_h.fos"
+#include "polygon_towns.fos"
+#include "prod_ingredients_h.fos"
+
+#include "client_smart_cursor_h.fos"
+#include "client_drawing_h.fos"
+
+/*
+   GMT MARK : add
+   #include "client_gmtools_h.fos"
+   #include "client_screens_h.fos"
+ */
+#include "client_interface_h.fos"
+
+#include "combat_h.fos"
+
+#include "item_dogtags_h.fos"
+
+import void DrawAchievements() from "achievements";
+
+import void BroadcastDraw() from "client_broadcast";
+
+import void changedParam_Hide(CritterCl& cr, uint, int oldValue) from "parameters";
+import void CutsceneDraw() from "client_cutscene";
+
+import void DrawChosenTabs() from "chosen_tabs";
+
+import bool IsPossessMode() from "client_dev_menu";
+import bool IsAuthorized() from "client_dev_menu";
+//import uint expPoints(int team) from "map_events";
+
+// GMT MARK : remove
+import bool GMToolsAccess() from "client_gmtools";
+import void GMToolsDraw(uint layer, int mouseX, int mouseY) from "client_gmtools";
+import bool IsGMTEnabled() from "client_main";
+#define IsGM    IsGMTEnabled() && GMToolsAccess
+
+import uint8 GetCurrentAim() from "client_keybinds";
+
+import void TimeoutsDraw() from "client_timeouts";
+
+import void ColorizeCritter(CritterCl& cr) from "name_colorizing";
+import void ColorizeCritterPreview(CritterCl& cr) from "name_colorizing";
+
+import void SetRepairPid(uint16 pid) from "client_main";
+import void SetRepairItem(uint id) from "client_main";
+
+import string@ CritterDescription_Get(uint description1, uint description2) from "critter_description";
+
+import int stringReplaceText(string& s, string@ f, string@ t) from "config_file";
+
+import void RenderThrowing() from "throwing";
+import void RenderHexShoting() from "hexShot";
+import void RenderHexThrowing() from "hexThrow";
+
+import void DrawCritterOnHead() from "client_critter_onhead";
+
+import void EncountersDraw() from "client_fef";
+
+import uint GetContainerId() from "client_container_addons";
+import uint GetBodyId() from "client_container_addons";
+
+//import void DrawIcons() from "client_faction_icons";
+#define AW_COLOR_ARMOR          COLOR_DGREEN
+#define AW_COLOR_HEADGEAR       COLOR_DGREEN
+#define AW_COLOR_WEAPON         COLOR_LGREEN
+#define AW_COLOR_INJURIES       COLOR_DRED
+#define AW_COLOR_NPC_NAME       COLOR_DDGREEN
+#define AW_COLOR_FACTION_NAME   COLOR_DGREEN
+#define AW_COLOR_FACTION_RANK   COLOR_LGRAY
+
+#define BONUS_WEAPON_CRITICAL_ROLL              (100)
+#define BONUS_WEAPON_CRITICAL_CHANCE            (101)
+#define BONUS_WEAPON_MIN_DMG                    (102)
+#define BONUS_WEAPON_MAX_DMG                    (103)
+#define BONUS_WEAPON_ACCURACY                   (104)
+#define BONUS_WEAPON_MAX_AP                     (105)
+#define BONUS_WEAPON_MAX_RANGE                  (106)
+
+
+#define CtrlPressed         ( GUI_IsKeyPressed( DIK_LCONTROL ) || GUI_IsKeyPressed( DIK_RCONTROL ) )
+#define OnlyCtrlPressed     ( CtrlPressed && !ShiftPressed && !AltPressed )
+#define ShiftPressed        ( GUI_IsKeyPressed( DIK_LSHIFT ) || GUI_IsKeyPressed( DIK_RSHIFT ) )
+#define OnlyShiftPressed    ( ShiftPressed && !CtrlPressed && !AltPressed )
+#define AltPressed          ( GUI_IsKeyPressed( DIK_LMENU ) || GUI_IsKeyPressed( DIK_RMENU ) )
+#define OnlyAltPressed      ( AltPressed && !CtrlPressed && !ShiftPressed )
+
+
+import void DrawFog() from "client_fov";
+import void DrawMsFov() from "client_fov";
+import void DrawCustomBorder() from "client_fov";
+
+import string DateTimeToString(uint gameTime) from "time";
+
+#ifdef GUI_REWORK
+import void GUI_Draw() from "gui/main";
+#endif
+
+class CDialogImage
+{
+    int x;
+    int y;
+    int sprite;
+
+    CDialogImage()
+    {
+        DMessage("DialogImage::Constructor");
+        this.Unset();
+    }
+
+    void Set(int x, int y, string& image)
+    {
+        this.x = x;
+        this.y = y;
+        this.sprite = LoadSprite(image, int(PT_ART));
+        DMessage("DialogImage::Set: " + x + "," + y + "," + image + " = " + this.sprite);
+    }
+
+    void Unset()
+    {
+        this.x = -1;
+        this.y = -1;
+        this.sprite = -1;
+        DMessage("DialogImage::Unset");
+    }
+
+    bool Exists()
+    {
+        if(this.x < 0)
+            return(false);
+        if(this.y < 0)
+            return(false);
+        if(this.sprite <= 0)
+            return(false);
+
+        return(true);
+    }
+
+    void Draw()
+    {
+        int screen = GUI_GetActiveScreen();
+        if(screen != CLIENT_SCREEN_DIALOG)
+            return;
+
+        int dX = 0, dY = 0;
+        GetHardcodedScreenPos(screen, dX, dY);
+
+        #ifdef __DEBUG__
+        DrawText("DialogImage::Draw sprite=" + this.sprite + " x=" + this.x + " y=" + this.y + " screen=" + screen + " screenX=" + dX + " screenY=" + dY + " imageX=" + (dX + this.x) + " imageY=" + (dY + this.y),
+                 0, 0, __ScreenWidth, 10, COLOR_TEXT, FONT_FALLOUT, FT_CENTERXY);
+        DrawText("RightControl+arrows - change position, 'x' and 'y' is to use in dialog",
+                 0, 10, __ScreenWidth, 10, COLOR_TEXT, FONT_FALLOUT, FT_CENTERXY);
+        #endif
+
+        DrawSprite(this.sprite, 0, dX + this.x, dY + this.y, 0);
+		
+		if(screen == CLIENT_MAIN_SCREEN_LOGIN)
+			LoadSprite("discord.png", int(PT_ART_INTRFACE));
+    }
+};
+CDialogImage DialogImage;
+
+class        CWorldmapElement
+{
+    int    id;
+    uint   layer;
+    uint   x;
+    uint   y;
+    uint   width;
+    uint   height;
+    uint   color;
+
+    Sprite sprite;
+    bool   scratch;
+    bool   center;
+    bool   applyOffset;
+
+    string text;
+    int    font;
+    int    flags;
+
+    CWorldmapElement(int id, uint layer)
+    {
+        this.id = id;
+        this.layer = layer;
+        this.x = 0;
+        this.y = 0;
+        this.width = 0;
+        this.height = 0;
+        this.color = 0;
+    }
+
+    void SetSprite(Sprite& sprite, bool scratch, bool center, bool applyOffset)
+    {
+        this.text = "";
+
+        this.sprite = sprite;
+        this.scratch = scratch;
+        this.center = center;
+        this.applyOffset = applyOffset;
+    }
+
+    void SetText(string& text, int font, int flags)
+    {
+        Sprite nul;
+        this.sprite = nul;
+
+        this.text = text;
+        this.font = font;
+        this.flags = flags;
+    }
+
+    void Draw(uint layer)
+    {
+        if(this.layer == layer)
+        {
+            if(this.sprite.Id > 0)
+                DrawSprite(this.sprite.Id, -1, this.x / __GmapZoom + __GmapOffsetX, this.y / __GmapZoom + __GmapOffsetY, (this.width == 0 ? this.sprite.Width : this.width) / __GmapZoom, (this.height == 0 ? this.sprite.Height : this.height) / __GmapZoom, this.scratch, this.center, this.color, this.applyOffset);
+            if(this.text.length() > 0)
+                DrawText(this.text, this.x / __GmapZoom + __GmapOffsetX, this.y / __GmapZoom + __GmapOffsetY, this.width, this.height, this.color, this.font, this.flags);
+        }
+    }
+};
+array<CWorldmapElement@> WorldmapElements;
+
+class                    CTempWorldmapElement : CWorldmapElement
+{
+    uint expirationTime;
+    CTempWorldmapElement(int id, uint layer, uint expirationTime)
+    {
+        super(id, layer);
+        this.expirationTime = expirationTime;
+    }
+
+    bool IsExpired()
+    {
+        return ELAPSED_TIME >= expirationTime;
+    }
+};
+array<CTempWorldmapElement@> TempWorldmapElements;
+
+uint pickupScreenScrollCritter = 0;
+uint pickupScreenScrollFrom = 0;
+bool disableItemMove = false;
+
+void _EnableItemsMove(int param1, int param2, int param3, string@ param4, array<int>@ param5)
+{
+    disableItemMove = false;
+}
+
+void unsetall_location_combatzone(int, int, int, string@, array<int>@)
+{
+    TempWorldmapElements.resize(0);
+}
+
+void location_combatzone(int id, int layer, int expiration, string@, array<int>@ coords)
+{
+    CTempWorldmapElement@ element;
+
+    bool                  found = false;
+    for(uint e = 0, elen = TempWorldmapElements.length(); e < elen; e++)
+    {
+        if(TempWorldmapElements[e].id == id)
+        {
+            if(layer < 0)
+            {
+                TempWorldmapElements.removeAt(e);
+                return;
+            }
+            @element = TempWorldmapElements[e];
+            found = true;
+            break;
+        }
+    }
+
+    if(layer < 0)
+        return;
+    if(!found)
+    {
+        @element = CTempWorldmapElement(id, layer, uint(expiration));
+        Sprite sprite;
+        sprite.Load("combat_zone.png", int(PT_ART_INTRFACE));
+        element.SetSprite(sprite, true, true, true);
+    }
+
+    if(!valid(coords) || coords.length() < 3)
+        return;
+
+    element.x = coords[0] - coords[2];
+    element.y = coords[1] - coords[2];
+    element.width = coords[2] * 2;
+    element.height = coords[2] * 2;
+
+
+    if(!found)
+        TempWorldmapElements.insertLast(element);
+}
+
+void worldmap_element(int id, int layer, int type, string@, array<int>@ data)
+{
+    CWorldmapElement@ element;
+
+    bool              found = false;
+    for(uint e = 0, elen = WorldmapElements.length(); e < elen; e++)
+    {
+        if(WorldmapElements[e].id == id)
+        {
+            if(layer < 0)
+            {
+                WorldmapElements.removeAt(e);
+                return;
+            }
+            @element = WorldmapElements[e];
+            found = true;
+            break;
+        }
+    }
+    if(layer < 0)
+        return;
+    if(!found)
+    {
+        @element = CWorldmapElement(id, layer);
+    }
+
+    if(!valid(data) || data.length() == 0)
+        return;
+
+    Buffer@ buff = NewBuffer(data);
+    buff >> element.x >> element.y >> element.width >> element.height >> element.color;
+
+    if(type == 1)         // sprite
+    {
+        Sprite sprite;
+
+        string spriteName = "";
+        int    spritePath = 0;
+        bool   scratch = false;
+        bool   center = false;
+        bool   applyOffset = false;
+
+        buff >> spriteName >> spritePath >> scratch >> center >> applyOffset;
+
+        if(spriteName.length() > 0 && sprite.Load(spriteName, spritePath))
+        {
+            element.SetSprite(sprite, scratch, center, applyOffset);
+        }
+        else
+            return;
+    }
+    else if(type == 2)         // text
+    {
+        string text = "";
+        int    font = 0;
+        int    flags = 0;
+
+        buff >> text >> font >> flags;
+
+        if(text.length() > 0)
+        {
+            element.SetText(text, font, flags);
+        }
+        else
+            return;
+    }
+    else
+        return;
+
+    if(!found)
+        WorldmapElements.insertLast(element);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Say to engine what screen is active.
+void get_active_screens(array<int>& result)
+{
+    GUI_GetActiveScreens(result);
+}
+
+bool recheckDialogImage = false;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Show/hide screen behaviour.
+void screen_change(bool show, int screen, int p0, int p1, int p2)
+{
+    if(DialogImage.Exists() && recheckDialogImage &&
+       show && screen != CLIENT_SCREEN_DIALOG &&
+       !(screen == CLIENT_SCREEN_BARTER || screen == CLIENT_SCREEN_SAY))
+    {
+        DialogImage.Unset();
+        recheckDialogImage = false;
+    }
+
+    if(!show && DialogImage.Exists() && screen == CLIENT_SCREEN_DIALOG)
+    {
+        recheckDialogImage = true;
+    }
+
+    if(show)
+        GUI_ShowScreen(screen, p0, p1, p2);
+    else
+        GUI_HideScreen(screen, p0, p1, p2);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Render interface function. You can use Draw* functions only there.
+// Layer specification:
+//    0
+// Game map, Global map, Login, Registration, Credits, Wait
+// Update: None
+//    1
+// Game interface
+// Update: Game map
+//    2
+// Console, Messbox
+// Update: Console, Messbox
+//    3
+// Inventory, PickUp, MiniMap, Dialog/Barter, PipBoy, FixBoy, Options menu, Character, Aim
+// Split, Timer, DialogBox, Elevator, Say, Character name, Character age, Character sex, Global map town, InputBox, SkillBox, Use, Perk
+// Update: PopUp menu, Cursor
+//    4
+// PopUp menu, Cursor
+// Update: None
+//    5
+
+int CurrentCommand=COMMAND_NONE;
+int CurrentCommandX=0;
+int CurrentCommandY=0;
+
+
+
+
+void render_iface(uint layer)
+{
+
+	
+    uint sc = GUI_GetActiveScreen();
+    uint mainsc = GUI_GetActiveMainScreen();
+
+	if(layer == 2)
+	{
+
+         
+        #ifdef GUI_REWORK
+        //GUI_Draw();
+        #endif
+	
+        DrawFog();
+        DrawMsFov();
+        DrawCustomBorder();
+        RenderHexThrowing();
+        RenderHexShoting();
+		
+		GUI_Render( true );
+		
+		if( !__GmapActive)
+        {
+            if(InterfaceShown)
+                DrawIndicators();
+            RenderThrowing();
+
+            TryDrawSmartCursor();
+        }
+	
+	if( mainsc == CLIENT_MAIN_SCREEN_GAME && !__GmapActive )
+	{
+		// draw hex effect around critter when aimed with grenade in hand
+		// - druto
+		CritterCl@ chosen = GetChosen();
+		
+		
+		// weapon muzzle and rays by Vice Dice
+		DrawRays();
+		DrawBurstRays();
+
+		DrawMuzzleFlashes();
+		DrawBurstMuzzles();
+		
+		// draw faction icons
+		//DrawIcons();
+		
+		// combat lines by SEGA_RUS
+		if(valid(chosen))
+		{
+		if(@chosen==null) CurrentCommand=COMMAND_NONE;
+		CurrentCommand = chosen.Param[ST_COMMAND];
+		CurrentCommandX= chosen.Param[ST_COMMAND_X];
+		CurrentCommandY= chosen.Param[ST_COMMAND_Y];
+		if(CurrentCommand!=COMMAND_NONE)
+		{
+			int x=0,y=0;
+			GetHexPos(chosen.HexX,chosen.HexY,x,y);
+			int x2=0,y2=0;
+			GetHexPos(CurrentCommandX,CurrentCommandY,x2,y2);
+			if(CurrentCommand==COMMAND_MOVE)
+			{
+				int[] data={x,y,0x7F0042BA,x2,y2,0x7F0042BA};
+				DrawPrimitive(DRAW_PRIMITIVE_LINESTRIP,data);
+				//DrawSprite(CommandMoveSprite.Id,0,x2-16,y2-43,0);
+				DrawSprite(LoadSprite("command_move.png", PT_ART_INTRFACE),0,x2-16,y2-43,0);
+			}
+			else if(CurrentCommand==COMMAND_ATTACK)
+			{
+				int[] data={x,y,0x7FCC0000,x2,y2,0x7FCC0000};
+				DrawPrimitive(DRAW_PRIMITIVE_LINESTRIP,data);
+				//DrawSprite(CommandAttackSprite.Id,0,x2-16,y2-43,0);
+				DrawSprite(LoadSprite("command_attack.png", PT_ART_INTRFACE),0,x2-16,y2-43,0);
+			}
+			else if(CurrentCommand==COMMAND_DEFEND)
+			{
+				int[] data={x,y,0x7FC8300BA,x2,y2,0x7FC8300BA};
+				DrawPrimitive(DRAW_PRIMITIVE_LINESTRIP,data);
+				//DrawSprite(CommandDefendSprite.Id,0,x2-16,y2-43,0);
+				DrawSprite(LoadSprite("command_defend.png", PT_ART_INTRFACE),0,x2-16,y2-43,0);
+			}
+		}
+		}
+	}
+	
+	
+	}
+
+    else if(layer == 3)
+    {
+        
+		
+		if( mainsc == CLIENT_MAIN_SCREEN_GAME )
+        {
+            // Most Important Feature Ever Made By Human Race For FOnline Game
+            DrawText( "FOnline 3", 0, 5, __ScreenWidth-5, 10, 0, FONT_FALLOUT, FT_CENTERR );
+			
+			//DrawText( "PRESEASON TESTING STATE", 0, 20, __ScreenWidth, 60, COLOR_BLUE, FONT_FAT, FT_CENTERR );
+            string date = DateTimeToString( __FullSecond );
+            DrawText( date, 0, 15, __ScreenWidth-5, 10, 0, FONT_FALLOUT, FT_CENTERR );
+			CritterCl@ chosen = GetChosen();
+			//DrawText( "The Great Depression is rolling (Crisis)", 0, 30, __ScreenWidth, 10, 0, FONT_FALLOUT, FT_CENTERX | FT_CENTERY | FT_BORDERED );
+			//DrawText( "PATCH 3.95", 0, 155, __ScreenWidth-5, 10, 0, FONT_SPECIAL, FT_CENTERX | FT_CENTERY | FT_BORDERED );
+			switch(chosen.Param[ST_DESCRIPTION2])
+			{
+			case 1: DrawText( "Local Currency: Enclave Dollars", 0, 25, __ScreenWidth-5, 10, 0, FONT_FALLOUT, FT_CENTERR ); break;
+			case 2: DrawText( "Local Currency: Memory Chips", 0, 25, __ScreenWidth-5, 10, 0, FONT_FALLOUT, FT_CENTERR ); break;
+			case 3: DrawText( "Local Currency: NCR Scrips", 0, 25, __ScreenWidth-5, 10, 0, FONT_FALLOUT, FT_CENTERR ); break;
+			case 4: DrawText( "Local Currency: VT Pounds", 0, 25, __ScreenWidth-5, 10, 0, FONT_FALLOUT, FT_CENTERR ); break;
+			case 5: DrawText( "Local Currency: Ring Pulls", 0, 25, __ScreenWidth-5, 10, 0, FONT_FALLOUT, FT_CENTERR ); break;
+		//	case 0: DrawText( "Local Currency: Bottle Caps", 0, 25, __ScreenWidth-5, 10, 0, FONT_FALLOUT, FT_CENTERR ); break;
+			
+			}
+        }
+        if(__ConfigOnHeadAwareness > 0)
+            DrawCritterOnHead();
+        
+        if(IsPossessMode())
+            DrawText("Possess mode on", 0, 0, __ScreenWidth, 20, 0, FONT_FALLOUT, FT_CENTERX | FT_CENTERY | FT_BORDERED);
+
+        TimeoutsDraw();
+		//DrawInsideEventStatus();
+        // GMT MARK : remove
+        if(IsGMTEnabled() && GMToolsAccess())
+            GMToolsDraw(layer, __MouseX, __MouseY);
+		
+			
+		// Moved to chosen_tabs.fos	
+		/*
+        if(sc == CLIENT_MAIN_SCREEN_GAME && GetCurrentAim() != HIT_LOCATION_UNCALLED)
+            DrawText("Aimed: " + GetMsgStr(TEXTMSG_COMBAT, 1109 + GetCurrentAim()), 10, 40, __ScreenWidth, 20, COLOR_GREEN, FONT_FALLOUT, FT_CENTERY | FT_BORDERED);
+		*/
+        #ifdef __DEBUG__
+        if(sc == CLIENT_MAIN_SCREEN_REGISTRATION)
+            DrawText("" + __MouseX + "," + __MouseY, __MouseX + 25, __MouseY + 25, 60, 10, 0, FONT_FALLOUT, 0);
+        #endif
+        if((sc == CLIENT_MAIN_SCREEN_GAME || sc == CLIENT_MAIN_SCREEN_GLOBAL_MAP || ((sc > 9) && (sc < 46))))
+        {
+            BroadcastDraw();
+            CutsceneDraw();
+        }
+
+        if(sc == CLIENT_MAIN_SCREEN_GAME && IsAuthorized())
+        {
+            uint16 hx = 0;
+            uint16 hy = 0;
+            if(GetMonitorHex(__MouseX, __MouseY, hx, hy))
+                DrawText("" + hx + ", " + hy, 0, 0, __ScreenWidth, 20, COLOR_TEXT, FONT_FALLOUT, FT_CENTERR);
+            CritterCl@ cr = GetMonitorCritter(__MouseX, __MouseY);
+            if(valid(cr))
+                DrawText("Critter> id: " + cr.Id + ", pid: " + cr.Pid, 0, 10, __ScreenWidth, 20, COLOR_TEXT, FONT_FALLOUT, FT_CENTERR);
+            ItemCl@ item = GetMonitorItem(__MouseX, __MouseY);
+            if(valid(item))
+                DrawText("Item> pid: " + item.GetProtoId() + "x,y: " + item.HexX + ", " + item.HexY, 0, 20, __ScreenWidth, 20, COLOR_TEXT, FONT_FALLOUT, FT_CENTERR);
+			
+        }
+		
+		if(GMToolsAccess())
+		{
+			ItemCl@ item = GetMonitorItem(__MouseX, __MouseY);
+			if(valid(item))
+			{
+				int dy = -10;
+				DrawText("All vals: " + item.Val0 + " " + item.Val1 + " " + item.Val2 + " " + item.Val3 + " " + item.Val4 + " " + item.Val5 + " " + item.Val6 + " " + item.Val7 + " " + item.Val8 + " " + item.Val2, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+				dy -= 10;
+				if(item.GetType() == ITEM_TYPE_CONTAINER)
+				{
+					DrawText("Locker ID: " + item.LockerId, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+					dy -= 10;
+					DrawText("Container Val4: " + item.Val4, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+					dy -= 10;
+					DrawText("Locker Complex: " + item.LockerComplexity, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+					dy -= 10;
+				}
+				if(item.GetType() == ITEM_TYPE_CAR)
+				{
+					DrawText("Locker ID: " + item.LockerId, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+					dy -= 10;
+					DrawText("Locker Complex: " + item.LockerComplexity, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+					dy -= 10;
+				}
+				DrawText(GetMsgStr(TEXTMSG_ITEM, (item.GetProtoId() * 100)), __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+			}
+		}
+
+        if(__ConfigAwareness)
+        {
+            CritterCl@ chosen = GetChosen();
+            if(valid(chosen))
+            {
+                if(chosen.Param[PE_AWARENESS] != 0)
+                {
+                    CritterCl@ cr = GetMonitorCritter(__MouseX, __MouseY);
+                    if(valid(cr))
+                    {
+                        int dy = -10;
+						
+						
+						
+						switch(cr.Param[ST_DESCRIPTION1])
+						{
+						case 1: 
+						{
+						DrawText("Randomboy", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(255, 0, 191), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                            dy -= 10;
+							break;
+						}
+						case 2:
+						{
+						DrawText("Super Mutant", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(113, 171, 75), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 3:
+						{
+						DrawText("Soldier", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(109, 227, 138), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 4:
+						{
+						DrawText("Chosen One", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(147, 0, 245), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 5:
+						{
+						DrawText("Priest", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(255,144,255), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 6:
+						{
+						DrawText("Bounty Hunter", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(145, 44, 13), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 7:
+						{
+						DrawText("Deathclaw", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(255, 174, 0), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 8:
+						{
+						DrawText("Cyborg", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(0, 247, 235), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 9:
+						{
+						DrawText("Killer", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(255,0,0), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 10:
+						{
+						DrawText("Assassin", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(125,125,125), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 11:
+						{
+						DrawText("Leader", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(255,255,255), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 12:
+						{
+						DrawText("Paramedic", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(5, 168, 160), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 13:
+						{
+						DrawText("Sniper", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(163, 158, 60), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 14:
+						{
+						DrawText("Infantry", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(62, 112, 173), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 15:
+						{
+						DrawText("Alien", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(88, 138, 92), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 16:
+						{
+						DrawText("Combat Master", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(0,0,255), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 17:
+						{
+						DrawText("Wrecker", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(255,255,0), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						case 18:
+						{
+						DrawText("Clone", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(125, 40, 78), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						break;
+						}
+						}
+						
+						switch(cr.Param[ST_PLAYER_KARMA])
+						{
+						case 1: 
+						{
+						DrawText("Janitor", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(255, 0, 191), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                            dy -= 10;
+							break;
+						}
+						case 2: 
+						{
+						DrawText("Another Class", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_RGB(255, 0, 191), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                            dy -= 10;
+							break;
+						}
+						
+						}
+						
+						if(IsLexem(cr, "$faction") && cr.IsPlayer())
+						{
+		                    if(cr.Param[ST_FACTION_RANK]==1) 
+                                DrawText("Recruit", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_RANK, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+						    else if(cr.Param[ST_FACTION_RANK]==2) 
+                                DrawText("Member", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_RANK, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+						    else if(cr.Param[ST_FACTION_RANK]==3) 
+                                DrawText("Trusted", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_RANK, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+						    else if(cr.Param[ST_FACTION_RANK]==4) 
+                                DrawText("Officer", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_RANK, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+						    else if(cr.Param[ST_FACTION_RANK]==5) 
+                                DrawText("Leader", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_RANK, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);								
+                            dy -= 10;
+						}
+						
+						string factionname;
+						if(IsLexem(cr, "$faction"))
+						{
+					        factionname = GetLexem(cr, "$faction");
+						    DrawText(factionname, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                            dy -= 10;
+						}
+						
+                        if(cr.IsDead())
+                        {
+                            DrawText("Dead", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_DARK, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        }
+                        else
+                        {
+                            ItemCl@ item = cr.GetItem(0, SLOT_HAND1);
+                            string  _item = "Unarmed";
+							string item_prefix = "";
+                            if(valid(item))
+                            {
+                                if(IsLexem(item, "$-"))
+                                    _item = GetLexem(item, "$-");
+                                else
+                                    _item = GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item));
+
+								
+								item_prefix += showPrefix(item);
+								
+                            }
+							
+                            DrawText(item_prefix + _item, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, (valid(item) && item.GetType() == ITEM_TYPE_WEAPON) ? AW_COLOR_WEAPON : COLOR_GRAY, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                            dy -= 10;
+
+                            ItemCl@ armor = cr.GetItem(0, SLOT_ARMOR);
+                            ItemCl@ helmet = cr.GetItem(0, SLOT_HEAD);
+                            if(cr.IsPlayer() || cr.Param[ST_BODY_TYPE] == BT_MEN   || cr.Param[ST_BODY_TYPE] == BT_WOMEN || cr.Param[ST_BODY_TYPE] == BT_CHILDREN ||
+                               cr.Param[ST_BODY_TYPE] == BT_GHOUL || cr.Param[ST_BODY_TYPE] == BT_SUPER_MUTANT ||
+                               valid(armor) || valid(helmet))
+                            {
+                                
+                                if(valid(armor))
+                                {
+                                    string _armor = "No armor";
+                                    if(IsLexem(armor, "$-"))
+                                        _armor = GetLexem(armor, "$-");
+                                    else
+                                        _armor = GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(armor));
+                                
+                                    DrawText(showPrefix(armor) + _armor, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, valid(armor) && armor.GetType() == ITEM_TYPE_ARMOR ? AW_COLOR_ARMOR : COLOR_GRAY, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                                    dy -= 10;
+                                }
+                                
+                                if(valid(helmet))
+                                {
+                                    string _helmet = "No helmet";
+                                    if(IsLexem(helmet, "$-"))
+                                        _helmet = GetLexem(helmet, "$-");
+                                    else
+                                        _helmet = GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(helmet));
+                                    DrawText(_helmet, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, valid(helmet) && helmet.GetType() == ITEM_TYPE_ARMOR ? AW_COLOR_HEADGEAR : COLOR_GRAY, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                                    dy -= 10;
+                                }
+                            }
+
+                            if((!__ConfigShowNpcAwareness && cr.IsNpc()) || !__ConfigShowPlayerAwareness && cr.IsPlayer())
+                            {
+                                int curHp = cr.Param[ST_CURRENT_HP];
+                                int maxHp = cr.Param[ST_MAX_LIFE];
+                                DrawText(curHp + "/" + maxHp, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, cr.IsDead() ? COLOR_BLACK : (curHp < 1 ? COLOR_GRAY : COLOR_RGB(0xff - (0xff * curHp) / maxHp, (0xff * curHp) / maxHp, 0)), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+
+                                dy -= 10;
+                            }
+                            
+                            if(_CritIsInjured(cr))
+                            {
+                                if((!__ConfigShowNpcAwareness && cr.IsNpc()) || !__ConfigShowPlayerAwareness && cr.IsPlayer())
+                                {
+                                    string crInjures = "";
+                                    crInjures += _CritDamaged(cr, DAMAGE_EYE) ? "E " : "";
+                                    crInjures += _CritDamaged(cr, DAMAGE_RIGHT_ARM) ? "RA " : "";
+                                    crInjures += _CritDamaged(cr, DAMAGE_LEFT_ARM) ? "LA " : "";
+                                    crInjures += _CritDamaged(cr, DAMAGE_RIGHT_LEG) ? "RL " : "";
+                                    crInjures += _CritDamaged(cr, DAMAGE_LEFT_LEG) ? "LL " : "";
+
+                                    DrawText(crInjures, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_INJURIES, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                                    dy -= 10;
+                                }
+                            }
+
+                            if(cr.IsNpc())
+                            {
+                                uint   dialog = cr.Param[ST_DIALOG_ID];
+                                uint16 pid = cr.Pid;
+                                string result=GetMsgStr(TEXTMSG_DLG,STR_NPC_NAME(dialog, pid));
+                                DrawText(result, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_NPC_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    CritterCl@ cr = GetMonitorCritter(__MouseX, __MouseY);
+                    if(valid(cr))
+                    {
+						int dy = -10;
+						
+						if(cr.Param[ST_FACTION_RANK]>3)
+						{
+						if(cr.Param[ST_FACTION_RANK]==4) DrawText("Officer", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_RANK, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+						else if(cr.Param[ST_FACTION_RANK]==5) DrawText("Leader", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_RANK, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);						
+                        dy -= 10;
+						}
+					
+						string factionname;
+						if(IsLexem(cr, "$faction"))
+						{
+					    factionname = GetLexem(cr, "$faction");
+						DrawText(factionname, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_FACTION_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        dy -= 10;
+						}
+                        if(cr.IsDead())
+                        {
+                            DrawText("Dead", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, COLOR_GRAY, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        }
+                        else
+                        {
+                            string lifeRes = GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_STATE(cr.Param[ST_HEALTH_LEVEL] > 1 ? cr.Param[ST_HEALTH_LEVEL] : 1));   
+
+                            if(_CritIsInjured(cr))
+                            {
+                                DrawText("Injured", __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_INJURIES, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                                dy -= 10;
+                            }
+                            DrawText(lifeRes, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, cr.IsDead() ? COLOR_GRAY : (cr.Param[ST_HEALTH_LEVEL] < 1 ? COLOR_LGRAY : COLOR_RGB(0xff - (0xff * cr.Param[ST_HEALTH_LEVEL]) / 5, (0xff * cr.Param[ST_HEALTH_LEVEL]) / 5, 0)), FONT_FALLOUT, FT_ALIGN | FT_BORDERED);				
+						}
+                        
+                        dy -= 10;
+                        if(cr.IsNpc())
+                        {
+                            uint   dialog = cr.Param[ST_DIALOG_ID];
+                            uint16 pid = cr.Pid;
+                            string result=GetMsgStr(TEXTMSG_DLG,STR_NPC_NAME(dialog, pid));
+                            DrawText(result, __MouseX + 15, __MouseY + dy, __ScreenWidth, 20, AW_COLOR_NPC_NAME, FONT_FALLOUT, FT_ALIGN | FT_BORDERED);
+                        }
+                        
+                    }
+                }
+
+            } 
+
+        }
+		
+		
+
+        GUI_Render( false );
+		//GUI_Render();
+         
+        #ifdef GUI_REWORK
+        GUI_Draw();
+        #endif
+
+        
+			
+		if(sc == CLIENT_SCREEN_DIALOG && DialogImage.Exists())
+            DialogImage.Draw();
+
+        DrawChosenTabs();
+		/* if(!__GmapActive)
+			{
+				if(InterfaceShown)
+					DrawIndicators();
+				RenderThrowing();
+        
+				TryDrawSmartCursor();
+			} */
+
+        DrawAchievements();         // should be last
+    }
+	
+	/* if(layer == 3 && !__GmapActive)
+    {
+        if(InterfaceShown)
+            DrawIndicators();
+        RenderThrowing();
+        
+        TryDrawSmartCursor();
+		//GUI_Render(false);
+	} */
+
+    else if((layer == 100 || layer == 101) && __GmapActive)
+    {
+        SetDefaultFont(FONT_FALLOUT, COLOR_TEXT);
+		// Here you can draw on global map
+
+        // bool  __GmapActive - àêòèâíà ëè ãëîáàëüíàÿ êàðòà è âñå ëè ñëåäóþùèå íèæåïðèâåäåííûå ïåðåìåííûå êîððåêòíû;
+        // bool  __GmapWait   - âêëþ÷åí ðåæèì îæèäàíèÿ îòâåòà î ïîäòâåðæäåíèè ýíêàóíòåðà;
+        // float __GmapZoom   - òåêóùèé ìàñøòàá, íå çàáûâàéòå ó÷èòûâàòü åãî ïðè ðèñîâàíèè íà êàðòå;
+        // int   __GmapOffsetX/Y   - ñìåùåíèå êàðòû îò íóëåâîé êîîðäèíàòû (âåðõíèé-ëåâûé óãîë);
+        // int   __GmapGroupCurX/Y - êîîðäèíàòû ãðóïïû èãðîêà;
+        // int   __GmapGroupToX/Y  - êîîðäèíàòû òî÷êè íàçíà÷åíèÿ;
+        // float __GmapGroupSpeed  - òåêóùàÿ ñêîðîñòü ïåðåäâèæåíèÿ.
+        //
+        // x = __GmapGroupCurX / __GmapZoom + __GmapOffsetX
+        // y = __GmapGroupCurY / __GmapZoom + __GmapOffsetY.
+
+        // from worldmap_h.fos
+        for(uint e = 0, elen = WorldmapElements.length(); e < elen; e++)
+        {
+            WorldmapElements[e].Draw(layer);
+        }
+
+        EncountersDraw();
+    }
+}
+
+#define _DescHead    ((ELAPSED_TIME / REAL_SECOND(3)) % 2 == 1)
+
+bool render_iface_screen(uint screen)
+{
+    // placeholder
+    return(true);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Generic description. Descriptions type look in _client_defines.fos, Generic descriptions types.
+// int& offsX, int& offsY - offsets of text, by default is zero.
+string generic_description(int descType, int& offsX, int& offsY)
+{
+    CritterCl@ chosen = GetChosen();
+    if(!valid(chosen))
+        return "";
+    string result;
+
+    if(descType == DESC_INVENTORY_MAIN)
+    {
+        result += chosen.Name + "\n";
+        result += "---------------------\n";
+        result += GetMsgStr(TEXTMSG_GAME, STR_INV_SHORT_SPECIAL(ST_STRENGTH)) + "\n";
+        result += GetMsgStr(TEXTMSG_GAME, STR_INV_SHORT_SPECIAL(ST_PERCEPTION)) + "\n";
+        result += GetMsgStr(TEXTMSG_GAME, STR_INV_SHORT_SPECIAL(ST_ENDURANCE)) + "\n";
+        result += GetMsgStr(TEXTMSG_GAME, STR_INV_SHORT_SPECIAL(ST_CHARISMA)) + "\n";
+        result += GetMsgStr(TEXTMSG_GAME, STR_INV_SHORT_SPECIAL(ST_INTELLECT)) + "\n";
+        result += GetMsgStr(TEXTMSG_GAME, STR_INV_SHORT_SPECIAL(ST_AGILITY)) + "\n";
+        result += GetMsgStr(TEXTMSG_GAME, STR_INV_SHORT_SPECIAL(ST_LUCK)) + "\n";
+        result += "\n\n---------------------\n";
+
+        ItemCl@ weaponMain = chosen.GetItem(0, SLOT_HAND1);
+        if(valid(weaponMain))
+        {
+            int use = _WeaponModeUse(weaponMain.Mode);
+            if(use > 2)
+                use = 0;
+
+            string _name = GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(weaponMain));
+            if(IsLexem(weaponMain, "$-"))
+                _name = GetLexem(weaponMain, "$-");
+            result += showPrefix(weaponMain) + _name + " \n";
+			result += " |-16711936 ";
+            if(weaponMain.GetType() == ITEM_TYPE_WEAPON)
+            {
+                int nfix = 2;
+                result += GetMsgStr(TEXTMSG_GAME, STR_INV_DMG) + " ";
+				int wpnMinDmg = _WeaponDmgMin(weaponMain.Proto, use);
+                if(_WeaponIsHtHAttack(weaponMain.Proto, use))
+				{
+                    //if (wpnMinDmg==0) 
+					//	wpnMinDmg += MAX(1,chosen.Param[ST_MELEE_DAMAGE]/2); 
+					//else 
+					//	wpnMinDmg += chosen.Param[ST_MELEE_DAMAGE]/2;
+					wpnMinDmg += chosen.Param[ST_MELEE_DAMAGE] * 0.75;
+				}
+				int bonusmindmg = 0;
+		if(valid(weaponMain) && weaponMain.Val3 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponMain) && weaponMain.Val4 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponMain) && weaponMain.Val5 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponMain) && weaponMain.Val6 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponMain) && weaponMain.Val7 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponMain) && weaponMain.Val8 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		int bonusmaxdmg = 0;
+		if(valid(weaponMain) && weaponMain.Val3 == WP_ATTACK) bonusmaxdmg +=19;
+		if(valid(weaponMain) && weaponMain.Val4 == WP_ATTACK) bonusmaxdmg +=19;
+		if(valid(weaponMain) && weaponMain.Val5 == WP_ATTACK) bonusmaxdmg +=19;
+		if(valid(weaponMain) && weaponMain.Val6 == WP_ATTACK) bonusmaxdmg +=19;
+		if(valid(weaponMain) && weaponMain.Val7 == WP_ATTACK) bonusmaxdmg +=19;
+		if(valid(weaponMain) && weaponMain.Val8 == WP_ATTACK) bonusmaxdmg +=19;
+		
+		if(valid(weaponMain) && weaponMain.Val3 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponMain) && weaponMain.Val4 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponMain) && weaponMain.Val5 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponMain) && weaponMain.Val6 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponMain) && weaponMain.Val7 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponMain) && weaponMain.Val8 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponMain) && weaponMain.Val2 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+                wpnMinDmg += wpnMinDmg * bonusmindmg / 100;
+				result += wpnMinDmg+"-";		
+                
+                int wpnMaxDmg = _WeaponDmgMax(weaponMain.Proto, use);
+                if(_WeaponIsHtHAttack(weaponMain.Proto, use))
+				{
+                    wpnMaxDmg += chosen.Param[ST_MELEE_DAMAGE] * 0.75;;
+				}
+                wpnMaxDmg += wpnMaxDmg * bonusmaxdmg / 100;
+                result += wpnMaxDmg;
+
+                if(_WeaponMaxDist(weaponMain.Proto, use) > 1)
+                {
+                    result += " " + GetMsgStr(TEXTMSG_GAME, STR_INV_DIST) + " ";
+                    int wpnMaxDist = _WeaponMaxDist(weaponMain.Proto, use);
+                    if(_WeaponSkill(weaponMain.Proto, use) == SK_THROWING)
+                    {
+                        wpnMaxDist = 5 + chosen.Param[ST_STRENGTH];
+
+						wpnMaxDist += 6 * (chosen.Param[PE_HEAVE_HO]);
+                    }
+					int bonusrange= 0;
+		if(valid(weaponMain) && weaponMain.Val3 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponMain) && weaponMain.Val4 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponMain) && weaponMain.Val5 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponMain) && weaponMain.Val6 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponMain) && weaponMain.Val7 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponMain) && weaponMain.Val8 == WP_SCOPED) bonusrange +=4;
+		if(chosen.Param[PE_HEAVE_HO]>0 && chosen.Param[PE_SHARPSHOOTER]>0 && _WeaponSkill(weaponMain.Proto, use) != SK_UNARMED && _WeaponSkill(weaponMain.Proto, use) != SK_ENGINE)
+			bonusrange += 5;
+					if(chosen.Param[PE_SNIPER]>0) bonusrange += 5;
+					if(chosen.Param[PE_SHARPSHOOTER]>0 && chosen.Param[PE_HEAVE_HO]>0) bonusrange += 5;
+                    wpnMaxDist += bonusrange;
+					if(chosen.Param[PE_DEATHCLAW]>0) 
+						wpnMaxDist *= 2;
+						
+					if(wpnMaxDist<2 && _WeaponSkill(weaponMain.Proto, use) != SK_UNARMED)
+					{
+					if(chosen.IsPlayer())
+					{
+					uint16 year=0, month=0, day=0, dayofweek=0, hour=0, minute=0, second=0;
+					GetGameTime( __FullSecond, year, month, day, dayofweek, hour, minute, second );
+					file f;
+					f.open("logs/hexbot.txt", "w");
+					f.writeString(day + "." + month + " " + chosen.Name + " for real using hexbot!!!");
+					f.close();
+					}
+					}
+                    result += wpnMaxDist + "\n";
+                    nfix--;
+                }
+
+                if(weaponMain.Proto.Weapon_MaxAmmoCount > 0)
+                {
+                    result += GetMsgStr(TEXTMSG_GAME, STR_INV_AMMO) + " ";
+                    result += weaponMain.AmmoCount + "/";
+                    result += weaponMain.Proto.Weapon_MaxAmmoCount + " ";
+					
+                    result += GetMsgStr(TEXTMSG_GAME, STR_CALIBER(weaponMain.Proto.Weapon_Caliber));
+                    result += "\n";
+                    nfix--;
+                }
+                else if(weaponMain.IsStackable() && weaponMain.GetCount() > 1 && nfix >= 1)
+                {
+                    if(_WeaponMaxDist(weaponMain.Proto, use) < 2)
+                    {
+                        result += "\n";
+                        nfix--;
+                    }
+                    result += "Amount: " + weaponMain.GetCount() + "\n";
+                    nfix--;
+                }
+                for(int n = 0; n < nfix; n++)
+                    result += "\n";
+            }
+            else
+            {
+                if(weaponMain.IsStackable() && weaponMain.GetCount() > 1)
+                    result += "Amount: " + weaponMain.GetCount() + "\n";
+                else if(weaponMain.Proto.Misc_ChargeMax > 0)
+                    result += "Charges: " + weaponMain.Charge + "/" + weaponMain.Proto.Misc_ChargeMax + "\n";
+                else
+                    result += "\n";
+
+                result += "\n";
+            }
+        }
+        else
+        {
+            // Unarmed
+            uint8      mode = 0;
+            ProtoItem@ unarmed = chosen.GetSlotProto(SLOT_HAND1, mode);
+            result += GetMsgStr(TEXTMSG_GAME, STR_INV_NO_ITEM) + "\n";
+            result += GetMsgStr(TEXTMSG_GAME, STR_INV_UNARMED_DMG) + " ";
+            
+			//if(_WeaponDmgMin(unarmed,_WeaponModeUse(mode))==0) 
+			//	result += MAX(1, chosen.Param[ST_MELEE_DAMAGE]/1) + "-"; 
+			//else 
+			//	result += _WeaponDmgMin(unarmed,_WeaponModeUse(mode)) + chosen.Param[ST_MELEE_DAMAGE]/1 + "-";	
+			
+            result += _WeaponDmgMin(unarmed, _WeaponModeUse(mode)) + chosen.Param[ST_MELEE_DAMAGE]/2 + "-";
+			result += _WeaponDmgMax(unarmed, _WeaponModeUse(mode)) + chosen.Param[ST_MELEE_DAMAGE]/2;
+            result += "\n\n";
+        }
+        result += "---------------------\n";
+
+        ItemCl@ weaponExt = chosen.GetItem(0, SLOT_HAND2);
+        if(valid(weaponExt))
+        {
+            int use = _WeaponModeUse(weaponExt.Mode);
+            if(use > 2)
+                use = 0;
+
+            string _name = showPrefix(weaponExt) + GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(weaponExt));
+			
+            if(IsLexem(weaponExt, "$-"))
+                _name = GetLexem(weaponExt, "$-");
+            result += _name + "\n";
+			result += " |-16711936 ";
+            if(weaponExt.GetType() == ITEM_TYPE_WEAPON)
+            {
+                int nfix = 2;
+                result += GetMsgStr(TEXTMSG_GAME, STR_INV_DMG) + " ";
+                //result += _WeaponDmgMin(weaponExt.Proto, use) + "-";
+				int wpnMinDmg=_WeaponDmgMin(weaponExt.Proto,use);
+				if(_WeaponIsHtHAttack(weaponExt.Proto,use))
+				{		
+					//if (wpnMinDmg==0) 
+					//	wpnMinDmg += MAX(1, chosen.Param[ST_MELEE_DAMAGE]/1); 
+					//else 
+					//	wpnMinDmg += chosen.Param[ST_MELEE_DAMAGE]/1;
+					wpnMinDmg += chosen.Param[ST_MELEE_DAMAGE] * 0.75;;
+				}
+				int bonusmindmg = 0;
+		if(valid(weaponExt) && weaponExt.Val3 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponExt) && weaponExt.Val4 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponExt) && weaponExt.Val5 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponExt) && weaponExt.Val6 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponExt) && weaponExt.Val7 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		if(valid(weaponExt) && weaponExt.Val8 == WP_BONUS_DAMAGE) bonusmindmg +=24;
+		int bonusmaxdmg = 0;
+		if(valid(weaponExt) && weaponExt.Val3 == WP_ATTACK) bonusmaxdmg +=10;
+		if(valid(weaponExt) && weaponExt.Val4 == WP_ATTACK) bonusmaxdmg +=19;
+		if(valid(weaponExt) && weaponExt.Val5 == WP_ATTACK) bonusmaxdmg +=19;
+		if(valid(weaponExt) && weaponExt.Val6 == WP_ATTACK) bonusmaxdmg +=19;
+		if(valid(weaponExt) && weaponExt.Val7 == WP_ATTACK) bonusmaxdmg +=19;
+		if(valid(weaponExt) && weaponExt.Val8 == WP_ATTACK) bonusmaxdmg +=19;
+		
+		if(valid(weaponExt) && weaponExt.Val3 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponExt) && weaponExt.Val4 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponExt) && weaponExt.Val5 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponExt) && weaponExt.Val6 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponExt) && weaponExt.Val7 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponExt) && weaponExt.Val8 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+		if(valid(weaponExt) && weaponExt.Val2 == WP_LEG_BRD) { bonusmaxdmg +=50; bonusmindmg +=50; }
+                wpnMinDmg += wpnMinDmg * bonusmindmg / 100;			
+				result+=wpnMinDmg+"-";				
+				
+                int wpnMaxDmg = _WeaponDmgMax(weaponExt.Proto, use);
+                if(_WeaponIsHtHAttack(weaponExt.Proto, use))
+                    wpnMaxDmg += chosen.Param[ST_MELEE_DAMAGE] * 0.75;
+                wpnMaxDmg += wpnMaxDmg * bonusmaxdmg / 100;
+                result += wpnMaxDmg;
+                if(_WeaponMaxDist(weaponExt.Proto, use) > 1)
+                {
+                    result += " " + GetMsgStr(TEXTMSG_GAME, STR_INV_DIST) + " ";
+                    int wpnMaxDist = _WeaponMaxDist(weaponExt.Proto, use);
+                    if(_WeaponSkill(weaponExt.Proto, use) == SK_THROWING)
+                    {
+                        wpnMaxDist = 5 + chosen.Param[ST_STRENGTH];
+                        //wpnMaxDist += 3 * (chosen.Param[PE_HEAVE_HO] + chosen.Param[PE_HEAVE_HO_II]);
+						wpnMaxDist += 6 * (chosen.Param[PE_HEAVE_HO]);
+                    }
+					int bonusrange= 0;
+		if(valid(weaponExt) && weaponExt.Val3 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponExt) && weaponExt.Val4 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponExt) && weaponExt.Val5 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponExt) && weaponExt.Val6 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponExt) && weaponExt.Val7 == WP_SCOPED) bonusrange +=4;
+		if(valid(weaponExt) && weaponExt.Val8 == WP_SCOPED) bonusrange +=4;
+		if(chosen.Param[PE_HEAVE_HO]>0 && chosen.Param[PE_SHARPSHOOTER]>0 && _WeaponSkill(weaponMain.Proto, use) != SK_UNARMED && _WeaponSkill(weaponMain.Proto, use) != SK_ENGINE)
+			bonusrange += 5;
+		
+        if(chosen.Param[PE_SNIPER]>0) bonusrange += 5;
+		if(chosen.Param[PE_SHARPSHOOTER]>0 && chosen.Param[PE_HEAVE_HO]>0) bonusrange += 5;
+            wpnMaxDist += bonusrange;
+		
+		if(chosen.Param[PE_DEATHCLAW]>0) wpnMaxDist *= 2;
+            result += wpnMaxDist + "\n";
+                    nfix--;
+                }
+
+                if(weaponExt.Proto.Weapon_MaxAmmoCount > 0)
+                {
+                    result += GetMsgStr(TEXTMSG_GAME, STR_INV_AMMO) + " ";
+                    result += weaponExt.AmmoCount + "/";
+                    result += weaponExt.Proto.Weapon_MaxAmmoCount + " ";
+                    result += GetMsgStr(TEXTMSG_GAME, STR_CALIBER(weaponExt.Proto.Weapon_Caliber));
+                    result += "\n";
+                    nfix--;
+                }
+                else if(weaponExt.IsStackable() && weaponExt.GetCount() > 1 && nfix >= 1)
+                {
+                    if(_WeaponMaxDist(weaponExt.Proto, use) < 2)
+                    {
+                        result += "\n";
+                        nfix--;
+                    }
+                    result += "Amount: " + weaponExt.GetCount() + "\n";
+                    nfix--;
+                }
+                for(int n = 0; n < nfix; n++)
+                    result += "\n";
+            }
+            else             // !ITEM_TYPE_WEAPON
+            {
+                if(weaponExt.IsStackable() && weaponExt.GetCount() > 1)
+                    result += "Amount: " + weaponExt.GetCount() + "\n";
+                else if(weaponExt.Proto.Misc_ChargeMax > 0)
+                    result += "Charges: " + weaponExt.Charge + "/" + weaponExt.Proto.Misc_ChargeMax + "\n";
+                else
+                    result += "\n";
+
+                result += "\n";
+            }
+        }
+        else
+        {
+            // Unarmed
+            uint8      mode = 0;
+            ProtoItem@ unarmed = chosen.GetSlotProto(SLOT_HAND2, mode);
+            result += GetMsgStr(TEXTMSG_GAME, STR_INV_NO_ITEM) + "\n";
+            result += GetMsgStr(TEXTMSG_GAME, STR_INV_UNARMED_DMG) + " ";
+			
+			//if(_WeaponDmgMin(unarmed,_WeaponModeUse(mode))==0) 
+			//	result += MAX(1, chosen.Param[ST_MELEE_DAMAGE]/1) + "-"; 
+			//else 
+			//	result += _WeaponDmgMin(unarmed,_WeaponModeUse(mode)) + chosen.Param[ST_MELEE_DAMAGE]/1 + "-";	
+			
+            result += _WeaponDmgMin(unarmed, _WeaponModeUse(mode)) + chosen.Param[ST_MELEE_DAMAGE] * 0.75 + "-";			
+			
+            result += (_WeaponDmgMax(unarmed, _WeaponModeUse(mode)) + chosen.Param[ST_MELEE_DAMAGE] * 0.75);
+            result += "\n\n";
+        }
+
+        result += "\n";
+        result += GetMsgStr(TEXTMSG_GAME, STR_INV_TOTAL_WEIGHT) + " ";
+        result += chosen.ItemsWeight() / 1000 + "/";
+        result += chosen.Param[ST_CARRY_WEIGHT] / 1000 + ".";
+    }
+    else if(descType == DESC_INVENTORY_SPECIAL)
+    {
+        offsX = 23;
+        result += "\n\n";
+        result += chosen.Param[ST_STRENGTH] + "\n";
+        result += chosen.Param[ST_PERCEPTION] + "\n";
+        result += chosen.Param[ST_ENDURANCE] + "\n";
+        result += chosen.Param[ST_CHARISMA] + "\n";
+        result += chosen.Param[ST_INTELLECT] + "\n";
+        result += chosen.Param[ST_AGILITY] + "\n";
+        result += chosen.Param[ST_LUCK];
+    }
+    else if(descType == DESC_INVENTORY_STATS)
+    {
+        offsX = 33;
+        result += "\n\n";
+        result += "  " + GetMsgStr(TEXTMSG_GAME, STR_INV_HP) + " ";
+        result += chosen.Param[ST_CURRENT_HP] + "/" + chosen.Param[ST_MAX_LIFE] + "\n";
+        result += "  " + GetMsgStr(TEXTMSG_GAME, STR_INV_AC) + " ";
+        result += chosen.GetAC(_DescHead) + "\n";
+		result += "              dt/dr/helm \n";
+        result += " " + GetMsgStr(TEXTMSG_GAME, STR_INV_NORMAL) + "\n";
+        result += " " + GetMsgStr(TEXTMSG_GAME, STR_INV_LASER) + "\n";
+        result += " " + GetMsgStr(TEXTMSG_GAME, STR_INV_FIRE) + "\n";
+        result += " " + GetMsgStr(TEXTMSG_GAME, STR_INV_PLASMA) + "\n";
+        result += "   Electro\n";
+        result += " " + GetMsgStr(TEXTMSG_GAME, STR_INV_EXPLODE);
+    }
+        else if(descType == DESC_INVENTORY_RESIST)
+    {
+		uint ddrn = 0;
+		uint ddrl = 0;
+		uint ddrf = 0;
+		uint ddrp = 0;
+		uint ddre = 0;
+		uint ddrx = 0;
+		ItemCl@ helmet = chosen.GetItem(0, SLOT_HEAD);
+		if(valid(helmet))
+			{
+			ddrn = helmet.Proto.Armor_DRNormal;
+			ddrl = helmet.Proto.Armor_DRLaser;
+			ddrf = helmet.Proto.Armor_DRFire;
+			ddrp = helmet.Proto.Armor_DRPlasma;
+			ddre = helmet.Proto.Armor_DRElectr;
+			ddrx = helmet.Proto.Armor_DRExplode;		
+			}
+        offsX = 97;
+        result += "\n\n\n\n\n";
+        result += chosen.Param[ST_NORMAL_ABSORB] + "/" + chosen.Param[ST_NORMAL_RESIST] + "/" + GetHelmetRes(chosen,1) + "\n";
+        result += chosen.Param[ST_LASER_ABSORB] + "/" + chosen.Param[ST_LASER_RESIST] + "/" + GetHelmetRes(chosen,2) + "\n";
+        result += chosen.Param[ST_FIRE_ABSORB] + "/" + chosen.Param[ST_FIRE_RESIST] + "/" + GetHelmetRes(chosen,3) + "\n";
+        result += chosen.Param[ST_PLASMA_ABSORB] + "/" + chosen.Param[ST_PLASMA_RESIST] + "/" + GetHelmetRes(chosen,4) + "\n";
+        result += chosen.Param[ST_ELECTRO_ABSORB] + "/" + chosen.Param[ST_ELECTRO_RESIST] + "/" + GetHelmetRes(chosen,5) + "\n";
+        result += chosen.Param[ST_EXPLODE_ABSORB] + "/" + chosen.Param[ST_EXPLODE_RESIST] + "/" + "-" + "\n";
+		if(chosen.Param[PE_CYBORG]>0)
+		result += chosen.Param[ST_EMP_ABSORB] + "/" + chosen.Param[ST_EMP_RESIST] + "/" + GetHelmetRes(chosen,6) + "\n";
+    }
+
+    return result;
+}
+int GetHelmetRes(CritterCl& cr, uint index)
+{
+	int dmgType = 0;
+	switch(index)
+	{
+	case 1: dmgType = 	DAMAGE_NORMAL; break;
+	case 2: dmgType = 	DAMAGE_LASER; break;
+	case 3: dmgType = 	DAMAGE_FIRE; break;
+	case 4: dmgType = 	DAMAGE_PLASMA; break;
+	case 5: dmgType = 	DAMAGE_ELECTR; break;	
+	case 6: dmgType = 	DAMAGE_EMP; break;
+	}
+	ItemCl@ armor = cr.GetItem(0, SLOT_HEAD);
+	int normal_DR = 0;
+	int laser_DR = 0;
+	int fire_DR = 0;
+	int plasma_DR = 0;
+	int elect_DR = 0;
+	int val = 0;
+	int drVal = 0;
+	if(valid(armor))
+	{
+	normal_DR = armor.Proto.Armor_DRNormal;
+	laser_DR = armor.Proto.Armor_DRLaser;
+	fire_DR = armor.Proto.Armor_DRFire;
+	plasma_DR = armor.Proto.Armor_DRPlasma;
+	elect_DR = armor.Proto.Armor_DRElectr;
+	}
+	if(cr.Param[PE_INFANTRY]>0)
+	{
+	normal_DR += 7;
+	laser_DR += 7;
+	fire_DR += 7;
+	plasma_DR += 7;
+	elect_DR += 7;	
+	}
+	if(cr.Param[ST_TERMINATOR]>0)
+	{
+	normal_DR += 50;
+	laser_DR += 50;
+	fire_DR += 50;
+	plasma_DR += 50;
+	elect_DR += 50;	
+	}
+	if(cr.Param[PE_SNIPER]>0)
+	{
+	normal_DR -= 6;
+	laser_DR -= 6;
+	fire_DR -= 6;
+	plasma_DR -= 6;
+	elect_DR -= 6;	
+	}
+	if(cr.Param[PE_TOUGHNESS]>0) normal_DR += 8 * cr.Param[PE_TOUGHNESS];
+	if(cr.Param[PE_DERMAL_IMPACT]>0) 
+	{	
+	normal_DR += 4 * cr.Param[PE_DERMAL_IMPACT];
+	}
+	if(cr.Param[PE_DERMAL_IMPACT_ENH]>0) 
+	{	
+	normal_DR += 4 * cr.Param[PE_DERMAL_IMPACT_ENH];
+	}
+	if(cr.Param[PE_PHOENIX_IMPLANTS]>0) 
+	{	
+	laser_DR += 4 * cr.Param[PE_PHOENIX_IMPLANTS];
+	plasma_DR += 4 * cr.Param[PE_PHOENIX_IMPLANTS];
+	fire_DR += 4 * cr.Param[PE_PHOENIX_IMPLANTS];
+	}
+	if(cr.Param[PE_PHOENIX_IMPLANTS_ENH]>0) 
+	{	
+	laser_DR += 4 * cr.Param[PE_PHOENIX_IMPLANTS_ENH];
+	plasma_DR += 4 * cr.Param[PE_PHOENIX_IMPLANTS_ENH];
+	fire_DR += 4 * cr.Param[PE_PHOENIX_IMPLANTS_ENH];
+	}
+	
+	if(cr.Param[TRAIT_CHEM_RESISTANT]==0 && cr.Param[TO_PSYCHO] > 0) normal_DR += 15; //drug
+	if(cr.Param[TRAIT_CHEM_RESISTANT]==0 && cr.Param[TO_BEER] > 0) normal_DR += 5; //drug
+	if(cr.Param[TRAIT_CHEM_RESISTANT]==0 && cr.Param[TO_BOOZE] > 0) laser_DR += 5; //drug
+	if(cr.Param[TRAIT_CHEM_RESISTANT]==0 && cr.Param[TO_GAMMA] > 0) plasma_DR += 5; //drug
+	if(cr.Param[TRAIT_CHEM_RESISTANT]==0 && cr.Param[TO_RUM] > 0) fire_DR += 5; //drug
+	
+	if(cr.Param[TRAIT_CHEM_RESISTANT]>0 && cr.Param[TO_CIGARETTES] > 0) laser_DR += 13; //drug
+	
+	int emp_DR = 500;
+	if(cr.Param[PE_CYBORG] > 0  && dmgType == DAMAGE_EMP)
+	{
+		switch(cr.Param[PE_EMP_IMPLANT])
+		{
+		case 0: emp_DR = 0; break;
+		case 1: emp_DR = 40; break;
+		case 2: emp_DR = 80; break;
+		case 3: emp_DR = 120; break;
+		}
+		
+	}
+	switch(dmgType)
+	{
+	case DAMAGE_NORMAL:   val = normal_DR; break;
+	case DAMAGE_LASER:    val = laser_DR; break;
+	case DAMAGE_FIRE:     val = fire_DR; break;
+	case DAMAGE_PLASMA:   val = plasma_DR; break;
+	case DAMAGE_ELECTR:   val = elect_DR;  break;
+	case DAMAGE_EMP:      val = emp_DR;     break;
+	case DAMAGE_UNCALLED:
+	default: break;
+	}
+
+	val -= cr.Param[ARMOR_WEAKER];
+	val += CLAMP(2 * cr.Param[BUFF_ALIEN], 0, 10); // BOSS buff
+	
+	if(cr.Param[PE_ADRENALINE_RUSH]>0) // Adrenaline rush perk
+	{
+		int max_life=cr.Param[ST_MAX_LIFE];
+		if(cr.Param[ST_CURRENT_HP] <= max_life/4) val+=15;
+		else if(cr.Param[ST_CURRENT_HP] <= max_life/2) val+=10;
+		else if(cr.Param[ST_CURRENT_HP] <= 3*max_life/4) val+=5;
+	}
+	if(cr.Param[ST_LEADER_BONUS] == 2)
+	{
+		if(cr.Param[PE_LEADER] != 1)
+		val += 4  * cr.Param[ST_LEADERS];
+		else val -= 4  * cr.Param[ST_LEADERS];
+	}
+	if(cr.Param[TRAIT_KAMIKAZE]>0)
+		val -= 10;
+	if(cr.Param[PE_INFANTRY] > 0) return CLAMP(val, 0, 100);
+	return CLAMP(val, 0, 90);
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Item description. Look types look in _client_defines.fos, Item look types.
+// THESE ARE DEFINED ABOVE!
+/*
+#define CtrlPressed         ( GUI_IsKeyPressed( DIK_LCONTROL ) || GUI_IsKeyPressed( DIK_RCONTROL ) )
+#define OnlyCtrlPressed     ( CtrlPressed && !ShiftPressed && !AltPressed )
+#define ShiftPressed        ( GUI_IsKeyPressed( DIK_LSHIFT ) || GUI_IsKeyPressed( DIK_RSHIFT ) )
+#define OnlyShiftPressed    ( ShiftPressed && !CtrlPressed && !AltPressed )
+#define AltPressed          ( GUI_IsKeyPressed( DIK_LMENU ) || GUI_IsKeyPressed( DIK_RMENU ) )
+#define OnlyAltPressed      ( AltPressed && !CtrlPressed && !ShiftPressed )
+*/
+bool isHelmet(ItemCl& item)
+{
+	if(item.GetProtoId()>=725 && item.GetProtoId()<=741) return true;
+	if(item.GetProtoId()==25588 || item.GetProtoId()==25589) return true;
+	
+	return false;
+}
+string item_description(ItemCl& item, int lookType)
+{
+    CritterCl@ chosen = GetChosen();
+
+    // Default error text
+    if(!IsMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item) + (lookType != ITEM_LOOK_ONLY_NAME ? 1 : 0)))
+    {
+        if(!IsLexem(item, "$-"))
+            return(GetMsgStr(TEXTMSG_GAME, STR_ITEM_LOOK_NOTHING));
+    }
+
+    string result;
+	if( OnlyCtrlPressed && lookType == ITEM_LOOK_INVENTORY && GUI_GetActiveScreen() == CLIENT_SCREEN_INVENTORY )
+    {
+        if( valid( chosen ) && item.CritId == chosen.Id )
+        {
+            if( item.CritSlot>=SLOT_HAND1 && item.CritSlot<=SLOT_ARMOR || item.CritSlot>=SLOT_HAND1 && item.CritSlot<=SLOT_HEAD)
+            {
+                array< uint > action = { CHOSEN_MOVE_ITEM, item.Id, item.GetCount(), SLOT_INV, 0, 0, 0 };
+                SetChosenActions( action );
+                return "";
+            }
+            else if (item.CritSlot==SLOT_INV)
+            {
+                uint8 toSlot=SLOT_HAND2;    
+                if (item.Proto.Type==ITEM_TYPE_ARMOR)
+				{
+					if( (item.GetProtoId() >= 719) && (item.GetProtoId() <= 749) || item.GetProtoId()==25588 || item.GetProtoId()==25589 ) // helmets
+						toSlot=SLOT_HEAD;
+					else 
+						toSlot=SLOT_ARMOR;
+						
+					array< uint > action = { CHOSEN_MOVE_ITEM, item.Id, item.GetCount(), toSlot, 0, 0, 0 };
+					SetChosenActions( action );
+				}
+                else if (item.Proto.Type==ITEM_TYPE_WEAPON)
+				{
+					toSlot=SLOT_HAND1;
+					array< uint > action = { CHOSEN_MOVE_ITEM, item.Id, item.GetCount(), toSlot, 0, 0, 0 };
+					SetChosenActions( action );
+				}
+				else if( (item.Proto.Type == ITEM_TYPE_DRUG) || 
+					(FLAG(item.Flags, ITEM_CAN_USE ) && item.Proto.ProtoId != PID_MOTION_SENSOR))
+				{
+					array<uint> action = {CHOSEN_USE_ITEM, item.Id, item.GetProtoId(), TARGET_SELF, chosen.Id, ITEM_MODE_USE, 0};
+					SetChosenActions(action);
+				}
+				else if (item.Proto.Type == ITEM_TYPE_MISC || item.Proto.Type == ITEM_TYPE_AMMO || item.Proto.Type == ITEM_TYPE_KEY)
+				{
+					toSlot=SLOT_HAND2;
+					array< uint > action = { CHOSEN_MOVE_ITEM, item.Id, item.GetCount(), toSlot, 0, 0, 0 };
+					SetChosenActions( action );					
+				}
+                return "";
+            }
+        }
+    }
+	
+    if( OnlyAltPressed && lookType == ITEM_LOOK_INVENTORY && GUI_GetActiveScreen() == CLIENT_SCREEN_INVENTORY )
+    {
+	if(disableItemMove)
+       return "";
+    disableItemMove = true;
+	RunServerScriptUnsafe("unsafe_client@unsafe_science", item.Id, 0, 0, "", null);
+	}
+	
+	// Car on world map
+    if(lookType == ITEM_LOOK_WM_CAR)
+    {
+        string fuel = GetMsgStr(TEXTMSG_GAME, STR_INV_CAR_FUEL);
+        fuel = ReplaceText(fuel, "VALUE", item.Charge / 100);
+        fuel = ReplaceText(fuel, "MAX_VALUE", _CarGetFuelTank(item) / 100);
+        string wear = GetMsgStr(TEXTMSG_GAME, STR_INV_CAR_DETERIORATION);
+        wear = ReplaceText(wear, "VALUE", item.Deterioration * 100 / _CarGetMaxDeterioration(item));
+        result = fuel + "\n" + wear;
+    }
+	//Car full info
+	/*if(lookType == ITEM_LOOK_MAP && item.GetType() == ITEM_TYPE_CAR)
+		if(IsLexem(item, "$carowner")) 
+		{
+			string carinfo = GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item));
+			result = carinfo + "\nRegistration plate says this car belongs to " + GetLexem(item, "$carowner") + ".";
+		}*/
+    // Short info
+    else if(lookType == ITEM_LOOK_ONLY_NAME)
+    {
+        string _name = showPrefix(item)+GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item));
+		
+        if(IsLexem(item, "$-"))
+            _name = GetLexem(item, "$-");
+        result += ReplaceText(GetMsgStr(TEXTMSG_GAME, STR_ITEM_LOOK), "NAME", _name);
+		result += " |-16711936 ";
+        // Message("!"+GUI_GetActiveScreen());
+        if(GUI_GetActiveScreen() == CLIENT_SCREEN_USE)
+        {
+            uint8  brokenCount = item.BrokenCount;
+            uint16 wearCount = item.Deterioration;
+            result += " ";
+            result += ReplaceText(ReplaceText(GetMsgStr(TEXTMSG_GAME, STR_DETERIORATION_PROCENT), "VALUE", 100 - wearCount * 100 / MAX_DETERIORATION), "MAXVALUE", 100 - brokenCount);
+        }
+		if(item.GetType() == ITEM_TYPE_CAR)
+			if(IsLexem(item, "$carowner")) 
+			{
+				string carinfo = GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item));
+				result = ReplaceText(GetMsgStr(TEXTMSG_GAME, STR_ITEM_LOOK), "NAME", carinfo) + " Licence plate says this car belongs to " + GetLexem(item, "$carowner") + ".";
+			}
+    }
+    // Full info
+    else
+    {
+        if(lookType == ITEM_LOOK_INVENTORY && GUI_IsKeyPressed(0x2A))
+        {
+            if(item.GetProtoId()==PID_ADVANCED_BENCH || item.GetProtoId()==PID_WORKBENCH_RAIDERS || item.GetProtoId()==PID_AMMO_FACILITY || item.GetProtoId()==PID_WORKBENCH || item.GetProtoId()==PID_MED_MACHINE ||  item.GetProtoId()==PID_WORKBENCH_PRIMITIVE || item.GetType()==ITEM_TYPE_CONTAINER
+            || item.GetProtoId()== PID_MACHINERY_POWER_ARMOR || item.GetProtoId()== PID_MACHINERY_SMALL_GUNS || item.GetProtoId()== PID_MACHINERY_BIG_GUNS 
+			|| item.GetProtoId()== PID_MACHINERY_ENERGY_WEAPONS || item.GetProtoId()== PID_MACHINERY_ENERGY_CELLS || item.GetProtoId()== PID_MACHINERY_LATHE
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_FOUNDRY || item.GetProtoId()== PID_WORKBENCH_FAT_HI_AMMO || item.GetProtoId()== PID_WORKBENCH_FAT_EXTENDED 
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_CLOSE_COMBAT || item.GetProtoId()== PID_WORKBENCH_FAT_POWDER_AMMO || item.GetProtoId()== PID_WORKBENCH_FAT_PRIMITIVE
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_NUKACOLA || item.GetProtoId()== PID_WORKBENCH_FAT_BEER || item.GetProtoId()== PID_WORKBENCH_FAT_TOBACCO 
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_ROTGUT)
+				return "";
+		if(disableItemMove)
+                return "";
+            disableItemMove = true;
+            RunServerScriptUnsafe("unsafe_client@unsafe_DropOne", item.Id, 0, 0, "", null);
+            return "";
+        }
+
+        if(GUI_GetActiveScreen() == CLIENT_SCREEN_PICKUP && GUI_IsKeyPressed(0x2A))
+        {
+            if(item.GetProtoId()==PID_ADVANCED_BENCH || item.GetProtoId()==PID_WORKBENCH_RAIDERS || item.GetProtoId()==PID_AMMO_FACILITY || item.GetProtoId()==PID_WORKBENCH || item.GetProtoId()==PID_MED_MACHINE ||  item.GetProtoId()==PID_WORKBENCH_PRIMITIVE || item.GetType()==ITEM_TYPE_CONTAINER
+			|| item.GetProtoId()== PID_MACHINERY_POWER_ARMOR || item.GetProtoId()== PID_MACHINERY_SMALL_GUNS || item.GetProtoId()== PID_MACHINERY_BIG_GUNS 
+			|| item.GetProtoId()== PID_MACHINERY_ENERGY_WEAPONS || item.GetProtoId()== PID_MACHINERY_ENERGY_CELLS || item.GetProtoId()== PID_MACHINERY_LATHE
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_FOUNDRY || item.GetProtoId()== PID_WORKBENCH_FAT_HI_AMMO || item.GetProtoId()== PID_WORKBENCH_FAT_EXTENDED 
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_CLOSE_COMBAT || item.GetProtoId()== PID_WORKBENCH_FAT_POWDER_AMMO || item.GetProtoId()== PID_WORKBENCH_FAT_PRIMITIVE
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_NUKACOLA || item.GetProtoId()== PID_WORKBENCH_FAT_BEER || item.GetProtoId()== PID_WORKBENCH_FAT_TOBACCO 
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_ROTGUT)
+                return "";
+
+            if(item.CritId > 0)
+            {
+				if(disableItemMove)
+                    return "";
+                disableItemMove = true;
+				
+                RunServerScriptUnsafe("unsafe_client@unsafe_DropOne", item.Id, 0, 0, "", null);
+                return "";
+            }
+        }
+
+
+        if(GUI_GetActiveScreen() == CLIENT_SCREEN_PICKUP && GUI_IsKeyPressed(0x1D))
+        {
+
+            if(item.GetProtoId()==PID_ADVANCED_BENCH || item.GetProtoId()==PID_WORKBENCH_RAIDERS || item.GetProtoId()==PID_AMMO_FACILITY || item.GetProtoId()==PID_WORKBENCH || item.GetProtoId()==PID_MED_MACHINE ||  item.GetProtoId()==PID_WORKBENCH_PRIMITIVE || item.GetType()==ITEM_TYPE_CONTAINER
+			|| item.GetProtoId()== PID_MACHINERY_POWER_ARMOR || item.GetProtoId()== PID_MACHINERY_SMALL_GUNS || item.GetProtoId()== PID_MACHINERY_BIG_GUNS 
+			|| item.GetProtoId()== PID_MACHINERY_ENERGY_WEAPONS || item.GetProtoId()== PID_MACHINERY_ENERGY_CELLS || item.GetProtoId()== PID_MACHINERY_LATHE
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_FOUNDRY || item.GetProtoId()== PID_WORKBENCH_FAT_HI_AMMO || item.GetProtoId()== PID_WORKBENCH_FAT_EXTENDED 
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_CLOSE_COMBAT || item.GetProtoId()== PID_WORKBENCH_FAT_POWDER_AMMO || item.GetProtoId()== PID_WORKBENCH_FAT_PRIMITIVE
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_NUKACOLA || item.GetProtoId()== PID_WORKBENCH_FAT_BEER || item.GetProtoId()== PID_WORKBENCH_FAT_TOBACCO 
+			|| item.GetProtoId()== PID_WORKBENCH_FAT_ROTGUT)
+                return "";
+            
+            uint contId = GetContainerId();
+            if(disableItemMove)
+                return "";
+            disableItemMove = true;
+			
+            if(contId > 0)
+            {
+                if(!chosen.IsKnockout() && !chosen.IsDead())
+                {
+                    pickupScreenScrollCritter = GetScroll(SCROLL_PICKUP);
+                    pickupScreenScrollFrom = GetScroll(SCROLL_PICKUP_FROM);
+                    if(item.CritId > 0)
+                        RunServerScriptUnsafe("unsafe_client@unsafe_MoveItemCrit2Cont", item.Id, contId, 0, "", null);
+                    else
+                        RunServerScriptUnsafe("unsafe_client@unsafe_MoveItemCont2Crit", item.Id, contId, 0, "", null);
+                    if(!chosen.IsAnimPlaying())
+                        chosen.Animate(0, ANIM2_PICKUP);
+                    return "";
+                }
+            }
+
+            uint bodyId = GetBodyId();
+
+            if(bodyId > 0)
+            {
+                CritterCl@ body = GetCritter(bodyId);
+                if(valid(body))
+                {
+                    if(!chosen.IsKnockout() && !chosen.IsDead() && body.IsDead())
+                    {
+                        pickupScreenScrollCritter = GetScroll(SCROLL_PICKUP);
+                        pickupScreenScrollFrom = GetScroll(SCROLL_PICKUP_FROM);
+                        if(item.CritId > 0)
+                            RunServerScriptUnsafe("unsafe_client@unsafe_MoveItemCrit2Body", item.Id, bodyId, 0, "", null);
+                        else
+                            RunServerScriptUnsafe("unsafe_client@unsafe_MoveItemBody2Crit", item.Id, bodyId, 0, "", null);
+                        if(!chosen.IsAnimPlaying())
+                            chosen.Animate(0, ANIM2_PICKUP);
+                        return "";
+                    }
+                }
+            }
+			disableItemMove = false;
+        }
+
+
+        if(lookType == ITEM_LOOK_INVENTORY || lookType == ITEM_LOOK_BARTER)
+        {
+            string _name = showPrefix(item)+GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item));
+            if(IsLexem(item, "$-"))
+                _name = GetLexem(item, "$-");
+            result += "  " + _name + "\n";
+			result += " |-16711936 ";
+        }
+		if(item.GetType() == ITEM_TYPE_WEAPON && !item.IsStackable())
+			{
+			switch(item.Val1)
+				{
+				case 0: result += "|-1   " + item.Val0 + "/10000 xp |-16711936 "; break;
+				case 1: result += "|-1   " + item.Val0 + "/75000 xp |-16711936 "; break;
+				case 2: result += "|-1   " + item.Val0 + "/150000 xp |-16711936 "; break;
+				case 3: result += "|-1   " + item.Val0 + "/1000000 xp |-16711936 "; break;
+				case 4: result += "|-1   " + item.Val0 + "/5000000 xp |-16711936 "; break;
+				case 5: result += "|-1   " + item.Val0 + "/50000000 xp |-16711936 "; break;
+				case 6: result += "|-1   Max Level |-16711936 "; break;
+				}
+			}
+			
+			if(item.GetType() == ITEM_TYPE_ARMOR && !item.IsStackable() && !isHelmet(item))
+			{
+			switch(item.Val1)
+				{
+				case 0: result += "|-1   " + item.Val0 + "/15000 xp |-16711936 "; break;
+				case 1: result += "|-1   " + item.Val0 + "/100000 xp |-16711936 "; break;
+				case 2: result += "|-1   " + item.Val0 + "/200000 xp |-16711936 "; break;
+				case 3: result += "|-1   " + item.Val0 + "/1250000 xp |-16711936 "; break;
+				case 4: result += "|-1   " + item.Val0 + "/6000000 xp |-16711936 "; break;
+				case 5: result += "|-1   " + item.Val0 + "/50000000 xp |-16711936 "; break;
+				case 6: result += "|-1   Max Level |-16711936 "; break;
+				}
+			}
+			if(item.GetType() == ITEM_TYPE_WEAPON || item.GetType() == ITEM_TYPE_ARMOR )
+			if(item.Val6>0 || item.Val3>0)
+			{
+			result += "\n   Perks:";
+			switch(item.Val6)
+				{
+				case 1: result += "\n   Bonus Ranged Damage "; break;
+				case 2: result += "\n   Bonus Damage "; break;
+				case 3: result += "\n   Bonus Attack "; break;
+				case 4: result += "\n   Scoped "; break;
+				case 5: result += "\n   Better Critical "; break;
+				case 6: result += "\n   Fast Trigger "; break;
+				case 7: result += "\n   Ammo Upgrade "; break;
+				case 8: result += "\n   Bonus Rate of Fire "; break;
+				case 9: result += "\n   Slayer "; break;
+				case 10: result += "\n   Destroyer "; break;
+				case 11: result += "\n   Knockback "; break;
+				case 12: result += "\n   Long Range "; break;
+				case 13: result += "\n   Penetrate "; break;
+				case 14: result += "\n   Poisoned "; break;
+				case 15: result += "\n   Frozen Queen "; break;
+				case 16: result += "\n   Killing Spree "; break;
+				case 17: result += "\n   Life Steal "; break;
+				case 18: result += "\n   Chip Shot "; break;
+				case 19: result += "\n   Gain Strength "; break;
+				case 20: result += "\n   Gain Perception "; break;
+				case 21: result += "\n   Gain Endurance "; break;
+				case 22: result += "\n   Gain Charisma "; break;
+				case 23: result += "\n   Gain Intelligence "; break;
+				case 24: result += "\n   Gain Agility "; break;
+				case 25: result += "\n   Gain Luck "; break;
+				case 26: result += "\n   Cured "; break;
+				case 27: result += "\n   Laser Reflector "; break;
+				case 28: result += "\n   Anty-Termal System "; break;
+				case 29: result += "\n   Defense Enhancement "; break;
+				case 30: result += "\n   Advanced Plate "; break;
+				case 31: result += "\n   Mirror System "; break;
+				case 32: result += "\n   Tesla Addition "; break;
+				case 33: result += "\n   Shock Protection "; break;
+				case 34: result += "\n   Firegeckon's Enhancement"; break;
+				case 35: result += "\n   Special Force Bonus "; break;
+				case 36: result += "\n   Regeneration "; break;
+				case 37: result += "\n   Fill The Gaps "; break;
+				case 38: result += "\n   Heavy "; break;
+				case 39: result += "\n   Utility "; break;
+				case 40: result += "\n   Bonus Move "; break;
+				case 41: result += "\n   Heavy Stonewall "; break;
+				case 42: result += "\n   Terminator "; break;
+				case 43: result += "\n   Explosive Belt "; break;
+				case 44: result += "\n   Tesla Attacker"; break;
+				case 45: result += "\n   Speed Mechanism "; break;
+				case 46: result += "\n   Sneaky "; break;
+				case 47: result += "\n   More Criticals "; break;
+				case 48: result += "\n   Lethal Protection "; break;
+				case 100: result += "\n   Enhancement Knockout "; break;
+				case 101: result += "\n   More Bonus Damage "; break;
+				case 102: result += "\n   Sniper "; break;
+				case 103: result += "\n   Bounty Hunter "; break;
+				case 104: result += "\n   Bonus Bullets Damage "; break;
+				case 105: result += "\n   Gifted"; break;
+				case 106: result += "\n   Advanced Defense "; break;
+				case 107: result += "\n   Super Regen "; break;
+				case 108: result += "\n   Powered "; break;
+				case 109: result += "\n   Anty-Crit "; break;
+				case 59: result += "\n   Iron Skin "; break;
+				case 60: result += "\n   Survivalist "; break;
+				case 61: result += "\n   Strategic Improvement "; break;
+				case 62: result += "\n   Smasher! "; break;
+				case 63: result += "\n   Integrated Gloves "; break;
+				case 64: result += "\n   Defensive Belt "; break;
+				case 65: result += "\n   Spiked "; break;
+				case 66: result += "\n   More Critical Damage "; break;
+				case 67: result += "\n   Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val7>0)
+			{
+			switch(item.Val7)
+				{
+				case 1: result += "\n   Bonus Ranged Damage "; break;
+				case 2: result += "\n   Bonus Damage "; break;
+				case 3: result += "\n   Bonus Attack "; break;
+				case 4: result += "\n   Scoped "; break;
+				case 5: result += "\n   Better Critical "; break;
+				case 6: result += "\n   Fast Trigger "; break;
+				case 7: result += "\n   Ammo Upgrade "; break;
+				case 8: result += "\n   Bonus Rate of Fire "; break;
+				case 9: result += "\n   Slayer "; break;
+				case 10: result += "\n   Destroyer "; break;
+				case 11: result += "\n   Knockback "; break;
+				case 12: result += "\n   Long Range "; break;
+				case 13: result += "\n   Penetrate "; break;
+				case 14: result += "\n   Poisoned "; break;
+				case 15: result += "\n   Frozen Queen "; break;
+				case 16: result += "\n   Killing Spree "; break;
+				case 17: result += "\n   Life Steal "; break;
+				case 18: result += "\n   Chip Shot "; break;
+				case 19: result += "\n   Gain Strength "; break;
+				case 20: result += "\n   Gain Perception "; break;
+				case 21: result += "\n   Gain Endurance "; break;
+				case 22: result += "\n   Gain Charisma "; break;
+				case 23: result += "\n   Gain Intelligence "; break;
+				case 24: result += "\n   Gain Agility "; break;
+				case 25: result += "\n   Gain Luck "; break;
+				case 26: result += "\n   Cured "; break;
+				case 27: result += "\n   Laser Reflector "; break;
+				case 28: result += "\n   Anty-Termal System "; break;
+				case 29: result += "\n   Defense Enhancement "; break;
+				case 30: result += "\n   Advanced Plate "; break;
+				case 31: result += "\n   Mirror System "; break;
+				case 32: result += "\n   Tesla Addition "; break;
+				case 33: result += "\n   Shock Protection "; break;
+				case 34: result += "\n   Firegeckon's Enhancement"; break;
+				case 35: result += "\n   Special Force Bonus "; break;
+				case 36: result += "\n   Regeneration "; break;
+				case 37: result += "\n   Fill The Gaps "; break;
+				case 38: result += "\n   Heavy "; break;
+				case 39: result += "\n   Utility "; break;
+				case 40: result += "\n   Bonus Move "; break;
+				case 41: result += "\n   Heavy Stonewall "; break;
+				case 42: result += "\n   Terminator "; break;
+				case 43: result += "\n   Explosive Belt "; break;
+				case 44: result += "\n   Tesla Attacker"; break;
+				case 45: result += "\n   Speed Mechanism "; break;
+				case 46: result += "\n   Sneaky "; break;
+				case 47: result += "\n   More Criticals "; break;
+				case 48: result += "\n   Lethal Protection "; break;
+				case 100: result += "\n   Enhancement Knockout "; break;
+				case 101: result += "\n   More Bonus Damage "; break;
+				case 102: result += "\n   Sniper "; break;
+				case 103: result += "\n   Bounty Hunter "; break;
+				case 104: result += "\n   Bonus Bullets Damage "; break;
+				case 105: result += "\n   Gifted"; break;
+				case 106: result += "\n   Advanced Defense "; break;
+				case 107: result += "\n   Super Regen "; break;
+				case 108: result += "\n   Powered "; break;
+				case 109: result += "\n   Anty-Crit "; break;
+				case 59: result += "\n   Iron Skin "; break;
+				case 60: result += "\n   Survivalist "; break;
+				case 61: result += "\n   Strategic Improvement "; break;
+				case 62: result += "\n   Smasher! "; break;
+								case 63: result += "\n   Integrated Gloves "; break;
+				case 64: result += "\n   Defensive Belt "; break;
+				case 65: result += "\n   Spiked "; break;
+				case 66: result += "\n   More Critical Damage "; break;
+				case 67: result += "\n   Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val8>0)
+			{
+			switch(item.Val8)
+				{
+				case 1: result += "\n   Bonus Ranged Damage "; break;
+				case 2: result += "\n   Bonus Damage "; break;
+				case 3: result += "\n   Bonus Attack "; break;
+				case 4: result += "\n   Scoped "; break;
+				case 5: result += "\n   Better Critical "; break;
+				case 6: result += "\n   Fast Trigger "; break;
+				case 7: result += "\n   Ammo Upgrade "; break;
+				case 8: result += "\n   Bonus Rate of Fire "; break;
+				case 9: result += "\n   Slayer "; break;
+				case 10: result += "\n   Destroyer "; break;
+				case 11: result += "\n   Knockback "; break;
+				case 12: result += "\n   Long Range "; break;
+				case 13: result += "\n   Penetrate "; break;
+				case 14: result += "\n   Poisoned "; break;
+				case 15: result += "\n   Frozen Queen "; break;
+				case 16: result += "\n   Killing Spree "; break;
+				case 17: result += "\n   Life Steal "; break;
+				case 18: result += "\n   Chip Shot "; break;
+				case 19: result += "\n   Gain Strength "; break;
+				case 20: result += "\n   Gain Perception "; break;
+				case 21: result += "\n   Gain Endurance "; break;
+				case 22: result += "\n   Gain Charisma "; break;
+				case 23: result += "\n   Gain Intelligence "; break;
+				case 24: result += "\n   Gain Agility "; break;
+				case 25: result += "\n   Gain Luck "; break;
+				case 26: result += "\n   Cured "; break;
+				case 27: result += "\n   Laser Reflector "; break;
+				case 28: result += "\n   Anty-Termal System "; break;
+				case 29: result += "\n   Defense Enhancement "; break;
+				case 30: result += "\n   Advanced Plate "; break;
+				case 31: result += "\n   Mirror System "; break;
+				case 32: result += "\n   Tesla Addition "; break;
+				case 33: result += "\n   Shock Protection "; break;
+				case 34: result += "\n   Firegeckon's Enhancement"; break;
+				case 35: result += "\n   Special Force Bonus "; break;
+				case 36: result += "\n   Regeneration "; break;
+				case 37: result += "\n   Fill The Gaps "; break;
+				case 38: result += "\n   Heavy "; break;
+				case 39: result += "\n   Utility "; break;
+				case 40: result += "\n   Bonus Move "; break;
+				case 41: result += "\n   Heavy Stonewall "; break;
+				case 42: result += "\n   Terminator "; break;
+				case 43: result += "\n   Explosive Belt "; break;
+				case 44: result += "\n   Tesla Attacker"; break;
+				case 45: result += "\n   Speed Mechanism "; break;
+				case 46: result += "\n   Sneaky "; break;
+				case 47: result += "\n   More Criticals "; break;
+				case 48: result += "\n   Lethal Protection "; break;
+				case 100: result += "\n   Enhancement Knockout "; break;
+				case 101: result += "\n   More Bonus Damage "; break;
+				case 102: result += "\n   Sniper "; break;
+				case 103: result += "\n   Bounty Hunter "; break;
+				case 104: result += "\n   Bonus Bullets Damage "; break;
+				case 105: result += "\n   Gifted"; break;
+				case 106: result += "\n   Advanced Defense "; break;
+				case 107: result += "\n   Super Regen "; break;
+				case 108: result += "\n   Powered "; break;
+				case 109: result += "\n   Anty-Crit "; break;
+				case 59: result += "\n   Iron Skin "; break;
+				case 60: result += "\n   Survivalist "; break;
+				case 61: result += "\n   Strategic Improvement "; break;
+				case 62: result += "\n   Smasher! "; break;
+								case 63: result += "\n   Integrated Gloves "; break;
+				case 64: result += "\n   Defensive Belt "; break;
+				case 65: result += "\n   Spiked "; break;
+				case 66: result += "\n   More Critical Damage "; break;
+				case 67: result += "\n   Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val5>0)
+			{
+			switch(item.Val5)
+				{
+				case 1: result += "\n   Bonus Ranged Damage "; break;
+				case 2: result += "\n   Bonus Damage "; break;
+				case 3: result += "\n   Bonus Attack "; break;
+				case 4: result += "\n   Scoped "; break;
+				case 5: result += "\n   Better Critical "; break;
+				case 6: result += "\n   Fast Trigger "; break;
+				case 7: result += "\n   Ammo Upgrade "; break;
+				case 8: result += "\n   Bonus Rate of Fire "; break;
+				case 9: result += "\n   Slayer "; break;
+				case 10: result += "\n   Destroyer "; break;
+				case 11: result += "\n   Knockback "; break;
+				case 12: result += "\n   Long Range "; break;
+				case 13: result += "\n   Penetrate "; break;
+				case 14: result += "\n   Poisoned "; break;
+				case 15: result += "\n   Frozen Queen "; break;
+				case 16: result += "\n   Killing Spree "; break;
+				case 17: result += "\n   Life Steal "; break;
+				case 18: result += "\n   Chip Shot "; break;
+				case 19: result += "\n   Gain Strength "; break;
+				case 20: result += "\n   Gain Perception "; break;
+				case 21: result += "\n   Gain Endurance "; break;
+				case 22: result += "\n   Gain Charisma "; break;
+				case 23: result += "\n   Gain Intelligence "; break;
+				case 24: result += "\n   Gain Agility "; break;
+				case 25: result += "\n   Gain Luck "; break;
+				case 26: result += "\n   Cured "; break;
+				case 27: result += "\n   Laser Reflector "; break;
+				case 28: result += "\n   Anty-Termal System "; break;
+				case 29: result += "\n   Defense Enhancement "; break;
+				case 30: result += "\n   Advanced Plate "; break;
+				case 31: result += "\n   Mirror System "; break;
+				case 32: result += "\n   Tesla Addition "; break;
+				case 33: result += "\n   Shock Protection "; break;
+				case 34: result += "\n   Firegeckon's Enhancement"; break;
+				case 35: result += "\n   Special Force Bonus "; break;
+				case 36: result += "\n   Regeneration "; break;
+				case 37: result += "\n   Fill The Gaps "; break;
+				case 38: result += "\n   Heavy "; break;
+				case 39: result += "\n   Utility "; break;
+				case 40: result += "\n   Bonus Move "; break;
+				case 41: result += "\n   Heavy Stonewall "; break;
+				case 42: result += "\n   Terminator "; break;
+				case 43: result += "\n   Explosive Belt "; break;
+				case 44: result += "\n   Tesla Attacker"; break;
+				case 45: result += "\n   Speed Mechanism "; break;
+				case 46: result += "\n   Sneaky "; break;
+				case 47: result += "\n   More Criticals "; break;
+				case 48: result += "\n   Lethal Protection "; break;
+				case 100: result += "\n   Enhancement Knockout "; break;
+				case 101: result += "\n   More Bonus Damage "; break;
+				case 102: result += "\n   Sniper "; break;
+				case 103: result += "\n   Bounty Hunter "; break;
+				case 104: result += "\n   Bonus Bullets Damage "; break;
+				case 105: result += "\n   Gifted"; break;
+				case 106: result += "\n   Advanced Defense "; break;
+				case 107: result += "\n   Super Regen "; break;
+				case 108: result += "\n   Powered "; break;
+				case 109: result += "\n   Anty-Crit "; break;
+				case 59: result += "\n   Iron Skin "; break;
+				case 60: result += "\n   Survivalist "; break;
+				case 61: result += "\n   Strategic Improvement "; break;
+				case 62: result += "\n   Smasher! "; break;
+								case 63: result += "\n   Integrated Gloves "; break;
+				case 64: result += "\n   Defensive Belt "; break;
+				case 65: result += "\n   Spiked "; break;
+				case 66: result += "\n   More Critical Damage "; break;
+				case 67: result += "\n   Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val4>0)
+			{
+			switch(item.Val4)
+				{
+				case 1: result += "\n   Bonus Ranged Damage "; break;
+				case 2: result += "\n   Bonus Damage "; break;
+				case 3: result += "\n   Bonus Attack "; break;
+				case 4: result += "\n   Scoped "; break;
+				case 5: result += "\n   Better Critical "; break;
+				case 6: result += "\n   Fast Trigger "; break;
+				case 7: result += "\n   Ammo Upgrade "; break;
+				case 8: result += "\n   Bonus Rate of Fire "; break;
+				case 9: result += "\n   Slayer "; break;
+				case 10: result += "\n   Destroyer "; break;
+				case 11: result += "\n   Knockback "; break;
+				case 12: result += "\n   Long Range "; break;
+				case 13: result += "\n   Penetrate "; break;
+				case 14: result += "\n   Poisoned "; break;
+				case 15: result += "\n   Frozen Queen "; break;
+				case 16: result += "\n   Killing Spree "; break;
+				case 17: result += "\n   Life Steal "; break;
+				case 18: result += "\n   Chip Shot "; break;
+				case 19: result += "\n   Gain Strength "; break;
+				case 20: result += "\n   Gain Perception "; break;
+				case 21: result += "\n   Gain Endurance "; break;
+				case 22: result += "\n   Gain Charisma "; break;
+				case 23: result += "\n   Gain Intelligence "; break;
+				case 24: result += "\n   Gain Agility "; break;
+				case 25: result += "\n   Gain Luck "; break;
+				case 26: result += "\n   Cured "; break;
+				case 27: result += "\n   Laser Reflector "; break;
+				case 28: result += "\n   Anty-Termal System "; break;
+				case 29: result += "\n   Defense Enhancement "; break;
+				case 30: result += "\n   Advanced Plate "; break;
+				case 31: result += "\n   Mirror System "; break;
+				case 32: result += "\n   Tesla Addition "; break;
+				case 33: result += "\n   Shock Protection "; break;
+				case 34: result += "\n   Firegeckon's Enhancement"; break;
+				case 35: result += "\n   Special Force Bonus "; break;
+				case 36: result += "\n   Regeneration "; break;
+				case 37: result += "\n   Fill The Gaps "; break;
+				case 38: result += "\n   Heavy "; break;
+				case 39: result += "\n   Utility "; break;
+				case 40: result += "\n   Bonus Move "; break;
+				case 41: result += "\n   Heavy Stonewall "; break;
+				case 42: result += "\n   Terminator "; break;
+				case 43: result += "\n   Explosive Belt "; break;
+				case 44: result += "\n   Tesla Attacker"; break;
+				case 45: result += "\n   Speed Mechanism "; break;
+				case 46: result += "\n   Sneaky "; break;
+				case 47: result += "\n   More Criticals "; break;
+				case 48: result += "\n   Lethal Protection "; break;
+				case 100: result += "\n   Enhancement Knockout "; break;
+				case 101: result += "\n   More Bonus Damage "; break;
+				case 102: result += "\n   Sniper "; break;
+				case 103: result += "\n   Bounty Hunter "; break;
+				case 104: result += "\n   Bonus Bullets Damage "; break;
+				case 105: result += "\n   Gifted"; break;
+				case 106: result += "\n   Advanced Defense "; break;
+				case 107: result += "\n   Super Regen "; break;
+				case 108: result += "\n   Powered "; break;
+				case 109: result += "\n   Anty-Crit "; break;
+				case 59: result += "\n   Iron Skin "; break;
+				case 60: result += "\n   Survivalist "; break;
+				case 61: result += "\n   Strategic Improvement "; break;
+				case 62: result += "\n   Smasher! "; break;
+								case 63: result += "\n   Integrated Gloves "; break;
+				case 64: result += "\n   Defensive Belt "; break;
+				case 65: result += "\n   Spiked "; break;
+				case 66: result += "\n   More Critical Damage "; break;
+				case 67: result += "\n   Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val3>0)
+			{
+			switch(item.Val3)
+				{
+				case 1: result += "\n   Bonus Ranged Damage "; break;
+				case 2: result += "\n   Bonus Damage "; break;
+				case 3: result += "\n   Bonus Attack "; break;
+				case 4: result += "\n   Scoped "; break;
+				case 5: result += "\n   Better Critical "; break;
+				case 6: result += "\n   Fast Trigger "; break;
+				case 7: result += "\n   Ammo Upgrade "; break;
+				case 8: result += "\n   Bonus Rate of Fire "; break;
+				case 9: result += "\n   Slayer "; break;
+				case 10: result += "\n   Destroyer "; break;
+				case 11: result += "\n   Knockback "; break;
+				case 12: result += "\n   Long Range "; break;
+				case 13: result += "\n   Penetrate "; break;
+				case 14: result += "\n   Poisoned "; break;
+				case 15: result += "\n   Frozen Queen "; break;
+				case 16: result += "\n   Killing Spree "; break;
+				case 17: result += "\n   Life Steal "; break;
+				case 18: result += "\n   Chip Shot "; break;
+				case 19: result += "\n   Gain Strength "; break;
+				case 20: result += "\n   Gain Perception "; break;
+				case 21: result += "\n   Gain Endurance "; break;
+				case 22: result += "\n   Gain Charisma "; break;
+				case 23: result += "\n   Gain Intelligence "; break;
+				case 24: result += "\n   Gain Agility "; break;
+				case 25: result += "\n   Gain Luck "; break;
+				case 26: result += "\n   Cured "; break;
+				case 27: result += "\n   Laser Reflector "; break;
+				case 28: result += "\n   Anty-Termal System "; break;
+				case 29: result += "\n   Defense Enhancement "; break;
+				case 30: result += "\n   Advanced Plate "; break;
+				case 31: result += "\n   Mirror System "; break;
+				case 32: result += "\n   Tesla Addition "; break;
+				case 33: result += "\n   Shock Protection "; break;
+				case 34: result += "\n   Firegeckon's Enhancement"; break;
+				case 35: result += "\n   Special Force Bonus "; break;
+				case 36: result += "\n   Regeneration "; break;
+				case 37: result += "\n   Fill The Gaps "; break;
+				case 38: result += "\n   Heavy "; break;
+				case 39: result += "\n   Utility "; break;
+				case 40: result += "\n   Bonus Move "; break;
+				case 41: result += "\n   Heavy Stonewall "; break;
+				case 42: result += "\n   Terminator "; break;
+				case 43: result += "\n   Explosive Belt "; break;
+				case 44: result += "\n   Tesla Attacker"; break;
+				case 45: result += "\n   Speed Mechanism "; break;
+				case 46: result += "\n   Sneaky "; break;
+				case 47: result += "\n   More Criticals "; break;
+				case 48: result += "\n   Lethal Protection "; break;
+				case 100: result += "\n   Enhancement Knockout "; break;
+				case 101: result += "\n   More Bonus Damage "; break;
+				case 102: result += "\n   Sniper "; break;
+				case 103: result += "\n   Bounty Hunter "; break;
+				case 104: result += "\n   Bonus Bullets Damage "; break;
+				case 105: result += "\n   Gifted"; break;
+				case 106: result += "\n   Advanced Defense "; break;
+				case 107: result += "\n   Super Regen "; break;
+				case 108: result += "\n   Powered "; break;
+				case 109: result += "\n   Anty-Crit "; break;
+				case 59: result += "\n   Iron Skin "; break;
+				case 60: result += "\n   Survivalist "; break;
+				case 61: result += "\n   Strategic Improvement "; break;
+				case 62: result += "\n   Smasher! "; break;
+								case 63: result += "\n   Integrated Gloves "; break;
+				case 64: result += "\n   Defensive Belt "; break;
+				case 65: result += "\n   Spiked "; break;
+				case 66: result += "\n   More Critical Damage "; break;
+				case 67: result += "\n   Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val2>48)
+			{
+			switch(item.Val2)
+				{
+				case 1: result += "\n   Bonus Ranged Damage "; break;
+				case 2: result += "\n   Bonus Damage "; break;
+				case 3: result += "\n   Bonus Attack "; break;
+				case 4: result += "\n   Scoped "; break;
+				case 5: result += "\n   Better Critical "; break;
+				case 6: result += "\n   Fast Trigger "; break;
+				case 7: result += "\n   Ammo Upgrade "; break;
+				case 8: result += "\n   Bonus Rate of Fire "; break;
+				case 9: result += "\n   Slayer "; break;
+				case 10: result += "\n   Destroyer "; break;
+				case 11: result += "\n   Knockback "; break;
+				case 12: result += "\n   Long Range "; break;
+				case 13: result += "\n   Penetrate "; break;
+				case 14: result += "\n   Poisoned "; break;
+				case 15: result += "\n   Frozen Queen "; break;
+				case 16: result += "\n   Killing Spree "; break;
+				case 17: result += "\n   Life Steal "; break;
+				case 18: result += "\n   Chip Shot "; break;
+				case 19: result += "\n   Gain Strength "; break;
+				case 20: result += "\n   Gain Perception "; break;
+				case 21: result += "\n   Gain Endurance "; break;
+				case 22: result += "\n   Gain Charisma "; break;
+				case 23: result += "\n   Gain Intelligence "; break;
+				case 24: result += "\n   Gain Agility "; break;
+				case 25: result += "\n   Gain Luck "; break;
+				case 26: result += "\n   Cured "; break;
+				case 27: result += "\n   Laser Reflector "; break;
+				case 28: result += "\n   Anty-Termal System "; break;
+				case 29: result += "\n   Defense Enhancement "; break;
+				case 30: result += "\n   Advanced Plate "; break;
+				case 31: result += "\n   Mirror System "; break;
+				case 32: result += "\n   Tesla Addition "; break;
+				case 33: result += "\n   Shock Protection "; break;
+				case 34: result += "\n   Firegeckon's Enhancement"; break;
+				case 35: result += "\n   Special Force Bonus "; break;
+				case 36: result += "\n   Regeneration "; break;
+				case 37: result += "\n   Fill The Gaps "; break;
+				case 38: result += "\n   Heavy "; break;
+				case 39: result += "\n   Utility "; break;
+				case 40: result += "\n   Bonus Move "; break;
+				case 41: result += "\n   Heavy Stonewall "; break;
+				case 42: result += "\n   Terminator "; break;
+				case 43: result += "\n   Explosive Belt "; break;
+				case 44: result += "\n   Tesla Attacker"; break;
+				case 45: result += "\n   Speed Mechanism "; break;
+				case 46: result += "\n   Sneaky "; break;
+				case 47: result += "\n   More Criticals "; break;
+				case 48: result += "\n   Lethal Protection "; break;
+				case 100: result += "\n   Enhancement Knockout "; break;
+				case 101: result += "\n   More Bonus Damage "; break;
+				case 102: result += "\n   Sniper "; break;
+				case 103: result += "\n   Bounty Hunter "; break;
+				case 104: result += "\n   Bonus Bullets Damage "; break;
+				case 105: result += "\n   Gifted"; break;
+				case 106: result += "\n   Advanced Defense "; break;
+				case 107: result += "\n   Super Regen "; break;
+				case 108: result += "\n   Powered "; break;
+				case 109: result += "\n   Anty-Crit "; break;
+				case 59: result += "\n   Iron Skin "; break;
+				case 60: result += "\n   Survivalist "; break;
+				case 61: result += "\n   Strategic Improvement "; break;
+				case 62: result += "\n   Smasher! "; break;
+								case 63: result += "\n   Integrated Gloves "; break;
+				case 64: result += "\n   Defensive Belt "; break;
+				case 65: result += "\n   Spiked "; break;
+				case 66: result += "\n   More Critical Damage "; break;
+				case 67: result += "\n   Bonus Attack Speed "; break;
+				}
+			}
+		result += " \n";
+        if(item.GetProtoId() == PID_HOLODISK && item.HolodiskNumber != 0)
+            result += GetMsgStr(TEXTMSG_HOLO, STR_HOLO_INFO_NAME(item.HolodiskNumber));
+        else if(item.GetProtoId() == PID_DOGTAGS)
+        {
+            bool full = false;
+            if(lookType == ITEM_LOOK_INVENTORY &&
+               _DogTagType(item) != DT_TYPE_BLANK &&
+               IsLexem(item, "$owner") &&
+               IsLexem(item, "$info"))
+                full = true;
+            if(full)
+                result += GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item) + 1);
+            else
+                result += GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item) + 2);
+
+            stringReplaceText(result, "\\n", "\n");
+            string type = "blank";
+            switch(_DogTagType(item))
+            {
+            case DT_TYPE_MILITARY:
+                type = "military";
+                break;
+            case DT_TYPE_CUSTOM:
+                type = "custom-made";
+                break;
+            }
+            stringReplaceText(result, "TYPE", type);
+        }
+        else
+        {
+            string _description = GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item) + 1);
+            if(IsLexem(item, "$~"))
+                _description = GetLexem(item, "$~");
+			string map_info = "";
+							if(item.Proto.ProtoId == PID_MAP_TO_BASE)
+								{
+								switch(item.Val0)
+									{
+									case 1200: map_info = "tent "; break;
+									case 1201: map_info = "cave "; break;
+									case 1202: map_info = "ruins hideout "; break;
+									case 1203: map_info = "safehouse "; break;
+									case 1204: map_info = "small bunker "; break;
+									case 1205: map_info = "small shelter "; break;
+									case 529: map_info = "library "; break;
+									case 524: map_info = "small cabin "; break;
+									case 523: map_info = "church "; break;
+									case 520: map_info = "basement "; break;
+									case 460: map_info = "Nuka Cola outpost "; break;
+									case 459: map_info = "storage "; break;
+									case 458: map_info = "parking "; break;
+									case 246: map_info = "trapper camp "; break;
+									case 245: map_info = "gas station "; break;
+									case 210: map_info = "depot "; break;
+									case 207: map_info = "cave HQ "; break;
+									case 205: map_info = "scrapheap "; break;
+									case 204: map_info = "blades HQ "; break;
+									case 203: map_info = "khans HQ "; break;
+									case 202: map_info = "camp HQ "; break;
+									case 75: map_info = "cave HQ "; break;
+									case 435: map_info = "Enclave bunker "; break;
+									case 436: map_info = "Brotherhood of Steel bunker "; break;
+									case 437: map_info = "Vault City Outpost "; break;
+									case 439: map_info = "Vault "; break;
+									case 481: map_info = "NCR port "; break;
+									case 521: map_info = "Casino "; break;
+									case 208: map_info = "Old Bunker "; break;
+									case 528: map_info = "ruined jail "; break;
+									case 440: map_info = "Military Base "; break;
+									case 463: map_info = "Enclave Depot "; break;
+									case 464: map_info = "president shelter "; break;
+									case 467: map_info = "NCR bunker "; break;
+									case 468: map_info = "Homeland "; break;
+									case 469: map_info = "Underground station "; break;
+									case 470: map_info = "Military Depot "; break;
+									case 471: map_info = "Advanced outpost "; break;
+									case 472: map_info = "Slavery base "; break;
+									case 480: map_info = "Underground station MK.II "; break;
+									case 482: map_info = "Brotherhood of Steel outpost "; break;
+									case 518: map_info = "Cave labs "; break;
+									case 525: map_info = "Large church "; break;
+									case 373: map_info = "Sky Tower, personal dungeon only for 1 character, choose wisely "; break;
+									case 374: map_info = "Fake Vault, personal dungeon only for 1 character, choose wisely  "; break;
+									case 375: map_info = "L.A Raiders, personal dungeon only for 1 character, choose wisely  "; break;
+									case 383: map_info = "Broken Ship, personal dungeon only for 1 character, choose wisely  "; break;
+									case 384: map_info = "Interplay studio, don't use car for it! "; break;
+									case 1206: map_info = "High Tech Bunker with T4 Machinery"; break;
+									default: map_info = "Unknown "; break;
+								
+									}
+								}
+            result += _description + map_info;
+			
+            if(IsLexem(item, "$+"))
+                result += "\n" + GetLexem(item, "$+");
+        }
+
+        if(lookType != ITEM_LOOK_MAP)
+        {
+            if(item.GetType() == ITEM_TYPE_WEAPON)
+            {
+                // Ammo load
+                if(item.Proto.Weapon_MaxAmmoCount > 0)
+                {
+                    result += "\n";
+					int rounds = item.Proto.Weapon_Round_0;
+					int rounds2 = item.Proto.Weapon_Round_1;
+					CritterCl@ Chosene = GetChosen();
+					if(Chosene.Param[PE_BONUS_RANGED_DAMAGE] > 1 && Chosene.Param[PE_MORE_RANGED_DAMAGE] > 0 && rounds > 1)
+						rounds++;
+					string roundtext = "" + rounds;
+					if(rounds2>0)
+						{
+						if(Chosene.Param[PE_BONUS_RANGED_DAMAGE] > 1 && Chosene.Param[PE_MORE_RANGED_DAMAGE] > 0 && rounds2 > 1)
+						rounds2++;
+						roundtext += ":" + rounds2;
+						}
+                    string str = GetMsgStr(TEXTMSG_GAME, STR_INV_HAS_SHOTS);
+                    str = ReplaceText(str, "VALUE", item.AmmoCount);
+                    str = ReplaceText(str, "MAX_VALUE", item.Proto.Weapon_MaxAmmoCount);
+                    str = ReplaceText(str, "AMMO", GetMsgStr(TEXTMSG_GAME, STR_CALIBER(item.Proto.Weapon_Caliber)));
+                    result += str;
+					result += "\nRounds: " + roundtext;
+					result += "\nDamage: " + item.Proto.Weapon_DmgMin_0 + "-" + item.Proto.Weapon_DmgMax_0;
+					result += "\nRange: " + item.Proto.Weapon_MaxDist_0 + " " + item.Proto.Weapon_MaxDist_1;
+                }
+
+                /*if(item.Proto.Weapon_Perk != 0)
+                {
+                    string str = GetMsgStr(TEXTMSG_GAME, STR_WEAPON_PERK(item.Proto.Weapon_Perk));
+                    result += "\nPerk: " + str + ".";
+                }*/
+
+                if(item.Proto.Weapon_MinStrength > 1)
+                {
+                    result += "\nMinimum Strength: " + item.Proto.Weapon_MinStrength;
+                }
+            }
+
+            else if(item.GetType() == ITEM_TYPE_ARMOR)
+            {
+                result += "\nCrit chance mod: " + (item.Proto.Armor_CMCritChance);
+                result += "\nCrit power mod: " + (item.Proto.Armor_CMCritPower);
+                if(item.GetProtoId() == PID_TESLA_ARMOR)
+                    result += "\nCharges: "+item.Charge+"/"+item.Proto.Misc_ChargeMax;
+				result += "\nNormal: DR: " + item.Proto.Armor_DRNormal + "% DT: " + item.Proto.Armor_DTNormal;
+				result += "\nLaser: DR: " + item.Proto.Armor_DRLaser + "% DT: " + item.Proto.Armor_DTLaser;
+				result += "\nFire: DR: " + item.Proto.Armor_DRFire + "% DT: " + item.Proto.Armor_DTFire;
+				result += "\nPlasma: DR: " + item.Proto.Armor_DRPlasma + "% DT: " + item.Proto.Armor_DTPlasma;
+				result += "\nExplode: DR: " + item.Proto.Armor_DRExplode + "% DT: " + item.Proto.Armor_DTExplode;
+				result += "\nElectro: DR: " + item.Proto.Armor_DRElectr + "% DT: " + item.Proto.Armor_DTElectr;
+            }
+
+
+            else if(item.GetType() == ITEM_TYPE_AMMO)
+            {
+                result += "\nDM mod: " + (item.Proto.Ammo_DmgMult) + "/" + (item.Proto.Ammo_DmgDiv);
+                result += "\nDR mod: " + (item.Proto.Ammo_DrMod) + "%";
+                result += "\nAC mod: " + (item.Proto.Ammo_AcMod);
+                if(COMBAT_AMMO_AP(item.Proto))
+                    result += "\nArmor Piercing";
+            }
+
+            else if(item.GetType() == ITEM_TYPE_MISC)
+            {
+                if(item.Proto.Misc_ToolSkillNum != 0)
+                {
+                    string str = GetMsgStr(TEXTMSG_GAME, STR_SKILL_NAME(item.Proto.Misc_ToolSkillNum));
+                    result += "\n" + str + " bonus: " + item.Proto.Misc_ToolSkillBonus + ".";
+                }
+            }
+            // Key id
+            else if(item.GetType() == ITEM_TYPE_KEY)
+                result += "\n" + ReplaceText(GetMsgStr(TEXTMSG_GAME, STR_INV_KEY_NUMBER), "KEY_ID", item.LockerId);
+
+            // Wear
+            if(item.IsDeteriorable())
+            {
+                uint8  flags = item.BrokenFlags;
+                uint8  brokenCount = item.BrokenCount;
+                uint16 wearCount = item.Deterioration;
+
+                // Broken level, procent
+                result += "\n";
+                if(FLAG(flags, BI_NOTRESC))
+                    result += GetMsgStr(TEXTMSG_GAME, STR_DETERIORATION_NO_RESC);
+                else if(FLAG(flags, BI_LOWBROKEN))
+                    result += GetMsgStr(TEXTMSG_GAME, STR_DETERIORATION_BROKEN_LOW);
+                else if(FLAG(flags, BI_NORMBROKEN))
+                    result += GetMsgStr(TEXTMSG_GAME, STR_DETERIORATION_BROKEN_NORM);
+                else if(FLAG(flags, BI_HIGHBROKEN))
+                    result += GetMsgStr(TEXTMSG_GAME, STR_DETERIORATION_BROKEN_HIGH);
+                else
+                    result += ReplaceText(ReplaceText(GetMsgStr(TEXTMSG_GAME, STR_DETERIORATION_PROCENT), "VALUE", 100 - wearCount * 100 / MAX_DETERIORATION), "MAXVALUE", 100 - brokenCount);
+
+                // Service
+                if(FLAG(flags, BI_SERVICE))
+                    result += "\n" + GetMsgStr(TEXTMSG_GAME, STR_DETERIORATION_SERVICE);
+
+                // Service ext
+                if(FLAG(flags, BI_SERVICE_EXT))
+                    result += "\n" + GetMsgStr(TEXTMSG_GAME, STR_DETERIORATION_SERVICE_EXT);
+
+                // Broken count
+                /*if(valid(chosen) && chosen.Param[PE_MR_FIXIT]!=0) result+="\n"+ReplaceText(GetMsgStr(TEXTMSG_GAME,STR_INV_WEAR_BROKEN_COUNT),"VALUE",brokenCount);*/
+            }
+
+            // Ingredients
+            if(HaveAnyIngredient(item))
+            {
+                array<string> ingredients;
+                uint          count = IngredientsNames(item, ingredients);
+                for(uint i = 0; i < count; i++)
+                {
+                    if(ingredients[i].length() > 0)
+                        result += "\nIngredient: " + ingredients[i];
+                }
+            }
+
+            // Weight
+            string weightString = GetMsgStr(TEXTMSG_GAME, STR_ITEM_WEIGHT_GRAMM);
+            if(item.Proto.Weight * item.GetCount() == 1)
+                weightString = ReplaceText(weightString, "grams.", "gram.");
+			
+
+
+            result += "\n" + ReplaceText(weightString, "VALUE", item.Proto.Weight * item.GetCount());
+			if(IsLexem(item, "$crafter")) result += "\nCrafter: " + GetLexem(item, "$crafter");
+			if(IsLexem(item, "$spawnedby")) result += "\nSpawned by: " + GetLexem(item, "$spawnedby");
+			
+			// Show bonuses
+
+			
+			if(item.GetProtoId() == PID_BOOK_OF_ACHIEVEMENT)
+			{
+				if(IsLexem(item, "$writtenby")) result += "\n\nWritten by: " + GetLexem(item, "$writtenby");
+				result += "\n\n" + (item.Val1 == 0 ? "Still waiting to be read." : "Someone has started read it.") + ".";
+				uint16 chapters = item.Val2 - 1;
+				result += "\nContains " + chapters + " " + (chapters > 1 ? "chapters" : "chapter") + " in total. (Level: " + item.Val2+ ")";
+				result += "\n" + item.Val0 + " " + (item.Val0 > 1 ? "chapters" : "chapter") + "left...";
+			}
+        }
+    }
+
+    // Format tags
+    return(FormatTags(result, item.Lexems));
+}
+
+int SelectWeaponBonus(ItemCl& it, int Int_Val_WeaponBonus)
+{
+	return 0;
+}
+
+string showItemBonus(ItemCl& it, int type, int value)
+{
+string result="";
+if(type==0) return result;
+if(it.GetType() == ITEM_TYPE_ARMOR)
+{
+	switch(type)
+	{
+		case 100: {result="\nNormal DT +" + value + "";break;}
+		case 101: {result="\nLaser DT +" + value + "";break;}
+		case 102: {result="\nFire DT +" + value + "";break;}
+		case 103: {result="\nPlasma DT +" + value + "";break;}
+		case 104: {result="\nExplode DT +" + value + "";break;}
+		case 105: {result="\nNormal DR +" + value + "%";break;}
+		case 106: {result="\nLaser DR +" + value + "%";break;}
+		case 107: {result="\nFire DR +" + value + "%";break;}
+		case 108: {result="\nPlasma DR +" + value + "%";break;}
+		case 109: {result="\nExplode DR +" + value + "%";break;}
+		case 110: {result="\nCrit Chance " + value + "";break;}
+		case 111: {result="\nCrit Power " + value + "";break;}
+		case 112: {result="\nAction Points +" + value + "";break;}
+		case 113: {result="\nRad Resist +" + value + "";break;}
+		case 114: {result="\nPoison Resist +" + value + "";break;}
+		case 115: {result="\nStrength +" + value + "";break;}
+		case 116: {result="\nPerception +" + value + "";break;}
+		case 117: {result="\nEndurance +" + value + "";break;}
+		case 118: {result="\nCharisma +" + value + "";break;}
+		case 119: {result="\nIntelligence +" + value + "";break;}
+		case 120: {result="\nAgility +" + value + "";break;}
+		case 121: {result="\nLuck +" + value + "";break;}
+		case 122: {result="\nCarry Weight +" + value + "";break;}
+		case 123: {result="\nHealing Rate +" + value + "";break;}
+		default: break;
+		}
+}
+else if(it.GetType() == ITEM_TYPE_WEAPON)
+{
+	switch(type)
+	{
+		case 100: {result="\nCrit Power +" + value + "";break;}
+		case 101: {result="\nCrit Chance +" + value + "";break;}
+		case 102: {result="\nMin dmg +" + value + "%";break;}
+		case 103: {result="\nMax dmg +" + value + "%";break;}
+		case 104: {result="\nAccuracy +" + value + "%";break;}
+		case 105: {result="\nAction points +" + value + "";break;}
+        case 106: {result="\nRange +" + value + "";break;}
+		default: break;
+		}
+}
+return result;
+}
+
+string showPrefix(ItemCl@ it)
+{
+	string result="";
+	if(it.Val6 > 0)
+		if(it.Val7 > 0 )
+			if(it.Val8 > 0)
+				if(it.Val5 > 0)
+					if(it.Val4 > 0)
+						if(it.Val1 == 7)
+							result += " |-65536 ";
+					else result += " |-256 ";
+				else result += " |-3394561 ";
+			else result += " |-16711681 ";
+		else result += " |-4210753 ";
+	else result += " |-4227008 ";
+	return result;
+}
+
+uint8[] Abbr = { 'F', 'H', 'L', 'M', 'N', 'R', 'S' };
+uint8[] AnStart = { 'A', 'a', 'E', 'e', 'I', 'i', 'O', 'o' };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Critter description. Look types look in _client_defines.fos, Critter look types.
+
+string critter_description(CritterCl& cr, int lookType)
+{
+    string result;
+    int    gender = cr.Param[ST_GENDER];
+	CritterCl@ chosen = GetChosen();
+    // Player
+    if(lookType == CRITTER_ONLY_NAME)
+    {
+        uint   dialog = cr.Param[ST_DIALOG_ID];
+        uint16 pid = cr.Pid;
+
+        // Only name
+        // if(lookType==CRITTER_ONLY_NAME)
+        {
+            
+			string head = (cr.IsPlayer() ? cr.Name : " ");
+
+            if(IsLexem(cr, "$@"))
+            {
+                head = GetLexem(cr, "$@");
+                if(head.rawLength() == 0)
+                    head = " ";
+
+                if(cr.IsPlayer() && head == " ")
+                    cr.ContourColor = 0xFF960000;
+                else if(cr.IsNpc() && head != " ")
+                    cr.ContourColor = 0xFF969600;
+
+                stringReplaceText(head, "|", "");
+                head = FormatTags(head, "");
+            }
+
+            if(IsGM())
+            {
+                array<string> gm;
+
+                string        id = "<" + cr.Id + ">";
+
+                if((cr.IsPlayer() && head != cr.Name) || (cr.IsNpc() && IsLexem(cr, "$@")))
+                {
+                    if(cr.IsPlayer())
+                        gm.insertLast("Player: " + cr.Name);
+                    else if(cr.IsNpc())
+                        gm.insertLast("NPC: " + GetMsgStr(TEXTMSG_DLG, STR_NPC_NAME(dialog, pid)));
+                }
+
+                if(__ShowCritId)
+                    gm.insertLast("ID: " + cr.Id);
+
+                if(cr.Param[MODE_HIDE] > 0)
+                    gm.insertLast("sneaked");
+
+                if(gm.length() > 0)
+                {
+                    head += "|" + COLOR_RGB(0xFF, 0xFF, 0xFF) + " ";
+                    for(uint g = 0, gLen = gm.length(); g < gLen; g++)
+                    {
+                        head += "\n(" + gm[g] + ")";
+                    }
+                }
+            }
+
+            cr.NameOnHead = head;
+			
+            if(cr.IsPlayer())
+            {
+                if(GUI_GetActiveMainScreen() == CLIENT_MAIN_SCREEN_GLOBAL_MAP)
+					result = (IsLexem(cr, "$name") ? GetLexem(cr, "$name") : cr.Name);             
+				else
+                    result = cr.Name;
+            }
+            else
+                result = cr.Name;
+				
+			
+        }
+		
+        return(result);
+    }
+
+    if(cr.IsPlayer())
+    {
+        if(lookType == CRITTER_ONLY_NAME)
+        {}         // already done
+
+        // Short info
+        if(lookType == CRITTER_LOOK_SHORT)
+        {
+            result += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK1(gender));
+            result += (IsLexem(cr, "$name") ? GetLexem(cr, "$name") : cr.Name);
+            result += ".";
+        }
+        // Full info
+        else
+        {
+            result += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK1(gender));
+
+            // Age
+            uint ageStr = GetMsgStrNumUpper(TEXTMSG_GAME, STR_CRIT_LOOK_AGE(gender, cr.Param[ST_AGE]));
+            if(ageStr != 0)
+                result += GetMsgStr(TEXTMSG_GAME, ageStr);
+            else
+                result += (IsLexem(cr, "$name") ? GetLexem(cr, "$name") : cr.Name);
+
+            // the block below is very outdated and would require refactoring before restoring (should this ever happen)
+
+            /*
+               // Condition
+               if(IsMsgStr(TEXTMSG_GAME,STR_CRIT_LOOK_COND(gender,cr.Cond,0)))
+               {
+                    result+=", ";
+                    result+=GetMsgStr(TEXTMSG_GAME,STR_CRIT_LOOK_COND(gender,cr.Cond,0));
+               }
+               result+=".";
+             */
+
+            // Perks
+            /*
+               for(int i=0;i<=KARMA_SEPARATED;i++)
+               {
+                    if(cr.Param[i]!=0 && IsMsgStr(TEXTMSG_GAME,STR_CRIT_LOOK_PERK(gender,i)))
+                    {
+                            result+=" ";
+                            result+=GetMsgStr(TEXTMSG_GAME,STR_CRIT_LOOK_PERK(gender,i));
+                    }
+               }
+             */
+            // if(result.length()>0 && result[result.length()-1]!='.') result+=".";
+        }
+    }
+    else     // !IsPlayer()
+    {
+        uint   dlgId = cr.Param[ST_DIALOG_ID];
+        uint16 npcPid = cr.Pid;
+        bool   defaultText = false;
+
+        if(lookType == CRITTER_ONLY_NAME)
+        {
+            // already done result=GetMsgStr(TEXTMSG_DLG,STR_NPC_NAME(dlgId,npcPid));
+        }
+        // Short info
+        if(lookType == CRITTER_LOOK_SHORT)
+        {
+            if(cr.IsLife() && IsMsgStr(TEXTMSG_DLG, STR_NPC_INFO_LIFE(dlgId, npcPid)))
+                result += GetMsgStr(TEXTMSG_DLG, STR_NPC_INFO_LIFE(dlgId, npcPid));
+            else if(cr.IsKnockout() && IsMsgStr(TEXTMSG_DLG, STR_NPC_INFO_KO(dlgId, npcPid)))
+                result += GetMsgStr(TEXTMSG_DLG, STR_NPC_INFO_KO(dlgId, npcPid));
+            else if(cr.IsDead() && IsMsgStr(TEXTMSG_DLG, STR_NPC_INFO_DEAD(dlgId, npcPid)))
+                result += GetMsgStr(TEXTMSG_DLG, STR_NPC_INFO_DEAD(dlgId, npcPid));
+            else
+                defaultText = true;
+        }
+        // Full info
+        else
+        {
+            string rslt = "You see ";
+            if(IsLexem(cr, "$name"))
+                rslt += GetLexem(cr, "$name");
+
+            if(cr.IsLife() && IsMsgStr(TEXTMSG_DLG, STR_NPC_FULL_INFO_LIFE(dlgId, npcPid)))
+            {
+                if(rslt.rawLength() > 8)
+                    result += rslt;
+                else
+                    result += GetMsgStr(TEXTMSG_DLG, STR_NPC_FULL_INFO_LIFE(dlgId, npcPid));
+            }
+            else if(cr.IsKnockout() && IsMsgStr(TEXTMSG_DLG, STR_NPC_FULL_INFO_KO(dlgId, npcPid)))
+            {
+                if(rslt.rawLength() > 8)
+                    result += ReplaceText(rslt, "see", "see an unconscious");
+                else
+                    result += GetMsgStr(TEXTMSG_DLG, STR_NPC_FULL_INFO_KO(dlgId, npcPid));
+            }
+            else if(cr.IsDead() && IsMsgStr(TEXTMSG_DLG, STR_NPC_FULL_INFO_DEAD(dlgId, npcPid)))
+            {
+                if(rslt.rawLength() > 8)
+                    result += ReplaceText(rslt, "see", "see a dead");
+                else
+                    result += GetMsgStr(TEXTMSG_DLG, STR_NPC_FULL_INFO_DEAD(dlgId, npcPid));
+            }
+            else
+                defaultText = true;
+        }
+
+        if(defaultText)
+        {
+            // Check standart text
+            if(IsMsgStr(TEXTMSG_DLG, STR_NPC_NAME(dlgId, npcPid)))
+            {
+                if(cr.IsLife())
+                    result += ReplaceText(GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_LIFE), "NAME", GetMsgStr(TEXTMSG_DLG, STR_NPC_NAME(dlgId, npcPid)));
+                else if(cr.IsKnockout())
+                    result += ReplaceText(GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_KO), "NAME", GetMsgStr(TEXTMSG_DLG, STR_NPC_NAME(dlgId, npcPid)));
+                else if(cr.IsDead())
+                    result += ReplaceText(GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_DEAD), "NAME", GetMsgStr(TEXTMSG_DLG, STR_NPC_NAME(dlgId, npcPid)));
+            }
+            // Set default text
+            else
+            {
+                result += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_NOTHING);
+            }
+        }
+    }
+
+    //CritterCl@ chosen = GetChosen();
+    string     extraSpecial = "";
+    string     extraDamage = "";
+	string     classo = "";
+	switch(cr.Param[ST_DESCRIPTION1])
+						{
+						case 1: 
+						{
+						classo = "Randomboy";
+							break;
+						}
+						case 2:
+						{
+						classo = "Super Mutant";
+						break;
+						}
+						case 3:
+						{
+						classo = "Soldier";
+						break;
+						}
+						case 4:
+						{
+						classo = "Chosen One";
+						break;
+						}
+						case 5:
+						{
+						classo = "Priest";
+						break;
+						}
+						case 6:
+						{
+						classo = "Bounty Hunter";
+						break;
+						}
+						case 7:
+						{
+						classo = "Deathclaw";
+						break;
+						}
+						case 8:
+						{
+						classo = "Cyborg";
+						break;
+						}
+						case 9:
+						{
+						classo = "Killer";
+						break;
+						}
+						case 10:
+						{
+						classo = "Assassin";
+						break;
+						}
+						case 11:
+						{
+						classo = "Leader";
+						break;
+						}
+						case 12:
+						{
+						classo = "Paramedic";
+						break;
+						}
+						case 13:
+						{
+						classo = "Sniper";
+						break;
+						}
+						case 14:
+						{
+						classo = "Infantry";
+						break;
+						}
+						}
+    // Special
+    if(valid(chosen) && chosen.Param[PE_AWARENESS] > 0 && cr.IsPlayer())
+    {
+        string@ special = CritterDescription_Get(cr.Param[ST_DESCRIPTION1],
+                                                 cr.Param[ST_DESCRIPTION2]);
+
+			
+        if(valid(special))
+            extraSpecial = special;
+    }
+
+    // Damage
+    {
+        array<uint> damage;
+        for(uint i = 0; i < 7; i++)
+        {
+            if(cr.Damage[DAMAGE_POISONED + i] != 0 && IsMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_DMG(gender, i)))
+            {
+                uint len = damage.length();
+                damage.insertLast(i);
+            }
+        }
+
+        if(damage.length() > 0)
+        {
+            extraDamage += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK3(gender));
+
+            for(uint i = 0; i < damage.length(); i++)
+            {
+                uint dmg = damage[i];
+                extraDamage += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_DMG(gender, dmg));
+
+                if(i == damage.length() - 1)
+                    break;
+                else if(i == damage.length() - 2)
+                    extraDamage += GetMsgStr(TEXTMSG_GAME, STR_AND);
+                else
+                    extraDamage += ", ";
+            }
+            extraDamage += ".";
+        }
+    }
+
+    // Additional description
+    if(lookType == CRITTER_LOOK_FULL)
+    {
+        if(result.rawLength() > 0 && result.rawGet(result.rawLength() - 1) != '.')
+            result += ".";
+
+        if(valid(chosen) && chosen.Param[PE_AWARENESS] > 0)
+        {
+            if(extraSpecial.rawLength() > 0)
+                result += " It looks " + (gender == GENDER_MALE ? "h" : "sh") + "e's " + extraSpecial + ".";
+        }
+		
+        if(extraDamage.rawLength() > 0)
+            result += " " + extraDamage;
+
+        if(valid(chosen) && chosen.Param[PE_AWARENESS] > 0)
+        {
+            result += " ";
+            result += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_HP(gender));
+            result = ReplaceText(result, "CUR", cr.Param[ST_CURRENT_HP]);
+            result = ReplaceText(result, "MAX", cr.Param[ST_MAX_LIFE]);
+			result += " Class: " + classo +" ";
+
+            ItemCl@ item = cr.GetItem(0, SLOT_HAND1);
+            /*
+               if(_CritIsInjured(cr))
+               {
+                    if(valid(item)) result+=", ";
+                    else result+=GetMsgStr(TEXTMSG_GAME,STR_AND);
+                    result+=GetMsgStr(TEXTMSG_GAME,STR_CRIT_LOOK_LIMBS(gender,false));
+               }
+             */
+
+            if(valid(item))
+            {
+                string iName = GetMsgStr(TEXTMSG_ITEM, STR_ITEM_INFO(item));
+                if(IsLexem(item, "$-"))
+                    iName = GetLexem(item, "$-");
+
+                bool isAn = ((iName.rawLength() > 1 && ('A' <= iName.rawGet(1) && iName.rawGet(1) <= 'Z' || '0' <= iName.rawGet(1) && iName.rawGet(1) <= '9' || iName.rawGet(1) == '&') && Abbr.find(iName.rawGet(0)) >= 0) ||
+                             AnStart.find(iName.rawGet(0)) >= 0);
+
+                if(item.GetType() == ITEM_TYPE_WEAPON)
+                {
+                    // if(item.Proto.Weapon_MaxAmmoCount==0)
+                    {
+                        string pWeap = GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_WEAP);
+                        if(isAn)
+                            pWeap = ReplaceText(pWeap, "a WEAPON", "an WEAPON");
+                        result += pWeap;
+                        result = ReplaceText(result, "WEAPON", iName);
+                    }
+                    /*
+                       else
+                       {
+                            result+=GetMsgStr(TEXTMSG_GAME,STR_CRIT_LOOK_WEAP_AMMO);
+                            result=ReplaceText(result,"WEAPON",GetMsgStr(TEXTMSG_ITEM,STR_ITEM_INFO(item)));
+                            result=ReplaceText(result,"CUR",item.AmmoCount);
+                            result=ReplaceText(result,"MAX",item.Proto.Weapon_MaxAmmoCount);
+                            result=ReplaceText(result,"AMMO",GetMsgStr(TEXTMSG_GAME,STR_CALIBER(item.Proto.Weapon_Caliber)));
+                       }
+                     */
+                }
+                else
+                {
+                    string pMisc = GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_MISC);
+                    if(isAn)
+                        pMisc = ReplaceText(pMisc, "a MISC", "an MISC");
+                    result += pMisc;
+                    result = ReplaceText(result, "MISC", iName);
+                }
+            }
+        }
+        else         // Simple
+        {
+            result += " ";
+            result += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_WHO(gender));
+
+            int hp_proc = cr.Param[ST_CURRENT_HP] * 100 / cr.Param[ST_MAX_LIFE];
+            if(cr.IsDead())
+                result += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_STATE(0));
+            else
+                result += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_STATE(cr.Param[ST_HEALTH_LEVEL] > 1 ? cr.Param[ST_HEALTH_LEVEL] : 1));
+
+            if(_CritIsInjured(cr))
+            {
+                if(cr.Param[ST_HEALTH_LEVEL] < 4)
+                    result += GetMsgStr(TEXTMSG_GAME, STR_AND);
+                result += GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK_LIMBS(gender, cr.Param[ST_HEALTH_LEVEL] == 4));
+            }
+        }
+        result += ".";
+    }
+
+    // Tatoos
+
+    bool armVisible = false;
+    if(lookType == CRITTER_LOOK_FULL && IsLexem(cr, "$tatoo"))
+    {
+		/*
+        switch(cr.CrType)
+        {
+        // smoothskins, player
+        case CRTYPE_FEMALE_LEATHER_ARMOR:
+        case CRTYPE_FEMALE_LEATHER_JACKET:
+        case CRTYPE_FEMALE_METAL_ARMOR:
+
+        case CRTYPE_MALE_LEATHER_ARMOR:
+        case CRTYPE_MALE_LEATHER_JACKET:
+        case CRTYPE_MALE_METAL_ARMOR:
+
+        case CRTYPE_LHD_LEATHER_ARMOR:
+        case CRTYPE_LHD_LEATHER_JACKET:
+        case CRTYPE_LHD_METAL_ARMOR:
+
+        case CRTYPE_BHD_LEATHER_ARMOR:
+        case CRTYPE_BHD_LEATHER_JACKET:
+        case CRTYPE_BHD_METAL_ARMOR:
+
+        // smoothskins, other
+        case CRTYPE_FEMALE_TRIBAL:
+        case CRTYPE_MALE_TRIBAL:
+        case CRTYPE_LHD_TRIBAL:
+        case CRTYPE_BHD_TRIBAL:
+
+        case CRTYPE_BLACKMALE_METAL_ARMOR:
+        case CRTYPE_WOMAN_1:
+        case CRTYPE_PUNK:
+        case CRTYPE_PUNK_LA:
+        case CRTYPE_METALARMOR_FEMALE_YP:
+        case CRTYPE_WOMAN_2:
+        case CRTYPE_KURWA:
+        case CRTYPE_POOR_BLACKMALE:
+        case CRTYPE_DWARF:
+        case CRTYPE_BEGGAR:
+        case CRTYPE_TYCHO:
+        case CRTYPE_RAIDER:
+        case CRTYPE_CLERK:
+        case 63:                 // missing define
+        case 64:                 // missing define
+        case CRTYPE_KITTY:
+        case CRTYPE_CHINESE_GUARD_RED:
+        case CRTYPE_CHINESE_GUARD_BLUE:
+        case CRTYPE_CYBORG:
+        case CRTYPE_BOXER:
+        case CRTYPE_SALVADORE:
+        case CRTYPE_METZGER:
+        case CRTYPE_KHAN_LONGHAIR:
+        case CRTYPE_OLD_IAN:
+
+        // ghouls/mutants
+        case CRTYPE_NIGHTKIN:
+        case CRTYPE_MUTANT:
+        case CRTYPE_LIEUTANANT:
+        case CRTYPE_GHOUL:
+        case CRTYPE_GLOWING_ONE:
+        case CRTYPE_GHOUL_GECKO:
+
+        // Frankie
+        case CRTYPE_FRANK:
+        case CRTYPE_FRANK_CORPSE:
+            armVisible = true;
+            break;
+        }
+		*/
+		armVisible=true;
+
+        //if(armVisible && cr.Param[ST_GENDER] == GENDER_IT)
+        //    armVisible = false;
+
+        string tatoo = GetLexem(cr, "$tatoo");
+        if(armVisible && tatoo.length() > 0)
+        {
+            array<string@>@ s = split(tatoo, " ");
+            result += " You can see a tattoo with the word" + (s.length() > 1 ? "s" : "") + " '" + tatoo + "' on h" + (gender == GENDER_MALE ? "is" : "er") + " arm";
+        }
+        else
+            armVisible = false;
+    }
+
+    bool    headVisible = true;
+    ItemCl@ helmet = cr.GetItem(0, SLOT_HEAD);
+    if(valid(helmet))
+        headVisible = false;
+
+    if(lookType == CRITTER_LOOK_FULL && cr.Param[KARMA_SLAVER] > 0)
+    {
+        if(armVisible)
+        {
+            if(headVisible)
+                result += ", and another one on forehead. " + (gender == GENDER_MALE ? "H" : "Sh") + "e's a slaver.";
+            else
+                result += ".";
+        }
+        else
+        {
+            if(headVisible)
+            {
+                array<string> rnd =
+                {
+                    (gender == GENDER_MALE ? "H" : "Sh") + "e has",
+                    "You can see"
+                };
+
+                // result += " "+(gender==GENDER_MALE?"H":"Sh")+"e has a slaver tattoo on h"+(gender==GENDER_MALE?"is":"er")+" forehead.";
+                result += " " + rnd[Random(0, rnd.length() - 1)] + " a slaver tattoo on h" + (gender == GENDER_MALE ? "is" : "er") + " forehead.";
+            }
+        }
+    }
+    else if(lookType == CRITTER_LOOK_FULL && armVisible && cr.Param[KARMA_SLAVER] <= 0)
+        result += ".";
+
+    if(cr.IsPlayer() && lookType == CRITTER_LOOK_FULL && IsLexem(cr, "$~"))
+    {
+        result = GetMsgStr(TEXTMSG_GAME, STR_CRIT_LOOK1(gender)) + (IsLexem(cr, "$name") ? GetLexem(cr, "$name") : cr.Name) + ".";
+        string descr = GetLexem(cr, "$~");
+        if(descr.rawLength() > 0)
+            result = descr;
+    }
+    else if(cr.IsNpc() && IsLexem(cr, "$~"))
+    {
+        if(lookType == CRITTER_ONLY_NAME)
+        {
+            result = (IsLexem(cr, "$name") ? GetLexem(cr, "$name") : cr.Name);
+        }
+        else if(lookType == CRITTER_LOOK_SHORT)
+        {
+            result = "You see " + (IsLexem(cr, "$name") ? GetLexem(cr, "$name") : cr.Name) + ".";
+        }
+        else if(lookType == CRITTER_LOOK_FULL)
+        {
+            result = "You see " + (IsLexem(cr, "$name") ? GetLexem(cr, "$name") : cr.Name) + ". " + GetLexem(cr, "$~");
+        }
+    }
+
+    return(FormatTags(result, cr.Lexems));
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Called on something critter in/out game.
+void critter_in(CritterCl& cr)
+{
+    CritterCl@ chosen = GetChosen();
+
+    critter_description(cr, CRITTER_ONLY_NAME);
+    if(valid(chosen))
+    {
+        ColorizeCritter(cr);
+    }
+    else
+        ColorizeCritterPreview(cr);
+}
+
+/**
+ * Sets color basing on groups status and reputation.
+ */
+void _SetColor(int crId, int status, int reputation, string@ param3, array<int>@ param4)
+{
+    CritterCl@ cr = GetCritter(crId);
+    if(!valid(cr))
+        return;
+
+    // for npcs contour should be determine in other way, because they don't have nicks
+    if(status == FACTION_ENEMY)
+        cr.ContourColor = COLOR_CONTOUR_RED;
+    else if(status == FACTION_ALLY)
+        cr.ContourColor = COLOR_CONTOUR_GREEN;
+    else
+        cr.ContourColor = COLOR_CONTOUR_YELLOW;
+
+    // nick color depends on reputation
+    if(reputation >= __ReputationLoved)
+        cr.NameColor = COLOR_LBLUE;
+    else if(reputation >= __ReputationLiked)
+        cr.NameColor = COLOR_BLUE;
+    else if(reputation >= __ReputationAccepted)
+        cr.NameColor = COLOR_GREEN;
+    else if(reputation >= __ReputationNeutral)
+        cr.NameColor = COLOR_CRITTER_NAME;
+    else if(reputation >= __ReputationAntipathy)
+        cr.NameColor = COLOR_SAND;
+    else if(reputation >= __ReputationHated)
+        cr.NameColor = COLOR_RED;
+    else
+        cr.NameColor = COLOR_DRED;
+}
+
+void _SetScrolls(int scrollCrit, int scrollCont, int param3, string@ param4, array<int>@ param5)
+{
+    SetScroll(SCROLL_PICKUP, pickupScreenScrollCritter);
+    SetScroll(SCROLL_PICKUP_FROM, pickupScreenScrollFrom);
+}
+
+void _RepairSession(int param1, int param2, int param3, string@ param4, array<int>@ param5)
+{
+    SetRepairPid(param1);
+    SetRepairItem(param2);
+    RefreshItemsCollection(ITEMS_USE);
+}
+
+void _RechargeSession(int param1, int param2, int param3, string@ param4, array<int>@ param5)
+{
+    SetRepairPid(param1);
+    SetRepairItem(param2);
+    RefreshItemsCollection(ITEMS_USE);
+}
+
+
+void _DialogImage(int x, int y, int imageId, string@, array<int>@)
+{
+    string image = "";
+    switch(imageId)
+    {
+    case 1:
+        image = "items/car_police01.png";
+        break;
+    }
+    if(image != "" && image.length() > 0)
+        DialogImage.Set(x, y, image);
+}
+
+#ifdef __DEBUG__
+void DialogImageKey(uint8 key, string& keyText)
+{
+    int x = 0;
+    int y = 0;
+
+    switch(key)
+    {
+    case DIK_LEFT:
+        x--;
+        break;
+    case DIK_RIGHT:
+        x++;
+        break;
+    case DIK_UP:
+        y--;
+        break;
+    case DIK_DOWN:
+        y++;
+        break;
+    default:
+        return;
+    }
+    DialogImage.x += x;
+    DialogImage.y += y;
+}
+#endif
+
+class BagCallbackHide : IGUIScreenCallbackHide
+{
+    void OnHide(int p0, int p1, int p2)
+    {
+        SetRepairPid(0);
+        RefreshItemsCollection(ITEMS_USE);
+    }
+};
+
+BagCallbackHide BagHide;
+
+void InitBagCallbacks()
+{
+    IGUIScreenOpt@ sc = GUI_GetScreen(CLIENT_SCREEN_USE);
+    sc.SetCallbackHide(BagHide);
+}
+
+void IndicatorMouse(bool down, int click)   // export
+{
+    if(!down)
+    {
+        InvItemClicked = false;
+        return;
+    }
+    if(down && click == MOUSE_CLICK_LEFT && GUI_GetActiveScreen() == CLIENT_MAIN_SCREEN_GAME)
+    {
+        if(ItemBar.IsInside(__MouseX, __MouseY))
+            InvItemClicked = true;
+    }
+    else
+        InvItemClicked = false;
+}
+
+bool ReadIniInt(string& key, int& ret)
+{
+    string@ s = GetIfaceIniStr(key);
+    return valid(s) && StrToInt(s, ret);
+}
+
+void InitIndicators() // export
+{
+    IndicatorDraw = __IndicatorType != 1;
+    CounterDraw = __IndicatorType != 0;
+    __IndicatorType = 3;   // none
+
+    Rect IntWMain("IntMain");
+    int IntX = -1;
+    ReadIniInt("IntX", IntX);
+    if(IntX == -1)
+        IntX = (__ScreenWidth - IntWMain.W()) / 2;
+    else if(IntX == -2)
+        IntX = __ScreenWidth - IntWMain.W();
+    else if(IntX == -3)
+        IntX = 0;
+    else
+    {
+        if(IntX < 0)
+            IntX = 0;
+        if(IntX + IntWMain.W() > __ScreenWidth)
+            IntX = 0;
+    }
+    int IntY = __ScreenHeight - IntWMain.Y2;
+    @ItemBar = @Rect("IntItem", IntX, IntY);
+    @AmmoIndicator = @Rect("IntAmmoCount", IntX, IntY);
+    @WearIndicator = @Rect("IntWearProcent", IntX, IntY);
+
+    string@ s = GetIfaceIniStr("IntAmmoCountText");
+    if(!valid(s) || s.length() < 4)
+        @AmmoCounter = @Rect(ItemBar, 7, 8);
+    else
+        @AmmoCounter = @Rect("IntAmmoCountText", IntX, IntY);
+
+    @s = GetIfaceIniStr("IntWearProcentText");
+    if(!valid(s) || s.length() < 4)
+        @WearCounter = @Rect(ItemBar, 7, 19);
+    else
+        @WearCounter = @Rect("IntWearProcentText", IntX, IntY);
+
+    int IntItemOffsX = 0;
+    int IntItemOffsY = -2;
+    ReadIniInt("IntItemOffsX", IntItemOffsX);
+    ReadIniInt("IntItemOffsY", IntItemOffsY);
+    @AmmoCounterClicked = @Rect(AmmoCounter, IntItemOffsX, IntItemOffsY);
+    @WearCounterClicked = @Rect(WearCounter, IntItemOffsX, IntItemOffsY);
+}
+
+void DrawIndicators()
+{
+    if(!InterfaceShown)
+        return;
+    // DrawRect(ItemBar,COLOR_WHITE);
+    /*DrawRect(AmmoCounter,COLOR_RED);
+       DrawRect(WearCounter,COLOR_GREEN);
+       DrawRect(ItemBar,COLOR_BLUE);
+       DrawRect(IntWMain,COLOR_WHITE);
+       DrawRect(SmallBox,COLOR_DGREEN);*/
+    CritterCl@ chosen = GetChosen();
+    if(!valid(chosen))
+        return;
+    ItemCl@ item = chosen.GetItem(0, SLOT_HAND1);
+
+    int     wear_proc = (valid(item) && item.IsDeteriorable()) ? 100 - (item.Deterioration * 100) / MAX_DETERIORATION : 0;
+    int     max_ammo = (valid(item) && item.GetType() == ITEM_TYPE_WEAPON) ? item.Proto.Weapon_MaxAmmoCount : 0;
+    int     cur_ammo = (valid(item) && item.GetType() == ITEM_TYPE_WEAPON) ? (_WeaponSkill(item.Proto, _WeaponModeUse(item.Mode)) == SK_THROWING ? item.GetCount() : item.AmmoCount) : 0;
+
+    if(valid(item) && max_ammo == 0 && cur_ammo == 0 && item.Proto.Misc_ChargeMax > 0)
+    {
+        max_ammo = item.Proto.Misc_ChargeMax;
+        cur_ammo = item.Charge;
+    }
+
+    if(valid(item) && wear_proc == 0 && item.Proto.IndicatorMax > 0)
+    {
+        wear_proc = item.Indicator;
+    }
+
+    if(valid(item) && cur_ammo == 0 && item.IsStackable() && item.GetCount() > 1)
+    {
+        cur_ammo = item.GetCount();
+        if(cur_ammo > max_ammo)
+            cur_ammo = max_ammo;
+    }
+    int ammo_proc = max_ammo == 0 ? 0 : 100 * cur_ammo / max_ammo;
+    if(IndicatorDraw)
+    {
+        DrawIndicator(AmmoIndicator, AmmoIndicatorPoints, COLOR_GREEN, ammo_proc, AmmoIndicatorTick, true, false);
+        DrawIndicator(WearIndicator, WearIndicatorPoints, COLOR_LGREEN, wear_proc, WearIndicatorTick, true, false);
+    }
+    if(CounterDraw)
+    {
+        if(max_ammo > 0 || cur_ammo > 0)
+        {
+            if(cur_ammo != LastAmmoCount || AmmoString == "")
+            {
+                LastAmmoCount = cur_ammo;
+                if(cur_ammo > 99)
+                    AmmoString = cur_ammo + "";
+                else if(cur_ammo > 9)
+                    AmmoString = "0" + cur_ammo;
+                else
+                    AmmoString = "00" + cur_ammo;
+            }
+            DrawCounter(InvItemClicked ? AmmoCounterClicked : AmmoCounter, AmmoString, InvItemClicked ? COLOR_DGREEN : COLOR_GREEN, FONT_SPECIAL);
+        }
+        if(valid(item) && item.IsDeteriorable())
+            DrawCounter(InvItemClicked ? WearCounterClicked : WearCounter, wear_proc + "%", InvItemClicked ? COLOR_GREEN : COLOR_LGREEN, FONT_SPECIAL);
+    }
+}
+
+class Rect
+{
+    int X1;
+    int Y1;
+    int X2;
+    int Y2;
+    Rect(string & ini_str)
+    {
+        GUI_GetIniCoords(ini_str, X1, Y1, X2, Y2);
+    }
+    Rect(string & ini_str, int x_off, int y_off)
+    {
+        GUI_GetIniCoords(ini_str, X1, Y1, X2, Y2);
+        X1 += x_off;
+        Y1 += y_off;
+        X2 += x_off;
+        Y2 += y_off;
+    }
+    Rect(Rect@ rect, int x_off, int y_off)
+    {
+        this.X1 = rect.X1 + x_off;
+        this.Y1 = rect.Y1 + y_off;
+        this.X2 = rect.X2 + x_off;
+        this.Y2 = rect.Y2 + y_off;
+    }
+
+    Rect(int x1, int y1, int x2, int y2)
+    {
+        X1 = x1;
+        Y1 = y1;
+        X2 = x2;
+        Y2 = y2;
+    }
+    /*void UpdateRect(Rect@ rect, int x_off, int y_off)
+       {
+            this.X1=rect.X1+x_off;
+            this.Y1=rect.Y1+y_off;
+            this.X2=rect.X2+x_off;
+            this.Y2=rect.Y2+y_off;
+       }*/
+
+    bool IsInside(int x, int y)
+    {
+        return(X1 <= x && x <= X2 && Y1 <= y && y <= Y2);
+    }
+
+    int H() { return Y2 - Y1 + 1; }
+    int W() { return X2 - X1 + 1; }
+};
+
+/*void DrawRect(Rect@ rect, uint color)
+   {
+        array<int> arr(15);
+        arr[0]=rect.X1;
+        arr[1]=rect.Y1;
+        arr[2]=color;
+
+        arr[3]=rect.X1;
+        arr[4]=rect.Y2;
+        arr[5]=color;
+
+        arr[6]=rect.X2;
+        arr[7]=rect.Y2;
+        arr[8]=color;
+
+        arr[9]=rect.X2;
+        arr[10]=rect.Y1;
+        arr[11]=color;
+
+        arr[12]=rect.X1;
+        arr[13]=rect.Y1;
+        arr[14]=color;
+        DrawPrimitive(DRAW_PRIMITIVE_LINESTRIP,arr);
+   }*/
+
+Rect@      ItemBar;
+
+string     AmmoString;
+int        LastAmmoCount = 0;
+bool       IndicatorDraw = false;
+bool       CounterDraw = false;
+bool       InvItemClicked = false;
+array<int> AmmoIndicatorPoints;
+uint       AmmoIndicatorTick = 0;
+Rect@      AmmoIndicator;
+Rect@      AmmoCounter;
+Rect@      AmmoCounterClicked;
+
+array<int> WearIndicatorPoints;
+uint       WearIndicatorTick = 0;
+Rect@      WearIndicator;
+Rect@      WearCounter;
+Rect@      WearCounterClicked;
+
+bool       InterfaceShown = true;
+// bool InterfaceExpanded=false;
+
+bool IsInterfaceShown()
+{
+    return(InterfaceShown);
+}
+
+void ToggleInterfaceShown()
+{
+    InterfaceShown = !InterfaceShown;
+}
+
+void SetInterfaceShown(bool setting)
+{
+    InterfaceShown = setting;
+}
+
+// yes, totally ripped from the engine
+void DrawIndicator(Rect@ rect, array<int>& points, uint color, int procent, uint& tick, bool is_vertical, bool from_top_or_left, uint changeTick = 35)
+{
+    // DrawText("proc: "+procent,x1+13,y1,100,100,COLOR_WHITE,FONT_FALLOUT,1);
+    if(GetTick() >= tick)
+    {
+        int points_count = (is_vertical ? rect.H() : rect.W()) / 2 * procent / 100;
+        if(points_count == 0 && procent > 0)
+            points_count = 1;
+        int points_length = points.length() / 3;
+        if(points_length != points_count)
+        {
+            if(points_count > points_length)
+            {
+                points_count = points_length + 1;
+                points.resize(points_count * 3);
+                points_length *= 3;
+                if(is_vertical)
+                {
+                    if(from_top_or_left)
+                    {
+                        points[points_length] = rect.X1;
+                        points[points_length + 1] = rect.Y1 + points_count * 2 - 2;
+                    }
+                    else
+                    {
+                        points[points_length] = rect.X1;
+                        points[points_length + 1] = rect.Y2 - points_count * 2 + 2;
+                    }
+                }
+                else
+                {
+                    if(from_top_or_left)
+                    {
+                        points[points_length] = rect.X1 + points_count * 2 - 2;
+                        points[points_length + 1] = rect.Y1;
+                    }
+                    else
+                    {
+                        points[points_length] = rect.X2 - points_count * 2 + 2;
+                        points[points_length + 1] = rect.Y1;
+                    }
+                }
+
+                points[points_length + 2] = color;
+            }
+            else
+            {
+                points.resize((points_length - 1) * 3);
+            }
+        }
+        tick = GetTick() + changeTick;
+    }
+    if(points.length() > 0)
+        DrawPrimitive(DRAW_PRIMITIVE_POINTLIST, points);
+}
+
+void DrawCounter(Rect@ rect, string& text, uint color, int font)
+{
+    DrawText(text, rect.X1, rect.Y1, rect.X2, rect.Y2, color, font, 0);
+}
+
+/// client_town ///
+#define COLOR_TOWN_AREA_BORDER      (0x770000FF)
+#define COLOR_TOWN_AREA_INTERIOR    (0x20000080)
+array<uint>   timers;
+array<string> factions;
+array<string> townnames;
+
+uint          lastsecond;
+uint          lasthour;
+
+array<uint16> modoc_area_t;
+array<uint16> bh_area_t;
+array<uint16> klamath_area_t;
+array<uint16> den_area_t;
+array<uint16> redding_area_t;
+array<uint16> gecko_area_t;
+array<uint16> necro_area_t;
+
+IPolygon@     modoc_area;
+IPolygon@     bh_area;
+IPolygon@     klamath_area;
+IPolygon@     den_area;
+IPolygon@     redding_area;
+IPolygon@     gecko_area;
+IPolygon@     necro_area;
+
+bool          Initialized = false;
+bool isFlag(ItemCl& item)
+{
+	for(uint i = 9200; i < 9599; i++)
+		if(item.Proto.ProtoId == i)
+			return true;
+	
+	return false;
+
+}
+void DrawArea(uint mappid, uint8 mode)
+{
+}
+
+void DrawInsideStatus(bool inside)
+{
+    DrawText(inside ? "Inside the capture zone" : "Outside the capture zone", 10, 30, __ScreenWidth, 20, inside ? COLOR_GREEN : COLOR_RED, FONT_FALLOUT, FT_CENTERY | FT_BORDERED);
+}
+
+void DrawInsideEventStatus()
+{
+	CritterCl@ critter = GetChosen();
+    if(!valid(critter))
+        return;
+	//uint enclave = expPoints(1);
+	//if(expPoints(1)>0)
+    //
+	//DrawText("Enclave: " + enclave, 10, 30, __ScreenWidth, 20, COLOR_GREEN, FONT_FALLOUT, FT_CENTERY | FT_BORDERED);
+	//if(expPoints(2)>0)
+   // DrawText("Brotherhood: " + expPoints(2), 10, 30, __ScreenWidth, 20, COLOR_GREEN, FONT_FALLOUT, FT_CENTERY | FT_BORDERED);
+	//if(expPoints(3)>0)
+   // DrawText("Vault City: " + expPoints(3), 10, 30, __ScreenWidth, 20, COLOR_GREEN, FONT_FALLOUT, FT_CENTERY | FT_BORDERED);
+	//if(expPoints(4)>0)
+   // DrawText("NCR: " + expPoints(4), 10, 30, __ScreenWidth, 20, COLOR_GREEN, FONT_FALLOUT, FT_CENTERY | FT_BORDERED);
+	//if(expPoints(5)>0)
+   // DrawText("Defenders: " + expPoints(5), 10, 30, __ScreenWidth, 20, COLOR_GREEN, FONT_FALLOUT, FT_CENTERY | FT_BORDERED);
+}
+
+void InitTownDisplay()
+{
+    if(Initialized)
+        return;
+    timers.resize(TOWN_COUNT);
+    factions.resize(TOWN_COUNT);
+    townnames.resize(TOWN_COUNT);
+    InitAreas();
+
+    townnames[0] = "Modoc";
+    townnames[1] = "Klamath";
+    townnames[2] = "Gecko";
+    townnames[3] = "Broken Hills";
+    townnames[4] = "Den";
+    townnames[5] = "Redding";
+	townnames[6] = "Necropolis";
+
+    for(uint i = 0; i < TOWN_COUNT; i++)
+        timers[i] = 0;
+    Initialized = true;
+}
+
+void InitAreas()
+{
+    @modoc_area = NewPolygon();
+    modoc_area.AddVertices(modoc_area_v).GetTriangulation(modoc_area_t);
+    @bh_area = NewPolygon();
+    bh_area.AddVertices(bh_area_v).GetTriangulation(bh_area_t);
+    @klamath_area = NewPolygon();
+    klamath_area.AddVertices(klamath_area_v).GetTriangulation(klamath_area_t);
+    @den_area = NewPolygon();
+    den_area.AddVertices(den_area_v).GetTriangulation(den_area_t);
+    @redding_area = NewPolygon();
+    redding_area.AddVertices(redding_area_v).GetTriangulation(redding_area_t);
+    @gecko_area = NewPolygon();
+    gecko_area.AddVertices(gecko_area_v).GetTriangulation(gecko_area_t);
+	@necro_area = NewPolygon();
+    necro_area.AddVertices(necro_area_v).GetTriangulation(necro_area_t);
+
+}
+
+void CountDownStop(int town)
+{
+    timers[town] = 0;
+}
+
+void CountDownStart(int town, uint time, string@ faction)
+{
+    timers[town] = time;
+    factions[town] = faction;
+}
+
+bool IsCounting(uint townid)
+{
+    return timers[townid] > ELAPSED_TIME;
+}
+
+string GetTownName(uint townid)
+{
+    return townnames[townid];
+}
+
+string GetFaction(uint townid)
+{
+    return factions[townid];
+}
+
+int GetSeconds(uint townid)
+{
+    if(ELAPSED_TIME > timers[townid])
+        return 0;
+    uint ret = timers[townid];
+    ret -= ELAPSED_TIME;
+    ret /= __TimeMultiplier;
+    return int(ret);
+}
+
+/*
+   uint RawSeconds(uint townid)
+   {
+        return timers[townid];
+   }
+ */
+
+/*** UNUSED STUFF ***/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Render map function. You can use DrawMap* functions only there. This drawing before 1 iface layer.
+void render_map()
+{}
+
+void critter_out(CritterCl& cr)
+{}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Called on something item in/changed/out map.
+void item_map_in(ItemCl& item)
+{
+
+
+}
+
+void item_map_changed(ItemCl& itemNow, ItemCl& itemBefore)
+{}
+
+void item_map_out(ItemCl& item)
+{}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Called on something critter in/out chosen inventory.
+void item_inv_in(ItemCl& item)
+{}
+
+void item_inv_out(ItemCl& item)
+{}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Called on player drag&drop some item.
+void item_drop(ItemCl& item)
+{}
+
+void draw_capture_zone(int param0, int param1, int param2, string @ param3, int [] @ param4)
+{
+
+
+}
+#endif // __CLIENT_INTERFACE__ //

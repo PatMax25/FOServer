@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+6 1010 @
+6 2000 None 0 &
+
+[engl]
+{100}{}{NCR Soldier}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings.@@*salutes*@@Adversor et admorsus!@@For the Republic!@@Hope I will survive next battle...@@I really miss my family.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings.@@*salutes*@@Adversor et admorsus!@@For the Republic!@@Hope I will survive next battle...@@I really miss my family.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings.@@*salutes*@@Adversor et admorsus!@@For the Republic!@@Hope I will survive next battle...@@I really miss my family.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings.@@*salutes*@@Adversor et admorsus!@@For the Republic!@@Hope I will survive next battle...@@I really miss my family.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings.@@*salutes*@@Adversor et admorsus!@@For the Republic!@@Hope I will survive next battle...@@I really miss my family.}
+

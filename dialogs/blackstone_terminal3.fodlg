@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 #
+0 2020 D _item p PID_RED_PASS_KEY } 2 R _script dialog@r_OpenDoor 2 72 120 R _item p PID_RED_PASS_KEY - 2 #
+3 2030 D _item p PID_RED_PASS_KEY < 2 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God.. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Open the treasure room. ]}
+{2030}{}{[ Open the treasure room ]}
+{3000}{}{[ Terminal flickers with this sign: "2 Red cards needed from other terminals on this floor"]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Open the treasure room door ]}
+{2030}{}{[ Open the treasure room ]}
+{3000}{}{[ Terminal flickers with this sign: "Sacrifices must be made. 3 blood packs are needed to open the door..." ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Open the treasure room door ]}
+{2030}{}{[ Open the treasure room ]}
+{3000}{}{[ Terminal flickers with this sign: "Sacrifices must be made. 3 blood packs are needed to open the door..." ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Open the treasure room door ]}
+{2030}{}{[ Open the treasure room ]}
+{3000}{}{[ Terminal flickers with this sign: "Sacrifices must be made. 3 blood packs are needed to open the door..." ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Open the treasure room door ]}
+{2030}{}{[ Open the treasure room ]}
+{3000}{}{[ Terminal flickers with this sign: "Sacrifices must be made. 3 blood packs are needed to open the door..." ]}
+

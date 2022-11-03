@@ -1,0 +1,252 @@
+﻿[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 R _script dialog@r_PlaySound 1 64 @
+2 2000 None 0 #
+3 2010 R _script dialog@r_PlaySound 1 65 #
+5 2020 R _script dialog@r_PlaySound 1 67 #
+6 2030 D _var p reactor_knight = 0 R _script dialog@r_PlaySound 1 68 #
+11 2040 R _script dialog@r_PlaySound 1 73 #
+0 2050 R _script dialog@r_OpenDoor 2 57 50 #
+9 2060 D _var p reactor_knight = 1 D _item p PID_BROC_FLOWER } 70 D _item p PID_XANDER_ROOT } 50 R _var p reactor_knight = 2 R _param p ST_EXPERIENCE + 2500 R _item p PID_BROC_FLOWER - 70 R _item p PID_XANDER_ROOT - 50 R _script dialog@r_PlaySound 1 71 #
+10 2070 D _var p reactor_knight = 2 R _script dialog@r_PlaySound 1 72 #
+13 2080 D _var p name_mem_npc_player = 0 D _param p ST_TEAM_ID = 2 R _var p name_mem_npc_player = 1 R _item p PID_XANDER_ROOT + 5 R _item p PID_BROC_FLOWER + 5 R _item p PID_MUTATED_FRUIT + 5 @
+3 3000 None 0 #
+2 3010 #
+4 3020 R _script dialog@r_PlaySound 1 66 @
+4 4000 None 0 #
+5 4010 R _script dialog@r_PlaySound 1 67 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+7 6010 R _script dialog@r_PlaySound 1 69 @
+7 7000 None 0 #
+8 7010 R _script dialog@r_PlaySound 1 70 @
+8 8000 None 0 #
+0 8010 D _var p reactor_knight = 0 R _var p reactor_knight = 1 #
+0 8020 @
+9 9000 None 0 #
+10 9010 R _script dialog@r_PlaySound 1 72 #
+0 9020 @
+10 10000 None 0 #
+10 10010 D _item p PID_CHEMICALS } 15 D _item p PID_CHEMICALS2 } 5 D _item p PID_METAL_PARTS } 10 D _item p PID_ELECTRONIC_PARTS } 3 R _item p PID_CHEMICALS - 15 R _item p PID_CHEMICALS2 - 5 R _item p PID_METAL_PARTS - 10 R _item p PID_ELECTRONIC_PARTS - 3 R _item p PID_DYNAMITE + 1 R _item p PID_BOS_MONEY - 100 #
+10 10020 D _item p PID_CHEMICALS2 } 10 D _item p PID_CHEMICALS } 25 D _item p PID_METAL_PARTS } 10 D _item p PID_ELECTRONIC_PARTS } 15 D _item p PID_BOS_MONEY } 700 R _item p PID_CHEMICALS2 - 10 R _item p PID_CHEMICALS - 25 R _item p PID_METAL_PARTS - 10 R _item p PID_ELECTRONIC_PARTS - 15 R _item p PID_BOS_MONEY - 700 R _item p PID_PLASTIC_EXPLOSIVES + 1 R _item p PID_BOS_MONEY - 500 #
+2 10030 @
+11 11000 None 0 #
+12 11010 R _script dialog@r_PlaySound 1 74 #
+0 11020 @
+12 12000 None 0 #
+2 12010 @
+13 13000 None 0 &
+
+[engl]
+{100}{}{Knight Aurelis}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is that you wanted?}
+{2010}{}{Who are you?}
+{2020}{}{So what is this strange graveyard here?}
+{2030}{}{That's a pretty cool looking machine you have here. What is it for?}
+{2040}{}{Did you see the settlement to the north? Aren't the Brotherhood worried about such a neighborhood?}
+{2050}{}{I need to go now. Bye.}
+{2060}{}{Here are your materials.}
+{2070}{}{So... Can your machine make some explosives for me?}
+{2080}{}{[ Brotherhood of Steel ] Do you have any spare plants from your garden to share?}
+{3000}{}{Knight Aurelis. I am the guardian of Lost Valley. My task is to make sure the heroes of the Brotherhood have their eternal peace here.}
+{3010}{}{Alright, let me ask you something else.}
+{3020}{}{So you are something like a grave guardian?}
+{4000}{}{Yes, you can call it like this if you wish to.}
+{4010}{}{So what is this strange graveyard here?}
+{5000}{}{This means a lot for the Brotherhood. This place became our tradition, a part of each and every one of us.}
+{5010}{}{Right, let's switch the topic.}
+{6000}{}{This machine is used by me for creating a special fertilizer that can keep the soil in fine conditions. As you see, our memorial is the only place with green grass in miles around here.}
+{6010}{}{Sounds neat. Can it do anything apart from making fertilizer?}
+{7000}{}{Yes, I found out it is pretty good in terms of making explosive materials…}
+{7010}{}{Really? Can you make some explosives for me then?}
+{8000}{}{Hmh, I actually shouldn’t but… How about you help me with one small task first? I am running out of materials for fertilizer. I need 70 broc flowers and 50 xander roots.}
+{8010}{}{Fine, I will help you out.}
+{8020}{}{Heck no, I don't wish to waste my time collecting flowers somewhere.}
+{9000}{}{Ah you did it. Good, thank you for helping.}
+{9010}{}{So... Can your machine make some explosives for me?}
+{9020}{}{That was easy. Now let's talk about something else.}
+{10000}{}{Yes, it can make dynamite and plastic explosives. But I need materials for it. For the dynamite I need 15 Chemicals, 5 advanced chemicals, 10 metal parts, 3 electronic parts and 100 Brotherhood modules for my work here. For plastic explosives I will need 25 chemicals, 10 advanced chemicals, 10 metal parts, 15 electronic parts and 500 Brotherhood modules for my work.}
+{10010}{}{Here is everything for a dynamite.}
+{10020}{}{Here is everything for some plastic explosvies.}
+{10030}{}{Let's talk about other things.}
+{11000}{}{Yeah, I saw it. I don’t mind a settlement here as far as they don’t mess with the Brotherhood of Steel.}
+{11010}{}{Do you know anything specific about that settlement?}
+{11020}{}{I see. I will be going then.}
+{12000}{}{Can’t say much, we rarely contact each other. As far as I heard the habitants there decided to live near the radioactive reactor and they also call emselves Reactor Punks. Ironic, isn’t it?}
+{12010}{}{Alright, let's switch the topic.}
+{13000}{}{Yeah, I have some. Here, take these.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is that you wanted?}
+{2010}{}{Who are you?}
+{2020}{}{So what is this strange graveyard here?}
+{2030}{}{That's pretty cool looking machine you have here. What is it for?}
+{2040}{}{Did you see the settlement on north? Aren't Brotherhood worried about such neighborhood?}
+{2050}{}{I need to go now. Bye.}
+{2060}{}{Here are your materials.}
+{2070}{}{So... Can your machine make some explosives for me?}
+{2080}{}{[ Brotherhood of Steel ] Do you have any spare plants from your garden to share?}
+{3000}{}{Knight Aurelis. I am the guardian of Lost Valley. My task is to make sure the heroes of the Brotherhood have their eternal peace here.}
+{3010}{}{Alright, let me ask you something else.}
+{3020}{}{So you are something like a grave guardian?}
+{4000}{}{Yes, you can call it like this if you wish to.}
+{4010}{}{So what is this strange graveyard here?}
+{5000}{}{This means a lot for the Brotherhood. This place became our tradition, a part of each and every one of us.}
+{5010}{}{Right, let's switch the topic.}
+{6000}{}{This machine is used by me for creating a special fertilizer that can keep the soil in fine conditions. As you see, our memorial is the only place with green grass in miles around here.}
+{6010}{}{Sounds neat. Can it do anything apart from making fertilizer?}
+{7000}{}{Yes, I found out it is pretty good in terms of making explosive materials…}
+{7010}{}{Really? Can you make some explosives for me then?}
+{8000}{}{Hmh, I actually shouldn’t but… How about you help me with one small task first? I am running out of materials for fertilizer. I need 70 broc flowers, 50 xander roots and 20 simple firewood.}
+{8010}{}{Fine, I will help you out.}
+{8020}{}{Heck no, I don't wish to waste my time collecting flowers somewhere.}
+{9000}{}{Ah you did it. Good, thank you for helping.}
+{9010}{}{So... Can your machine make some explosives for me?}
+{9020}{}{That was easy. Now let's talk about something else.}
+{10000}{}{Yes, it can make dynamite and plastic explosives. But I need materials for it. For the dynamite I need 15 Chemicals, 5 advanced chemicals, 10 metal parts, 3 electronic parts and 300 Brotherhood modules for my work here. For plastic explosives I will need 25 chemicals, 10 advanced chemicals, 10 metal parts, 15 electronic parts and 700 Brotherhood modules for my work.}
+{10010}{}{Here is everything for a dynamite.}
+{10020}{}{Here is everything for some plastic explosvies.}
+{10030}{}{Let's talk about other things.}
+{11000}{}{Yeah, I saw it. I don’t mind a settlement here as far as they don’t mess with the Brotherhood of Steel.}
+{11010}{}{Do you know anything specific about that settlement?}
+{11020}{}{I see. I will be going then.}
+{12000}{}{Can’t say much, we rarely contact each other. As far as I heard the habitants there decided to live near the radioactive reactor and they also call emselves Reactor Punks. Ironic, isn’t it?}
+{12010}{}{Alright, let's switch the topic.}
+{13000}{}{Alright, he you are, brother.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is that you wanted?}
+{2010}{}{Who are you?}
+{2020}{}{So what is this strange graveyard here?}
+{2030}{}{That's pretty cool looking machine you have here. What is it for?}
+{2040}{}{Did you see the settlement on north? Aren't Brotherhood worried about such neighborhood?}
+{2050}{}{I need to go now. Bye.}
+{2060}{}{Here are your materials.}
+{2070}{}{So... Can your machine make some explosives for me?}
+{2080}{}{[ Brotherhood of Steel ] Do you have any spare plants from your garden to share?}
+{3000}{}{Knight Aurelis. I am the guardian of Lost Valley. My task is to make sure the heroes of the Brotherhood have their eternal peace here.}
+{3010}{}{Alright, let me ask you something else.}
+{3020}{}{So you are something like a grave guardian?}
+{4000}{}{Yes, you can call it like this if you wish to.}
+{4010}{}{So what is this strange graveyard here?}
+{5000}{}{This means a lot for the Brotherhood. This place became our tradition, a part of each and every one of us.}
+{5010}{}{Right, let's switch the topic.}
+{6000}{}{This machine is used by me for creating a special fertilizer that can keep the soil in fine conditions. As you see, our memorial is the only place with green grass in miles around here.}
+{6010}{}{Sounds neat. Can it do anything apart from making fertilizer?}
+{7000}{}{Yes, I found out it is pretty good in terms of making explosive materials…}
+{7010}{}{Really? Can you make some explosives for me then?}
+{8000}{}{Hmh, I actually shouldn’t but… How about you help me with one small task first? I am running out of materials for fertilizer. I need 70 broc flowers, 50 xander roots and 20 simple firewood.}
+{8010}{}{Fine, I will help you out.}
+{8020}{}{Heck no, I don't wish to waste my time collecting flowers somewhere.}
+{9000}{}{Ah you did it. Good, thank you for helping.}
+{9010}{}{So... Can your machine make some explosives for me?}
+{9020}{}{That was easy. Now let's talk about something else.}
+{10000}{}{Yes, it can make dynamite and plastic explosives. But I need materials for it. For the dynamite I need 15 Chemicals, 5 advanced chemicals, 10 metal parts, 3 electronic parts and 300 Brotherhood modules for my work here. For plastic explosives I will need 25 chemicals, 10 advanced chemicals, 10 metal parts, 15 electronic parts and 700 Brotherhood modules for my work.}
+{10010}{}{Here is everything for a dynamite.}
+{10020}{}{Here is everything for some plastic explosvies.}
+{10030}{}{Let's talk about other things.}
+{11000}{}{Yeah, I saw it. I don’t mind a settlement here as far as they don’t mess with the Brotherhood of Steel.}
+{11010}{}{Do you know anything specific about that settlement?}
+{11020}{}{I see. I will be going then.}
+{12000}{}{Can’t say much, we rarely contact each other. As far as I heard the habitants there decided to live near the radioactive reactor and they also call emselves Reactor Punks. Ironic, isn’t it?}
+{12010}{}{Alright, let's switch the topic.}
+{13000}{}{Alright, he you are, brother.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is that you wanted?}
+{2010}{}{Who are you?}
+{2020}{}{So what is this strange graveyard here?}
+{2030}{}{That's pretty cool looking machine you have here. What is it for?}
+{2040}{}{Did you see the settlement on north? Aren't Brotherhood worried about such neighborhood?}
+{2050}{}{I need to go now. Bye.}
+{2060}{}{Here are your materials.}
+{2070}{}{So... Can your machine make some explosives for me?}
+{2080}{}{[ Brotherhood of Steel ] Do you have any spare plants from your garden to share?}
+{3000}{}{Knight Aurelis. I am the guardian of Lost Valley. My task is to make sure the heroes of the Brotherhood have their eternal peace here.}
+{3010}{}{Alright, let me ask you something else.}
+{3020}{}{So you are something like a grave guardian?}
+{4000}{}{Yes, you can call it like this if you wish to.}
+{4010}{}{So what is this strange graveyard here?}
+{5000}{}{This means a lot for the Brotherhood. This place became our tradition, a part of each and every one of us.}
+{5010}{}{Right, let's switch the topic.}
+{6000}{}{This machine is used by me for creating a special fertilizer that can keep the soil in fine conditions. As you see, our memorial is the only place with green grass in miles around here.}
+{6010}{}{Sounds neat. Can it do anything apart from making fertilizer?}
+{7000}{}{Yes, I found out it is pretty good in terms of making explosive materials…}
+{7010}{}{Really? Can you make some explosives for me then?}
+{8000}{}{Hmh, I actually shouldn’t but… How about you help me with one small task first? I am running out of materials for fertilizer. I need 70 broc flowers, 50 xander roots and 20 simple firewood.}
+{8010}{}{Fine, I will help you out.}
+{8020}{}{Heck no, I don't wish to waste my time collecting flowers somewhere.}
+{9000}{}{Ah you did it. Good, thank you for helping.}
+{9010}{}{So... Can your machine make some explosives for me?}
+{9020}{}{That was easy. Now let's talk about something else.}
+{10000}{}{Yes, it can make dynamite and plastic explosives. But I need materials for it. For the dynamite I need 15 Chemicals, 5 advanced chemicals, 10 metal parts, 3 electronic parts and 300 Brotherhood modules for my work here. For plastic explosives I will need 25 chemicals, 10 advanced chemicals, 10 metal parts, 15 electronic parts and 700 Brotherhood modules for my work.}
+{10010}{}{Here is everything for a dynamite.}
+{10020}{}{Here is everything for some plastic explosvies.}
+{10030}{}{Let's talk about other things.}
+{11000}{}{Yeah, I saw it. I don’t mind a settlement here as far as they don’t mess with the Brotherhood of Steel.}
+{11010}{}{Do you know anything specific about that settlement?}
+{11020}{}{I see. I will be going then.}
+{12000}{}{Can’t say much, we rarely contact each other. As far as I heard the habitants there decided to live near the radioactive reactor and they also call emselves Reactor Punks. Ironic, isn’t it?}
+{12010}{}{Alright, let's switch the topic.}
+{13000}{}{Alright, he you are, brother.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is that you wanted?}
+{2010}{}{Who are you?}
+{2020}{}{So what is this strange graveyard here?}
+{2030}{}{That's pretty cool looking machine you have here. What is it for?}
+{2040}{}{Did you see the settlement on north? Aren't Brotherhood worried about such neighborhood?}
+{2050}{}{I need to go now. Bye.}
+{2060}{}{Here are your materials.}
+{2070}{}{So... Can your machine make some explosives for me?}
+{2080}{}{[ Brotherhood of Steel ] Do you have any spare plants from your garden to share?}
+{3000}{}{Knight Aurelis. I am the guardian of Lost Valley. My task is to make sure the heroes of the Brotherhood have their eternal peace here.}
+{3010}{}{Alright, let me ask you something else.}
+{3020}{}{So you are something like a grave guardian?}
+{4000}{}{Yes, you can call it like this if you wish to.}
+{4010}{}{So what is this strange graveyard here?}
+{5000}{}{This means a lot for the Brotherhood. This place became our tradition, a part of each and every one of us.}
+{5010}{}{Right, let's switch the topic.}
+{6000}{}{This machine is used by me for creating a special fertilizer that can keep the soil in fine conditions. As you see, our memorial is the only place with green grass in miles around here.}
+{6010}{}{Sounds neat. Can it do anything apart from making fertilizer?}
+{7000}{}{Yes, I found out it is pretty good in terms of making explosive materials…}
+{7010}{}{Really? Can you make some explosives for me then?}
+{8000}{}{Hmh, I actually shouldn’t but… How about you help me with one small task first? I am running out of materials for fertilizer. I need 70 broc flowers, 50 xander roots and 20 simple firewood.}
+{8010}{}{Fine, I will help you out.}
+{8020}{}{Heck no, I don't wish to waste my time collecting flowers somewhere.}
+{9000}{}{Ah you did it. Good, thank you for helping.}
+{9010}{}{So... Can your machine make some explosives for me?}
+{9020}{}{That was easy. Now let's talk about something else.}
+{10000}{}{Yes, it can make dynamite and plastic explosives. But I need materials for it. For the dynamite I need 15 Chemicals, 5 advanced chemicals, 10 metal parts, 3 electronic parts and 300 Brotherhood modules for my work here. For plastic explosives I will need 25 chemicals, 10 advanced chemicals, 10 metal parts, 15 electronic parts and 700 Brotherhood modules for my work.}
+{10010}{}{Here is everything for a dynamite.}
+{10020}{}{Here is everything for some plastic explosvies.}
+{10030}{}{Let's talk about other things.}
+{11000}{}{Yeah, I saw it. I don’t mind a settlement here as far as they don’t mess with the Brotherhood of Steel.}
+{11010}{}{Do you know anything specific about that settlement?}
+{11020}{}{I see. I will be going then.}
+{12000}{}{Can’t say much, we rarely contact each other. As far as I heard the habitants there decided to live near the radioactive reactor and they also call emselves Reactor Punks. Ironic, isn’t it?}
+{12010}{}{Alright, let's switch the topic.}
+{13000}{}{Alright, he you are, brother.}
+

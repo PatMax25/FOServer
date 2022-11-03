@@ -1,0 +1,15 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Feyd;
+@gender = 0;
+@age = 26;
+
+@special = 5 8 5 3 5 8 6;
+@xp = 5 13910 15000;
+@life = 80 80 0 0 0 0 0 0 0;
+@stats = 48 9 99275 1 0 25 10 20 3 6;
+@skills = 70 16 16 56 46 32 30 20 30 26 24 26 30 40 15 12 30 35 0;
+@perks = 301 429;
+@reputation = 605:-100 620:20 634:83;
+@kills = 265:5 266:14 267:3 275:8;

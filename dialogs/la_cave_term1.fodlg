@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+5 1010 @
+2 2000 None 0 #
+5 2010 @
+3 3000 None 0 #
+5 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+2 5010 #
+3 5020 #
+4 5030 #
+0 5040 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Janeth, take your pills already. I tell you, our settlment is made by ex Blades members. Mr. Robins and Jake Sally are just gunsmiths and there is NO hidden underground bunker orginised by the Brotherhood of Steel. You sound stupid. Think, Janeth! Why would Brotherhood even wish to be here in the first place? ]}
+{2010}{}{[ Back ]}
+{3000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ The Terminal of Louis Cogvell. This is MY property, punk, and you better go away before I return back home and see you using my computer! ]}
+{5010}{}{[ To Janeth ]}
+{5020}{}{[ To Mayor ]}
+{5030}{}{[ We are pretty much done ]}
+{5040}{}{[ Leave ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Janeth, take your pills already. I tell you, our settlment is made by ex Blades members. Mr. Robins and Jake Sally are just gunsmiths and there is NO hidden underground bunker orginised by the Brotherhood of Steel. You sound stupid. Think, Janeth! Why would Brotherhood even wish to be here in the first place? ]}
+{2010}{}{[ Back ]}
+{3000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ The Terminal of Louis Cogvell. This is MY property, punk, and you better go away before I return back home and see you using my computer! ]}
+{5010}{}{[ To Janeth ]}
+{5020}{}{[ To Mayor ]}
+{5030}{}{[ We are pretty much done ]}
+{5040}{}{[ Leave ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Janeth, take your pills already. I tell you, our settlment is made by ex Blades members. Mr. Robins and Jake Sally are just gunsmiths and there is NO hidden underground bunker orginised by the Brotherhood of Steel. You sound stupid. Think, Janeth! Why would Brotherhood even wish to be here in the first place? ]}
+{2010}{}{[ Back ]}
+{3000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ The Terminal of Louis Cogvell. This is MY property, punk, and you better go away before I return back home and see you using my computer! ]}
+{5010}{}{[ To Janeth ]}
+{5020}{}{[ To Mayor ]}
+{5030}{}{[ We are pretty much done ]}
+{5040}{}{[ Leave ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Janeth, take your pills already. I tell you, our settlment is made by ex Blades members. Mr. Robins and Jake Sally are just gunsmiths and there is NO hidden underground bunker orginised by the Brotherhood of Steel. You sound stupid. Think, Janeth! Why would Brotherhood even wish to be here in the first place? ]}
+{2010}{}{[ Back ]}
+{3000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ The Terminal of Louis Cogvell. This is MY property, punk, and you better go away before I return back home and see you using my computer! ]}
+{5010}{}{[ To Janeth ]}
+{5020}{}{[ To Mayor ]}
+{5030}{}{[ We are pretty much done ]}
+{5040}{}{[ Leave ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Janeth, take your pills already. I tell you, our settlment is made by ex Blades members. Mr. Robins and Jake Sally are just gunsmiths and there is NO hidden underground bunker orginised by the Brotherhood of Steel. You sound stupid. Think, Janeth! Why would Brotherhood even wish to be here in the first place? ]}
+{2010}{}{[ Back ]}
+{3000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ The Terminal of Louis Cogvell. This is MY property, punk, and you better go away before I return back home and see you using my computer! ]}
+{5010}{}{[ To Janeth ]}
+{5020}{}{[ To Mayor ]}
+{5030}{}{[ We are pretty much done ]}
+{5040}{}{[ Leave ]}
+

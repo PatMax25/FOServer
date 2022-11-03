@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+3 2000 None 0 &
+
+[engl]
+{100}{}{Captain Dolorian}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am very busy now.@@I have no time to chat.@@I need to watch this bird, so don't disturb me.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am very busy now.@@I have no time to chat.@@I need to watch this bird doing fine, so don't disturb me.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am very busy now.@@I have no time to chat.@@I need to watch this bird doing fine, so don't disturb me.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am very busy now.@@I have no time to chat.@@I need to watch this bird doing fine, so don't disturb me.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am very busy now.@@I have no time to chat.@@I need to watch this bird doing fine, so don't disturb me.}
+

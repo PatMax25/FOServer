@@ -1,0 +1,604 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// drugs_data.fos
+//
+
+const int[] DrugsIdentifiers =
+{
+    PID_STIMPAK, PID_RADAWAY, PID_ANTIDOTE, PID_RAD_X, PID_SUPER_STIMPAK, PID_JET_ANTIDOTE, PID_WEAK_HEALING_POWDER, PID_HEALING_POWDER, PID_HYPO,
+    PID_NUKA_COLA, PID_BEER, PID_BOOZE, PID_GAMMA_GULP_BEER, PID_ROENTGEN_RUM, PID_ROT_GUT, PID_MENTATS, PID_BUFFOUT, PID_PSYCHO, PID_JET,
+    PID_MUTATED_FRUIT, PID_IGUANA_ON_A_STICK, PID_MEAT_ON_A_STICK, PID_COOKIE, PID_HYPO_POISON, PID_MUTATED_TOE, PID_KITTY_SEX_DRUG_AGILITY,
+    PID_KITTY_SEX_DRUG_INTELLIGENCE, PID_KITTY_SEX_DRUG_STRENGTH, PID_MONUMENT_CHUNCK, PID_CIGARETTES, PID_WATERBAG, PID_BOTTLE_FULL, PID_GUM, PID_MUTIE, PID_VOODOO, PID_BLOODPACK, PID_HEART, PID_LIVER, PID_BRAIN, PID_EAR, PID_EYE, 
+	//food
+	PID_BEANS 
+	, PID_RAVIOLI 
+	, PID_PAPAYA 
+	, PID_GECKO_MEAT 
+	, PID_RAW_GECKO_MEAT 
+	, PID_GOLD_BAR 
+	, PID_CABBAGE 
+	, PID_FRYED_MEAT 
+	, PID_MILK 
+	, PID_SANDWICH 
+	, PID_FOOD1  
+	, PID_FOOD2 
+	, PID_FOOD3 
+	, PID_FOOD4 
+	, PID_FOOD5 
+	, PID_FOOD6 
+	, PID_FOOD7 
+};
+
+const int[] DrugEffects =
+{
+// PID_STIMPAK
+    -1,      0,             0,      0,          0,     0,
+    -2,        10,      0,      0,          0,     0,
+    ST_CURRENT_HP,        50,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_RADAWAY
+    ADDICTION_RADAWAY,     10,           120,    120,      14160, 10080,
+    ST_RADIATION_LEVEL,       -25,    -50,    -75,          0,     0,
+    ST_RADIATION_RESISTANCE,         0,      0,      0,        -20,    20,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_ANTIDOTE
+    -1,      0,            1,     1,          0,     0,
+    ST_POISONING_LEVEL,       -99,    -99,    -99,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_MENTATS, special
+    ADDICTION_MENTATS,     25,           600,    2,       2, 1200,
+    ST_INTELLECT,         2,     -2,      0,          0,     0,
+    ST_CHARISMA,         2,     -2,      0,          0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    ST_SEQUENCE,         10,      -10,      0,          -20,     20,
+    ST_HEALING_RATE,         -10,      10,      0,          0,     0,
+// PID_MUTATED_FRUIT
+    -1,      0,           120,    360,          0,     0,
+    -2,         1,      0,      0,          0,     0,
+    ST_CURRENT_HP,         4,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,         0,      1,      1,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_IGUANA_ON_A_STICK
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     20,      0,      0,         0,     0,
+    -1,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+// PID_BUFFOUT, special
+    ADDICTION_BUFFOUT,     25,            600,    2,        2, 1200,
+    ST_STRENGTH,         2,     -2,      0,          -5,     5,
+    ST_AGILITY,        -1,      1,      0,          0,     0,
+    ST_ENDURANCE,         2,     -2,      0,          0,     0,
+     ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_MEAT_ON_A_STICK
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     20,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+// PID_NUKA_COLA, special
+    ADDICTION_NUKA_COLA,     15,            600,      2,        2, 1200,
+    ST_AGILITY,         1,     -1,      0,          -2,     2,
+    ST_NPC_ROLE,         0,      -1,      0,         0,     0,
+    ST_ENDURANCE,         -1,      1,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_RAD_X
+    -1,      0,          1440,   1440,          0,     0,
+    ST_RADIATION_RESISTANCE,        50,    -25,    -25,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_PSYCHO, special
+    ADDICTION_PSYCHO,     30,            600,      2,          2, 1200,
+    ST_NORMAL_RESIST,        15,    -15,      0,          -30,     30,
+    ST_STRENGTH,         1,     -1,      0,          0,     0,
+    ST_ENDURANCE,         1,     -1,      0,          0,     0,
+    ST_PERCEPTION,        -2,      2,      0,          0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+// PID_BEER, special
+    ADDICTION_BEER,      30,           600,      2,          2,     1200,
+    ST_PERCEPTION,        -2,      2,      0,          -4,     4,
+    ST_NORMAL_RESIST,         5,     -5,      0,          0,     0,
+    ST_CHARISMA,         1,     -1,      0,          0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_BOOZE
+    ADDICTION_BEER,             30,    600,      2,          2,    1200,
+    ST_LASER_RESIST,             5,      -5,      0,          -4,     4,
+    ST_CURRENT_HP,     5,      0,      0,          0,     0,
+    ST_PERCEPTION,     -2,      2,      0,          0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    -1,             0,      0,      0,          0,     0,
+// PID_SUPER_STIMPAK
+    -1,      0,            10,     10,          0,     0,
+    ST_CURRENT_HP,        80,     0,     0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_JET, special
+    ADDICTION_JET,     50,          600,    2,        2,     1200,    // Only after Jet Antidote was used
+    ST_ACTION_POINTS,         2,     -2,      0,         -4,     4,
+    ST_CHARISMA,        -1,      1,      0,          0,     0,
+    ST_STRENGTH,        -2,      2,      0,          0,     0,
+    // druto ST_NORMAL_RESIST,       -10,     10,      0,          0,     0,
+	ST_NORMAL_RESIST,       -15,     15,      0,          0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+// PID_JET_ANTIDOTE
+    -1,      0,             0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_HEALING_POWDER
+    ADDICTION_HEALING,             30,    600,      2,          2,     1200,
+    ST_HEALING_RATE,             25,      -25,      0,          -35,     35,
+    ST_CURRENT_HP,     10,      0,      0,          0,     0,
+    ST_LUCK,      -1,      1,      0,          0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    -1,             0,      0,      0,          0,     0,
+// PID_GAMMA_GULP_BEER
+    ADDICTION_BEER,             30,     600,      2,          2,     1200,
+    ST_PLASMA_RESIST,             5,      -5,      0,          -5,     5,
+    ST_CURRENT_HP,      20,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL, 0,      1,      1,          0,     0,
+    ST_PERCEPTION,     -1,      1,      0,          -4,     4,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+// PID_ROENTGEN_RUM
+    ADDICTION_BEER,             30,     600,      2,          2,     1200,
+    ST_FIRE_RESIST,             5,      -5,      0,          0,     0,
+    ST_CURRENT_HP,      20,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL, 0,      1,      1,          0,     0,
+    ST_PERCEPTION,     -2,      2,      0,          -4,     4,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+// PID_HYPO_POISON
+    -1,      0,             0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_COOKIE
+    -1,             0,    60,      0,          0,     0,
+    ST_ACTION_POINTS,             1,      -1,      0,          0,     0,
+    ST_CURRENT_HP,     20,      0,      0,          0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    -1,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+// PID_MONUMENT_CHUNCK
+    -1,      0,            600,     600,          0,     0,
+    ST_STRENGTH,         3,     -6,      3,          0,     0,
+    ST_AGILITY,         3,     -6,      3,          0,     0,
+    ST_NORMAL_RESIST,        50,    -50,      0,          0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_ROT_GUT
+    ADDICTION_BEER,             30,     600,      2,          2,     1200,
+    ST_EXPLODE_RESIST,             5,      -5,      0,          0,     0,
+    ST_CURRENT_HP,     20,      0,      0,          0,     0,
+    ST_PERCEPTION,     -2,      2,      0,          -4,     4,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    -1,             0,      0,      0,          0,     0,
+// PID_MUTATED_TOE
+    -1,      0,          1440,   8640,          0,     0,
+    ST_MAX_LIFE,        -3,      0,      3,          0,     0,
+    ST_POISONING_LEVEL,         2,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_KITTY_SEX_DRUG_AGILITY
+    -1,      0,            60,      0,          0,     0,
+    ST_AGILITY,         1,     -1,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_KITTY_SEX_DRUG_INTELLIGENCE
+    -1,      0,            60,      0,          0,     0,
+    ST_INTELLECT,         1,     -1,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_KITTY_SEX_DRUG_STRENGTH
+    -1,      0,            60,      0,          0,     0,
+    ST_STRENGTH,         1,     -1,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_HYPO
+    -1,      0,             0,      0,          0,     0,
+    -2,        100,      0,      0,          0,     0,
+    ST_CURRENT_HP,       150,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_CIGARETTES, special
+    ADDICTION_CIGARETTES,     15,           600,      2,          2, 1200,
+    ST_PERCEPTION,         1,     -1,      0,         -2,     2,
+    ST_CHARISMA,        -1,      1,      0,          0,     0,
+    ST_ACTION_POINTS,         0,      0,      0,        0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_WATERBAG
+    -1,      0,             0,      0,          0,     0,
+    -2,        1,      0,      0,          0,     0,
+    ST_CURRENT_HP,        4,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_WEAK_HEALING_POWDER
+    -1,      0,           360,      0,          0,     0,
+    -2,         8,      0,      0,          0,     0,
+    ST_CURRENT_HP,        20,      0,      0,          0,     0,
+    ST_PERCEPTION,        -1,      1,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+// PID_BOTTLE_FULL
+    -1,      0,             0,      0,          0,     0,
+    -2,        1,      0,      0,          0,     0,
+    ST_CURRENT_HP,        4,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+	
+	ADDICTION_GUM,     30,           600,      2,          2, 1200,
+    ST_CRITICAL_CHANCE,         10,     -10,      0,          -10,     10,
+    ST_LUCK,        -5,      5,      0,          0,     0,
+    ST_ACTION_POINTS,         0,      0,      0,         0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    -1,         0,      0,      0,          0,     0,
+	
+	ADDICTION_MUTIE,     30,           600,      2,          2, 1200,
+    ST_NORMAL_ABSORB,         4,     -4,      0,          -6,     6,
+    ST_LASER_ABSORB,        4,      -3,      0,          0,     0,
+    ST_ACTION_POINTS,         -2,      2,      0,         0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    ST_EXPLODE_ABSORB,         4,      -4,      0,          0,     0,
+	
+	ADDICTION_VOODOO,     30,           600,      2,          2, 1200,
+    ST_LUCK,         3,     -3,      0,          -4,     4,
+    ST_STRENGTH,        -2,      2,      0,          0,     0,
+    ST_NPC_ROLE,         1,      -1,      0,         0,     0,
+    ST_ENDURANCE,         -2,      2,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+	// CANNIBAL DRUGS
+    -1,      0,            1,     1,          0,     0,
+    ST_CURRENT_HP,        60,     40,     0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+	
+    ADDICTION_BUFFOUT,     30,           160,      2,          2, 1200,
+    ST_CURRENT_HP,        20,      -145,      0,          0,     0,
+    ST_MAX_LIFE,        20,      -20,      0,          0,     0,
+    ST_ENDURANCE,         4,      -4,      0,          0,     0,
+	    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+	
+	ADDICTION_JET,     30,           160,      2,          2, 1200,
+    ST_CURRENT_HP,        0,      -125,      0,          0,     0,
+    -1,        0,      0,      0,          0,     0,
+	ST_STRENGTH,         3,      -3,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+	
+	ADDICTION_PSYCHO,     30,           160,      2,          2, 1200,
+    ST_CURRENT_HP,        0,      -125,      0,          0,     0,
+    ST_INTELLECT,        3,      -3,      0,          0,     0,
+	    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+	
+	ADDICTION_NUKA_COLA,     30,           160,      2,          2, 1200,
+    ST_CURRENT_HP,        0,      -125,      0,          0,     0,
+    ST_ACTION_POINTS,        2,      -2,      0,          0,     0,
+	ST_LUCK,         4,      -4,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+	
+	ADDICTION_CIGARETTES,     30,           160,      2,          2, 1200,
+    ST_CURRENT_HP,        0,      -125,      0,          0,     0,
+    ST_PERCEPTION,        3,      -3,      0,          0,     0,
+	-1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+    -1,         0,      0,      0,          0,     0,
+	// 1 low
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     33,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             0,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             12,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 low
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     38,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             3,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 low
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     41,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             4,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             5,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 low
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     52,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             1,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             4,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 low
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     38,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             8,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             8,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 poison
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     15,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             0,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             239,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 golden bar
+    -1,             0,    360,      0,          0,     0,
+    -2,             0,      0,      0,          0,     0,
+    ST_SEQUENCE,     0,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             0,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 low
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     46,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             14,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             5,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 low
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     55,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             12,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 anti
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     12,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             0,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             -32,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 high
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     95,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             0,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             4,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 high
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     96,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             0,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             2,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 anti
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     20,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             0,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             -250,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 rad
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     7,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             -200,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 high
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     102,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             14,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             5,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 high
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     103,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,            4,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             23,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 rad
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     10,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             -250,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             0,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0,
+		// 1 low
+    -1,             0,    360,      0,          0,     0,
+    -2,             4,      0,      0,          0,     0,
+    ST_CURRENT_HP,     30,      0,      0,          0,     0,
+    ST_RADIATION_LEVEL,             0,      0,      0,          0,     0,
+    ST_POISONING_LEVEL,             12,      0,      0,          0,     0,
+    -1,             0,      0,      0,          0,     0
+	
+};
+
+int GetDrugTableIndex(uint16 drugPid)
+{
+    int index = 0;
+    switch(drugPid)
+    {
+    case PID_STIMPAK:
+        index = 0;
+        break;
+    case PID_RADAWAY:
+        index = 1;
+        break;
+    case PID_ANTIDOTE:
+        index = 2;
+        break;
+    case PID_MENTATS:
+        index = 3;
+        break;
+    case PID_MUTATED_FRUIT:
+        index = 4;
+        break;
+    case PID_IGUANA_ON_A_STICK:
+        index = 5;
+        break;
+    case PID_BUFFOUT:
+        index = 6;
+        break;
+    case PID_MEAT_ON_A_STICK:
+        index = 7;
+        break;
+    case PID_NUKA_COLA:
+        index = 8;
+        break;
+    case PID_RAD_X:
+        index = 9;
+        break;
+    case PID_PSYCHO:
+        index = 10;
+        break;
+    case PID_BEER:
+        index = 11;
+        break;
+    case PID_BOOZE:
+        index = 12;
+        break;
+    case PID_SUPER_STIMPAK:
+        index = 13;
+        break;
+    case PID_JET:
+        index = 14;
+        break;
+    case PID_JET_ANTIDOTE:
+        index = 15;
+        break;
+    case PID_HEALING_POWDER:
+        index = 16;
+        break;
+    case PID_GAMMA_GULP_BEER:
+        index = 17;
+        break;
+    case PID_ROENTGEN_RUM:
+        index = 18;
+        break;
+    case PID_HYPO_POISON:
+        index = 19;
+        break;
+    case PID_COOKIE:
+        index = 20;
+        break;
+    case PID_MONUMENT_CHUNCK:
+        index = 21;
+        break;
+    case PID_ROT_GUT:
+        index = 22;
+        break;
+    case PID_MUTATED_TOE:
+        index = 23;
+        break;
+    case PID_KITTY_SEX_DRUG_AGILITY:
+        index = 24;
+        break;
+    case PID_KITTY_SEX_DRUG_INTELLIGENCE:
+        index = 25;
+        break;
+    case PID_KITTY_SEX_DRUG_STRENGTH:
+        index = 26;
+        break;
+    case PID_HYPO:
+        index = 27;
+        break;
+    case PID_CIGARETTES:
+        index = 28;
+        break;
+    case PID_WATERBAG:
+        index = 29;
+        break;
+    case PID_WEAK_HEALING_POWDER:
+        index = 30;
+        break;
+    case PID_BOTTLE_FULL:
+        index = 31;
+        break;
+	case PID_GUM:
+        index = 32;
+        break;
+	case PID_MUTIE:
+        index = 33;
+        break;
+	case PID_VOODOO:
+        index = 34;
+		        break;
+	case PID_BLOODPACK:
+        index = 35;
+		        break;
+	case PID_HEART:
+        index = 36;
+		        break;
+	case PID_LIVER:
+        index = 37;
+		        break;
+	case PID_BRAIN:
+        index = 38;
+		        break;
+	case PID_EAR:
+        index = 39;
+		        break;
+	case PID_EYE:
+        index = 40;
+        break;
+	case PID_BEANS: index = 41; break;
+	case PID_RAVIOLI: index = 42; break;
+	case PID_PAPAYA: index = 43; break;
+	case PID_GECKO_MEAT: index = 44; break;
+	case PID_RAW_GECKO_MEAT: index = 45; break;
+	case PID_GOLD_BAR: index = 46; break;
+	case PID_CABBAGE: index = 47; break;
+	case PID_FRYED_MEAT: index = 48; break;
+	case PID_MILK: index = 49; break;
+	case PID_SANDWICH: index = 50; break;
+	case PID_FOOD1 : index = 51; break;
+	case PID_FOOD2: index = 52; break;
+	case PID_FOOD3: index = 53; break;
+	case PID_FOOD4: index = 54; break;
+	case PID_FOOD5: index = 55; break;
+	case PID_FOOD6: index = 56; break;
+	case PID_FOOD7: index = 57; break;
+	case PID_MUSHROOM: index = 58; break;
+    default:
+        break;
+    }
+    index *= 36;
+    return index;
+}

@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Press Ganger}
+{200}{}{You see a press ganger.}
+{210}{}{You see a press ganger. Somehow, you don't want to become one of them.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ah! Another recruit.@@Be all you can be.@@The few, the proud, the mercenaries.@@Join us!@@Join or die!@@Your weapons will end up serving us, one way or another.@@Today is your lucky day... join us and maybe you'll live to talk about it.@@Last chance, join us!@@I'll be wearing your armor soon if you won't join us!@@Prepare to meet your new master.@@You won't escape this one.@@The time for choices is over!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ah! Another recruit.@@Be all you can be.@@The few, the proud, the mercenaries.@@Join us!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ah! Another recruit.@@Be all you can be.@@The few, the proud, the mercenaries.@@Join us!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ah! Another recruit.@@Be all you can be.@@The few, the proud, the mercenaries.@@Join us!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ah! Another recruit.@@Be all you can be.@@The few, the proud, the mercenaries.@@Join us!}
+

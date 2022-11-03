@@ -1,0 +1,176 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+6 2020 #
+5 2030 D _var p q_rockside_scorpio1 = 0 #
+8 2040 D _var p q_rockside_scorpio1 = 2 R _var p q_rockside_scorpio1 = 3 R _param p ST_EXPERIENCE + 700 R _item p PID_10MM_JHP + 15 #
+0 2050 @
+3 3000 None 0 #
+4 3010 #
+2 3020 #
+0 3030 @
+4 4000 None 0 #
+2 4010 #
+0 4020 @
+5 5000 None 0 #
+7 5010 #
+6 5020 @
+6 6000 None 0 @
+7 7000 None 0 #
+0 7010 R _var p q_rockside_scorpio1 = 1 #
+6 7020 @
+8 8000 None 0 #
+0 8010 #
+0 8020 &
+
+[engl]
+{100}{}{Joseph}
+{200}{}{A very smart looking scorpio.}
+{210}{}{This scorpion has clever eyes. It seems a little bit weird to you.}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{*he looks at you and then picks up a pad of paper and and a pencil*}
+{2010}{}{ Who... are you?}
+{2020}{}{A smart scorpion... Fuck this...}
+{2030}{}{Hey... Anyway I can help you, buddy?}
+{2040}{}{Hello again. I got eh... this magazine for you.}
+{2050}{}{I need to go. [ end dialogue ]}
+{3000}{}{*he writes something on the sheet, then shows it to you: "HelLo nAm JossEp."*}
+{3010}{}{How is it even possible?}
+{3020}{}{I see. One more thing...}
+{3030}{}{Alright, and my name is Bye. [ end dialogue ]}
+{4000}{}{*he writes something on the sheet, then shows it to you: "DOc Reolf MAd ME smArT."*}
+{4010}{}{Alright, I have something else to ask you.}
+{4020}{}{That's enough, I need to go. [ end dialogue ]}
+{5000}{}{*he stares at you for a while, then writes: "BooKs Bishop"*}
+{5010}{}{Get books from Bishop?}
+{5020}{}{I don't understand you. [ end dialogue ]}
+{6000}{}{*hisses*}
+{7000}{}{*he writes something with excitement: "YeS"*}
+{7010}{}{Alright, I will do it. [ end dialogue ]}
+{7020}{}{Nah, not my job. [ end dialogue ]}
+{8000}{}{*he hisses happily and writes: "Than Yu."*}
+{8010}{}{You are welcome. [ end dialogue ]}
+{8020}{}{Yeah... whatever... [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Looks at you and, then takes a sheet of paper and and a pencil. ]}
+{2010}{}{ Who... are you?}
+{2020}{}{A smart scorpio... Fuck this...}
+{2030}{}{Hey... Anyway I can help you, buddy?}
+{2040}{}{Hello again. I got eh... this magazine for you.}
+{2050}{}{I need to go.}
+{3000}{}{[ He writes something on the sheet, then shows it to you: "HelLo nAm JossEp." ]}
+{3010}{}{How is it even possible?}
+{3020}{}{I see. One more thing...}
+{3030}{}{Alright, and my name is Bye.}
+{4000}{}{[ He writes something on the sheet, then shows it to you: "DOc Reolf MAd ME smArT." ]}
+{4010}{}{Alright, I have something else to ask you.}
+{4020}{}{That's enough, I need to go.}
+{5000}{}{[ He stares at you for a while, then writes: "BooKs Bishop" ]}
+{5010}{}{Get books from Bishop?}
+{5020}{}{I don't understand you.}
+{6000}{}{*hisses*}
+{7000}{}{[ He writes something with excitement: "YeS" ]}
+{7010}{}{Alright, I will do it.}
+{7020}{}{Nah, not my job.}
+{8000}{}{[ He hisses happily and writes: "Than Yu." ]}
+{8010}{}{You are welcome.}
+{8020}{}{Yeah... whatever...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Looks at you and, then takes a sheet of paper and and a pencil. ]}
+{2010}{}{ Who... are you?}
+{2020}{}{A smart scorpio... Fuck this...}
+{2030}{}{Hey... Anyway I can help you, buddy?}
+{2040}{}{Hello again. I got eh... this magazine for you.}
+{2050}{}{I need to go.}
+{3000}{}{[ He writes something on the sheet, then shows it to you: "HelLo nAm JossEp." ]}
+{3010}{}{How is it even possible?}
+{3020}{}{I see. One more thing...}
+{3030}{}{Alright, and my name is Bye.}
+{4000}{}{[ He writes something on the sheet, then shows it to you: "DOc Reolf MAd ME smArT." ]}
+{4010}{}{Alright, I have something else to ask you.}
+{4020}{}{That's enough, I need to go.}
+{5000}{}{[ He stares at you for a while, then writes: "BooKs Bishop" ]}
+{5010}{}{Get books from Bishop?}
+{5020}{}{I don't understand you.}
+{6000}{}{*hisses*}
+{7000}{}{[ He writes something with excitement: "YeS" ]}
+{7010}{}{Alright, I will do it.}
+{7020}{}{Nah, not my job.}
+{8000}{}{[ He hisses happily and writes: "Than Yu." ]}
+{8010}{}{You are welcome.}
+{8020}{}{Yeah... whatever...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Looks at you and, then takes a sheet of paper and and a pencil. ]}
+{2010}{}{ Who... are you?}
+{2020}{}{A smart scorpio... Fuck this...}
+{2030}{}{Hey... Anyway I can help you, buddy?}
+{2040}{}{Hello again. I got eh... this magazine for you.}
+{2050}{}{I need to go.}
+{3000}{}{[ He writes something on the sheet, then shows it to you: "HelLo nAm JossEp." ]}
+{3010}{}{How is it even possible?}
+{3020}{}{I see. One more thing...}
+{3030}{}{Alright, and my name is Bye.}
+{4000}{}{[ He writes something on the sheet, then shows it to you: "DOc Reolf MAd ME smArT." ]}
+{4010}{}{Alright, I have something else to ask you.}
+{4020}{}{That's enough, I need to go.}
+{5000}{}{[ He stares at you for a while, then writes: "BooKs Bishop" ]}
+{5010}{}{Get books from Bishop?}
+{5020}{}{I don't understand you.}
+{6000}{}{*hisses*}
+{7000}{}{[ He writes something with excitement: "YeS" ]}
+{7010}{}{Alright, I will do it.}
+{7020}{}{Nah, not my job.}
+{8000}{}{[ He hisses happily and writes: "Than Yu." ]}
+{8010}{}{You are welcome.}
+{8020}{}{Yeah... whatever...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Looks at you and, then takes a sheet of paper and and a pencil. ]}
+{2010}{}{ Who... are you?}
+{2020}{}{A smart scorpio... Fuck this...}
+{2030}{}{Hey... Anyway I can help you, buddy?}
+{2040}{}{Hello again. I got eh... this magazine for you.}
+{2050}{}{I need to go.}
+{3000}{}{[ He writes something on the sheet, then shows it to you: "HelLo nAm JossEp." ]}
+{3010}{}{How is it even possible?}
+{3020}{}{I see. One more thing...}
+{3030}{}{Alright, and my name is Bye.}
+{4000}{}{[ He writes something on the sheet, then shows it to you: "DOc Reolf MAd ME smArT." ]}
+{4010}{}{Alright, I have something else to ask you.}
+{4020}{}{That's enough, I need to go.}
+{5000}{}{[ He stares at you for a while, then writes: "BooKs Bishop" ]}
+{5010}{}{Get books from Bishop?}
+{5020}{}{I don't understand you.}
+{6000}{}{*hisses*}
+{7000}{}{[ He writes something with excitement: "YeS" ]}
+{7010}{}{Alright, I will do it.}
+{7020}{}{Nah, not my job.}
+{8000}{}{[ He hisses happily and writes: "Than Yu." ]}
+{8010}{}{You are welcome.}
+{8020}{}{Yeah... whatever...}
+

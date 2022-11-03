@@ -1,0 +1,372 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+0 2020 @
+3 3000 None 0 #
+8 3010 R _script dialog@r_ChangeLightGroupParam 3 5 0 117440767 #
+8 3020 R _script dialog@r_ChangeLightGroupParam 3 5 0 127290112 #
+8 3030 R _script dialog@r_ChangeLightGroupParam 3 5 0 131863612 #
+8 3040 R _script dialog@r_ChangeLightGroupParam 3 5 0 117506047 #
+8 3050 R _script dialog@r_ChangeLightGroupParam 3 5 0 125862016 #
+8 3060 R _script dialog@r_ChangeLightGroupParam 3 5 0 117473280 #
+8 3070 R _script dialog@r_ChangeLightGroupParam 3 5 0 117483627 #
+8 3080 R _script dialog@r_ChangeLightGroupParam 3 5 0 129335004 #
+8 3090 R _script dialog@r_ChangeLightGroupParam 3 5 0 134215680 #
+8 3100 R _script dialog@r_ChangeLightGroupParam 3 5 0 134152447 #
+9 3110 #
+4 3120 @
+4 4000 None 0 #
+8 4010 R _script dialog@r_SwtichLightGroup 2 5 1 #
+8 4020 R _script dialog@r_SwtichLightGroup 2 5 0 #
+3 4030 #
+5 4040 #
+6 4050 #
+7 4060 #
+0 4070 @
+5 5000 None 0 #
+8 5010 R _script dialog@r_ChangeLightGroupParam 3 5 2 1 #
+8 5020 R _script dialog@r_ChangeLightGroupParam 3 5 2 2 #
+8 5030 R _script dialog@r_ChangeLightGroupParam 3 5 2 4 #
+8 5040 R _script dialog@r_ChangeLightGroupParam 3 5 2 8 #
+8 5050 R _script dialog@r_ChangeLightGroupParam 3 5 2 16 #
+8 5060 R _script dialog@r_ChangeLightGroupParam 3 5 2 32 #
+8 5070 R _script dialog@r_ChangeLightGroupParam 3 5 2 64 #
+4 5080 @
+6 6000 None 0 #
+8 6010 R _script dialog@r_ChangeLightGroupParam 3 5 1 10 #
+8 6020 R _script dialog@r_ChangeLightGroupParam 3 5 1 25 #
+8 6030 R _script dialog@r_ChangeLightGroupParam 3 5 1 50 #
+8 6040 R _script dialog@r_ChangeLightGroupParam 3 5 1 75 #
+8 6050 R _script dialog@r_ChangeLightGroupParam 3 5 1 100 #
+4 6060 @
+7 7000 None 0 #
+4 7010 @
+8 8000 None 0 @
+9 9000 None 0 #
+3 9010 #
+8 9020 R _script dialog@r_ChangeLightGroupParam 3 5 0 117440640 #
+8 9030 R _script dialog@r_ChangeLightGroupParam 3 5 0 125861888 #
+8 9040 R _script dialog@r_ChangeLightGroupParam 3 5 0 134184960 #
+8 9050 R _script dialog@r_ChangeLightGroupParam 3 5 0 134048926 #
+8 9060 R _script dialog@r_ChangeLightGroupParam 3 5 0 125829248 #
+8 9070 R _script dialog@r_ChangeLightGroupParam 3 5 0 133857394 #
+8 9080 R _script dialog@r_ChangeLightGroupParam 3 5 0 128449536 #
+8 9090 R _script dialog@r_ChangeLightGroupParam 3 5 0 122174514 #
+8 9100 R _script dialog@r_ChangeLightGroupParam 3 5 0 134217471 #
+8 9110 R _script dialog@r_ChangeLightGroupParam 3 5 0 134217472 #
+4 9120 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to exit}
+{2000}{}{Vault-Tec... Light System Control initializing... done...}
+{2010}{}{[Login]}
+{2020}{}{[exit]}
+{3000}{}{[Choose a Color]}
+{3010}{}{[Blue]}
+{3020}{}{[Brown]}
+{3030}{}{[Crimson]}
+{3040}{}{[Cyan]}
+{3050}{}{[Gray]}
+{3060}{}{[Green]}
+{3070}{}{[Jade]}
+{3080}{}{[Lavender]}
+{3090}{}{[Lemon]}
+{3100}{}{[Magenta]}
+{3110}{}{[MORE]}
+{3120}{}{[Back to Main Menu]}
+{4000}{}{[Main Menu]}
+{4010}{}{[Turn on Lights]}
+{4020}{}{[Turn off Lights]}
+{4030}{}{[Change Light Color]}
+{4040}{}{[Change Light Distance]}
+{4050}{}{[Change Light Intesity]}
+{4060}{}{[Change Admin Password]}
+{4070}{}{[Logout]}
+{5000}{}{[Choose Distance]}
+{5010}{}{[1]}
+{5020}{}{[2]}
+{5030}{}{[4]}
+{5040}{}{[8]}
+{5050}{}{[16]}
+{5060}{}{[32]}
+{5070}{}{[64]}
+{5080}{}{[Back to Main Menu]}
+{6000}{}{[Choose Intesity]}
+{6010}{}{[10%]}
+{6020}{}{[25%]}
+{6030}{}{[50%]}
+{6040}{}{[75%]}
+{6050}{}{[100%]}
+{6060}{}{[Back to Main Menu]}
+{7000}{}{[ERROR]}
+{7010}{}{[Back]}
+{8000}{}{Done...}
+{9000}{}{[Choose Colour]}
+{9010}{}{[BACK]}
+{9020}{}{[Navy]}
+{9030}{}{[Olive]}
+{9040}{}{[Orange]}
+{9050}{}{[Pink]}
+{9060}{}{[Purple]}
+{9070}{}{[Salmon]}
+{9080}{}{[Spring Bud]}
+{9090}{}{[Taupe]}
+{9100}{}{[White]}
+{9110}{}{[Yellow]}
+{9120}{}{[Back to Main Menu]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to exit}
+{2000}{}{Vault-Tec... Light System Control initializing... done...}
+{2010}{}{[Login]}
+{2020}{}{[exit]}
+{3000}{}{[Choose Colour]}
+{3010}{}{[blue]}
+{3020}{}{[brown]}
+{3030}{}{[Crimson]}
+{3040}{}{[Cyan]}
+{3050}{}{[Gray]}
+{3060}{}{[Green]}
+{3070}{}{[Jade]}
+{3080}{}{[Lavender]}
+{3090}{}{[Lemon]}
+{3100}{}{[Magenta]}
+{3110}{}{[MORE]}
+{3120}{}{[Back to Main Menu]}
+{4000}{}{[Main Menu]}
+{4010}{}{[Turn on Lights]}
+{4020}{}{[Turn off Lights]}
+{4030}{}{[Change Light Colour]}
+{4040}{}{[Change Light Dystance]}
+{4050}{}{[Change Light Intesity]}
+{4060}{}{[Change Admin Password]}
+{4070}{}{[Logout]}
+{5000}{}{[Choose Dystance]}
+{5010}{}{[1]}
+{5020}{}{[2]}
+{5030}{}{[4]}
+{5040}{}{[8]}
+{5050}{}{[16]}
+{5060}{}{[32]}
+{5070}{}{[64]}
+{5080}{}{[Back to Main Menu]}
+{6000}{}{[Choose Intesity]}
+{6010}{}{[10%]}
+{6020}{}{[25%]}
+{6030}{}{[50%]}
+{6040}{}{[75%]}
+{6050}{}{[100%]}
+{6060}{}{[Back to Main Menu]}
+{7000}{}{[ERROR]}
+{7010}{}{[Back]}
+{8000}{}{Done...}
+{9000}{}{[Choose Colour]}
+{9010}{}{[BACK]}
+{9020}{}{[Navy]}
+{9030}{}{[olive]}
+{9040}{}{[orange]}
+{9050}{}{[pink]}
+{9060}{}{[purple]}
+{9070}{}{[saimon]}
+{9080}{}{[Spring bud]}
+{9090}{}{[Taupe]}
+{9100}{}{[White]}
+{9110}{}{[Yellow]}
+{9120}{}{[Back to Main Menu]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to exit}
+{2000}{}{Vault-Tec... Light System Control initializing... done...}
+{2010}{}{[Login]}
+{2020}{}{[exit]}
+{3000}{}{[Choose Colour]}
+{3010}{}{[blue]}
+{3020}{}{[brown]}
+{3030}{}{[Crimson]}
+{3040}{}{[Cyan]}
+{3050}{}{[Gray]}
+{3060}{}{[Green]}
+{3070}{}{[Jade]}
+{3080}{}{[Lavender]}
+{3090}{}{[Lemon]}
+{3100}{}{[Magenta]}
+{3110}{}{[MORE]}
+{3120}{}{[Back to Main Menu]}
+{4000}{}{[Main Menu]}
+{4010}{}{[Turn on Lights]}
+{4020}{}{[Turn off Lights]}
+{4030}{}{[Change Light Colour]}
+{4040}{}{[Change Light Dystance]}
+{4050}{}{[Change Light Intesity]}
+{4060}{}{[Change Admin Password]}
+{4070}{}{[Logout]}
+{5000}{}{[Choose Dystance]}
+{5010}{}{[1]}
+{5020}{}{[2]}
+{5030}{}{[4]}
+{5040}{}{[8]}
+{5050}{}{[16]}
+{5060}{}{[32]}
+{5070}{}{[64]}
+{5080}{}{[Back to Main Menu]}
+{6000}{}{[Choose Intesity]}
+{6010}{}{[10%]}
+{6020}{}{[25%]}
+{6030}{}{[50%]}
+{6040}{}{[75%]}
+{6050}{}{[100%]}
+{6060}{}{[Back to Main Menu]}
+{7000}{}{[ERROR]}
+{7010}{}{[Back]}
+{8000}{}{Done...}
+{9000}{}{[Choose Colour]}
+{9010}{}{[BACK]}
+{9020}{}{[Navy]}
+{9030}{}{[olive]}
+{9040}{}{[orange]}
+{9050}{}{[pink]}
+{9060}{}{[purple]}
+{9070}{}{[saimon]}
+{9080}{}{[Spring bud]}
+{9090}{}{[Taupe]}
+{9100}{}{[White]}
+{9110}{}{[Yellow]}
+{9120}{}{[Back to Main Menu]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to exit}
+{2000}{}{Vault-Tec... Light System Control initializing... done...}
+{2010}{}{[Login]}
+{2020}{}{[exit]}
+{3000}{}{[Choose Colour]}
+{3010}{}{[blue]}
+{3020}{}{[brown]}
+{3030}{}{[Crimson]}
+{3040}{}{[Cyan]}
+{3050}{}{[Gray]}
+{3060}{}{[Green]}
+{3070}{}{[Jade]}
+{3080}{}{[Lavender]}
+{3090}{}{[Lemon]}
+{3100}{}{[Magenta]}
+{3110}{}{[MORE]}
+{3120}{}{[Back to Main Menu]}
+{4000}{}{[Main Menu]}
+{4010}{}{[Turn on Lights]}
+{4020}{}{[Turn off Lights]}
+{4030}{}{[Change Light Colour]}
+{4040}{}{[Change Light Dystance]}
+{4050}{}{[Change Light Intesity]}
+{4060}{}{[Change Admin Password]}
+{4070}{}{[Logout]}
+{5000}{}{[Choose Dystance]}
+{5010}{}{[1]}
+{5020}{}{[2]}
+{5030}{}{[4]}
+{5040}{}{[8]}
+{5050}{}{[16]}
+{5060}{}{[32]}
+{5070}{}{[64]}
+{5080}{}{[Back to Main Menu]}
+{6000}{}{[Choose Intesity]}
+{6010}{}{[10%]}
+{6020}{}{[25%]}
+{6030}{}{[50%]}
+{6040}{}{[75%]}
+{6050}{}{[100%]}
+{6060}{}{[Back to Main Menu]}
+{7000}{}{[ERROR]}
+{7010}{}{[Back]}
+{8000}{}{Done...}
+{9000}{}{[Choose Colour]}
+{9010}{}{[BACK]}
+{9020}{}{[Navy]}
+{9030}{}{[olive]}
+{9040}{}{[orange]}
+{9050}{}{[pink]}
+{9060}{}{[purple]}
+{9070}{}{[saimon]}
+{9080}{}{[Spring bud]}
+{9090}{}{[Taupe]}
+{9100}{}{[White]}
+{9110}{}{[Yellow]}
+{9120}{}{[Back to Main Menu]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to exit}
+{2000}{}{Vault-Tec... Light System Control initializing... done...}
+{2010}{}{[Login]}
+{2020}{}{[exit]}
+{3000}{}{[Choose Colour]}
+{3010}{}{[blue]}
+{3020}{}{[brown]}
+{3030}{}{[Crimson]}
+{3040}{}{[Cyan]}
+{3050}{}{[Gray]}
+{3060}{}{[Green]}
+{3070}{}{[Jade]}
+{3080}{}{[Lavender]}
+{3090}{}{[Lemon]}
+{3100}{}{[Magenta]}
+{3110}{}{[MORE]}
+{3120}{}{[Back to Main Menu]}
+{4000}{}{[Main Menu]}
+{4010}{}{[Turn on Lights]}
+{4020}{}{[Turn off Lights]}
+{4030}{}{[Change Light Colour]}
+{4040}{}{[Change Light Dystance]}
+{4050}{}{[Change Light Intesity]}
+{4060}{}{[Change Admin Password]}
+{4070}{}{[Logout]}
+{5000}{}{[Choose Dystance]}
+{5010}{}{[1]}
+{5020}{}{[2]}
+{5030}{}{[4]}
+{5040}{}{[8]}
+{5050}{}{[16]}
+{5060}{}{[32]}
+{5070}{}{[64]}
+{5080}{}{[Back to Main Menu]}
+{6000}{}{[Choose Intesity]}
+{6010}{}{[10%]}
+{6020}{}{[25%]}
+{6030}{}{[50%]}
+{6040}{}{[75%]}
+{6050}{}{[100%]}
+{6060}{}{[Back to Main Menu]}
+{7000}{}{[ERROR]}
+{7010}{}{[Back]}
+{8000}{}{Done...}
+{9000}{}{[Choose Colour]}
+{9010}{}{[BACK]}
+{9020}{}{[Navy]}
+{9030}{}{[olive]}
+{9040}{}{[orange]}
+{9050}{}{[pink]}
+{9060}{}{[purple]}
+{9070}{}{[saimon]}
+{9080}{}{[Spring bud]}
+{9090}{}{[Taupe]}
+{9100}{}{[White]}
+{9110}{}{[Yellow]}
+{9120}{}{[Back to Main Menu]}
+

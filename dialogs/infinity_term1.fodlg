@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 #
+0 2040 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ National Department of Advanced Security, Technology and Research/"Heaven" Field Terminal UR14. Operating... ]}
+{2010}{}{[ Direct Order ]}
+{2020}{}{[ A friendly message from Jhony ]}
+{2030}{}{[ Big heads arrived again ]}
+{2040}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ This is a direct order coming from the very top. I want your men to be sure that they stand their ground even after we hit DEF 1. Atomic War, the return of Jesus, aliens invasion - I don't give a damn, Rogers! No Apocalypse scenario means you leaving the containment post! You know exactly what may happen if we leave the thing to be on its own. So do your job! Nothing must break the containment protocols. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I assume that the eggheads have no idea what stands behind that "Infinity Dungeon" we have there. So just to tell you... I really suspect that our "best of the best" fucked up again and we are here to clear even more mess. This is the 5th time this year the freaks can't deal with their own experiments... Can't say that holding all biomutants inside the cave is harsh... But what a time waste ey? ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Alastor FuckYou Grey himself arrived today. I see "Heaven" really loves sending their big guys here to chatter and wander around for nothing. If I had my way, I would get rid of half the current science department... and what a weird person with him! He only called himself "F"... ]}
+{5010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ National Department of Advanced Security, Technology and Research/"Heaven" Field Terminal UR14. Operating... ]}
+{2010}{}{[ Direct Order ]}
+{2020}{}{[ A friendly message from Jhony ]}
+{2030}{}{[ Big heads arrived again ]}
+{2040}{}{[ Leave ]}
+{3000}{}{[ This is a direct order coming from the very top. I want your men to be sure that they shall stand their ground even after we hit DEF 1. Atomic War, the return of Jesus, aliens invasion - I don't give a damn, Rogers! No Apocalypse scenario means you leaving the containment post. You know exactly what may happen if we leave the thing to be on its own. So do your job! Nothing must break the containment protocoles. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I assume that the eggheads have no idea what stands behind that "Infinity Dungeon" we have there. So just to tell you... I really suspect that our "best of the best" fucked up again and we are here to clear even more mess. This is the 5th time this year the freaks can't deal with their own experiments... Can't say that holding all biomutants inside the cave is harsh... But what a time waste ey? ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Alastor FuckYou Grey himself arrived today. I see "Heaven" really loves sending their big guys here to chatter and wander around for nothing. If it stood for my will,  I would get rid of the half of the current science department... Ah, there was also a weird person with him. He named himself as F... ]}
+{5010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ National Department of Advanced Security, Technology and Research/"Heaven" Field Terminal UR14. Operating... ]}
+{2010}{}{[ Direct Order ]}
+{2020}{}{[ A friendly message from Jhony ]}
+{2030}{}{[ Big heads arrived again ]}
+{2040}{}{[ Leave ]}
+{3000}{}{[ This is a direct order coming from the very top. I want your men to be sure that they shall stand their ground even after we hit DEF 1. Atomic War, the return of Jesus, aliens invasion - I don't give a damn, Rogers! No Apocalypse scenario means you leaving the containment post. You know exactly what may happen if we leave the thing to be on its own. So do your job! Nothing must break the containment protocoles. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I assume that the eggheads have no idea what stands behind that "Infinity Dungeon" we have there. So just to tell you... I really suspect that our "best of the best" fucked up again and we are here to clear even more mess. This is the 5th time this year the freaks can't deal with their own experiments... Can't say that holding all biomutants inside the cave is harsh... But what a time waste ey? ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Alastor FuckYou Grey himself arrived today. I see "Heaven" really loves sending their big guys here to chatter and wander around for nothing. If it stood for my will,  I would get rid of the half of the current science department... Ah, there was also a weird person with him. He named himself as F... ]}
+{5010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ National Department of Advanced Security, Technology and Research/"Heaven" Field Terminal UR14. Operating... ]}
+{2010}{}{[ Direct Order ]}
+{2020}{}{[ A friendly message from Jhony ]}
+{2030}{}{[ Big heads arrived again ]}
+{2040}{}{[ Leave ]}
+{3000}{}{[ This is a direct order coming from the very top. I want your men to be sure that they shall stand their ground even after we hit DEF 1. Atomic War, the return of Jesus, aliens invasion - I don't give a damn, Rogers! No Apocalypse scenario means you leaving the containment post. You know exactly what may happen if we leave the thing to be on its own. So do your job! Nothing must break the containment protocoles. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I assume that the eggheads have no idea what stands behind that "Infinity Dungeon" we have there. So just to tell you... I really suspect that our "best of the best" fucked up again and we are here to clear even more mess. This is the 5th time this year the freaks can't deal with their own experiments... Can't say that holding all biomutants inside the cave is harsh... But what a time waste ey? ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Alastor FuckYou Grey himself arrived today. I see "Heaven" really loves sending their big guys here to chatter and wander around for nothing. If it stood for my will,  I would get rid of the half of the current science department... Ah, there was also a weird person with him. He named himself as F... ]}
+{5010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ National Department of Advanced Security, Technology and Research/"Heaven" Field Terminal UR14. Operating... ]}
+{2010}{}{[ Direct Order ]}
+{2020}{}{[ A friendly message from Jhony ]}
+{2030}{}{[ Big heads arrived again ]}
+{2040}{}{[ Leave ]}
+{3000}{}{[ This is a direct order coming from the very top. I want your men to be sure that they shall stand their ground even after we hit DEF 1. Atomic War, the return of Jesus, aliens invasion - I don't give a damn, Rogers! No Apocalypse scenario means you leaving the containment post. You know exactly what may happen if we leave the thing to be on its own. So do your job! Nothing must break the containment protocoles. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I assume that the eggheads have no idea what stands behind that "Infinity Dungeon" we have there. So just to tell you... I really suspect that our "best of the best" fucked up again and we are here to clear even more mess. This is the 5th time this year the freaks can't deal with their own experiments... Can't say that holding all biomutants inside the cave is harsh... But what a time waste ey? ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Alastor FuckYou Grey himself arrived today. I see "Heaven" really loves sending their big guys here to chatter and wander around for nothing. If it stood for my will,  I would get rid of the half of the current science department... Ah, there was also a weird person with him. He named himself as F... ]}
+{5010}{}{[ Back ]}
+

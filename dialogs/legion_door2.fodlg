@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _param p ST_FACTION_RANK } 4 R _script dialog@r_OpenDoor 2 66 10 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Door guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hold on here. This storage is only for officers and lords.}
+{2010}{}{And who do you think is standing in front of you? Open the door, cornifer. [ enter ]}
+{2020}{}{Fine, I will be going then. [ end dialogue ]}
+{3000}{}{Yes, my lord. Please come in.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hold on here. This storage is only for officers and lords.}
+{2010}{}{And who do you think is standing in front of you? Open the door, cornifer.}
+{2020}{}{Fine, I will be going then.}
+{3000}{}{Yes, my lord. Please come in.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hold on here. This storage is only for officers and lords.}
+{2010}{}{And who do you think is standing in front of you? Open the door, cornifer.}
+{2020}{}{Fine, I will be going then.}
+{3000}{}{Yes, my lord. Please come in.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hold on here. This storage is only for officers and lords.}
+{2010}{}{And who do you think is standing in front of you? Open the door, cornifer.}
+{2020}{}{Fine, I will be going then.}
+{3000}{}{Yes, my lord. Please come in.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hold on here. This storage is only for officers and lords.}
+{2010}{}{And who do you think is standing in front of you? Open the door, cornifer.}
+{2020}{}{Fine, I will be going then.}
+{3000}{}{Yes, my lord. Please come in.}
+

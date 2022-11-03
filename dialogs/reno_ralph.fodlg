@@ -1,0 +1,276 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+10 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 R _var p name_mem_npc_player = 1 #
+4 2020 R _var p name_mem_npc_player = 1 #
+65507 2030 #
+0 2040 @
+3 3000 None 0 #
+10 3010 #
+4 3020 #
+10 3030 #
+0 3040 @
+4 4000 None 0 #
+5 4010 #
+10 4020 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+10 6010 #
+7 6020 @
+7 7000 None 0 #
+10 7010 @
+8 8000 None 0 #
+11 8010 D _param p ST_STRENGTH } 7 #
+12 8020 D _param p ST_STRENGTH < 7 #
+11 8030 D _param p SK_BARTER } 80 #
+12 8040 D _param p SK_BARTER < 80 #
+11 8050 D _param p SK_SPEECH } 80 #
+12 8060 D _param p SK_SPEECH < 80 #
+9 8070 D _item p PID_BOTTLE_CAPS } 150 R _item p PID_BOTTLE_CAPS - 150 #
+0 8080 @
+9 9000 None 0 @
+10 10000 None 0 #
+4 10010 #
+5 10020 #
+6 10030 #
+8 10040 #
+0 10050 @
+11 11000 None 0 #
+9 11010 D _item p PID_BOTTLE_CAPS } 50 R _item p PID_BOTTLE_CAPS - 50 @
+12 12000 None 0 &
+
+[engl]
+{100}{}{Stinky Ralph}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh hello there. Not many people come down here. Do you need anything from Stinky Ralph?}
+{2010}{}{Stinky Ralph? Why do they call you Stinky Ralph?}
+{2020}{}{What are you doing here?}
+{2030}{}{Dear my! A mutant! I will put you out of your misery!}
+{2040}{}{Oh shit! A homeless stinky prick! I better get out of here.}
+{3000}{}{Why do you think, mate? Cant you smell anything, hehe?}
+{3010}{}{[ Shake your head ] Even if you stink, it is hardly noticable. We are in sewers you know. Everything stinks here. Anyway... How about a small chat?}
+{3020}{}{And what are you doing here then?}
+{3030}{}{How about some chatting?}
+{3040}{}{Well, see you then.}
+{4000}{}{It's obvious. I am living here, it's way too dangerous to live on surface of this damn city. Bandits, gangs, pimps... Any moment somebody can stick a knife into you and, let me assure ya, I don't wish to die like this. Sewers are more peaceful, nobody usually goes down here.}
+{4010}{}{What can you tell me about New Reno?}
+{4020}{}{Mind if I ask you about something else?}
+{5000}{}{The city of sins. You won't find anything here, my dude. The ones who believe they can make a fortune here usually end up like me [ he chuckles ], on the very-very bottom of society.}
+{5010}{}{What about this area?}
+{6000}{}{This used to be a central district before the war. The tall building you can see here used to be a police station. Now it is a place for the "Honest Hearts" company. See a red brick building on your way here? It used to be a hotel before the war. I heard rumors that once the bombs fell, all the hotel floors collapsed and buried every resident...}
+{6010}{}{Alright, I need to ask you about something else.}
+{6020}{}{"Honest Hearts"? Who are these people?}
+{7000}{}{Can't say much about them. They are very sneaky and weird, I heard thay are making contracts with farmers and buying food supplies. And devil knows what for...}
+{7010}{}{Right... One more thing.}
+{8000}{}{Oh I know many interesting things. But... You will have to pay me for such information. But surely it's worth it. 150 caps for every piece of information.}
+{8010}{}{[ Strength 7 ] HOW much?}
+{8020}{}{[ Strength 7 ] HOW much?}
+{8030}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8040}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8050}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8060}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8070}{}{Here is the money. What can you tell me today?}
+{8080}{}{Maybe later...}
+{9000}{}{I heard that one Mordino thug hid some of his supplies in the Casino toilet.@@Ever heard of Golden Globe porn studio? Guess where they hide some of their "toys". Yup, Somewhere in the city sewers.@@I heard Reno Arms hosts hide some of their tools in the basement.@@Last night I saw Miss Kitty hiding something in the mail box here.@@I heard a rumor that a strange person appears near the deserted red brick hotel building every Friday at 6 PM CET.}
+{10000}{}{What is it?}
+{10010}{}{So what are you doing in these sewers?}
+{10020}{}{What can you tell me about New Reno?}
+{10030}{}{What can you tell me about this area?}
+{10040}{}{Can you tell me about something interesting maybe?}
+{10050}{}{I will be going,}
+{11000}{}{Eh... Fine. 50 caps then.}
+{11010}{}{Here is the money. What can you tell me today?}
+{12000}{}{[ Fail ] 150 caps. I ain't bartering.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh hello there. Not many people get down here. Do you need anything from Stinky Ralph?}
+{2010}{}{Stinky Ralph? Why do they call you Stinky Ralph?}
+{2020}{}{What are you doing here?}
+{2030}{}{Dear my! A mutant! I will put you out of your misery!}
+{2040}{}{Oh shit! A homeless stinky prick! I better run.}
+{3000}{}{And how do you think, mate? Cant you small anything, hehe?}
+{3010}{}{[ Shake your head ] Even if you stink, it is hardly noticable. We are insewers you know. Everything stinks here. Anyway... How about a small chat?}
+{3020}{}{And what are you doing here then?}
+{3030}{}{How about some chatting?}
+{3040}{}{Well, see you then.}
+{4000}{}{It's obvious. I am living here, it's way too dangerous to live on surface of this damn city. Bandits, gangs, pimps... Any moment somebody can stick a knife into you and, let me assure ya, I don't wish to die like this. Sewers are more peaceful, nobody usually goes down here.}
+{4010}{}{What can you tell me about New Reno?}
+{4020}{}{Mind if I ask you about something else?}
+{5000}{}{The city of sins. You won't find anything here, my dude. The ones who believe that can get the fortune here usually end up like me [ he chuckles ], on the very-very bottom of sociaty.}
+{5010}{}{What about this area?}
+{6000}{}{This is used to be some central district before the war. The tall building you can here used to be a police station. Now it is a place for "Honest Hearts" company.}
+{6010}{}{Alright, I need to ask you about something else.}
+{6020}{}{"Honest Hearts"? Who are these people?}
+{7000}{}{Can't say much about them. They are very sneaky and weird, I heard thay are making contracts with farmers and buy food supplies. And devil knows why...}
+{7010}{}{Right... One more thing.}
+{8000}{}{Oh I know many interesting things. But... You will have to pay me for such information. But it surely worths it.}
+{8010}{}{[ Strength 7 ] HOW much?}
+{8020}{}{[ Strength 7 ] HOW much?}
+{8030}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8040}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8050}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8060}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8070}{}{Here are the money. What can you tell me today?}
+{8080}{}{Maybe later...}
+{9000}{}{I heard that one Mordino thug hid some of his supplies in the Casino toilet.@@Ever heard of Golden Globe porn studio? Guess where they hide some of their "toys". Yup, Somewhere in the city sewers.@@I heard Reno Arms hosts hide some of their tools in the basement.@@Last night I saw Miss Kitty hiding something in the mail box here.@@I heard a rumor that a strange person appears near the deserted red brick hotel building every Friday at 6 PM CET.}
+{10000}{}{Hello again.}
+{10010}{}{So what are you doing in these sewers?}
+{10020}{}{What can you tell me about New Reno?}
+{10030}{}{What can you tell me about this area?}
+{10040}{}{Can you tell me about something interesting maybe?}
+{10050}{}{I will be going,}
+{11000}{}{Eh... Fine. 50 caps then.}
+{11010}{}{Here are the money. What can you tell me today?}
+{12000}{}{150 caps. I ain't bartering.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh hello there. Not many people get down here. Do you need anything from Stinky Ralph?}
+{2010}{}{Stinky Ralph? Why do they call you Stinky Ralph?}
+{2020}{}{What are you doing here?}
+{2030}{}{Dear my! A mutant! I will put you out of your misery!}
+{2040}{}{Oh shit! A homeless stinky prick! I better run.}
+{3000}{}{And how do you think, mate? Cant you small anything, hehe?}
+{3010}{}{[ Shake your head ] Even if you stink, it is hardly noticable. We are insewers you know. Everything stinks here. Anyway... How about a small chat?}
+{3020}{}{And what are you doing here then?}
+{3030}{}{How about some chatting?}
+{3040}{}{Well, see you then.}
+{4000}{}{It's obvious. I am living here, it's way too dangerous to live on surface of this damn city. Bandits, gangs, pimps... Any moment somebody can stick a knife into you and, let me assure ya, I don't wish to die like this. Sewers are more peaceful, nobody usually goes down here.}
+{4010}{}{What can you tell me about New Reno?}
+{4020}{}{Mind if I ask you about something else?}
+{5000}{}{The city of sins. You won't find anything here, my dude. The ones who believe that can get the fortune here usually end up like me [ he chuckles ], on the very-very bottom of sociaty.}
+{5010}{}{What about this area?}
+{6000}{}{This is used to be some central district before the war. The tall building you can here used to be a police station. Now it is a place for "Honest Hearts" company.}
+{6010}{}{Alright, I need to ask you about something else.}
+{6020}{}{"Honest Hearts"? Who are these people?}
+{7000}{}{Can't say much about them. They are very sneaky and weird, I heard thay are making contracts with farmers and buy food supplies. And devil knows why...}
+{7010}{}{Right... One more thing.}
+{8000}{}{Oh I know many interesting things. But... You will have to pay me for such information. But it surely worths it.}
+{8010}{}{[ Strength 7 ] HOW much?}
+{8020}{}{[ Strength 7 ] HOW much?}
+{8030}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8040}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8050}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8060}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8070}{}{Here are the money. What can you tell me today?}
+{8080}{}{Maybe later...}
+{9000}{}{I heard that one Mordino thug hid some of his supplies in the Casino toilet.@@Ever heard of Golden Globe porn studio? Guess where they hide some of their "toys". Yup, Somewhere in the city sewers.@@I heard Reno Arms hosts hide some of their tools in the basement.@@Last night I saw Miss Kitty hiding something in the mail box here.@@I heard a rumor that a strange person appears near the deserted red brick hotel building every Friday at 6 PM CET.}
+{10000}{}{Hello again.}
+{10010}{}{So what are you doing in these sewers?}
+{10020}{}{What can you tell me about New Reno?}
+{10030}{}{What can you tell me about this area?}
+{10040}{}{Can you tell me about something interesting maybe?}
+{10050}{}{I will be going,}
+{11000}{}{Eh... Fine. 50 caps then.}
+{11010}{}{Here are the money. What can you tell me today?}
+{12000}{}{150 caps. I ain't bartering.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh hello there. Not many people get down here. Do you need anything from Stinky Ralph?}
+{2010}{}{Stinky Ralph? Why do they call you Stinky Ralph?}
+{2020}{}{What are you doing here?}
+{2030}{}{Dear my! A mutant! I will put you out of your misery!}
+{2040}{}{Oh shit! A homeless stinky prick! I better run.}
+{3000}{}{And how do you think, mate? Cant you small anything, hehe?}
+{3010}{}{[ Shake your head ] Even if you stink, it is hardly noticable. We are insewers you know. Everything stinks here. Anyway... How about a small chat?}
+{3020}{}{And what are you doing here then?}
+{3030}{}{How about some chatting?}
+{3040}{}{Well, see you then.}
+{4000}{}{It's obvious. I am living here, it's way too dangerous to live on surface of this damn city. Bandits, gangs, pimps... Any moment somebody can stick a knife into you and, let me assure ya, I don't wish to die like this. Sewers are more peaceful, nobody usually goes down here.}
+{4010}{}{What can you tell me about New Reno?}
+{4020}{}{Mind if I ask you about something else?}
+{5000}{}{The city of sins. You won't find anything here, my dude. The ones who believe that can get the fortune here usually end up like me [ he chuckles ], on the very-very bottom of sociaty.}
+{5010}{}{What about this area?}
+{6000}{}{This is used to be some central district before the war. The tall building you can here used to be a police station. Now it is a place for "Honest Hearts" company.}
+{6010}{}{Alright, I need to ask you about something else.}
+{6020}{}{"Honest Hearts"? Who are these people?}
+{7000}{}{Can't say much about them. They are very sneaky and weird, I heard thay are making contracts with farmers and buy food supplies. And devil knows why...}
+{7010}{}{Right... One more thing.}
+{8000}{}{Oh I know many interesting things. But... You will have to pay me for such information. But it surely worths it.}
+{8010}{}{[ Strength 7 ] HOW much?}
+{8020}{}{[ Strength 7 ] HOW much?}
+{8030}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8040}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8050}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8060}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8070}{}{Here are the money. What can you tell me today?}
+{8080}{}{Maybe later...}
+{9000}{}{I heard that one Mordino thug hid some of his supplies in the Casino toilet.@@Ever heard of Golden Globe porn studio? Guess where they hide some of their "toys". Yup, Somewhere in the city sewers.@@I heard Reno Arms hosts hide some of their tools in the basement.@@Last night I saw Miss Kitty hiding something in the mail box here.@@I heard a rumor that a strange person appears near the deserted red brick hotel building every Friday at 6 PM CET.}
+{10000}{}{Hello again.}
+{10010}{}{So what are you doing in these sewers?}
+{10020}{}{What can you tell me about New Reno?}
+{10030}{}{What can you tell me about this area?}
+{10040}{}{Can you tell me about something interesting maybe?}
+{10050}{}{I will be going,}
+{11000}{}{Eh... Fine. 50 caps then.}
+{11010}{}{Here are the money. What can you tell me today?}
+{12000}{}{150 caps. I ain't bartering.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh hello there. Not many people get down here. Do you need anything from Stinky Ralph?}
+{2010}{}{Stinky Ralph? Why do they call you Stinky Ralph?}
+{2020}{}{What are you doing here?}
+{2030}{}{Dear my! A mutant! I will put you out of your misery!}
+{2040}{}{Oh shit! A homeless stinky prick! I better run.}
+{3000}{}{And how do you think, mate? Cant you small anything, hehe?}
+{3010}{}{[ Shake your head ] Even if you stink, it is hardly noticable. We are insewers you know. Everything stinks here. Anyway... How about a small chat?}
+{3020}{}{And what are you doing here then?}
+{3030}{}{How about some chatting?}
+{3040}{}{Well, see you then.}
+{4000}{}{It's obvious. I am living here, it's way too dangerous to live on surface of this damn city. Bandits, gangs, pimps... Any moment somebody can stick a knife into you and, let me assure ya, I don't wish to die like this. Sewers are more peaceful, nobody usually goes down here.}
+{4010}{}{What can you tell me about New Reno?}
+{4020}{}{Mind if I ask you about something else?}
+{5000}{}{The city of sins. You won't find anything here, my dude. The ones who believe that can get the fortune here usually end up like me [ he chuckles ], on the very-very bottom of sociaty.}
+{5010}{}{What about this area?}
+{6000}{}{This is used to be some central district before the war. The tall building you can here used to be a police station. Now it is a place for "Honest Hearts" company.}
+{6010}{}{Alright, I need to ask you about something else.}
+{6020}{}{"Honest Hearts"? Who are these people?}
+{7000}{}{Can't say much about them. They are very sneaky and weird, I heard thay are making contracts with farmers and buy food supplies. And devil knows why...}
+{7010}{}{Right... One more thing.}
+{8000}{}{Oh I know many interesting things. But... You will have to pay me for such information. But it surely worths it.}
+{8010}{}{[ Strength 7 ] HOW much?}
+{8020}{}{[ Strength 7 ] HOW much?}
+{8030}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8040}{}{[ Barter 80 ] What are these prices? I demand a discount.}
+{8050}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8060}{}{[ Speech 80 ] Ah come on, I am sure it doesn't cost that much,}
+{8070}{}{Here are the money. What can you tell me today?}
+{8080}{}{Maybe later...}
+{9000}{}{I heard that one Mordino thug hid some of his supplies in the Casino toilet.@@Ever heard of Golden Globe porn studio? Guess where they hide some of their "toys". Yup, Somewhere in the city sewers.@@I heard Reno Arms hosts hide some of their tools in the basement.@@Last night I saw Miss Kitty hiding something in the mail box here.@@I heard a rumor that a strange person appears near the deserted red brick hotel building every Friday at 6 PM CET.}
+{10000}{}{Hello again.}
+{10010}{}{So what are you doing in these sewers?}
+{10020}{}{What can you tell me about New Reno?}
+{10030}{}{What can you tell me about this area?}
+{10040}{}{Can you tell me about something interesting maybe?}
+{10050}{}{I will be going,}
+{11000}{}{Eh... Fine. 50 caps then.}
+{11010}{}{Here are the money. What can you tell me today?}
+{12000}{}{150 caps. I ain't bartering.}
+

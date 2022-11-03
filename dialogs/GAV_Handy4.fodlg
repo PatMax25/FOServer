@@ -1,0 +1,191 @@
+﻿[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 R _script dialog@r_PlaySound 1 18 #
+3 1020 D _var p name_mem_npc_player = 1 R _script dialog@r_PlaySound 1 19 @
+2 2000 None 0 #
+3 2010 R _var p name_mem_npc_player = 1 R _item p PID_STIMPAK + 1 R _script dialog@r_PlaySound 1 19 #
+3 2020 R _var p name_mem_npc_player = 1 R _item p PID_STIMPAK + 1 R _script dialog@r_PlaySound 1 19 @
+3 3000 None 0 #
+4 3010 R _script dialog@r_PlaySound 1 20 #
+4 3020 R _script dialog@r_PlaySound 1 20 #
+0 3030 @
+4 4000 None 0 #
+5 4010 R _script dialog@r_PlaySound 1 21 #
+5 4020 R _script dialog@r_PlaySound 1 21 #
+0 4030 @
+5 5000 None 0 #
+6 5010 R _script dialog@r_PlaySound 1 22 #
+6 5020 R _script dialog@r_PlaySound 1 22 #
+0 5030 @
+6 6000 None 0 #
+7 6010 R _script dialog@r_PlaySound 1 23 #
+0 6020 @
+7 7000 None 0 #
+8 7010 #
+8 7020 #
+0 7030 @
+8 8000 None 0 #
+0 8010 &
+
+[engl]
+{100}{}{Mr. Medic}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh well hel-lo there, fellow resident! Getting ready for your journey, huh? Well, let me tell you something about myself - I'm gunna be the one that's gunna show you how to glue your ribs together! Ha ha!}
+{2010}{}{Ha ha...}
+{2020}{}{Why do all the robots here sound like outmoded comedians?}
+{3000}{}{Today, we'll be talking about medicine. First of all - let me remind you that you can heal yourself through the pip boy interface! To do so -  you'll need to use the First Aid skill. Just press 5 on your keyboard and and click on whoever you want to heal! Simple as that, but please remember that this skill, just like any other skill, requires improvements and that it also has a cooldown.}
+{3010}{}{Aha...}
+{3020}{}{[ Listen ]}
+{3030}{}{[ Leave ]}
+{4000}{}{Now what should you do to fix your ribs after breaking them? Correct! Just use the Doctor Skill! To use it - just press 6. But be aware that if you want to be able to operate on yourself out on the field - you will need to improve this skill significantly.
+}
+{4010}{}{[ Listen ]}
+{4020}{}{What about my eyes? How am I supposed to fix eyes?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now let’s talk about drugs and medications! First of all - don't use drugs if not prescribed by an official Vault-Tec approved doctor or Autodoc(tm) unit... Seriously, drugs can be very dangerous to your health! Did you know that Buffout causes massive muscle outgrowth? Some people taking Mentats even start to believe they have telekenesis or other psychic abilites, how sad! Just forget about drugs completely, trust me on this! We don't need you to be a junkie, alright?}
+{5010}{}{[ Listen ]}
+{5020}{}{Oh please...}
+{5030}{}{[ Leave ]}
+{6000}{}{Now as for medications - there are many medications that will help you to heal your wounds. For example: Painkillers, Analgesics, and my personal favorite, Anesthetics.....}
+{6010}{}{[ Listen ]}
+{6020}{}{[ Leave ]}
+{7000}{}{... and finally: Stimulators and Super Stimulators! They're also called Stimpaks and Super Stimpaks. These two can be found everywhere! Did you notice that I've already given you one, let's try it out now! This might sting a little bit...}
+{7010}{}{Oh no, you don't...}
+{7020}{}{No you don't dare...}
+{7030}{}{[ Leave ]}
+{8000}{}{[ The robot hits you with a pillow. For some reason you don't find it to be painful ]}
+{8010}{}{This is so stupid...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh well hel-lo there, fellow resident! Getting ready for your journey, huh? Well, let me tell you something about myself - I'm gunna be the one that's gunna show you how to glue your ribs together! Ha ha!}
+{2010}{}{Ha ha...}
+{2020}{}{Why do all robots here need to be outmoded comedians?}
+{3000}{}{Today, we'll be talking about medicine. First of all - let me remind you that you can heal yourself through the pip boy interface! To do so -  you'll need to use the First Aid skill. Just press 5 on your keyboard and and click on whoever you want to heal! Simple as that, but please remember that this skill, just like any other skill, requires improvements and that it also has a cooldown.}
+{3010}{}{Aha...}
+{3020}{}{[ Listen ]}
+{3030}{}{[ Leave ]}
+{4000}{}{Now what should you do to fix your ribs after breaking them? Correct! Just use the Doctor Skill! To use it - just press 6. But be aware that if you want to be able to operate on yourself out on the field - you will need to improve this skill significantly.
+}
+{4010}{}{[ Listen ]}
+{4020}{}{What about my eyes? How am I supposed to fix eyes?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now let’s talk about drugs and medications! First of all - don't use drugs... Seriously , they're very bad for your health! Did you know that Buffout causes muscle outgrowth? Just forget about drugs completely, trust me on this! We don't need you to be a junkie, alright?}
+{5010}{}{[ Listen ]}
+{5020}{}{Oh please...}
+{5030}{}{[ Leave ]}
+{6000}{}{Now as for medications - there are many medications that will help you to heal your wounds. For example: Painkillers, Analgesics, and my personal favorite, Anesthetics.....}
+{6010}{}{[ Listen ]}
+{6020}{}{[ Leave ]}
+{7000}{}{... and finally: Stimulators and Super Stimulators! They're also called Stimpaks and Super Stimpaks. These two can be found everywhere! Did you notice that I've already given you one, let's try it out now! This might sting a little bit...}
+{7010}{}{Oh no, you don't...}
+{7020}{}{No you don't dare...}
+{7030}{}{[ Leave ]}
+{8000}{}{[ The robot hits you with a pillow. For some reason you don't find it to be painful ]}
+{8010}{}{This is so stupid...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh well hel-lo there, fellow resident! Getting ready for your journey, huh? Well, let me tell you something about myself - I'm gunna be the one that's gunna show you how to glue your ribs together! Ha ha!}
+{2010}{}{Ha ha...}
+{2020}{}{Why do all robots here need to be outmoded comedians?}
+{3000}{}{Today, we'll be talking about medicine. First of all - let me remind you that you can heal yourself through the pip boy interface! To do so -  you'll need to use the First Aid skill. Just press 5 on your keyboard and and click on whoever you want to heal! Simple as that, but please remember that this skill, just like any other skill, requires improvements and that it also has a cooldown.}
+{3010}{}{Aha...}
+{3020}{}{[ Listen ]}
+{3030}{}{[ Leave ]}
+{4000}{}{Now what should you do to fix your ribs after breaking them? Correct! Just use the Doctor Skill! To use it - just press 6. But be aware that if you want to be able to operate on yourself out on the field - you will need to improve this skill significantly.
+}
+{4010}{}{[ Listen ]}
+{4020}{}{What about my eyes? How am I supposed to fix eyes?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now let’s talk about drugs and medications! First of all - don't use drugs... Seriously , they're very bad for your health! Did you know that Buffout causes muscle outgrowth? Just forget about drugs completely, trust me on this! We don't need you to be a junkie, alright?}
+{5010}{}{[ Listen ]}
+{5020}{}{Oh please...}
+{5030}{}{[ Leave ]}
+{6000}{}{Now as for medications - there are many medications that will help you to heal your wounds. For example: Painkillers, Analgesics, and my personal favorite, Anesthetics.....}
+{6010}{}{[ Listen ]}
+{6020}{}{[ Leave ]}
+{7000}{}{... and finally: Stimulators and Super Stimulators! They're also called Stimpaks and Super Stimpaks. These two can be found everywhere! Did you notice that I've already given you one, let's try it out now! This might sting a little bit...}
+{7010}{}{Oh no, you don't...}
+{7020}{}{No you don't dare...}
+{7030}{}{[ Leave ]}
+{8000}{}{[ The robot hits you with a pillow. For some reason you don't find it to be painful ]}
+{8010}{}{This is so stupid...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh well hel-lo there, fellow resident! Getting ready for your journey, huh? Well, let me tell you something about myself - I'm gunna be the one that's gunna show you how to glue your ribs together! Ha ha!}
+{2010}{}{Ha ha...}
+{2020}{}{Why do all robots here need to be outmoded comedians?}
+{3000}{}{Today, we'll be talking about medicine. First of all - let me remind you that you can heal yourself through the pip boy interface! To do so -  you'll need to use the First Aid skill. Just press 5 on your keyboard and and click on whoever you want to heal! Simple as that, but please remember that this skill, just like any other skill, requires improvements and that it also has a cooldown.}
+{3010}{}{Aha...}
+{3020}{}{[ Listen ]}
+{3030}{}{[ Leave ]}
+{4000}{}{Now what should you do to fix your ribs after breaking them? Correct! Just use the Doctor Skill! To use it - just press 6. But be aware that if you want to be able to operate on yourself out on the field - you will need to improve this skill significantly.
+}
+{4010}{}{[ Listen ]}
+{4020}{}{What about my eyes? How am I supposed to fix eyes?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now let’s talk about drugs and medications! First of all - don't use drugs... Seriously , they're very bad for your health! Did you know that Buffout causes muscle outgrowth? Just forget about drugs completely, trust me on this! We don't need you to be a junkie, alright?}
+{5010}{}{[ Listen ]}
+{5020}{}{Oh please...}
+{5030}{}{[ Leave ]}
+{6000}{}{Now as for medications - there are many medications that will help you to heal your wounds. For example: Painkillers, Analgesics, and my personal favorite, Anesthetics.....}
+{6010}{}{[ Listen ]}
+{6020}{}{[ Leave ]}
+{7000}{}{... and finally: Stimulators and Super Stimulators! They're also called Stimpaks and Super Stimpaks. These two can be found everywhere! Did you notice that I've already given you one, let's try it out now! This might sting a little bit...}
+{7010}{}{Oh no, you don't...}
+{7020}{}{No you don't dare...}
+{7030}{}{[ Leave ]}
+{8000}{}{[ The robot hits you with a pillow. For some reason you don't find it to be painful ]}
+{8010}{}{This is so stupid...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Oh well hel-lo there, fellow resident! Getting ready for your journey, huh? Well, let me tell you something about myself - I'm gunna be the one that's gunna show you how to glue your ribs together! Ha ha!}
+{2010}{}{Ha ha...}
+{2020}{}{Why do all robots here need to be outmoded comedians?}
+{3000}{}{Today, we'll be talking about medicine. First of all - let me remind you that you can heal yourself through the pip boy interface! To do so -  you'll need to use the First Aid skill. Just press 5 on your keyboard and and click on whoever you want to heal! Simple as that, but please remember that this skill, just like any other skill, requires improvements and that it also has a cooldown.}
+{3010}{}{Aha...}
+{3020}{}{[ Listen ]}
+{3030}{}{[ Leave ]}
+{4000}{}{Now what should you do to fix your ribs after breaking them? Correct! Just use the Doctor Skill! To use it - just press 6. But be aware that if you want to be able to operate on yourself out on the field - you will need to improve this skill significantly.
+}
+{4010}{}{[ Listen ]}
+{4020}{}{What about my eyes? How am I supposed to fix eyes?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now let’s talk about drugs and medications! First of all - don't use drugs... Seriously , they're very bad for your health! Did you know that Buffout causes muscle outgrowth? Just forget about drugs completely, trust me on this! We don't need you to be a junkie, alright?}
+{5010}{}{[ Listen ]}
+{5020}{}{Oh please...}
+{5030}{}{[ Leave ]}
+{6000}{}{Now as for medications - there are many medications that will help you to heal your wounds. For example: Painkillers, Analgesics, and my personal favorite, Anesthetics.....}
+{6010}{}{[ Listen ]}
+{6020}{}{[ Leave ]}
+{7000}{}{... and finally: Stimulators and Super Stimulators! They're also called Stimpaks and Super Stimpaks. These two can be found everywhere! Did you notice that I've already given you one, let's try it out now! This might sting a little bit...}
+{7010}{}{Oh no, you don't...}
+{7020}{}{No you don't dare...}
+{7030}{}{[ Leave ]}
+{8000}{}{[ The robot hits you with a pillow. For some reason you don't find it to be painful ]}
+{8010}{}{This is so stupid...}
+

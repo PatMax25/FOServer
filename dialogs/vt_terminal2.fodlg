@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1200 ]}
+{2010}{}{[ We are locked! ]}
+{2020}{}{[ Help us ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ We are locked in here! I can't believe it happened. Me and my wife were promised to be safe here and it turned out that somebody locked us away from the world! My kids still know nothing, but I will have to tell them one day. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ It's been 5 days already. We are running out of food. This entire facility of high minded freaks are unable to hack the fucking door! Somebody will come. Somebody will save us, They promised us... They promised... ]}
+{4010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1200 ]}
+{2010}{}{[ We are locked! ]}
+{2020}{}{[ Help us ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ We are locked in here! I can't believe it happened. Me and my wife were promised to be safe here and it turned out that somebody locked us from the world! Kids still know nothing, but I will have to tell them one day. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ It's been 5 days already. We are running out of food. The entire facility of high mind freaks are unable to hack the fucking door! Somebody will come. Somebody will save us, They promised us... They promised,,, ]}
+{4010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1200 ]}
+{2010}{}{[ We are locked! ]}
+{2020}{}{[ Help us ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ We are locked in here! I can't believe it happened. Me and my wife were promised to be safe here and it turned out that somebody locked us from the world! Kids still know nothing, but I will have to tell them one day. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ It's been 5 days already. We are running out of food. The entire facility of high mind freaks are unable to hack the fucking door! Somebody will come. Somebody will save us, They promised us... They promised,,, ]}
+{4010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1200 ]}
+{2010}{}{[ We are locked! ]}
+{2020}{}{[ Help us ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ We are locked in here! I can't believe it happened. Me and my wife were promised to be safe here and it turned out that somebody locked us from the world! Kids still know nothing, but I will have to tell them one day. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ It's been 5 days already. We are running out of food. The entire facility of high mind freaks are unable to hack the fucking door! Somebody will come. Somebody will save us, They promised us... They promised,,, ]}
+{4010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Vault Tec terminal 1200 ]}
+{2010}{}{[ We are locked! ]}
+{2020}{}{[ Help us ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ We are locked in here! I can't believe it happened. Me and my wife were promised to be safe here and it turned out that somebody locked us from the world! Kids still know nothing, but I will have to tell them one day. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ It's been 5 days already. We are running out of food. The entire facility of high mind freaks are unable to hack the fucking door! Somebody will come. Somebody will save us, They promised us... They promised,,, ]}
+{4010}{}{[ Back ]}
+

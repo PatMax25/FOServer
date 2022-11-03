@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You all know him. You all like him. It's Mr. Handy for every occasion, made by RobCO and General Atomics, powered by Wattz fusion cores. Wattz Electronics continues to improve power supplies with each new model! ]}
+{2010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You all know him. You all like him.  Mr. Handy it its huge amound of forms, made by RobCO and General Atomics, powered by Wattz fusion cores. We are the ones, who made the power elements for the robot, you all so much adore. ]}
+{2010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You all know him. You all like him.  Mr. Handy it its huge amound of forms, made by RobCO and General Atomics, powered by Wattz fusion cores. We are the ones, who made the power elements for the robot, you all so much adore. ]}
+{2010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You all know him. You all like him.  Mr. Handy it its huge amound of forms, made by RobCO and General Atomics, powered by Wattz fusion cores. We are the ones, who made the power elements for the robot, you all so much adore. ]}
+{2010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You all know him. You all like him.  Mr. Handy it its huge amound of forms, made by RobCO and General Atomics, powered by Wattz fusion cores. We are the ones, who made the power elements for the robot, you all so much adore. ]}
+{2010}{}{[ Back ]}
+

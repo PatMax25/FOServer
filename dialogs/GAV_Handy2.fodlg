@@ -1,0 +1,212 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 R _script dialog@r_PlaySound 1 3 #
+3 1020 D _var p name_mem_npc_player = 1 R _script dialog@r_PlaySound 1 4 @
+2 2000 None 0 #
+3 2010 R _var p name_mem_npc_player = 1 R _item p PID_BOTTLE_EMPTY + 1 R _script dialog@r_PlaySound 1 4 @
+3 3000 None 0 #
+4 3010 R _script dialog@r_PlaySound 1 5 #
+4 3020 R _script dialog@r_PlaySound 1 5 #
+4 3030 R _script dialog@r_PlaySound 1 5 #
+0 3040 @
+4 4000 None 0 #
+6 4010 R _script dialog@r_PlaySound 1 6 #
+6 4020 R _script dialog@r_PlaySound 1 6 #
+0 4030 @
+6 5000 None 0 #
+8 5010 R _script dialog@r_PlaySound 1 7 #
+0 5020 @
+8 6000 None 0 #
+9 6010 R _script dialog@r_PlaySound 1 8 #
+0 6020 @
+9 7000 None 0 #
+10 7010 R _script dialog@r_PlaySound 1 9 #
+0 7020 @
+10 8000 None 0 #
+11 8010 R _script dialog@r_PlaySound 1 10 #
+0 8020 @
+11 9000 None 0 #
+12 9010 R _script dialog@r_PlaySound 1 11 #
+12 9020 R _script dialog@r_PlaySound 1 11 #
+0 9030 @
+12 10000 None 0 &
+
+[engl]
+{100}{}{Mr. Handy}
+{200}{}{This robot is covered in blood.}
+{210}{}{It seems like this robot came out of hell.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hello there, dear resident! It is so great to see you awake and prepared for the journey! My name is SMR 3756 and I am here to explain to you how to use your Pip Boy! Here is a complimentary bottle of Nuka Cola from our sponsors!}
+{2010}{}{What... It is empty...}
+{3000}{}{First of all, let me tell you that in case you break your Pip Boy, you will NOT receive a NEW ONE! Isn't that great? Here, take this - another Nuka Cola, it will help you to CHEEER UP!}
+{3010}{}{Actually...}
+{3020}{}{Excuse me...}
+{3030}{}{There is a knife sticking out of your speaker. Maybe you should...}
+{3040}{}{[ Leave ]}
+{4000}{}{Next thing you need to know is that your Pip Boy version 2000 is multifunctional! It will help you to coordinate with your Pip Interface! You can easily maintain your inventory, stats, skills, and other options! To open your Pip Boy - just press P, to open the inventory - press I, to open your char stats - press C. Isn't it EAASY? Here is another bottle of Nuka Cola for you! [ it pulls nothing out of the box ]}
+{4010}{}{I know, I...}
+{4020}{}{Do you fucking...?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now, as for your Pip Boy... In the left upper corner you can see the current date and time! Isn't it great?! Isn't it?! Now... The first button is Status - here you can see all missions, quests and tasks you took or completed.}
+{5010}{}{Can you hear me?}
+{5020}{}{[ Leave ]}
+{6000}{}{The next button is... the CLUES! Yes, it is very important. This button is needed for... For... For... This button... B-b-b...Utton... Is.. Isssss... CLUES! CLUES! CLUES! CLUES!}
+{6010}{}{I have no "CLUES" button. It is broken.}
+{6020}{}{[ Leave ]}
+{7000}{}{[ Something beeps inside of the robot ] The next button is MAPS. Here you can check through all maps you once visited! So you will never forget where is the local adult shop in a nearby city... Haha, got me, pal? Isn't it great?!}
+{7010}{}{...}
+{7020}{}{[ Leave ]}
+{8000}{}{The next button is ARCHIVES. Here you will see all the text files uploaded from holodiscs you will get or find!}
+{8010}{}{Is it all?}
+{8020}{}{[ Leave ]}
+{9000}{}{And the final button is CLOSE. Well... You know what is it, don't you?}
+{9010}{}{...}
+{9020}{}{Great. Can I see a manager?}
+{9030}{}{[ Leave ]}
+{10000}{}{That's all for now! Please continue to the next station! Drink Nuka Cola!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hello there, our dear resident! It is so great to see you awaken and prepared for the journey! My name is SMR 3756 and I am here to explain you how to use your Pip Boy! Here is the bootle of Nuka for ya!}
+{2010}{}{What... It is empty...}
+{3000}{}{First of all, let me tell you that in case if you break your Pip Boy, you will NOT receive a NEW ONE! Isn't it great? Here, take this another Nuka Cola, it will help you to CHEEER UP!}
+{3010}{}{Actually...}
+{3020}{}{Excuse me...}
+{3030}{}{There is a knife sticking out of your speaker. Maybe you should...}
+{3040}{}{[ Leave ]}
+{4000}{}{Next thing you need to know is that your Pip Boy version 2000 is multifunctional! It will help you to coordinate with you Pip Interface! You can easily maintain your inventory, stats and other options! To open your Pip Boy - just press P, to open the inventory - press I, to open your char stats - press C. Isn't it EAASY? Here is another local of Nuka for you! [ it pulls nothing out of the box ]}
+{4010}{}{I know, I...}
+{4020}{}{Do you fucking...?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now as for Pip Boy... In the left upper corner you can see current date and time! Isn't it great?! Isn't it?! Now... The first button is Status - here you can see all missions, quests and tasks you took or completed.}
+{5010}{}{Do you hear me?}
+{5020}{}{[ Leave ]}
+{6000}{}{The next button is... the CLUES! Yes, it is very important. This button is needed for... For... For... This button... B-b-b...Utton... Is.. Isssss... CLUES! CLUES! CLUES! CLUES!}
+{6010}{}{I have no "CLUES" button. It is broken.}
+{6020}{}{[ Leave ]}
+{7000}{}{[ Something beeps inside of the robot ] The next button is MAPS. Here you can check through all maps you once visited! So you will never forget where is the local adult shop in a nearby city... Haha, got me, pal? Isn't it great?!}
+{7010}{}{...}
+{7020}{}{[ Leave ]}
+{8000}{}{The next button is ARCHIVES. Here you will see all text files from holodiscs you will get or find!}
+{8010}{}{Is it all?}
+{8020}{}{[ Leave ]}
+{9000}{}{And the final button is CLOSE. Well... You know what is it, don't you?}
+{9010}{}{...}
+{9020}{}{Great. Can I see a manager?}
+{9030}{}{[ Leave ]}
+{10000}{}{That's all for now! Please move further!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hello there, our dear resident! It is so great to see you awaken and prepared for the journey! My name is SMR 3756 and I am here to explain you how to use your Pip Boy! Here is the bootle of Nuka for ya!}
+{2010}{}{What... It is empty...}
+{3000}{}{First of all, let me tell you that in case if you break your Pip Boy, you will NOT receive a NEW ONE! Isn't it great? Here, take this another Nuka Cola, it will help you to CHEEER UP!}
+{3010}{}{Actually...}
+{3020}{}{Excuse me...}
+{3030}{}{There is a knife sticking out of your speaker. Maybe you should...}
+{3040}{}{[ Leave ]}
+{4000}{}{Next thing you need to know is that your Pip Boy version 2000 is multifunctional! It will help you to coordinate with you Pip Interface! You can easily maintain your inventory, stats and other options! To open your Pip Boy - just press P, to open the inventory - press I, to open your char stats - press C. Isn't it EAASY? Here is another local of Nuka for you! [ it pulls nothing out of the box ]}
+{4010}{}{I know, I...}
+{4020}{}{Do you fucking...?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now as for Pip Boy... In the left upper corner you can see current date and time! Isn't it great?! Isn't it?! Now... The first button is Status - here you can see all missions, quests and tasks you took or completed.}
+{5010}{}{Do you hear me?}
+{5020}{}{[ Leave ]}
+{6000}{}{The next button is... the CLUES! Yes, it is very important. This button is needed for... For... For... This button... B-b-b...Utton... Is.. Isssss... CLUES! CLUES! CLUES! CLUES!}
+{6010}{}{I have no "CLUES" button. It is broken.}
+{6020}{}{[ Leave ]}
+{7000}{}{[ Something beeps inside of the robot ] The next button is MAPS. Here you can check through all maps you once visited! So you will never forget where is the local adult shop in a nearby city... Haha, got me, pal? Isn't it great?!}
+{7010}{}{...}
+{7020}{}{[ Leave ]}
+{8000}{}{The next button is ARCHIVES. Here you will see all text files from holodiscs you will get or find!}
+{8010}{}{Is it all?}
+{8020}{}{[ Leave ]}
+{9000}{}{And the final button is CLOSE. Well... You know what is it, don't you?}
+{9010}{}{...}
+{9020}{}{Great. Can I see a manager?}
+{9030}{}{[ Leave ]}
+{10000}{}{That's all for now! Please move further!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hello there, our dear resident! It is so great to see you awaken and prepared for the journey! My name is SMR 3756 and I am here to explain you how to use your Pip Boy! Here is the bootle of Nuka for ya!}
+{2010}{}{What... It is empty...}
+{3000}{}{First of all, let me tell you that in case if you break your Pip Boy, you will NOT receive a NEW ONE! Isn't it great? Here, take this another Nuka Cola, it will help you to CHEEER UP!}
+{3010}{}{Actually...}
+{3020}{}{Excuse me...}
+{3030}{}{There is a knife sticking out of your speaker. Maybe you should...}
+{3040}{}{[ Leave ]}
+{4000}{}{Next thing you need to know is that your Pip Boy version 2000 is multifunctional! It will help you to coordinate with you Pip Interface! You can easily maintain your inventory, stats and other options! To open your Pip Boy - just press P, to open the inventory - press I, to open your char stats - press C. Isn't it EAASY? Here is another local of Nuka for you! [ it pulls nothing out of the box ]}
+{4010}{}{I know, I...}
+{4020}{}{Do you fucking...?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now as for Pip Boy... In the left upper corner you can see current date and time! Isn't it great?! Isn't it?! Now... The first button is Status - here you can see all missions, quests and tasks you took or completed.}
+{5010}{}{Do you hear me?}
+{5020}{}{[ Leave ]}
+{6000}{}{The next button is... the CLUES! Yes, it is very important. This button is needed for... For... For... This button... B-b-b...Utton... Is.. Isssss... CLUES! CLUES! CLUES! CLUES!}
+{6010}{}{I have no "CLUES" button. It is broken.}
+{6020}{}{[ Leave ]}
+{7000}{}{[ Something beeps inside of the robot ] The next button is MAPS. Here you can check through all maps you once visited! So you will never forget where is the local adult shop in a nearby city... Haha, got me, pal? Isn't it great?!}
+{7010}{}{...}
+{7020}{}{[ Leave ]}
+{8000}{}{The next button is ARCHIVES. Here you will see all text files from holodiscs you will get or find!}
+{8010}{}{Is it all?}
+{8020}{}{[ Leave ]}
+{9000}{}{And the final button is CLOSE. Well... You know what is it, don't you?}
+{9010}{}{...}
+{9020}{}{Great. Can I see a manager?}
+{9030}{}{[ Leave ]}
+{10000}{}{That's all for now! Please move further!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hello there, our dear resident! It is so great to see you awaken and prepared for the journey! My name is SMR 3756 and I am here to explain you how to use your Pip Boy! Here is the bootle of Nuka for ya!}
+{2010}{}{What... It is empty...}
+{3000}{}{First of all, let me tell you that in case if you break your Pip Boy, you will NOT receive a NEW ONE! Isn't it great? Here, take this another Nuka Cola, it will help you to CHEEER UP!}
+{3010}{}{Actually...}
+{3020}{}{Excuse me...}
+{3030}{}{There is a knife sticking out of your speaker. Maybe you should...}
+{3040}{}{[ Leave ]}
+{4000}{}{Next thing you need to know is that your Pip Boy version 2000 is multifunctional! It will help you to coordinate with you Pip Interface! You can easily maintain your inventory, stats and other options! To open your Pip Boy - just press P, to open the inventory - press I, to open your char stats - press C. Isn't it EAASY? Here is another local of Nuka for you! [ it pulls nothing out of the box ]}
+{4010}{}{I know, I...}
+{4020}{}{Do you fucking...?}
+{4030}{}{[ Leave ]}
+{5000}{}{Now as for Pip Boy... In the left upper corner you can see current date and time! Isn't it great?! Isn't it?! Now... The first button is Status - here you can see all missions, quests and tasks you took or completed.}
+{5010}{}{Do you hear me?}
+{5020}{}{[ Leave ]}
+{6000}{}{The next button is... the CLUES! Yes, it is very important. This button is needed for... For... For... This button... B-b-b...Utton... Is.. Isssss... CLUES! CLUES! CLUES! CLUES!}
+{6010}{}{I have no "CLUES" button. It is broken.}
+{6020}{}{[ Leave ]}
+{7000}{}{[ Something beeps inside of the robot ] The next button is MAPS. Here you can check through all maps you once visited! So you will never forget where is the local adult shop in a nearby city... Haha, got me, pal? Isn't it great?!}
+{7010}{}{...}
+{7020}{}{[ Leave ]}
+{8000}{}{The next button is ARCHIVES. Here you will see all text files from holodiscs you will get or find!}
+{8010}{}{Is it all?}
+{8020}{}{[ Leave ]}
+{9000}{}{And the final button is CLOSE. Well... You know what is it, don't you?}
+{9010}{}{...}
+{9020}{}{Great. Can I see a manager?}
+{9030}{}{[ Leave ]}
+{10000}{}{That's all for now! Please move further!}
+

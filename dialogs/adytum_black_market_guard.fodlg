@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Black Market Guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Weffer is inside.@@You need to speak with Weffer, not me.@@Not now...@@Later...@@I am not here  to talk.@@Hey there.@@Don't fuck with me.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Weffer is inside.@@You need to speak with Weffer, not me.@@Not now...@@Later...@@I am not up for chit chatting.@@Hey there.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Weffer is inside.@@You need to speak with Weffer, not me.@@Not now...@@Later...@@I am not up for chit chatting.@@Hey there.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Weffer is inside.@@You need to speak with Weffer, not me.@@Not now...@@Later...@@I am not up for chit chatting.@@Hey there.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Weffer is inside.@@You need to speak with Weffer, not me.@@Not now...@@Later...@@I am not up for chit chatting.@@Hey there.}
+

@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{TV}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Very rare model of a real TV! Not working, but still charming, especially when you are staring into its bottomless screen. Let's hope it won't start staring into us.}
+{2010}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Very rare model of the real TV. Not working, but still charming, especially when you staring into it's bottomless screen. Let's hope, it won't start staring into us.}
+{2010}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Very rare model of the real TV. Not working, but still charming, especially when you staring into it's bottomless screen. Let's hope, it won't start staring into us.}
+{2010}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Very rare model of the real TV. Not working, but still charming, especially when you staring into it's bottomless screen. Let's hope, it won't start staring into us.}
+{2010}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Very rare model of the real TV. Not working, but still charming, especially when you staring into it's bottomless screen. Let's hope, it won't start staring into us.}
+{2010}{}{[ Exit ]}
+

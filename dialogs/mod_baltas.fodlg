@@ -1,0 +1,176 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+8 1010 D _var p q_modoc_balthas_fetcher = 3 #
+2 1020 @
+2 2000 None 0 #
+65506 2010 #
+5 2020 D _var n acquaintance = 0 D _var p q_modoc_balthas_fetcher = 0 D _script dialog@d_QuestTimeoutReady 0  #
+7 2030 D _var n acquaintance = 1 D _var p q_modoc_balthas_fetcher = 0 D _script dialog@d_QuestTimeoutReady 0  #
+0 2040 @
+3 3000 None 0 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+0 6010 D _param p ST_CHARISMA < 11 R _var p q_modoc_balthas_fetcher = 1 #
+2 6020 @
+7 7000 None 0 #
+0 7010 D _param p ST_CHARISMA < 11 R _var p q_modoc_balthas_fetcher = 1 #
+2 7020 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+0 10010 R _param p ST_EXPERIENCE + 900 R _item p PID_CURED_LEATHER_ARMOR + 1 R _var p q_modoc_balthas_fetcher = 0 R _var n acquaintance = 1 R _script dialog@r_QuestTimeout 1 5 &
+
+[engl]
+{100}{}{Balthas}
+{200}{}{A heavy set man wearing a leather apron.}
+{210}{}{A tall, muscular man who looks and smells of leather.}
+{1000}{}{Predialogue installations}
+{1010}{}{finished his little fetchquest}
+{1020}{}{Answer text}
+{2000}{}{Hello, my name's Balthas. I run the Tannery here in Modoc. Can I help you?}
+{2010}{}{I'd like to see your wares. [ Barter ]}
+{2020}{}{How's business, Balthas?}
+{2030}{}{How's business, Balthas? Still having the same problems?}
+{2040}{}{Just looking, thanks. [ end dialogue ]}
+{3000}{}{Get out of here, idiot.@@Been out in the sun too long?@@Shoo!}
+{4000}{}{I killed brahmin better looking than you.@@What.. what are you?@@Please, you're scaring my son.@@I'm going to have to ask you to leave. You're hurting my business.}
+{5000}{}{Oh you know. It's been pretty slow, recently. I mean, the custom's here, but it's hard keeping up with demand. Grisham's never got enough hides to spare for me.}
+{5010}{}{You know, I don't really have a day job. I could look in to this for you.}
+{5020}{}{That sucks, man. I mean, I don't even have a job. Life is tough alright. Later. [ end dialogue ]}
+{6000}{}{You would? I mean I'd do it myself but if I leave the shop for a minute some damn wastelander will try stealing what I've got here. Just check in with Grisham and see what's up.}
+{6010}{}{I'll go talk to Grisham for you Balthas and see what's up with the brahmin. [ end dialogue ]}
+{6020}{}{Not interested, I've got better things to do.}
+{7000}{}{Same as ever. This is turning out to be a real chronic issue. Haven't got a decent excuse out of Grisham yet. He's always blaming wastelanders. If you could give it another shot I'd appreciate it.}
+{7010}{}{I'll go talk to Grisham for you, Balthas, and see what's up with the brahmin. [ end dialogue ]}
+{7020}{}{I hope you find someone else to whine on Grisham.}
+{8000}{}{Hey wastelander. I need to thank you.}
+{8010}{}{Oh, you already heard?}
+{9000}{}{Yeah, Ed's buckaroo's got here a bit before you did and told me about it. Don't know how you got brahmin off that man, but I'm glad for the extra hides. }
+{9010}{}{Well, I'm glad to help out.}
+{10000}{}{Say, now that I've got a bit more material to work with, I think I can spare an old jacket for you, since I can't really offer you much else.}
+{10010}{}{Thanks man, really. I appreciate your candour. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{finished his little fetchquest}
+{1020}{}{Answer text}
+{2000}{}{Hello, my name's Balthas. I run the Tannery here in Modoc. Can I help you?}
+{2010}{}{I'd like to see your wares.}
+{2020}{}{How's business, Balthas?}
+{2030}{}{How's business, Balthas? Still having the same problems?}
+{2040}{}{Just looking, thanks.}
+{3000}{}{Get out of here, idiot.@@Been out in the sun too long?@@Shoo!}
+{4000}{}{I killed brahmin better looking than you.@@What.. what are you?@@Please, you're scaring my son.@@I'm going to have to ask you to leave. You're hurting my business.}
+{5000}{}{Oh you know. It's been pretty slow, recently. I mean, the custom's here, but it's hard keeping up with demand. Grisham's never got enough hides to spare for me.}
+{5010}{}{You know, I don't really have a day job. I could look in to this for you.}
+{5020}{}{That sucks, man. I mean, I don't even have a job. Life is tough alright. Later.}
+{6000}{}{You would? I mean I'd do it myself but if I leave the shop for a minute some damn wastelander will try stealing what I've got here. Just check in with Grisham and see what's up.}
+{6010}{}{I'll go talk to Grisham for you Balthas and see what's up with the brahmin.}
+{6020}{}{Not interested, I've got better things to do.}
+{7000}{}{Same as ever. This is turning out to be a real chronic issue. Haven't got a decent excuse out of Grisham yet. He's always blaming wastelanders. If you could give it another shot I'd appreciate it.}
+{7010}{}{I'll go talk to Grisham for you, Balthas, and see what's up with the brahmin.}
+{7020}{}{I hope you find someone else to whine on Grisham.}
+{8000}{}{Hey wastelander. I need to thank you.}
+{8010}{}{Oh, you already heard?}
+{9000}{}{Yeah, Ed's buckaroo's got here a bit before you did and told me about it. Don't know how you got brahmin off that man, but I'm glad for the extra hides. }
+{9010}{}{Well, I'm glad to help out.}
+{10000}{}{Say, now that I've got a bit more material to work with, I think I can spare an old jacket for you, since I can't really offer you much else.}
+{10010}{}{Thanks man, really. I appreciate your candour.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{finished his little fetchquest}
+{1020}{}{Answer text}
+{2000}{}{Hello, my name's Balthas. I run the Tannery here in Modoc. Can I help you?}
+{2010}{}{I'd like to see your wares.}
+{2020}{}{How's business, Balthas?}
+{2030}{}{How's business, Balthas? Still having the same problems?}
+{2040}{}{Just looking, thanks.}
+{3000}{}{Get out of here, idiot.@@Been out in the sun too long?@@Shoo!}
+{4000}{}{I killed brahmin better looking than you.@@What.. what are you?@@Please, you're scaring my son.@@I'm going to have to ask you to leave. You're hurting my business.}
+{5000}{}{Oh you know. It's been pretty slow, recently. I mean, the custom's here, but it's hard keeping up with demand. Grisham's never got enough hides to spare for me.}
+{5010}{}{You know, I don't really have a day job. I could look in to this for you.}
+{5020}{}{That sucks, man. I mean, I don't even have a job. Life is tough alright. Later.}
+{6000}{}{You would? I mean I'd do it myself but if I leave the shop for a minute some damn wastelander will try stealing what I've got here. Just check in with Grisham and see what's up.}
+{6010}{}{I'll go talk to Grisham for you Balthas and see what's up with the brahmin.}
+{6020}{}{Not interested, I've got better things to do.}
+{7000}{}{Same as ever. This is turning out to be a real chronic issue. Haven't got a decent excuse out of Grisham yet. He's always blaming wastelanders. If you could give it another shot I'd appreciate it.}
+{7010}{}{I'll go talk to Grisham for you, Balthas, and see what's up with the brahmin.}
+{7020}{}{I hope you find someone else to whine on Grisham.}
+{8000}{}{Hey wastelander. I need to thank you.}
+{8010}{}{Oh, you already heard?}
+{9000}{}{Yeah, Ed's buckaroo's got here a bit before you did and told me about it. Don't know how you got brahmin off that man, but I'm glad for the extra hides. }
+{9010}{}{Well, I'm glad to help out.}
+{10000}{}{Say, now that I've got a bit more material to work with, I think I can spare an old jacket for you, since I can't really offer you much else.}
+{10010}{}{Thanks man, really. I appreciate your candour.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{finished his little fetchquest}
+{1020}{}{Answer text}
+{2000}{}{Hello, my name's Balthas. I run the Tannery here in Modoc. Can I help you?}
+{2010}{}{I'd like to see your wares.}
+{2020}{}{How's business, Balthas?}
+{2030}{}{How's business, Balthas? Still having the same problems?}
+{2040}{}{Just looking, thanks.}
+{3000}{}{Get out of here, idiot.@@Been out in the sun too long?@@Shoo!}
+{4000}{}{I killed brahmin better looking than you.@@What.. what are you?@@Please, you're scaring my son.@@I'm going to have to ask you to leave. You're hurting my business.}
+{5000}{}{Oh you know. It's been pretty slow, recently. I mean, the custom's here, but it's hard keeping up with demand. Grisham's never got enough hides to spare for me.}
+{5010}{}{You know, I don't really have a day job. I could look in to this for you.}
+{5020}{}{That sucks, man. I mean, I don't even have a job. Life is tough alright. Later.}
+{6000}{}{You would? I mean I'd do it myself but if I leave the shop for a minute some damn wastelander will try stealing what I've got here. Just check in with Grisham and see what's up.}
+{6010}{}{I'll go talk to Grisham for you Balthas and see what's up with the brahmin.}
+{6020}{}{Not interested, I've got better things to do.}
+{7000}{}{Same as ever. This is turning out to be a real chronic issue. Haven't got a decent excuse out of Grisham yet. He's always blaming wastelanders. If you could give it another shot I'd appreciate it.}
+{7010}{}{I'll go talk to Grisham for you, Balthas, and see what's up with the brahmin.}
+{7020}{}{I hope you find someone else to whine on Grisham.}
+{8000}{}{Hey wastelander. I need to thank you.}
+{8010}{}{Oh, you already heard?}
+{9000}{}{Yeah, Ed's buckaroo's got here a bit before you did and told me about it. Don't know how you got brahmin off that man, but I'm glad for the extra hides. }
+{9010}{}{Well, I'm glad to help out.}
+{10000}{}{Say, now that I've got a bit more material to work with, I think I can spare an old jacket for you, since I can't really offer you much else.}
+{10010}{}{Thanks man, really. I appreciate your candour.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{finished his little fetchquest}
+{1020}{}{Answer text}
+{2000}{}{Hello, my name's Balthas. I run the Tannery here in Modoc. Can I help you?}
+{2010}{}{I'd like to see your wares.}
+{2020}{}{How's business, Balthas?}
+{2030}{}{How's business, Balthas? Still having the same problems?}
+{2040}{}{Just looking, thanks.}
+{3000}{}{Get out of here, idiot.@@Been out in the sun too long?@@Shoo!}
+{4000}{}{I killed brahmin better looking than you.@@What.. what are you?@@Please, you're scaring my son.@@I'm going to have to ask you to leave. You're hurting my business.}
+{5000}{}{Oh you know. It's been pretty slow, recently. I mean, the custom's here, but it's hard keeping up with demand. Grisham's never got enough hides to spare for me.}
+{5010}{}{You know, I don't really have a day job. I could look in to this for you.}
+{5020}{}{That sucks, man. I mean, I don't even have a job. Life is tough alright. Later.}
+{6000}{}{You would? I mean I'd do it myself but if I leave the shop for a minute some damn wastelander will try stealing what I've got here. Just check in with Grisham and see what's up.}
+{6010}{}{I'll go talk to Grisham for you Balthas and see what's up with the brahmin.}
+{6020}{}{Not interested, I've got better things to do.}
+{7000}{}{Same as ever. This is turning out to be a real chronic issue. Haven't got a decent excuse out of Grisham yet. He's always blaming wastelanders. If you could give it another shot I'd appreciate it.}
+{7010}{}{I'll go talk to Grisham for you, Balthas, and see what's up with the brahmin.}
+{7020}{}{I hope you find someone else to whine on Grisham.}
+{8000}{}{Hey wastelander. I need to thank you.}
+{8010}{}{Oh, you already heard?}
+{9000}{}{Yeah, Ed's buckaroo's got here a bit before you did and told me about it. Don't know how you got brahmin off that man, but I'm glad for the extra hides. }
+{9010}{}{Well, I'm glad to help out.}
+{10000}{}{Say, now that I've got a bit more material to work with, I think I can spare an old jacket for you, since I can't really offer you much else.}
+{10010}{}{Thanks man, really. I appreciate your candour.}
+

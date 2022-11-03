@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p q_rockside_boris = 3 D _var p name_mem_npc_player = 0 #
+3 1020 D _var p q_rockside_boris = 0 #
+5 1030 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 R _var p name_mem_npc_player = 1 R _param p ST_EXPERIENCE + 2000 @
+3 3000 None 0 @
+4 4000 None 0 #
+0 4010 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Boris}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{Oh, familiar faces.}
+{2010}{}{Boris!? What a meeting! You are here too?}
+{3000}{}{Hello there, human.@@Hey there.@@Nice to see you around.}
+{4000}{}{Yup, as you see, my fate also went a bit different and I ended up here. I must admit this place is good. So I eventually plan to stay.}
+{4010}{}{Well, it was nice to hear from ya, Boris. I will be going. [ end dialogue ]}
+{5000}{}{Hello there, partner.@@Hey, hey!@@Nice to see you again.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{Oh, familiar faces.}
+{2010}{}{Boris!? What a meeting! You are here too?}
+{3000}{}{Hello there, human.@@Hey there.@@Nice to see you around.}
+{4000}{}{Yup, as you see, my fate also went a bit different and I ended up here. I must admit this place is good. So I eventually plan to stay.}
+{4010}{}{Well, it was nice to hear from ya, Boris. I will be going.}
+{5000}{}{Hello there, partner.@@Hey, hey!@@Nice to see you again.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{Oh, familiar faces.}
+{2010}{}{Boris!? What a meeting! You are here too?}
+{3000}{}{Hello there, human.@@Hey there.@@Nice to see you around.}
+{4000}{}{Yup, as you see, my fate also went a bit different and I ended up here. I must admit this place is good. So I eventually plan to stay.}
+{4010}{}{Well, it was nice to hear from ya, Boris. I will be going.}
+{5000}{}{Hello there, partner.@@Hey, hey!@@Nice to see you again.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{Oh, familiar faces.}
+{2010}{}{Boris!? What a meeting! You are here too?}
+{3000}{}{Hello there, human.@@Hey there.@@Nice to see you around.}
+{4000}{}{Yup, as you see, my fate also went a bit different and I ended up here. I must admit this place is good. So I eventually plan to stay.}
+{4010}{}{Well, it was nice to hear from ya, Boris. I will be going.}
+{5000}{}{Hello there, partner.@@Hey, hey!@@Nice to see you again.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{Oh, familiar faces.}
+{2010}{}{Boris!? What a meeting! You are here too?}
+{3000}{}{Hello there, human.@@Hey there.@@Nice to see you around.}
+{4000}{}{Yup, as you see, my fate also went a bit different and I ended up here. I must admit this place is good. So I eventually plan to stay.}
+{4010}{}{Well, it was nice to hear from ya, Boris. I will be going.}
+{5000}{}{Hello there, partner.@@Hey, hey!@@Nice to see you again.}
+

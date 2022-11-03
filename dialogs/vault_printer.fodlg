@@ -1,0 +1,108 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+0 3010 #
+0 3020 #
+0 3030 #
+0 3040 #
+0 3050 #
+4 3060 D _item p PID_BLACK_COC_BADGE } 5 R _item p PID_BLACK_COC_BADGE - 5 R _item p PID_V13_KEY + 1 #
+0 3070 D _item p PID_BLACK_COC_BADGE < 5 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading initial functions... ]}
+{2010}{}{[ Load printer set ]}
+{2020}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ Warning! Low power, most of the options might be unavailable ]}
+{3010}{}{[ Error ]}
+{3020}{}{[ Error ]}
+{3030}{}{[ Error ]}
+{3040}{}{[ Error ]}
+{3050}{}{[ Error ]}
+{3060}{}{[ Print Vault 13 Keycard ( 5 COC Badges needed ) ]}
+{3070}{}{[ Print Vault 13 Keycard ( 5 COC badges required ) ]}
+{4000}{}{[ Printing... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading initial functions... ]}
+{2010}{}{[ Load printer set ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ Warning! Low power, most of the options might be unavailable ]}
+{3010}{}{[ Error ]}
+{3020}{}{[ Error ]}
+{3030}{}{[ Error ]}
+{3040}{}{[ Error ]}
+{3050}{}{[ Error ]}
+{3060}{}{[ Print Vault 13 Keycard ( 5 COC Badges needed ) ]}
+{3070}{}{[ Print Vault 13 Keycard ( 5 COC badges required ) ]}
+{4000}{}{[ Printing... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading initial functions... ]}
+{2010}{}{[ Load printer set ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ Warning! Low power, most of the options might be unavailable ]}
+{3010}{}{[ Error ]}
+{3020}{}{[ Error ]}
+{3030}{}{[ Error ]}
+{3040}{}{[ Error ]}
+{3050}{}{[ Error ]}
+{3060}{}{[ Print Vault 13 Keycard ( 5 COC Badges needed ) ]}
+{3070}{}{[ Print Vault 13 Keycard ( 5 COC badges required ) ]}
+{4000}{}{[ Printing... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading initial functions... ]}
+{2010}{}{[ Load printer set ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ Warning! Low power, most of the options might be unavailable ]}
+{3010}{}{[ Error ]}
+{3020}{}{[ Error ]}
+{3030}{}{[ Error ]}
+{3040}{}{[ Error ]}
+{3050}{}{[ Error ]}
+{3060}{}{[ Print Vault 13 Keycard ( 5 COC Badges needed ) ]}
+{3070}{}{[ Print Vault 13 Keycard ( 5 COC badges required ) ]}
+{4000}{}{[ Printing... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading initial functions... ]}
+{2010}{}{[ Load printer set ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ Warning! Low power, most of the options might be unavailable ]}
+{3010}{}{[ Error ]}
+{3020}{}{[ Error ]}
+{3030}{}{[ Error ]}
+{3040}{}{[ Error ]}
+{3050}{}{[ Error ]}
+{3060}{}{[ Print Vault 13 Keycard ( 5 COC Badges needed ) ]}
+{3070}{}{[ Print Vault 13 Keycard ( 5 COC badges required ) ]}
+{4000}{}{[ Printing... ]}
+

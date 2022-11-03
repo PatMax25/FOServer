@@ -1,0 +1,517 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;                    
+
+uint __GetColor(int r,int g,int b,int a=0xFF)
+{
+	r=(((r)>(255))?(255):(((r)<(0))?(0):(r)));
+	g=(((g)>(255))?(255):(((g)<(0))?(0):(g)));
+	b=(((b)>(255))?(255):(((b)<(0))?(0):(b)));
+	a=(((a)>(255))?(255):(((a)<(0))?(0):(a)));
+	return(uint(((a)<<24)|(((r)&0xFF)<<16)|(((g)&0xFF)<<8)|((b)&0xFF)));
+}                                                                                                             
+
+import string GetCritterLexems(CritterCl&critter)from"lexems";
+import string GetItemLexems(ItemCl&item)from"lexems";
+
+import bool IsLexem(CritterCl&critter,string&lex)from"lexems";
+import bool IsLexem(ItemCl&it,string&lex)from"lexems";
+import bool IsLexem(string&lexems,string&lex)from"lexems";
+
+import string GetLexem(CritterCl&critter,string&lex)from"lexems";
+import string GetLexem(ItemCl&item,string&lex)from"lexems";
+import string GetLexem(string&lexems,string&lex)from"lexems";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+shared class Sprite
+{
+	Sprite()
+	{
+		Id=0;
+		Width=0;
+		Height=0;
+		FrmCount=0;
+	}
+	
+	bool Load(string&name,int path)
+	{
+		if(name.length()>0)
+		{
+			Id=LoadSprite(name,path);
+			Filename=name;
+		}
+		else
+		Id=0;
+		RefreshData();
+		return Id!=0;
+	}
+	
+	void LoadHash(uint nameHash,uint8 dir)
+	{
+		Id=LoadSprite(nameHash,dir);
+		RefreshData();
+	}
+	
+	void LoadByIni(string&iniKey,int path)
+	{
+		string@name=GetIfaceIniStr(iniKey);
+		if(@name!=null&&name.length()>0)
+		Id=LoadSprite(name,path);
+		else
+		Id=0;
+		RefreshData();
+	}
+	
+	void Draw(int x,int y)
+	{
+		if(Id!=0)
+		DrawSprite(Id,-1,x,y,0);
+	}
+	
+	private void RefreshData()
+	{
+		if(Id!=0)
+		{
+			Width=GetSpriteWidth(Id,0);
+			Height=GetSpriteHeight(Id,0);
+			FrmCount=GetSpriteCount(Id);
+		}
+		else
+		{
+			Width=0;
+			Height=0;
+			FrmCount=0;
+			Filename="";
+		}
+	}
+	
+	uint Id;
+	int Width;
+	int Height;
+	uint FrmCount;
+	string Filename;
+};  
+
+import bool GMToolsAccess()from"client_gmtools";
+import bool IsGMTEnabled()from"client_main"; 
+
+import int stringReplaceText(string&s,string@f,string@t)from"config_file";
+import int GUI_GetActiveMainScreen()from"client_gui";
+import int GUI_GetActiveScreen()from"client_gui";
+
+array<CritterCl@>crs;
+
+void InitCritterOnHead()
+{
+	__ShowNpcNames=__ConfigShowNpcAwareness;
+}
+
+void DrawCritterOnHead()
+{
+	if(GUI_GetActiveMainScreen()!=(5))
+	return;
+	
+	crs.resize(0);
+	GetCritters(0,(0x0F),crs);
+	
+	int color_b=0;
+	int color_g=0;
+	int color_r=0;
+	int hp_proc=0;
+	string name;
+	string hp;
+	string inj;
+	string crInjures;
+	string mobDesc;
+	string playerDesc;
+	string factiontag;
+	
+	CritterCl@chosen=GetChosen();
+	
+	for(uint i=0,imax=crs.length();i<imax;i++)
+	{
+		
+		uint dialog=crs[i].Param[(104)];
+		uint16 pid=crs[i].Pid;
+		string head=(crs[i].IsPlayer()?crs[i].Name:" ");
+		
+		if(IsLexem(crs[i],"$@"))
+		{
+			head=GetLexem(crs[i],"$@");
+			if(head.length()==0)
+			head=" ";
+			
+			stringReplaceText(head,"|","");
+			head=FormatTags(head,"");
+		}
+		
+		if(IsGMTEnabled()&&GMToolsAccess())
+		{
+			array<string>gm;
+			
+			string id="<"+crs[i].Id+">";
+			
+			if((crs[i].IsPlayer()&&head!=crs[i].Name)||(crs[i].IsNpc()&&IsLexem(crs[i],"$@")))
+			{
+				if(crs[i].IsPlayer())
+				gm.insertLast("Player: "+crs[i].Name);
+				else if(crs[i].IsNpc())
+				gm.insertLast("NPC: "+GetMsgStr((1),((dialog)!=0?100000+(dialog)*1000+100:((pid)*10))));
+			}
+			
+			if(__ShowCritId)
+			gm.insertLast("ID: "+crs[i].Id);
+			
+			if(crs[i].Param[(510)]>0)
+			gm.insertLast("sneaked");
+			
+			if(gm.length()>0)
+			{
+				head+="|"+(uint((0xFF<<24)|(((0xFF)&0xFF)<<16)|(((0xFF)&0xFF)<<8)|((0xFF)&0xFF)))+" ";
+				for(uint g=0,gLen=gm.length();g<gLen;g++)
+				{
+					head+="\n("+gm[g]+")";
+				}
+			}
+		}
+		
+		if(head!=" ")
+		{
+			name="\n"+"|"+crs[i].NameColor+" "+head;
+			crs[i].ContourColor=crs[i].ContourColor;
+			
+			if(crs[i].Param[(106)]==chosen.Param[(106)]&&crs[i].Id!=chosen.Id&&crs[i].Param[(510)]!=0)
+			name=name+" (sneaked)";
+		}
+		else
+		name=" ";  
+		
+		if(crs[i].IsPlayer()&&crs[i].Param[(187)]>0)
+		{
+			switch(crs[i].Param[(187)])
+			{
+				case 1:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" -TESTER-";break;
+				case 2:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((0)&0xFF)))+" -GM-";break;
+				case 3:playerDesc="\n|"+(uint((0xFF<<24)|(((44)&0xFF)<<16)|(((199)&0xFF)<<8)|((55)&0xFF)))+" Admin";break;
+			}
+		}
+		else if(crs[i].IsPlayer()&&crs[i].Param[(89)]>0)
+		{
+			switch(crs[i].Param[(89)])
+			{
+				case 208:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((0)&0xFF)<<8)|((102)&0xFF)))+" Unity";break;
+				case 207:playerDesc="\n|"+(uint((0xFF<<24)|(((230)&0xFF)<<16)|(((150)&0xFF)<<8)|((14)&0xFF)))+" NCR";break;
+				case 206:playerDesc="\n|"+(uint((0xFF<<24)|(((14)&0xFF)<<16)|(((88)&0xFF)<<8)|((203)&0xFF)))+" Vault City";break;
+				case 209:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Brotherhood";break;
+				case 204:playerDesc="\n|"+(uint((0xFF<<24)|(((88)&0xFF)<<16)|(((88)&0xFF)<<8)|((88)&0xFF)))+" Enclave";break;
+				case 212:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((0)&0xFF)<<8)|((0)&0xFF)))+" Master's Army";break;
+				case 231:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Salvatories";break;
+				case 232:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((102)&0xFF)<<8)|((51)&0xFF)))+" Bishops";break;
+				case 233:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((0)&0xFF)))+" Wrigths";break;
+				case 234:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" Mordinos";break;
+				case 240:playerDesc="\n|"+(uint((0xFF<<24)|(((54)&0xFF)<<16)|(((200)&0xFF)<<8)|((54)&0xFF)))+" TEAM A";break;
+				case 241:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((190)&0xFF)<<8)|((0)&0xFF)))+" TEAM B";break;
+				
+			}
+			switch(crs[i].Param[(131)])
+			{
+				case 242:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" Patrol Unit";break;
+				case 243:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" NCRA Recruit";break;
+				case 244:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" NCRA Private";break;
+				case 245:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" NCRA Sergeant";break;
+				case 246:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" NCRA Captain";break;
+				case 247:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" NCRA Officer";break;
+				case 248:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" RNG Ranger";break;
+				case 249:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" RNG Berserker";break;
+				case 250:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" RNG Medic";break;
+				case 251:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" RNG Overwatch";break;
+				case 252:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" Chief Inspector";break;
+				case 253:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" General";break;
+				case 254:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Initiate";break;
+				case 255:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Scribe";break;
+				case 256:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Knight";break;
+				case 257:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" PLD Paladin";break;
+				case 258:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" PLD Medic";break;
+				case 259:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" PLD HEV";break;
+				case 260:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Senior Paladin";break;
+				case 261:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Senior Knight";break;
+				case 262:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Head Paladin";break;
+				case 263:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Head Knight";break;
+				case 264:playerDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Head Scribe";break;
+				case 265:playerDesc="\n|"+(uint((0xFF<<24)|(((136)&0xFF)<<16)|(((0)&0xFF)<<8)|((200)&0xFF)))+" Deacon";break;
+				case 266:playerDesc="\n|"+(uint((0xFF<<24)|(((136)&0xFF)<<16)|(((0)&0xFF)<<8)|((200)&0xFF)))+" Kenovit";break;
+				case 267:playerDesc="\n|"+(uint((0xFF<<24)|(((136)&0xFF)<<16)|(((0)&0xFF)<<8)|((200)&0xFF)))+" Inquisitor";break;
+				case 268:playerDesc="\n|"+(uint((0xFF<<24)|(((136)&0xFF)<<16)|(((0)&0xFF)<<8)|((200)&0xFF)))+" WLF Omega";break;
+				case 269:playerDesc="\n|"+(uint((0xFF<<24)|(((136)&0xFF)<<16)|(((0)&0xFF)<<8)|((200)&0xFF)))+" WLF Gamma";break;
+				case 270:playerDesc="\n|"+(uint((0xFF<<24)|(((136)&0xFF)<<16)|(((0)&0xFF)<<8)|((200)&0xFF)))+" WLF Betta";break;
+				case 271:playerDesc="\n|"+(uint((0xFF<<24)|(((136)&0xFF)<<16)|(((0)&0xFF)<<8)|((200)&0xFF)))+" WLF Alpha";break;
+				case 272:playerDesc="\n|"+(uint((0xFF<<24)|(((136)&0xFF)<<16)|(((0)&0xFF)<<8)|((200)&0xFF)))+" Eclysiarchus";break;
+				case 273:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" Rebel";break;
+				case 274:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" Rebel Medic";break;
+				case 275:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" Scout";break;
+				case 276:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" Captain";break;
+				case 277:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" HDR Spy";break;
+				case 278:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" HDR Agent";break;
+				case 279:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" CLA Commander";break;
+				case 280:playerDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" HDR Leader";break;
+				case 281:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" RNG SHD Unit";break;
+				case 282:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" RNG Elite Patrol Unit";break;
+				case 283:playerDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((184)&0xFF)<<8)|((46)&0xFF)))+" RNG Division Commander";break;
+			}
+		} 
+		
+		else
+		playerDesc="";
+		if(crs[i].Param[(89)]==211)
+		playerDesc="\n|"+(uint((0xFF<<24)|(((crs[i].Param[(97)])&0xFF)<<16)|(((crs[i].Param[(98)])&0xFF)<<8)|((crs[i].Param[(99)])&0xFF)))+" Player Shop";
+		
+		if(crs[i].IsPlayer()&&!__ConfigShowPlayerAwareness)
+		{
+			crs[i].NameOnHead=name;
+			continue;
+		}
+		if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].Param[(89)]==203&&crs[i].IsNpc())
+		{
+			switch(GetCurrentMapPid())
+			{
+				case(45):
+				case(280):
+				case(221):
+				case(70):
+				case(137):
+				if(crs[i].Param[(187)]==1)mobDesc="\n|"+(uint((0xFF<<24)|(((200)&0xFF)<<16)|(((0)&0xFF)<<8)|((0)&0xFF)))+" Boss of Town Raiders";
+				else mobDesc="\n|"+(uint((0xFF<<24)|(((200)&0xFF)<<16)|(((0)&0xFF)<<8)|((0)&0xFF)))+" Town Raider";
+				break;
+				default:
+				if(crs[i].Param[(187)]==1)mobDesc="\n|"+(uint((0xFF<<24)|(((200)&0xFF)<<16)|(((0)&0xFF)<<8)|((0)&0xFF)))+" BOSS";
+				else mobDesc="";
+				break;
+			}
+		}
+		else if(crs[i].Param[(89)]==210&&crs[i].IsNpc())
+		{
+			switch(GetCurrentMapPid())
+			{
+				case(45):
+				case(280):
+				case(221):
+				case(70):
+				case(137):
+				mobDesc="\n|"+((uint((0xFF<<24)|(((0xAD)&0xFF)<<16)|(((0xAD)&0xFF)<<8)|((0xB9)&0xFF))))+" -Reward Giver-";
+				break;
+			}
+		}
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==204)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((88)&0xFF)<<16)|(((88)&0xFF)<<8)|((88)&0xFF)))+" Enclave Soldier";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==209)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Brotherhood Soldier";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==206)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((14)&0xFF)<<16)|(((88)&0xFF)<<8)|((203)&0xFF)))+" Vault City Soldier";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==207)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((230)&0xFF)<<16)|(((150)&0xFF)<<8)|((14)&0xFF)))+" NCR Soldier";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==208)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((0)&0xFF)<<8)|((102)&0xFF)))+" Unity Soldier";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==212)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((0)&0xFF)<<8)|((0)&0xFF)))+" Master's Soldier";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==269)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((0)&0xFF)<<8)|((0)&0xFF)))+" BOSS";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==231)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" Salvatories Thug";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==232)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((102)&0xFF)<<8)|((51)&0xFF)))+" Bishops Thug";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==233)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((0)&0xFF)))+" Wrigths Thug";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(89)]==234)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((153)&0xFF)<<16)|(((0)&0xFF)<<8)|((153)&0xFF)))+" Mordinos Thug";
+		else if((crs[i].IsLife()||crs[i].IsKnockout())&&crs[i].IsNpc()&&crs[i].Param[(104)]==10810)
+		mobDesc="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((0)&0xFF)<<8)|((255)&0xFF)))+" EVENT|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" TELEPORTER";
+		else
+		mobDesc="";
+		
+		if(crs[i].IsNpc()&&!__ConfigShowNpcAwareness)
+		{
+			crs[i].NameOnHead=name;
+			continue;
+		}
+		
+		if(crs[i].IsDead()==false)
+		{
+			if((@chosen!=null)&&__ConfigOnHeadAwareness==1)
+			{
+				color_g=(255*crs[i].Param[(72)])/crs[i].Param[(7)];
+				hp_proc=crs[i].Param[(72)]*100/crs[i].Param[(7)];
+				
+				if(color_g<0)
+				color_g=0;
+				color_r=255-color_g;
+				if(crs[i].Param[(72)]>=crs[i].Param[(7)])
+				{
+					color_r=0;
+					color_g=255;
+				}
+				hp="|"+(uint((0xFF<<24)|(((color_r)&0xFF)<<16)|(((color_g)&0xFF)<<8)|((color_b)&0xFF)))+" "+crs[i].Param[(72)]+"/"+crs[i].Param[(7)];
+			}
+			else
+			{
+				string lifeRes="";
+				switch(crs[i].Param[(136)])
+				{
+					case 4:lifeRes="****";break;
+					case 3:lifeRes="***";break;
+					case 2:lifeRes="**";break;
+					case 1:lifeRes="*";break;
+				}
+				
+				hp="|"+(crs[i].Param[(136)]<1?((uint((0xFF<<24)|(((0xAB)&0xFF)<<16)|(((0xAB)&0xFF)<<8)|((0xAB)&0xFF)))):(uint((0xFF<<24)|(((0xff-(0xff*crs[i].Param[(136)])/5)&0xFF)<<16)|((((0xff*crs[i].Param[(136)])/5)&0xFF)<<8)|((0)&0xFF))))+" "+lifeRes;
+			}
+			switch(crs[i].Param[(106)])
+			{
+				case 0:factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" ";break;
+				case 1:factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" ";break;
+				case 2:factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" BoS ";break;
+				case 3:factiontag="\n|"+(uint((0xFF<<24)|(((88)&0xFF)<<16)|(((88)&0xFF)<<8)|((88)&0xFF)))+" ENC ";break;
+				case 4:factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((0)&0xFF)))+" B"+"|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((0)&0xFF)<<8)|((0)&0xFF)))+" U"+"|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" R"+"|"+(uint((0xFF<<24)|(((100)&0xFF)<<16)|(((100)&0xFF)<<8)|((255)&0xFF)))+" S"+"|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((255)&0xFF)<<8)|((0)&0xFF)))+" T ";break;
+				case 5:factiontag="\n|"+(uint((0xFF<<24)|(((230)&0xFF)<<16)|(((150)&0xFF)<<8)|((14)&0xFF)))+" NCR ";break;
+				case 6:factiontag="\n|"+(uint((0xFF<<24)|(((14)&0xFF)<<16)|(((88)&0xFF)<<8)|((203)&0xFF)))+" VC ";break;
+				case 7:factiontag="\n|"+(uint((0xFF<<24)|(((200)&0xFF)<<16)|(((0)&0xFF)<<8)|((0)&0xFF)))+" RAIDs ";break;
+				case 8:
+				case 9:
+				case 10:
+				case 11:
+				case 12:
+				case 13:
+				case 14:
+				case 15:
+				case 16:
+				case 17:
+				case 18:
+				case 19:
+				case 20:
+				case 21:
+				case 22:factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" ";break;
+				case 23:factiontag="\n|"+(uint((0xFF<<24)|(((14)&0xFF)<<16)|(((154)&0xFF)<<8)|((233)&0xFF)))+" V32 ";break;
+				case 24:
+				case 25:
+				case 26:
+				case 27:
+				case 28:
+				case 29:
+				case 30:
+				case 31:
+				case 32:
+				case 33:
+				case 34:
+				case 35:
+				case 36:
+				case 37:
+				case 38:
+				case 39:
+				case 40:
+				case 41:
+				case 42:
+				case 43:
+				factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" ";break;
+				case 44:factiontag="\n|"+(uint((0xFF<<24)|(((64)&0xFF)<<16)|(((228)&0xFF)<<8)|((208)&0xFF)))+" Tech ";break;
+				case 45:factiontag="\n|"+(uint((0xFF<<24)|(((136)&0xFF)<<16)|(((0)&0xFF)<<8)|((200)&0xFF)))+" T"+"|"+(uint((0xFF<<24)|(((215)&0xFF)<<16)|(((215)&0xFF)<<8)|((215)&0xFF)))+" T"+"|"+(uint((0xFF<<24)|(((0)&0xFF)<<16)|(((160)&0xFF)<<8)|((25)&0xFF)))+" A ";break;
+				case 50:factiontag="\n|"+(uint((0xFF<<24)|(((54)&0xFF)<<16)|(((228)&0xFF)<<8)|((32)&0xFF)))+" TMG ";break;
+				case 51:factiontag="\n|"+(uint((0xFF<<24)|(((178)&0xFF)<<16)|(((8)&0xFF)<<8)|((29)&0xFF)))+" USR ";break;
+				case 54:factiontag="\n|"+(uint((0xFF<<24)|(((230)&0xFF)<<16)|(((150)&0xFF)<<8)|((14)&0xFF)))+" WASTE ";break;
+				case 55:factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((9)&0xFF)))+" Merc ";break;
+				case 57:factiontag="\n|"+(uint((0xFF<<24)|(((19)&0xFF)<<16)|(((174)&0xFF)<<8)|((19)&0xFF)))+" GTs ";break;
+				case 58:factiontag="\n|"+(uint((0xFF<<24)|(((170)&0xFF)<<16)|(((255)&0xFF)<<8)|((170)&0xFF)))+" FAL ";break;
+				case 59:factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((192)&0xFF)<<8)|((203)&0xFF)))+" -HK- ";break;
+				case 80:
+				case 81:
+				case 82:
+				case 83:
+				case 84:
+				case 85:
+				case 86:
+				case 87:
+				case 88:
+				case 89:
+				case 90:
+				case 91:
+				case 92:
+				case 93:
+				case 94:
+				case 95:
+				case 96:
+				case 97:
+				case 98:
+				case 99:
+				factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" ";break;                            
+				
+				default:factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" NoTAG ";break;
+			}
+			
+			if(factiontag=="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" NoTAG "&&crs[i].Param[(106)]>200)
+			factiontag="\n|"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((255)&0xFF)))+" ";
+			if((@chosen!=null)&&(crs[i].Damage[(502)]>0||crs[i].Damage[(503)]>0||crs[i].Damage[(504)]>0||crs[i].Damage[(505)]>0||crs[i].Damage[(506)]>0))
+			{
+				crInjures=" ";
+				crInjures+=(crs[i].Damage[(502)]>0)?"E ":"";
+				crInjures+=(crs[i].Damage[(503)]>0)?"RA ":"";
+				crInjures+=(crs[i].Damage[(504)]>0)?"LA ":"";
+				crInjures+=(crs[i].Damage[(505)]>0)?"RL ":"";
+				crInjures+=(crs[i].Damage[(506)]>0)?"LL ":"";
+				inj="|"+(uint((0xFF<<24)|(((200)&0xFF)<<16)|(((0)&0xFF)<<8)|((0)&0xFF)))+crInjures+"\n";
+			}
+			else
+			inj="";
+		}
+		else
+		{
+			crs[i].NameOnHead=name;
+			continue;
+		}
+		
+		if(crs[i].IsPlayer()&&crs[i].Param[(89)]==300)
+		{
+			crs[i].NameOnHead=hp;
+		}
+		else
+		crs[i].NameOnHead=factiontag+inj+hp+mobDesc+playerDesc+name;
+		if(crs[i].Param[(89)]==400)
+		crs[i].NameOnHead=" ";
+	}
+}
+
+void ChangeOnHeadAwarenessPlayer()
+{
+	__ConfigShowPlayerAwareness=!__ConfigShowPlayerAwareness;
+}
+
+void ChangeOnHeadAwarenessNPC()
+{
+	__ConfigShowNpcAwareness=!__ConfigShowNpcAwareness;
+	__ShowNpcNames=__ConfigShowNpcAwareness;
+}

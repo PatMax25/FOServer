@@ -1,0 +1,84 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;           
+
+import void SwitchGroupLights(Map&map,int groupId,bool on)from"dynamic_light_source";
+import void ChangeGroupLightsParam(Map&map,int groupId,int paramId,int paramVal)from"dynamic_light_source";        
+
+bool s_Dialog(Critter&player,Scenery&scenery,int skill,Item@item,int dialogId)
+{
+	if(skill==-1&&!(@item!=null))
+	{
+		return RunDialog(player,dialogId,scenery.HexX,scenery.HexY,false);
+	}
+	return false;
+}  
+
+bool s_SwitchLightGroup(Critter&player,Scenery&scenery,int skill,Item@item,int groupId,int toOn)
+{
+	bool on=toOn>0;
+	Map@currentMap=player.GetMap();
+	if((@currentMap!=null))
+	SwitchGroupLights(currentMap,groupId,on);
+	
+	return true;
+}
+
+bool s_Switcher(Critter&player,Scenery&scenery,int skill,Item@item,int groupId)
+{
+	array<Item@>lights;
+	player.GetMap().GetItems((20015),lights);
+	bool on=true;
+	if(lights[0].Val4>0)
+	{
+		on=false;
+		lights[0].Val4=0;
+	}
+	else lights[0].Val4=1;
+	Map@currentMap=player.GetMap();
+	if((@currentMap!=null))
+	SwitchGroupLights(currentMap,groupId,on);
+	
+	return true;
+}      
+
+bool s_ChangeLightGroupParam(Critter&player,Scenery&scenery,int skill,Item@item,int groupId,int paramId,int paramVal)
+{
+	Map@currentMap=player.GetMap();
+	if((@currentMap!=null))
+	{
+		ChangeGroupLightsParam(currentMap,groupId,paramId,paramVal);
+	}
+	
+	return true;
+}
+

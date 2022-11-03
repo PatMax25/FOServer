@@ -1,0 +1,132 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+65507 2010 #
+3 2020 #
+6 2030 #
+5 2040 #
+6 2050 @
+3 3000 None 0 #
+4 3010 #
+6 3020 @
+4 4000 None 0 #
+6 4010 @
+5 5000 None 0 #
+2 5010 #
+2 5020 #
+65507 5030 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Signifer Maxilion}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Aye, wastelander. What is the purpose of your visit here?}
+{2010}{}{[ Attack ] Will be honest, I am here to rip your head off and use it as a ball.}
+{2020}{}{I am a simple traveller. Who are you and what is this place? }
+{2030}{}{I am here for trading, let me in.}
+{2040}{}{Why there are so many slaves here? Do you support slavery?}
+{2050}{}{I need to get in.}
+{3000}{}{I am Signifer Maxilion and you are in Fort Pelagious. The home of the New Legion.}
+{3010}{}{The New Legion? What happened with the old one?}
+{3020}{}{I see. Well, I need to go now.}
+{4000}{}{Our Legion was formed far far away from here - in the lands known as Arizona long before the war. But our reign there didn't last long. A year ago the temperature fell drastically and our crops all died. It was very sudden for us, as we were not prepared for such. But it didn't end there, during the whole month it just kept getting colder and colder. The land started to freeze, and our men started to fall ill. It was the first time I saw snow in my life, as before that I only read about such natural phenomena in old pre war books. It was white and cold... and it turned out it turns into water once it's heated. Many of our men died and in order to save the remnants of our great Legion we found and rebuilt an old pre war airship and used it to escape the cold. That's how we ended up in California.}
+{4010}{}{Right. You guys had some rough past. I need to go though.}
+{5000}{}{Slaves? Have no mercy for them, for these are degenerates who were guilty in the eyes of Legion. Thieves, criminals, whores, spies...}
+{5010}{}{Right...}
+{5020}{}{Sounds fair.}
+{5030}{}{Piece of criminal shit you are. You will pay for your actions!}
+{6000}{}{Come in, but we will be watching you.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ave.@@Glory to Caesar.@@Everything for the New Legion.@@What is it?@@I am watching you.@@Nostrum nomen est Legionem.}
+{2010}{}{[ Attack ] Will be honest, I am here to rip your head off and use it as a ball.}
+{2020}{}{I am a simple traveller. Who are you and what is this place? }
+{2030}{}{I am here for trading, let me in.}
+{2040}{}{Why there are so many slaves here? Do you support slavery?}
+{2050}{}{I need to get in.}
+{3000}{}{I am Signifer Maxilion and you are in Fort Palagious. The home of the New Legion.}
+{3010}{}{The New Legion? What happened with the old one?}
+{3020}{}{I see. Well, I need to go now.}
+{4000}{}{Our Legion was formed far far away from here - in the lands known as Arizona long before the war. But our reign there didn't last long. A year ago temperature fell and our crops started to die. It was very sudden for us, as we were not prepared for such. But it didn't end there, during the whole month it was getting colder and colder. The land started to freeze, our men started to fall ill. It was the first time I saw snow in my life, as before that I only read about such natural phenomena in old pre war books. It was white and cold... and it turned out to turn into water once it was heated. Many of our men died and in order to save the remnants of our great Legion we found and rebuilt an old pre war airship and used it to escape the cold. That's how we ended up in California.}
+{4010}{}{Right. You, guys, had some rough past. I need to go though.}
+{5000}{}{Slaves? Have no mercy for them, for these are degenerates who were guilty in the eyes of Legion. Thives, criminals, whores, spies...}
+{5010}{}{Right...}
+{5020}{}{Sounds fair.}
+{5030}{}{Piece of criminal shit you are. You will pay for your actions!}
+{6000}{}{Come in, but we will be watching you.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ave.@@Glory to Caesar.@@Everything for the New Legion.@@What is it?@@I am watching you.@@Nostrum nomen est Legionem.}
+{2010}{}{[ Attack ] Will be honest, I am here to rip your head off and use it as a ball.}
+{2020}{}{I am a simple traveller. Who are you and what is this place? }
+{2030}{}{I am here for trading, let me in.}
+{2040}{}{Why there are so many slaves here? Do you support slavery?}
+{2050}{}{I need to get in.}
+{3000}{}{I am Signifer Maxilion and you are in Fort Palagious. The home of the New Legion.}
+{3010}{}{The New Legion? What happened with the old one?}
+{3020}{}{I see. Well, I need to go now.}
+{4000}{}{Our Legion was formed far far away from here - in the lands known as Arizona long before the war. But our reign there didn't last long. A year ago temperature fell and our crops started to die. It was very sudden for us, as we were not prepared for such. But it didn't end there, during the whole month it was getting colder and colder. The land started to freeze, our men started to fall ill. It was the first time I saw snow in my life, as before that I only read about such natural phenomena in old pre war books. It was white and cold... and it turned out to turn into water once it was heated. Many of our men died and in order to save the remnants of our great Legion we found and rebuilt an old pre war airship and used it to escape the cold. That's how we ended up in California.}
+{4010}{}{Right. You, guys, had some rough past. I need to go though.}
+{5000}{}{Slaves? Have no mercy for them, for these are degenerates who were guilty in the eyes of Legion. Thives, criminals, whores, spies...}
+{5010}{}{Right...}
+{5020}{}{Sounds fair.}
+{5030}{}{Piece of criminal shit you are. You will pay for your actions!}
+{6000}{}{Come in, but we will be watching you.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ave.@@Glory to Caesar.@@Everything for the New Legion.@@What is it?@@I am watching you.@@Nostrum nomen est Legionem.}
+{2010}{}{[ Attack ] Will be honest, I am here to rip your head off and use it as a ball.}
+{2020}{}{I am a simple traveller. Who are you and what is this place? }
+{2030}{}{I am here for trading, let me in.}
+{2040}{}{Why there are so many slaves here? Do you support slavery?}
+{2050}{}{I need to get in.}
+{3000}{}{I am Signifer Maxilion and you are in Fort Palagious. The home of the New Legion.}
+{3010}{}{The New Legion? What happened with the old one?}
+{3020}{}{I see. Well, I need to go now.}
+{4000}{}{Our Legion was formed far far away from here - in the lands known as Arizona long before the war. But our reign there didn't last long. A year ago temperature fell and our crops started to die. It was very sudden for us, as we were not prepared for such. But it didn't end there, during the whole month it was getting colder and colder. The land started to freeze, our men started to fall ill. It was the first time I saw snow in my life, as before that I only read about such natural phenomena in old pre war books. It was white and cold... and it turned out to turn into water once it was heated. Many of our men died and in order to save the remnants of our great Legion we found and rebuilt an old pre war airship and used it to escape the cold. That's how we ended up in California.}
+{4010}{}{Right. You, guys, had some rough past. I need to go though.}
+{5000}{}{Slaves? Have no mercy for them, for these are degenerates who were guilty in the eyes of Legion. Thives, criminals, whores, spies...}
+{5010}{}{Right...}
+{5020}{}{Sounds fair.}
+{5030}{}{Piece of criminal shit you are. You will pay for your actions!}
+{6000}{}{Come in, but we will be watching you.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ave.@@Glory to Caesar.@@Everything for the New Legion.@@What is it?@@I am watching you.@@Nostrum nomen est Legionem.}
+{2010}{}{[ Attack ] Will be honest, I am here to rip your head off and use it as a ball.}
+{2020}{}{I am a simple traveller. Who are you and what is this place? }
+{2030}{}{I am here for trading, let me in.}
+{2040}{}{Why there are so many slaves here? Do you support slavery?}
+{2050}{}{I need to get in.}
+{3000}{}{I am Signifer Maxilion and you are in Fort Palagious. The home of the New Legion.}
+{3010}{}{The New Legion? What happened with the old one?}
+{3020}{}{I see. Well, I need to go now.}
+{4000}{}{Our Legion was formed far far away from here - in the lands known as Arizona long before the war. But our reign there didn't last long. A year ago temperature fell and our crops started to die. It was very sudden for us, as we were not prepared for such. But it didn't end there, during the whole month it was getting colder and colder. The land started to freeze, our men started to fall ill. It was the first time I saw snow in my life, as before that I only read about such natural phenomena in old pre war books. It was white and cold... and it turned out to turn into water once it was heated. Many of our men died and in order to save the remnants of our great Legion we found and rebuilt an old pre war airship and used it to escape the cold. That's how we ended up in California.}
+{4010}{}{Right. You, guys, had some rough past. I need to go though.}
+{5000}{}{Slaves? Have no mercy for them, for these are degenerates who were guilty in the eyes of Legion. Thives, criminals, whores, spies...}
+{5010}{}{Right...}
+{5020}{}{Sounds fair.}
+{5030}{}{Piece of criminal shit you are. You will pay for your actions!}
+{6000}{}{Come in, but we will be watching you.}
+

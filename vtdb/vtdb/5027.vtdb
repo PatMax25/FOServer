@@ -1,0 +1,10 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = PUSSY;
+@gender = 0;
+@age = 62;
+
+@xp = 37 693980 703000;
+@skills = 200 190 190 76 42 38 100 100 47 140 60 42 78 130 5 100 30 100 95;
+@perks = 301 304 306 313:2 327 329:2 331 354:2 355:2 359 423;

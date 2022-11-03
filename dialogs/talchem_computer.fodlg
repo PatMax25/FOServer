@@ -1,0 +1,108 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+5 2020 R _script dialog@r_OpenDoor 2 11 900 R _script dialog@r_OpenDoor 2 12 900 R _script dialog@r_OpenDoor 2 13 900 R _script dialog@r_OpenDoor 2 14 900 R _script dialog@r_OpenDoor 2 15 900 R _script dialog@r_OpenDoor 2 16 900 R _script dialog@r_OpenDoor 2 17 900 #
+5 2030 R _script dialog@r_OpenDoor 2 11 900 R _script dialog@r_OpenDoor 2 12 900 R _script dialog@r_OpenDoor 2 13 900 R _script dialog@r_OpenDoor 2 14 900 R _script dialog@r_OpenDoor 2 15 900 R _script dialog@r_OpenDoor 2 16 900 R _script dialog@r_OpenDoor 2 17 900 #
+5 2040 R _script dialog@r_OpenDoor 2 11 900 R _script dialog@r_OpenDoor 2 12 900 R _script dialog@r_OpenDoor 2 13 900 R _script dialog@r_OpenDoor 2 14 900 R _script dialog@r_OpenDoor 2 15 900 R _script dialog@r_OpenDoor 2 16 900 R _script dialog@r_OpenDoor 2 17 900 #
+4 2050 R _script dialog@r_OpenDoor 2 18 900 #
+5 2060 R _script dialog@r_OpenDoor 2 11 900 R _script dialog@r_OpenDoor 2 12 900 R _script dialog@r_OpenDoor 2 13 900 R _script dialog@r_OpenDoor 2 14 900 R _script dialog@r_OpenDoor 2 15 900 R _script dialog@r_OpenDoor 2 16 900 R _script dialog@r_OpenDoor 2 17 900 #
+5 2070 R _script dialog@r_OpenDoor 2 11 900 R _script dialog@r_OpenDoor 2 12 900 R _script dialog@r_OpenDoor 2 13 900 R _script dialog@r_OpenDoor 2 14 900 R _script dialog@r_OpenDoor 2 15 900 R _script dialog@r_OpenDoor 2 16 900 R _script dialog@r_OpenDoor 2 17 900 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem terminal #28. Welcome, User. ]}
+{2010}{}{[ Caleb, read this! ]}
+{2020}{}{[ Override lockdown protocoles: 27061788 ]}
+{2030}{}{[ Override lockdown protocoles: 21021732 ]}
+{2040}{}{[ Override lockdown protocoles: 08101727 ]}
+{2050}{}{[ Override lockdown protocoles: 22021732 ]}
+{2060}{}{[ Override lockdown protocoles: 11121814 ]}
+{2070}{}{[ Override lockdown protocoles: 30011711 ]}
+{3000}{}{[ Caleb, in case the generator goes down again you must insert the emergency pass to override protocols and open the doors. PLEASE BE ADVISED THAT IF YOU INSERT THE WRONG PASS, THE SYSTEM WILL CONSIDER YOU AN ENEMY. The pass is the date of birth of our first president. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Confirmed ]}
+{5000}{}{[ ALARM! ALARM! ALARM! ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem terminal #28. Welcome, User. ]}
+{2010}{}{[ Calbe, read this! ]}
+{2020}{}{[ Override lockdown protocoles: 27061788 ]}
+{2030}{}{[ Override lockdown protocoles: 21021732 ]}
+{2040}{}{[ Override lockdown protocoles: 08101727 ]}
+{2050}{}{[ Override lockdown protocoles: 22021732 ]}
+{2060}{}{[ Override lockdown protocoles: 11121814 ]}
+{2070}{}{[ Override lockdown protocoles: 30011711 ]}
+{3000}{}{[ Caleb, in case if the generator goes down again you must insert the emergency pass to override protocoles and open doors. PLEASE BE ADVICED THAT IF YOU INSER THE WRONG PASS, SYSTEM WILL CONSIDER YOU AS AN ENEMY. The pass is the date of birth of our first president. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Confirmed ]}
+{5000}{}{[ ALARM! ALARM! ALARM! ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem terminal #28. Welcome, User. ]}
+{2010}{}{[ Calbe, read this! ]}
+{2020}{}{[ Override lockdown protocoles: 27061788 ]}
+{2030}{}{[ Override lockdown protocoles: 21021732 ]}
+{2040}{}{[ Override lockdown protocoles: 08101727 ]}
+{2050}{}{[ Override lockdown protocoles: 22021732 ]}
+{2060}{}{[ Override lockdown protocoles: 11121814 ]}
+{2070}{}{[ Override lockdown protocoles: 30011711 ]}
+{3000}{}{[ Caleb, in case if the generator goes down again you must insert the emergency pass to override protocoles and open doors. PLEASE BE ADVICED THAT IF YOU INSER THE WRONG PASS, SYSTEM WILL CONSIDER YOU AS AN ENEMY. The pass is the date of birth of our first president. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Confirmed ]}
+{5000}{}{[ ALARM! ALARM! ALARM! ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem terminal #28. Welcome, User. ]}
+{2010}{}{[ Calbe, read this! ]}
+{2020}{}{[ Override lockdown protocoles: 27061788 ]}
+{2030}{}{[ Override lockdown protocoles: 21021732 ]}
+{2040}{}{[ Override lockdown protocoles: 08101727 ]}
+{2050}{}{[ Override lockdown protocoles: 22021732 ]}
+{2060}{}{[ Override lockdown protocoles: 11121814 ]}
+{2070}{}{[ Override lockdown protocoles: 30011711 ]}
+{3000}{}{[ Caleb, in case if the generator goes down again you must insert the emergency pass to override protocoles and open doors. PLEASE BE ADVICED THAT IF YOU INSER THE WRONG PASS, SYSTEM WILL CONSIDER YOU AS AN ENEMY. The pass is the date of birth of our first president. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Confirmed ]}
+{5000}{}{[ ALARM! ALARM! ALARM! ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem terminal #28. Welcome, User. ]}
+{2010}{}{[ Calbe, read this! ]}
+{2020}{}{[ Override lockdown protocoles: 27061788 ]}
+{2030}{}{[ Override lockdown protocoles: 21021732 ]}
+{2040}{}{[ Override lockdown protocoles: 08101727 ]}
+{2050}{}{[ Override lockdown protocoles: 22021732 ]}
+{2060}{}{[ Override lockdown protocoles: 11121814 ]}
+{2070}{}{[ Override lockdown protocoles: 30011711 ]}
+{3000}{}{[ Caleb, in case if the generator goes down again you must insert the emergency pass to override protocoles and open doors. PLEASE BE ADVICED THAT IF YOU INSER THE WRONG PASS, SYSTEM WILL CONSIDER YOU AS AN ENEMY. The pass is the date of birth of our first president. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Confirmed ]}
+{5000}{}{[ ALARM! ALARM! ALARM! ]}
+

@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Reactor Punk}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Heyo.@@What's up, bud?@@Hey there.@@Have a cig, bud?@@It's damn hot today.@@*whistles*@@Yo.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Heyo.@@What's up, bud?@@Hey there.@@Have a cig, bud?@@It's damn hot today.@@*Whistles*@@Yo.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Heyo.@@What's up, bud?@@Hey there.@@Have a cig, bud?@@It's damn hot today.@@*Whistles*@@Yo.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Heyo.@@What's up, bud?@@Hey there.@@Have a cig, bud?@@It's damn hot today.@@*Whistles*@@Yo.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Heyo.@@What's up, bud?@@Hey there.@@Have a cig, bud?@@It's damn hot today.@@*Whistles*@@Yo.}
+

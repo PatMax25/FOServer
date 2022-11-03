@@ -1,0 +1,5786 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// client_container_volume.fos
+//
+
+#include "_client_defines.fos"
+#include "_macros.fos"
+#include "client_gui_h.fos"
+#include "client_gui_ex.fos"
+#include "sprite.fos"
+#include "_colors.fos"
+
+# define FILTER_BUTTON_SELECTED_NONE    (-1)
+
+InjectLabel@ insect;
+InjectLabel2@ insect2;
+int          itemsVolume = 0;
+int          containerVolume = 0;
+string       indicatorLabel;
+uint         containerId;
+uint         bodyId;
+PickupShow@  pickupShow;
+ButtonGroupPickup@ pickupGroupOwn;
+ButtonGroupPickup@ pickupGroupOpp;
+int   pickupFilterOwn = -1;
+int   pickupFilterOpp = -1;
+
+
+int GetPickupFilterOwn()
+{
+    return pickupFilterOwn;
+}
+
+int GetPickupFilterOpp()
+{
+    return pickupFilterOpp;
+}
+
+uint GetContainerId()
+{
+    return containerId;
+}
+
+uint GetBodyId()
+{
+    return bodyId;
+}
+
+void SetContainerBodyId(uint cId, uint bId)
+{
+    containerId = cId;
+    bodyId = bId;
+}
+
+void UpdateCaption()
+{
+    // indicatorLabel="Container space: "+itemsVolume+"/"+containerVolume;
+    indicatorLabel = "Space taken: " + (itemsVolume * 100 / (containerVolume == 0 ? 1 : containerVolume)) + "%";
+    if(valid(insect))
+        insect.SetCaption(indicatorLabel);
+}
+
+void HideVolumeIndicator()
+{
+    indicatorLabel = "";
+    if(valid(insect))
+    {
+        insect.visible = false;
+        insect.SetCaption(indicatorLabel);
+    }
+}
+
+void ZeroVolumeFillIndicator()
+{
+    itemsVolume = 0;
+    UpdateCaption();
+}
+
+void SetVolumeFillIndicator(array<ItemCl@> items)
+{
+    itemsVolume = 0;
+    for(uint i = 0, j = items.length(); i < j; i++)
+        itemsVolume += items[i].Proto.Volume * items[i].GetCount();
+    UpdateCaption();
+}
+
+void SetVolumeIndicator(uint pid)
+{
+    ProtoItem@ container = GetProtoItem(pid);
+    if(valid(container) && container.Type == ITEM_TYPE_CONTAINER)
+    {
+        containerVolume = container.Container_Volume;
+        UpdateCaption();
+        insect.visible = true;
+    }
+    else
+        HideVolumeIndicator();
+}
+
+int config_id = 1;
+
+void InitPepegeConfig(int screen)
+{
+	string         ini = "PupVolumeInd";
+    string         txtIni = "PupVolumeIndText";
+    
+	if(screen == 1)
+   {
+    IGUIScreenOpt@ pickupScreen = GUI_GetScreen(CLIENT_MAIN_SCREEN_LOGIN);
+	Control@ control = @Control();
+   board5@  res = board5(pickupScreen,1);
+    reso@  reso1 = reso(pickupScreen,800,600,16);
+	reso@  reso2 = reso(pickupScreen,768,1024,17);
+	reso@  reso4 = reso(pickupScreen,1280,720,18);
+	reso@  reso5 = reso(pickupScreen,1280,800,19);
+	reso@  reso6 = reso(pickupScreen,1280,1024,20);
+	reso@  reso7 = reso(pickupScreen,1366,768,21);
+	reso@  reso8 = reso(pickupScreen,1440,900,22);
+	reso@  reso9 = reso(pickupScreen,1536,864,23);
+	reso@  reso10 = reso(pickupScreen,1600,900,24);
+	reso@  reso11 = reso(pickupScreen,1680,1050,25);
+	reso@  reso12 = reso(pickupScreen,1792,1120,26);
+	reso@  reso13 = reso(pickupScreen,1920,1080,27);
+	reso@  reso14 = reso(pickupScreen,2560,1440,28);
+	
+	control.AddControl(@res);
+	control.AddControl(@reso1);
+	control.AddControl(@reso2);
+	control.AddControl(@reso4);
+	control.AddControl(@reso5);
+	control.AddControl(@reso6);
+	control.AddControl(@reso7);
+	control.AddControl(@reso8);
+	control.AddControl(@reso9);
+	control.AddControl(@reso10);
+	control.AddControl(@reso11);
+	control.AddControl(@reso12);
+	control.AddControl(@reso13);
+	control.AddControl(@reso14);
+	pickupScreen.Control(control).SetCallbackShow(pickupShow).Multiinstance(false);
+	return;
+   }
+	IGUIScreenOpt@ pickupScreen = GUI_GetScreen(CLIENT_SCREEN_MENU);
+	Control@ control = @Control();
+	counter0@  config = counter0(pickupScreen);
+	counter0up@  configup = counter0up(pickupScreen);
+	counter0down@  configdown = counter0down(pickupScreen);
+	control.AddControl(@config);
+	control.AddControl(@configup);
+	control.AddControl(@configdown);
+	if(config_id != 0)
+	{
+	title@  video = title(pickupScreen,1);
+	title@  audio = title(pickupScreen,2);
+	title@  game = title(pickupScreen,3);
+	title@  misc = title(pickupScreen,4);
+    @insect2 = InjectLabel2(pickupScreen);
+    insect2.PicPosition(ini);
+    insect2.TextPosition(txtIni);
+    insect2.SetFont(FONT_FALLOUT);
+    insect2.SetFormat(FT_CENTERY | FT_CENTERX);
+	board2@  borad = board2(pickupScreen);
+	board3@  borad2 = board3(pickupScreen);
+	board4@  borad3 = board4(pickupScreen);
+	
+	
+	 @pickupShow = @PickupShow();
+    
+	
+	control.AddControl(@insect2); 
+	control.AddControl(@borad);
+	control.AddControl(@borad2);
+	control.AddControl(@borad3);
+	control.AddControl(@video);
+	control.AddControl(@audio);
+	control.AddControl(@game);
+	control.AddControl(@misc);
+	
+	}
+	if(config_id == 1)
+	{
+	board5@  res = board5(pickupScreen,0);
+	
+    button1@  insectPutAll = button1(pickupScreen);
+	button2@  fullscreen = button2(pickupScreen);
+	button3@  VSync = button3(pickupScreen);
+	button4@  AlwaysOnTop = button4(pickupScreen);
+	button5@  Multisampling = button5(pickupScreen);
+	button6@  DoubleClickTime = button6(pickupScreen);
+	button7@  Travel = button7(pickupScreen);
+	button9@  SoundNotify = button9(pickupScreen);
+	button10@  WinNotify = button10(pickupScreen);
+	galka1@  logs = galka1(pickupScreen);
+	galka2@  DefaultCombatMode = galka2(pickupScreen);
+	galka3@  IndicatorType = galka3(pickupScreen);
+	galka4@  movement = galka4(pickupScreen);
+	counter1@  FixedFPS = counter1(pickupScreen);
+	counter1up@  FixedFPSup = counter1up(pickupScreen);
+	counter1down@  FixedFPSdown = counter1down(pickupScreen);
+	counter2@  MusicVolume = counter2(pickupScreen);
+	counter2up@  MusicVolumeup = counter2up(pickupScreen);
+	counter2down@  MusicVolumedown = counter2down(pickupScreen);
+	counter3@  SoundVolume = counter3(pickupScreen);
+	counter3up@  SoundVolumeup = counter3up(pickupScreen);
+	counter3down@  SoundVolumedown = counter3down(pickupScreen);
+	counter4@  Light = counter4(pickupScreen);
+	counter4up@  Lightup = counter4up(pickupScreen);
+	counter4down@  Lightdown = counter4down(pickupScreen);
+	counter5@  ScrollDelay = counter5(pickupScreen);
+	counter5up@  ScrollDelayup = counter5up(pickupScreen);
+	counter5down@  ScrollDelaydown = counter5down(pickupScreen);
+	counter6@  ScrollStep = counter6(pickupScreen);
+	counter6up@  ScrollStepup = counter6up(pickupScreen);
+	counter6down@  ScrollStepdown = counter6down(pickupScreen);
+	counter7@  DamageHitDelay = counter7(pickupScreen);
+	counter7up@  DamageHitDelayup = counter7up(pickupScreen);
+	counter7down@  DamageHitDelaydown = counter7down(pickupScreen);
+	
+	
+	
+	reso@  reso1 = reso(pickupScreen,800,600,1);
+	reso@  reso2 = reso(pickupScreen,768,1024,2);
+	reso@  reso4 = reso(pickupScreen,1280,720,3);
+	reso@  reso5 = reso(pickupScreen,1280,800,4);
+	reso@  reso6 = reso(pickupScreen,1280,1024,5);
+	reso@  reso7 = reso(pickupScreen,1366,768,6);
+	reso@  reso8 = reso(pickupScreen,1440,900,7);
+	reso@  reso9 = reso(pickupScreen,1536,864,8);
+	reso@  reso10 = reso(pickupScreen,1600,900,9);
+	reso@  reso11 = reso(pickupScreen,1680,1050,10);
+	reso@  reso12 = reso(pickupScreen,1792,1120,11);
+	reso@  reso13 = reso(pickupScreen,1920,1080,12);
+	reso@  reso14 = reso(pickupScreen,2560,1440,13);
+	
+	
+	
+	button8@  Highlight = button8(pickupScreen);
+	
+	   
+    control.AddControl(@insectPutAll);
+    control.AddControl(@fullscreen);
+	control.AddControl(@VSync);
+	control.AddControl(@AlwaysOnTop);
+	control.AddControl(@Multisampling);
+	control.AddControl(@DoubleClickTime);
+	control.AddControl(@Travel);
+	control.AddControl(@SoundNotify);
+	control.AddControl(@WinNotify);
+	control.AddControl(@logs);
+	control.AddControl(@DefaultCombatMode);
+	control.AddControl(@IndicatorType);
+	control.AddControl(@movement);
+	control.AddControl(@Highlight);
+	control.AddControl(@FixedFPS);
+	control.AddControl(@FixedFPSup);
+	control.AddControl(@FixedFPSdown);
+	control.AddControl(@MusicVolume);
+	control.AddControl(@MusicVolumeup);
+	control.AddControl(@MusicVolumedown);
+	control.AddControl(@SoundVolume);
+	control.AddControl(@SoundVolumeup);
+	control.AddControl(@SoundVolumedown);
+	control.AddControl(@Light);
+	control.AddControl(@Lightup);
+	control.AddControl(@Lightdown);
+	control.AddControl(@ScrollDelay);
+	control.AddControl(@ScrollDelayup);
+	control.AddControl(@ScrollDelaydown);
+	control.AddControl(@ScrollStep);
+	control.AddControl(@ScrollStepup);
+	control.AddControl(@ScrollStepdown);
+	control.AddControl(@DamageHitDelay);
+	control.AddControl(@DamageHitDelayup);
+	control.AddControl(@DamageHitDelaydown);
+	
+	control.AddControl(@res);
+	control.AddControl(@reso1);
+	control.AddControl(@reso2);
+	control.AddControl(@reso4);
+	control.AddControl(@reso5);
+	control.AddControl(@reso6);
+	control.AddControl(@reso7);
+	control.AddControl(@reso8);
+	control.AddControl(@reso9);
+	control.AddControl(@reso10);
+	control.AddControl(@reso11);
+	control.AddControl(@reso12);
+	control.AddControl(@reso13);
+	control.AddControl(@reso14);
+	
+	}
+ //   InjectTakeAllButton@  insectTakeAll = InjectTakeAllButton(pickupScreen);
+	if(config_id==2)
+	{
+	clickacz1@  Highlight1 = clickacz1(pickupScreen,0);
+	control.AddControl(@Highlight1);
+	clickacz1@  Highlight2 = clickacz1(pickupScreen,1);
+	control.AddControl(@Highlight2);
+	clickacz1@  Highlight3 = clickacz1(pickupScreen,2);
+	control.AddControl(@Highlight3);
+	clickacz1@  Highlight4 = clickacz1(pickupScreen,3);
+	control.AddControl(@Highlight4);
+	clickacz1@  Highlight5 = clickacz1(pickupScreen,4);
+	control.AddControl(@Highlight5);
+	clickacz1@  Highlight6 = clickacz1(pickupScreen,5);
+	control.AddControl(@Highlight6);
+	clickacz1@  Highlight7 = clickacz1(pickupScreen,6);
+	control.AddControl(@Highlight7);
+	
+	clickacz2@  timeouts0 = clickacz2(pickupScreen,0);
+	control.AddControl(@timeouts0);
+	clickacz2@  timeouts1 = clickacz2(pickupScreen,1);
+	control.AddControl(@timeouts1);
+	clickacz2@  timeouts2 = clickacz2(pickupScreen,2);
+	control.AddControl(@timeouts2);
+	clickacz2@  timeouts3 = clickacz2(pickupScreen,3);
+	control.AddControl(@timeouts3);
+	clickacz2@  timeouts4 = clickacz2(pickupScreen,4);
+	control.AddControl(@timeouts4);
+	clickacz2@  timeouts5 = clickacz2(pickupScreen,5);
+	control.AddControl(@timeouts5);
+	clickacz2@  timeouts6 = clickacz2(pickupScreen,6);
+	control.AddControl(@timeouts6);
+	
+	
+	
+	buttonchat@  Chat0 = buttonchat(pickupScreen,0);
+	control.AddControl(@Chat0);
+	buttonchat@  Chat1 = buttonchat(pickupScreen,1);
+	control.AddControl(@Chat1);
+	buttonchat@  Chat2 = buttonchat(pickupScreen,2);
+	control.AddControl(@Chat2);
+	buttonchat@  Chat3 = buttonchat(pickupScreen,3);
+	control.AddControl(@Chat3);
+	buttonchat@  Chat4 = buttonchat(pickupScreen,4);
+	control.AddControl(@Chat4);
+	buttonchat@  Chat5 = buttonchat(pickupScreen,5);
+	control.AddControl(@Chat5);
+	buttonchat@  Chat6 = buttonchat(pickupScreen,6);
+	control.AddControl(@Chat6);
+	buttonchat@  Chat7 = buttonchat(pickupScreen,7);
+	control.AddControl(@Chat7);
+	buttonx@  Awareness = buttonx(pickupScreen,0);
+	control.AddControl(@Awareness);
+	buttonx@  InvertMessBox = buttonx(pickupScreen,1);
+	control.AddControl(@InvertMessBox);
+	buttonx@  DisplayNames = buttonx(pickupScreen,2);
+	control.AddControl(@DisplayNames);
+	buttonx@  ShowNpcAwareness = buttonx(pickupScreen,3);
+	control.AddControl(@ShowNpcAwareness);
+	buttonx@  ShowPlayerAwareness = buttonx(pickupScreen,4);
+	control.AddControl(@ShowPlayerAwareness);
+	buttonx@  Worldmap = buttonx(pickupScreen,5);
+	control.AddControl(@Worldmap);
+	buttonx@  Enabled = buttonx(pickupScreen,6);
+	control.AddControl(@Enabled);
+	
+	
+	counter8@  TextDelay = counter8(pickupScreen);
+	counter8up@  TextDelayup = counter8up(pickupScreen);
+	counter8down@  TextDelaydown = counter8down(pickupScreen);
+	
+	control.AddControl(@TextDelay);
+	control.AddControl(@TextDelayup);
+	control.AddControl(@TextDelaydown);
+	}
+	if(config_id==3)
+	{
+	clickacz3@  commands1 = clickacz3(pickupScreen,0);
+	control.AddControl(@commands1);
+	clickacz3@  commands2 = clickacz3(pickupScreen,1);
+	control.AddControl(@commands2);
+	clickacz3@  commands3 = clickacz3(pickupScreen,2);
+	control.AddControl(@commands3);
+	clickacz3@  commands4 = clickacz3(pickupScreen,3);
+	control.AddControl(@commands4);
+	clickacz3@  commands5 = clickacz3(pickupScreen,4);
+	control.AddControl(@commands5);
+	clickacz3@  commands6 = clickacz3(pickupScreen,5);
+	control.AddControl(@commands6);
+	clickacz3@  commands7 = clickacz3(pickupScreen,6);
+	control.AddControl(@commands7);
+	
+	clickacz4@  fog1 = clickacz4(pickupScreen,0);
+	control.AddControl(@fog1);
+	clickacz4@  fog2 = clickacz4(pickupScreen,1);
+	control.AddControl(@fog2);
+	clickacz4@  discord = clickacz4(pickupScreen,2);
+	control.AddControl(@discord);
+	
+	clickacz5@  faction1 = clickacz5(pickupScreen,0);
+	control.AddControl(@faction1);
+	clickacz5@  faction2 = clickacz5(pickupScreen,1);
+	control.AddControl(@faction2);
+	clickacz5@  faction3 = clickacz5(pickupScreen,2);
+	control.AddControl(@faction3);
+	clickacz5@  faction4 = clickacz5(pickupScreen,3);
+	control.AddControl(@faction4);
+	clickacz5@  faction5 = clickacz5(pickupScreen,4);
+	control.AddControl(@faction5);
+	clickacz5@  faction6 = clickacz5(pickupScreen,5);
+	control.AddControl(@faction6);
+	clickacz5@  faction7 = clickacz5(pickupScreen,6);
+	control.AddControl(@faction7);
+	}
+   
+	
+	
+    pickupScreen.Control(control).SetCallbackShow(pickupShow).Multiinstance(false);
+}
+void InitContainerAddons()
+{
+    string         ini = "PupVolumeInd";
+    string         txtIni = "PupVolumeIndText";
+	
+    IGUIScreenOpt@ pickupScreen = GUI_GetScreen(CLIENT_SCREEN_PICKUP);
+    @insect = InjectLabel(pickupScreen);
+    insect.PicPosition(ini);
+    insect.TextPosition(txtIni);
+    insect.SetFont(FONT_FALLOUT);
+    insect.SetFormat(FT_CENTERY | FT_CENTERX);
+
+    InjectPutAllButton@  insectPutAll = InjectPutAllButton(pickupScreen);
+    InjectTakeAllButton@  insectTakeAll = InjectTakeAllButton(pickupScreen);
+
+    @pickupGroupOwn = ButtonGroupPickup(pickupScreen);
+    for(uint i = 0; i < 5; i++)
+    {
+        int left = 0, top = 0, right = 0, bottom = 0;
+        ParseFourInts(GetIfaceIniStr("PupFilerLeft" + i), left, top, right, bottom);
+		
+        PickupFilterButton@ button = PickupFilterButton(i, ITEMS_PICKUP, true, left, top, right, bottom, pickupGroupOwn, null, "pickup_pushed" + i + ".png");
+        pickupGroupOwn.AddControl(button);
+    }
+
+    @pickupGroupOpp = ButtonGroupPickup(pickupScreen);
+    for(uint i = 0; i < 5; i++)
+    {
+        int left = 0, top = 0, right = 0, bottom = 0;
+        ParseFourInts(GetIfaceIniStr("PupFilerRight" + i), left, top, right, bottom);
+        PickupFilterButton@ button = PickupFilterButton(i, ITEMS_PICKUP_FROM, false, left, top, right, bottom, pickupGroupOpp, null, "pickup_pushed" + i + ".png");
+        pickupGroupOpp.AddControl(button);
+    }
+
+    @pickupShow = @PickupShow();
+    Control@ control = @Control();
+    control.AddControl(@insect);    
+    control.AddControl(@insectPutAll);
+    control.AddControl(@insectTakeAll);
+    control.AddControl(pickupGroupOwn);
+    control.AddControl(pickupGroupOpp);
+    pickupScreen.Control(control).SetCallbackShow(pickupShow).Multiinstance(false);
+}
+
+void ExecutePutAll() 
+{
+    RunServerScriptUnsafe( "unsafe_client@unsafe_PutAll", containerId, bodyId, pickupFilterOwn, null, null );
+}
+
+void ExecuteTakeAll() 
+{
+    RunServerScriptUnsafe( "unsafe_client@unsafe_TakeAll", containerId, bodyId, pickupFilterOpp, null, null );
+}
+
+class InjectLabel : CLabel
+{
+    IGUIScreenOpt@ window;
+    // bool infected;
+    Sprite         backgroundPic;
+    Control@       picControl;
+
+    InjectLabel(IGUIScreenOpt@ window /*, int infected,*/)
+    {
+        super(0, 0, 0, 0, "");
+        this.backgroundPic.LoadByIni("PupVolumeIndBackPic", PT_ART_INTRFACE);
+        @picControl = Control();
+        @this.window = window;
+        /*if( infected > 0 )
+           {
+                this.buttonDown.LoadByIni( "ChaPrintPicDn", PT_ART_INTRFACE );
+                this.infected = true;
+           }
+           else
+                this.infected = false;*/
+    }
+
+    /*void Init()
+       {
+            if( this.infected )
+                    this.Position( "ChaPrint" );
+            else
+            {
+                    this.Position( 0, 0 );
+                    this.Size( 0, 0 );
+            }
+       }*/
+
+    void PicPosition(string& ini)
+    {
+        picControl.Position(ini);
+    }
+
+    void TextPosition(string& ini)
+    {
+        CLabel::Position(ini);
+    }
+
+    int Left()
+    {
+	
+			
+			if(valid(this.window))
+				return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int PicLeft()
+    {
+
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.picControl.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    int PicTop()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.picControl.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+        DrawSprite(this.backgroundPic.Id, 0, this.PicLeft(), this.PicTop(), 0);
+        CLabel::Draw();
+    }
+};
+
+class InjectPutAllButton : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+
+    InjectPutAllButton(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("PupPutAllPic", PT_ART_INTRFACE);
+    }
+
+    void Init()
+    {
+        this.Position("PupPutAll");
+    }
+
+    void Click()
+    {
+        ExecutePutAll();
+    }
+
+    int Left()
+    {
+		
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+        if(this.mousePressed)
+            DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+    }
+};
+
+class InjectTakeAllButton : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+
+    InjectTakeAllButton(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("PupTAPicDn", PT_ART_INTRFACE);
+    }
+
+    void Init()
+    {
+        this.Position("PupTakeAll");
+    }
+
+ void Click()
+{
+    ExecuteTakeAll();
+    }
+
+    int Left()
+    {
+	
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+        if(this.mousePressed)
+            DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+    }
+};
+
+class ButtonGroupPickup : Control
+{
+    // only a container
+    // child controls should implement "unclick me" on Update() by index comparison and call this.set_Selected() with own index on Click()
+    IGUIScreenOpt@ window;
+    int            selected;
+
+    ButtonGroupPickup(IGUIScreenOpt@ window)
+    {
+        super(0, 0, 0, 0);         // This is mere a container
+        @this.window = window;
+        selected = FILTER_BUTTON_SELECTED_NONE;
+    }
+
+    int Top()
+    {
+        return valid(window) ? window.GetPosY() : 0;
+    }
+
+    int Left()
+    {
+	
+        return valid(window) ? window.GetPosX() : 0;
+    }
+};
+
+class PickupFilterButton : Control
+{
+    ButtonGroupPickup@ group; // parent container
+    int          index;
+    int          collection;
+    bool         selected;
+    bool         own;
+    Sprite       spriteUp;
+    Sprite       spriteDown;
+
+    PickupFilterButton(int index, int collection, bool own, int left, int top, int right, int bottom, ButtonGroupPickup@ group, string@ spriteup, string@ spritedown)
+    {
+        this.index = index;
+        this.collection = collection;
+        this.own = own;
+        @this.group = group;
+        super(left, top, right - left, bottom - top);
+        if(valid(spriteup) && !spriteUp.Load(spriteup, PT_ART_INTRFACE))
+            Message("Couldn't load sprite: " + spriteup);
+        if(valid(spritedown) && !spriteDown.Load(spritedown, PT_ART_INTRFACE))
+            Message("Couldn't load sprite: " + spritedown);
+
+        selected = false;
+    }
+
+    void Click()
+    {
+        if(!selected)
+        {
+            if(own)
+                pickupFilterOwn = index;
+            else
+                pickupFilterOpp = index;
+            //Message("clicked index "+index+" for collection "+collection);
+            group.selected = index;
+        }
+        else
+        {
+            if(own)
+                pickupFilterOwn = PICKUP_FILTER_NONE;
+            else
+                pickupFilterOpp = PICKUP_FILTER_NONE;
+            //Message("UNclicked index "+index+" for collection "+collection);
+            group.selected = FILTER_BUTTON_SELECTED_NONE;
+        }
+        if(own)
+            SetScroll(SCROLL_PICKUP, 0);
+        else
+            SetScroll(SCROLL_PICKUP_FROM, 0);
+        group.Update();
+        RefreshItemsCollection(collection);
+    }
+
+    void Update()
+    {
+        selected = (group.selected == index);
+    }
+
+    void Draw()
+    {
+        if(mousePressed || selected)
+        {
+            if(spriteDown.Id != 0)
+                DrawSprite(spriteDown.Id, 0, Left(), Top(), 0);
+        }
+        else
+        {
+            if(spriteUp.Id != 0)
+                DrawSprite(spriteUp.Id, 0, Left(), Top(), 0);
+        }
+    }
+};
+
+class PickupShow : IGUIScreenCallbackShow
+{
+    void OnShow(int p0, int p1, int p2)
+    {
+        pickupFilterOwn = PICKUP_FILTER_NONE;
+        pickupFilterOpp = PICKUP_FILTER_NONE;
+        pickupGroupOwn.selected = FILTER_BUTTON_SELECTED_NONE;
+        pickupGroupOwn.Update();
+        pickupGroupOpp.selected = FILTER_BUTTON_SELECTED_NONE;
+        pickupGroupOpp.Update();       
+    }
+};
+
+void ParseFourInts(string& str, int& v0, int& v1, int& v2, int& v3)
+{
+    // Message("parsing four ints: "+str);
+    array<string@>@ ints = split(str, " ");
+    if(ints.length() < 4)
+        return;
+    StrToInt(ints[0], v0);
+    StrToInt(ints[1], v1);
+    StrToInt(ints[2], v2);
+    StrToInt(ints[3], v3);
+}
+
+
+class button1 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button1(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("CombatMessagesType");
+    }
+
+    void Click()
+    {
+	file f;
+    f.open("config/CombatMessagesType.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "CombatMessagesType = 0")
+		{
+		file fx;
+		fx.open("config/CombatMessagesType.txt", "w");
+		fx.writeString("CombatMessagesType = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/CombatMessagesType.txt", "w");
+		fx.writeString("CombatMessagesType = 0");
+		fx.close();
+		savefile();
+		return;
+		}	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/CombatMessagesType.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "CombatMessagesType = 0")
+		{
+			
+			DrawText("Verbose",this.Left() + 1 ,this.Top() + 38 ,100,100,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("Verbose",this.Left() + 1 ,this.Top() + 38 ,100,100,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class button2 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button2(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("FullScreen");
+    }
+
+    void Click()
+    {
+	file f;
+    f.open("config/FullScreen.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "FullScreen = 0")
+		{
+		file fx;
+		fx.open("config/FullScreen.txt", "w");
+		fx.writeString("FullScreen = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/FullScreen.txt", "w");
+		fx.writeString("FullScreen = 0");
+		fx.close();
+		savefile();
+		return;
+		}	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/FullScreen.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "FullScreen = 0")
+		{
+			
+			DrawText("Full Screen",this.Left() - 5 ,this.Top() + 33 ,100,100,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("Full Screen",this.Left() - 5 ,this.Top() + 33 ,100,100,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class button3 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button3(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("VSync");
+    }
+
+    void Click()
+    {
+	file f;
+    f.open("config/VSync.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "VSync = 0")
+		{
+		file fx;
+		fx.open("config/VSync.txt", "w");
+		fx.writeString("VSync = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/VSync.txt", "w");
+		fx.writeString("VSync = 0");
+		fx.close();
+		savefile();
+		return;
+		}	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/VSync.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "VSync = 0")
+		{
+			
+			DrawText("VSync",this.Left() - 35 ,this.Top() + 43 ,100,100,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("VSync",this.Left() - 35 ,this.Top() + 43 ,100,100,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class button4 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button4(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("AlwaysOnTop");
+    }
+
+    void Click()
+    {
+	file f;
+    f.open("config/AlwaysOnTop.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "AlwaysOnTop = 0")
+		{
+		file fx;
+		fx.open("config/AlwaysOnTop.txt", "w");
+		fx.writeString("AlwaysOnTop = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/AlwaysOnTop.txt", "w");
+		fx.writeString("AlwaysOnTop = 0");
+		fx.close();
+		savefile();
+		return;
+		}	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/AlwaysOnTop.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "AlwaysOnTop = 0")
+		{
+			
+			DrawText("Always On Top",this.Left() - 65 ,this.Top() + 52 ,100,100,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("Always On Top",this.Left() - 65 ,this.Top() + 52 ,100,100,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+
+class button5 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button5(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Multisampling");
+    }
+
+    void Click()
+    {
+	file f;
+    f.open("config/Multisampling.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "Multisampling = 0")
+		{
+		file fx;
+		fx.open("config/Multisampling.txt", "w");
+		fx.writeString("Multisampling = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/Multisampling.txt", "w");
+		fx.writeString("Multisampling = 0");
+		fx.close();
+		savefile();
+		return;
+		}	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/Multisampling.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "Multisampling = 0")
+		{
+			
+			DrawText("Multisampling",this.Left() - 95 ,this.Top() + 62 ,100,100,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("Multisampling",this.Left() - 95 ,this.Top() + 62 ,100,100,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class button6 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button6(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("DoubleClickTime");
+    }
+
+    void Click()
+    {
+	file f;
+    f.open("config/DoubleClickTime.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "DoubleClickTime = 0")
+		{
+		file fx;
+		fx.open("config/DoubleClickTime.txt", "w");
+		fx.writeString("DoubleClickTime = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/DoubleClickTime.txt", "w");
+		fx.writeString("DoubleClickTime = 0");
+		fx.close();
+		savefile();
+		return;
+		}	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/DoubleClickTime.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "DoubleClickTime = 0")
+		{
+			
+			DrawText("Double Click",this.Left() - 18 ,this.Top() + 48 ,100,100,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("Double Click",this.Left() - 18 ,this.Top() + 48 ,100,100,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class button7 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button7(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Traveler");
+    }
+
+    void Click()
+    {
+	CritterCl@ cr = GetChosen();
+	RunServerScriptUnsafe("unsafe_client@unsafe_outdoor", cr.Id, 0, 0, null, null);
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   CritterCl@ cr = GetChosen();
+       
+		if(cr.Param[TRAVEL_MODE]==0)
+		{
+			
+			DrawText("Safe Travel",this.Left() - 15 ,this.Top() + 33 ,100,100,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("Safe Travel",this.Left() - 15 ,this.Top() + 33 ,100,100,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class button8 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button8(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Highlight");
+    }
+
+    void Click()
+    {
+	file f;
+    f.open("config/Highlight.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "Highlight = 0")
+		{
+		file fx;
+		fx.open("config/Highlight.txt", "w");
+		fx.writeString("Highlight = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/Highlight.txt", "w");
+		fx.writeString("Highlight = 0");
+		fx.close();
+		savefile();
+		return;
+		}	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/Highlight.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "Highlight = 0")
+		{
+			
+			DrawText("Highlighter",this.Left() - 15 ,this.Top() + 33 ,100,100,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("Highlighter",this.Left() - 15 ,this.Top() + 33 ,100,100,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class button9 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button9(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("SoundNotify");
+    }
+
+    void Click()
+    {
+	file f;
+    f.open("config/SoundNotify.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "SoundNotify = 0")
+		{
+		file fx;
+		fx.open("config/SoundNotify.txt", "w");
+		fx.writeString("SoundNotify = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/SoundNotify.txt", "w");
+		fx.writeString("SoundNotify = 0");
+		fx.close();
+		savefile();
+		return;
+		}	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/SoundNotify.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "SoundNotify = 0")
+		{
+			
+			DrawText("Sound Notification",this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("Sound Notification",this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class button10 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	
+	int val = 1;
+    button10(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("WinNotify");
+    }
+
+    void Click()
+    {
+	file f;
+    f.open("config/WinNotify.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "WinNotify = 0")
+		{
+		file fx;
+		fx.open("config/WinNotify.txt", "w");
+		fx.writeString("WinNotify = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/WinNotify.txt", "w");
+		fx.writeString("WinNotify = 0");
+		fx.close();
+		savefile();
+		return;
+		}	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/WinNotify.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "WinNotify = 0")
+		{
+			
+			DrawText("Windows Notificat..",this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			
+			DrawText("Windows Notificat..",this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class buttonchat : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	int Id;
+	int val = 1;
+    buttonchat(IGUIScreenOpt@ window, int id)
+    {
+		this.Id = id;
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("chat_mute");
+    }
+
+    void Click()
+    {
+		CritterCl@ chosen = GetChosen();
+		if(this.Id == 7)
+			RunServerScriptUnsafe("unsafe_client@unsafe_ExecUnmuteChat", chosen.Id, 0, 0, null, null);
+		if(chosen.Param[MUTE_CHAT + this.Id] < 1)
+			RunServerScriptUnsafe("unsafe_client@unsafe_ExecMuteChat", chosen.Id, this.Id, this.Id, null, null);
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top + this.Id*25);
+        return(0);
+    }
+
+    void Draw()
+    {
+		CritterCl@ chosen = GetChosen();
+		if(this.Id == 7)
+			{
+			bool muted = false;
+			for(uint i = 0; i < 6; i++)
+				if(chosen.Param[MUTE_CHAT + i] > 0)
+					muted = true;
+			if(muted)
+			{
+			DrawText("Unmute Chat",this.Left() + 31 ,this.Top() + 12 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+			}
+			else
+			{
+			DrawText("Unmute Chat",this.Left() + 31 ,this.Top() + 12 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+			}
+			return;
+			}
+       string chat = "";
+	   switch(this.Id)
+	   {
+	   case 1: chat = "PL "; break;
+	   case 2: chat = "ES "; break;
+	   case 3: chat = "CZ "; break;
+	   case 4: chat = "RU "; break;
+	   case 5: chat = "IT "; break;
+	   case 6: chat = "DE "; break;
+	   }
+		if(chosen.Param[MUTE_CHAT + this.Id] > 0 )
+		{
+			DrawText(chat + "Chat Muted",this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else  
+		{
+			DrawText(chat + "Chat Unmuted",this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class buttonx : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	int Id;
+	int val = 1;
+    buttonx(IGUIScreenOpt@ window, int id)
+    {
+		this.Id = id;
+        @this.window = window;
+        this.buttonDown.LoadByIni("SWoff", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("SWon", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("misc2");
+    }
+
+    void Click()
+    {
+	string name = "";
+	string filename = "";
+	
+	switch(this.Id)
+	{
+	case 0: name = "Awareness"; filename = "Awareness"; break;
+	case 1: name = "Invert Messbox"; filename = "InvertMessBox"; break;
+	case 2: name = "Display Names"; filename = "DisplayNames"; break;
+	case 3: name = "Show NPC HP"; filename = "ShowNpcAwareness"; break;
+	case 4: name = "Show Player HP"; filename = "ShowPlayerAwareness"; break;
+	case 5: name = "Timeouts on WM"; filename = "Worldmap"; break;
+	case 6: name = "Timeouts"; filename = "Enabled"; break;
+	
+	
+	}
+		file f;
+        f.open("config/ext/" + filename +".txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+	if(option == filename + "=0")
+		{
+		file fx;
+		fx.open("config/ext/" + filename +".txt", "w");
+		fx.writeString(filename + "=1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else
+		{
+		file fx;
+		fx.open("config/ext/" + filename +".txt", "w");
+		fx.writeString(filename + "=0");
+		fx.close();
+		savefile();
+		return;
+		}
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left + this.Id*20);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	string name = "";
+	string filename = "";
+	
+	switch(this.Id)
+	{
+	case 0: name = "Awareness"; filename = "Awareness"; break;
+	case 1: name = "Invert Messbox"; filename = "InvertMessBox"; break;
+	case 2: name = "Display Names"; filename = "DisplayNames"; break;
+	case 3: name = "Show NPC HP"; filename = "ShowNpcAwareness"; break;
+	case 4: name = "Show Player HP"; filename = "ShowPlayerAwareness"; break;
+	case 5: name = "Timeouts on WM"; filename = "Worldmap"; break;
+	case 6: name = "Timeouts"; filename = "Enabled"; break;
+	
+	
+	}
+		file f;
+        f.open("config/ext/" + filename +".txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+		if(option == filename + "=0")
+			{
+			DrawText(name,this.Left() + 10 - 20*this.Id ,this.Top() + 40 + 12*this.Id ,100,100,COLOR_RED,FONT_FALLOUT,1);
+			DrawSprite(this.buttonDown.Id, 0, this.Left(), this.Top(), 0);
+			}
+			else
+			{
+			DrawText(name,this.Left() + 10 - 20*this.Id ,this.Top() + 40 + 12*this.Id ,100,100,COLOR_GREEN,FONT_FALLOUT,1);
+			DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+			}
+			return;    
+    }
+};
+
+class galka1 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+	Sprite         galkowicz2;
+	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    galka1(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("SWa", PT_ART_INTRFACE);
+		this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Logging");
+    }
+
+    void Click()
+    {
+	
+	file f;
+    f.open("config/Logging.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	file f2;
+    f2.open("config/LoggingTime.txt", "r");
+	f2.readString(f2.getSize(),option2);
+	f2.close();
+	if(option == "Logging = 0")
+		{
+		file fx;
+		fx.open("config/Logging.txt", "w");
+		fx.writeString("Logging = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else if(option == "Logging = 1" && option2 == "LoggingTime = 0")
+		{
+		file fx;
+		fx.open("config/Logging.txt", "w");
+		fx.writeString("Logging = 1");
+		fx.close();
+		file fy;
+		fy.open("config/LoggingTime.txt", "w");
+		fy.writeString("LoggingTime = 1");
+		fy.close();
+		savefile();
+		return;
+		}	
+	else
+		{
+		file fx;
+		fx.open("config/Logging.txt", "w");
+		fx.writeString("Logging = 0");
+		fx.close();
+		file fy;
+		fy.open("config/LoggingTime.txt", "w");
+		fy.writeString("LoggingTime = 0");
+		fy.close();
+		savefile();
+		return;
+		
+		}
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/Logging.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+		file x;
+		x.open("config/LoggingTime.txt", "r");
+		x.readString(x.getSize(),option2);
+		x.close();
+       
+		if(option == "Logging = 0")
+		{
+			
+			DrawText("No logging",this.Left() ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else if(option == "Logging = 1" && option2 == "LoggingTime = 0")
+		{
+			
+			DrawText("Logging",this.Left() + 5 ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz2.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else
+		{
+			DrawText("with time",this.Left() ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz3.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class galka2 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+	Sprite         galkowicz2;
+	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    galka2(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("SWa", PT_ART_INTRFACE);
+		this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("DefaultCombatMode");
+    }
+
+    void Click()
+    {
+	
+	file f;
+    f.open("config/DefaultCombatMode.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "DefaultCombatMode = 0")
+		{
+		file fx;
+		fx.open("config/DefaultCombatMode.txt", "w");
+		fx.writeString("DefaultCombatMode = 1");
+		fx.close();
+		RunServerScriptUnsafe("unsafe_client@unsafe_CombatMode", 1, 0, 0, null, null);
+		savefile();
+		return;
+		}
+	else if(option == "DefaultCombatMode = 1")
+		{
+		file fx;
+		fx.open("config/DefaultCombatMode.txt", "w");
+		fx.writeString("DefaultCombatMode = 2");
+		fx.close();
+		RunServerScriptUnsafe("unsafe_client@unsafe_CombatMode", 2, 0, 0, null, null);
+		savefile();
+		return;
+		}	
+	else
+		{
+		file fx;
+		fx.open("config/DefaultCombatMode.txt", "w");
+		fx.writeString("DefaultCombatMode = 0");
+		fx.close();
+		RunServerScriptUnsafe("unsafe_client@unsafe_CombatMode", 0, 0, 0, null, null);
+		savefile();
+		return;
+		
+		}
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/DefaultCombatMode.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "DefaultCombatMode = 0")
+		{
+			
+			DrawText("Both",this.Left() ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else if(option == "DefaultCombatMode = 1")
+		{
+			
+			DrawText("Real Time",this.Left() + 5 ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz2.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else
+		{
+			DrawText("Turnbased",this.Left() ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz3.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class galka3 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+	Sprite         galkowicz2;
+	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    galka3(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("SWa", PT_ART_INTRFACE);
+		this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("IndicatorType");
+    }
+
+    void Click()
+    {
+	
+	file f;
+    f.open("config/IndicatorType.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	if(option == "IndicatorType = 0")
+		{
+		file fx;
+		fx.open("config/IndicatorType.txt", "w");
+		fx.writeString("IndicatorType = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else if(option == "IndicatorType = 1")
+		{
+		file fx;
+		fx.open("config/IndicatorType.txt", "w");
+		fx.writeString("IndicatorType = 2");
+		fx.close();
+		savefile();
+		return;
+		}	
+	else
+		{
+		file fx;
+		fx.open("config/IndicatorType.txt", "w");
+		fx.writeString("IndicatorType = 0");
+		fx.close();
+		savefile();
+		return;
+		
+		}
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/IndicatorType.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+       
+		if(option == "IndicatorType = 0")
+		{
+			
+			DrawText("Numbers",this.Left() ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else if(option == "IndicatorType = 1")
+		{
+			
+			DrawText("Lines",this.Left() + 5 ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz2.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else
+		{
+			DrawText("Both",this.Left() ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz3.Id, 0, this.Left(), this.Top(), 0);
+		}
+    }
+};
+
+class galka4 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+	Sprite         galkowicz2;
+	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    galka4(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("SWa", PT_ART_INTRFACE);
+		this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Movement");
+    }
+
+    void Click()
+    {
+	
+	file f;
+    f.open("config/AlwaysRun.txt", "r");
+	f.readString(f.getSize(),option);
+	f.close();
+	file x;
+    x.open("config/ext/RTS.txt", "r");
+	x.readString(x.getSize(),option2);
+	x.close();
+	if(option == "AlwaysRun = 0" && option2 == "RTS=0")
+		{
+		file fx;
+		fx.open("config/AlwaysRun.txt", "w");
+		fx.writeString("AlwaysRun = 1");
+		fx.close();
+		savefile();
+		return;
+		}
+	else if(option == "AlwaysRun = 1" && option2 == "RTS=0")
+		{
+		file fx;
+		fx.open("config/ext/RTS.txt", "w");
+		fx.writeString("RTS=1");
+		fx.close();
+		savefile2238();
+		savefile();
+		return;
+		}	
+	else
+		{
+		file fx;
+		fx.open("config/AlwaysRun.txt", "w");
+		fx.writeString("AlwaysRun = 0");
+		fx.close();
+		file fy;
+		fy.open("config/ext/RTS.txt", "w");
+		fy.writeString("RTS=0");
+		fy.close();
+		savefile2238();
+		savefile();
+		return;
+		
+		}
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+	   file f;
+        f.open("config/AlwaysRun.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+	   file fx;
+        fx.open("config/ext/RTS.txt", "r");
+		fx.readString(fx.getSize(),option2);
+		fx.close();
+		if(option2 == "RTS=1")
+		{
+			DrawText("Smart",this.Left() ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz3.Id, 0, this.Left(), this.Top(), 0);
+			return;
+		}
+		if(option == "AlwaysRun = 0")
+		{
+			
+			DrawText("Classic",this.Left() ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		}
+		else if(option == "AlwaysRun = 1")
+		{
+			
+			DrawText("Always Run",this.Left() - 12 ,this.Top() + 41 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+			DrawSprite(this.galkowicz2.Id, 0, this.Left(), this.Top(), 0);
+		}
+		
+    }
+};
+import void TimeoutsDraw() from "client_timeouts";
+void _update_config(int param1, int param2, int param3, string@ param4, array<int>@ param5)
+{
+	CritterCl@ chosen = GetChosen();
+	file fy;
+	string r = "";
+	string b = "";
+	string g = "";
+	string a = "";
+	string file_name = "";
+	string items = "";
+	switch(param2)
+	{
+	case 0:
+		fy.open("config/HighlightArmorColor.txt", "w");
+		fy.writeString("HighlightArmorColor = " + COLOR_RGB(chosen.Param[CONFIG_1],chosen.Param[CONFIG_2],chosen.Param[CONFIG_3]));
+		fy.close();
+		savefile();
+	break;
+	case 1:
+		fy.open("config/HighlightWeaponColor.txt", "w");
+		fy.writeString("HighlightWeaponColor = " + COLOR_RGB(chosen.Param[CONFIG_1],chosen.Param[CONFIG_2],chosen.Param[CONFIG_3]));
+		fy.close();
+		savefile();
+	break;
+	case 2:
+		fy.open("config/HighlightContainerColor.txt", "w");
+		fy.writeString("HighlightContainerColor = " + COLOR_RGB(chosen.Param[CONFIG_1],chosen.Param[CONFIG_2],chosen.Param[CONFIG_3]));
+		fy.close();
+		savefile();
+	break;
+	case 3:
+		fy.open("config/HighlightAmmoColor.txt", "w");
+		fy.writeString("HighlightAmmoColor = " + COLOR_RGB(chosen.Param[CONFIG_1],chosen.Param[CONFIG_2],chosen.Param[CONFIG_3]));
+		fy.close();
+		savefile();
+	break;
+	case 4:
+		fy.open("config/HighlightKeyColor.txt", "w");
+		fy.writeString("HighlightKeyColor = " + COLOR_RGB(chosen.Param[CONFIG_1],chosen.Param[CONFIG_2],chosen.Param[CONFIG_3]));
+		fy.close();
+		savefile();
+	break;
+	case 5:
+		fy.open("config/HighlightDrugColor.txt", "w");
+		fy.writeString("HighlightDrugColor = " + COLOR_RGB(chosen.Param[CONFIG_1],chosen.Param[CONFIG_2],chosen.Param[CONFIG_3]));
+		fy.close();
+		savefile();
+	break;
+	case 6:
+		
+		fy.open("config/HighlightMiscColor.txt", "w");
+		fy.writeString("HighlightMiscColor = " + COLOR_RGB(chosen.Param[CONFIG_1],chosen.Param[CONFIG_2],chosen.Param[CONFIG_3]));
+		fy.close();
+		savefile();
+	break;
+	case 7:
+		r += chosen.Param[CONFIG_1] + " ";
+		g += chosen.Param[CONFIG_2] + " ";
+		b += chosen.Param[CONFIG_3];
+		fy.open("config/ext/NameColor.txt", "w");
+		fy.writeString("NameColor=" + r + g + b);
+		fy.close();
+		TimeoutsDraw();
+		savefile2238();
+	break;
+	case 8:
+		
+		r += chosen.Param[CONFIG_1] + " ";
+		g += chosen.Param[CONFIG_2] + " ";
+		b += chosen.Param[CONFIG_3];
+		fy.open("config/ext/ValueColor.txt", "w");
+		fy.writeString("ValueColor=" + r + g + b);
+		fy.close();
+		TimeoutsDraw();
+		savefile2238();
+	break;
+	case 9:
+		
+		fy.open("config/ext/Font.txt", "w");
+		fy.writeString("Font=" + param3);
+		fy.close();
+		TimeoutsDraw();
+		savefile2238();
+	break;
+	case 10:
+		
+		fy.open("config/ext/PositionX.txt", "w");
+		fy.writeString("PositionX=" + chosen.Param[CONFIG_1]);
+		fy.close();
+		TimeoutsDraw();
+		savefile2238();
+	break;
+	case 11:
+		
+		fy.open("config/ext/PositionY.txt", "w");
+		fy.writeString("PositionY=" + chosen.Param[CONFIG_2]);
+		fy.close();
+		TimeoutsDraw();
+		savefile2238();
+	break;
+	case 12:
+		
+		fy.open("config/ext/WorldmapX.txt", "w");
+		fy.writeString("WorldmapX=" + chosen.Param[CONFIG_1]);
+		fy.close();
+		TimeoutsDraw();
+		savefile2238();
+	break;
+	case 13:
+		
+		fy.open("config/ext/WorldmapY.txt", "w");
+		fy.writeString("WorldmapY=" + chosen.Param[CONFIG_2]);
+		fy.close();
+		TimeoutsDraw();
+		savefile2238();
+	//binds
+	case 14: file_name = "AimUncalled"; break;
+	case 15: file_name = "AimLeftArm"; break;
+	case 16: file_name = "AimTorso"; break;
+	case 17: file_name = "AimEyes"; break;
+	case 18: file_name = "AimGroin"; break;
+	case 19: file_name = "AimRightArm"; break;
+	case 20: file_name = "AimRightLeg"; break;
+	case 21: file_name = "Reload"; break;
+	case 22: file_name = "AimLeftLeg"; break;
+	case 23: file_name = "SSOther"; break;
+	case 24: file_name = "FASelf"; break;
+	case 25: file_name = "DocSelf"; break;
+	case 26: file_name = "ScienceAtHex"; break;
+	case 27: file_name = "StopMove"; break;
+	case 28: file_name = "Discharge"; break;
+	case 29: file_name = "ToggleMsFov"; break;
+	case 30: file_name = "ToggleFog"; break;
+	case 31: file_name = "ToggleRoof"; break;
+	case 32: file_name = "ToggleWall"; break;
+	case 33: file_name = "UseBind0"; break;
+	case 34: file_name = "UseBind1"; break;
+	case 35: file_name = "UseBind2"; break;
+	case 36: file_name = "UseBind3"; break;
+	case 37: file_name = "UseBind4"; break;
+	case 38: file_name = "UseBind5"; break;
+	case 39: file_name = "UseBind6"; break;
+	case 40: file_name = "UseBind7"; break;
+	case 41: file_name = "UseBind8"; break;
+	case 42: file_name = "UseBind9"; break;
+	case 43: 
+	
+		r += chosen.Param[CONFIG_1] + " ";
+		g += chosen.Param[CONFIG_2] + " ";
+		b += chosen.Param[CONFIG_3] + " ";
+		a += chosen.Param[CONFIG_4];
+		fy.open("config/ext/FogColor.txt", "w");
+		fy.writeString("FogColor=" + r + g + b + a);
+		fy.close();
+		savefile2238();
+	}
+	
+	
+	if(param2>13)
+	{
+	fy.open("config/ext/"+file_name+".txt", "w");
+		if(chosen.Param[CONFIG_2] > 0)
+			r = "Ctrl ";
+
+		if(chosen.Param[CONFIG_3] > 0)
+			g = "Alt ";
+			
+		if(chosen.Param[CONFIG_4] > 0)
+			b = "Shift ";
+	
+	if(chosen.Param[CONFIG_6] > 0)
+		items += " | " + chosen.Param[CONFIG_6];
+	if(chosen.Param[CONFIG_7] > 0)
+		items += " " + chosen.Param[CONFIG_7];
+	if(chosen.Param[CONFIG_8] > 0)
+		items += " " + chosen.Param[CONFIG_8];
+	if(chosen.Param[CONFIG_9] > 0)
+		items += " " + chosen.Param[CONFIG_9];
+	if(chosen.Param[CONFIG_10] > 0)
+		items += " " + chosen.Param[CONFIG_10];
+
+			
+		fy.writeString(file_name+"=" + r + g + b + bind_key[chosen.Param[CONFIG_1]] + items);
+		fy.close();
+		savefile2238();
+	}
+}
+class clickacz1 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	int id_id;
+	int val = 1;
+    clickacz1(IGUIScreenOpt@ window, int id)
+    {
+		this.id_id = id;
+        @this.window = window;
+        this.buttonDown.LoadByIni("clickacz2", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("clickacz1", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Highlightcolor");
+    }
+
+    void Click()
+    {
+	
+	RunServerScriptUnsafe("unsafe_client@unsafe_config_dialog", 4000 + this.id_id, 0, 0, null, null);
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top + 30*this.id_id);
+        return(0);
+    }
+
+    void Draw()
+    {
+		string name = "";
+		string str_color = "";
+		file f;
+		switch(this.id_id)
+		{
+		case 0: 
+		name = " Armors Color";
+        f.open("config/HighlightArmorColor.txt", "r");
+		f.setPos(22);
+		f.readString(f.getSize(),str_color);
+		f.close();
+		
+		break;
+		case 1: 
+		name = " Weapons";
+		f.open("config/HighlightWeaponColor.txt", "r");
+		f.setPos(23);
+		f.readString(f.getSize(),str_color);
+		f.close();
+		break;
+		case 2: 
+		name = " Containers";
+		f.open("config/HighlightContainerColor.txt", "r");
+		f.setPos(26);
+		f.readString(f.getSize(),str_color);
+		f.close();
+		break;
+		case 3: 
+		name = " Ammo Color";
+		f.open("config/HighlightAmmoColor.txt", "r");
+		f.setPos(21);
+		f.readString(f.getSize(),str_color);
+		f.close();
+		break;
+		case 4: 
+		name = " Keys Color";
+		f.open("config/HighlightKeyColor.txt", "r");
+		f.setPos(20);
+		f.readString(f.getSize(),str_color);
+		f.close();
+		break;
+		case 5: 
+		name = " Drugs Color";
+		f.open("config/HighlightDrugColor.txt", "r");
+		f.setPos(21);
+		f.readString(f.getSize(),str_color);
+		f.close();
+		break;
+		case 6: 
+		name = " Misc Color";
+		f.open("config/HighlightMiscColor.txt", "r");
+		f.setPos(21);
+		f.readString(f.getSize(),str_color);
+		f.close();
+		break;
+		}
+		DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		DrawText("|" + str_color + name,this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_RED,FONT_FALLOUT,1);
+		if(mousePressed)
+			DrawSprite(this.buttonDown.Id, 0, this.Left() + 5, this.Top() + 5, 0);
+    }
+};
+
+
+class clickacz2 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	int id_id;
+	int val = 1;
+    clickacz2(IGUIScreenOpt@ window, int id)
+    {
+		this.id_id = id;
+        @this.window = window;
+        this.buttonDown.LoadByIni("clickacz2", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("clickacz1", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("TimeoutsColor");
+    }
+
+    void Click()
+    {
+	
+	RunServerScriptUnsafe("unsafe_client@unsafe_config_dialog", 4007 + this.id_id, 0, 0, null, null);
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top + 30*this.id_id);
+        return(0);
+    }
+
+    void Draw()
+    {
+		string name = "something";
+		string value = "value";
+		string str_color = "";
+		string str_color2 = "";
+		string str_color3 = "";
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		int pos = 10;
+		int first = 0;
+		bool skip = false;
+		bool skip2 = false;
+		file f;
+		switch(this.id_id)
+		{
+		case 0: name = "Color: |"; 
+		
+		f.open("config/ext/NameColor.txt", "r");
+		f.setPos(pos);
+		f.readString(1,str_color);
+		pos++;
+		f.readString(1,str_color2);
+		if(str_color2 == " ")
+			skip = true;
+		if(!skip)
+			{
+			pos++;
+			f.readString(1,str_color3);
+			if(str_color3 == " ")
+				skip2 = true;
+			}
+		if(skip)
+			StrToInt(str_color,r);
+		if(!skip && skip2)
+			StrToInt(str_color + str_color2,r);
+		if(!skip && !skip2)
+			StrToInt(str_color + str_color2 + str_color3,r);
+		if(r<10)
+			{
+			pos = 12;
+			first = 1;
+			}
+		if(r>9 && r<100)
+			{
+			pos = 13;
+			first = 2;
+			}
+		if(r>99)
+			{
+			pos = 14;
+			first = 3;
+			}
+
+		str_color = "";
+		str_color2 = "";
+		str_color3 = "";
+		skip = false;
+		skip2 = false;
+		f.setPos(pos);
+		f.readString(1,str_color);
+		pos++;
+		f.readString(1,str_color2);
+		if(str_color2 == " ")
+			skip = true;
+		if(!skip)
+			{
+			pos++;
+			f.readString(1,str_color3);
+			if(str_color3 == " ")
+				skip2 = true;
+			}
+		if(skip)
+			StrToInt(str_color,g);
+		if(!skip && skip2)
+			StrToInt(str_color + str_color2,g);
+		if(!skip && !skip2)
+			StrToInt(str_color + str_color2 + str_color3,g);
+		if(g<10)
+			{
+			pos = 13 + first;
+			}
+		if(g>9 && g<100)
+			{
+			pos = 14 + first;
+			}
+		if(g>99)
+			{
+			pos = 15 + first;
+			}	
+
+		str_color = "";
+		str_color2 = "";
+		str_color3 = "";
+		skip = false;
+		skip2 = false;
+		f.setPos(pos);
+		f.readString(1,str_color);
+		pos++;
+		f.readString(1,str_color2);
+		if(str_color2 == " ")
+			skip = true;
+		if(!skip)
+			{
+			pos++;
+			f.readString(1,str_color3);
+			if(str_color3 == " ")
+				skip2 = true;
+			}
+		if(skip)
+			StrToInt(str_color,b);
+		if(!skip && skip2)
+			StrToInt(str_color + str_color2,b);
+		if(!skip && !skip2)
+			StrToInt(str_color + str_color2 + str_color3,b);
+		value = COLOR_RGB(r,g,b) + " Name";
+		break;
+		case 1: name = "Color: |"; 
+		f.open("config/ext/ValueColor.txt", "r");
+		pos = 11;
+		f.setPos(pos);
+		f.readString(1,str_color);
+		pos++;
+		f.readString(1,str_color2);
+		if(str_color2 == " ")
+			skip = true;
+		if(!skip)
+			{
+			pos++;
+			f.readString(1,str_color3);
+			if(str_color3 == " ")
+				skip2 = true;
+			}
+		if(skip)
+			StrToInt(str_color,r);
+		if(!skip && skip2)
+			StrToInt(str_color + str_color2,r);
+		if(!skip && !skip2)
+			StrToInt(str_color + str_color2 + str_color3,r);
+		if(r<10)
+			{
+			pos = 13;
+			first = 1;
+			}
+		if(r>9 && r<100)
+			{
+			pos = 14;
+			first = 2;
+			}
+		if(r>99)
+			{
+			pos = 15;
+			first = 3;
+			}
+
+		str_color = "";
+		str_color2 = "";
+		str_color3 = "";
+		skip = false;
+		skip2 = false;
+		f.setPos(pos);
+		f.readString(1,str_color);
+		pos++;
+		f.readString(1,str_color2);
+		if(str_color2 == " ")
+			skip = true;
+		if(!skip)
+			{
+			pos++;
+			f.readString(1,str_color3);
+			if(str_color3 == " ")
+				skip2 = true;
+			}
+		if(skip)
+			StrToInt(str_color,g);
+		if(!skip && skip2)
+			StrToInt(str_color + str_color2,g);
+		if(!skip && !skip2)
+			StrToInt(str_color + str_color2 + str_color3,g);
+		if(g<10)
+			{
+			pos = 14 + first;
+			}
+		if(g>9 && g<100)
+			{
+			pos = 15 + first;
+			}
+		if(g>99)
+			{
+			pos = 16 + first;
+			}	
+
+		str_color = "";
+		str_color2 = "";
+		str_color3 = "";
+		skip = false;
+		skip2 = false;
+		f.setPos(pos);
+		f.readString(1,str_color);
+		pos++;
+		f.readString(1,str_color2);
+		if(str_color2 == " ")
+			skip = true;
+		if(!skip)
+			{
+			pos++;
+			f.readString(1,str_color3);
+			if(str_color3 == " ")
+				skip2 = true;
+			}
+		if(skip)
+			StrToInt(str_color,b);
+		if(!skip && skip2)
+			StrToInt(str_color + str_color2,b);
+		if(!skip && !skip2)
+			StrToInt(str_color + str_color2 + str_color3,b);
+		value = COLOR_RGB(r,g,b) + " Value";
+		
+		break;
+		case 2: name = "Font: "; 
+		f.open("config/ext/Font.txt", "r");
+		f.readString(f.getSize(),str_color);
+		if(str_color == "Font=5")
+			value = "Fallout";
+		if(str_color == "Font=4")
+			value = "Special";
+		if(str_color == "Font=6")
+			value = "Thin";
+		if(str_color == "Font=7")
+			value = "Fat";
+		if(str_color == "Font=8")
+			value = "Big";
+		
+		break;
+		case 3: name = "PosX: "; 
+		f.open("config/ext/PositionX.txt", "r");
+		f.setPos(10);
+		f.readString(f.getSize(),value);
+		
+		break;
+		case 4: name = "PosY: "; 
+		f.open("config/ext/PositionY.txt", "r");
+		f.setPos(10);
+		f.readString(f.getSize(),value);
+		
+		
+		break;
+		case 5: name = "WM PosX:"; 
+		f.open("config/ext/WorldmapX.txt", "r");
+		f.setPos(10);
+		f.readString(f.getSize(),value);
+		break;
+		case 6: name = "WM PosY:";
+		f.open("config/ext/WorldmapY.txt", "r");
+		f.setPos(10);
+		f.readString(f.getSize(),value);
+		 break;
+		}
+		f.close();
+		DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		
+		//DrawText("" + b,this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+		DrawText(name + value,this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+		if(mousePressed)
+			DrawSprite(this.buttonDown.Id, 0, this.Left() + 5, this.Top() + 5, 0);
+    }
+};
+
+class clickacz3 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	int id_id;
+	int val = 1;
+    clickacz3(IGUIScreenOpt@ window, int id)
+    {
+		this.id_id = id;
+        @this.window = window;
+        this.buttonDown.LoadByIni("clickacz2", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("clickacz1", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("TimeoutsColor");
+    }
+
+    void Click()
+    {
+	CritterCl@ chosen = GetChosen();
+	switch(this.id_id)
+	{
+		case 0:
+		RunServerScriptUnsafe("unsafe_client@unsafe_config_dialog", 4014, 0, 0, null, null);
+		break;
+		case 1:
+		RunServerScriptUnsafe("unsafe_client@unsafe_config_dialog", 6689, 0, 0, null, null);
+		break;
+		case 2:
+		RunServerScriptUnsafe("unsafe_client@unsafe_config_dialog", 6691, 0, 0, null, null);
+		break;
+		case 3:
+		RunServerScriptUnsafe("unsafe_client@unsafe_config_dialog", 7001, 0, 0, null, null);
+		break;
+		case 4:
+		RunServerScriptUnsafe("unsafe_client@unsafe_ExecSetRespawn", 0, 0, 0, null, null);
+		break;
+		case 5:
+		RunServerScriptUnsafe("unsafe_client@unsafe_MyInfo", 0, 0, 0, " ", null);
+		break;
+		case 6:
+		
+		if(chosen.Param[PE_CYBORG] > 0)
+			{
+			RunServerScriptUnsafe("unsafe_client@unsafe_config_dialog", 6680, 0, 0, null, null);
+			}
+		else if(chosen.Param[PE_LEADER] > 0)
+			{
+			RunServerScriptUnsafe("unsafe_client@unsafe_config_dialog", 6681, 0, 0, null, null);
+			}
+		else Message("Button its not active try with class perk");
+		break;
+		
+    }
+	}
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top + 30*this.id_id);
+        return(0);
+    }
+
+    void Draw()
+    {
+		string name = "something";
+		string value = "";
+		string str_color = "";
+		string str_color2 = "";
+		string str_color3 = "";
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		int pos = 10;
+		int first = 0;
+		bool skip = false;
+		bool skip2 = false;
+		CritterCl@ chosen = GetChosen();
+		file f;
+		switch(this.id_id)
+		{
+		case 0: 
+		name = "Bindings";
+		break;
+		case 1: 
+		name = "Quick Perks";
+		break;
+		case 2: 
+		name = "Reroll Char";
+		break;
+		case 3: 
+		name = "Base Manager";
+		break;
+		case 4: 
+		name = "Set Spawn";
+		break;
+		case 5: 
+		name = "My info";
+		break;
+		case 6:
+		if(chosen.Param[PE_CYBORG] > 0)
+			{
+			name = "CMD";
+			}
+		else if(chosen.Param[PE_LEADER] > 0)
+			{
+			name = "Leader";
+			}
+		else name = "Class Menu";
+		}
+		f.close();
+		DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		
+		//DrawText("" + b,this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+		DrawText(name + value,this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+		if(mousePressed)
+			DrawSprite(this.buttonDown.Id, 0, this.Left() + 5, this.Top() + 5, 0);
+    }
+};
+
+class clickacz4 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	int id_id;
+	int val = 1;
+    clickacz4(IGUIScreenOpt@ window, int id)
+    {
+		this.id_id = id;
+        @this.window = window;
+        this.buttonDown.LoadByIni("clickacz2", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("clickacz1", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("chat_mute");
+    }
+
+    void Click()
+    {
+	CritterCl@ chosen = GetChosen();
+	file f;
+	file fx;
+	switch(this.id_id)
+	{
+		case 0:
+		f.open("config/ext/Fog.txt", "r");
+		f.readString(f.getSize(),option);
+		f.close();
+	if(option == "Fog=0")
+		{
+		fx.open("config/ext/Fog.txt", "w");
+		fx.writeString("Fog=1");
+		
+		fx.close();
+		savefile2238();
+		}
+	else
+		{
+		fx.open("config/ext/Fog.txt", "w");
+		fx.writeString("Fog=0");
+		
+		fx.close();
+		savefile2238();
+		}
+		break;
+		case 1:
+		RunServerScriptUnsafe("unsafe_client@unsafe_config_dialog", 4015, 0, 0, null, null);
+		break;
+		case 2:
+		OnlineStats_URL("https://discord.gg/Bg6JWsD");
+		break;
+		
+    }
+	
+	
+	}
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top + 30*this.id_id);
+        return(0);
+    }
+
+    void Draw()
+    {
+		string name = "something";
+		string value = "";
+		string str_color = "";
+		string str_color2 = "";
+		string str_color3 = "";
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		int pos = 10;
+		int first = 0;
+		bool skip = false;
+		bool skip2 = false;
+		CritterCl@ chosen = GetChosen();
+		file f;
+        f.open("config/ext/fog.txt", "r");
+		f.readString(f.getSize(),option);
+       
+		
+			
+		switch(this.id_id)
+		{
+		case 0: 
+		
+		if(option == "Fog=0")
+			name = "Enable Fog";
+		else name = "Disable Fog";
+		
+		
+		break;
+		case 1: 
+		name = "Fog Color";
+		break;
+		case 2: 
+		name = "Discord";
+		break;
+		}
+		f.close();
+		DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		
+		//DrawText("" + b,this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+		DrawText(name + value,this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+		if(mousePressed)
+			DrawSprite(this.buttonDown.Id, 0, this.Left() + 5, this.Top() + 5, 0);
+    }
+};
+#pragma bindfunc "void OnlineStats_URL(string@+) -> client_parameters.dll OnlineStats_URL"
+class clickacz5 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         buttonDown;
+	Sprite         buttonUp;
+	string option = "";
+	int id_id;
+	int val = 1;
+    clickacz5(IGUIScreenOpt@ window, int id)
+    {
+		this.id_id = id;
+        @this.window = window;
+        this.buttonDown.LoadByIni("clickacz2", PT_ART_INTRFACE);
+		this.buttonUp.LoadByIni("clickacz1", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Highlightcolor");
+    }
+
+    void Click()
+    {
+	CritterCl@ chosen = GetChosen();
+	switch(this.id_id)
+	{
+		case 0:
+		RunServerScriptUnsafe("unsafe_client@unsafe_FactionInfo", 1, 0, 0, " ", null);
+		break;
+		case 1:
+		OnlineStats_URL("https://fonline3.com/ffn.html");
+		break;
+		case 2:
+		RunServerScriptUnsafe("unsafe_client@unsafe_FactionNames", 0, 0, 0, null, null);
+		break;
+		case 3:
+		RunServerScriptUnsafe( "unsafe_client@unsafe_ExecShowFactionInfluence", 0, 0, 0, null, null );
+		break;
+		case 4:
+		RunServerScriptUnsafe("unsafe_client@unsafe_ExecShowFactionDomination", 0, 0, 0, null, null);
+		break;
+		case 5:
+		RunServerScriptUnsafe("unsafe_client@unsafe_resign", 0, 0, 0, " ", null);
+		break;
+		case 6:
+		RunServerScriptUnsafe("unsafe_client@unsafe_ExecShowFactionMembers", 0, 0, 0, null, null);
+		break;
+		
+    }
+	}
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top + 30*this.id_id);
+        return(0);
+    }
+
+    void Draw()
+    {
+		string name = "something";
+		string value = "";
+		string str_color = "";
+		string str_color2 = "";
+		string str_color3 = "";
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		int pos = 10;
+		int first = 0;
+		bool skip = false;
+		bool skip2 = false;
+		CritterCl@ chosen = GetChosen();
+		file f;
+		switch(this.id_id)
+		{
+		case 0: 
+		name = "Info";
+		break;
+		case 1: 
+		name = "Free Names";
+		break;
+		case 2: 
+		name = "Faction List";
+		break;
+		case 3: 
+		name = "Check Points";
+		break;
+		case 4: 
+		name = "Ranking";
+		break;
+		case 5: 
+		name = "Resign";
+		break;
+		case 6:
+		name = "Members Now";
+		break;
+		}
+		f.close();
+		DrawSprite(this.buttonUp.Id, 0, this.Left(), this.Top(), 0);
+		
+		//DrawText("" + b,this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+		DrawText(name + value,this.Left() + 31 ,this.Top() + 12 ,140,140,COLOR_GREEN,FONT_FALLOUT,1);
+		if(mousePressed)
+			DrawSprite(this.buttonDown.Id, 0, this.Left() + 5, this.Top() + 5, 0);
+    }
+};
+
+class counter0 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter0(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("configs");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		DrawText("Configs",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		DrawText(" 0" + config_id,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter0up : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter0up(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow1", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("configsarrow2");
+    }
+
+    void Click()
+    {
+		config_id--;
+		
+		if(config_id<0)
+			config_id = 0;
+		InitPepegeConfig(CLIENT_SCREEN_MENU);
+		InitPepegeConfig(CLIENT_MAIN_SCREEN_LOGIN);
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter0down : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter0down(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow2", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+		this.Position("configsarrow");
+        
+    }
+
+    void Click()
+    {
+		config_id++;
+		
+		if(config_id>3)
+			config_id = 3;
+		InitPepegeConfig(CLIENT_SCREEN_MENU);
+		InitPepegeConfig(CLIENT_MAIN_SCREEN_LOGIN);
+		
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		//DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter1 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter1(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("FixedFPS");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/FixedFPS.txt", "r");
+		f.setPos(10);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps = CLAMP(fps,0,99);
+		DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		DrawText(" " + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter1up : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter1up(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow1", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("FixedFPSarrow2");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/FixedFPS.txt", "r");
+		f.setPos(10);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps -= 10;
+		fps = CLAMP(fps,10,500);
+		file fx;
+		fx.open("config/FixedFPS.txt", "w");
+		fx.writeString("FixedFPS = " + fps);
+		fx.close();
+		savefile();
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/FixedFPS.txt", "r");
+		f.setPos(10);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		
+		
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter1down : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter1down(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow2", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("FixedFPSarrow");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/FixedFPS.txt", "r");
+		f.setPos(10);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps += 10;
+		fps = CLAMP(fps,10,500);
+		file fx;
+		fx.open("config/FixedFPS.txt", "w");
+		fx.writeString("FixedFPS = " + fps);
+		fx.close();
+		savefile();
+		
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		//DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter2 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter2(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("MusicVolume");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/MusicVolume.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps = CLAMP(fps,0,99);
+		DrawText("Music",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		if(fps > 9)
+		DrawText(" " + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+		else DrawText(" 0" + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter2up : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter2up(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow1", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("MusicVolumearrow2");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/MusicVolume.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps -= 5;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/MusicVolume.txt", "w");
+		fx.writeString("MusicVolume = " + fps);
+		fx.close();
+		savefile();
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/MusicVolume.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		
+		
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter2down : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter2down(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow2", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("MusicVolumearrow");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/MusicVolume.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps += 5;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/MusicVolume.txt", "w");
+		fx.writeString("MusicVolume = " + fps);
+		fx.close();
+		savefile();
+		
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		//DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter3 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter3(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("SoundVolume");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/SoundVolume.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps = CLAMP(fps,0,99);
+		DrawText("Sound",this.Left() + 50 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		if(fps > 9)
+		DrawText(" " + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+		else DrawText(" 0" + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter3up : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter3up(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow1", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("SoundVolumearrow2");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/SoundVolume.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps -= 5;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/SoundVolume.txt", "w");
+		fx.writeString("SoundVolume = " + fps);
+		fx.close();
+		savefile();
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/SoundVolume.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		
+		
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter3down : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter3down(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow2", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("SoundVolumearrow");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/SoundVolume.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps += 5;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/SoundVolume.txt", "w");
+		fx.writeString("SoundVolume = " + fps);
+		fx.close();
+		savefile();
+		
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		//DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter4 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter4(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Light");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/Light.txt", "r");
+		f.setPos(7);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps = CLAMP(fps,0,99);
+		DrawText("Light",this.Left() + 50 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		if(fps > 9)
+		DrawText(" " + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+		else DrawText(" 0" + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter4up : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter4up(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow1", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Lightarrow2");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/Light.txt", "r");
+		f.setPos(7);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps -= 5;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/Light.txt", "w");
+		fx.writeString("Light = " + fps);
+		fx.close();
+		savefile();
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/Light.txt", "r");
+		f.setPos(7);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		
+		
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter4down : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter4down(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow2", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("Lightarrow");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/Light.txt", "r");
+		f.setPos(7);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps += 5;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/Light.txt", "w");
+		fx.writeString("Light = " + fps);
+		fx.close();
+		savefile();
+		
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		//DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter5 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter5(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("ScrollDelay");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/ScrollDelay.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps = CLAMP(fps,0,99);
+		DrawText("Scroll Delay",this.Left() + 34 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		if(fps > 9)
+		DrawText(" " + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+		else DrawText(" 0" + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter5up : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter5up(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow1", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("ScrollDelayarrow2");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/ScrollDelay.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps -= 1;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/ScrollDelay.txt", "w");
+		fx.writeString("ScrollDelay = " + fps);
+		fx.close();
+		savefile();
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter5down : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter5down(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow2", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("ScrollDelayarrow");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/ScrollDelay.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps += 1;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/ScrollDelay.txt", "w");
+		fx.writeString("ScrollDelay = " + fps);
+		fx.close();
+		savefile();
+		
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		//DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter6 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter6(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("ScrollStep");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/ScrollStep.txt", "r");
+		f.setPos(12);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps = CLAMP(fps,0,99);
+		DrawText("Scroll Steps",this.Left() + 34 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		if(fps > 9)
+		DrawText(" " + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+		else DrawText(" 0" + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter6up : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter6up(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow1", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("ScrollSteparrow2");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/ScrollStep.txt", "r");
+		f.setPos(12);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps -= 1;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/ScrollStep.txt", "w");
+		fx.writeString("ScrollStep = " + fps);
+		fx.close();
+		savefile();
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter6down : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter6down(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow2", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("ScrollSteparrow");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/ScrollStep.txt", "r");
+		f.setPos(12);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps += 1;
+		fps = CLAMP(fps,0,100);
+		file fx;
+		fx.open("config/ScrollStep.txt", "w");
+		fx.writeString("ScrollStep = " + fps);
+		fx.close();
+		savefile();
+		
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		//DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter7 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter7(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("DamageHitDelay");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/DamageHitDelay.txt", "r");
+		f.setPos(16);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps /=10;
+		fps = CLAMP(fps,0,99);
+		DrawText("Damage Text Delay",this.Left() + 10 ,this.Top() + 47 ,130,130,COLOR_SAND,FONT_FALLOUT,1);
+		DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		if(fps > 9)
+		DrawText(" " + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+		else DrawText(" 0" + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter7up : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter7up(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow1", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("DamageHitDelayarrow2");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/DamageHitDelay.txt", "r");
+		f.setPos(16);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps -= 50;
+		fps = CLAMP(fps,0,1000);
+		file fx;
+		fx.open("config/DamageHitDelay.txt", "w");
+		fx.writeString("DamageHitDelay = " + fps);
+		fx.close();
+		savefile();
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter7down : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter7down(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow2", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("DamageHitDelayarrow");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/DamageHitDelay.txt", "r");
+		f.setPos(16);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps += 50;
+		fps = CLAMP(fps,0,1000);
+		file fx;
+		fx.open("config/DamageHitDelay.txt", "w");
+		fx.writeString("DamageHitDelay = " + fps);
+		fx.close();
+		savefile();
+		
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		//DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter8 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter8(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("TextDelay");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		file f;
+        f.open("config/TextDelay.txt", "r");
+		f.setPos(11);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps /=10;
+		fps = CLAMP(fps,0,99);
+		DrawText("Text Delay",this.Left() + 40 ,this.Top() + 47 ,130,130,COLOR_SAND,FONT_FALLOUT,1);
+		DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		if(fps > 9)
+		DrawText(" " + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+		else DrawText(" 0" + fps,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter8up : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter8up(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow1", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("TextDelayarrow2");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/TextDelay.txt", "r");
+		f.setPos(11);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps -= 50;
+		fps = CLAMP(fps,0,1000);
+		file fx;
+		fx.open("config/TextDelay.txt", "w");
+		fx.writeString("TextDelay = " + fps);
+		fx.close();
+		savefile();
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class counter8down : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    counter8down(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("arrow2", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("TextDelayarrow");
+    }
+
+    void Click()
+    {
+		file f;
+        f.open("config/TextDelay.txt", "r");
+		f.setPos(11);
+		f.readString(f.getSize(),option);
+		
+		f.close();
+		int fps = 0;
+		StrToInt(option,fps);
+		fps += 50;
+		fps = CLAMP(fps,0,1000);
+		file fx;
+		fx.open("config/TextDelay.txt", "w");
+		fx.writeString("TextDelay = " + fps);
+		fx.close();
+		savefile();
+		
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		
+		
+		//DrawText("FPS",this.Left() + 56 ,this.Top() + 47 ,100,100,COLOR_SAND,FONT_FALLOUT,1);
+		if(this.mousePressed)
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText("" + option,this.Left() + 39, this.Top() + 8,100,100,COLOR_GRAY,FONT_BIG_NUM,1);
+    }
+};
+
+class reso : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+//	Sprite         galkowicz2;
+//	Sprite         galkowicz3;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	int hi;
+	int wi;
+	int ri;
+	int sc;
+	
+	int val = 1;
+    reso(IGUIScreenOpt@ window, int h, int w, int r)
+    {
+        @this.window = window;
+		this.hi = h;
+		this.wi = w;
+		this.ri = r;
+
+      //  this.galkowicz1.LoadByIni("counter", PT_ART_INTRFACE);
+	//	this.galkowicz2.LoadByIni("SWb", PT_ART_INTRFACE);
+//		this.galkowicz3.LoadByIni("SWc", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("ReS2");
+    }
+
+    void Click()
+    {
+		file fx;
+		fx.open("config/ScreenWidth.txt", "w");
+		fx.writeString("ScreenWidth = " + this.hi);
+		fx.close();
+		file fy;
+		fy.open("config/ScreenHeight.txt", "w");
+		fy.writeString("ScreenHeight = " + this.wi);
+		fy.close();
+		savefile();
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top + this.ri * 10);
+        return(0);
+    }
+
+    void Draw()
+    {
+		uint color = COLOR_RED;
+		file f;
+        f.open("config/ScreenWidth.txt", "r");
+		f.setPos(13);
+		f.readString(f.getSize(),option);
+		f.close();
+		int hu = 0;
+		StrToInt(option,hu);
+		file fx;
+        fx.open("config/ScreenHeight.txt", "r");
+		fx.setPos(14);
+		fx.readString(fx.getSize(),option2);
+		int wu = 0;
+		StrToInt(option2,wu);
+		fx.close();
+		if(wu == this.wi && hu == this.hi)
+			color = COLOR_GREEN;
+		int ro = this.ri;
+		//DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+		//DrawText(this.hi + "x" + this.wi,this.Left(),this.Top(),130,130,color,FONT_FALLOUT,1);
+		
+		DrawText(this.hi + "x" + this.wi,this.Left(),this.Top(),130,130,color,FONT_FALLOUT,1);
+    }
+};
+void savefile()
+{
+		file f;
+        f.open("FOnline.cfg", "w");
+		f.writeString("[Game Options]\n" + GetOPT(0) + GetOPT(1) + GetOPT(2) + GetOPT(3) + GetOPT(4) + GetOPT(5) + GetOPT(6) + GetOPT(7) + GetOPT(8) + GetOPT(9) + GetOPT(10) + GetOPT(11) + GetOPT(12) + GetOPT(13) + GetOPT(14) + GetOPT(15) + GetOPT(16) + GetOPT(17) + GetOPT(18) + GetOPT(19) + GetOPT(20) + GetOPT(21) + GetOPT(22) + GetOPT(23) + GetOPT(24) + GetOPT(25) + GetOPT(26) + GetOPT(27) + GetOPT(28) + GetOPT(29) + GetOPT(30) + GetOPT(31) + GetOPT(32) + GetOPT(33) + GetOPT(34) + GetOPT(35) + GetOPT(36) + GetOPT(37));
+		f.close();
+		Message(" |-1 You must restart game to apply changes");
+
+}
+
+void savefile2238()
+{
+		CritterCl@ chosen = GetChosen();
+		bool gmt = false;
+		if(chosen.Param[GM_FOREVER] > 0 )
+			gmt = true;
+		string gmts = "[GMT]\nEnabled=1\nMenu=1\nPossess=1\nOSDInfo=Location,Map,Critter,Item,Mouse,Hex\nOSDInfoLocation=Maps,Position,Type,Extra \nOSDInfoMap=Size,Faction,Owner,Size,Hex,Extra\nOSDInfoCritter=Picture,Extra\nOSDInfoItem=Extra\nDraw=1\nItemInfo=Extra\nCritterInfo=Extra                                   \n\n";
+		if(!gmt)
+			gmts = "";
+		file f;
+        f.open("FOnlineAT.cfg", "w");
+		f.writeString(gmts + "[AfterTimes]\n" + GetOPT(38) + GetOPT(39) + GetOPT(40) + GetOPT(41) + GetOPT(42) + GetOPT(43) + GetOPT(44) + GetOPT(45) + GetOPT(46) + GetOPT(47) + GetOPT(48) + GetOPT(49) + GetOPT(50) + GetOPT(51) +  "\n[Bindings]\n" + GetOPT(52) + GetOPT(53) + GetOPT(54) + GetOPT(55) + GetOPT(56) + GetOPT(57) + GetOPT(58) + GetOPT(59) + GetOPT(60) + GetOPT(61) + GetOPT(62) + GetOPT(63) + GetOPT(64) + GetOPT(65) + GetOPT(66) + GetOPT(67) + GetOPT(68) + GetOPT(69) + GetOPT(70) + GetOPT(71) + GetOPT(72) +  GetOPT(73) + GetOPT(74) + GetOPT(75) + GetOPT(76) + GetOPT(77) + GetOPT(78) + GetOPT(79) + GetOPT(80) +  "\n[Timeouts]\n" + GetOPT(81) + GetOPT(82) +  GetOPT(83) + GetOPT(84) + GetOPT(85) + GetOPT(86) + GetOPT(87) + GetOPT(88) + GetOPT(89) + GetOPT(90)+ GetOPT(91) + GetOPT(92) +  GetOPT(93) + "\n[CombatLog]\n" + GetOPT(94) + GetOPT(95) + GetOPT(96) + GetOPT(97) + GetOPT(98) + GetOPT(99));
+		f.close();
+		Message(" |-1 You must restart game to apply changes");
+
+}
+string GetOPT(int opt)
+{
+	string option = " ";
+	file f;
+	switch(opt)
+	{
+	case 0:
+       f.open("config/lang.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 1:
+       f.open("config/WinNotify.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 2:
+       f.open("config/SoundNotify.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 3:
+       f.open("config/InvertMessBox.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 4:
+       f.open("config/Logging.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 5:
+       f.open("config/LoggingTime.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 6:
+       f.open("config/FixedFPS.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 7:
+       f.open("config/LangChange.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 8:
+       f.open("config/ScrollDelay.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 9:
+       f.open("config/ScrollStep.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 10:
+       f.open("config/TextDelay.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 11:
+       f.open("config/AlwaysRun.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 12:
+       f.open("config/RemoteHost.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 13:
+       f.open("config/RemotePort.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 14:
+       f.open("config/ScreenWidth.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 15:
+       f.open("config/ScreenHeight.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 16:
+       f.open("config/Light.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 17:
+       f.open("config/FlushValue.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 18:
+       f.open("config/BaseTexture.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 19:
+       f.open("config/FullScreen.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 20:
+       f.open("config/VSync.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 21:
+       f.open("config/AlwaysOnTop.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 22:
+       f.open("config/MusicVolume.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 23:
+       f.open("config/SoundVolume.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 24:
+       f.open("config/DefaultCombatMode.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 25:
+       f.open("config/IndicatorType.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 26:
+       f.open("config/CombatMessagesType.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 27:
+       f.open("config/DamageHitDelay.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 28:
+       f.open("config/Multisampling.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 29:
+       f.open("config/DoubleClickTime.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 30:
+       f.open("config/Highlight.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 31:
+       f.open("config/HighlightArmorColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 32:
+       f.open("config/HighlightWeaponColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 33:
+       f.open("config/HighlightContainerColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 34:
+       f.open("config/HighlightAmmoColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 35:
+       f.open("config/HighlightKeyColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 36:
+       f.open("config/HighlightDrugColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 37:
+       f.open("config/HighlightMiscColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 38:
+       f.open("config/ext/Awareness.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 39:
+       f.open("config/ext/MouseScroll.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 40:
+       f.open("config/ext/DisplayNames.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 41:
+       f.open("config/ext/DisplayTC.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 42:
+       f.open("config/ext/FogColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 43:
+       f.open("config/ext/Autosave.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 44:
+       f.open("config/ext/Fog.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 45:
+       f.open("config/ext/ScreenshotName.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 46:
+       f.open("config/ext/LogfileName.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 47:
+       f.open("config/ext/WallRoofTransparency.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 48:
+       f.open("config/ext/GameInfo.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 49:
+       f.open("config/ext/ShowNpcAwareness.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 50:
+       f.open("config/ext/ShowPlayerAwareness.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 51:
+       f.open("config/ext/RTS.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 52: //bindings
+       f.open("config/ext/AimUncalled.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 53:
+       f.open("config/ext/AimLeftArm.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 54:
+       f.open("config/ext/AimTorso.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 55:
+       f.open("config/ext/AimEyes.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 56:
+       f.open("config/ext/AimGroin.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 57:
+       f.open("config/ext/AimRightArm.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 58:
+       f.open("config/ext/AimRightLeg.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 59:
+       f.open("config/ext/Reload.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 60:
+       f.open("config/ext/AimLeftLeg.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 61:
+       f.open("config/ext/SSOther.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 62:
+       f.open("config/ext/FASelf.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 63:
+       f.open("config/ext/DocSelf.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;			
+	case 64:
+       f.open("config/ext/ScienceAtHex.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 65:
+       f.open("config/ext/StopMove.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 66:
+       f.open("config/ext/Discharge.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 67:
+       f.open("config/ext/ToggleMsFov.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 68:
+       f.open("config/ext/ToggleFog.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 69:
+       f.open("config/ext/ToggleRoof.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 70:
+       f.open("config/ext/ToggleWall.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 71:
+       f.open("config/ext/UseBind0.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 72:
+       f.open("config/ext/UseBind1.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 73:
+       f.open("config/ext/UseBind2.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 74:
+       f.open("config/ext/UseBind3.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 75:
+       f.open("config/ext/UseBind4.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 76:
+       f.open("config/ext/UseBind5.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 77:
+       f.open("config/ext/UseBind6.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 78:
+       f.open("config/ext/UseBind7.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 79:
+       f.open("config/ext/UseBind8.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 80:
+       f.open("config/ext/UseBind9.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 81:
+       f.open("config/ext/Font.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 82:
+       f.open("config/ext/PositionX.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 83:
+       f.open("config/ext/PositionY.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 84:
+       f.open("config/ext/Worldmap.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 85:
+       f.open("config/ext/NameColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 86:
+       f.open("config/ext/WorldmapX.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 87:
+       f.open("config/ext/Enabled.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 88:
+       f.open("config/ext/ValueColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 89:
+       f.open("config/ext/WorldmapY.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 90:
+       f.open("config/ext/SpacingX.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;
+	case 91:
+       f.open("config/ext/SpacingY.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 92:
+       f.open("config/ext/Direction.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 93:
+       f.open("config/ext/Transparency.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 94:
+       f.open("config/ext/MsgAttNormColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 95:
+       f.open("config/ext/MsgDefNormColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 96:
+       f.open("config/ext/MsgDefCritColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 97:
+       f.open("config/ext/MsgAttCritColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 98:
+       f.open("config/ext/MsgDefKillColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	case 99:
+       f.open("config/ext/MsgAttKillColor.txt", "r");   
+	   f.readString(f.getSize(),option);
+		break;	
+	}
+	f.close();
+	option += "\n";
+	return option;
+}
+
+class InjectLabel2 : CLabel
+{
+    IGUIScreenOpt@ window;
+    // bool infected;
+    Sprite         backgroundPic;
+    Control@       picControl;
+
+    InjectLabel2(IGUIScreenOpt@ window /*, int infected,*/)
+    {
+        super(0, 0, 0, 0, "");
+        this.backgroundPic.LoadByIni("optBack", PT_ART_INTRFACE);
+        @picControl = Control();
+        @this.window = window;
+    }
+
+    void PicPosition(string& ini)
+    {
+        picControl.Position(ini);
+    }
+
+    void TextPosition(string& ini)
+    {
+        CLabel::Position(ini);
+    }
+
+    int Left()
+    {
+	
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int PicLeft()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.picControl.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    int PicTop()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.picControl.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+        DrawSprite(this.backgroundPic.Id, 0, this.PicLeft(), this.PicTop() - 10, 0);
+        CLabel::Draw();
+    }
+};
+
+class board2 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    board2(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("optBack", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("PupVolumeInd");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+			DrawSprite(this.galkowicz1.Id, 0, this.Left() - 164, this.Top() - 10, 0);
+    }
+};
+
+class board3 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    board3(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("optBack", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("PupVolumeInd");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+			DrawSprite(this.galkowicz1.Id, 0, this.Left() - 328, this.Top() - 10, 0);
+    }
+};
+
+class board4 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	
+	int val = 1;
+    board4(IGUIScreenOpt@ window)
+    {
+        @this.window = window;
+        this.galkowicz1.LoadByIni("optBack", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("PupVolumeInd");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+			DrawSprite(this.galkowicz1.Id, 0, this.Left() - 328 - 164, this.Top() - 10, 0);
+    }
+};
+
+class board5 : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	int menu = 0;
+	int val = 1;
+    board5(IGUIScreenOpt@ window, int m)
+    {
+		if(m>0)
+			this.menu = 150;
+        @this.window = window;
+        this.galkowicz1.LoadByIni("conres", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("ReS");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top + this.menu);
+        return(0);
+    }
+
+    void Draw()
+    {
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+			DrawText("Custom",this.Left() + 63 ,this.Top() + 184 ,130,130,COLOR_SAND,FONT_FAT,1);
+    }
+};
+
+
+class title : Control
+{
+    IGUIScreenOpt@ window;
+    Sprite         galkowicz1;
+	//Sprite         galkowicz4;
+	string option = "";
+	string option2 = "";
+	int ri;
+	
+	int val = 1;
+    title(IGUIScreenOpt@ window, int r)
+    {
+		this.ri = r;
+        @this.window = window;
+        this.galkowicz1.LoadByIni("title", PT_ART_INTRFACE);
+		//this.galkowicz4.LoadByIni("SWd", PT_ART_INTRFACE);
+    }
+	
+    void Init()
+    {
+        this.Position("titlepos");
+    }
+
+    void Click()
+    {
+	
+    }
+    int Left()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosX() + this.left + this.ri*164);
+        return(0);
+    }
+
+    int Top()
+    {
+        if(valid(this.window))
+            return(this.window.GetPosY() + this.top);
+        return(0);
+    }
+
+    void Draw()
+    {
+		string cat1 = "VIDEO";
+		string cat2 = "AUDIO";
+		string cat3 = "MISC";
+		string cat4 = "GAME";
+		if(config_id == 2)
+		{
+		cat1 = "CHAT";
+		cat2 = "Timeouts";
+		cat3 = "Highlight";
+		cat4 = "MISC2";
+		}
+		if(config_id == 3)
+		{
+		cat1 = "MISC3";
+		cat2 = "CMDs";
+		cat3 = "FACTION";
+		cat4 = "EVENT";
+		}
+			DrawSprite(this.galkowicz1.Id, 0, this.Left(), this.Top(), 0);
+			switch(this.ri)
+			{
+			case 1:
+			DrawText(cat1,this.Left() + 20,this.Top() + 5,130,130,COLOR_SAND,FONT_BIG,1);
+			break;
+			case 2:
+			DrawText(cat2,this.Left() + 20,this.Top() + 5,130,130,COLOR_SAND,FONT_BIG,1);
+			break;
+			case 3:
+			DrawText(cat3,this.Left() + 20,this.Top() + 5,130,130,COLOR_SAND,FONT_BIG,1);
+			break;
+			case 4:
+			DrawText(cat4,this.Left() + 20,this.Top() + 5,130,130,COLOR_SAND,FONT_BIG,1);
+			break;
+			}
+    }
+};
+
+
+array<string> bind_key = { "0","1","2","3","4","5","6","7","8","9",
+						   "A","B","C","D","E","F","G","H","I","J",
+						   "K","L","M","N","O","P","R","S","T","U",
+						   "V","W","X","Y","Z","[","]",";","'",",",
+						   ".","/","`","Tab","Ins","Del","Home","End","PgUp","PgDn",
+						   "Num_0","Num_1","Num_2","Num_3","Num_4","Num_5","Num_6","Num_7","Num_8","Num_9",
+						   "Num_.","Num_/","Num_*","Num_-","Num_+","Up","Down","Left","Right"
+						   };

@@ -1,0 +1,16 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Goliath;
+@gender = 0;
+@age = 19;
+
+@special = 10 5 1 10 10 7 1;
+@xp = 4 9970 10000;
+@life = 69 69 0 0 0 0 0 0 0;
+@stats = 21 6 144575 10 0 5 2 10 1 1;
+@skills = 50 14 14 100 54 28 30 20 26 22 21 22 50 30 50 64 5 50 0;
+@traits = 551 557;
+@perks = 301 380;
+@reputation = 605:16 613:5;
+@kills = 260 261 265:2 266:7 267:60 271 272 277:11;

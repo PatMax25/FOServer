@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 @
+4 3000 None 0 #
+5 3010 D _script perks@can_class 1 80 R _param p PE_HUNTER = 1 #
+0 3020 @
+5 4000 None 0 &
+
+[engl]
+{100}{}{Doherty Adams}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hmh?}
+{2010}{}{You look tough. I heard you are the legendary hunter, aren't you?}
+{3000}{}{*he stares at you silently*}
+{3010}{}{Teach me how to be like that. [ Bounty Hunter ]}
+{3020}{}{I better go. [ end dialogue ]}
+{4000}{}{Fine... Here you go. Now leave.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hmh?}
+{2010}{}{You look tough. I heard you are the legendary hunter, aren't you?}
+{3000}{}{[ He stares at you silently ]}
+{3010}{}{Teach me how to be like that.}
+{3020}{}{I better go.}
+{4000}{}{Fine... Here you go. Now leave.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hmh?}
+{2010}{}{You look tough. I heard you are the legendary hunter, aren't you?}
+{3000}{}{[ He stares at you silently ]}
+{3010}{}{Teach me how to be like that.}
+{3020}{}{I better go.}
+{4000}{}{Fine... Here you go. Now leave.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hmh?}
+{2010}{}{You look tough. I heard you are the legendary hunter, aren't you?}
+{3000}{}{[ He stares at you silently ]}
+{3010}{}{Teach me how to be like that.}
+{3020}{}{I better go.}
+{4000}{}{Fine... Here you go. Now leave.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hmh?}
+{2010}{}{You look tough. I heard you are the legendary hunter, aren't you?}
+{3000}{}{[ He stares at you silently ]}
+{3010}{}{Teach me how to be like that.}
+{3020}{}{I better go.}
+{4000}{}{Fine... Here you go. Now leave.}
+

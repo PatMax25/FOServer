@@ -1,0 +1,120 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 #
+6 2040 #
+0 2050 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+2 6010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Mayor Bruce Dagleson ]}
+{2010}{}{[ Reminder about NCR captain ]}
+{2020}{}{[ Plastic explosives ]}
+{2030}{}{[ From Louis ]}
+{2040}{}{[ From Louis #2 ]}
+{2050}{}{[ Leave ]}
+{3000}{}{[ I shall really speak with NCR captain tomorrow. Let this not be a reminder. Yesterday I saw Jake dragging some weird tools somewhere... I do not like it, especially since thus weird noises from the cave tunnels get louder... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Reminder to myself: Buy plastic explosives from Gunrunners. Maybe Janeth is actually right and we really shall just blow up the tunnels. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{6010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Mayor Bruce Dagleson ]}
+{2010}{}{[ Reminder about NCR captain ]}
+{2020}{}{[ Plastic explosives ]}
+{2030}{}{[ From Louis ]}
+{2040}{}{[ From Louis #2 ]}
+{2050}{}{[ Leave ]}
+{3000}{}{[ I shall really speak with NCR captain tomorrow. Let this not be a reminder. Yesterday I saw Jake dragging some weird tools somewhere... I do not like it, especially since thus weird noises from the cave tunnels get louder... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Reminder to myself: Buy plastic explosives from Gunrunners. Maybe Janeth is actually right and we really shall just blow up the tunnels. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{6010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Mayor Bruce Dagleson ]}
+{2010}{}{[ Reminder about NCR captain ]}
+{2020}{}{[ Plastic explosives ]}
+{2030}{}{[ From Louis ]}
+{2040}{}{[ From Louis #2 ]}
+{2050}{}{[ Leave ]}
+{3000}{}{[ I shall really speak with NCR captain tomorrow. Let this not be a reminder. Yesterday I saw Jake dragging some weird tools somewhere... I do not like it, especially since thus weird noises from the cave tunnels get louder... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Reminder to myself: Buy plastic explosives from Gunrunners. Maybe Janeth is actually right and we really shall just blow up the tunnels. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{6010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Mayor Bruce Dagleson ]}
+{2010}{}{[ Reminder about NCR captain ]}
+{2020}{}{[ Plastic explosives ]}
+{2030}{}{[ From Louis ]}
+{2040}{}{[ From Louis #2 ]}
+{2050}{}{[ Leave ]}
+{3000}{}{[ I shall really speak with NCR captain tomorrow. Let this not be a reminder. Yesterday I saw Jake dragging some weird tools somewhere... I do not like it, especially since thus weird noises from the cave tunnels get louder... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Reminder to myself: Buy plastic explosives from Gunrunners. Maybe Janeth is actually right and we really shall just blow up the tunnels. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{6010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Mayor Bruce Dagleson ]}
+{2010}{}{[ Reminder about NCR captain ]}
+{2020}{}{[ Plastic explosives ]}
+{2030}{}{[ From Louis ]}
+{2040}{}{[ From Louis #2 ]}
+{2050}{}{[ Leave ]}
+{3000}{}{[ I shall really speak with NCR captain tomorrow. Let this not be a reminder. Yesterday I saw Jake dragging some weird tools somewhere... I do not like it, especially since thus weird noises from the cave tunnels get louder... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Reminder to myself: Buy plastic explosives from Gunrunners. Maybe Janeth is actually right and we really shall just blow up the tunnels. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Yo, pal. I know you are busy and all... but what's up with all the NCR troops here nowadays? I mean, I don't mind NCR presense in the town, as well as I don't mind the occupation of Adytum... But just look outside! There are dozens of them there. It looks like they are searching for something. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ Well, Janeth... Maybe you were not so wrong... I just want this note to stay here then. I will make sure to send it to every terminal in the forsaken place. Gentlemen, it was an honour to know you all and work together with you. I just hope at least anyone managed to survive this. If not - I would suggest you to leave a bullet for yourself, because these shits will make sure to make your death as horrible as possible. ]}
+{6010}{}{[ Back ]}
+

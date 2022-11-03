@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _item p PID_ENCLAVE_MONEY } 5 R _item p PID_ENCLAVE_MONEY - 5 R _item p PID_BEER + 1 #
+2 2020 D _item p PID_ENCLAVE_MONEY } 9 R _item p PID_ENCLAVE_MONEY - 9 R _item p PID_NUKA_COLA + 1 #
+2 2030 D _item p PID_ENCLAVE_MONEY } 20 R _item p PID_ENCLAVE_MONEY - 20 R _item p PID_BOOZE + 1 #
+2 2040 D _item p PID_ENCLAVE_MONEY } 18 R _item p PID_ENCLAVE_MONEY - 18 R _item p PID_GAMMA_GULP_BEER + 1 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Which drink you wish to order today? ( Paying in Enclave dollars ) ]}
+{2010}{}{[ Order a bottle of Beer - 5 dollars ]}
+{2020}{}{[ Order a bottle of Nuka Cola - 9 dollars ]}
+{2030}{}{[ Order a bottle of Booze - 20 dollars ]}
+{2040}{}{[ Order a bottle of Gamma Gulp - 18 dollars ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Which drink you wish to order today? ( Paying in Enclave dollars ) ]}
+{2010}{}{[ Order a bottle of beer - 5 dollars ]}
+{2020}{}{[ Order a bottle of Nuka Cola - 9 dollars ]}
+{2030}{}{[ Order a bottle of Booze - 20 dollars ]}
+{2040}{}{[ Order a bottle of Gamma Gulp - 18 dollars ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Which drink you wish to order today? ( Paying in Enclave dollars ) ]}
+{2010}{}{[ Order a bottle of beer - 5 dollars ]}
+{2020}{}{[ Order a bottle of Nuka Cola - 9 dollars ]}
+{2030}{}{[ Order a bottle of Booze - 20 dollars ]}
+{2040}{}{[ Order a bottle of Gamma Gulp - 18 dollars ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Which drink you wish to order today? ( Paying in Enclave dollars ) ]}
+{2010}{}{[ Order a bottle of beer - 5 dollars ]}
+{2020}{}{[ Order a bottle of Nuka Cola - 9 dollars ]}
+{2030}{}{[ Order a bottle of Booze - 20 dollars ]}
+{2040}{}{[ Order a bottle of Gamma Gulp - 18 dollars ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Which drink you wish to order today? ( Paying in Enclave dollars ) ]}
+{2010}{}{[ Order a bottle of beer - 5 dollars ]}
+{2020}{}{[ Order a bottle of Nuka Cola - 9 dollars ]}
+{2030}{}{[ Order a bottle of Booze - 20 dollars ]}
+{2040}{}{[ Order a bottle of Gamma Gulp - 18 dollars ]}
+

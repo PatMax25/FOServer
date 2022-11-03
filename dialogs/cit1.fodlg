@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p mayor_citizenship = 1 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Dear Julia, I know I failed to keep you here. I was a fool... I saw how you looked upon these old photos of your family and our son. You couldn't wait to see them at least one more time. I need to find you, please... Please don't do anything stupid. I know you probably went to Den, to our family house. ]}
+{2010}{}{[ Leave ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Dear Julia, I know I failed to keep you here. I was a fool... I saw how you looked upon these old photos of your family and our son. You couldn't wait to see them at least one more time. I need to find you, please... Please don't do anything stupid. I know you should have went to Den, to our family house. ]}
+{2010}{}{[ Leave ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Dear Julia, I know I failed to keep you here. I was a fool... I saw how you looked upon these old photos of your family and our son. You couldn't wait to see them at least one more time. I need to find you, please... Please don't do anything stupid. I know you should have went to Den, to our family house. ]}
+{2010}{}{[ Leave ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Dear Julia, I know I failed to keep you here. I was a fool... I saw how you looked upon these old photos of your family and our son. You couldn't wait to see them at least one more time. I need to find you, please... Please don't do anything stupid. I know you should have went to Den, to our family house. ]}
+{2010}{}{[ Leave ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Dear Julia, I know I failed to keep you here. I was a fool... I saw how you looked upon these old photos of your family and our son. You couldn't wait to see them at least one more time. I need to find you, please... Please don't do anything stupid. I know you should have went to Den, to our family house. ]}
+{2010}{}{[ Leave ]}
+

@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 D _var p reno_secret3 = 0 R _item p PID_JET + 3 R _item p PID_KNIFE + 1 R _item p PID_MA2_SKIN + 1 R _item p PID_MEAT + 7 R _item p PID_MILK + 1 R _var p reno_secret3 = 1 #
+0 2020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*you take a look inside of the mailbox and... bingo!.. there is something in there*}
+{2010}{}{[ take the stuff ]}
+{2020}{}{[ leave ] [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ It seems to be a simple toilet, but you suddenly notice something hidden behind it... ]}
+{2010}{}{Answer text}
+{2020}{}{Answer text}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ It seems to be a simple toilet, but you suddenly notice something hidden behind it... ]}
+{2010}{}{Answer text}
+{2020}{}{Answer text}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ It seems to be a simple toilet, but you suddenly notice something hidden behind it... ]}
+{2010}{}{Answer text}
+{2020}{}{Answer text}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ It seems to be a simple toilet, but you suddenly notice something hidden behind it... ]}
+{2010}{}{Answer text}
+{2020}{}{Answer text}
+

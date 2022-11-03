@@ -1,0 +1,8 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Actress;
+@gender = 1;
+@age = 31;
+
+@traits = 560 565;

@@ -1,0 +1,105 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var n name_mem_npc_player = 0 #
+6 1020 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 R _var n name_mem_npc_player = 1 #
+0 3020 @
+4 4000 None 0 #
+0 4010 @
+6 5000 None 0 #
+0 5010 &
+
+[engl]
+{100}{}{Peter}
+{200}{}{You Peter, A Knight of the Brotherhood of Steel.}
+{210}{}{You see a man in Brotherhood of Steel Combat Armor. He looks like he certainly knows how to handle that Minigun he is currently fixing.}
+{210}{}{You see a burly old mutant with a weary cast to his face. He still looks vigorous and tough.}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Hello, are you one of the new initiates? Welcome to the Brotherhood.}
+{2010}{}{Hi. may I ask you something?}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{These are the Brotherhood workshops. Here we maintain and build all the Armor, Weapons and Ammo that all Paladins use in our war against the Mutant scum.}
+{4010}{}{Bye.}
+{5000}{}{You again? I hope you are enjoying your time with the Brotherhood.}
+{5010}{}{Never mind.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Hello, are you one of the new initiates? Welcome to the Brotherhood.}
+{2010}{}{Hi. may I ask you something?}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{These are the Brotherhoods workshops. Here we maintain and build all the Armor, Weapons and Ammo that all Paladins use in our war against the Mutant scum.}
+{4010}{}{Bye.}
+{5000}{}{You again? I hope you are enjoying your time with the Brotherhood.}
+{5010}{}{Never mind.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Hello, are you one of the new initiates? Welcome to the Brotherhood.}
+{2010}{}{Hi. may I ask you something?}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{These are the Brotherhoods workshops. Here we maintain and build all the Armor, Weapons and Ammo that all Paladins use in our war against the Mutant scum.}
+{4010}{}{Bye.}
+{5000}{}{You again? I hope you are enjoying your time with the Brotherhood.}
+{5010}{}{Never mind.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Hello, are you one of the new initiates? Welcome to the Brotherhood.}
+{2010}{}{Hi. may I ask you something?}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{These are the Brotherhoods workshops. Here we maintain and build all the Armor, Weapons and Ammo that all Paladins use in our war against the Mutant scum.}
+{4010}{}{Bye.}
+{5000}{}{You again? I hope you are enjoying your time with the Brotherhood.}
+{5010}{}{Never mind.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member unknown}
+{1020}{}{member known}
+{2000}{}{Hello, are you one of the new initiates? Welcome to the Brotherhood.}
+{2010}{}{Hi. may I ask you something?}
+{2020}{}{Never mind.}
+{3000}{}{All right, but make it quick. I have inventory to do.}
+{3010}{}{What is this place?}
+{3020}{}{Well, got to go.}
+{4000}{}{These are the Brotherhoods workshops. Here we maintain and build all the Armor, Weapons and Ammo that all Paladins use in our war against the Mutant scum.}
+{4010}{}{Bye.}
+{5000}{}{You again? I hope you are enjoying your time with the Brotherhood.}
+{5010}{}{Never mind.}
+

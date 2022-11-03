@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Enclave soldier}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?@@Got the recent orders?@@I've never been so far in the mainland...@@I am on duty.@@Area secured.@@Move along.@@How long will we even be here?@@I wish to have a shower...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?@@Got the recent orders?@@I've never been so far in the mainland...@@I am on duty.@@Area secured.@@Move along.@@How long will we even be here?@@I wish to have a shower...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?@@Got the recent orders?@@I've never been so far in the mainland...@@I am on duty.@@Area secured.@@Move along.@@How long will we even be here?@@I wish to have a shower...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?@@Got the recent orders?@@I've never been so far in the mainland...@@I am on duty.@@Area secured.@@Move along.@@How long will we even be here?@@I wish to have a shower...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?@@Got the recent orders?@@I've never been so far in the mainland...@@I am on duty.@@Area secured.@@Move along.@@How long will we even be here?@@I wish to have a shower...}
+

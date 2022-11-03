@@ -1,0 +1,47 @@
+//item_pools.h
+
+
+
+
+import uint tier3armor() from "item_pools";
+import uint tier3helmet() from "item_pools";
+import uint tier3weapon() from "item_pools";
+import uint tier3alien() from "item_pools";
+import uint tier3bp() from "item_pools";
+import uint tier3drugs() from "item_pools";
+import uint tier3ammo() from "item_pools";
+import uint tierlowammo() from "item_pools";
+import uint tier4parts() from "item_pools";
+import uint tier4bp() from "item_pools";
+import uint tier4item() from "item_pools";
+import uint tier4ammo() from "item_pools";
+import uint rareitem() from "item_pools";
+import uint implant() from "item_pools";
+import uint implant_combat() from "item_pools";
+import uint verti_parts() from "item_pools";
+import uint currency() from "item_pools";
+import uint low_tier() from "item_pools";
+import uint books() from "item_pools";
+import uint mats() from "item_pools";
+import uint misc() from "item_pools";
+import void addbasemap(Critter& player) from "personal_base";
+import void addbasemap(Item& con) from "personal_base";
+
+import bool istier3armor(uint pid) from "item_pools";
+import bool istier3helmet(uint pid) from "item_pools";
+import bool istier3weapon(uint pid) from "item_pools";
+import bool istier3bp(uint pid) from "item_pools";
+import bool istier3drugs(uint pid) from "item_pools";
+import bool istier3ammo(uint pid) from "item_pools";
+import bool istierlowammo(uint pid) from "item_pools";
+import bool istier4parts(uint pid) from "item_pools";
+import bool istier4bp(uint pid) from "item_pools";
+import bool istier4item(uint pid) from "item_pools";
+import bool istier4ammo(uint pid) from "item_pools";
+import bool israreitem(uint pid) from "item_pools";
+import bool isimplant(uint pid) from "item_pools";
+import bool isimplant_combat(uint pid) from "item_pools";
+import bool isverti_parts(uint pid) from "item_pools";
+import bool iscurrency(uint pid) from "item_pools";
+import bool islow_tier(uint pid) from "item_pools";
+import bool isHelmet(uint pid) from "item_pools";

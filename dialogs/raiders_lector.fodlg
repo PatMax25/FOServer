@@ -1,0 +1,138 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p lector = 1 R _var p lector = 2 #
+5 1020 D _var p lector = 2 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+65507 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 #
+65507 3020 #
+4 3030 @
+4 4000 None 0 #
+5 4010 #
+65507 4020 @
+5 5000 None 0 #
+65507 5010 #
+6 5020 D _var p name_mem_npc_player = 0 R _item p PID_BOTTLE_CAPS + 2000 R _item p PID_DYNAMITE + 3 R _item p PID_EW_BOOK + 2 R _var p name_mem_npc_player = 1 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Lector}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, greeting. May I be of help?}
+{2010}{}{What the hell?! Dear my, you eat these people alive!}
+{2020}{}{The heck is going on here? Damn it, this is horrible!}
+{2030}{}{Time to die, scumbag!}
+{2040}{}{I eeh... Guess I missed my house. I will go now.}
+{3000}{}{[ sigh ] Look, I am not such a monster afterall. You see... In my business it is important to follow the matter of the PERFECT taste. But, I am not a criminal. These fallen souls are scums, bandits, murderers. Maybe I eat them, but in such way I make the world a little bit better place, don't you think?}
+{3010}{}{I was sent my Red Arrow to kill you.}
+{3020}{}{You will die now!}
+{3030}{}{Well, I see. I actually like the smell you have. And your meat looks really tasty. Also, I was sent by raiders to kill you.}
+{4000}{}{Ah, so they really wish to get my head. Or... my hand. [ shows you his robotic hand ]. I lost it in my past life. Used to be a caravaner. And a group of raiders attacked us. Killed my wife and daughter, who were a part of my caravan company. Left me with nothing... Even took my hand. See? I don't touch civilians, my dear. I clear this world. However, it is up on you to decide.}
+{4010}{}{So, that's the case...}
+{4020}{}{I don't mind your stories, monster. You die here and now!}
+{5000}{}{So what do you think?}
+{5010}{}{Prepare for your death!}
+{5020}{}{I kinda support your way. I will leave you alive.}
+{6000}{}{Good, tell that "Arrow" that I ran away. Here, take some of this as a reward for your understanding.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, greeting. May I be in help?}
+{2010}{}{What a hell?! Dear my you eat these people alive!}
+{2020}{}{The heck is going on here? Damn it, this is horrible!}
+{2030}{}{Time to die, scumbag!}
+{2040}{}{I eeh... Guess I missed my house. I will go now.}
+{3000}{}{[ sigh ] Look, I am not such a monster afterall. You see... In my business it is important to follow the matter of the PERFECT taste. But, I am not a criminal. These fallen souls are scums, bandits, murderers. Maybe I eat them, but in such way I make the world a little bit better place, don't you think?}
+{3010}{}{I was sent my Red Arrow to kill you.}
+{3020}{}{You will die now!}
+{3030}{}{Well, I see. I actually like the smell you have hear. An the meat looks really tasty. The problem is that I was sent by raiders to kill you.}
+{4000}{}{Ah, so they really wish to get my head. Or... my hand. [ shows you his robotic hand ]. I lost it in my past life. Used to be a caravaner. And a group of raiders attacked us. Killed my wife and daughter, who were a part of my caravan company. Left me with nothing... Even took my hand. See? I don't touch civilians, my dear. I clear this world. However, it is up on you to decide.}
+{4010}{}{So, that's the case...}
+{4020}{}{I don't mind your stories, monster. You die here and now!}
+{5000}{}{So what do you think?}
+{5010}{}{Prepare for your death!}
+{5020}{}{I kinda support your way. I will leave you alive.}
+{6000}{}{Good, tell that "Arrow" that I ran away. Here, take some of this as a reward for your understanding.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, greeting. May I be in help?}
+{2010}{}{What a hell?! Dear my you eat these people alive!}
+{2020}{}{The heck is going on here? Damn it, this is horrible!}
+{2030}{}{Time to die, scumbag!}
+{2040}{}{I eeh... Guess I missed my house. I will go now.}
+{3000}{}{[ sigh ] Look, I am not such a monster afterall. You see... In my business it is important to follow the matter of the PERFECT taste. But, I am not a criminal. These fallen souls are scums, bandits, murderers. Maybe I eat them, but in such way I make the world a little bit better place, don't you think?}
+{3010}{}{I was sent my Red Arrow to kill you.}
+{3020}{}{You will die now!}
+{3030}{}{Well, I see. I actually like the smell you have hear. An the meat looks really tasty. The problem is that I was sent by raiders to kill you.}
+{4000}{}{Ah, so they really wish to get my head. Or... my hand. [ shows you his robotic hand ]. I lost it in my past life. Used to be a caravaner. And a group of raiders attacked us. Killed my wife and daughter, who were a part of my caravan company. Left me with nothing... Even took my hand. See? I don't touch civilians, my dear. I clear this world. However, it is up on you to decide.}
+{4010}{}{So, that's the case...}
+{4020}{}{I don't mind your stories, monster. You die here and now!}
+{5000}{}{So what do you think?}
+{5010}{}{Prepare for your death!}
+{5020}{}{I kinda support your way. I will leave you alive.}
+{6000}{}{Good, tell that "Arrow" that I ran away. Here, take some of this as a reward for your understanding.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, greeting. May I be in help?}
+{2010}{}{What a hell?! Dear my you eat these people alive!}
+{2020}{}{The heck is going on here? Damn it, this is horrible!}
+{2030}{}{Time to die, scumbag!}
+{2040}{}{I eeh... Guess I missed my house. I will go now.}
+{3000}{}{[ sigh ] Look, I am not such a monster afterall. You see... In my business it is important to follow the matter of the PERFECT taste. But, I am not a criminal. These fallen souls are scums, bandits, murderers. Maybe I eat them, but in such way I make the world a little bit better place, don't you think?}
+{3010}{}{I was sent my Red Arrow to kill you.}
+{3020}{}{You will die now!}
+{3030}{}{Well, I see. I actually like the smell you have hear. An the meat looks really tasty. The problem is that I was sent by raiders to kill you.}
+{4000}{}{Ah, so they really wish to get my head. Or... my hand. [ shows you his robotic hand ]. I lost it in my past life. Used to be a caravaner. And a group of raiders attacked us. Killed my wife and daughter, who were a part of my caravan company. Left me with nothing... Even took my hand. See? I don't touch civilians, my dear. I clear this world. However, it is up on you to decide.}
+{4010}{}{So, that's the case...}
+{4020}{}{I don't mind your stories, monster. You die here and now!}
+{5000}{}{So what do you think?}
+{5010}{}{Prepare for your death!}
+{5020}{}{I kinda support your way. I will leave you alive.}
+{6000}{}{Good, tell that "Arrow" that I ran away. Here, take some of this as a reward for your understanding.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, greeting. May I be in help?}
+{2010}{}{What a hell?! Dear my you eat these people alive!}
+{2020}{}{The heck is going on here? Damn it, this is horrible!}
+{2030}{}{Time to die, scumbag!}
+{2040}{}{I eeh... Guess I missed my house. I will go now.}
+{3000}{}{[ sigh ] Look, I am not such a monster afterall. You see... In my business it is important to follow the matter of the PERFECT taste. But, I am not a criminal. These fallen souls are scums, bandits, murderers. Maybe I eat them, but in such way I make the world a little bit better place, don't you think?}
+{3010}{}{I was sent my Red Arrow to kill you.}
+{3020}{}{You will die now!}
+{3030}{}{Well, I see. I actually like the smell you have hear. An the meat looks really tasty. The problem is that I was sent by raiders to kill you.}
+{4000}{}{Ah, so they really wish to get my head. Or... my hand. [ shows you his robotic hand ]. I lost it in my past life. Used to be a caravaner. And a group of raiders attacked us. Killed my wife and daughter, who were a part of my caravan company. Left me with nothing... Even took my hand. See? I don't touch civilians, my dear. I clear this world. However, it is up on you to decide.}
+{4010}{}{So, that's the case...}
+{4020}{}{I don't mind your stories, monster. You die here and now!}
+{5000}{}{So what do you think?}
+{5010}{}{Prepare for your death!}
+{5020}{}{I kinda support your way. I will leave you alive.}
+{6000}{}{Good, tell that "Arrow" that I ran away. Here, take some of this as a reward for your understanding.}
+

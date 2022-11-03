@@ -1,0 +1,38 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+5 4010 D _item p PID_BOS_MONEY } 100000 R _item p PID_BOS_MONEY - 100000 R _param p ENGINEER_MINE + 1 #
+2 4020 @
+5 5000 None 0 #
+65505 5010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING MAINFRAME... DONE. WELCOME TO MINING 3000. ]}
+{2010}{}{[ INFO ]}
+{2020}{}{[ BUY MINE MACHINE ]}
+{2030}{}{[ EXIT ]}
+{3000}{}{[ MINING 3000. Contains plans for mining machines. ]}
+{3010}{}{[ BACK ]}
+{4000}{}{[ COST 100 000 LOCAL CURRENCY ]}
+{4010}{}{[ BUY ]}
+{4020}{}{[ BACK ]}
+{5000}{}{[ SENDING BLUEPRINT DATA TO YOUR PIPBOY, PLEASE USE COMMAND ~base INSIDE YOUR BASE TO PLACE MACHINE ]}
+{5010}{}{[ BACK ]}
+

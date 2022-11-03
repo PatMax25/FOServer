@@ -1,0 +1,942 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 D _script personal_base@d_know 0  @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+11 4030 D _param p ENGINEER_MINE > 0 R _script base@placemine 2 529 1 #
+11 4040 D _param p ENGINEER_JUNK > 0 R _script base@placemine 2 12708 0 #
+2 4050 @
+5 5000 None 0 #
+4 5010 #
+0 5020 @
+6 6000 None 0 #
+7 6010 #
+2 6020 @
+7 7000 None 0 #
+8 7010 #
+2 7020 @
+8 8000 None 0 #
+9 8010 #
+2 8020 @
+9 9000 None 0 #
+12 9010 #
+13 9020 #
+19 9030 #
+20 9040 #
+21 9050 #
+22 9060 #
+23 9070 #
+24 9080 #
+25 9090 #
+26 9100 #
+27 9110 @
+10 10000 None 0 #
+10 10010 R _script base@setMode 1 1 #
+10 10020 R _script base@setMode 1 2 #
+11 10030 R _script base@setMode 1 3 #
+11 10040 @
+11 11000 None 0 #
+6 11010 #
+2 11020 @
+12 12000 None 0 #
+10 12010 R _script base@place 1 1300 #
+10 12020 R _script base@place 1 1301 #
+10 12030 R _script base@place 1 1302 #
+10 12040 R _script base@place 1 1303 #
+10 12050 R _script base@place 1 1304 #
+10 12060 R _script base@place 1 1305 #
+10 12070 R _script base@place 1 1306 #
+10 12080 R _script base@place 1 1307 #
+10 12090 R _script base@place 1 1308 #
+10 12100 R _script base@place 1 1309 #
+10 12110 R _script base@place 1 1310 #
+10 12120 R _script base@place 1 1381 #
+10 12130 R _script base@place 1 1382 @
+13 13000 None 0 #
+14 13010 #
+15 13020 #
+16 13030 #
+17 13040 @
+14 14000 None 0 #
+10 14010 R _script base@place 1 1311 #
+10 14020 R _script base@place 1 1312 #
+10 14030 R _script base@place 1 1313 #
+10 14040 R _script base@place 1 1314 #
+10 14050 R _script base@place 1 1315 #
+10 14060 R _script base@place 1 1316 #
+10 14070 R _script base@place 1 1317 #
+10 14080 R _script base@place 1 1318 #
+10 14090 R _script base@place 1 1319 #
+10 14100 R _script base@place 1 1320 @
+15 15000 None 0 #
+10 15010 R _script base@place 1 1321 #
+10 15020 R _script base@place 1 1322 #
+10 15030 R _script base@place 1 1323 #
+10 15040 R _script base@place 1 1324 #
+10 15050 R _script base@place 1 1325 #
+10 15060 R _script base@place 1 1326 #
+10 15070 R _script base@place 1 1327 #
+10 15080 R _script base@place 1 1328 #
+10 15090 R _script base@place 1 1329 #
+10 15100 R _script base@place 1 1330 @
+16 16000 None 0 #
+10 16010 R _script base@place 1 1331 #
+10 16020 R _script base@place 1 1332 #
+10 16030 R _script base@place 1 1333 #
+10 16040 R _script base@place 1 1334 #
+10 16050 R _script base@place 1 1335 #
+10 16060 R _script base@place 1 1336 #
+10 16070 R _script base@place 1 1337 #
+10 16080 R _script base@place 1 1338 #
+10 16090 R _script base@place 1 1339 #
+10 16100 R _script base@place 1 1340 @
+17 17000 None 0 #
+10 17010 R _script base@place 1 1341 #
+10 17020 R _script base@place 1 1342 #
+10 17030 R _script base@place 1 1343 #
+10 17040 R _script base@place 1 1344 #
+10 17050 R _script base@place 1 1345 #
+10 17060 R _script base@place 1 1346 #
+10 17070 R _script base@place 1 1347 #
+10 17080 R _script base@place 1 1348 #
+10 17090 R _script base@place 1 1349 #
+10 17100 R _script base@place 1 1350 @
+18 18000 None 0 @
+19 19000 None 0 #
+10 19010 R _script base@place 1 1351 #
+10 19020 R _script base@place 1 1352 @
+20 20000 None 0 #
+10 20010 R _script base@place 1 1353 #
+10 20020 R _script base@place 1 1354 #
+10 20030 R _script base@place 1 1355 @
+21 21000 None 0 #
+10 21010 R _script base@place 1 1356 #
+10 21020 R _script base@place 1 1357 #
+10 21030 R _script base@place 1 1358 #
+10 21040 R _script base@place 1 1359 #
+10 21050 R _script base@place 1 1360 @
+22 22000 None 0 #
+10 22010 R _script base@place 1 1361 #
+10 22020 R _script base@place 1 1362 #
+10 22030 R _script base@place 1 1363 #
+10 22040 R _script base@place 1 1364 @
+23 23000 None 0 #
+10 23010 R _script base@place 1 1365 #
+10 23020 R _script base@place 1 1366 #
+10 23030 R _script base@place 1 1367 #
+10 23040 R _script base@place 1 1368 #
+10 23050 R _script base@place 1 1369 #
+10 23060 R _script base@place 1 1370 @
+24 24000 None 0 #
+10 24010 R _script base@place 1 1371 #
+10 24020 R _script base@place 1 1372 @
+25 25000 None 0 #
+10 25010 R _script base@place 1 1373 #
+10 25020 R _script base@place 1 1374 #
+10 25030 R _script base@place 1 1375 @
+26 26000 None 0 #
+10 26010 R _script base@place 1 1376 #
+10 26020 R _script base@place 1 1377 #
+10 26030 R _script base@place 1 1378 #
+10 26040 R _script base@place 1 1379 #
+10 26050 R _script base@place 1 1380 #
+18 26060 R _script base@place 1 1381 #
+10 26070 R _script base@place 1 1383 @
+27 27000 None 0 #
+10 27010 R _script base@place 1 1384 #
+10 27020 R _script base@place 1 1385 #
+10 27030 R _script base@place 1 1386 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ system initializing... ]}
+{2010}{}{[ Login ]}
+{2020}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ authentication required ]}
+{3010}{}{[ Password ************ ]}
+{4000}{}{[ authentication token accepted, choose action ]}
+{4010}{}{[ Information ]}
+{4020}{}{[ Build ]}
+{4030}{}{[ Place Mining Machine ]}
+{4040}{}{[ Place Junk Machine ]}
+{4050}{}{[ Exit ] }
+{5000}{}{[ Each built object costs 1% engineering skill. To share base, place an object and set extra ability to "map access object", then use science skill on that object to lock or unlock sharing. Those who want access to the location can use the object. ]}
+{5010}{}{[ Back ]}
+{5020}{}{[ Exit ] [ end dialogue ] }
+{6000}{}{[ ...Loading... ]}
+{6010}{}{[ wait ]}
+{6020}{}{[ logout ]}
+{7000}{}{[ ...Loading... ]}
+{7010}{}{[ wait ]}
+{7020}{}{[ logout ]}
+{8000}{}{[ ...Loading... ]}
+{8010}{}{[ wait ]}
+{8020}{}{[ logout ]}
+{9000}{}{[ select a category ]}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{Special}
+{10000}{}{[ choose extra abilities ]}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Set it as map access object}
+{10040}{}{No more abilities}
+{11000}{}{[ Done! ]}
+{11010}{}{[ continue ]}
+{11020}{}{[ logout ]}
+{12000}{}{[ choose object ]}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}
+{12110}{}{Coffin}
+{12120}{}{Legion Cross 1}
+{12130}{}{Legion Cross 2}
+{13000}{}{[ choose direction ]}
+{13010}{}{North}
+{13020}{}{South}
+{13030}{}{East}
+{13040}{}{West}
+{14000}{}{[ choose Object ]}
+{14010}{}{Car seat}
+{14020}{}{Vault seat}
+{14030}{}{Computer Chair}
+{14040}{}{Plastic Chair}
+{14050}{}{Office Chair}
+{14060}{}{Junk Chair}
+{14070}{}{Wooden Chair}
+{14080}{}{Metal Chair}
+{14090}{}{Jail Chair}
+{14100}{}{armchair}
+{15000}{}{[ choose Object ]}
+{15010}{}{Car Seat}
+{15020}{}{Vault Seat}
+{15030}{}{Computer Chair}
+{15040}{}{Plastic Chair}
+{15050}{}{Office Chair}
+{15060}{}{Junk Chair}
+{15070}{}{Wooden Chair}
+{15080}{}{Metal Chair}
+{15090}{}{Jail Chair}
+{15100}{}{Stone Bench}
+{16000}{}{[ choose Object ]}
+{16010}{}{Car Seat}
+{16020}{}{Vault Seat}
+{16030}{}{Computer Chair}
+{16040}{}{Plastic Chair}
+{16050}{}{Office Chair}
+{16060}{}{Junk Chair}
+{16070}{}{Wooden Chair}
+{16080}{}{Metal Chair}
+{16090}{}{Jail Chair}
+{16100}{}{Wooden Bench}
+{17000}{}{[ choose Object ]}
+{17010}{}{Car Seat}
+{17020}{}{Vault Seat}
+{17030}{}{Computer Chair}
+{17040}{}{Plastic Chair}
+{17050}{}{Office Chair}
+{17060}{}{Junk Chair}
+{17070}{}{Wooden Chair}
+{17080}{}{Metal Chair}
+{17090}{}{Jail Chair}
+{17100}{}{Stone Bench}
+{18000}{}{System error, need update version, coming SOON tm}
+{19000}{}{[ choose Object ]}
+{19010}{}{Stone Grave}
+{19020}{}{Forge}
+{20000}{}{[ choose Object ]}
+{20010}{}{Wooden Table}
+{20020}{}{Bar table}
+{20030}{}{Metal Table}
+{21000}{}{[ choose Object ]}
+{21010}{}{Military Bed}
+{21020}{}{Arroyo Bed}
+{21030}{}{Arroyo Bed 2}
+{21040}{}{Junk bed}
+{21050}{}{Junk bed 2}
+{22000}{}{[ choose Object ]}
+{22010}{}{House Lamp}
+{22020}{}{Street Lamp}
+{22030}{}{Fire wood}
+{22040}{}{Vault City Lamp}
+{23000}{}{[ choose Object ]}
+{23010}{}{Computer 1}
+{23020}{}{Computer 2}
+{23030}{}{Monitor}
+{23040}{}{Terminal}
+{23050}{}{Terminal 2}
+{23060}{}{Camera}
+{24000}{}{[ choose Object ]}
+{24010}{}{Mat}
+{24020}{}{Carpet}
+{25000}{}{[ choose Object ]}
+{25010}{}{Engine}
+{25020}{}{Trash bin}
+{25030}{}{Tire}
+{26000}{}{[ choose Object ]}
+{26010}{}{Enclave Flag}
+{26020}{}{Brotherhood Flag}
+{26030}{}{NCR Flag}
+{26040}{}{Medic Flag}
+{26050}{}{Pirate Flag}
+{26060}{}{Faction flags}
+{26070}{}{Legion Flag}
+{27000}{}{[ choose Object ]}
+{27010}{}{[ Facehugger ]}
+{27020}{}{[ Mr. Pumpkin ]}
+{27030}{}{[ Scarecrow ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Information}
+{4020}{}{Build}
+{4030}{}{[ Place Mining Machine ]}
+{4040}{}{[ Junk Mining Machine ]}
+{4050}{}{[ Exit ] }
+{5000}{}{Each built object costs 1% engineering skill, to share base place object and set extra ability to "map access object", then use science skill on that object to unlock sharing, then person who want get access to location should just use that object}
+{5010}{}{back}
+{5020}{}{logout}
+{6000}{}{...Loading...}
+{6010}{}{wait}
+{6020}{}{logout}
+{7000}{}{...Loading...}
+{7010}{}{wait}
+{7020}{}{logout}
+{8000}{}{...Loading...}
+{8010}{}{wait}
+{8020}{}{logout}
+{9000}{}{select a category}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{Special}
+{10000}{}{Choose extra abilities}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Set it as map access object}
+{10040}{}{No more abilities}
+{11000}{}{Done}
+{11010}{}{continue}
+{11020}{}{logout}
+{12000}{}{Choose object}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}
+{12110}{}{Coffin}
+{12120}{}{Legion Cross 1}
+{12130}{}{Legion Cross 2}
+{13000}{}{Choose direction}
+{13010}{}{North}
+{13020}{}{South}
+{13030}{}{East}
+{13040}{}{West}
+{14000}{}{Choose Object}
+{14010}{}{Car seat}
+{14020}{}{Vault seat}
+{14030}{}{Computer Chair}
+{14040}{}{Plastic Chair}
+{14050}{}{Office Chair}
+{14060}{}{Junk Chair}
+{14070}{}{Wooden Chair}
+{14080}{}{Metal Chair}
+{14090}{}{Jail Chair}
+{14100}{}{armchair}
+{15000}{}{Choose Object}
+{15010}{}{Car Seat}
+{15020}{}{Vault Seat}
+{15030}{}{Computer Chair}
+{15040}{}{Plastic Chair}
+{15050}{}{Office Chair}
+{15060}{}{Junk Chair}
+{15070}{}{Wooden Chair}
+{15080}{}{Metal Chair}
+{15090}{}{Jail Chair}
+{15100}{}{Stone Bench}
+{16000}{}{Choose Object}
+{16010}{}{Car Seat}
+{16020}{}{Vault Seat}
+{16030}{}{Computer Chair}
+{16040}{}{Plastic Chair}
+{16050}{}{Office Chair}
+{16060}{}{Junk Chair}
+{16070}{}{Wooden Chair}
+{16080}{}{Metal Chair}
+{16090}{}{Jail Chair}
+{16100}{}{Wooden Bench}
+{17000}{}{Choose Object}
+{17010}{}{Car Seat}
+{17020}{}{Vault Seat}
+{17030}{}{Computer Chair}
+{17040}{}{Plastic Chair}
+{17050}{}{Office Chair}
+{17060}{}{Junk Chair}
+{17070}{}{Wooden Chair}
+{17080}{}{Metal Chair}
+{17090}{}{Jail Chair}
+{17100}{}{Stone Bench}
+{18000}{}{System error, need update version, coming SOON tm}
+{19000}{}{Choose Object}
+{19010}{}{Stone Grave}
+{19020}{}{forge}
+{20000}{}{Choose Object}
+{20010}{}{Wooden Table}
+{20020}{}{Bar table}
+{20030}{}{Metal Table}
+{21000}{}{Choose Object}
+{21010}{}{Military Bed}
+{21020}{}{Arroyo Bed}
+{21030}{}{Arroyo Bed 2}
+{21040}{}{Junk bed}
+{21050}{}{Junk bed 2}
+{22000}{}{Choose Object}
+{22010}{}{House Lamp}
+{22020}{}{Street Lamp}
+{22030}{}{Fire wood}
+{22040}{}{Vault City Lamp}
+{23000}{}{Choose Object}
+{23010}{}{Computer 1}
+{23020}{}{Computer 2}
+{23030}{}{Monitor}
+{23040}{}{Terminal}
+{23050}{}{Terminal 2}
+{23060}{}{Camera}
+{24000}{}{Choose Object}
+{24010}{}{Mat}
+{24020}{}{Carpet}
+{25000}{}{Choose Object}
+{25010}{}{Engine}
+{25020}{}{Trash bin}
+{25030}{}{Tire}
+{26000}{}{Choose Object}
+{26010}{}{Enclave Flag}
+{26020}{}{Brotherhood Flag}
+{26030}{}{NCR Flag}
+{26040}{}{Medic Flag}
+{26050}{}{Pirate Flag}
+{26060}{}{faction flags}
+{26070}{}{Legion Flag}
+{27000}{}{Choose Object.}
+{27010}{}{[ Facehugger ]}
+{27020}{}{[ Mr. Pumpkin ]}
+{27030}{}{[ Scarecrow ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Information}
+{4020}{}{Build}
+{4030}{}{[ Place Mining Machine ]}
+{4040}{}{[ Junk Mining Machine ]}
+{4050}{}{[ Exit ] }
+{5000}{}{Each built object costs 1% engineering skill, to share base place object and set extra ability to "map access object", then use science skill on that object to unlock sharing, then person who want get access to location should just use that object}
+{5010}{}{back}
+{5020}{}{logout}
+{6000}{}{...Loading...}
+{6010}{}{wait}
+{6020}{}{logout}
+{7000}{}{...Loading...}
+{7010}{}{wait}
+{7020}{}{logout}
+{8000}{}{...Loading...}
+{8010}{}{wait}
+{8020}{}{logout}
+{9000}{}{select a category}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{Special}
+{10000}{}{Choose extra abilities}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Set it as map access object}
+{10040}{}{No more abilities}
+{11000}{}{Done}
+{11010}{}{continue}
+{11020}{}{logout}
+{12000}{}{Choose object}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}
+{12110}{}{Coffin}
+{12120}{}{Legion Cross 1}
+{12130}{}{Legion Cross 2}
+{13000}{}{Choose direction}
+{13010}{}{North}
+{13020}{}{South}
+{13030}{}{East}
+{13040}{}{West}
+{14000}{}{Choose Object}
+{14010}{}{Car seat}
+{14020}{}{Vault seat}
+{14030}{}{Computer Chair}
+{14040}{}{Plastic Chair}
+{14050}{}{Office Chair}
+{14060}{}{Junk Chair}
+{14070}{}{Wooden Chair}
+{14080}{}{Metal Chair}
+{14090}{}{Jail Chair}
+{14100}{}{armchair}
+{15000}{}{Choose Object}
+{15010}{}{Car Seat}
+{15020}{}{Vault Seat}
+{15030}{}{Computer Chair}
+{15040}{}{Plastic Chair}
+{15050}{}{Office Chair}
+{15060}{}{Junk Chair}
+{15070}{}{Wooden Chair}
+{15080}{}{Metal Chair}
+{15090}{}{Jail Chair}
+{15100}{}{Stone Bench}
+{16000}{}{Choose Object}
+{16010}{}{Car Seat}
+{16020}{}{Vault Seat}
+{16030}{}{Computer Chair}
+{16040}{}{Plastic Chair}
+{16050}{}{Office Chair}
+{16060}{}{Junk Chair}
+{16070}{}{Wooden Chair}
+{16080}{}{Metal Chair}
+{16090}{}{Jail Chair}
+{16100}{}{Wooden Bench}
+{17000}{}{Choose Object}
+{17010}{}{Car Seat}
+{17020}{}{Vault Seat}
+{17030}{}{Computer Chair}
+{17040}{}{Plastic Chair}
+{17050}{}{Office Chair}
+{17060}{}{Junk Chair}
+{17070}{}{Wooden Chair}
+{17080}{}{Metal Chair}
+{17090}{}{Jail Chair}
+{17100}{}{Stone Bench}
+{18000}{}{System error, need update version, coming SOON tm}
+{19000}{}{Choose Object}
+{19010}{}{Stone Grave}
+{19020}{}{forge}
+{20000}{}{Choose Object}
+{20010}{}{Wooden Table}
+{20020}{}{Bar table}
+{20030}{}{Metal Table}
+{21000}{}{Choose Object}
+{21010}{}{Military Bed}
+{21020}{}{Arroyo Bed}
+{21030}{}{Arroyo Bed 2}
+{21040}{}{Junk bed}
+{21050}{}{Junk bed 2}
+{22000}{}{Choose Object}
+{22010}{}{House Lamp}
+{22020}{}{Street Lamp}
+{22030}{}{Fire wood}
+{22040}{}{Vault City Lamp}
+{23000}{}{Choose Object}
+{23010}{}{Computer 1}
+{23020}{}{Computer 2}
+{23030}{}{Monitor}
+{23040}{}{Terminal}
+{23050}{}{Terminal 2}
+{23060}{}{Camera}
+{24000}{}{Choose Object}
+{24010}{}{Mat}
+{24020}{}{Carpet}
+{25000}{}{Choose Object}
+{25010}{}{Engine}
+{25020}{}{Trash bin}
+{25030}{}{Tire}
+{26000}{}{Choose Object}
+{26010}{}{Enclave Flag}
+{26020}{}{Brotherhood Flag}
+{26030}{}{NCR Flag}
+{26040}{}{Medic Flag}
+{26050}{}{Pirate Flag}
+{26060}{}{faction flags}
+{26070}{}{Legion Flag}
+{27000}{}{Choose Object.}
+{27010}{}{[ Facehugger ]}
+{27020}{}{[ Mr. Pumpkin ]}
+{27030}{}{[ Scarecrow ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Information}
+{4020}{}{Build}
+{4030}{}{[ Place Mining Machine ]}
+{4040}{}{[ Junk Mining Machine ]}
+{4050}{}{[ Exit ] }
+{5000}{}{Each built object costs 1% engineering skill, to share base place object and set extra ability to "map access object", then use science skill on that object to unlock sharing, then person who want get access to location should just use that object}
+{5010}{}{back}
+{5020}{}{logout}
+{6000}{}{...Loading...}
+{6010}{}{wait}
+{6020}{}{logout}
+{7000}{}{...Loading...}
+{7010}{}{wait}
+{7020}{}{logout}
+{8000}{}{...Loading...}
+{8010}{}{wait}
+{8020}{}{logout}
+{9000}{}{select a category}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{Special}
+{10000}{}{Choose extra abilities}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Set it as map access object}
+{10040}{}{No more abilities}
+{11000}{}{Done}
+{11010}{}{continue}
+{11020}{}{logout}
+{12000}{}{Choose object}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}
+{12110}{}{Coffin}
+{12120}{}{Legion Cross 1}
+{12130}{}{Legion Cross 2}
+{13000}{}{Choose direction}
+{13010}{}{North}
+{13020}{}{South}
+{13030}{}{East}
+{13040}{}{West}
+{14000}{}{Choose Object}
+{14010}{}{Car seat}
+{14020}{}{Vault seat}
+{14030}{}{Computer Chair}
+{14040}{}{Plastic Chair}
+{14050}{}{Office Chair}
+{14060}{}{Junk Chair}
+{14070}{}{Wooden Chair}
+{14080}{}{Metal Chair}
+{14090}{}{Jail Chair}
+{14100}{}{armchair}
+{15000}{}{Choose Object}
+{15010}{}{Car Seat}
+{15020}{}{Vault Seat}
+{15030}{}{Computer Chair}
+{15040}{}{Plastic Chair}
+{15050}{}{Office Chair}
+{15060}{}{Junk Chair}
+{15070}{}{Wooden Chair}
+{15080}{}{Metal Chair}
+{15090}{}{Jail Chair}
+{15100}{}{Stone Bench}
+{16000}{}{Choose Object}
+{16010}{}{Car Seat}
+{16020}{}{Vault Seat}
+{16030}{}{Computer Chair}
+{16040}{}{Plastic Chair}
+{16050}{}{Office Chair}
+{16060}{}{Junk Chair}
+{16070}{}{Wooden Chair}
+{16080}{}{Metal Chair}
+{16090}{}{Jail Chair}
+{16100}{}{Wooden Bench}
+{17000}{}{Choose Object}
+{17010}{}{Car Seat}
+{17020}{}{Vault Seat}
+{17030}{}{Computer Chair}
+{17040}{}{Plastic Chair}
+{17050}{}{Office Chair}
+{17060}{}{Junk Chair}
+{17070}{}{Wooden Chair}
+{17080}{}{Metal Chair}
+{17090}{}{Jail Chair}
+{17100}{}{Stone Bench}
+{18000}{}{System error, need update version, coming SOON tm}
+{19000}{}{Choose Object}
+{19010}{}{Stone Grave}
+{19020}{}{forge}
+{20000}{}{Choose Object}
+{20010}{}{Wooden Table}
+{20020}{}{Bar table}
+{20030}{}{Metal Table}
+{21000}{}{Choose Object}
+{21010}{}{Military Bed}
+{21020}{}{Arroyo Bed}
+{21030}{}{Arroyo Bed 2}
+{21040}{}{Junk bed}
+{21050}{}{Junk bed 2}
+{22000}{}{Choose Object}
+{22010}{}{House Lamp}
+{22020}{}{Street Lamp}
+{22030}{}{Fire wood}
+{22040}{}{Vault City Lamp}
+{23000}{}{Choose Object}
+{23010}{}{Computer 1}
+{23020}{}{Computer 2}
+{23030}{}{Monitor}
+{23040}{}{Terminal}
+{23050}{}{Terminal 2}
+{23060}{}{Camera}
+{24000}{}{Choose Object}
+{24010}{}{Mat}
+{24020}{}{Carpet}
+{25000}{}{Choose Object}
+{25010}{}{Engine}
+{25020}{}{Trash bin}
+{25030}{}{Tire}
+{26000}{}{Choose Object}
+{26010}{}{Enclave Flag}
+{26020}{}{Brotherhood Flag}
+{26030}{}{NCR Flag}
+{26040}{}{Medic Flag}
+{26050}{}{Pirate Flag}
+{26060}{}{faction flags}
+{26070}{}{Legion Flag}
+{27000}{}{Choose Object.}
+{27010}{}{[ Facehugger ]}
+{27020}{}{[ Mr. Pumpkin ]}
+{27030}{}{[ Scarecrow ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Information}
+{4020}{}{Build}
+{4030}{}{[ Place Mining Machine ]}
+{4040}{}{[ Junk Mining Machine ]}
+{4050}{}{[ Exit ] }
+{5000}{}{Each built object costs 1% engineering skill, to share base place object and set extra ability to "map access object", then use science skill on that object to unlock sharing, then person who want get access to location should just use that object}
+{5010}{}{back}
+{5020}{}{logout}
+{6000}{}{...Loading...}
+{6010}{}{wait}
+{6020}{}{logout}
+{7000}{}{...Loading...}
+{7010}{}{wait}
+{7020}{}{logout}
+{8000}{}{...Loading...}
+{8010}{}{wait}
+{8020}{}{logout}
+{9000}{}{select a category}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{Special}
+{10000}{}{Choose extra abilities}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Set it as map access object}
+{10040}{}{No more abilities}
+{11000}{}{Done}
+{11010}{}{continue}
+{11020}{}{logout}
+{12000}{}{Choose object}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}
+{12110}{}{Coffin}
+{12120}{}{Legion Cross 1}
+{12130}{}{Legion Cross 2}
+{13000}{}{Choose direction}
+{13010}{}{North}
+{13020}{}{South}
+{13030}{}{East}
+{13040}{}{West}
+{14000}{}{Choose Object}
+{14010}{}{Car seat}
+{14020}{}{Vault seat}
+{14030}{}{Computer Chair}
+{14040}{}{Plastic Chair}
+{14050}{}{Office Chair}
+{14060}{}{Junk Chair}
+{14070}{}{Wooden Chair}
+{14080}{}{Metal Chair}
+{14090}{}{Jail Chair}
+{14100}{}{armchair}
+{15000}{}{Choose Object}
+{15010}{}{Car Seat}
+{15020}{}{Vault Seat}
+{15030}{}{Computer Chair}
+{15040}{}{Plastic Chair}
+{15050}{}{Office Chair}
+{15060}{}{Junk Chair}
+{15070}{}{Wooden Chair}
+{15080}{}{Metal Chair}
+{15090}{}{Jail Chair}
+{15100}{}{Stone Bench}
+{16000}{}{Choose Object}
+{16010}{}{Car Seat}
+{16020}{}{Vault Seat}
+{16030}{}{Computer Chair}
+{16040}{}{Plastic Chair}
+{16050}{}{Office Chair}
+{16060}{}{Junk Chair}
+{16070}{}{Wooden Chair}
+{16080}{}{Metal Chair}
+{16090}{}{Jail Chair}
+{16100}{}{Wooden Bench}
+{17000}{}{Choose Object}
+{17010}{}{Car Seat}
+{17020}{}{Vault Seat}
+{17030}{}{Computer Chair}
+{17040}{}{Plastic Chair}
+{17050}{}{Office Chair}
+{17060}{}{Junk Chair}
+{17070}{}{Wooden Chair}
+{17080}{}{Metal Chair}
+{17090}{}{Jail Chair}
+{17100}{}{Stone Bench}
+{18000}{}{System error, need update version, coming SOON tm}
+{19000}{}{Choose Object}
+{19010}{}{Stone Grave}
+{19020}{}{forge}
+{20000}{}{Choose Object}
+{20010}{}{Wooden Table}
+{20020}{}{Bar table}
+{20030}{}{Metal Table}
+{21000}{}{Choose Object}
+{21010}{}{Military Bed}
+{21020}{}{Arroyo Bed}
+{21030}{}{Arroyo Bed 2}
+{21040}{}{Junk bed}
+{21050}{}{Junk bed 2}
+{22000}{}{Choose Object}
+{22010}{}{House Lamp}
+{22020}{}{Street Lamp}
+{22030}{}{Fire wood}
+{22040}{}{Vault City Lamp}
+{23000}{}{Choose Object}
+{23010}{}{Computer 1}
+{23020}{}{Computer 2}
+{23030}{}{Monitor}
+{23040}{}{Terminal}
+{23050}{}{Terminal 2}
+{23060}{}{Camera}
+{24000}{}{Choose Object}
+{24010}{}{Mat}
+{24020}{}{Carpet}
+{25000}{}{Choose Object}
+{25010}{}{Engine}
+{25020}{}{Trash bin}
+{25030}{}{Tire}
+{26000}{}{Choose Object}
+{26010}{}{Enclave Flag}
+{26020}{}{Brotherhood Flag}
+{26030}{}{NCR Flag}
+{26040}{}{Medic Flag}
+{26050}{}{Pirate Flag}
+{26060}{}{faction flags}
+{26070}{}{Legion Flag}
+{27000}{}{Choose Object.}
+{27010}{}{[ Facehugger ]}
+{27020}{}{[ Mr. Pumpkin ]}
+{27030}{}{[ Scarecrow ]}
+

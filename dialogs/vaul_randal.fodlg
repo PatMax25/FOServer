@@ -1,0 +1,96 @@
+[comment]
+
+Most of it is from F2
+#2(100) and #100+ are mine
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var n name_mem_npc_player = 0 #
+10 1020 D _var n name_mem_npc_player > 0 @
+2 2000 None 0 #
+3 2010 D _var p factions_player_faction = 6 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+20 2020 D _script dialog@d_IsNotMember 0  #
+0 2030 @
+3 3000 None 0 #
+65506 3010 #
+4 3020 #
+0 3030 #
+600 3040 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+0 5010 @
+600 6000 None 0 #
+601 6010 D _script item_level@d_wearing_armor 0  #
+602 6020 D _script item_level@d_wearing_weapon 0  #
+0 6030 @
+601 7000 item_level@perks_info 0 #
+601 7010 D _script item_level@d_have_perk 1 1 D _script dialog@d_havepropermoney 1 15000 R _script dialog@r_RemoveMoney 1 15000 R _script item_level@r_roll_perk 1 1 #
+601 7020 D _script item_level@d_have_perk 1 2 D _script dialog@d_havepropermoney 1 100000 R _script dialog@r_RemoveMoney 1 100000 R _script item_level@r_roll_perk 1 2 #
+601 7030 D _script item_level@d_have_perk 1 3 D _script dialog@d_havepropermoney 1 200000 R _script dialog@r_RemoveMoney 1 200000 R _script item_level@r_roll_perk 1 3 #
+601 7040 D _script item_level@d_have_perk 1 4 D _script dialog@d_havepropermoney 1 1250000 R _script dialog@r_RemoveMoney 1 1250000 R _script item_level@r_roll_perk 1 4 #
+601 7050 D _script item_level@d_have_perk 1 5 D _script dialog@d_havepropermoney 1 6000000 R _script dialog@r_RemoveMoney 1 6000000 R _script item_level@r_roll_perk 1 5 #
+601 7060 D _script item_level@d_have_perk 1 6 D _script dialog@d_havepropermoney 1 50000000 R _script dialog@r_RemoveMoney 1 50000000 R _script item_level@r_roll_perk 1 6 #
+601 7070 D _script item_level@d_have_perk 1 7 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_roll_perk 1 7 #
+4 7080 #
+0 7090 @
+602 8000 item_level@perks_info 0 #
+602 8010 D _script item_level@d_have_perk 1 8 D _script dialog@d_havepropermoney 1 10000 R _script dialog@r_RemoveMoney 1 10000 R _script item_level@r_roll_perk 1 8 #
+602 8020 D _script item_level@d_have_perk 1 9 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_roll_perk 1 9 #
+602 8030 D _script item_level@d_have_perk 1 10 D _script dialog@d_havepropermoney 1 150000 R _script dialog@r_RemoveMoney 1 150000 R _script item_level@r_roll_perk 1 10 #
+602 8040 D _script item_level@d_have_perk 1 11 D _script dialog@d_havepropermoney 1 1000000 R _script dialog@r_RemoveMoney 1 1000000 R _script item_level@r_roll_perk 1 11 #
+602 8050 D _script item_level@d_have_perk 1 12 D _script dialog@d_havepropermoney 1 5000000 R _script dialog@r_RemoveMoney 1 5000000 R _script item_level@r_roll_perk 1 12 #
+602 8060 D _script item_level@d_have_perk 1 13 D _script dialog@d_havepropermoney 1 50000000 R _script dialog@r_RemoveMoney 1 50000000 R _script item_level@r_roll_perk 1 13 #
+602 8070 D _script item_level@d_have_perk 1 14 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_roll_perk 1 14 #
+4 8080 #
+0 8090 &
+
+[engl]
+{100}{}{Randal}
+{200}{}{You see Randal, the Chief Amenities Officer.}
+{210}{}{You see a middle-aged man with thinning black hair.}
+{1000}{}{Predialogue installations}
+{1010}{}{unknown}
+{1020}{}{known}
+{2000}{}{Hello there, stranger. Always a pleasure to see a new face. Name's Randal... I'm the Chief Amenities Officer. Need something?}
+{2010}{}{Well, it depends. What is this place?}
+{2020}{}{Well, it depends. What is this place?}
+{2030}{}{Nothing today, actually. [ end dialogue ]}
+{3000}{}{This is the Amenities Office. Got your typical stock... basic living necessities, some books, "how to" manuals, some tools, stimpacks, medical supplies. You know, this and that. Also offer a upgrades to armors or weapons}
+{3010}{}{Sounds great. Can I see what you have in stock? [ Barter ]}
+{3020}{}{Mind if I ask you some other questions?}
+{3030}{}{I may be back some other time. [ end dialogue ]}
+{3040}{}{I want to use your stuff modification services}
+{4000}{}{Not at all. What's on your mind?}
+{4010}{}{Do you know where I could find any other Vaults?}
+{5000}{}{You could go scan the Vault Central Computer, see if it has any coordinates for any other Vaults. I doubt it, but no harm in checking.}
+{5010}{}{Thanks for the information. [ end dialogue ]}
+{6000}{}{Yeah, is it about weapons or armor?}
+{6010}{}{Armor}
+{6020}{}{Weapon}
+{6030}{}{Nevermind [ end dialogue ]}
+{7000}{}{And what you need to change?}
+{7010}{}{@lex perk1@ [15 000 currency]}
+{7020}{}{@lex perk2@ [100 000 currency]}
+{7030}{}{@lex perk3@ [200 000 currency]}
+{7040}{}{@lex perk4@ [1 250 000 currency]}
+{7050}{}{@lex perk5@ [6 000 000 currency]}
+{7060}{}{@lex perk6@ [50 000 000 currency]}
+{7070}{}{@lex perk7@ [50 000 currency]}
+{7080}{}{Let's talk about something else?}
+{7090}{}{That's all [ end dialogue ]}
+{8000}{}{And what you need to change?}
+{8010}{}{@lex perk8@ [10 000 currency]}
+{8020}{}{@lex perk9@ [75 000 currency]}
+{8030}{}{@lex perk10@ [150 000 currency]}
+{8040}{}{@lex perk11@ [1 000 000 currency]}
+{8050}{}{@lex perk12@ [5 000 000 currency]}
+{8060}{}{@lex perk13@ [50 000 000 currency]}
+{8070}{}{@lex perk14@ [50 000 currency]}
+{8080}{}{Let's talk about something else?}
+{8090}{}{That's all [ end dialogue ]}
+

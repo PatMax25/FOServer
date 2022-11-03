@@ -1,0 +1,1204 @@
+//FOnline 3
+//KompreSor
+//Infinity Dungeon
+#include "_macros.fos"
+#include "utils.fos"
+import void SpawnMobs(Map& map, uint kind, uint tier, int howmuch, uint level) from "daily_quest";
+//import bool LockerClose(Item& item) from "lockers";
+import void AddBonusOrNot(Item@ it) from "item_bonus";
+import void start(Critter& cr, int type, int level, int timeScale) from "mob_wave";
+import void CallMobs(Map& map, int howmany, int whatkind, int whattype, uint16 x, uint16 y) from "mob_dynamic";
+#include "item_pools_h.fos"
+//every biom diffrent scenery
+//dungeon.fopro
+    array<uint> trash =
+        {
+        27000,27001,27002,27003,27004,27005,27006,27007,27008,27009,
+        27010,27011,27012,27013,27014,27015,27016,27017,27018, 27019,
+        27020,27021,27022,27023,27024,27025,27026,27027,27028, 27029,
+        27030,27031,27032,27033,27034,27035,27036,27037,27038, 27039,
+        27040,27041,27042,27043,27044,27045,27046,27047,27048, 27049,
+        27050,27051,27052,27053,27054,27055,27056,27057,27058, 27059,
+        27061,27061,27062,27063,27064,27065,27066,27067,27068,27069,
+        27070,27071,27072,27073,27074,27075,27076,27077,27078,27079,
+        27080,27081,27082,27083,27084,27085,27086,27087,27088,27089,
+        27090,27091,27092,27093,27094,27095,27096,27097,27098,27099,
+        27100,27101,27102,27103,27104,27105,27106,27107,27108,27109,
+        27110,27111,27112,27113,27114,27115,27116,27117,27118,27119,
+        27120,27121,27122,27123,27124,27125,27126,27127,27128,27129,
+        27130,27131,27132,27133,27134,27135,27136,27137,27138,27139,27140
+        };
+
+    array<uint> rocks =
+        {
+        27016, 27017, 27020, 27021, 27063,27064,27065,27066,27067,
+        27071,27072,27073,27074,27075,27076,27077,27078,27079,27080,
+        27090,27091,27092,27093,27094,27095,27096,27097,27098,27099,
+        27100,27101,27102,27103,27104,27105,27106,27107,27108,27109,
+        27110,27111,27112,27113,27114,27115,27116,27117,27118,27119,
+        27120,27121,27122,27123,27124,27125,27126,27127,27128,27129,
+        27130,27131,27132,27133,27134,27135,27136,27137,27138,27139,27140
+        };
+	array<uint> oldtech =
+        {
+        27200,27201,27205,27206,27203,27204,27205,27204,27205,27204,27205,27204
+        };	
+	array<uint> oldtechside =
+        {
+        27207,27208,27209,27210,27211,27212,27213,27211,27212,27213,27211,27212,27213
+        };	
+	array<uint> tech =
+        {
+        27214,27215,27216,27217,27217,27217,27217,27217,27217,27217,27217,27217
+        };	
+	array<uint> techside =
+        {
+        27218,27220,27220,27221,27221,27221,27221,27221,27221,27221,27221,27221,27221
+        };	
+void init_sewer(Map& map, bool firstTime)
+{
+	SpawnMobsOnMap(map,1);
+    SpawnRandomScenery(map, 420, 96, 1);
+    SpawnRandomScenery(map, 999, 1, 999);
+	SpawnRandomScenery(map, 420, 99, 100);
+    
+    
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterSewer");
+}
+
+void init_sewer_boss(Map& map, bool firstTime)
+{
+	SpawnMobsOnMap(map,1);
+    SpawnRandomScenery(map, 420, 96, 1);
+    SpawnRandomScenery(map, 999, 1, 999);
+	SpawnRandomScenery(map, 420, 99, 100);
+   // SpawnLoot(map,1);
+    
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterSewer");
+}
+
+void init_event_sewer(Map& map, bool firstTime)
+{
+    SpawnRandomScenery(map, 420, 66, 11);
+  //  SpawnLoot(map,1);
+}
+
+void _OnEnterSewer(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+	SpawnLoot(map,1,cr.Param[PE_PVE_LOOTER]);
+    cr.ParamBase[ST_TIER_MAP] = 1;
+    start(cr,0,0,400);
+    }
+}
+
+void init_outpost1(Map& map, bool firstTime)
+{
+   // SpawnRandomScenery(map, 420, 96, 1);
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnteroutpost");
+}
+
+void _OnEnteroutpost(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 1;
+    }
+}
+
+void init_metro(Map& map, bool firstTime)
+{
+	SpawnMobsOnMap(map,2);
+    SpawnRandomScenery(map, 420, 75, 1);
+    SpawnRandomScenery(map, 450, 88, 50);
+    SpawnRandomScenery(map, 999, 6, 999);
+	SpawnRandomScenery(map, 420, 99, 100);
+   // SpawnLoot(map,2);
+    
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterMetro");
+}
+
+
+void init_metro_boss(Map& map, bool firstTime)
+{
+	SpawnMobsOnMap(map,2);
+    SpawnRandomScenery(map, 420, 75, 1);
+    SpawnRandomScenery(map, 450, 88, 50);
+    SpawnRandomScenery(map, 999, 6, 999);
+	SpawnRandomScenery(map, 420, 99, 100);
+   // SpawnLoot(map,2);
+    
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterMetro");
+}
+
+void _OnEnterMetro(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 2;
+	SpawnLoot(map,2,cr.Param[PE_PVE_LOOTER]);
+    start(cr,7,0,400);
+    }
+}
+
+void init_outpost2(Map& map, bool firstTime)
+{
+   // SpawnRandomScenery(map, 420, 96, 1);
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnteroutpost2");
+}
+
+void _OnEnteroutpost2(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 2;
+    }
+}
+
+void init_cave(Map& map, bool firstTime)
+{
+	SpawnMobsOnMap(map,3);
+    SpawnRandomScenery(map, 999, 14, 999);
+   // SpawnLoot(map,3);
+    
+	
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEntercave");
+}
+
+void _OnEntercave(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 3;
+	SpawnLoot(map,cr.Param[ST_TIER_MAP],cr.Param[PE_PVE_LOOTER]);
+    start(cr,7,0,500);
+    }
+}
+
+void init_outpost3(Map& map, bool firstTime)
+{
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnteroutpost3");
+}
+
+void _OnEnteroutpost3(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 3;
+    }
+}
+void init_cavedeep(Map& map, bool firstTime)
+{
+    SpawnMobsOnMap(map,4);
+   SpawnRandomScenery(map, 420, 91, 2);
+    SpawnRandomScenery(map, 999, 20, 999);
+	SpawnRandomScenery(map, 420, 99, 100);
+   // SpawnLoot(map,4);
+   
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEntercavedeep");
+}
+
+void _OnEntercavedeep(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 4;
+	SpawnLoot(map,cr.Param[ST_TIER_MAP],cr.Param[PE_PVE_LOOTER]);
+    start(cr,7,0,400);
+    }
+}
+
+void init_outpost4(Map& map, bool firstTime)
+{
+   // SpawnRandomScenery(map, 420, 91, 2);
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnteroutpost4");
+}
+
+void _OnEnteroutpost4(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 4;
+    }
+}
+void init_temple(Map& map, bool firstTime)
+{
+        SpawnMobsOnMap(map,5);
+	SpawnRandomScenery(map, 420, 86, 2);
+    SpawnRandomScenery(map, 420, 99, 50);
+    SpawnRandomScenery(map, 999, 30, 999);
+	SpawnRandomScenery(map, 420, 99, 100);
+ //   SpawnLoot(map,5);
+
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterTemple");
+}
+
+void _OnEnterTemple(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 5;
+	SpawnLoot(map,cr.Param[ST_TIER_MAP],cr.Param[PE_PVE_LOOTER]);
+    start(cr,6,0,700);
+    }
+}
+
+void init_ruined_lab(Map& map, bool firstTime)
+{
+    SpawnMobsOnMap(map,6);
+	SpawnRandomScenery(map, 420, 50, 3);
+    SpawnRandomScenery(map, 421, 50, 31);
+    SpawnRandomScenery(map, 999, 50, 999);
+	SpawnRandomScenery(map, 420, 99, 100);
+	SpawnRandomScenery(map, 421, 99, 100);
+   // SpawnLoot(map,6);
+    
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterRuinedLab");
+}
+
+void _OnEnterRuinedLab(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 6;
+	SpawnLoot(map,cr.Param[ST_TIER_MAP],cr.Param[PE_PVE_LOOTER]);
+    start(cr,8,0,700);
+    }
+}
+
+void init_lab(Map& map, bool firstTime)
+{
+    SpawnRandomScenery(map, 420, 50, 4);
+    SpawnRandomScenery(map, 421, 50, 41);
+    SpawnRandomScenery(map, 999, 55, 999);
+	SpawnRandomScenery(map, 420, 99, 100);
+	SpawnRandomScenery(map, 421, 99, 100);
+    
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterLab");
+}
+
+void _OnEnterLab(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+	SpawnLoot(map,cr.Param[ST_TIER_MAP],cr.Param[PE_PVE_LOOTER]);
+    start(cr,8,0,500 - cr.Param[ST_TIER_MAP] * 10);
+    }
+}
+
+void init_outpost5(Map& map, bool firstTime)
+{
+   // SpawnRandomScenery(map, 420, 92, 2);
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnteroutpost5");
+}
+
+void _OnEnteroutpost5(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    cr.ParamBase[ST_TIER_MAP] = 5;
+    }
+}
+bool istbmap(Map& map)
+{
+	Location@ loc = map.GetLocation();
+	switch(loc.GetProtoId())
+	{
+	case 615:
+	case 616:
+	case 617:
+	case 618:
+	case 619:
+	case 620:
+	case 645:
+	case 646:
+	case 647:
+	case 648:
+	case 649:
+	case 650:
+	case 675:
+	case 676:
+	case 677:
+	case 678:
+	case 679:
+	case 680:
+	case 705:
+	case 706:
+	case 707:
+	case 708:
+	case 709:
+	case 710:
+	case 735:
+	case 736:
+	case 737:
+	case 738:
+	case 739:
+	case 740:	
+	case 765:
+	case 766:
+	case 767:
+	case 768:
+	case 769:
+	case 770:	
+	case 795:
+	case 796:
+	case 797:
+	case 798:
+	case 799:
+	case 800:	
+	return true;
+	default: return false;
+	}
+	return false;
+}
+void SpawnMobsOnMap(Map& map, uint biom)
+{
+    uint level = Random(5,12) * biom;
+    if(biom>2)
+    level = Random(1,4) * biom;
+    uint tier = 1;
+    uint kind = 1;
+    int whatkind = 1;
+	int limitmobs = 0;
+    uint entires = map.CountEntire(150);
+    for( uint i = 0; i <= entires; i++ )
+	{
+	if(limitmobs == 20 && istbmap(map))
+		break;
+	switch(biom)
+    {
+    case 1:
+        {
+        if(Random(0,1)==1)
+        kind = 1;
+        else kind = 3;
+        tier = 1;
+        switch(Random(1,3))
+        {
+        case 1: whatkind = 23; break;
+        case 2: whatkind = 17; break;
+        case 3: whatkind = 15; break;
+        }
+
+        break;
+        }
+    case 2:
+        {
+        switch(Random(1,3))
+        {
+        case 1: kind = 1; tier = Random(1,2); break;
+        case 2: kind = 3; tier = 1; break;
+        case 3: kind = 1; tier = 1; break;
+        }
+        switch(Random(1,3))
+        {
+        case 1: whatkind = 24; break;
+        case 2: whatkind = 18; break;
+        case 3: whatkind = 15; break;
+        }
+        break;
+        }
+    case 3:
+        {
+        switch(Random(1,2))
+        {
+        case 1: kind = 1; tier = Random(2,3); break;
+        case 2: kind = 2; tier = Random(2,3); break;
+        }
+        switch(Random(1,3))
+        {
+        case 1: whatkind = 1; break;
+        case 2: whatkind = 9; break;
+        case 3: whatkind = 24; break;
+        }
+        break;
+        }
+    case 4:
+        {
+        switch(Random(1,3))
+        {
+        case 1: kind = 1; tier = Random(2,4); break;
+        case 2: kind = 2; tier = Random(2,4); break;
+        case 3: kind = 3; tier = Random(2,3); break;
+        }
+        switch(Random(1,3))
+        {
+        case 1: whatkind = 2; break;
+        case 2: whatkind = 7; break;
+        case 3: whatkind = 8; break;
+        }
+        break;
+        }
+    case 5:
+        {
+        switch(Random(1,3))
+        {
+        case 1: kind = 1; tier = Random(3,5); break;
+        case 2: kind = 2; tier = Random(2,4); break;
+        case 3: kind = 3; tier = Random(2,4); break;
+        }
+        switch(Random(1,3))
+        {
+        case 1: whatkind = 22; break;
+        case 2: whatkind = 5; break;
+        case 3: whatkind = 13; break;
+        }
+        break;
+        }
+	case 6:
+        {
+        switch(Random(1,3))
+        {
+        case 1: kind = 4; tier = Random(1,4); break;
+        case 2: kind = 2; tier = Random(3,5); break;
+        case 3: kind = 3; tier = Random(2,5); break;
+        }
+        switch(Random(1,3))
+        {
+        case 1: whatkind = 12; break;
+        case 2: whatkind = 14; break;
+        case 3: whatkind = 20; break;
+        }
+        break;
+        }
+    }
+	if(biom>6)
+	{
+	switch(Random(1,3))
+        {
+        case 1: kind = 4; tier = Random(3,5); break;
+        case 2: kind = 2; tier = Random(4,5); break;
+        case 3: kind = 3; tier = Random(4,5); break;
+        }
+        switch(Random(1,3))
+        {
+        case 1: whatkind = 4; break;
+        case 2: whatkind = 14; break;
+        case 3: whatkind = 20; break;
+		}
+	}
+	uint chance = Random(0,25);
+		if(chance<biom)
+			{
+			SpawnMobs(map, kind, tier, 1, level);
+			limitmobs++;
+			}
+	
+	}
+    uint entir = map.CountEntire(150);
+    uint16 x = 1;
+    uint16 y = 2;
+    for( int i =1; i <= 30; i++ )
+        {
+
+        map.GetEntireCoords(150, Random(0,entir), x, y);
+        map.AddItem(x, y, PID_SPOT_MOB_WAVE, 1);
+
+        }
+	
+	
+    map.GetEntireCoords(150, Random(0,entir), x, y);
+    if(Random(1,2)==1)
+        CallMobs(map, Random(1,10), whatkind, 1, x, y);
+	if(Random(1,1)==1)
+	{
+	array<Critter@> mobs;
+		map.GetCritters(0, FIND_ONLY_NPC | FIND_LIFE_AND_KO, mobs);
+		for(uint16 i = 0; i < mobs.length(); i++)
+		{
+			if(valid(mobs[i]) && mobs[i].Param[ST_NPC_ROLE] != 203 )
+				continue;
+			mobs[i].ParamBase[ST_SUMMONER] = whatkind;
+			mobs[i].ParamBase[ST_NPC_BOSS] = 1;
+			break;
+		}
+			
+	}
+
+}
+void SpawnRandomScenery(Map& map, uint entire, int chance, uint type)
+{
+    uint16 x = 1;
+    uint16 y = 2;
+    uint howmany = map.CountEntire(entire);
+    switch(type)
+    {
+    case 1: //sewers/metro
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,100)>chance)
+        map.AddItem(x, y, trash[Random(0,140)], 1);
+        }
+    break;
+	case 11: //sewers/metro
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+		uint itempid = trash[Random(0,140)];
+        if(Random(1,100)>chance)
+        {Item@ trashy = map.AddItem(x, y,itempid , 1); UNSETFLAG(trashy.Flags, ITEM_SHOOT_THRU); UNSETFLAG(trashy.Flags, ITEM_NO_BLOCK);}
+		//
+        }
+    break;
+    case 2: //deep cave/temple
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,100)>chance)
+        map.AddItem(x, y, rocks[Random(0,69)], 1);
+        }
+    break;
+	case 3: //ruined lab
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,2)==1)
+        map.AddItem(x, y, oldtech[Random(0,3)], 1);
+		else map.AddItem(x, y + 1, oldtech[Random(4,11)], 1);
+		
+        }
+    break;
+	case 31: //ruined lab
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,2)==1)
+        map.AddItem(x - 1, y, oldtechside[Random(0,3)], 1);
+		else  map.AddItem(x + 1, y, oldtechside[Random(4,12)], 1);
+        }
+    break;
+	case 4: //ruined lab
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,2)==1)
+        map.AddItem(x, y, tech[Random(0,2)], 1);
+		else map.AddItem(x, y + 1, tech[Random(3,11)], 1);
+        }
+    break;
+	case 41: //ruined lab
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,2)==1)
+        map.AddItem(x - 1, y, techside[Random(0,2)], 1);
+		else map.AddItem(x + 1, y, techside[Random(3,12)], 1);
+        }
+    break;
+    case 50: //light system
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,100)>chance)
+            {
+            Item@ light = map.AddItem(x, y, PID_ITEM_LIGHT, 1);
+            light.Val0 = 134217471;
+            light.Val1 = Random(33,99);
+            light.Val2 = Random(2,10);
+            light.Val3 = 10;
+            light.Val4 = 1;
+            light.Update();
+            light.SetScript("dynamic_light_source@_InitLightItem");
+            light.Update();
+            }
+        }
+	case 100: //traps
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,100)>chance)
+            {
+			Item@ trap = map.AddItem(x, y, PID_ACTIVE_MINE, 1);
+            trap.TrapValue = Random(1,250);
+            trap.Update();
+            }
+        }
+    case 999: //going to next biom/previous
+        map.GetEntireCoords(entire, 0, x, y);
+        if(Random(1,100)<= 60 - chance)
+            {
+            if(Random(0,1)==1)
+            {
+            Item@ exit = map.AddItem(x, y, 27142, 1);
+            exit.SetScript("dungeon@goDown");
+            exit.Update();
+            }
+            else
+            {
+            Item@ exit = map.AddItem(x, y, 27141, 1);
+            exit.SetScript("dungeon@goUP");
+            exit.Update();
+            }
+            }
+    break;
+    }
+}
+
+void SpawnRandomScenery(Map& map, uint entire, int chance, uint type, Critter& cr)
+{
+    uint16 x = 1;
+    uint16 y = 2;
+    uint howmany = map.CountEntire(entire);
+    if(entire<0)
+     howmany = Random(2,7);
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        if(entire>=0)
+        map.GetEntireCoords(entire, i, x, y);
+        else
+        {
+        x = cr.HexX + Random(-4,4);
+        y = cr.HexY + Random(-4,4);
+        }
+    switch(type)
+    {
+    case 1: //sewers/metro
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,100)>chance)
+        map.AddItem(x, y, trash[Random(0,140)], 1);
+        }
+    break;
+	case 11: //sewers/metro
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+		uint itempid = trash[Random(0,140)];
+        if(Random(1,100)>chance)
+        {Item@ trashy = map.AddItem(x, y,itempid , 1); UNSETFLAG(trashy.Flags, ITEM_SHOOT_THRU); UNSETFLAG(trashy.Flags, ITEM_NO_BLOCK);}
+		//
+        }
+    break;
+    case 2: //deep cave/temple
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,100)>chance)
+        map.AddItem(x, y, rocks[Random(0,69)], 1);
+        }
+    break;
+    case 50: //light system
+    for( uint i = 0; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(entire, i, x, y);
+        if(Random(1,100)>chance)
+            {
+            Item@ light = map.AddItem(x, y, PID_ITEM_LIGHT, 1);
+            light.Val0 = 134217471;
+            light.Val1 = Random(33,99);
+            light.Val2 = Random(2,10);
+            light.Val3 = 10;
+            light.Val4 = 1;
+            light.Update();
+            light.SetScript("dynamic_light_source@_InitLightItem");
+            light.Update();
+            }
+        }
+    case 999: //going to next biom/previous
+        map.GetEntireCoords(entire, 0, x, y);
+        if(Random(1,100)<= 60 - chance)
+            {
+            if(Random(0,1)==1)
+            {
+            Item@ exit = map.AddItem(x, y, 27142, 1);
+            exit.SetScript("dungeon@goDown");
+            exit.Update();
+            }
+            else
+            {
+            Item@ exit = map.AddItem(x, y, 27141, 1);
+            exit.SetScript("dungeon@goUP");
+            exit.Update();
+            }
+            }
+    break;
+        }
+	}
+}
+void warning(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+    if(entered)
+    {
+    player.ShowScreen(SCREEN_DIALOGBOX, 0, "");
+    player.Say(SAY_DIALOGBOX_TEXT, "|0xC95050 Be careful you going to enter infinity dungeon, exit may be hard to find");
+    player.ToKnockout(KNOCKOUT_ANIM2_DEFAULT(true), 0, player.HexX, player.HexY);
+    player.PlaySound("iisxxxx1.acm", true);
+    }
+}
+//main function btw
+void Exit(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+    if(entered && player.IsPlayer())
+    {
+    Map@   map = player.GetMap();
+    uint id = 0;
+    uint mapsi = 285;
+    int locationpid = 600;
+    switch(player.Param[ST_TIER_MAP])
+    {
+    case 1: locationpid = Random(600,614); mapsi = 299; break;
+    case 2: locationpid = Random(630,644); mapsi = 300; break;
+    case 3: locationpid = Random(660,674); mapsi = 301; break;
+    case 4: locationpid = Random(690,704); mapsi = 302; break;
+	case 5: locationpid = Random(720,734); mapsi = 303; break;
+    case 6: locationpid = Random(750,764); mapsi = 304; break;
+	case 7: locationpid = Random(780,794); mapsi = 304; break;
+    }
+	if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+	{
+		switch(player.Param[ST_TIER_MAP])
+		{
+		case 1: locationpid = Random(615,620); mapsi = 299; break;
+		case 2: locationpid = Random(645,650); mapsi = 300; break;
+		case 3: locationpid = Random(675,680); mapsi = 301; break;
+		case 4: locationpid = Random(705,710); mapsi = 302; break;
+		case 5: locationpid = Random(735,740); mapsi = 303; break;
+		case 6: locationpid = Random(765,770); mapsi = 304; break;
+		case 7: locationpid = Random(795,800); mapsi = 304; break;
+		}
+		
+	}
+        uint maptoTP = mapsi;
+        if(Random(1,10)==1)
+        maptoTP = mapsi;
+        else{
+		if(player.Param[ST_TIER_MAP] > 6)
+		{
+		locationpid = Random(780,794); mapsi = 304;
+		}
+        Critter@[] crits;
+        int newloc = CreateLocation(locationpid, player.WorldX, player.WorldY, crits);
+        Location@   loc = GetLocation(newloc);
+        if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+			SetTurnBasedAvailability(loc);
+        array<Map@> maps;
+        loc.GetMaps(maps);
+		if(!valid(maps[0]))
+		maptoTP = mapsi;
+		else maptoTP = maps[0].Id;
+		if(player.Param[ST_TIER_MAP] > 6)
+		{
+		//locationpid = Random(780,794); mapsi = 478846;
+	//	SpawnLoot(maps[0],player.Param[ST_TIER_MAP]);
+		
+		SpawnMobsOnMap(maps[0],player.Param[ST_TIER_MAP]);
+		}
+        }
+        array<Critter@> followers;
+        uint            num = player.GetFollowGroup(FIND_ALL, followers);
+            for(uint i = 0; i < num; i++)
+            {
+
+                followers[i].TransitToMap(maptoTP, 0);
+            }
+        player.TransitToMap(maptoTP, 0);
+		AddScore(player, SCORE_DUNGEON, player.Param[ST_TIER_MAP]);
+    }
+}
+
+void Exit_init(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+    if(entered && player.IsPlayer())
+    {
+    Map@   map = player.GetMap();
+    uint id = 0;
+    uint mapsi = Random(0,14);
+    int locationpid = Random(600,614);
+	if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+		locationpid = Random(615,620);
+        Critter@[] crits;
+        int newloc = CreateLocation(locationpid, player.WorldX, player.WorldY, crits);
+        Location@   loc = GetLocation(newloc);
+        if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(loc);
+        array<Map@> maps;
+        loc.GetMaps(maps);
+        array<Critter@> followers;
+        uint            num = player.GetFollowGroup(FIND_ALL, followers);
+            for(uint i = 0; i < num; i++)
+            {
+
+                followers[i].TransitToMap(maps[0].Id, 0);
+            }
+            player.TransitToMap(maps[0].Id, 0);
+    }
+}
+
+void goUP(Item& item, bool firstTime)
+{
+
+    SETFLAG(item.Flags, ITEM_CAN_USE);
+    //SETFLAG(item.Flags, ITEM_CAN_PICKUP);
+    item.Update();
+    item.SetEvent(ITEM_EVENT_SKILL, "_Use");
+}
+
+bool _Use(Item& flag, Critter& player, int skill)
+{
+    if(player.IsPlayer())
+    {
+    Map@   map = player.GetMap();
+    uint id = 0;
+    uint mapsi = Random(0,14);
+    int locationpid = 600;
+    switch(player.Param[ST_TIER_MAP])
+    {
+    case 1: locationpid = Random(630,644); break;
+    case 2: locationpid = Random(660,674); break;
+    case 3: locationpid = Random(690,704); break;
+    case 4: locationpid = Random(720,734); break;///case 4: locationpid = Random(720,734); break;
+    case 5: locationpid = Random(750,764); break; //ruined vault todo
+	case 6: locationpid = Random(780,794); break; //ruined vault todo
+
+    }
+	if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+	{
+		switch(player.Param[ST_TIER_MAP])
+		{
+		case 1: locationpid = Random(645,650); break;
+		case 2: locationpid = Random(675,680); break;
+		case 3: locationpid = Random(705,710); break;
+		case 4: locationpid = Random(735,740); break;
+		case 5: locationpid = Random(765,770); break;
+		case 6: locationpid = Random(795,800); break;
+		}
+		
+	} 
+	if(player.Param[ST_TIER_MAP] > 6)
+	{
+		locationpid = Random(780,794);
+		player.ParamBase[ST_TIER_MAP] += 1;
+		if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+			locationpid = Random(795,800);
+	}
+        Critter@[] crits;
+        int newloc = CreateLocation(locationpid, player.WorldX, player.WorldY, crits);
+        Location@   loc = GetLocation(newloc);
+        if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(loc);
+        array<Map@> maps;
+        loc.GetMaps(maps);
+        array<Critter@> followers;
+        uint            num = player.GetFollowGroup(FIND_ALL, followers);
+            for(uint i = 0; i < num; i++)
+            {
+
+                followers[i].TransitToMap(maps[0].Id, 0);
+            }
+            player.TransitToMap(maps[0].Id, 0);
+    }
+    return true;
+}
+void goEnter(Item& item, bool firstTime)
+{
+
+    SETFLAG(item.Flags, ITEM_CAN_USE);
+    //SETFLAG(item.Flags, ITEM_CAN_PICKUP);
+    item.Update();
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseEnter");
+}
+
+bool _UseEnter(Item& flag, Critter& player, int skill)
+{
+    if(player.IsPlayer())
+    {
+    Map@   map = player.GetMap();
+    uint locationpid = Random(600,614);
+	if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+			locationpid = Random(615,620);
+
+        Critter@[] crits;
+        int newloc = CreateLocation(locationpid, player.WorldX, player.WorldY, crits);
+        Location@   loc = GetLocation(newloc);
+        if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(loc);
+        array<Map@> maps;
+        loc.GetMaps(maps);
+        array<Critter@> followers;
+        uint            num = player.GetFollowGroup(FIND_ALL, followers);
+            for(uint i = 0; i < num; i++)
+            {
+
+                followers[i].TransitToMap(maps[0].Id, 0);
+            }
+            player.TransitToMap(maps[0].Id, 0);
+    }
+    return true;
+}
+
+void goDown(Item& item, bool firstTime)
+{
+
+    SETFLAG(item.Flags, ITEM_CAN_USE);
+    //SETFLAG(item.Flags, ITEM_CAN_PICKUP);
+    item.Update();
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseDown");
+	
+	
+}
+
+bool _UseDown(Item& flag, Critter& player, int skill)
+{
+    if(player.IsPlayer())
+    {
+    Map@   map = player.GetMap();
+    uint id = 0;
+    int locationpid = 0;
+    uint mapsi = Random(0,14);
+    bool exit = false;
+    switch(player.Param[ST_TIER_MAP])
+    {
+    case 1: exit = true; break;
+    case 2: locationpid = Random(600,614); break;
+    case 3: locationpid = Random(630,644); break;
+    case 4: locationpid = Random(660,674); break; //cave todo
+    case 5: locationpid = Random(690,704); break; //cave todo
+	case 6: locationpid = Random(720,734); break; //cave todo
+	case 7: locationpid = Random(750,764); break; //cave todo
+    }
+	if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+	{
+		switch(player.Param[ST_TIER_MAP])
+		{
+		case 1: exit = true; break;
+		case 2: locationpid = Random(615,620); mapsi = 331; break; // metro
+		case 3: locationpid = Random(645,650); mapsi = 332; break;
+		case 4: locationpid = Random(675,680); mapsi = 333; break;
+		case 5: locationpid = Random(705,710); mapsi = 334; break;
+		case 6: locationpid = Random(735,740); mapsi = 334; break;
+		case 7: locationpid = Random(765,770); mapsi = 336; break;
+		}
+		
+	}
+	if(player.Param[ST_TIER_MAP] > 7)
+	{
+		locationpid = Random(780,794);
+		player.ParamBase[ST_TIER_MAP] -= 1;
+		if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+			locationpid = Random(795,800);
+	}
+        Critter@[] crits;
+        if(!exit)
+        {
+        int newloc = CreateLocation(locationpid, player.WorldX, player.WorldY, crits);
+        Location@   loc = GetLocation(newloc);
+        if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(loc);
+        array<Map@> maps;
+        loc.GetMaps(maps);
+        array<Critter@> followers;
+        uint            num = player.GetFollowGroup(FIND_ALL, followers);
+            for(uint i = 0; i < num; i++)
+            {
+
+                followers[i].TransitToMap(maps[0].Id, 0);
+            }
+            player.TransitToMap(maps[0].Id, 0);
+            return true;
+        }
+        else
+        {
+        array<Critter@> followers;
+        uint            num = player.GetFollowGroup(FIND_ALL, followers);
+            for(uint i = 0; i < num; i++)
+            {
+                followers[i].TransitToMap(71, 0);
+            }
+            player.TransitToMap(71, 0);
+            return true;
+        }
+
+    }
+    return false;
+}
+
+void r_take_me_on(Critter& player, Critter@ npc, int tier)
+{
+    if(player.IsPlayer())
+    {
+    Map@   map = player.GetMap();
+    uint id = 0;
+    int locationpid = 0;
+    uint mapsi = Random(0,14);
+    bool exit = false;
+    switch(tier)
+    {
+    case 1: exit = true; break;
+    case 2: locationpid = Random(600,614); break;
+    case 3: locationpid = Random(630,644); break;
+    case 4: locationpid = Random(660,674); break; //cave todo
+    case 5: locationpid = Random(690,704); break; //cave todo
+	case 6: locationpid = Random(720,734); break; //cave todo
+	case 7: locationpid = Random(750,764); break; //cave todo
+	case 8: locationpid = Random(780,794); break; //cave todo
+    }
+	if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+	{
+		switch(player.Param[ST_TIER_MAP])
+		{
+		case 1: exit = true; break;
+		case 2: locationpid = Random(615,620); mapsi = 331; break;
+		case 3: locationpid = Random(645,650); mapsi = 332; break;
+		case 4: locationpid = Random(675,680); mapsi = 333; break;
+		case 5: locationpid = Random(705,710); mapsi = 334; break;
+		case 6: locationpid = Random(735,740); mapsi = 334; break;
+		case 7: locationpid = Random(765,770); mapsi = 336; break;
+		case 8: locationpid = Random(795,800); mapsi = 337; break;
+		}
+		
+	}
+        Critter@[] crits;
+        if(!exit)
+        {
+        int newloc = CreateLocation(locationpid, player.WorldX, player.WorldY, crits);
+        Location@   loc = GetLocation(newloc);
+        if(player.Param[MODE_DEFAULT_COMBAT] == COMBAT_MODE_TURN_BASED)
+        SetTurnBasedAvailability(loc);
+        array<Map@> maps;
+        loc.GetMaps(maps);
+        array<Critter@> followers;
+        uint            num = player.GetFollowGroup(FIND_ALL, followers);
+            for(uint i = 0; i < num; i++)
+            {
+
+                followers[i].TransitToMap(maps[0].Id, 0);
+            }
+            player.TransitToMap(maps[0].Id, 0);
+        }
+        else
+        {
+        array<Critter@> followers;
+        uint            num = player.GetFollowGroup(FIND_ALL, followers);
+            for(uint i = 0; i < num; i++)
+            {
+                followers[i].TransitToMap(71, 0);
+            }
+            player.TransitToMap(71, 0);
+        }
+
+    }
+}
+
+void SRS(Critter& cr, int entire, int chance, int type)
+{
+    SpawnRandomScenery(cr.GetMap(), entire, chance, type, cr);
+}
+
+void SpawnLoot(Map& map, int biom, int looters)
+{
+    uint16 x = 1;
+    uint16 y = 2;
+    int howmany = map.CountEntire(100);
+    for( int i =1; i <= howmany; i++ )
+        {
+        map.GetEntireCoords(100, i, x, y); //197-204 Random
+        if(Random(1,12)==1)
+        {
+        Item@ box7 = map.AddItem(x, y + 1, Random(197,204), 1);
+        addloot(box7, biom, looters);
+        LockerClose(box7);
+        }
+        }
+}
+
+void SpawnBuffItem(Critter& cr, uint pid)
+{
+    Item@ it = cr.AddItem(pid, 1);
+    AddBonusOrNot(it);
+}
+
+void SpawnBuffItem(Item& item, uint pid)
+{
+    Item@ it = item.AddItem(pid, 1,0);
+    AddBonusOrNot(it);
+}
+
+void addloot(Item& item, int biom, int looters)
+{
+    if(dropchance(5*biom*doubleloot) && biom>1)
+    {
+        SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+		item.AddItem(tier3ammo(), Random(150,420), 0);
+		item.AddItem(tier3drugs(), Random(5,20) , 0);
+		item.AddItem(tier3bp(), Random(5,25) , 0);
+        }
+	float tier4ammochance = 0;
+	float tier4partschance = 0;
+	float tier4bpchance = 0;
+	float implantchance = 0;
+	float rarechance = 0;
+	float implant_combatchance = 0;
+	float verti_partschance = 0;
+	float tier3chance = 0;
+	
+	tier4ammochance = 0.3 + 0.1*week_patch; 
+	tier4partschance = 0.5 + 0.15*week_patch;  
+	implantchance = 1.5 + 1*week_patch;  
+	rarechance = 2 + 1.5*week_patch;  
+	implant_combatchance = 0.05 + 0.01*week_patch; ; 
+
+	
+	
+	
+	
+	if(tier4ammochance > 0) tier4ammochance += 0.05*biom;
+	if(tier4partschance > 0) tier4partschance += 0.07*biom;
+	if(tier4bpchance > 0) tier4bpchance += 0.01*biom;
+	if(implantchance > 0) implantchance += 0.09*biom;
+	if(rarechance > 0) rarechance += 0.1*biom;
+	if(implant_combatchance > 0) implant_combatchance += 0.001*biom;
+	if(verti_partschance > 0) verti_partschance += 0.0001*biom;
+	
+	if(tier4ammochance > 0) tier4ammochance += 0.059*looters;
+	if(tier4partschance > 0) tier4partschance += 0.02*looters;
+	if(implantchance > 0) implantchance += 0.02*looters;
+	if(rarechance > 0) rarechance += 0.02*looters;
+	if(implant_combatchance > 0) implant_combatchance += 0.001*looters;
+
+	
+	if(biom>1)
+	{
+    for( int i =1; i <= Random(1,4); i++ )
+        {
+        switch(Random(1,4))
+            {
+            case 1:     item.AddItem(tier3bp(), 1,0); break;
+             case 2:     item.AddItem(books(), 1,0); break;
+			case 3:     item.AddItem(mats(), 1,0); break;
+			case 4:     item.AddItem(misc(), 1,0); break;			 
+            }
+        }
+	}
+    if(dropchance(rarechance *doubleloot)  && biom>1)
+        {
+        item.AddItem(rareitem(), 1 , 0);
+        }
+
+    if(dropchance(tier4ammochance *doubleloot) && biom>1)
+        {
+        item.AddItem(tier4ammo(), 1, 0); 
+        }
+
+    if(dropchance(tier4partschance *doubleloot) && biom>2)
+       item.AddItem(tier4parts(), 1, 0);
+    if(biom>4)
+		{
+    if(dropchance(implantchance *doubleloot))
+        item.AddItem(implant(), 1, 0); 
+        
+
+    if(dropchance(implant_combatchance * doubleloot))
+        item.AddItem(implant_combat(), 1, 0); 
+         }
+
+		
+	for( int i =1; i <= Random(1,9); i++ )
+        {
+        item.AddItem(misc(), 1,0);
+        }
+}

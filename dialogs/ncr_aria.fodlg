@@ -1,0 +1,210 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+5 2020 #
+7 2030 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+8 2040 D _var p name_mem_npc_player = 1 #
+0 2050 @
+3 3000 None 0 #
+4 3010 #
+5 3020 @
+4 4000 None 0 #
+6 4010 #
+2 4020 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+2 6010 @
+7 7000 None 0 #
+2 7010 #
+11 7020 @
+8 8000 None 0 #
+9 8010 D _item p PID_FIRST_AID_BOOK } 1 R _item p PID_FIRST_AID_BOOK - 1 R _item p PID_BOTTLE_CAPS + 100 R _param p ST_EXPERIENCE + 50 R _param p REPUTATION_NCR + 3 #
+9 8020 D _item p PID_DEANS_ELECTRONICS } 1 R _item p PID_DEANS_ELECTRONICS - 1 R _item p PID_BOTTLE_CAPS + 120 R _param p ST_EXPERIENCE + 50 R _param p REPUTATION_NCR + 3 #
+9 8030 D _item p PID_SCOUT_HANDBOOK } 1 R _item p PID_SCOUT_HANDBOOK - 1 R _item p PID_BOTTLE_CAPS + 100 R _param p ST_EXPERIENCE + 50 R _param p REPUTATION_NCR + 3 #
+9 8040 D _item p PID_DOCTOR_BOOK } 1 R _item p PID_DOCTOR_BOOK - 1 R _item p PID_BOTTLE_CAPS + 100 R _param p ST_EXPERIENCE + 50 R _param p REPUTATION_NCR + 3 #
+9 8050 D _item p PID_LOCKPICK_BOOK } 1 R _item p PID_LOCKPICK_BOOK - 1 R _item p PID_BOTTLE_CAPS + 100 R _param p ST_EXPERIENCE + 50 R _param p REPUTATION_NCR + 3 @
+9 9000 None 0 @
+10 10000 None 0 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Aria}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. How can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Who are you?}
+{2030}{}{Have a job for me to do?}
+{2040}{}{I have some books for you.}
+{2050}{}{Just passing by. See you. [ end dialogue ]}
+{3000}{}{This is Pregeritum Elementary School. We educate children here.}
+{3010}{}{A school? That's not something you see in the Wasteland.}
+{3020}{}{And who are you then?}
+{4000}{}{Unfortunately schools are a rare sight nowadays, but before the war everyone could get the education. We, Followers of Apocalypse, are sure that educated people will never step on the same mistakes, which humanity once made.}
+{4010}{}{Followers of the Apocalypse?}
+{4020}{}{I see. One more thing...}
+{5000}{}{I am Aria. I represent Followers of the Apocalypse here.}
+{5010}{}{Who are Followers of the Apocalypse?}
+{5020}{}{That's all I need. Goodbye. [ end dialogue ]}
+{6000}{}{We are a group of people, who try to ressurect the old world and make it just a better place. We are sure that via peaceful intentions and common communications we can reach the understading among people. We follow peace and ressurection.}
+{6010}{}{One more question...}
+{7000}{}{Sure, if you have some books, we would gladly take them. Also you may speak with Leo in the yard, he needs somebody to help him with some "urgent" things...}
+{7010}{}{Alright. I will keep it in mind,}
+{7020}{}{I ain't no freaking courier. No way!}
+{8000}{}{Alright. What do you have?}
+{8010}{}{This first aid book. Interested?}
+{8020}{}{Dean's eletronics book. It must be very useful.}
+{8030}{}{Scouts' book. Interested?}
+{8040}{}{This medicine book. Interested?}
+{8050}{}{A lockpick book. What do you think?}
+{9000}{}{This one is very useful. Here, take this Currency as your payment.}
+{10000}{}{Guns?... Well, maybe it can be useful.}
+{11000}{}{Jerk...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. How can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Who are you?}
+{2030}{}{Have some job for me to do?}
+{2040}{}{I have some books for you.}
+{2050}{}{Just passing by. See you.}
+{3000}{}{This is Pregeritum Elementary School. We educate children here.}
+{3010}{}{A school? That's not something you see in the Wasteland.}
+{3020}{}{And who are you then?}
+{4000}{}{Unfortunately schools are a rare sight nowadays, but before the war everyone could get the education. We, Followers of Apocalypse, are sure that educated people will never step on the same mistakes, which humanity once made.}
+{4010}{}{Followers of the Apocalypse?}
+{4020}{}{I see. One more thing...}
+{5000}{}{I am Aria. I represent Followers of the Apocalypse here.}
+{5010}{}{Who are Followers of the Apocalypse?}
+{5020}{}{That's all I need. Goodbye.}
+{6000}{}{We are a group of people, who try to ressurect the old world and make it just a better place. We are sure that via peaceful intentions and common communications we can reach the understading among people. We follow peace and ressurection.}
+{6010}{}{One more question...}
+{7000}{}{Sure, if you have some books, we would gladly take them. Also you may speak with Leo in the yard, he needs somebody to help him with some "urgent" things}
+{7010}{}{Alright. I will keep it in mind,}
+{7020}{}{I ain't no freaking courier. No way!}
+{8000}{}{Alright. What do you have?}
+{8010}{}{This first aid book. Interested?}
+{8020}{}{Deans' eletronics book. It must be very useful.}
+{8030}{}{Scouts' book. Interested?}
+{8040}{}{This medicine book. Interested?}
+{8050}{}{A lockpik book. What do you think?}
+{9000}{}{This one is very useful. Here, take these Currency as your payment.}
+{10000}{}{Guns?... Well, maybe it can be useful.}
+{11000}{}{Jerk...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. How can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Who are you?}
+{2030}{}{Have some job for me to do?}
+{2040}{}{I have some books for you.}
+{2050}{}{Just passing by. See you.}
+{3000}{}{This is Pregeritum Elementary School. We educate children here.}
+{3010}{}{A school? That's not something you see in the Wasteland.}
+{3020}{}{And who are you then?}
+{4000}{}{Unfortunately schools are a rare sight nowadays, but before the war everyone could get the education. We, Followers of Apocalypse, are sure that educated people will never step on the same mistakes, which humanity once made.}
+{4010}{}{Followers of the Apocalypse?}
+{4020}{}{I see. One more thing...}
+{5000}{}{I am Aria. I represent Followers of the Apocalypse here.}
+{5010}{}{Who are Followers of the Apocalypse?}
+{5020}{}{That's all I need. Goodbye.}
+{6000}{}{We are a group of people, who try to ressurect the old world and make it just a better place. We are sure that via peaceful intentions and common communications we can reach the understading among people. We follow peace and ressurection.}
+{6010}{}{One more question...}
+{7000}{}{Sure, if you have some books, we would gladly take them. Also you may speak with Leo in the yard, he needs somebody to help him with some "urgent" things}
+{7010}{}{Alright. I will keep it in mind,}
+{7020}{}{I ain't no freaking courier. No way!}
+{8000}{}{Alright. What do you have?}
+{8010}{}{This first aid book. Interested?}
+{8020}{}{Deans' eletronics book. It must be very useful.}
+{8030}{}{Scouts' book. Interested?}
+{8040}{}{This medicine book. Interested?}
+{8050}{}{A lockpik book. What do you think?}
+{9000}{}{This one is very useful. Here, take these Currency as your payment.}
+{10000}{}{Guns?... Well, maybe it can be useful.}
+{11000}{}{Jerk...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. How can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Who are you?}
+{2030}{}{Have some job for me to do?}
+{2040}{}{I have some books for you.}
+{2050}{}{Just passing by. See you.}
+{3000}{}{This is Pregeritum Elementary School. We educate children here.}
+{3010}{}{A school? That's not something you see in the Wasteland.}
+{3020}{}{And who are you then?}
+{4000}{}{Unfortunately schools are a rare sight nowadays, but before the war everyone could get the education. We, Followers of Apocalypse, are sure that educated people will never step on the same mistakes, which humanity once made.}
+{4010}{}{Followers of the Apocalypse?}
+{4020}{}{I see. One more thing...}
+{5000}{}{I am Aria. I represent Followers of the Apocalypse here.}
+{5010}{}{Who are Followers of the Apocalypse?}
+{5020}{}{That's all I need. Goodbye.}
+{6000}{}{We are a group of people, who try to ressurect the old world and make it just a better place. We are sure that via peaceful intentions and common communications we can reach the understading among people. We follow peace and ressurection.}
+{6010}{}{One more question...}
+{7000}{}{Sure, if you have some books, we would gladly take them. Also you may speak with Leo in the yard, he needs somebody to help him with some "urgent" things}
+{7010}{}{Alright. I will keep it in mind,}
+{7020}{}{I ain't no freaking courier. No way!}
+{8000}{}{Alright. What do you have?}
+{8010}{}{This first aid book. Interested?}
+{8020}{}{Deans' eletronics book. It must be very useful.}
+{8030}{}{Scouts' book. Interested?}
+{8040}{}{This medicine book. Interested?}
+{8050}{}{A lockpik book. What do you think?}
+{9000}{}{This one is very useful. Here, take these Currency as your payment.}
+{10000}{}{Guns?... Well, maybe it can be useful.}
+{11000}{}{Jerk...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. How can I help you?}
+{2010}{}{What is this place?}
+{2020}{}{Who are you?}
+{2030}{}{Have some job for me to do?}
+{2040}{}{I have some books for you.}
+{2050}{}{Just passing by. See you.}
+{3000}{}{This is Pregeritum Elementary School. We educate children here.}
+{3010}{}{A school? That's not something you see in the Wasteland.}
+{3020}{}{And who are you then?}
+{4000}{}{Unfortunately schools are a rare sight nowadays, but before the war everyone could get the education. We, Followers of Apocalypse, are sure that educated people will never step on the same mistakes, which humanity once made.}
+{4010}{}{Followers of the Apocalypse?}
+{4020}{}{I see. One more thing...}
+{5000}{}{I am Aria. I represent Followers of the Apocalypse here.}
+{5010}{}{Who are Followers of the Apocalypse?}
+{5020}{}{That's all I need. Goodbye.}
+{6000}{}{We are a group of people, who try to ressurect the old world and make it just a better place. We are sure that via peaceful intentions and common communications we can reach the understading among people. We follow peace and ressurection.}
+{6010}{}{One more question...}
+{7000}{}{Sure, if you have some books, we would gladly take them. Also you may speak with Leo in the yard, he needs somebody to help him with some "urgent" things}
+{7010}{}{Alright. I will keep it in mind,}
+{7020}{}{I ain't no freaking courier. No way!}
+{8000}{}{Alright. What do you have?}
+{8010}{}{This first aid book. Interested?}
+{8020}{}{Deans' eletronics book. It must be very useful.}
+{8030}{}{Scouts' book. Interested?}
+{8040}{}{This medicine book. Interested?}
+{8050}{}{A lockpik book. What do you think?}
+{9000}{}{This one is very useful. Here, take these Currency as your payment.}
+{10000}{}{Guns?... Well, maybe it can be useful.}
+{11000}{}{Jerk...}
+

@@ -1,0 +1,132 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 None 0 #
+0 3010 #
+2 3020 @
+4 4000 None 0 #
+0 4010 #
+4 4020 D _item p PID_DOLLAR } 1 R _item p PID_FIREWOOD + 10 R _item p PID_DOLLAR - 1 #
+4 4030 D _item p PID_DOLLAR } 2 R _item p PID_METAL_PARTS + 10 R _item p PID_DOLLAR - 2 #
+4 4040 D _item p PID_DOLLAR } 3 R _item p PID_ELECTRONIC_PARTS + 10 R _item p PID_DOLLAR - 3 #
+4 4050 D _item p PID_DOLLAR } 5 R _item p PID_SUPER_TOOL_KIT + 1 R _item p PID_DOLLAR - 5 #
+5 4060 @
+5 5000 None 0 #
+2 5010 &
+
+[engl]
+{100}{}{Materials trader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{Trading on Legion's territory, huh?}
+{2020}{}{What do you sell?}
+{2030}{}{Later.}
+{3000}{}{Of course! These guys are great guards and they have the lowest trade taxes. It is very profitable to make deals with The New Legion. Who even cares about them being slavers? We are in the Wasteland buddy, get used to it.}
+{3010}{}{Fucking hypocrites...}
+{3020}{}{Alright, let's switch the topic.}
+{4000}{}{I sell 10 wood for 1 golden dollar. 10 metal parts for 2 golden dollars. 10 microchips for 3 golden dollars and special supertool kits for 5 golden dollars each!}
+{4010}{}{Nothing else for now.}
+{4020}{}{I will take wood.}
+{4030}{}{I will take metal parts.}
+{4040}{}{I will take microchips.}
+{4050}{}{I will take a Supertool kit.}
+{4060}{}{Golden dollars? Why do you sell everything for golden dollars?}
+{5000}{}{Why? Because I get my stock from Vegas! And the only strong currency now are golden dollars, my friend.}
+{5010}{}{Alright, let's switch the topic.}
+
+[czec]
+{100}{}{Materials trader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{Trading on Legion's territory, huh?}
+{2020}{}{What do you sell?}
+{2030}{}{Later.}
+{3000}{}{Of course! These guys are great guards and they have the lowestrade tax. It is very profitable to make deals with The New Legion. And who even cares about them being slvaers? We are in the Wasteland buddy, get used to it.}
+{3010}{}{Fucking hypocrits...}
+{3020}{}{Alright, let's switch the topic.}
+{4000}{}{I sell 10 wood for 1 golden dollar. 10 metal parts for 2 golden dollars. 10 microchips for 3 golden dollars and special supetool kits for 5 golden dollars each!}
+{4010}{}{Nothing else for now.}
+{4020}{}{I will take wood.}
+{4030}{}{I will take metal parts.}
+{4040}{}{I will take microchips.}
+{4050}{}{I will take a Supertool kit.}
+{4060}{}{Golden dollars? Why do you sell everything for golden dollars?}
+{5000}{}{Why? Because I get my stock from Vegas! And the only strong currency now are golden dollars, my friend.}
+{5010}{}{Alright, let's switch the topic.}
+
+[pols]
+{100}{}{Materials trader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{Trading on Legion's territory, huh?}
+{2020}{}{What do you sell?}
+{2030}{}{Later.}
+{3000}{}{Of course! These guys are great guards and they have the lowestrade tax. It is very profitable to make deals with The New Legion. And who even cares about them being slvaers? We are in the Wasteland buddy, get used to it.}
+{3010}{}{Fucking hypocrits...}
+{3020}{}{Alright, let's switch the topic.}
+{4000}{}{I sell 10 wood for 1 golden dollar. 10 metal parts for 2 golden dollars. 10 microchips for 3 golden dollars and special supetool kits for 5 golden dollars each!}
+{4010}{}{Nothing else for now.}
+{4020}{}{I will take wood.}
+{4030}{}{I will take metal parts.}
+{4040}{}{I will take microchips.}
+{4050}{}{I will take a Supertool kit.}
+{4060}{}{Golden dollars? Why do you sell everything for golden dollars?}
+{5000}{}{Why? Because I get my stock from Vegas! And the only strong currency now are golden dollars, my friend.}
+{5010}{}{Alright, let's switch the topic.}
+
+[span]
+{100}{}{Materials trader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{Trading on Legion's territory, huh?}
+{2020}{}{What do you sell?}
+{2030}{}{Later.}
+{3000}{}{Of course! These guys are great guards and they have the lowestrade tax. It is very profitable to make deals with The New Legion. And who even cares about them being slvaers? We are in the Wasteland buddy, get used to it.}
+{3010}{}{Fucking hypocrits...}
+{3020}{}{Alright, let's switch the topic.}
+{4000}{}{I sell 10 wood for 1 golden dollar. 10 metal parts for 2 golden dollars. 10 microchips for 3 golden dollars and special supetool kits for 5 golden dollars each!}
+{4010}{}{Nothing else for now.}
+{4020}{}{I will take wood.}
+{4030}{}{I will take metal parts.}
+{4040}{}{I will take microchips.}
+{4050}{}{I will take a Supertool kit.}
+{4060}{}{Golden dollars? Why do you sell everything for golden dollars?}
+{5000}{}{Why? Because I get my stock from Vegas! And the only strong currency now are golden dollars, my friend.}
+{5010}{}{Alright, let's switch the topic.}
+
+[russ]
+{100}{}{Materials trader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{Trading on Legion's territory, huh?}
+{2020}{}{What do you sell?}
+{2030}{}{Later.}
+{3000}{}{Of course! These guys are great guards and they have the lowestrade tax. It is very profitable to make deals with The New Legion. And who even cares about them being slvaers? We are in the Wasteland buddy, get used to it.}
+{3010}{}{Fucking hypocrits...}
+{3020}{}{Alright, let's switch the topic.}
+{4000}{}{I sell 10 wood for 1 golden dollar. 10 metal parts for 2 golden dollars. 10 microchips for 3 golden dollars and special supetool kits for 5 golden dollars each!}
+{4010}{}{Nothing else for now.}
+{4020}{}{I will take wood.}
+{4030}{}{I will take metal parts.}
+{4040}{}{I will take microchips.}
+{4050}{}{I will take a Supertool kit.}
+{4060}{}{Golden dollars? Why do you sell everything for golden dollars?}
+{5000}{}{Why? Because I get my stock from Vegas! And the only strong currency now are golden dollars, my friend.}
+{5010}{}{Alright, let's switch the topic.}
+

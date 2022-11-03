@@ -1,0 +1,190 @@
+// Item bonuses
+// 
+
+#include "_defines.fos"
+
+import void   SetLexem(Item& item, string& lex, string& value) from "lexems";
+// Returns the number of item bonuses
+uint BonusNumber(Item@ it)
+{
+return 0;
+}
+
+void AddBonusOrNot(Item@ it)
+{
+
+	return;
+}
+
+void AddSpecialBonusLow(Item@ it) // 03-03-2014 Cubik: funkcja dla skrzynek spawnujacych bonusowe bronie/armory o niższej jakości (rzadziej unique, czesciej advanced) - GORSZA WERSJA AddSpecialBonus
+{
+
+	return;
+}
+
+void AddSpecialBonus(Item@ it)
+{
+
+	return;
+}
+
+void AddBonuses(Item@ it, string@ crafter)
+{
+	if(!it.IsStackable())
+	it.Val0 += Random(1,1000);
+	
+	return;
+}
+import void _weapon_perk(Item& item, bool firstTime) from "item_level";
+import void _armor_perk(Item& item, bool firstTime) from "item_level";
+
+//do hinkley do dodawania sttated weapon, nie mozna unique bo fake itemy zabieraja val9 ;/ .KompreSor
+void AddBonusHinkley(Item@ it)
+{
+	it.Val0 = 500000;
+	it.Update();
+	if(it.GetType() == ITEM_TYPE_WEAPON)
+		_weapon_perk(it, false);
+
+	if(it.GetType() == ITEM_TYPE_ARMOR)
+		_armor_perk(it, false);
+	return;
+}
+
+void AddBonuses(Item@ it, int magic)
+{
+
+	return;
+}
+
+void AddArmorBonus(Item@ it, int number)
+{
+	int minRoll=1;
+	int maxRoll=1;
+	
+	uint bonusType=0;
+	uint maxBonusType=BONUS_ARMOR_HEALING_RATE; // for armors
+
+	// If helmet, adjust bonus type range
+	if(it.GetProtoId()>=725 && it.GetProtoId()<=741) maxBonusType=BONUS_ARMOR_CRIT_POWER;
+	if(it.GetProtoId()==25588 || it.GetProtoId()==25589) maxBonusType=BONUS_ARMOR_CRIT_POWER;
+	// Choose which bonus and specify bonus value range	
+	do
+	{
+	bonusType=Random(100,maxBonusType);
+	}
+	while (HasBonusAlready(it,bonusType));
+	
+	switch(bonusType)
+	{
+	// Armors and helmets
+	case BONUS_ARMOR_NORMAL_DT: {maxRoll=5;break;}
+	case BONUS_ARMOR_LASER_DT: {maxRoll=5;break;}
+	case BONUS_ARMOR_FIRE_DT: {maxRoll=5;break;}
+	case BONUS_ARMOR_PLASMA_DT: {maxRoll=5;break;}
+	case BONUS_ARMOR_EXPLODE_DT: {maxRoll=5;break;}
+	case BONUS_ARMOR_NORMAL_DR: {maxRoll=10;break;}
+	case BONUS_ARMOR_LASER_DR: {maxRoll=10;break;}
+	case BONUS_ARMOR_FIRE_DR: {maxRoll=10;break;}
+	case BONUS_ARMOR_PLASMA_DR: {maxRoll=10;break;}
+	case BONUS_ARMOR_EXPLODE_DR: {maxRoll=10;break;}
+	case BONUS_ARMOR_CRIT_CHANCE: {minRoll=-7;maxRoll=-1;break;}
+	case BONUS_ARMOR_CRIT_POWER: {minRoll=-7;maxRoll=-1;break;}
+	// Only armors
+	case BONUS_ARMOR_MAX_AP: break;
+	case BONUS_ARMOR_RAD_RES: {minRoll=10;maxRoll=30;break;}
+	case BONUS_ARMOR_POISON_RES: {minRoll=10;maxRoll=30;break;}
+	case BONUS_ARMOR_STRENGTH: break;
+	case BONUS_ARMOR_PERCEPTION: break;
+	case BONUS_ARMOR_ENDURANCE: break;
+	case BONUS_ARMOR_CHARISMA: break;
+	case BONUS_ARMOR_INTELLIGENCE: break;
+	case BONUS_ARMOR_AGILITY: break;
+	case BONUS_ARMOR_LUCK: break;
+	case BONUS_ARMOR_CARRY_WEIGHT: {minRoll=5;maxRoll=20;break;}
+	case BONUS_ARMOR_HEALING_RATE: {minRoll=1;maxRoll=5;break;}
+	default: break;
+	}
+	
+	// Choose bonus roll
+return;
+}
+
+
+void AddWeaponBonus(Item@ it, int number, bool isCrafting = false)
+{
+
+	uint minRoll=1;
+	uint maxRoll=1;
+	
+	uint bonusType=0;
+
+	int skillNum = it.Proto.Weapon_Skill_0;
+    bool isRangeWeapon = (skillNum == SK_SMALL_GUNS || skillNum == SK_BIG_GUNS || skillNum == SK_ENERGY_WEAPONS);
+	// Choose which bonus and specify bonus value range
+	do
+	{
+		if(isRangeWeapon)
+			bonusType=Random(100, BONUS_WEAPON_MAX_RANGE);
+		else 
+			bonusType=Random(100, BONUS_WEAPON_MAX_AP);
+	}
+	while (HasBonusAlready(it,bonusType));
+	
+	switch(bonusType)
+	{
+	case BONUS_WEAPON_CRITICAL_ROLL: {maxRoll=7;break;}
+	case BONUS_WEAPON_CRITICAL_CHANCE: {maxRoll=7;break;}
+	case BONUS_WEAPON_MIN_DMG: {minRoll=10;maxRoll=25;break;}
+	case BONUS_WEAPON_MAX_DMG: {minRoll=10;maxRoll=25;break;}
+	case BONUS_WEAPON_ACCURACY: {minRoll=5;maxRoll=25;break;}
+	case BONUS_WEAPON_MAX_RANGE: {minRoll=1;maxRoll=4;break;}
+	case BONUS_WEAPON_MAX_AP: break;
+	default: break;
+	}
+	
+	// Choose bonus roll
+	uint roll = Random(minRoll, maxRoll);
+	
+	// Choose which value
+	
+return;
+}
+
+// Checks if given bonus is allowed - used to exclude some bonuses from crafting
+bool IsBonusExcluded(bool isCrafting, int bonusType)
+{
+	if(!isCrafting)
+		return false;
+
+	
+	return false;
+}
+
+// Checks if there is no such bonus already on an item
+bool HasBonusAlready(Item@ it, int bonusType)
+{
+
+	return false;
+}
+
+// Checks value of specified bonus type
+
+int checkBonus(Item@ it, int bonusType)
+{
+
+	return 0;
+}
+
+//used to add bonuses to gear used by boss in encounters
+void AddSpecialBonusEncounterBoss(Item@ it)
+{
+	it.Val0 = Random(35000,1250000);
+	it.Update();
+	
+	if(it.GetType() == ITEM_TYPE_WEAPON)
+		_weapon_perk(it, false);
+
+	if(it.GetType() == ITEM_TYPE_ARMOR)
+		_armor_perk(it, false);
+}

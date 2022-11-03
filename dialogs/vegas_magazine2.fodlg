@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 D _item p PID_BOTTLE_CAPS } 1500 R _item p PID_FIRST_AID_BOOK + 1 R _item p PID_BOTTLE_CAPS - 1500 #
+0 2020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This device sells "First Aid" magazines for 1500 caps each. ]}
+{2010}{}{[ buy a magazine ]}
+{2020}{}{[ leave ] [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This device sells "First Aid" magazines for 150 caps each. ]}
+{2010}{}{[ Buy a magazine ]}
+{2020}{}{[ Leave ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This device sells "First Aid" magazines for 150 caps each. ]}
+{2010}{}{[ Buy a magazine ]}
+{2020}{}{[ Leave ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This device sells "First Aid" magazines for 150 caps each. ]}
+{2010}{}{[ Buy a magazine ]}
+{2020}{}{[ Leave ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This device sells "First Aid" magazines for 150 caps each. ]}
+{2010}{}{[ Buy a magazine ]}
+{2020}{}{[ Leave ]}
+

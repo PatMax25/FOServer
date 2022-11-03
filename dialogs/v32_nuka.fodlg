@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+4 1010 @
+4 2000 None 0 #
+5 2010 D _item p PID_BOTTLE_CAPS } 10 R _item p PID_NUKA_COLA + 1 R _item p PID_BOTTLE_CAPS - 10 #
+0 2020 @
+5 3000 None 0 &
+
+[engl]
+{100}{}{Watch Guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In front of you is a working copy of a Nuka Cola Vending Machine. It requires 10 bottle caps to buy yourself a bottle of Nuka Cola ]}
+{2010}{}{[ Buy a bottle of Nuka ]}
+{2020}{}{[ Leave ]}
+{3000}{}{How many ghouls does it take to change a lightbulb? They don't need to, they just huddle around the glowing one!@@What is a Rad-scorpions favorite song? Stinging In the Rain.@@What's Papa Khan's father called? Big Daddy Khan!@@You are so ugly, Angela Bishop became sterile when she looked at you.@@Your companions are so ugly that Liberty Prime thought the chinese took China to him.@@Hey, you wanna rig my shotgun?@@What do Mole Rats eat when they go camping? Marshmoleows,}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In front of you is a working copy of Nuka Cola Vending Machine. It requires 10 Currency to buy yourself a local of Nuka Cola ]}
+{2010}{}{[ Buy a local of Nuka ]}
+{2020}{}{[ Leave ]}
+{3000}{}{How many ghouls does it take to change a lightbulb? They don't need to, they just hudle around the glowing one!@@What is a Rad-scorpions favorite song? Stinging In the Rain.@@What's Papa Khan's father called? Big Daddy Khan!@@You are so ugly, Angela Bishop became sterile when she looked at you.@@Your companions are so ugly that Liberty Prime thought the chinese took China to him.@@Hey, you wanna rig my shotgun?@@What do Mole Rats eat when they go camping? Marshmoleows,}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In front of you is a working copy of Nuka Cola Vending Machine. It requires 10 Currency to buy yourself a local of Nuka Cola ]}
+{2010}{}{[ Buy a local of Nuka ]}
+{2020}{}{[ Leave ]}
+{3000}{}{How many ghouls does it take to change a lightbulb? They don't need to, they just hudle around the glowing one!@@What is a Rad-scorpions favorite song? Stinging In the Rain.@@What's Papa Khan's father called? Big Daddy Khan!@@You are so ugly, Angela Bishop became sterile when she looked at you.@@Your companions are so ugly that Liberty Prime thought the chinese took China to him.@@Hey, you wanna rig my shotgun?@@What do Mole Rats eat when they go camping? Marshmoleows,}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In front of you is a working copy of Nuka Cola Vending Machine. It requires 10 Currency to buy yourself a local of Nuka Cola ]}
+{2010}{}{[ Buy a local of Nuka ]}
+{2020}{}{[ Leave ]}
+{3000}{}{How many ghouls does it take to change a lightbulb? They don't need to, they just hudle around the glowing one!@@What is a Rad-scorpions favorite song? Stinging In the Rain.@@What's Papa Khan's father called? Big Daddy Khan!@@You are so ugly, Angela Bishop became sterile when she looked at you.@@Your companions are so ugly that Liberty Prime thought the chinese took China to him.@@Hey, you wanna rig my shotgun?@@What do Mole Rats eat when they go camping? Marshmoleows,}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In front of you is a working copy of Nuka Cola Vending Machine. It requires 10 Currency to buy yourself a local of Nuka Cola ]}
+{2010}{}{[ Buy a local of Nuka ]}
+{2020}{}{[ Leave ]}
+{3000}{}{How many ghouls does it take to change a lightbulb? They don't need to, they just hudle around the glowing one!@@What is a Rad-scorpions favorite song? Stinging In the Rain.@@What's Papa Khan's father called? Big Daddy Khan!@@You are so ugly, Angela Bishop became sterile when she looked at you.@@Your companions are so ugly that Liberty Prime thought the chinese took China to him.@@Hey, you wanna rig my shotgun?@@What do Mole Rats eat when they go camping? Marshmoleows,}
+

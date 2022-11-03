@@ -1,0 +1,10 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Warthog;
+@gender = 0;
+@age = 35;
+
+@xp = 21 229751 231000;
+@life = 171 171 0 0 0 0 0 0 0;
+@reputation = 605:17 620:94 621:58 628:4 634:94 641:-50 682:49 690:115;

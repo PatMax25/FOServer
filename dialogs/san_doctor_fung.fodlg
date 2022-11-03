@@ -1,0 +1,1020 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+12 1010 D _param p ST_CHARISMA > 99 #
+2 1020 @
+2 2000 None 0 #
+3 2010 D _script dialog@d_IsToHeal 0  #
+4 2020 #
+6 2030 #
+13 2040 #
+200 2050 D _param p ST_LEVEL > 29 #
+0 2060 @
+13 3000 None 0 #
+65506 3010 #
+22 3020 #
+21 3030 #
+30 3040 #
+200 3050 D _param p ST_LEVEL > 29 #
+0 3060 @
+23 4000 None 0 #
+0 4010 @
+3 5000 dialog@dlg_ShowHealingPrice 0 #
+5 5010 D _script dialog@d_HealingMoney 0  #
+0 5020 @
+4 6000 None 0 #
+3 6010 D _script dialog@d_IsToHeal 0  #
+2 6020 #
+0 6030 @
+5 7000 None 0 #
+11 7010 R _script dialog@r_DocHeal 0  @
+6 8000 None 0 #
+8 8010 #
+7 8020 #
+2 8030 @
+7 9000 None 0 #
+8 9010 #
+2 9020 #
+0 9030 @
+8 10000 None 0 #
+9 10010 @
+9 11000 None 0 #
+10 11010 @
+10 12000 None 0 #
+2 12010 #
+0 12020 @
+11 13000 None 0 #
+0 13010 @
+12 14000 None 0 @
+21 15000 None 0 #
+0 15010 #
+23 15020 D _script dialog@d_havepropermoney 1 2000 R _item p PID_PARAMEDICS_BAG + 1 R _script dialog@r_RemoveMoney 1 2000 @
+22 16000 None 0 #
+0 16010 #
+23 16020 D _script dialog@d_havepropermoney 1 999 R _item p PID_DOCTORS_BAG + 1 R _script dialog@r_RemoveMoney 1 1000 @
+30 17000 dialog@dlg_SayBuyMedGel 0 #
+31 17010 D _script dialog@d_havepropermoney 1 24 R _item p PID_BIO_GEL + 1 R _script dialog@r_RemoveMoney 1 25 #
+31 17020 D _script dialog@d_havepropermoney 1 124 R _item p PID_BIO_GEL + 5 R _script dialog@r_RemoveMoney 1 125 #
+31 17030 D _script dialog@d_havepropermoney 1 499 R _item p PID_BIO_GEL + 20 R _script dialog@r_RemoveMoney 1 500 #
+0 17040 @
+31 18000 None 0 #
+0 18010 @
+200 19000 None 0 #
+201 19010 #
+13 19020 @
+201 20000 None 0 #
+202 20010 D _param p ST_RADIATION_LEVEL = 0 #
+204 20020 D _param p ST_RADIATION_LEVEL ! 0 @
+202 21000 None 0 #
+203 21010 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_DERMAL } 1 D _param p PE_DERMAL_IMPACT = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_DERMAL_IMPACT = 1 R _item p PID_IMPLANT_DERMAL - 1 R _script dialog@r_RemoveMoney 1 100000 #
+203 21020 D _param p ST_LEVEL > 39 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_DERMAL } 1 D _param p PE_DERMAL_IMPACT = 1 D _param p PE_DERMAL_IMPACT_ENH = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_DERMAL_IMPACT_ENH = 1 R _item p PID_IMPLANT_DERMAL - 1 R _script dialog@r_RemoveMoney 1 100000 #
+203 21030 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_PHOENIX } 1 D _param p PE_PHOENIX_IMPLANTS = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_PHOENIX_IMPLANTS = 1 R _item p PID_IMPLANT_PHOENIX - 1 R _script dialog@r_RemoveMoney 1 100000 #
+203 21040 D _param p ST_LEVEL > 39 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_PHOENIX } 1 D _param p PE_PHOENIX_IMPLANTS = 1 D _param p PE_PHOENIX_IMPLANTS_ENH = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_PHOENIX_IMPLANTS_ENH = 1 R _item p PID_IMPLANT_PHOENIX - 1 R _script dialog@r_RemoveMoney 1 100000 #
+203 21050 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_NEMEAN } 1 D _param p PE_NEMEAN_ARMOR = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_NEMEAN_ARMOR = 1 R _item p PID_IMPLANT_NEMEAN - 1 R _script dialog@r_RemoveMoney 1 100000 #
+203 21060 D _param p ST_LEVEL > 39 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_NEMEAN } 1 D _param p PE_NEMEAN_ARMOR = 1 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_NEMEAN_ARMOR = 2 R _item p PID_IMPLANT_NEMEAN - 1 R _script dialog@r_RemoveMoney 1 100000 #
+203 21070 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_STRENGTH } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 R _item p PID_IMPLANT_STRENGTH - 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_IMP_STRENGTH + 1 #
+203 21080 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_PERCEPTION } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 R _item p PID_IMPLANT_PERCEPTION - 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_IMP_PERCEPTION + 1 #
+203 21090 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_ENDURANCE } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 R _item p PID_IMPLANT_ENDURANCE - 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_IMP_ENDURANCE + 1 #
+203 21100 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _item p PID_IMPLANT_CHARISMA } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 R _item p PID_IMPLANT_CHARISMA - 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_IMP_CHARISMA + 1 #
+203 21110 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 D _item p PID_IMPLANT_INTELLIGENCE } 1 R _item p PID_IMPLANT_INTELLIGENCE - 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_IMP_INTELLIGENCE + 1 #
+203 21120 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 D _item p PID_IMPLANT_AGILITY } 1 R _item p PID_IMPLANT_AGILITY - 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_IMP_AGILITY + 1 #
+203 21130 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 D _item p PID_IMPLANT_LUCK } 1 R _item p PID_IMPLANT_LUCK - 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_IMP_LUCK + 1 #
+203 21140 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_AGRO = 0 D _item p PID_IMPLANT_AGRO } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_AGRO = 1 R _item p PID_IMPLANT_AGRO - 1 #
+203 21150 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_AGRO = 1 D _param p PE_AGRO2 = 0 D _item p PID_IMPLANT_AGRO } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_AGRO2 = 1 R _item p PID_IMPLANT_AGRO - 1 #
+203 21160 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_DRAGON = 0 D _item p PID_IMPLANT_DRAGON } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_DRAGON = 1 R _item p PID_IMPLANT_DRAGON - 1 #
+203 21170 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_DRAGON = 1 D _param p PE_DRAGON2 = 0 D _item p PID_IMPLANT_DRAGON } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_DRAGON2 = 1 R _item p PID_IMPLANT_DRAGON - 1 #
+203 21180 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_TIGER = 0 D _item p PID_IMPLANT_TIGER } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_TIGER = 1 R _item p PID_IMPLANT_TIGER - 1 #
+203 21190 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_TIGER = 1 D _param p PE_TIGER2 = 0 D _item p PID_IMPLANT_TIGER } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_TIGER2 = 1 R _item p PID_IMPLANT_TIGER - 1 #
+203 21200 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_CLAW = 0 D _item p PID_IMPLANT_CLAW } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_CLAW = 1 R _item p PID_IMPLANT_CLAW - 1 #
+203 21210 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_CLAW = 1 D _param p PE_CLAW2 = 0 D _item p PID_IMPLANT_CLAW } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_CLAW2 = 1 R _item p PID_IMPLANT_CLAW - 1 #
+203 21220 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_TACTICAL = 0 D _item p PID_IMPLANT_TACTICS } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_TACTICAL = 1 R _item p PID_IMPLANT_TACTICS - 1 #
+203 21230 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _script dialog@d_havepropermoney 1 99999 D _param p PE_TACTICAL = 1 D _param p PE_TACTICAL2 = 0 D _item p PID_IMPLANT_TACTICS } 1 R _script dialog@r_RemoveMoney 1 100000 R _param p PE_TACTICAL2 = 1 R _item p PID_IMPLANT_TACTICS - 1 #
+0 21240 #
+505 21250 D _param p PE_CYBORG > 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 #
+349 21260 @
+203 22000 None 0 #
+0 22010 @
+204 23000 None 0 #
+3 23010 #
+0 23020 @
+500 24000 None 0 #
+501 24010 R _param p PE_FASTER_HEALING = 1 #
+0 24020 @
+501 25000 None 0 #
+13 25010 #
+0 25020 @
+505 26000 None 0 #
+203 26010 D _script dialog@d_havepropermoney 1 49999 D _param p PE_DERMAL_IMPACT_ENH = 1 D _item p PID_IMPLANT_DERMAL = 1 R _param p PE_DERMAL_IMPACT + 1 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_IMPLANT_DERMAL - 1 #
+203 26020 D _script dialog@d_havepropermoney 1 49999 D _param p PE_PHOENIX_IMPLANTS_ENH = 1 D _item p PID_IMPLANT_PHOENIX > 0 R _param p PE_PHOENIX_IMPLANTS + 1 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_IMPLANT_PHOENIX - 1 #
+203 26030 D _script dialog@d_havepropermoney 1 49999 D _param p PE_NEMEAN_ARMOR = 2 D _item p PID_IMPLANT_NEMEAN > 0 R _param p PE_NEMEAN2 + 1 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_IMPLANT_NEMEAN - 1 #
+203 26040 D _script dialog@d_havepropermoney 1 49999 D _param p PE_AGRO2 = 1 D _item p PID_IMPLANT_AGRO = 1 R _param p PE_AGRO2 + 1 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_IMPLANT_AGRO - 1 #
+203 26050 D _script dialog@d_havepropermoney 1 49999 D _param p PE_DRAGON2 = 1 D _item p PID_IMPLANT_DRAGON = 1 R _param p PE_DRAGON2 + 1 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_IMPLANT_DRAGON - 1 #
+203 26060 D _script dialog@d_havepropermoney 1 49999 D _param p PE_TIGER2 = 1 D _item p PID_IMPLANT_TIGER > 0 R _param p PE_TIGER + 1 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_IMPLANT_TIGER - 1 #
+203 26070 D _script dialog@d_havepropermoney 1 49999 D _param p PE_CLAW2 = 1 D _item p PID_IMPLANT_CLAW = 1 R _param p PE_CLAW2 + 1 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_IMPLANT_CLAW - 1 #
+203 26080 D _script dialog@d_havepropermoney 1 49999 D _param p PE_TACTICAL2 = 1 D _item p PID_IMPLANT_TACTICS > 0 R _param p PE_TACTICAL2 + 1 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_IMPLANT_TACTICS - 1 @
+349 27000 None 0 #
+350 27010 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_DERMAL } 1 D _param p PE_DERMAL_IMPACT = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_DERMAL_IMPACT = 1 R _item p PID_IMPLANT_DERMAL - 1 R _item p PID_IMPLANT_TOKEN - 1 #
+350 27020 D _param p ST_LEVEL > 39 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_DERMAL } 1 D _param p PE_DERMAL_IMPACT = 1 D _param p PE_DERMAL_IMPACT_ENH = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_DERMAL_IMPACT_ENH = 1 R _item p PID_IMPLANT_DERMAL - 1 R _item p PID_IMPLANT_TOKEN - 1 #
+350 27030 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_PHOENIX } 1 D _param p PE_PHOENIX_IMPLANTS = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_PHOENIX_IMPLANTS = 1 R _item p PID_IMPLANT_PHOENIX - 1 R _item p PID_IMPLANT_TOKEN - 1 #
+350 27040 D _param p ST_LEVEL > 39 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_PHOENIX } 1 D _param p PE_PHOENIX_IMPLANTS = 1 D _param p PE_PHOENIX_IMPLANTS_ENH = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_PHOENIX_IMPLANTS_ENH = 1 R _item p PID_IMPLANT_PHOENIX - 1 R _item p PID_IMPLANT_TOKEN - 1 #
+350 27050 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_NEMEAN } 1 D _param p PE_NEMEAN_ARMOR = 0 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_NEMEAN_ARMOR = 1 R _item p PID_IMPLANT_NEMEAN - 1 R _item p PID_IMPLANT_TOKEN - 1 #
+350 27060 D _param p ST_LEVEL > 39 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_NEMEAN } 1 D _param p PE_NEMEAN_ARMOR = 1 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 R _param p PE_NEMEAN_ARMOR = 2 R _item p PID_IMPLANT_NEMEAN - 1 R _item p PID_IMPLANT_TOKEN - 1 #
+350 27070 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_STRENGTH } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 R _item p PID_IMPLANT_STRENGTH - 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_IMP_STRENGTH + 1 #
+350 27080 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_PERCEPTION } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 R _item p PID_IMPLANT_PERCEPTION - 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_IMP_PERCEPTION + 1 #
+350 27090 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_ENDURANCE } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 R _item p PID_IMPLANT_ENDURANCE - 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_IMP_ENDURANCE + 1 #
+350 27100 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _item p PID_IMPLANT_CHARISMA } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 R _item p PID_IMPLANT_CHARISMA - 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_IMP_CHARISMA + 1 #
+350 27110 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 D _item p PID_IMPLANT_INTELLIGENCE } 1 R _item p PID_IMPLANT_INTELLIGENCE - 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_IMP_INTELLIGENCE + 1 #
+350 27120 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 D _item p PID_IMPLANT_AGILITY } 1 R _item p PID_IMPLANT_AGILITY - 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_IMP_AGILITY + 1 #
+350 27130 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_SPECIAL_IMPLANT_LIMIT < 6 D _item p PID_IMPLANT_LUCK } 1 R _item p PID_IMPLANT_LUCK - 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_IMP_LUCK + 1 #
+350 27140 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_AGRO = 0 D _item p PID_IMPLANT_AGRO } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_AGRO = 1 R _item p PID_IMPLANT_AGRO - 1 #
+350 27150 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_AGRO = 1 D _param p PE_AGRO2 = 0 D _item p PID_IMPLANT_AGRO } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_AGRO2 = 1 R _item p PID_IMPLANT_AGRO - 1 #
+350 27160 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_DRAGON = 0 D _item p PID_IMPLANT_DRAGON } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_DRAGON = 1 R _item p PID_IMPLANT_DRAGON - 1 #
+350 27170 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_DRAGON = 1 D _param p PE_DRAGON2 = 0 D _item p PID_IMPLANT_DRAGON } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_DRAGON2 = 1 R _item p PID_IMPLANT_DRAGON - 1 #
+350 27180 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_TIGER = 0 D _item p PID_IMPLANT_TIGER } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_TIGER = 1 R _item p PID_IMPLANT_TIGER - 1 #
+350 27190 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_TIGER = 1 D _param p PE_TIGER2 = 0 D _item p PID_IMPLANT_TIGER } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_TIGER2 = 1 R _item p PID_IMPLANT_TIGER - 1 #
+350 27200 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_CLAW = 0 D _item p PID_IMPLANT_CLAW } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_CLAW = 1 R _item p PID_IMPLANT_CLAW - 1 #
+350 27210 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_CLAW = 1 D _param p PE_CLAW2 = 0 D _item p PID_IMPLANT_CLAW } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_CLAW2 = 1 R _item p PID_IMPLANT_CLAW - 1 #
+350 27220 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_TACTICAL = 0 D _item p PID_IMPLANT_TACTICS } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_TACTICAL = 1 R _item p PID_IMPLANT_TACTICS - 1 #
+350 27230 D _param p PE_COMBAT_IMPLANT_LIMIT < 5 D _param p ST_LEVEL > 29 D _item p PID_IMPLANT_TOKEN } 1 D _param p PE_TACTICAL = 1 D _param p PE_TACTICAL2 = 0 D _item p PID_IMPLANT_TACTICS } 1 R _item p PID_IMPLANT_TOKEN - 1 R _param p PE_TACTICAL2 = 1 R _item p PID_IMPLANT_TACTICS - 1 #
+0 27240 @
+350 28000 None 0 &
+
+[engl]
+{100}{}{Dr. Fung}
+{200}{}{You see a shrunken old man in a white robe.}
+{210}{}{This is Dr. Fung.}
+{210}{}{You see a wizened old man wearing a white smock.}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{default}
+{2000}{}{Help you with something?}
+{2010}{}{Yeah - I'm hurt and it looks like you're a doctor.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{I have a question.}
+{2050}{}{What can you tell me about armor implants?
+}
+{2060}{}{Bye.}
+{3000}{}{Yes?}
+{3010}{}{Do you have any stimpaks? I'd like to buy some.}
+{3020}{}{Do you sell Doctor's Bags?}
+{3030}{}{Do you sell Paramedic's Bags?}
+{3040}{}{Do you have any spare Bio Med Gel that I could buy from you?}
+{3050}{}{What can you tell me about armor implants?
+}
+{3060}{}{Nothing. Bye.}
+{4000}{}{You're welcome, goodbye.}
+{4010}{}{Goodbye.}
+{5000}{}{Let me take a look at that. Hmm. Yes. I'll have to charge you, of course. @lex price@ should cover it.}
+{5010}{}{Here you go.}
+{5020}{}{Forget it.}
+{6000}{}{Who am I? I am Dr. Fung. I teach and heal.}
+{6010}{}{Pleased to meet you. I need healing.}
+{6020}{}{I wanted to ask you something,}
+{6030}{}{I see. Thanks. Bye.}
+{7000}{}{Now, please relax and let me do my work...}
+{7010}{}{[Wait]}
+{8000}{}{You have come to the right person. Would you like long history or short?}
+{8010}{}{Long.}
+{8020}{}{Short.}
+{8030}{}{Neither. I have other questions, though.}
+{9000}{}{Our people landed here on the submarine Shih-huang-ti, when the missiles exploded over the world. Stranded, we had nowhere to go. The only solution was to form the Central Comitee and rebuild this place, San Francisco. It is a commune now, we share everything equally. That is the short version.}
+{9010}{}{How about the long version?}
+{9020}{}{Thanks. I have more questions.}
+{9030}{}{Thanks.}
+{10000}{}{The long version is this: We are here because our people are the descendants of the crew of a nuclear submarine, called the Shih-huang-ti. When the missiles fell in the Great Deluge, the systems aboard the submarine failed and we drifted in the dark for many days.}
+{10010}{}{Then what?}
+{11000}{}{At last, we drifted ashore. We found ourselves near the ruins of San Francisco. Most of the city was devastated in the war. We had to recreate society based on the few survivors who had crept back to the city.}
+{11010}{}{So then?}
+{12000}{}{We rebuilt with what we could find, and we have scientists and technology the world must envy. This place is governed by the Central Committee now, which decided to organize it as a commune. It means that we share everything equally, as long as it is possible.}
+{12010}{}{I see. I have more questions.}
+{12020}{}{Thanks. Bye.}
+{13000}{}{That should do it. Take it easy, now.}
+{13010}{}{Thanks doc, you too.}
+{14000}{}{I am sorry, my surgical ability can not help a person of your deformity.@@I am asking you politely to leave my home.@@I regret I can not help you, hideous one.}
+{15000}{}{Yes, they cost $2000}
+{15010}{}{Too expensive for me, sorry.}
+{15020}{}{I'll take one, here's the money.}
+{16000}{}{Yes, they cost $1000}
+{16010}{}{Too expensive for me, sorry.}
+{16020}{}{I'll take one, here's the money.}
+{17000}{}{Bio Gel, eh? Well, that doesn't grow on trees you know? I'd only be able to let some go for $25. [You can use SAY to enter number of items you want to buy]}
+{17010}{}{OK, I'll take one. [Give him $25]}
+{17020}{}{Good, I'll take 5 of those then.}
+{17030}{}{Doc, I'm not your average costumer, you know? Give me 20!}
+{17040}{}{I don't have that on me right now. I'll be back later with the cash.}
+{18000}{}{And here is your Bio Gel. Goodbye.}
+{18010}{}{Goodbye.}
+{19000}{}{I helped write the article on armor implants. All it takes is my expertise and your materials. What sort of implants do you desire?
+}
+{19010}{}{What sort are there?
+}
+{19020}{}{Umm... forget it. I have other questions.}
+{20000}{}{We have dermal implants, which protect against concussive damage. If you like that work, we can add a single enhancement to it. We also have Phoenix implants, which protect against heat-based attacks, and which also have an upgrade available. If you're interested in the upgrades, you will of course have to wait until the initial set has been installed. We also have other augmentations available: Hypertrophy Accelerator, Optics Enhancer, Nociception Regulator, Empathy Synthesizer, Logic Co-processor, Reflex Booster and Probability Calculator. And before you ask, yes, you CAN have all operations.}
+{20010}{}{How much is the operation?
+}
+{20020}{}{How much is the operation?}
+{21000}{}{I'll need a particular implant module, 100,000 local Currency per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{21010}{}{Dermal Impact Armor [You give him 100,000 Currency and ingredients.]
+}
+{21020}{}{Dermal Impact Assault Enhancement [You give him 100,000 Currency and ingredients.]
+}
+{21030}{}{Phoenix Armor Implants [You give him 100,000 Currency and ingredients.]
+}
+{21040}{}{Phoenix Assault Enhancement [You give him 100,000 Currency and ingredients.]
+}
+{21050}{}{Nemean Armor [You give him 100,000 Currency and ingredients.]
+}
+{21060}{}{Nemean Armor Upgrade [You give him 100,000 Currency and ingredients.]
+}
+{21070}{}{Hypertrophy Accelerator [You give him 100,000 Currency and ingredients.]
+}
+{21080}{}{Optics Enhancer [You give him 100,000 Currency and ingredients.]
+}
+{21090}{}{Nociception Regulator [You give him 100,000 Currency and ingredients.]
+}
+{21100}{}{Empathy Synthesizer [You give him 100,000 Currency and ingredients.]
+}
+{21110}{}{Logic Co-processor [You give him 100,000 Currency and ingredients.]
+}
+{21120}{}{Reflex Booster [You give him 100,000 Currency and ingredients.]
+}
+{21130}{}{Probability Calculator [You give him 100,000 Currency and ingredients.]
+}
+{21140}{}{Aggressive Sensors [You give him 100,000 Currency and ingredients.]}
+{21150}{}{Aggressive Sensors mk.II [You give him 100,000 Currency and ingredients.]}
+{21160}{}{Dragon System [You give him 100,000 Currency and ingredients.]}
+{21170}{}{Dragon OS [You give him 100,000 Currency and ingredients.]}
+{21180}{}{Tiger Movement [You give him 100,000 Currency and ingredients.]}
+{21190}{}{Tiger Speed [You give him 100,000 Currency and ingredients.]}
+{21200}{}{Claw Module [You give him 100,000 Currency and ingredients.]}
+{21210}{}{Claw Module upgrade [You give him 100,000 Currency and ingredients.]}
+{21220}{}{Tactical Chip [You give him 100,000 Currency and ingredients.]}
+{21230}{}{Tactical Chipset [You give him 100,000 Currency and ingredients.]}
+{21240}{}{Forget it.}
+{21250}{}{Hear about Special offer for Cyborgs}
+{21260}{}{I found this token and it's written here that I'll get one free installation, will you take it?}
+{22000}{}{There you go! You are ... enhanced. Remember- do not pick at the scabs unless you want horrid scarring to add to your suddenly not-entirely-pleasing appearance}
+{22010}{}{Thanks, doc. So long.
+}
+{23000}{}{I'll need a particular implant module and 100,000 local Currency per operation. It's worth the money, if you ask me. But before the operation we have to get you clean of this radiation, you don't want to get infection and lose leg or two, do you?}
+{23010}{}{Not really, no... Let's do that first.}
+{23020}{}{Forget it. So long.}
+{24000}{}{A-ha! But I sure do! Just between the two of us, I was having a small experiment on my own recently... Was trying to make a mixture of traditional herbs and weeds, some of which are used by the northern tribes to heal injuries or recover from trauma. I have several concotions here ready for use, but lately the lack of testing subjects has slowed down my research work. Maybe you could try one of these while I record some of your vital functions on the Auto-Doc over there. What do you say? It would mean much for my work, you know...}
+{24010}{}{Of course! Everything for the science, Doc! [Faster Healing]}
+{24020}{}{Doc, with all due respect, I think you're trying to scam me. I'm outta here!}
+{25000}{}{Okay... Fine. Let me switch to the topo review. Good... That's good. [After a while, Doctor Fung finishes evaluation of your vital functions]}
+{25010}{}{That was some crazy stuff right there, Doc! Let's talk about something else though.}
+{25020}{}{Dammit Doc, I feel better than ever! Thank you! [Shake his hand and leave]}
+{26000}{}{Ya, sure. 50% cheaper 3rd implant!}
+{26010}{}{Dermal Impact Armor [You give him 50,000 Currency and ingredients.]}
+{26020}{}{Phoenix Armor Implants [You give him 50,000 Currency and ingredients.]}
+{26030}{}{Nemean Armor [You give him 50,000 Currency and ingredients.]
+}
+{26040}{}{Aggressive Sensors [You give him 50,000 Currency and ingredients.]}
+{26050}{}{Dragon System [You give him 50,000 Currency and ingredients.]}
+{26060}{}{Tiger Movement [You give him 50,000 Currency and ingredients.]}
+{26070}{}{Claw Module [You give him 50,000 Currency and ingredients.]}
+{26080}{}{Tactical Chip [You give him 50,000 Currency and ingredients.]}
+{27000}{}{I'll need a particular implant module, a set of combat armor and 1 token per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{27010}{}{Dermal Impact Armor [You give him Token and ingredients.]
+}
+{27020}{}{Dermal Impact Assault Enhancement [You give him Token and ingredients.]
+}
+{27030}{}{Phoenix Armor Implants [You give him Token and ingredients.]
+}
+{27040}{}{Phoenix Assault Enhancement [You give him Token and ingredients.]
+}
+{27050}{}{Nemean Armor [You give him Token and ingredients.]
+}
+{27060}{}{Nemean Armor Upgrade [You give him Token and ingredients.]
+}
+{27070}{}{Hypertrophy Accelerator [You give him Token and ingredients.]
+}
+{27080}{}{Optics Enhancer [You give him Token and ingredients.]
+}
+{27090}{}{Nociception Regulator [You give him Token and ingredients.]
+}
+{27100}{}{Empathy Synthesizer [You give him Token and ingredients.]
+}
+{27110}{}{Logic Co-processor [You give him Token and ingredients.]
+}
+{27120}{}{Reflex Booster [You give him Token and ingredients.]
+}
+{27130}{}{Probability Calculator [You give him Token and ingredients.]
+}
+{27140}{}{Aggressive Sensors [You give him Token and ingredients.]}
+{27150}{}{Aggressive Sensors mk.II [You give him Token and ingredients.]}
+{27160}{}{Dragon System [You give him Token and ingredients.]}
+{27170}{}{Dragon OS [You give him Token and ingredients.]}
+{27180}{}{Tiger Movement [You give him Token and ingredients.]}
+{27190}{}{Tiger Speed [You give him Token and ingredients.]}
+{27200}{}{Claw Module [You give him Token and ingredients.]}
+{27210}{}{Claw Module upgrade [You give him Token and ingredients.]}
+{27220}{}{Tactical Chip [You give him Token and ingredients.]}
+{27230}{}{Tactical Chipset [You give him Token and ingredients.]}
+{27240}{}{Forget it.}
+{28000}{}{Done!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{default}
+{2000}{}{Help you with something?}
+{2010}{}{Yeah - I'm hurt and it looks like you're a doctor.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{I have a question.}
+{2050}{}{What can you tell me about armor implants?
+}
+{2060}{}{Bye.}
+{3000}{}{Yes?}
+{3010}{}{Do you have any stimpaks? I'd like to buy some.}
+{3020}{}{Do you sell Doctor's Bags?}
+{3030}{}{Do you sell Paramedic's Bags?}
+{3040}{}{Do you have any spare Bio Med Gel that I could buy from you?}
+{3050}{}{What can you tell me about armor implants?
+}
+{3060}{}{Nothing. Bye.}
+{4000}{}{You're welcome, goodbye.}
+{4010}{}{Goodbye.}
+{5000}{}{Let me take a look at that. Hmm. Yes. I'll have to charge you, of course. @lex price@ should cover it.}
+{5010}{}{Here you go.}
+{5020}{}{Forget it.}
+{6000}{}{Who am I? I am Dr. Fung. I teach and heal.}
+{6010}{}{Pleased to meet you. I need healing.}
+{6020}{}{I wanted to ask you something,}
+{6030}{}{I see. Thanks. Bye.}
+{7000}{}{Now, please relax and let me do my work...}
+{7010}{}{[Wait]}
+{8000}{}{You have come to the right person. Would you like long history or short?}
+{8010}{}{Long.}
+{8020}{}{Short.}
+{8030}{}{Neither. I have other questions, though.}
+{9000}{}{Our people landed here on the submarine Shih-huang-ti, when the missiles exploded over the world. Stranded, we had nowhere to go. The only solution was to form the Central Comitee and rebuild this place, San Francisco. It is a commune now, we share everything equally. That is the short version.}
+{9010}{}{How about the long version?}
+{9020}{}{Thanks. I have more questions.}
+{9030}{}{Thanks.}
+{10000}{}{The long version is this: We are here because our people are the descendants of the crew of a nuclear submarine, called the Shih-huang-ti. When the missiles fell in the Great Deluge, the systems aboard the submarine failed and we drifted in the dark for many days.}
+{10010}{}{Then what?}
+{11000}{}{At last, we drifted ashore. We found ourselves near the ruins of San Francisco. Most of the city was devastated in the war. We had to recreate society based on the few survivors who had crept back to the city.}
+{11010}{}{So then?}
+{12000}{}{We rebuilt with what we could find, and we have scientists and technology the world must envy. This place is governed by the Central Committee now, which decided to organize it as a commune. It means that we share everything equally, as long as it is possible.}
+{12010}{}{I see. I have more questions.}
+{12020}{}{Thanks. Bye.}
+{13000}{}{That should do it. Take it easy, now.}
+{13010}{}{Thanks doc, you too.}
+{14000}{}{I am sorry, my surgical ability can not help a person of your deformity.@@I am asking you politely to leave my home.@@I regret I can not help you, hideous one.}
+{15000}{}{Yes, they cost $2000}
+{15010}{}{Too expensive for me, sorry.}
+{15020}{}{I'll take one, here's the money.}
+{16000}{}{Yes, they cost $1000}
+{16010}{}{Too expensive for me, sorry.}
+{16020}{}{I'll take one, here's the money.}
+{17000}{}{Bio Gel, eh? Well, that doesn't grow on trees you know? I'd only be able to let some go for $25. [You can use SAY to enter number of items you want to buy]}
+{17010}{}{OK, I'll take one. [Give him $25]}
+{17020}{}{Good, I'll take 5 of those then.}
+{17030}{}{Doc, I'm not your average costumer, you know? Give me 20!}
+{17040}{}{I don't have that on me right now. I'll be back later with the cash.}
+{18000}{}{And here is your Bio Gel. Goodbye.}
+{18010}{}{Goodbye.}
+{19000}{}{I helped write the article on armor implants. All it takes is my expertise and your materials. What sort of implants do you desire?
+}
+{19010}{}{What sort are there?
+}
+{19020}{}{Umm... forget it. I have other questions.}
+{20000}{}{We have dermal implants, which protect against concussive damage. If you like that work, we can add a single enhancement to it. We also have Phoenix implants, which protect against heat-based attacks, and which also have an upgrade available. If you're interested in the upgrades, you will of course have to wait until the initial set has been installed. We also have other augmentations available: Hypertrophy Accelerator, Optics Enhancer, Nociception Regulator, Empathy Synthesizer, Logic Co-processor, Reflex Booster and Probability Calculator. And before you ask, yes, you CAN have all operations.}
+{20010}{}{How much is the operation?
+}
+{20020}{}{How much is the operation?}
+{21000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{21010}{}{Dermal Impact Armor [You give him 100.000 Currency and ingredients.]
+}
+{21020}{}{Dermal Impact Assault Enhancement [You give him 100.000 Currency and ingredients.]
+}
+{21030}{}{Phoenix Armor Implants [You give him 100.000 Currency and ingredients.]
+}
+{21040}{}{Phoenix Assault Enhancement [You give him 100.000 Currency and ingredients.]
+}
+{21050}{}{Nemean Armor [You give him 100.000 Currency and ingredients.]
+}
+{21060}{}{Nemean Armor Upgrade [You give him 100.000 Currency and ingredients.]
+}
+{21070}{}{Hypertrophy Accelerator [You give him 100.000 Currency and ingredients.]
+}
+{21080}{}{Optics Enhancer [You give him 100.000 Currency and ingredients.]
+}
+{21090}{}{Nociception Regulator [You give him 100.000 Currency and ingredients.]
+}
+{21100}{}{Empathy Synthesizer [You give him 100.000 Currency and ingredients.]
+}
+{21110}{}{Logic Co-processor [You give him 100.000 Currency and ingredients.]
+}
+{21120}{}{Reflex Booster [You give him 100.000 Currency and ingredients.]
+}
+{21130}{}{Probability Calculator [You give him 100.000 Currency and ingredients.]
+}
+{21140}{}{Aggressive Sensors [You give him 100.000 Currency and ingredients.]}
+{21150}{}{Aggressive Sensors mk.II [You give him 100.000 Currency and ingredients.]}
+{21160}{}{Dragon System [You give him 100.000 Currency and ingredients.]}
+{21170}{}{Dragon OS [You give him 100.000 Currency and ingredients.]}
+{21180}{}{Tiger Movement [You give him 100.000 Currency and ingredients.]}
+{21190}{}{Tiger Speed [You give him 100.000 Currency and ingredients.]}
+{21200}{}{Claw Module [You give him 100.000 Currency and ingredients.]}
+{21210}{}{Claw Module upgrade [You give him 100.000 Currency and ingredients.]}
+{21220}{}{Tactical Chip [You give him 100.000 Currency and ingredients.]}
+{21230}{}{Tactical Chipset [You give him 100.000 Currency and ingredients.]}
+{21240}{}{Forget it.}
+{21250}{}{hear about Special offer for Cyborgs}
+{21260}{}{I got token and it's writed here that I'll get free instalation}
+{22000}{}{There you go! You are ... enhanced. Remember- do not pick at the scabs unless you want horrid scarring to add to your suddenly not-entirely-pleasing appearance}
+{22010}{}{Thanks, doc. So long.
+}
+{23000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. But before the operation we have to get you clean of this radiation, you don't want to get infection and lose leg or two, do you?}
+{23010}{}{Not really, no... Let's do that first.}
+{23020}{}{Forget it. So long.}
+{24000}{}{A-ha! But I sure do! Just between the two of us, I was having a small experiment on my own recently... Was trying to make a mixture of traditional herbs and weeds, some of which are used by the northern tribes to heal injuries or recover from trauma. I have several concotions here ready for use, but lately the lack of testing subjects has slowed down my research work. Maybe you could try one of these while I record some of your vital functions on the Auto-Doc over there. What do you say? It would mean much for my work, you know...}
+{24010}{}{Of course! Everything for the science, Doc! [Faster Healing]}
+{24020}{}{Doc, with all due respect, I think you're trying to scam me. I'm outta here!}
+{25000}{}{Okay... Fine. Let me switch to the topo review. Good... That's good. [After a while, Doctor Fung finishes evaluation of your vital functions]}
+{25010}{}{That was some crazy stuff right there, Doc! Let's talk about something else though.}
+{25020}{}{Dammit Doc, I feel better than ever! Thank you! [Shake his hand and leave]}
+{26000}{}{Ya, sure 50% cheaper 3rd implant!}
+{26010}{}{Dermal Impact Armor [You give him 50.000 Currency and ingredients.]}
+{26020}{}{Phoenix Armor Implants [You give him 50.000 Currency and ingredients.]}
+{26030}{}{Nemean Armor [You give him 50.000 Currency and ingredients.]
+}
+{26040}{}{Aggressive Sensors [You give him 50.000 Currency and ingredients.]}
+{26050}{}{Dragon System [You give him 50.000 Currency and ingredients.]}
+{26060}{}{Tiger Movement [You give him 50.000 Currency and ingredients.]}
+{26070}{}{Claw Module [You give him 50.000 Currency and ingredients.]}
+{26080}{}{Tactical Chip [You give him 50.000 Currency and ingredients.]}
+{27000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{27010}{}{Dermal Impact Armor [You give him Token and ingredients.]
+}
+{27020}{}{Dermal Impact Assault Enhancement [You give him Token and ingredients.]
+}
+{27030}{}{Phoenix Armor Implants [You give him Token and ingredients.]
+}
+{27040}{}{Phoenix Assault Enhancement [You give him Token and ingredients.]
+}
+{27050}{}{Nemean Armor [You give him Token and ingredients.]
+}
+{27060}{}{Nemean Armor Upgrade [You give him Token and ingredients.]
+}
+{27070}{}{Hypertrophy Accelerator [You give him Token and ingredients.]
+}
+{27080}{}{Optics Enhancer [You give him Token and ingredients.]
+}
+{27090}{}{Nociception Regulator [You give him Token and ingredients.]
+}
+{27100}{}{Empathy Synthesizer [You give him Token and ingredients.]
+}
+{27110}{}{Logic Co-processor [You give him Token and ingredients.]
+}
+{27120}{}{Reflex Booster [You give him Token and ingredients.]
+}
+{27130}{}{Probability Calculator [You give him Token and ingredients.]
+}
+{27140}{}{Aggressive Sensors [You give him Token and ingredients.]}
+{27150}{}{Aggressive Sensors mk.II [You give him Token and ingredients.]}
+{27160}{}{Dragon System [You give him Token and ingredients.]}
+{27170}{}{Dragon OS [You give him Token and ingredients.]}
+{27180}{}{Tiger Movement [You give him Token and ingredients.]}
+{27190}{}{Tiger Speed [You give him Token and ingredients.]}
+{27200}{}{Claw Module [You give him Token and ingredients.]}
+{27210}{}{Claw Module upgrade [You give him Token and ingredients.]}
+{27220}{}{Tactical Chip [You give him Token and ingredients.]}
+{27230}{}{Tactical Chipset [You give him Token and ingredients.]}
+{27240}{}{Forget it.}
+{28000}{}{Done!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{default}
+{2000}{}{Help you with something?}
+{2010}{}{Yeah - I'm hurt and it looks like you're a doctor.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{I have a question.}
+{2050}{}{What can you tell me about armor implants?
+}
+{2060}{}{Bye.}
+{3000}{}{Yes?}
+{3010}{}{Do you have any stimpaks? I'd like to buy some.}
+{3020}{}{Do you sell Doctor's Bags?}
+{3030}{}{Do you sell Paramedic's Bags?}
+{3040}{}{Do you have any spare Bio Med Gel that I could buy from you?}
+{3050}{}{What can you tell me about armor implants?
+}
+{3060}{}{Nothing. Bye.}
+{4000}{}{You're welcome, goodbye.}
+{4010}{}{Goodbye.}
+{5000}{}{Let me take a look at that. Hmm. Yes. I'll have to charge you, of course. @lex price@ should cover it.}
+{5010}{}{Here you go.}
+{5020}{}{Forget it.}
+{6000}{}{Who am I? I am Dr. Fung. I teach and heal.}
+{6010}{}{Pleased to meet you. I need healing.}
+{6020}{}{I wanted to ask you something,}
+{6030}{}{I see. Thanks. Bye.}
+{7000}{}{Now, please relax and let me do my work...}
+{7010}{}{[Wait]}
+{8000}{}{You have come to the right person. Would you like long history or short?}
+{8010}{}{Long.}
+{8020}{}{Short.}
+{8030}{}{Neither. I have other questions, though.}
+{9000}{}{Our people landed here on the submarine Shih-huang-ti, when the missiles exploded over the world. Stranded, we had nowhere to go. The only solution was to form the Central Comitee and rebuild this place, San Francisco. It is a commune now, we share everything equally. That is the short version.}
+{9010}{}{How about the long version?}
+{9020}{}{Thanks. I have more questions.}
+{9030}{}{Thanks.}
+{10000}{}{The long version is this: We are here because our people are the descendants of the crew of a nuclear submarine, called the Shih-huang-ti. When the missiles fell in the Great Deluge, the systems aboard the submarine failed and we drifted in the dark for many days.}
+{10010}{}{Then what?}
+{11000}{}{At last, we drifted ashore. We found ourselves near the ruins of San Francisco. Most of the city was devastated in the war. We had to recreate society based on the few survivors who had crept back to the city.}
+{11010}{}{So then?}
+{12000}{}{We rebuilt with what we could find, and we have scientists and technology the world must envy. This place is governed by the Central Committee now, which decided to organize it as a commune. It means that we share everything equally, as long as it is possible.}
+{12010}{}{I see. I have more questions.}
+{12020}{}{Thanks. Bye.}
+{13000}{}{That should do it. Take it easy, now.}
+{13010}{}{Thanks doc, you too.}
+{14000}{}{I am sorry, my surgical ability can not help a person of your deformity.@@I am asking you politely to leave my home.@@I regret I can not help you, hideous one.}
+{15000}{}{Yes, they cost $2000}
+{15010}{}{Too expensive for me, sorry.}
+{15020}{}{I'll take one, here's the money.}
+{16000}{}{Yes, they cost $1000}
+{16010}{}{Too expensive for me, sorry.}
+{16020}{}{I'll take one, here's the money.}
+{17000}{}{Bio Gel, eh? Well, that doesn't grow on trees you know? I'd only be able to let some go for $25. [You can use SAY to enter number of items you want to buy]}
+{17010}{}{OK, I'll take one. [Give him $25]}
+{17020}{}{Good, I'll take 5 of those then.}
+{17030}{}{Doc, I'm not your average costumer, you know? Give me 20!}
+{17040}{}{I don't have that on me right now. I'll be back later with the cash.}
+{18000}{}{And here is your Bio Gel. Goodbye.}
+{18010}{}{Goodbye.}
+{19000}{}{I helped write the article on armor implants. All it takes is my expertise and your materials. What sort of implants do you desire?
+}
+{19010}{}{What sort are there?
+}
+{19020}{}{Umm... forget it. I have other questions.}
+{20000}{}{We have dermal implants, which protect against concussive damage. If you like that work, we can add a single enhancement to it. We also have Phoenix implants, which protect against heat-based attacks, and which also have an upgrade available. If you're interested in the upgrades, you will of course have to wait until the initial set has been installed. We also have other augmentations available: Hypertrophy Accelerator, Optics Enhancer, Nociception Regulator, Empathy Synthesizer, Logic Co-processor, Reflex Booster and Probability Calculator. And before you ask, yes, you CAN have all operations.}
+{20010}{}{How much is the operation?
+}
+{20020}{}{How much is the operation?}
+{21000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{21010}{}{Dermal Impact Armor [You give him 100.000 Currency and ingredients.]
+}
+{21020}{}{Dermal Impact Assault Enhancement [You give him 100.000 Currency and ingredients.]
+}
+{21030}{}{Phoenix Armor Implants [You give him 100.000 Currency and ingredients.]
+}
+{21040}{}{Phoenix Assault Enhancement [You give him 100.000 Currency and ingredients.]
+}
+{21050}{}{Nemean Armor [You give him 100.000 Currency and ingredients.]
+}
+{21060}{}{Nemean Armor Upgrade [You give him 100.000 Currency and ingredients.]
+}
+{21070}{}{Hypertrophy Accelerator [You give him 100.000 Currency and ingredients.]
+}
+{21080}{}{Optics Enhancer [You give him 100.000 Currency and ingredients.]
+}
+{21090}{}{Nociception Regulator [You give him 100.000 Currency and ingredients.]
+}
+{21100}{}{Empathy Synthesizer [You give him 100.000 Currency and ingredients.]
+}
+{21110}{}{Logic Co-processor [You give him 100.000 Currency and ingredients.]
+}
+{21120}{}{Reflex Booster [You give him 100.000 Currency and ingredients.]
+}
+{21130}{}{Probability Calculator [You give him 100.000 Currency and ingredients.]
+}
+{21140}{}{Aggressive Sensors [You give him 100.000 Currency and ingredients.]}
+{21150}{}{Aggressive Sensors mk.II [You give him 100.000 Currency and ingredients.]}
+{21160}{}{Dragon System [You give him 100.000 Currency and ingredients.]}
+{21170}{}{Dragon OS [You give him 100.000 Currency and ingredients.]}
+{21180}{}{Tiger Movement [You give him 100.000 Currency and ingredients.]}
+{21190}{}{Tiger Speed [You give him 100.000 Currency and ingredients.]}
+{21200}{}{Claw Module [You give him 100.000 Currency and ingredients.]}
+{21210}{}{Claw Module upgrade [You give him 100.000 Currency and ingredients.]}
+{21220}{}{Tactical Chip [You give him 100.000 Currency and ingredients.]}
+{21230}{}{Tactical Chipset [You give him 100.000 Currency and ingredients.]}
+{21240}{}{Forget it.}
+{21250}{}{hear about Special offer for Cyborgs}
+{21260}{}{I got token and it's writed here that I'll get free instalation}
+{22000}{}{There you go! You are ... enhanced. Remember- do not pick at the scabs unless you want horrid scarring to add to your suddenly not-entirely-pleasing appearance}
+{22010}{}{Thanks, doc. So long.
+}
+{23000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. But before the operation we have to get you clean of this radiation, you don't want to get infection and lose leg or two, do you?}
+{23010}{}{Not really, no... Let's do that first.}
+{23020}{}{Forget it. So long.}
+{24000}{}{A-ha! But I sure do! Just between the two of us, I was having a small experiment on my own recently... Was trying to make a mixture of traditional herbs and weeds, some of which are used by the northern tribes to heal injuries or recover from trauma. I have several concotions here ready for use, but lately the lack of testing subjects has slowed down my research work. Maybe you could try one of these while I record some of your vital functions on the Auto-Doc over there. What do you say? It would mean much for my work, you know...}
+{24010}{}{Of course! Everything for the science, Doc! [Faster Healing]}
+{24020}{}{Doc, with all due respect, I think you're trying to scam me. I'm outta here!}
+{25000}{}{Okay... Fine. Let me switch to the topo review. Good... That's good. [After a while, Doctor Fung finishes evaluation of your vital functions]}
+{25010}{}{That was some crazy stuff right there, Doc! Let's talk about something else though.}
+{25020}{}{Dammit Doc, I feel better than ever! Thank you! [Shake his hand and leave]}
+{26000}{}{Ya, sure 50% cheaper 3rd implant!}
+{26010}{}{Dermal Impact Armor [You give him 50.000 Currency and ingredients.]}
+{26020}{}{Phoenix Armor Implants [You give him 50.000 Currency and ingredients.]}
+{26030}{}{Nemean Armor [You give him 50.000 Currency and ingredients.]
+}
+{26040}{}{Aggressive Sensors [You give him 50.000 Currency and ingredients.]}
+{26050}{}{Dragon System [You give him 50.000 Currency and ingredients.]}
+{26060}{}{Tiger Movement [You give him 50.000 Currency and ingredients.]}
+{26070}{}{Claw Module [You give him 50.000 Currency and ingredients.]}
+{26080}{}{Tactical Chip [You give him 50.000 Currency and ingredients.]}
+{27000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{27010}{}{Dermal Impact Armor [You give him Token and ingredients.]
+}
+{27020}{}{Dermal Impact Assault Enhancement [You give him Token and ingredients.]
+}
+{27030}{}{Phoenix Armor Implants [You give him Token and ingredients.]
+}
+{27040}{}{Phoenix Assault Enhancement [You give him Token and ingredients.]
+}
+{27050}{}{Nemean Armor [You give him Token and ingredients.]
+}
+{27060}{}{Nemean Armor Upgrade [You give him Token and ingredients.]
+}
+{27070}{}{Hypertrophy Accelerator [You give him Token and ingredients.]
+}
+{27080}{}{Optics Enhancer [You give him Token and ingredients.]
+}
+{27090}{}{Nociception Regulator [You give him Token and ingredients.]
+}
+{27100}{}{Empathy Synthesizer [You give him Token and ingredients.]
+}
+{27110}{}{Logic Co-processor [You give him Token and ingredients.]
+}
+{27120}{}{Reflex Booster [You give him Token and ingredients.]
+}
+{27130}{}{Probability Calculator [You give him Token and ingredients.]
+}
+{27140}{}{Aggressive Sensors [You give him Token and ingredients.]}
+{27150}{}{Aggressive Sensors mk.II [You give him Token and ingredients.]}
+{27160}{}{Dragon System [You give him Token and ingredients.]}
+{27170}{}{Dragon OS [You give him Token and ingredients.]}
+{27180}{}{Tiger Movement [You give him Token and ingredients.]}
+{27190}{}{Tiger Speed [You give him Token and ingredients.]}
+{27200}{}{Claw Module [You give him Token and ingredients.]}
+{27210}{}{Claw Module upgrade [You give him Token and ingredients.]}
+{27220}{}{Tactical Chip [You give him Token and ingredients.]}
+{27230}{}{Tactical Chipset [You give him Token and ingredients.]}
+{27240}{}{Forget it.}
+{28000}{}{Done!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{default}
+{2000}{}{Help you with something?}
+{2010}{}{Yeah - I'm hurt and it looks like you're a doctor.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{I have a question.}
+{2050}{}{What can you tell me about armor implants?
+}
+{2060}{}{Bye.}
+{3000}{}{Yes?}
+{3010}{}{Do you have any stimpaks? I'd like to buy some.}
+{3020}{}{Do you sell Doctor's Bags?}
+{3030}{}{Do you sell Paramedic's Bags?}
+{3040}{}{Do you have any spare Bio Med Gel that I could buy from you?}
+{3050}{}{What can you tell me about armor implants?
+}
+{3060}{}{Nothing. Bye.}
+{4000}{}{You're welcome, goodbye.}
+{4010}{}{Goodbye.}
+{5000}{}{Let me take a look at that. Hmm. Yes. I'll have to charge you, of course. @lex price@ should cover it.}
+{5010}{}{Here you go.}
+{5020}{}{Forget it.}
+{6000}{}{Who am I? I am Dr. Fung. I teach and heal.}
+{6010}{}{Pleased to meet you. I need healing.}
+{6020}{}{I wanted to ask you something,}
+{6030}{}{I see. Thanks. Bye.}
+{7000}{}{Now, please relax and let me do my work...}
+{7010}{}{[Wait]}
+{8000}{}{You have come to the right person. Would you like long history or short?}
+{8010}{}{Long.}
+{8020}{}{Short.}
+{8030}{}{Neither. I have other questions, though.}
+{9000}{}{Our people landed here on the submarine Shih-huang-ti, when the missiles exploded over the world. Stranded, we had nowhere to go. The only solution was to form the Central Comitee and rebuild this place, San Francisco. It is a commune now, we share everything equally. That is the short version.}
+{9010}{}{How about the long version?}
+{9020}{}{Thanks. I have more questions.}
+{9030}{}{Thanks.}
+{10000}{}{The long version is this: We are here because our people are the descendants of the crew of a nuclear submarine, called the Shih-huang-ti. When the missiles fell in the Great Deluge, the systems aboard the submarine failed and we drifted in the dark for many days.}
+{10010}{}{Then what?}
+{11000}{}{At last, we drifted ashore. We found ourselves near the ruins of San Francisco. Most of the city was devastated in the war. We had to recreate society based on the few survivors who had crept back to the city.}
+{11010}{}{So then?}
+{12000}{}{We rebuilt with what we could find, and we have scientists and technology the world must envy. This place is governed by the Central Committee now, which decided to organize it as a commune. It means that we share everything equally, as long as it is possible.}
+{12010}{}{I see. I have more questions.}
+{12020}{}{Thanks. Bye.}
+{13000}{}{That should do it. Take it easy, now.}
+{13010}{}{Thanks doc, you too.}
+{14000}{}{I am sorry, my surgical ability can not help a person of your deformity.@@I am asking you politely to leave my home.@@I regret I can not help you, hideous one.}
+{15000}{}{Yes, they cost $2000}
+{15010}{}{Too expensive for me, sorry.}
+{15020}{}{I'll take one, here's the money.}
+{16000}{}{Yes, they cost $1000}
+{16010}{}{Too expensive for me, sorry.}
+{16020}{}{I'll take one, here's the money.}
+{17000}{}{Bio Gel, eh? Well, that doesn't grow on trees you know? I'd only be able to let some go for $25. [You can use SAY to enter number of items you want to buy]}
+{17010}{}{OK, I'll take one. [Give him $25]}
+{17020}{}{Good, I'll take 5 of those then.}
+{17030}{}{Doc, I'm not your average costumer, you know? Give me 20!}
+{17040}{}{I don't have that on me right now. I'll be back later with the cash.}
+{18000}{}{And here is your Bio Gel. Goodbye.}
+{18010}{}{Goodbye.}
+{19000}{}{I helped write the article on armor implants. All it takes is my expertise and your materials. What sort of implants do you desire?
+}
+{19010}{}{What sort are there?
+}
+{19020}{}{Umm... forget it. I have other questions.}
+{20000}{}{We have dermal implants, which protect against concussive damage. If you like that work, we can add a single enhancement to it. We also have Phoenix implants, which protect against heat-based attacks, and which also have an upgrade available. If you're interested in the upgrades, you will of course have to wait until the initial set has been installed. We also have other augmentations available: Hypertrophy Accelerator, Optics Enhancer, Nociception Regulator, Empathy Synthesizer, Logic Co-processor, Reflex Booster and Probability Calculator. And before you ask, yes, you CAN have all operations.}
+{20010}{}{How much is the operation?
+}
+{20020}{}{How much is the operation?}
+{21000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{21010}{}{Dermal Impact Armor [You give him 100.000 Currency and ingredients.]
+}
+{21020}{}{Dermal Impact Assault Enhancement [You give him 100.000 Currency and ingredients.]
+}
+{21030}{}{Phoenix Armor Implants [You give him 100.000 Currency and ingredients.]
+}
+{21040}{}{Phoenix Assault Enhancement [You give him 100.000 Currency and ingredients.]
+}
+{21050}{}{Nemean Armor [You give him 100.000 Currency and ingredients.]
+}
+{21060}{}{Nemean Armor Upgrade [You give him 100.000 Currency and ingredients.]
+}
+{21070}{}{Hypertrophy Accelerator [You give him 100.000 Currency and ingredients.]
+}
+{21080}{}{Optics Enhancer [You give him 100.000 Currency and ingredients.]
+}
+{21090}{}{Nociception Regulator [You give him 100.000 Currency and ingredients.]
+}
+{21100}{}{Empathy Synthesizer [You give him 100.000 Currency and ingredients.]
+}
+{21110}{}{Logic Co-processor [You give him 100.000 Currency and ingredients.]
+}
+{21120}{}{Reflex Booster [You give him 100.000 Currency and ingredients.]
+}
+{21130}{}{Probability Calculator [You give him 100.000 Currency and ingredients.]
+}
+{21140}{}{Aggressive Sensors [You give him 100.000 Currency and ingredients.]}
+{21150}{}{Aggressive Sensors mk.II [You give him 100.000 Currency and ingredients.]}
+{21160}{}{Dragon System [You give him 100.000 Currency and ingredients.]}
+{21170}{}{Dragon OS [You give him 100.000 Currency and ingredients.]}
+{21180}{}{Tiger Movement [You give him 100.000 Currency and ingredients.]}
+{21190}{}{Tiger Speed [You give him 100.000 Currency and ingredients.]}
+{21200}{}{Claw Module [You give him 100.000 Currency and ingredients.]}
+{21210}{}{Claw Module upgrade [You give him 100.000 Currency and ingredients.]}
+{21220}{}{Tactical Chip [You give him 100.000 Currency and ingredients.]}
+{21230}{}{Tactical Chipset [You give him 100.000 Currency and ingredients.]}
+{21240}{}{Forget it.}
+{21250}{}{hear about Special offer for Cyborgs}
+{21260}{}{I got token and it's writed here that I'll get free instalation}
+{22000}{}{There you go! You are ... enhanced. Remember- do not pick at the scabs unless you want horrid scarring to add to your suddenly not-entirely-pleasing appearance}
+{22010}{}{Thanks, doc. So long.
+}
+{23000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. But before the operation we have to get you clean of this radiation, you don't want to get infection and lose leg or two, do you?}
+{23010}{}{Not really, no... Let's do that first.}
+{23020}{}{Forget it. So long.}
+{24000}{}{A-ha! But I sure do! Just between the two of us, I was having a small experiment on my own recently... Was trying to make a mixture of traditional herbs and weeds, some of which are used by the northern tribes to heal injuries or recover from trauma. I have several concotions here ready for use, but lately the lack of testing subjects has slowed down my research work. Maybe you could try one of these while I record some of your vital functions on the Auto-Doc over there. What do you say? It would mean much for my work, you know...}
+{24010}{}{Of course! Everything for the science, Doc! [Faster Healing]}
+{24020}{}{Doc, with all due respect, I think you're trying to scam me. I'm outta here!}
+{25000}{}{Okay... Fine. Let me switch to the topo review. Good... That's good. [After a while, Doctor Fung finishes evaluation of your vital functions]}
+{25010}{}{That was some crazy stuff right there, Doc! Let's talk about something else though.}
+{25020}{}{Dammit Doc, I feel better than ever! Thank you! [Shake his hand and leave]}
+{26000}{}{Ya, sure 50% cheaper 3rd implant!}
+{26010}{}{Dermal Impact Armor [You give him 50.000 Currency and ingredients.]}
+{26020}{}{Phoenix Armor Implants [You give him 50.000 Currency and ingredients.]}
+{26030}{}{Nemean Armor [You give him 50.000 Currency and ingredients.]
+}
+{26040}{}{Aggressive Sensors [You give him 50.000 Currency and ingredients.]}
+{26050}{}{Dragon System [You give him 50.000 Currency and ingredients.]}
+{26060}{}{Tiger Movement [You give him 50.000 Currency and ingredients.]}
+{26070}{}{Claw Module [You give him 50.000 Currency and ingredients.]}
+{26080}{}{Tactical Chip [You give him 50.000 Currency and ingredients.]}
+{27000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{27010}{}{Dermal Impact Armor [You give him Token and ingredients.]
+}
+{27020}{}{Dermal Impact Assault Enhancement [You give him Token and ingredients.]
+}
+{27030}{}{Phoenix Armor Implants [You give him Token and ingredients.]
+}
+{27040}{}{Phoenix Assault Enhancement [You give him Token and ingredients.]
+}
+{27050}{}{Nemean Armor [You give him Token and ingredients.]
+}
+{27060}{}{Nemean Armor Upgrade [You give him Token and ingredients.]
+}
+{27070}{}{Hypertrophy Accelerator [You give him Token and ingredients.]
+}
+{27080}{}{Optics Enhancer [You give him Token and ingredients.]
+}
+{27090}{}{Nociception Regulator [You give him Token and ingredients.]
+}
+{27100}{}{Empathy Synthesizer [You give him Token and ingredients.]
+}
+{27110}{}{Logic Co-processor [You give him Token and ingredients.]
+}
+{27120}{}{Reflex Booster [You give him Token and ingredients.]
+}
+{27130}{}{Probability Calculator [You give him Token and ingredients.]
+}
+{27140}{}{Aggressive Sensors [You give him Token and ingredients.]}
+{27150}{}{Aggressive Sensors mk.II [You give him Token and ingredients.]}
+{27160}{}{Dragon System [You give him Token and ingredients.]}
+{27170}{}{Dragon OS [You give him Token and ingredients.]}
+{27180}{}{Tiger Movement [You give him Token and ingredients.]}
+{27190}{}{Tiger Speed [You give him Token and ingredients.]}
+{27200}{}{Claw Module [You give him Token and ingredients.]}
+{27210}{}{Claw Module upgrade [You give him Token and ingredients.]}
+{27220}{}{Tactical Chip [You give him Token and ingredients.]}
+{27230}{}{Tactical Chipset [You give him Token and ingredients.]}
+{27240}{}{Forget it.}
+{28000}{}{Done!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{default}
+{2000}{}{Help you with something?}
+{2010}{}{Yeah - I'm hurt and it looks like you're a doctor.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{I have a question.}
+{2050}{}{What can you tell me about armor implants?
+}
+{2060}{}{Bye.}
+{3000}{}{Yes?}
+{3010}{}{Do you have any stimpaks? I'd like to buy some.}
+{3020}{}{Do you sell Doctor's Bags?}
+{3030}{}{Do you sell Paramedic's Bags?}
+{3040}{}{Do you have any spare Bio Med Gel that I could buy from you?}
+{3050}{}{What can you tell me about armor implants?
+}
+{3060}{}{Nothing. Bye.}
+{4000}{}{You're welcome, goodbye.}
+{4010}{}{Goodbye.}
+{5000}{}{Let me take a look at that. Hmm. Yes. I'll have to charge you, of course. @lex price@ should cover it.}
+{5010}{}{Here you go.}
+{5020}{}{Forget it.}
+{6000}{}{Who am I? I am Dr. Fung. I teach and heal.}
+{6010}{}{Pleased to meet you. I need healing.}
+{6020}{}{I wanted to ask you something,}
+{6030}{}{I see. Thanks. Bye.}
+{7000}{}{Now, please relax and let me do my work...}
+{7010}{}{[Wait]}
+{8000}{}{You have come to the right person. Would you like long history or short?}
+{8010}{}{Long.}
+{8020}{}{Short.}
+{8030}{}{Neither. I have other questions, though.}
+{9000}{}{Our people landed here on the submarine Shih-huang-ti, when the missiles exploded over the world. Stranded, we had nowhere to go. The only solution was to form the Central Comitee and rebuild this place, San Francisco. It is a commune now, we share everything equally. That is the short version.}
+{9010}{}{How about the long version?}
+{9020}{}{Thanks. I have more questions.}
+{9030}{}{Thanks.}
+{10000}{}{The long version is this: We are here because our people are the descendants of the crew of a nuclear submarine, called the Shih-huang-ti. When the missiles fell in the Great Deluge, the systems aboard the submarine failed and we drifted in the dark for many days.}
+{10010}{}{Then what?}
+{11000}{}{At last, we drifted ashore. We found ourselves near the ruins of San Francisco. Most of the city was devastated in the war. We had to recreate society based on the few survivors who had crept back to the city.}
+{11010}{}{So then?}
+{12000}{}{We rebuilt with what we could find, and we have scientists and technology the world must envy. This place is governed by the Central Committee now, which decided to organize it as a commune. It means that we share everything equally, as long as it is possible.}
+{12010}{}{I see. I have more questions.}
+{12020}{}{Thanks. Bye.}
+{13000}{}{That should do it. Take it easy, now.}
+{13010}{}{Thanks doc, you too.}
+{14000}{}{I am sorry, my surgical ability can not help a person of your deformity.@@I am asking you politely to leave my home.@@I regret I can not help you, hideous one.}
+{15000}{}{Yes, they cost $2000}
+{15010}{}{Too expensive for me, sorry.}
+{15020}{}{I'll take one, here's the money.}
+{16000}{}{Yes, they cost $1000}
+{16010}{}{Too expensive for me, sorry.}
+{16020}{}{I'll take one, here's the money.}
+{17000}{}{Bio Gel, eh? Well, that doesn't grow on trees you know? I'd only be able to let some go for $25. [You can use SAY to enter number of items you want to buy]}
+{17010}{}{OK, I'll take one. [Give him $25]}
+{17020}{}{Good, I'll take 5 of those then.}
+{17030}{}{Doc, I'm not your average costumer, you know? Give me 20!}
+{17040}{}{I don't have that on me right now. I'll be back later with the cash.}
+{18000}{}{And here is your Bio Gel. Goodbye.}
+{18010}{}{Goodbye.}
+{19000}{}{I helped write the article on armor implants. All it takes is my expertise and your materials. What sort of implants do you desire?
+}
+{19010}{}{What sort are there?
+}
+{19020}{}{Umm... forget it. I have other questions.}
+{20000}{}{We have dermal implants, which protect against concussive damage. If you like that work, we can add a single enhancement to it. We also have Phoenix implants, which protect against heat-based attacks, and which also have an upgrade available. If you're interested in the upgrades, you will of course have to wait until the initial set has been installed. We also have other augmentations available: Hypertrophy Accelerator, Optics Enhancer, Nociception Regulator, Empathy Synthesizer, Logic Co-processor, Reflex Booster and Probability Calculator. And before you ask, yes, you CAN have all operations.}
+{20010}{}{How much is the operation?
+}
+{20020}{}{How much is the operation?}
+{21000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{21010}{}{Dermal Impact Armor [You give him 100.000 Currency and ingredients.]
+}
+{21020}{}{Dermal Impact Assault Enhancement [You give him 100.000 Currency and ingredients.]
+}
+{21030}{}{Phoenix Armor Implants [You give him 100.000 Currency and ingredients.]
+}
+{21040}{}{Phoenix Assault Enhancement [You give him 100.000 Currency and ingredients.]
+}
+{21050}{}{Nemean Armor [You give him 100.000 Currency and ingredients.]
+}
+{21060}{}{Nemean Armor Upgrade [You give him 100.000 Currency and ingredients.]
+}
+{21070}{}{Hypertrophy Accelerator [You give him 100.000 Currency and ingredients.]
+}
+{21080}{}{Optics Enhancer [You give him 100.000 Currency and ingredients.]
+}
+{21090}{}{Nociception Regulator [You give him 100.000 Currency and ingredients.]
+}
+{21100}{}{Empathy Synthesizer [You give him 100.000 Currency and ingredients.]
+}
+{21110}{}{Logic Co-processor [You give him 100.000 Currency and ingredients.]
+}
+{21120}{}{Reflex Booster [You give him 100.000 Currency and ingredients.]
+}
+{21130}{}{Probability Calculator [You give him 100.000 Currency and ingredients.]
+}
+{21140}{}{Aggressive Sensors [You give him 100.000 Currency and ingredients.]}
+{21150}{}{Aggressive Sensors mk.II [You give him 100.000 Currency and ingredients.]}
+{21160}{}{Dragon System [You give him 100.000 Currency and ingredients.]}
+{21170}{}{Dragon OS [You give him 100.000 Currency and ingredients.]}
+{21180}{}{Tiger Movement [You give him 100.000 Currency and ingredients.]}
+{21190}{}{Tiger Speed [You give him 100.000 Currency and ingredients.]}
+{21200}{}{Claw Module [You give him 100.000 Currency and ingredients.]}
+{21210}{}{Claw Module upgrade [You give him 100.000 Currency and ingredients.]}
+{21220}{}{Tactical Chip [You give him 100.000 Currency and ingredients.]}
+{21230}{}{Tactical Chipset [You give him 100.000 Currency and ingredients.]}
+{21240}{}{Forget it.}
+{21250}{}{hear about Special offer for Cyborgs}
+{21260}{}{I got token and it's writed here that I'll get free instalation}
+{22000}{}{There you go! You are ... enhanced. Remember- do not pick at the scabs unless you want horrid scarring to add to your suddenly not-entirely-pleasing appearance}
+{22010}{}{Thanks, doc. So long.
+}
+{23000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. But before the operation we have to get you clean of this radiation, you don't want to get infection and lose leg or two, do you?}
+{23010}{}{Not really, no... Let's do that first.}
+{23020}{}{Forget it. So long.}
+{24000}{}{A-ha! But I sure do! Just between the two of us, I was having a small experiment on my own recently... Was trying to make a mixture of traditional herbs and weeds, some of which are used by the northern tribes to heal injuries or recover from trauma. I have several concotions here ready for use, but lately the lack of testing subjects has slowed down my research work. Maybe you could try one of these while I record some of your vital functions on the Auto-Doc over there. What do you say? It would mean much for my work, you know...}
+{24010}{}{Of course! Everything for the science, Doc! [Faster Healing]}
+{24020}{}{Doc, with all due respect, I think you're trying to scam me. I'm outta here!}
+{25000}{}{Okay... Fine. Let me switch to the topo review. Good... That's good. [After a while, Doctor Fung finishes evaluation of your vital functions]}
+{25010}{}{That was some crazy stuff right there, Doc! Let's talk about something else though.}
+{25020}{}{Dammit Doc, I feel better than ever! Thank you! [Shake his hand and leave]}
+{26000}{}{Ya, sure 50% cheaper 3rd implant!}
+{26010}{}{Dermal Impact Armor [You give him 50.000 Currency and ingredients.]}
+{26020}{}{Phoenix Armor Implants [You give him 50.000 Currency and ingredients.]}
+{26030}{}{Nemean Armor [You give him 50.000 Currency and ingredients.]
+}
+{26040}{}{Aggressive Sensors [You give him 50.000 Currency and ingredients.]}
+{26050}{}{Dragon System [You give him 50.000 Currency and ingredients.]}
+{26060}{}{Tiger Movement [You give him 50.000 Currency and ingredients.]}
+{26070}{}{Claw Module [You give him 50.000 Currency and ingredients.]}
+{26080}{}{Tactical Chip [You give him 50.000 Currency and ingredients.]}
+{27000}{}{I'll need a particular implant module, a set of combat armor and 100.000 local Currency per operation. It's worth the money, if you ask me. So, what sort of implants do you desire?}
+{27010}{}{Dermal Impact Armor [You give him Token and ingredients.]
+}
+{27020}{}{Dermal Impact Assault Enhancement [You give him Token and ingredients.]
+}
+{27030}{}{Phoenix Armor Implants [You give him Token and ingredients.]
+}
+{27040}{}{Phoenix Assault Enhancement [You give him Token and ingredients.]
+}
+{27050}{}{Nemean Armor [You give him Token and ingredients.]
+}
+{27060}{}{Nemean Armor Upgrade [You give him Token and ingredients.]
+}
+{27070}{}{Hypertrophy Accelerator [You give him Token and ingredients.]
+}
+{27080}{}{Optics Enhancer [You give him Token and ingredients.]
+}
+{27090}{}{Nociception Regulator [You give him Token and ingredients.]
+}
+{27100}{}{Empathy Synthesizer [You give him Token and ingredients.]
+}
+{27110}{}{Logic Co-processor [You give him Token and ingredients.]
+}
+{27120}{}{Reflex Booster [You give him Token and ingredients.]
+}
+{27130}{}{Probability Calculator [You give him Token and ingredients.]
+}
+{27140}{}{Aggressive Sensors [You give him Token and ingredients.]}
+{27150}{}{Aggressive Sensors mk.II [You give him Token and ingredients.]}
+{27160}{}{Dragon System [You give him Token and ingredients.]}
+{27170}{}{Dragon OS [You give him Token and ingredients.]}
+{27180}{}{Tiger Movement [You give him Token and ingredients.]}
+{27190}{}{Tiger Speed [You give him Token and ingredients.]}
+{27200}{}{Claw Module [You give him Token and ingredients.]}
+{27210}{}{Claw Module upgrade [You give him Token and ingredients.]}
+{27220}{}{Tactical Chip [You give him Token and ingredients.]}
+{27230}{}{Tactical Chipset [You give him Token and ingredients.]}
+{27240}{}{Forget it.}
+{28000}{}{Done!}
+

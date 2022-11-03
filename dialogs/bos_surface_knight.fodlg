@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Brotherhood Knight}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am on duty.@@What is it?@@Can't talk now.@@Bloody desert...@@Don't cause troubles.@@I am watching you.@@Don't mess around.@@Wander somewhere else, ok?@@Sand, sand... is it ever different?@@...damn visor keeps sticking...@@...clean my equipment every fucking day...@@...so fucking hot all the time...@@Stand aside!@@Don't bother me, please.@@I'm on guard here.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am on duty.@@What is it?@@Can't talk now.@@Bloody desert...@@Don't cause troubles.@@I am watching you.@@Don't mess around.@@Wander somewhere else, ok?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am on duty.@@What is it?@@Can't talk now.@@Bloody desert...@@Don't cause troubles.@@I am watching you.@@Don't mess around.@@Wander somewhere else, ok?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am on duty.@@What is it?@@Can't talk now.@@Bloody desert...@@Don't cause troubles.@@I am watching you.@@Don't mess around.@@Wander somewhere else, ok?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am on duty.@@What is it?@@Can't talk now.@@Bloody desert...@@Don't cause troubles.@@I am watching you.@@Don't mess around.@@Wander somewhere else, ok?}
+

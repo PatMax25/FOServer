@@ -1,0 +1,150 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+7 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 #
+2 3020 @
+4 4000 None 0 #
+5 4010 #
+0 4020 @
+5 5000 None 0 #
+6 5010 D _var p janna_farm = 0 #
+0 5020 @
+6 6000 None 0 #
+8 6010 D _var p janna_farm = 0 D _item p PID_BOTTLE_CAPS } 210000 R _var p janna_farm = 1 R _item p PID_BOTTLE_CAPS - 210000 R _script dialog@r_location_quest 4 510 675 1552 0 #
+0 6020 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Janna}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Who are you?}
+{2020}{}{What can you tell me about this place?}
+{2030}{}{Nothing. I will be going.}
+{3000}{}{I am Janna. I am in charge of the crops here. I grow food, so the local lazy asses can have something to eat.}
+{3010}{}{So you are something like a local farmer, right?}
+{3020}{}{I want to ask about something else.}
+{4000}{}{Well, I used to be a farmer and even had my own farm. Though I had to leave due to high taxes, I still try to pay everything up, so I can return back to New California Republic one day.}
+{4010}{}{The farm you say... Tell me more about it.}
+{4020}{}{Yeah, great story. I will be going now.}
+{5000}{}{Yes, it was my brother's farm. My brother was later eaten by molerats, so I became the owner. But I was too young and haven't got a single dollar in my pocket. So I had to leave it and the debt is still on me.}
+{5010}{}{What if I buy this farm from you? You can get rid of your debt.}
+{5020}{}{What a pity. Well, hold up here.}
+{6000}{}{Hmh... This sounds good for me. 210000 caps and I give the farm to you.}
+{6010}{}{Fair enough. Here are the caps.}
+{6020}{}{I will come later.}
+{7000}{}{As far as I know, this is town Sarmatia, found by Mirim. He is the current leader of our settlement. Life is not easy here, but at least we have a roof over our heads, food to eat and work to do.}
+{7010}{}{One more thing...}
+{8000}{}{[ She points to the location of the farm on the map ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Who are you?}
+{2020}{}{What can you tell me about this place?}
+{2030}{}{Nothing. I will be going.}
+{3000}{}{I am Janna. I am in charge of crops here. Growing food, so local lazy asses can have something to eat.}
+{3010}{}{So you are something like a local farmer, right?}
+{3020}{}{I want to ask about something else.}
+{4000}{}{Well, I used to be a farmer and even had my own farm. Though I had to leave due to high taxes, I still try to pay everything up, so I can return back to New California Republic one day.}
+{4010}{}{The farm you say... Tell me more about it.}
+{4020}{}{Yeah, great story. I will be going now.}
+{5000}{}{Yes, it was my brother's farm. My brother was later eaten by molerats, so I became the owner. But I was too young and got not a single dollar in my pocket. So I had to leave it and the dept is still on me.}
+{5010}{}{What if I buy this farm from you? You can get rid of your dept.}
+{5020}{}{What a pity. Well, hold up here.}
+{6000}{}{Hmh... This sounds good for me. 210000 caps and I give the farm to you.}
+{6010}{}{Fair enough. Here are the caps.}
+{6020}{}{I will come later.}
+{7000}{}{As far as I know, this is town Sarmatia, found by Mirim. He is the current leader of our settlement. Life is not easy here, but at least we have a roof over our heads, food to eat and work to do.}
+{7010}{}{One more thing...}
+{8000}{}{[ She points the location of the farm on the map ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Who are you?}
+{2020}{}{What can you tell me about this place?}
+{2030}{}{Nothing. I will be going.}
+{3000}{}{I am Janna. I am in charge of crops here. Growing food, so local lazy asses can have something to eat.}
+{3010}{}{So you are something like a local farmer, right?}
+{3020}{}{I want to ask about something else.}
+{4000}{}{Well, I used to be a farmer and even had my own farm. Though I had to leave due to high taxes, I still try to pay everything up, so I can return back to New California Republic one day.}
+{4010}{}{The farm you say... Tell me more about it.}
+{4020}{}{Yeah, great story. I will be going now.}
+{5000}{}{Yes, it was my brother's farm. My brother was later eaten by molerats, so I became the owner. But I was too young and got not a single dollar in my pocket. So I had to leave it and the dept is still on me.}
+{5010}{}{What if I buy this farm from you? You can get rid of your dept.}
+{5020}{}{What a pity. Well, hold up here.}
+{6000}{}{Hmh... This sounds good for me. 210000 caps and I give the farm to you.}
+{6010}{}{Fair enough. Here are the caps.}
+{6020}{}{I will come later.}
+{7000}{}{As far as I know, this is town Sarmatia, found by Mirim. He is the current leader of our settlement. Life is not easy here, but at least we have a roof over our heads, food to eat and work to do.}
+{7010}{}{One more thing...}
+{8000}{}{[ She points the location of the farm on the map ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Who are you?}
+{2020}{}{What can you tell me about this place?}
+{2030}{}{Nothing. I will be going.}
+{3000}{}{I am Janna. I am in charge of crops here. Growing food, so local lazy asses can have something to eat.}
+{3010}{}{So you are something like a local farmer, right?}
+{3020}{}{I want to ask about something else.}
+{4000}{}{Well, I used to be a farmer and even had my own farm. Though I had to leave due to high taxes, I still try to pay everything up, so I can return back to New California Republic one day.}
+{4010}{}{The farm you say... Tell me more about it.}
+{4020}{}{Yeah, great story. I will be going now.}
+{5000}{}{Yes, it was my brother's farm. My brother was later eaten by molerats, so I became the owner. But I was too young and got not a single dollar in my pocket. So I had to leave it and the dept is still on me.}
+{5010}{}{What if I buy this farm from you? You can get rid of your dept.}
+{5020}{}{What a pity. Well, hold up here.}
+{6000}{}{Hmh... This sounds good for me. 210000 caps and I give the farm to you.}
+{6010}{}{Fair enough. Here are the caps.}
+{6020}{}{I will come later.}
+{7000}{}{As far as I know, this is town Sarmatia, found by Mirim. He is the current leader of our settlement. Life is not easy here, but at least we have a roof over our heads, food to eat and work to do.}
+{7010}{}{One more thing...}
+{8000}{}{[ She points the location of the farm on the map ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Who are you?}
+{2020}{}{What can you tell me about this place?}
+{2030}{}{Nothing. I will be going.}
+{3000}{}{I am Janna. I am in charge of crops here. Growing food, so local lazy asses can have something to eat.}
+{3010}{}{So you are something like a local farmer, right?}
+{3020}{}{I want to ask about something else.}
+{4000}{}{Well, I used to be a farmer and even had my own farm. Though I had to leave due to high taxes, I still try to pay everything up, so I can return back to New California Republic one day.}
+{4010}{}{The farm you say... Tell me more about it.}
+{4020}{}{Yeah, great story. I will be going now.}
+{5000}{}{Yes, it was my brother's farm. My brother was later eaten by molerats, so I became the owner. But I was too young and got not a single dollar in my pocket. So I had to leave it and the dept is still on me.}
+{5010}{}{What if I buy this farm from you? You can get rid of your dept.}
+{5020}{}{What a pity. Well, hold up here.}
+{6000}{}{Hmh... This sounds good for me. 210000 caps and I give the farm to you.}
+{6010}{}{Fair enough. Here are the caps.}
+{6020}{}{I will come later.}
+{7000}{}{As far as I know, this is town Sarmatia, found by Mirim. He is the current leader of our settlement. Life is not easy here, but at least we have a roof over our heads, food to eat and work to do.}
+{7010}{}{One more thing...}
+{8000}{}{[ She points the location of the farm on the map ]}
+

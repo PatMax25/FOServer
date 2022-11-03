@@ -1,0 +1,67 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+2 3010 &
+
+[engl]
+{100}{}{Strange person}
+{200}{}{Strange person}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Error... Unable to load the operation system.}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ Let us see our true God - the God of Plague! Let us kill all heretics and use their blood to please our God! More blood for the Plague! More blood for the Plague!}
+{3010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Error... Unable to load the operation system.}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ Let us see our true God - the God of Plague! Let us kill all heretics and use their blood to please our God! More blood for the Plague! More blood for the Plague!}
+{3010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Error... Unable to load the operation system.}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ Let us see our true God - the God of Plague! Let us kill all heretics and use their blood to please our God! More blood for the Plague! More blood for the Plague!}
+{3010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Error... Unable to load the operation system.}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ Let us see our true God - the God of Plague! Let us kill all heretics and use their blood to please our God! More blood for the Plague! More blood for the Plague!}
+{3010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Error... Unable to load the operation system.}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ Let us see our true God - the God of Plague! Let us kill all heretics and use their blood to please our God! More blood for the Plague! More blood for the Plague!}
+{3010}{}{[ Back ]}
+

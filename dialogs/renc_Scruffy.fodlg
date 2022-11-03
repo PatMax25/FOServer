@@ -1,0 +1,104 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+8 1010 D _param p ST_INTELLECT < 4 #
+2 1020 D _var n name_mem_npc_player = 0 #
+8 1030 D _var n name_mem_npc_player > 0 @
+2 2000 None 0 #
+65507 2010 #
+3 2020 #
+3 2030 #
+3 2040 #
+0 2050 @
+3 3000 None 0 #
+4 3010 #
+4 3020 #
+0 3030 @
+4 4000 None 0 #
+65507 4010 #
+6 4020 #
+5 4030 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+7 6010 #
+0 6020 @
+7 7000 None 0 #
+0 7010 @
+8 8000 None 0 #
+9 8010 #
+9 8020 #
+0 8030 @
+9 9000 None 0 #
+10 9010 #
+0 9020 @
+10 10000 None 0 #
+11 10010 #
+0 10020 @
+11 11000 None 0 #
+12 11010 #
+0 11020 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 #
+0 14020 &
+
+[engl]
+{100}{}{Scruffy}
+{200}{}{It's Scruffy. You're amazed he's still alive and faithful after all the abuse.}
+{210}{}{You see a disgusting piece of human garbage with few teeth and infected oozing sores all over his body.}
+{1000}{}{Predialogue installations}
+{1010}{}{dumb}
+{1020}{}{- Does not know Player}
+{1030}{}{- Knows Player}
+{2000}{}{*this older, extremely ugly man with jaundiced eyes and scraggly hair is now pointing a pistol directly at the head of the woman next to him* Hey, stop right there, who the fuck are you? There's not supposed to be anybody out here, god damn it. }
+{2010}{}{I'm your worst nightmare! [ Attack ]}
+{2020}{}{I'm the pizza delivery guy... are you the one who ordered a Large Italian style with extra olives and red pepper on the side?}
+{2030}{}{My name's @pname@. Cool it, man, is everything alright? What's going on over here? It seemed like there might be some sort of trouble.}
+{2040}{}{Oh goodness, another new friend! That's so wonderful. I was just lost, can you please direct me to the closest town?}
+{2050}{}{Whoa, ok bye, I am so out of here! [ end dialogue ]}
+{3000}{}{Listen, are you stupid or what? If you don't put down your weapons right now, I am gonna blow her pretty little brains all over the place. Drop your weapons, right now!}
+{3010}{}{So... do you guys want to pay for the pizza now, or should I just bill your credit card? Come on dude, look, they sent me all the way out here, I have the receipt and everything! *you wave a piece of paper in the air for him to see*}
+{3020}{}{Listen, just calm down. We can work this out, I promise. No one needs to die here.}
+{3030}{}{Oh goodness, you don't sound happy and I don't want to talk to you at all. Nope. [ end dialogue ]}
+{4000}{}{Look, the only thing that is going to happen here is that you are going to give me all your weapons, NOW, or she dies, and then you next!}
+{4010}{}{Fuck you, asshole! You can have my weapons when you can pry them from my cold, dead hands... [ Attack ]}
+{4020}{}{Alright well, just check this out. *you get closer to him with the piece of paper like you are going to show it to him, and then when you are next to him about to unfold it, you point off at something in the distance* Whoa, LOOK OVER THERE!}
+{4030}{}{Well, damnit, I'd really like to save her, I guess you got me this time. [ drop all your weapons ]}
+{5000}{}{Hey, lookie here, a smart one. Thanks for the weapons, genius. We'll see you around. *they both ride off on the motorcycle with your equipment*}
+{5010}{}{Oh shit... [ end dialogue ]}
+{6000}{}{*he looks at where you are pointing and strains his eyes* What? What's over there?? I can't see!!}
+{6010}{}{Just keep looking real carefully, don't worry. You'll see it soon. }
+{6020}{}{[ run away quickly while you can ]}
+{7000}{}{*you use the distraction well, and in one swift and efficient blow he is on the ground gasping for air in front of you, disarmed* *cough* God damnit... *cough* *he can't seem to get any air for a while*}
+{7010}{}{You just fell for the oldest trick in the book, dumbass. [ end dialogue ]}
+{8000}{}{Ugh, who the fuck is this retard? Get away from me before I decide to shoot you dead.}
+{8010}{}{Aww!! I just wanted to make friends!!}
+{8020}{}{You think you can kill me? Haha, that's a good one.}
+{8030}{}{Uh oh, I'm out. [ end dialogue ]}
+{9000}{}{Alright, last chance. I'm gonna count to 3!}
+{9010}{}{Wait, what?}
+{9020}{}{Okay, time to go. [ end dialogue ]}
+{10000}{}{2!}
+{10010}{}{Oh, this is gonna be good.}
+{10020}{}{I think it's really time to leave, now. [ end dialogue ]}
+{11000}{}{1!}
+{11010}{}{Definitely pushing my luck!}
+{11020}{}{I am getting the hell out of here! [ end dialogue ]}
+{12000}{}{...}
+{12010}{}{[ keep staring at him ]}
+{13000}{}{... ... ...}
+{13010}{}{[ keep staring at him ]}
+{14000}{}{... ... so that's it, then. You're just going to stand there and stare at us, like some stupid fucking brahmin. Some kind of real moron we got here, god damn. Whatever. We'll be gone soon.}
+{14010}{}{I've had it with you. You're dead. [ Attack ]}
+{14020}{}{Goodbye, asshole. [ end dialogue ]}
+

@@ -1,0 +1,15 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Mifius;
+@gender = 0;
+@age = 27;
+
+@special = 5 7 5 5 6 8 4;
+@xp = 2 1199 3000;
+@life = 58 73 0 0 0 0 0 0 0;
+@stats = 24 9 87950 1 0 25 10 14 3 4;
+@skills = 37 16 16 56 46 32 26 18 29 25 24 25 24 18 25 20 20 22 23;
+@traits = 553 557;
+@perks = 301;
+@kills = 266:17 267:5 272:2;

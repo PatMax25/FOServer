@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+2 3010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Janeth Rollins ]}
+{2010}{}{[ Note #1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ How can't they understand?! I am sure that there are Brotherhood of Steel spies among us and I am sure they are planning to do something with all that weird electronics... It must be because of all NCR units here. How can't that dumbhead mayor understand that NCR came here for a reason! ]}
+{3010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Janeth Rollins ]}
+{2010}{}{[ Note #1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ How can't they understand?! I am sure that there are Brotherhood of Steel spies among us and I am sure they are planning to do something with all that weird electronics... It must be because of all NCR units here. How can't that dumbhead mayor understand that NCR came here for a reason! ]}
+{3010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Janeth Rollins ]}
+{2010}{}{[ Note #1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ How can't they understand?! I am sure that there are Brotherhood of Steel spies among us and I am sure they are planning to do something with all that weird electronics... It must be because of all NCR units here. How can't that dumbhead mayor understand that NCR came here for a reason! ]}
+{3010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Janeth Rollins ]}
+{2010}{}{[ Note #1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ How can't they understand?! I am sure that there are Brotherhood of Steel spies among us and I am sure they are planning to do something with all that weird electronics... It must be because of all NCR units here. How can't that dumbhead mayor understand that NCR came here for a reason! ]}
+{3010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal of Janeth Rollins ]}
+{2010}{}{[ Note #1 ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ How can't they understand?! I am sure that there are Brotherhood of Steel spies among us and I am sure they are planning to do something with all that weird electronics... It must be because of all NCR units here. How can't that dumbhead mayor understand that NCR came here for a reason! ]}
+{3010}{}{[ Back ]}
+

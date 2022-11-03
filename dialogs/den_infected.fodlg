@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+65507 3010 #
+65507 3020 &
+
+[engl]
+{100}{}{Strange person}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Grrr...}
+{2010}{}{Hey? Are you alright?}
+{3000}{}{Aaaarghh... Shhrr... [ you see the blood coming out of his mouth ]}
+{3010}{}{What the hell is wrong with you?!}
+{3020}{}{Oh dear! You are infected.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Grrr...}
+{2010}{}{Hey? Are you alright?}
+{3000}{}{Aaaarghh... Shhrr... [ you see the blood coming out of his mouth ]}
+{3010}{}{What a hell is wrong with you?!}
+{3020}{}{Oh dear! You are infected.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Grrr...}
+{2010}{}{Hey? Are you alright?}
+{3000}{}{Aaaarghh... Shhrr... [ you see the blood coming out of his mouth ]}
+{3010}{}{What a hell is wrong with you?!}
+{3020}{}{Oh dear! You are infected.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Grrr...}
+{2010}{}{Hey? Are you alright?}
+{3000}{}{Aaaarghh... Shhrr... [ you see the blood coming out of his mouth ]}
+{3010}{}{What a hell is wrong with you?!}
+{3020}{}{Oh dear! You are infected.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Grrr...}
+{2010}{}{Hey? Are you alright?}
+{3000}{}{Aaaarghh... Shhrr... [ you see the blood coming out of his mouth ]}
+{3010}{}{What a hell is wrong with you?!}
+{3020}{}{Oh dear! You are infected.}
+

@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 D _param p ST_TEAM_ID = 6 R _script dialog@r_OpenDoor 2 48 30 #
+65507 2020 @
+4 3000 None 0 &
+
+[engl]
+{100}{}{Door Guard}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Glory to Vault City, citizen! Your papers, please.}
+{2010}{}{Here you are. I need to get inside.}
+{2020}{}{I... eh... forgot them. [ Attack ]}
+{3000}{}{Close the door behind you once you are in.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Glory to Vault City, citizen!}
+{2010}{}{Here you are. I need to get inside.}
+{2020}{}{I... eh... forgot them.}
+{3000}{}{Close the door behind you.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Glory to Vault City, citizen!}
+{2010}{}{Here you are. I need to get inside.}
+{2020}{}{I... eh... forgot them.}
+{3000}{}{Close the door behind you.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Glory to Vault City, citizen!}
+{2010}{}{Here you are. I need to get inside.}
+{2020}{}{I... eh... forgot them.}
+{3000}{}{Close the door behind you.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Glory to Vault City, citizen!}
+{2010}{}{Here you are. I need to get inside.}
+{2020}{}{I... eh... forgot them.}
+{3000}{}{Close the door behind you.}
+

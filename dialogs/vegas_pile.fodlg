@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p christine = 1 R _var p christine = 2 R _item p PID_BRIEFCASE + 1 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Junk}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*you see a junk pile*}
+{2010}{}{[ search for a briefcase ]}
+{2020}{}{[ leave ] [ end dialogue ]}
+{3000}{}{*you got something out of the pile*}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see a junk pile ]}
+{2010}{}{[ Search for a briefcase ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ You got something out of the pile ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see a junk pile ]}
+{2010}{}{[ Search for a briefcase ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ You got something out of the pile ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see a junk pile ]}
+{2010}{}{[ Search for a briefcase ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ You got something out of the pile ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see a junk pile ]}
+{2010}{}{[ Search for a briefcase ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ You got something out of the pile ]}
+

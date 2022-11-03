@@ -1,0 +1,294 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 D _var p sas_confirm = 0 #
+6 2040 D _var p sas_confirm = 1 #
+0 2050 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 #
+4 4020 @
+5 5000 None 0 @
+6 6000 None 0 #
+2 6010 #
+11 6020 D _param p ST_LUCK } 10 R _var p sas_confirm = 0 R _script dialog@r_OpenDoor 2 45 600 #
+0 6030 D _param p ST_LUCK < 10 R _script dialog@r_ToDead 1 Anim2DeadFused #
+7 6040 #
+0 6050 R _script dialog@r_ToDead 1 Anim2DeadFused #
+0 6060 R _script dialog@r_ToDead 1 Anim2DeadFused #
+0 6070 R _script dialog@r_ToDead 1 Anim2DeadFused #
+0 6080 D _param p SK_SCIENCE < 100 R _script dialog@r_ToDead 1 Anim2DeadFused #
+11 6090 D _param p SK_SCIENCE } 100 R _var p sas_confirm = 0 R _script dialog@r_OpenDoor 2 45 600 @
+7 7000 None 0 #
+0 7010 R _script dialog@r_ToDead 1 Anim2DeadFused #
+0 7020 R _script dialog@r_ToDead 1 Anim2DeadFused #
+0 7030 R _script dialog@r_ToDead 1 Anim2DeadFused #
+8 7040 #
+0 7050 R _script dialog@r_ToDead 1 Anim2DeadFused @
+8 8000 None 0 #
+9 8010 #
+0 8020 R _script dialog@r_ToDead 1 Anim2DeadFused #
+0 8030 R _script dialog@r_ToDead 1 Anim2DeadFused #
+12 8040 @
+9 9000 None 0 #
+0 9010 R _script dialog@r_ToDead 1 Anim2DeadFused #
+0 9020 R _script dialog@r_ToDead 1 Anim2DeadFused #
+13 9030 #
+10 9040 @
+10 10000 None 0 #
+11 10010 R _var p sas_confirm = 0 R _script dialog@r_OpenDoor 2 45 600 @
+11 11000 None 0 @
+12 12000 None 0 @
+13 13000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Shelter door control terminal ]}
+{2010}{}{[ Fucking morons ]}
+{2020}{}{[ Tech note ]}
+{2030}{}{[ Open the S.A.S. door ]}
+{2040}{}{[ Open the S.A.S. door ]}
+{2050}{}{[ Exit ]}
+{3000}{}{[ These idiots for real gave access from this door to NSA, so to open this shit we will need to wait for somebody from NSA Bravo or Alpha to send a confirmation. Great move... I do believe we can stop relying on SAS in case of the war. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ The terminal can malfunction sometimes due to some minor errors in its constuction. In case the door doesn't open, follow these steps: Restart the terminal, start system reboot, load automatic system bug tracker, start system reconfiguration, restart the terminal, open the door.@@HdgaDSjahaDnasjdDnah[ Message failed to load. Please restart the recent command@@HdgaDSjahaDnasjdDnah[ Message failed to load. Please restart the recent command.  ] ]}
+{4010}{}{[ Back ]}
+{4020}{}{[ Restart ]}
+{5000}{}{[ Confirmation needed from NSA Outpost Bravo or Alpha ]}
+{6000}{}{[ Error... Unable to open the door ]}
+{6010}{}{[ Back ]}
+{6020}{}{[ Luck 10 ] Kick the terminal.}
+{6030}{}{[ Luck 10 ] Kick the terminal.}
+{6040}{}{[ Restart the terminal ]}
+{6050}{}{[ Open OS menu ]}
+{6060}{}{[ Press CNTRL+ALT+DELETE ]}
+{6070}{}{[ Load configuration menu ]}
+{6080}{}{[ Science 100 ] Override the system.}
+{6090}{}{[ Science 100 ] Override the system.}
+{7000}{}{[ Restarting the terminal... ]}
+{7010}{}{[ Start system reconfiguration ]}
+{7020}{}{[ Open the terminal's fuse box ]}
+{7030}{}{[ Presss random key on the keyboard ]}
+{7040}{}{[ Start system reboot ]}
+{7050}{}{[ Strat bug tracking ]}
+{8000}{}{[ Rebooting system... ]}
+{8010}{}{[ Start bug tracking ]}
+{8020}{}{[ Reboot the system ]}
+{8030}{}{[ Start system reconfiguration ]}
+{8040}{}{[ Launch "FOnline3.exe" ]}
+{9000}{}{[ Bug tracker on... ]}
+{9010}{}{[ Synchronize the system ]}
+{9020}{}{[ Open task manager ]}
+{9030}{}{[ Forget about your computer and get a life already ]}
+{9040}{}{[ Reconfigure the system ]}
+{10000}{}{[ Reconfiguring the system... ]}
+{10010}{}{[ Open the door ]}
+{11000}{}{[ Opening the door... 10 minutes left!!! ]}
+{12000}{}{[ The game crashed. We know about the issue, but you can still report this to us if you wish to. ]}
+{13000}{}{[ Smart choice... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Shelter door control terminal ]}
+{2010}{}{[ Fucking morons ]}
+{2020}{}{[ Tech note ]}
+{2030}{}{[ Open the S.A.S. door ]}
+{2040}{}{[ Open the S.A.S. door ]}
+{2050}{}{[ Exit ]}
+{3000}{}{[ These idiots for real gave access from this door to NSA, so to open this shit we will need to wait for somebody from NSA Bravo or Alpha to send a confirmation. Great move... I do believe we can stop relying on SAS in case of the war. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ The terminal can malfunction sometimes due to some minor errors in its constuction. In case if the door doesn't open, follow these steps: Restart the terminal, start system reboot, load automatic system bug tracker, start system reconfiguration, restart the terminal, open the door. ]}
+{4010}{}{[ Back ]}
+{4020}{}{[ Restart ]}
+{5000}{}{[ Confirmation needed from NSA Outpost Bravo or Alpha ]}
+{6000}{}{[ Error... Unable to open the door ]}
+{6010}{}{[ Back ]}
+{6020}{}{[ Luck 10 ] Kick the terminal.}
+{6030}{}{[ Luck 10 ] Kick the terminal.}
+{6040}{}{[ Restart the terminal ]}
+{6050}{}{[ Open OS menu ]}
+{6060}{}{[ Press CNTRL+ALT+DELETE ]}
+{6070}{}{[ Load configuration menu ]}
+{6080}{}{[ Science 100 ] Override the system.}
+{6090}{}{[ Science 100 ] Override the system.}
+{7000}{}{[ Restarting the terminal... ]}
+{7010}{}{[ Start system reconfiguration ]}
+{7020}{}{[ Open the terminal's fuse box ]}
+{7030}{}{[ Presss random key on the keyboard ]}
+{7040}{}{[ Start system reboot ]}
+{7050}{}{[ Strat bug tracking ]}
+{8000}{}{[ Rebooting system... ]}
+{8010}{}{[ Strat bug tracking ]}
+{8020}{}{[ Reboot the system ]}
+{8030}{}{[ Start system reconfiguration ]}
+{8040}{}{[ Launch "FOnline3.exe" ]}
+{9000}{}{[ Bug tracker on... ]}
+{9010}{}{[ Synchronize the system ]}
+{9020}{}{[ Open task manager ]}
+{9030}{}{[ Forget about your computer and get some life already ]}
+{9040}{}{[ Reconfigurate the system ]}
+{10000}{}{[ Reconfigurating the system... ]}
+{10010}{}{[ Open the door ]}
+{11000}{}{[ Opening the door... 15 seconds left!!! ]}
+{12000}{}{[ The game crashed. We know about the issue, but you can still report this to us if you wish to. ]}
+{13000}{}{[ Smart choice... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Shelter door control terminal ]}
+{2010}{}{[ Fucking morons ]}
+{2020}{}{[ Tech note ]}
+{2030}{}{[ Open the S.A.S. door ]}
+{2040}{}{[ Open the S.A.S. door ]}
+{2050}{}{[ Exit ]}
+{3000}{}{[ These idiots for real gave access from this door to NSA, so to open this shit we will need to wait for somebody from NSA Bravo or Alpha to send a confirmation. Great move... I do believe we can stop relying on SAS in case of the war. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ The terminal can malfunction sometimes due to some minor errors in its constuction. In case if the door doesn't open, follow these steps: Restart the terminal, start system reboot, load automatic system bug tracker, start system reconfiguration, restart the terminal, open the door. ]}
+{4010}{}{[ Back ]}
+{4020}{}{[ Restart ]}
+{5000}{}{[ Confirmation needed from NSA Outpost Bravo or Alpha ]}
+{6000}{}{[ Error... Unable to open the door ]}
+{6010}{}{[ Back ]}
+{6020}{}{[ Luck 10 ] Kick the terminal.}
+{6030}{}{[ Luck 10 ] Kick the terminal.}
+{6040}{}{[ Restart the terminal ]}
+{6050}{}{[ Open OS menu ]}
+{6060}{}{[ Press CNTRL+ALT+DELETE ]}
+{6070}{}{[ Load configuration menu ]}
+{6080}{}{[ Science 100 ] Override the system.}
+{6090}{}{[ Science 100 ] Override the system.}
+{7000}{}{[ Restarting the terminal... ]}
+{7010}{}{[ Start system reconfiguration ]}
+{7020}{}{[ Open the terminal's fuse box ]}
+{7030}{}{[ Presss random key on the keyboard ]}
+{7040}{}{[ Start system reboot ]}
+{7050}{}{[ Strat bug tracking ]}
+{8000}{}{[ Rebooting system... ]}
+{8010}{}{[ Strat bug tracking ]}
+{8020}{}{[ Reboot the system ]}
+{8030}{}{[ Start system reconfiguration ]}
+{8040}{}{[ Launch "FOnline3.exe" ]}
+{9000}{}{[ Bug tracker on... ]}
+{9010}{}{[ Synchronize the system ]}
+{9020}{}{[ Open task manager ]}
+{9030}{}{[ Forget about your computer and get some life already ]}
+{9040}{}{[ Reconfigurate the system ]}
+{10000}{}{[ Reconfigurating the system... ]}
+{10010}{}{[ Open the door ]}
+{11000}{}{[ Opening the door... 15 seconds left!!! ]}
+{12000}{}{[ The game crashed. We know about the issue, but you can still report this to us if you wish to. ]}
+{13000}{}{[ Smart choice... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Shelter door control terminal ]}
+{2010}{}{[ Fucking morons ]}
+{2020}{}{[ Tech note ]}
+{2030}{}{[ Open the S.A.S. door ]}
+{2040}{}{[ Open the S.A.S. door ]}
+{2050}{}{[ Exit ]}
+{3000}{}{[ These idiots for real gave access from this door to NSA, so to open this shit we will need to wait for somebody from NSA Bravo or Alpha to send a confirmation. Great move... I do believe we can stop relying on SAS in case of the war. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ The terminal can malfunction sometimes due to some minor errors in its constuction. In case if the door doesn't open, follow these steps: Restart the terminal, start system reboot, load automatic system bug tracker, start system reconfiguration, restart the terminal, open the door. ]}
+{4010}{}{[ Back ]}
+{4020}{}{[ Restart ]}
+{5000}{}{[ Confirmation needed from NSA Outpost Bravo or Alpha ]}
+{6000}{}{[ Error... Unable to open the door ]}
+{6010}{}{[ Back ]}
+{6020}{}{[ Luck 10 ] Kick the terminal.}
+{6030}{}{[ Luck 10 ] Kick the terminal.}
+{6040}{}{[ Restart the terminal ]}
+{6050}{}{[ Open OS menu ]}
+{6060}{}{[ Press CNTRL+ALT+DELETE ]}
+{6070}{}{[ Load configuration menu ]}
+{6080}{}{[ Science 100 ] Override the system.}
+{6090}{}{[ Science 100 ] Override the system.}
+{7000}{}{[ Restarting the terminal... ]}
+{7010}{}{[ Start system reconfiguration ]}
+{7020}{}{[ Open the terminal's fuse box ]}
+{7030}{}{[ Presss random key on the keyboard ]}
+{7040}{}{[ Start system reboot ]}
+{7050}{}{[ Strat bug tracking ]}
+{8000}{}{[ Rebooting system... ]}
+{8010}{}{[ Strat bug tracking ]}
+{8020}{}{[ Reboot the system ]}
+{8030}{}{[ Start system reconfiguration ]}
+{8040}{}{[ Launch "FOnline3.exe" ]}
+{9000}{}{[ Bug tracker on... ]}
+{9010}{}{[ Synchronize the system ]}
+{9020}{}{[ Open task manager ]}
+{9030}{}{[ Forget about your computer and get some life already ]}
+{9040}{}{[ Reconfigurate the system ]}
+{10000}{}{[ Reconfigurating the system... ]}
+{10010}{}{[ Open the door ]}
+{11000}{}{[ Opening the door... 15 seconds left!!! ]}
+{12000}{}{[ The game crashed. We know about the issue, but you can still report this to us if you wish to. ]}
+{13000}{}{[ Smart choice... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Shelter door control terminal ]}
+{2010}{}{[ Fucking morons ]}
+{2020}{}{[ Tech note ]}
+{2030}{}{[ Open the S.A.S. door ]}
+{2040}{}{[ Open the S.A.S. door ]}
+{2050}{}{[ Exit ]}
+{3000}{}{[ These idiots for real gave access from this door to NSA, so to open this shit we will need to wait for somebody from NSA Bravo or Alpha to send a confirmation. Great move... I do believe we can stop relying on SAS in case of the war. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ The terminal can malfunction sometimes due to some minor errors in its constuction. In case if the door doesn't open, follow these steps: Restart the terminal, start system reboot, load automatic system bug tracker, start system reconfiguration, restart the terminal, open the door. ]}
+{4010}{}{[ Back ]}
+{4020}{}{[ Restart ]}
+{5000}{}{[ Confirmation needed from NSA Outpost Bravo or Alpha ]}
+{6000}{}{[ Error... Unable to open the door ]}
+{6010}{}{[ Back ]}
+{6020}{}{[ Luck 10 ] Kick the terminal.}
+{6030}{}{[ Luck 10 ] Kick the terminal.}
+{6040}{}{[ Restart the terminal ]}
+{6050}{}{[ Open OS menu ]}
+{6060}{}{[ Press CNTRL+ALT+DELETE ]}
+{6070}{}{[ Load configuration menu ]}
+{6080}{}{[ Science 100 ] Override the system.}
+{6090}{}{[ Science 100 ] Override the system.}
+{7000}{}{[ Restarting the terminal... ]}
+{7010}{}{[ Start system reconfiguration ]}
+{7020}{}{[ Open the terminal's fuse box ]}
+{7030}{}{[ Presss random key on the keyboard ]}
+{7040}{}{[ Start system reboot ]}
+{7050}{}{[ Strat bug tracking ]}
+{8000}{}{[ Rebooting system... ]}
+{8010}{}{[ Strat bug tracking ]}
+{8020}{}{[ Reboot the system ]}
+{8030}{}{[ Start system reconfiguration ]}
+{8040}{}{[ Launch "FOnline3.exe" ]}
+{9000}{}{[ Bug tracker on... ]}
+{9010}{}{[ Synchronize the system ]}
+{9020}{}{[ Open task manager ]}
+{9030}{}{[ Forget about your computer and get some life already ]}
+{9040}{}{[ Reconfigurate the system ]}
+{10000}{}{[ Reconfigurating the system... ]}
+{10010}{}{[ Open the door ]}
+{11000}{}{[ Opening the door... 15 seconds left!!! ]}
+{12000}{}{[ The game crashed. We know about the issue, but you can still report this to us if you wish to. ]}
+{13000}{}{[ Smart choice... ]}
+

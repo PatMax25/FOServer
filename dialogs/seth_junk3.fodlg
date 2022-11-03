@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p seth_julian = 1 @
+2 2000 None 0 #
+0 2010 #
+0 2020 D _var p seth_julian = 1 R _var p seth_julian = 2 R _item p PID_FUZZY_PAINTING + 1 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You examine the junk pile, and it seems like there is a strange picture amongst the garbage. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Take the picture ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You examine the junk pile, and it seems like there is a strange picture among the garbage. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Take the picture ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You examine the junk pile, and it seems like there is a strange picture among the garbage. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Take the picture ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You examine the junk pile, and it seems like there is a strange picture among the garbage. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Take the picture ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You examine the junk pile, and it seems like there is a strange picture among the garbage. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Take the picture ]}
+

@@ -1,0 +1,270 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+10 2020 #
+5 2030 D _var p reactor_sorus = 0 D _param p ST_LEVEL } 12 #
+8 2040 D _var p reactor_sorus = 1 D _item p PID_BIBLE } 1 R _var p reactor_sorus = 2 R _item p PID_BIBLE - 1 R _param p ST_EXPERIENCE + 2000 R _item p PID_BOTTLE_CAPS + 1500 R _item p PID_EW_BOOK + 1 R _item p PID_HEALING_POWDER + 5 R _item p PID_LIL_JESUS_WEAPON + 1 #
+9 2050 D _var p reactor_sorus = 1 D _item p PID_BIBLE = 0 R _var p reactor_sorus = 2 R _param p ST_EXPERIENCE + 100 R _item p PID_BOTTLE_CAPS + 500 #
+0 2060 @
+3 3000 None 0 #
+65507 3010 #
+4 3020 #
+2 3030 #
+0 3040 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+0 7010 R _var p reactor_sorus = 1 R _script dialog@r_location_quest 4 531 810 1663 230 #
+0 7020 @
+8 8000 None 0 #
+12 8010 #
+0 8020 @
+9 9000 None 0 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 @
+12 12000 None 0 #
+13 12010 #
+0 12020 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+15 14010 #
+0 14020 @
+15 15000 None 0 #
+0 15010 #
+0 15020 &
+
+[engl]
+{100}{}{Sorus}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Anything I can help you with?}
+{2010}{}{Holy crap! A talking deathclaw?!}
+{2020}{}{Tell me more about yourself.}
+{2030}{}{I am looking for a job. Do you have anything in mind for me?}
+{2040}{}{Hey! I got the book.}
+{2050}{}{Sorry, but I didn't manage to get the book from there.}
+{2060}{}{I need to go now, see you around. [ end dialogue ]}
+{3000}{}{Yes, don't be worried though. I am not here to tear you apart and eat your guts. Some Deathclaws are very intelligent and I am a representative of my kind. Name' Sorus. My brother is also in this town, his name is Gorus, he must be wandering around somewhere.}
+{3010}{}{Stop trying to fool me! I know you are talking my mind off to kill me and eat my guts! I will not let this happen. Prepare to die! [ Attack ]}
+{3020}{}{It's pretty rare to find an intelligent Deathclaw. That's something truly unique...}
+{3030}{}{I see. Would you mind if we talk for a bit then?}
+{3040}{}{No! Don't you speak with me, monster! I am out of here! [ end dialogue ]}
+{4000}{}{You are right there... Unfortunately there are really not so many of us. And because of our less smart brothers and sisters our kind suffers from humans too. People see us as monsters, horrible killing machines. And I can even understand them... Partly.}
+{4010}{}{You are right. May we switch the topic?}
+{5000}{}{You see... I am very fond of human's religion. I am trying to collect and learn every single piece of theology ever created. This place had this old ruined church, so... since we were passing by anyway we decided to come here.}
+{5010}{}{Did you find anything here?}
+{6000}{}{Not really. This place is in ruins, though I found some old documents here. But most of them are tax notes or barely readable.}
+{6010}{}{So... Any other ideas then?}
+{7000}{}{When we were on our way here, I spotted a small church in the northern woods not far from here. Can you please go there and check it out for any religious books? I will gladly pay you for your service if you bring me anything.}
+{7010}{}{Alright. I will check it out.}
+{7020}{}{Nah. I am not interested. Sorry, bud. [ end dialogue ]}
+{8000}{}{Oh excellent! And it looks untouched too. Thank you very much. Here, take this, you can't even imagine how important this book is for me.}
+{8010}{}{I encountered a weird situation there... [ tell him about everything you saw ]}
+{8020}{}{Thanks. It was a pleasure. [ end dialogue ]}
+{9000}{}{Oh you didn't get it... Well, a pity. But thank you anyway for your attempt to help. Here, take a bit of this for your troubles.}
+{10000}{}{There is not that much I can tell you about myself... Me and my brother are just wandering smart Deathclaws, that's it. We are searching for the place where others can see us as intelligent beings, instead of monsters.}
+{10010}{}{Your brother?}
+{11000}{}{Yes, his name is Gorus. He must be somewhere around here.}
+{12000}{}{Oh, poor souls. What an interesting case, though... I've heard about these "brain worms", but they always seemed to be just another Wasteland legend spread in drunken rumors.}
+{12010}{}{Maybe some research can help to say for sure either these brain worms exist?}
+{12020}{}{Well, I am sure it is just a stupid legend. Those 3 were high on Jet as well! Anyway, time for me to run. [ end dialogue ]}
+{13000}{}{It might shed some light on the case, but unfortunately I can not help you with this. But, I know the one who can help you!}
+{13010}{}{So who can help then?}
+{14000}{}{Go to Adytum's Library and ask for a person known as Goris. He is quite known for his studies in biology.}
+{14010}{}{What's this legend about brain worms anyway?}
+{14020}{}{Alright, thank you. [ end dialogue ]}
+{15000}{}{Well, it is believed that some swamps around the Wasteland are inhabited by so called "Brain worms". The legend says that these are small colorful bugs that hide close to the water and attack once a person lose caution. They get into your ear and eat their way to your brain, then eat your brain up and take full control over your body. Also it is believed that the worm takes the personality and some memories from the brain it has eaten, so the person may even seem and act just as before the accident.}
+{15010}{}{I see, thank you for this information. [ end dialogue ]}
+{15020}{}{Yeah... Amazing fairy tale for sure... [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Anything I can help you with?}
+{2010}{}{Holy crap! A talking deathclaw?!}
+{2020}{}{Tell me more about yourself.}
+{2030}{}{I am looking for some job. Do you have anything in mind for me?}
+{2040}{}{Hey! I got the book.}
+{2050}{}{Sorry, but I didn't manage to get the book from there.}
+{2060}{}{I need to go now, see you around.}
+{3000}{}{Yes, you shall not be worried though. I am not here to tear you apart and eat your guts. Some Deahclaws are very intelligent and I am a representative of my kind. Name' Sorus. My brother is also in this town, his name is Gorus, he must be wandering around somewhere.}
+{3010}{}{Stop trying to fool me! I know you are talking my mind off to kill me and eat my guts! I will not let this happen. Prepare to die!}
+{3020}{}{It's pretty rare to find an intelligent Deathclaw. That's something trully unique...}
+{3030}{}{I see. Mind us talking a bit then?}
+{3040}{}{No! Don't you speak with me, monster! I am out of here!}
+{4000}{}{You are right here... Unfortunately there are really not so many of us. And because of our less smart brothers and sisters our kind suffers from humans too. People see us as mosnters, horrible killing machines. And I can even undertand them... Partly.}
+{4010}{}{You are right here. May we switch the topic?}
+{5000}{}{You see... I am very fond of human's religion. I am trying to collect and learn every single piece of teology every created. This place had this old ruined church, so... as we were passing by anyway we decided to come here.}
+{5010}{}{Did you find anything here?}
+{6000}{}{Not really. This place is in ruins, though I found some old documents here. But most of them are tax notes or barely readable.}
+{6010}{}{So... Any other ideas then?}
+{7000}{}{When we were on our way here, I spotted a small church in the woods not far from here. May you please go there and check it out for any religious book? I will gladly pay you for your service if you bring me anything.}
+{7010}{}{Alright. I will check it out.}
+{7020}{}{Nah. I am not interested. Sorry, bud.}
+{8000}{}{Oh excellent! And it looks untouched too. Thank you very much. Here, take this, you can't even imagine how important this book is for me.}
+{8010}{}{I've encountered a weird situation there... [ Tell him about everything you saw ].}
+{8020}{}{Thanks. It was a pleasure.}
+{9000}{}{Oh you didn't get it... Well, a pity. But thank you anyway for your attempt to help. Here, take a bit of this for your troubles.}
+{10000}{}{There is not that much I can tell you about myself... Me and my brother are just wondering smart Deathclaws, that's it. We are searching for the place where others can see as smart beings, not as monsters.}
+{10010}{}{Your brother?}
+{11000}{}{Yes, his name is Gorus. He must be somewhere around here.}
+{12000}{}{Oh, poor souls. What an interesting case, though... I've heard about these "brain bugs", but they always seemed to be just another Wasteland legend spread in drunk chatters.}
+{12010}{}{Maybe some research can help to say for sure either these brain bugs exist?}
+{12020}{}{Well, I am sure it is just a stupid legend. And those 3 got high on jet.Anyway, time for me to run.}
+{13000}{}{It may actually bring some light on this case, but unfortunately I can not help you with this. But I certainly know the one who can help you for sure.}
+{13010}{}{So who can help then?}
+{14000}{}{Go to Adytum's Library and ask for a person known as Goris.}
+{14010}{}{What's this legend about brain worms anyway?}
+{14020}{}{Alright, thank you.}
+{15000}{}{Well, it is believed that some swamps around the Wasteland are inhabited by so called "Brain worms". The legend says that these are small colorful bugs that hide close to the water and attack once a person lose caution. They get into your ear and eat their way to your brain, then eat your brain up and take full control over your body. Also it is believed that the worm takes the personality and some memories from the brain it has eaten, so the person may even seem and act just as before the accident.}
+{15010}{}{I see, thank you for this information.}
+{15020}{}{Yeah... Amazing fairy tail for sure...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Anything I can help you with?}
+{2010}{}{Holy crap! A talking deathclaw?!}
+{2020}{}{Tell me more about yourself.}
+{2030}{}{I am looking for some job. Do you have anything in mind for me?}
+{2040}{}{Hey! I got the book.}
+{2050}{}{Sorry, but I didn't manage to get the book from there.}
+{2060}{}{I need to go now, see you around.}
+{3000}{}{Yes, you shall not be worried though. I am not here to tear you apart and eat your guts. Some Deahclaws are very intelligent and I am a representative of my kind. Name' Sorus. My brother is also in this town, his name is Gorus, he must be wandering around somewhere.}
+{3010}{}{Stop trying to fool me! I know you are talking my mind off to kill me and eat my guts! I will not let this happen. Prepare to die!}
+{3020}{}{It's pretty rare to find an intelligent Deathclaw. That's something trully unique...}
+{3030}{}{I see. Mind us talking a bit then?}
+{3040}{}{No! Don't you speak with me, monster! I am out of here!}
+{4000}{}{You are right here... Unfortunately there are really not so many of us. And because of our less smart brothers and sisters our kind suffers from humans too. People see us as mosnters, horrible killing machines. And I can even undertand them... Partly.}
+{4010}{}{You are right here. May we switch the topic?}
+{5000}{}{You see... I am very fond of human's religion. I am trying to collect and learn every single piece of teology every created. This place had this old ruined church, so... as we were passing by anyway we decided to come here.}
+{5010}{}{Did you find anything here?}
+{6000}{}{Not really. This place is in ruins, though I found some old documents here. But most of them are tax notes or barely readable.}
+{6010}{}{So... Any other ideas then?}
+{7000}{}{When we were on our way here, I spotted a small church in the woods not far from here. May you please go there and check it out for any religious book? I will gladly pay you for your service if you bring me anything.}
+{7010}{}{Alright. I will check it out.}
+{7020}{}{Nah. I am not interested. Sorry, bud.}
+{8000}{}{Oh excellent! And it looks untouched too. Thank you very much. Here, take this, you can't even imagine how important this book is for me.}
+{8010}{}{I've encountered a weird situation there... [ Tell him about everything you saw ].}
+{8020}{}{Thanks. It was a pleasure.}
+{9000}{}{Oh you didn't get it... Well, a pity. But thank you anyway for your attempt to help. Here, take a bit of this for your troubles.}
+{10000}{}{There is not that much I can tell you about myself... Me and my brother are just wondering smart Deathclaws, that's it. We are searching for the place where others can see as smart beings, not as monsters.}
+{10010}{}{Your brother?}
+{11000}{}{Yes, his name is Gorus. He must be somewhere around here.}
+{12000}{}{Oh, poor souls. What an interesting case, though... I've heard about these "brain bugs", but they always seemed to be just another Wasteland legend spread in drunk chatters.}
+{12010}{}{Maybe some research can help to say for sure either these brain bugs exist?}
+{12020}{}{Well, I am sure it is just a stupid legend. And those 3 got high on jet.Anyway, time for me to run.}
+{13000}{}{It may actually bring some light on this case, but unfortunately I can not help you with this. But I certainly know the one who can help you for sure.}
+{13010}{}{So who can help then?}
+{14000}{}{Go to Adytum's Library and ask for a person known as Goris.}
+{14010}{}{What's this legend about brain worms anyway?}
+{14020}{}{Alright, thank you.}
+{15000}{}{Well, it is believed that some swamps around the Wasteland are inhabited by so called "Brain worms". The legend says that these are small colorful bugs that hide close to the water and attack once a person lose caution. They get into your ear and eat their way to your brain, then eat your brain up and take full control over your body. Also it is believed that the worm takes the personality and some memories from the brain it has eaten, so the person may even seem and act just as before the accident.}
+{15010}{}{I see, thank you for this information.}
+{15020}{}{Yeah... Amazing fairy tail for sure...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Anything I can help you with?}
+{2010}{}{Holy crap! A talking deathclaw?!}
+{2020}{}{Tell me more about yourself.}
+{2030}{}{I am looking for some job. Do you have anything in mind for me?}
+{2040}{}{Hey! I got the book.}
+{2050}{}{Sorry, but I didn't manage to get the book from there.}
+{2060}{}{I need to go now, see you around.}
+{3000}{}{Yes, you shall not be worried though. I am not here to tear you apart and eat your guts. Some Deahclaws are very intelligent and I am a representative of my kind. Name' Sorus. My brother is also in this town, his name is Gorus, he must be wandering around somewhere.}
+{3010}{}{Stop trying to fool me! I know you are talking my mind off to kill me and eat my guts! I will not let this happen. Prepare to die!}
+{3020}{}{It's pretty rare to find an intelligent Deathclaw. That's something trully unique...}
+{3030}{}{I see. Mind us talking a bit then?}
+{3040}{}{No! Don't you speak with me, monster! I am out of here!}
+{4000}{}{You are right here... Unfortunately there are really not so many of us. And because of our less smart brothers and sisters our kind suffers from humans too. People see us as mosnters, horrible killing machines. And I can even undertand them... Partly.}
+{4010}{}{You are right here. May we switch the topic?}
+{5000}{}{You see... I am very fond of human's religion. I am trying to collect and learn every single piece of teology every created. This place had this old ruined church, so... as we were passing by anyway we decided to come here.}
+{5010}{}{Did you find anything here?}
+{6000}{}{Not really. This place is in ruins, though I found some old documents here. But most of them are tax notes or barely readable.}
+{6010}{}{So... Any other ideas then?}
+{7000}{}{When we were on our way here, I spotted a small church in the woods not far from here. May you please go there and check it out for any religious book? I will gladly pay you for your service if you bring me anything.}
+{7010}{}{Alright. I will check it out.}
+{7020}{}{Nah. I am not interested. Sorry, bud.}
+{8000}{}{Oh excellent! And it looks untouched too. Thank you very much. Here, take this, you can't even imagine how important this book is for me.}
+{8010}{}{I've encountered a weird situation there... [ Tell him about everything you saw ].}
+{8020}{}{Thanks. It was a pleasure.}
+{9000}{}{Oh you didn't get it... Well, a pity. But thank you anyway for your attempt to help. Here, take a bit of this for your troubles.}
+{10000}{}{There is not that much I can tell you about myself... Me and my brother are just wondering smart Deathclaws, that's it. We are searching for the place where others can see as smart beings, not as monsters.}
+{10010}{}{Your brother?}
+{11000}{}{Yes, his name is Gorus. He must be somewhere around here.}
+{12000}{}{Oh, poor souls. What an interesting case, though... I've heard about these "brain bugs", but they always seemed to be just another Wasteland legend spread in drunk chatters.}
+{12010}{}{Maybe some research can help to say for sure either these brain bugs exist?}
+{12020}{}{Well, I am sure it is just a stupid legend. And those 3 got high on jet.Anyway, time for me to run.}
+{13000}{}{It may actually bring some light on this case, but unfortunately I can not help you with this. But I certainly know the one who can help you for sure.}
+{13010}{}{So who can help then?}
+{14000}{}{Go to Adytum's Library and ask for a person known as Goris.}
+{14010}{}{What's this legend about brain worms anyway?}
+{14020}{}{Alright, thank you.}
+{15000}{}{Well, it is believed that some swamps around the Wasteland are inhabited by so called "Brain worms". The legend says that these are small colorful bugs that hide close to the water and attack once a person lose caution. They get into your ear and eat their way to your brain, then eat your brain up and take full control over your body. Also it is believed that the worm takes the personality and some memories from the brain it has eaten, so the person may even seem and act just as before the accident.}
+{15010}{}{I see, thank you for this information.}
+{15020}{}{Yeah... Amazing fairy tail for sure...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Anything I can help you with?}
+{2010}{}{Holy crap! A talking deathclaw?!}
+{2020}{}{Tell me more about yourself.}
+{2030}{}{I am looking for some job. Do you have anything in mind for me?}
+{2040}{}{Hey! I got the book.}
+{2050}{}{Sorry, but I didn't manage to get the book from there.}
+{2060}{}{I need to go now, see you around.}
+{3000}{}{Yes, you shall not be worried though. I am not here to tear you apart and eat your guts. Some Deahclaws are very intelligent and I am a representative of my kind. Name' Sorus. My brother is also in this town, his name is Gorus, he must be wandering around somewhere.}
+{3010}{}{Stop trying to fool me! I know you are talking my mind off to kill me and eat my guts! I will not let this happen. Prepare to die!}
+{3020}{}{It's pretty rare to find an intelligent Deathclaw. That's something trully unique...}
+{3030}{}{I see. Mind us talking a bit then?}
+{3040}{}{No! Don't you speak with me, monster! I am out of here!}
+{4000}{}{You are right here... Unfortunately there are really not so many of us. And because of our less smart brothers and sisters our kind suffers from humans too. People see us as mosnters, horrible killing machines. And I can even undertand them... Partly.}
+{4010}{}{You are right here. May we switch the topic?}
+{5000}{}{You see... I am very fond of human's religion. I am trying to collect and learn every single piece of teology every created. This place had this old ruined church, so... as we were passing by anyway we decided to come here.}
+{5010}{}{Did you find anything here?}
+{6000}{}{Not really. This place is in ruins, though I found some old documents here. But most of them are tax notes or barely readable.}
+{6010}{}{So... Any other ideas then?}
+{7000}{}{When we were on our way here, I spotted a small church in the woods not far from here. May you please go there and check it out for any religious book? I will gladly pay you for your service if you bring me anything.}
+{7010}{}{Alright. I will check it out.}
+{7020}{}{Nah. I am not interested. Sorry, bud.}
+{8000}{}{Oh excellent! And it looks untouched too. Thank you very much. Here, take this, you can't even imagine how important this book is for me.}
+{8010}{}{I've encountered a weird situation there... [ Tell him about everything you saw ].}
+{8020}{}{Thanks. It was a pleasure.}
+{9000}{}{Oh you didn't get it... Well, a pity. But thank you anyway for your attempt to help. Here, take a bit of this for your troubles.}
+{10000}{}{There is not that much I can tell you about myself... Me and my brother are just wondering smart Deathclaws, that's it. We are searching for the place where others can see as smart beings, not as monsters.}
+{10010}{}{Your brother?}
+{11000}{}{Yes, his name is Gorus. He must be somewhere around here.}
+{12000}{}{Oh, poor souls. What an interesting case, though... I've heard about these "brain bugs", but they always seemed to be just another Wasteland legend spread in drunk chatters.}
+{12010}{}{Maybe some research can help to say for sure either these brain bugs exist?}
+{12020}{}{Well, I am sure it is just a stupid legend. And those 3 got high on jet.Anyway, time for me to run.}
+{13000}{}{It may actually bring some light on this case, but unfortunately I can not help you with this. But I certainly know the one who can help you for sure.}
+{13010}{}{So who can help then?}
+{14000}{}{Go to Adytum's Library and ask for a person known as Goris.}
+{14010}{}{What's this legend about brain worms anyway?}
+{14020}{}{Alright, thank you.}
+{15000}{}{Well, it is believed that some swamps around the Wasteland are inhabited by so called "Brain worms". The legend says that these are small colorful bugs that hide close to the water and attack once a person lose caution. They get into your ear and eat their way to your brain, then eat your brain up and take full control over your body. Also it is believed that the worm takes the personality and some memories from the brain it has eaten, so the person may even seem and act just as before the accident.}
+{15010}{}{I see, thank you for this information.}
+{15020}{}{Yeah... Amazing fairy tail for sure...}
+

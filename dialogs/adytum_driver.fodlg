@@ -1,0 +1,119 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adytum_nick = 0 #
+7 2020 D _var p q_adytum_nick = 2 R _var p q_adytum_nick = 3 R _item p PID_TENT + 1 R _item p PID_TICKET + 1 R _item p PID_RIPPER + 1 R _item p PID_BOTTLE_CAPS + 600 R _param p ST_EXPERIENCE + 1000 #
+0 2030 @
+3 3000 None 0 #
+4 3010 D _var p q_adytum_nick = 0 #
+0 3020 @
+4 4000 None 0 #
+5 4010 D _var p q_adytum_nick = 0 #
+0 4020 @
+5 5000 None 0 #
+6 5010 R _var p q_adytum_nick = 1 @
+6 6000 None 0 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Nick}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh well... Hello?}
+{2010}{}{Who are you?}
+{2020}{}{Your debt is settled... What about my reward?}
+{2030}{}{Nevermind.}
+{3000}{}{I am Nick. And this is my car. Fast and unstoppable! And... it is broken right now.}
+{3010}{}{What happened with it?}
+{3020}{}{I don't care. Bye.}
+{4000}{}{Well, it seems like something is wrong with the motor. Unfortunately the only guy who can fix it here is a local mechanic - Jeremy.}
+{4010}{}{So, just take your car to him. What is the problem?}
+{4020}{}{Your problems, mate. Not mine. Bye.}
+{5000}{}{Well, you see... I didn't pay him for the last time and now he just hates... I mean... Look... Maybe you can help me? Pay him for my debt and I will give you something nice as a reward.}
+{5010}{}{I shall...}
+{6000}{}{Good! You can find the guy in the east part of the city.}
+{7000}{}{You did? Great! Well, here is the reward I told you about... Now, if you may... I need to find a way to get this piece of crap over to his workshop.}
+
+[czec]
+{100}{}{Nick}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh well... Hello?}
+{2010}{}{Who are you?}
+{2020}{}{Your debt is settled... What about my reward?}
+{2030}{}{Nevermind.}
+{3000}{}{I am Nick. And this is my car. Fast and unstoppable! And... it is broken right now.}
+{3010}{}{What happened with it?}
+{3020}{}{I don't care. Bye.}
+{4000}{}{Well, it seems like something is wrong with the motor. Unfortunately the only guy who can fix it here is a local mechanic - Jeremy.}
+{4010}{}{So, just take your car to him. What is the problem?}
+{4020}{}{Your problems, mate. Not mine. Bye.}
+{5000}{}{Well, you see... I didn't pay him for the last time and now he just hates... I mean... Look... Maybe you can help me? Pay him for my debt and I will give you something nice as a reward.}
+{5010}{}{I shall...}
+{6000}{}{Good! You can find the guy in the east part of the city.}
+{7000}{}{You did? Great! Well, here is the reward I told you about... Now, if you may... I need to find a way to get this piece of crap over to his workshop.}
+[pols]
+{100}{}{Nick}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh well... Hello?}
+{2010}{}{Who are you?}
+{2020}{}{Your debt is settled... What about my reward?}
+{2030}{}{Nevermind.}
+{3000}{}{I am Nick. And this is my car. Fast and unstoppable! And... it is broken right now.}
+{3010}{}{What happened with it?}
+{3020}{}{I don't care. Bye.}
+{4000}{}{Well, it seems like something is wrong with the motor. Unfortunately the only guy who can fix it here is a local mechanic - Jeremy.}
+{4010}{}{So, just take your car to him. What is the problem?}
+{4020}{}{Your problems, mate. Not mine. Bye.}
+{5000}{}{Well, you see... I didn't pay him for the last time and now he just hates... I mean... Look... Maybe you can help me? Pay him for my debt and I will give you something nice as a reward.}
+{5010}{}{I shall...}
+{6000}{}{Good! You can find the guy in the east part of the city.}
+{7000}{}{You did? Great! Well, here is the reward I told you about... Now, if you may... I need to find a way to get this piece of crap over to his workshop.}
+
+[span]
+{100}{}{Nick}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh well... Hello?}
+{2010}{}{Who are you?}
+{2020}{}{Your debt is settled... What about my reward?}
+{2030}{}{Nevermind.}
+{3000}{}{I am Nick. And this is my car. Fast and unstoppable! And... it is broken right now.}
+{3010}{}{What happened with it?}
+{3020}{}{I don't care. Bye.}
+{4000}{}{Well, it seems like something is wrong with the motor. Unfortunately the only guy who can fix it here is a local mechanic - Jeremy.}
+{4010}{}{So, just take your car to him. What is the problem?}
+{4020}{}{Your problems, mate. Not mine. Bye.}
+{5000}{}{Well, you see... I didn't pay him for the last time and now he just hates... I mean... Look... Maybe you can help me? Pay him for my debt and I will give you something nice as a reward.}
+{5010}{}{I shall...}
+{6000}{}{Good! You can find the guy in the east part of the city.}
+{7000}{}{You did? Great! Well, here is the reward I told you about... Now, if you may... I need to find a way to get this piece of crap over to his workshop.}
+
+[russ]
+{100}{}{Nick}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh well... Hello?}
+{2010}{}{Who are you?}
+{2020}{}{Your debt is settled... What about my reward?}
+{2030}{}{Nevermind.}
+{3000}{}{I am Nick. And this is my car. Fast and unstoppable! And... it is broken right now.}
+{3010}{}{What happened with it?}
+{3020}{}{I don't care. Bye.}
+{4000}{}{Well, it seems like something is wrong with the motor. Unfortunately the only guy who can fix it here is a local mechanic - Jeremy.}
+{4010}{}{So, just take your car to him. What is the problem?}
+{4020}{}{Your problems, mate. Not mine. Bye.}
+{5000}{}{Well, you see... I didn't pay him for the last time and now he just hates... I mean... Look... Maybe you can help me? Pay him for my debt and I will give you something nice as a reward.}
+{5010}{}{I shall...}
+{6000}{}{Good! You can find the guy in the east part of the city.}
+{7000}{}{You did? Great! Well, here is the reward I told you about... Now, if you may... I need to find a way to get this piece of crap over to his workshop.}
+

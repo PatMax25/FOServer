@@ -1,0 +1,90 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 #
+5 2030 D _var p sas_confirm = 0 R _var p sas_confirm = 1 @
+3 3000 None 0 #
+3 3010 D _item p PID_BLACK_COC_BADGE } 1 R _item p PID_SECURITY_CARD + 1 R _item p PID_BLACK_COC_BADGE - 1 #
+0 3020 @
+4 4000 None 0 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error.... Error... Error... ]}
+{2010}{}{[ Print NSA security card ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Send NSA confirmation to Sierra Army Depot ]}
+{3000}{}{[ Please insert black COC Badge ]}
+{3010}{}{[ Confirm the procedure ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Printing... ]}
+{5000}{}{[ Confirmation sent... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error.... Error... Error... ]}
+{2010}{}{[ Print NSA security card ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Send NSA confirmation to Sierra Army Depot ]}
+{3000}{}{[ Please insert black COC Badge ]}
+{3010}{}{[ Confirm the procedure ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Printing... ]}
+{5000}{}{[ Confirmation sent... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error.... Error... Error... ]}
+{2010}{}{[ Print NSA security card ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Send NSA confirmation to Sierra Army Depot ]}
+{3000}{}{[ Please insert black COC Badge ]}
+{3010}{}{[ Confirm the procedure ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Printing... ]}
+{5000}{}{[ Confirmation sent... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error.... Error... Error... ]}
+{2010}{}{[ Print NSA security card ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Send NSA confirmation to Sierra Army Depot ]}
+{3000}{}{[ Please insert black COC Badge ]}
+{3010}{}{[ Confirm the procedure ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Printing... ]}
+{5000}{}{[ Confirmation sent... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error.... Error... Error... ]}
+{2010}{}{[ Print NSA security card ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Send NSA confirmation to Sierra Army Depot ]}
+{3000}{}{[ Please insert black COC Badge ]}
+{3010}{}{[ Confirm the procedure ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Printing... ]}
+{5000}{}{[ Confirmation sent... ]}
+

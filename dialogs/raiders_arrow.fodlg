@@ -1,0 +1,174 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _param p ST_TEAM_ID = 7 #
+4 2020 #
+6 2030 D _var p lector = 0 #
+65507 2040 #
+0 2050 #
+7 2060 D _var p lector = 2 D _item p PID_TANGLERS_HAND = 1 R _param p ST_EXPERIENCE + 4000 R _item p PID_BOTTLE_CAPS + 2800 R _item p PID_BUFFOUT + 2 R _item p PID_CATS_PAW + 1 R _item p PID_CIGARETTES + 10 R _item p PID_DOCTOR_BOOK + 1 R _var p lector = 3 R _item p PID_TANGLERS_HAND - 1 #
+8 2070 D _var p lector = 2 R _param p ST_EXPERIENCE + 4500 R _param p SK_BARTER + 3 R _param p SK_GAMBLING + 3 R _param p SK_SPEECH + 3 R _var p lector = 3 #
+7 2080 D _var p lector = 1 D _item p PID_TANGLERS_HAND } 1 R _item p PID_TANGLERS_HAND - 1 R _var p lector = 3 R _param p ST_EXPERIENCE + 2000 R _item p PID_BOTTLE_CAPS + 2700 R _item p PID_BUFFOUT + 2 R _item p PID_CATS_PAW + 1 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 #
+2 4020 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+0 6010 D _var p lector = 0 R _var p lector = 1 R _script dialog@r_location_quest 4 509 726 128 100 #
+0 6020 @
+7 7000 None 0 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Red Arrow}
+{1000}{}{Predialogue installations}
+{1010}{}{Aye, budy. Come in.}
+{2000}{}{Yo, what's up? Watch your manners if you are getting in, scum.}
+{2010}{}{Yo, mate. Can I come in?}
+{2020}{}{What is this place?}
+{2030}{}{I am looking for some job. Do you have any for me?}
+{2040}{}{[ Attack ] I am going to enjoy your death, criminal scum!}
+{2050}{}{Fine, I am leaving.}
+{2060}{}{I killed him. Here is his hand.}
+{2070}{}{He ran away, I am sure he will never ever trouble you again.}
+{2080}{}{He is dead. Here is his hand.}
+{3000}{}{Aye, budy. Come in.}
+{4000}{}{This is Fort Villis. The place built by our united gangs to keep all the fucking law suckers away. Are you a law sucker, buddy?}
+{4010}{}{How did you manage to build everything here?}
+{4020}{}{Fine, let's switch the topic.}
+{5000}{}{Not so long ago the fucking NCR shitheads found out about our old hideout and burned it up, so in return we blew up their bank and got their gold, ahaha. Now it serves the right cause. [ smiles ]}
+{5010}{}{Alright, one more question.}
+{6000}{}{Eh? Alright, I can give ya a small task. Not so long ago some crazy fucker made his nest not so far from here. He kills our men and we can't get dat fucker. We sent a group of guys to deal with him, but they didn't return. Kill that fucker for us! Bring his hand as a proof.}
+{6010}{}{Alright, show me where is he?}
+{6020}{}{No shit. I am not dealing with crazy maniacs.}
+{7000}{}{Ah, ha-ha! Finally we got that shithead! Here, you deserved this.}
+{8000}{}{He ran away? Well, hope you don't lie.}
+{8010}{}{What about my payment?}
+{9000}{}{The deal was different. So no shit for you, idiot.}
+{10000}{}{Watch for traps. This fucker is some crazy ass shit maniac.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Aye, budy. Come in.}
+{2000}{}{Yo, what's up? Keep your shit away from the entrance if you are not one of us.}
+{2010}{}{Yo, mate. Can I come in?}
+{2020}{}{What is this place?}
+{2030}{}{I am looking for some job. Do you have any for me?}
+{2040}{}{[ Attack ] I am going to enjoy your death, criminal scum!}
+{2050}{}{Fine, I am leaving.}
+{2060}{}{I killed him. Here is his hand. [ +3 Sneak, +3 Outdoorsman ]}
+{2070}{}{He ran away, I am sure he will never ever trouble you again. [ +3 Barter, +3 Speech, +3 Gambling ]}
+{2080}{}{He is dead. Here is his hand.}
+{3000}{}{Aye, budy. Come in.}
+{4000}{}{This is Fort Villis. The place built by our united gangs to keep all fucking law suckers away. Are you a law sucker budy?}
+{4010}{}{How did you manage to build everything here?}
+{4020}{}{Fine, let's switch the topic.}
+{5000}{}{Not so long ago fucking NCR shitheads found out our old hideout and burned it up, but in return we blew up their bank and got their gold, ahaha. Now it serves the right course. [ smiles ]}
+{5010}{}{Alright, one more question.}
+{6000}{}{Eh? Alright, I can give ya a small task. Not so long ago some crazy fucker made his nest not so far from here. He kills our men and we can't get dat fucker. We sent a group of guys to deal with him, but they didn't return. Kill that fucker for us! Bring his hand as a proof.}
+{6010}{}{Alright, show me where is he?}
+{6020}{}{No shit. I am not dealing with crazy maniacs.}
+{7000}{}{Ah, ha-ha! Finally we got that shithead! Here, you deserved this.}
+{8000}{}{He ran away? Well, hope you don't lie.}
+{8010}{}{What about my payment?}
+{9000}{}{The deal was different. So no shit for you, idiot.}
+{10000}{}{Watch for traps. This fucker is some crazy ass shit maniac.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Aye, budy. Come in.}
+{2000}{}{Yo, what's up? Keep your shit away from the entrance if you are not one of us.}
+{2010}{}{Yo, mate. Can I come in?}
+{2020}{}{What is this place?}
+{2030}{}{I am looking for some job. Do you have any for me?}
+{2040}{}{[ Attack ] I am going to enjoy your death, criminal scum!}
+{2050}{}{Fine, I am leaving.}
+{2060}{}{I killed him. Here is his hand. [ +3 Sneak, +3 Outdoorsman ]}
+{2070}{}{He ran away, I am sure he will never ever trouble you again. [ +3 Barter, +3 Speech, +3 Gambling ]}
+{2080}{}{He is dead. Here is his hand.}
+{3000}{}{Aye, budy. Come in.}
+{4000}{}{This is Fort Villis. The place built by our united gangs to keep all fucking law suckers away. Are you a law sucker budy?}
+{4010}{}{How did you manage to build everything here?}
+{4020}{}{Fine, let's switch the topic.}
+{5000}{}{Not so long ago fucking NCR shitheads found out our old hideout and burned it up, but in return we blew up their bank and got their gold, ahaha. Now it serves the right course. [ smiles ]}
+{5010}{}{Alright, one more question.}
+{6000}{}{Eh? Alright, I can give ya a small task. Not so long ago some crazy fucker made his nest not so far from here. He kills our men and we can't get dat fucker. We sent a group of guys to deal with him, but they didn't return. Kill that fucker for us! Bring his hand as a proof.}
+{6010}{}{Alright, show me where is he?}
+{6020}{}{No shit. I am not dealing with crazy maniacs.}
+{7000}{}{Ah, ha-ha! Finally we got that shithead! Here, you deserved this.}
+{8000}{}{He ran away? Well, hope you don't lie.}
+{8010}{}{What about my payment?}
+{9000}{}{The deal was different. So no shit for you, idiot.}
+{10000}{}{Watch for traps. This fucker is some crazy ass shit maniac.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Aye, budy. Come in.}
+{2000}{}{Yo, what's up? Keep your shit away from the entrance if you are not one of us.}
+{2010}{}{Yo, mate. Can I come in?}
+{2020}{}{What is this place?}
+{2030}{}{I am looking for some job. Do you have any for me?}
+{2040}{}{[ Attack ] I am going to enjoy your death, criminal scum!}
+{2050}{}{Fine, I am leaving.}
+{2060}{}{I killed him. Here is his hand. [ +3 Sneak, +3 Outdoorsman ]}
+{2070}{}{He ran away, I am sure he will never ever trouble you again. [ +3 Barter, +3 Speech, +3 Gambling ]}
+{2080}{}{He is dead. Here is his hand.}
+{3000}{}{Aye, budy. Come in.}
+{4000}{}{This is Fort Villis. The place built by our united gangs to keep all fucking law suckers away. Are you a law sucker budy?}
+{4010}{}{How did you manage to build everything here?}
+{4020}{}{Fine, let's switch the topic.}
+{5000}{}{Not so long ago fucking NCR shitheads found out our old hideout and burned it up, but in return we blew up their bank and got their gold, ahaha. Now it serves the right course. [ smiles ]}
+{5010}{}{Alright, one more question.}
+{6000}{}{Eh? Alright, I can give ya a small task. Not so long ago some crazy fucker made his nest not so far from here. He kills our men and we can't get dat fucker. We sent a group of guys to deal with him, but they didn't return. Kill that fucker for us! Bring his hand as a proof.}
+{6010}{}{Alright, show me where is he?}
+{6020}{}{No shit. I am not dealing with crazy maniacs.}
+{7000}{}{Ah, ha-ha! Finally we got that shithead! Here, you deserved this.}
+{8000}{}{He ran away? Well, hope you don't lie.}
+{8010}{}{What about my payment?}
+{9000}{}{The deal was different. So no shit for you, idiot.}
+{10000}{}{Watch for traps. This fucker is some crazy ass shit maniac.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Aye, budy. Come in.}
+{2000}{}{Yo, what's up? Keep your shit away from the entrance if you are not one of us.}
+{2010}{}{Yo, mate. Can I come in?}
+{2020}{}{What is this place?}
+{2030}{}{I am looking for some job. Do you have any for me?}
+{2040}{}{[ Attack ] I am going to enjoy your death, criminal scum!}
+{2050}{}{Fine, I am leaving.}
+{2060}{}{I killed him. Here is his hand. [ +3 Sneak, +3 Outdoorsman ]}
+{2070}{}{He ran away, I am sure he will never ever trouble you again. [ +3 Barter, +3 Speech, +3 Gambling ]}
+{2080}{}{He is dead. Here is his hand.}
+{3000}{}{Aye, budy. Come in.}
+{4000}{}{This is Fort Villis. The place built by our united gangs to keep all fucking law suckers away. Are you a law sucker budy?}
+{4010}{}{How did you manage to build everything here?}
+{4020}{}{Fine, let's switch the topic.}
+{5000}{}{Not so long ago fucking NCR shitheads found out our old hideout and burned it up, but in return we blew up their bank and got their gold, ahaha. Now it serves the right course. [ smiles ]}
+{5010}{}{Alright, one more question.}
+{6000}{}{Eh? Alright, I can give ya a small task. Not so long ago some crazy fucker made his nest not so far from here. He kills our men and we can't get dat fucker. We sent a group of guys to deal with him, but they didn't return. Kill that fucker for us! Bring his hand as a proof.}
+{6010}{}{Alright, show me where is he?}
+{6020}{}{No shit. I am not dealing with crazy maniacs.}
+{7000}{}{Ah, ha-ha! Finally we got that shithead! Here, you deserved this.}
+{8000}{}{He ran away? Well, hope you don't lie.}
+{8010}{}{What about my payment?}
+{9000}{}{The deal was different. So no shit for you, idiot.}
+{10000}{}{Watch for traps. This fucker is some crazy ass shit maniac.}
+

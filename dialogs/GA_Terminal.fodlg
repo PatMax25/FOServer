@@ -1,0 +1,120 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _item p PID_SMALL_ENERGY_CELL } 1 #
+0 2020 @
+3 3000 None 0 #
+4 3010 R _item p PID_SMALL_ENERGY_CELL - 1 #
+0 3020 @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+0 4030 @
+5 5000 None 0 #
+4 5010 @
+6 6000 None 0 #
+4 6010 &
+
+[engl]
+{100}{}{Terminal}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Error. Low Energy level. Please insert a microfusion cell or 40 small energy cells ]}
+{2010}{}{[ Insert 1 battery ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Small energy cell inserted. WARNING! Bettery level - 3% ]}
+{3010}{}{[ Confirm ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Error... Error... Error ]}
+{4010}{}{[ Error ]}
+{4020}{}{[ Error ]}
+{4030}{}{[ Exit ]}
+{5000}{}{Warning! The launch of 1 Nuclear missle detected from [ Error ], Colorado, United States. Time - 11:54 ------------ Warning! The lauch of 1 Nuclear missle detected from [ Error ], Hami, China. Time - 11:54 ------------ The risk of the GA scenario - 20%.}
+{5010}{}{[ Back ]}
+{6000}{}{Warning! The launch of 3 Nuclear missles detected from Rocket Silo number 35 - Ares, California, USA. Time - 11:57 ------------ Warning! Multiple launches of approximately 11376 Nuclear Missles detected from 49 States, USA. Time - 11:57  ------------  Warning! Multiple launches of Nuclear missles detected from China... Warning! Unable to update status. Reason: No connection with the satellite. Time - 11:58.  ------------  Warning! Multiple launches detected from USSR, Great Britain, The Great Republic of France, The New Europe Confederation... Error. unable to update status... Error... Error.  ------------ The risk of the GA scenario - 89 %. Sealing the Vault in 5 minutes.}
+{6010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Error. Low Energy level. Please insert a microfusion cell or 40 small energy cells ]}
+{2010}{}{[ Insert 1 battery ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Small energy cell inserted. WARNING! Bettery level - 3% ]}
+{3010}{}{[ Confirm ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Error... Error... Error ]}
+{4010}{}{[ Error ]}
+{4020}{}{[ Error ]}
+{4030}{}{[ Exit ]}
+{5000}{}{Warning! The launch of 1 Nuclear missle detected from [ Error ], Colorado, United States. Time - 11:54 ------------ Warning! The lauch of 1 Nuclear missle detected from [ Error ], Hami, China. Time - 11:54 ------------ The risk of the GA scenario - 20%.}
+{5010}{}{[ Back ]}
+{6000}{}{Warning! The launch of 3 Nuclear missles detected from Rocket Silo number 35 - Ares, California, USA. Time - 11:57 ------------ Warning! Multiple launches of approximately 11376 Nuclear Missles detected from 49 States, USA. Time - 11:57  ------------  Warnig! Multiple launches of Nuclear missles detected from China... Warning! Unable to update the status. Reason: No connection with the settlite. Time - 11:58.  ------------  Warning! Multiple laucnhes detected from USSR, Great Britain, The Great Republic of France, The New Europe Confederation... Error. unable to update the status... Error... Error.  ------------ The risk of the GA scenario - 89 %. Sealing the Vault in 5 minutes.}
+{6010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Error. Low Energy level. Please insert a microfusion cell or 40 small energy cells ]}
+{2010}{}{[ Insert 1 battery ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Small energy cell inserted. WARNING! Bettery level - 3% ]}
+{3010}{}{[ Confirm ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Error... Error... Error ]}
+{4010}{}{[ Error ]}
+{4020}{}{[ Error ]}
+{4030}{}{[ Exit ]}
+{5000}{}{Warning! The launch of 1 Nuclear missle detected from [ Error ], Colorado, United States. Time - 11:54 ------------ Warning! The lauch of 1 Nuclear missle detected from [ Error ], Hami, China. Time - 11:54 ------------ The risk of the GA scenario - 20%.}
+{5010}{}{[ Back ]}
+{6000}{}{Warning! The launch of 3 Nuclear missles detected from Rocket Silo number 35 - Ares, California, USA. Time - 11:57 ------------ Warning! Multiple launches of approximately 11376 Nuclear Missles detected from 49 States, USA. Time - 11:57  ------------  Warnig! Multiple launches of Nuclear missles detected from China... Warning! Unable to update the status. Reason: No connection with the settlite. Time - 11:58.  ------------  Warning! Multiple laucnhes detected from USSR, Great Britain, The Great Republic of France, The New Europe Confederation... Error. unable to update the status... Error... Error.  ------------ The risk of the GA scenario - 89 %. Sealing the Vault in 5 minutes.}
+{6010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Error. Low Energy level. Please insert a microfusion cell or 40 small energy cells ]}
+{2010}{}{[ Insert 1 battery ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Small energy cell inserted. WARNING! Bettery level - 3% ]}
+{3010}{}{[ Confirm ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Error... Error... Error ]}
+{4010}{}{[ Error ]}
+{4020}{}{[ Error ]}
+{4030}{}{[ Exit ]}
+{5000}{}{Warning! The launch of 1 Nuclear missle detected from [ Error ], Colorado, United States. Time - 11:54 ------------ Warning! The lauch of 1 Nuclear missle detected from [ Error ], Hami, China. Time - 11:54 ------------ The risk of the GA scenario - 20%.}
+{5010}{}{[ Back ]}
+{6000}{}{Warning! The launch of 3 Nuclear missles detected from Rocket Silo number 35 - Ares, California, USA. Time - 11:57 ------------ Warning! Multiple launches of approximately 11376 Nuclear Missles detected from 49 States, USA. Time - 11:57  ------------  Warnig! Multiple launches of Nuclear missles detected from China... Warning! Unable to update the status. Reason: No connection with the settlite. Time - 11:58.  ------------  Warning! Multiple laucnhes detected from USSR, Great Britain, The Great Republic of France, The New Europe Confederation... Error. unable to update the status... Error... Error.  ------------ The risk of the GA scenario - 89 %. Sealing the Vault in 5 minutes.}
+{6010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Error. Low Energy level. Please insert a microfusion cell or 40 small energy cells ]}
+{2010}{}{[ Insert 1 battery ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Small energy cell inserted. WARNING! Bettery level - 3% ]}
+{3010}{}{[ Confirm ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Error... Error... Error ]}
+{4010}{}{[ Error ]}
+{4020}{}{[ Error ]}
+{4030}{}{[ Exit ]}
+{5000}{}{Warning! The launch of 1 Nuclear missle detected from [ Error ], Colorado, United States. Time - 11:54 ------------ Warning! The lauch of 1 Nuclear missle detected from [ Error ], Hami, China. Time - 11:54 ------------ The risk of the GA scenario - 20%.}
+{5010}{}{[ Back ]}
+{6000}{}{Warning! The launch of 3 Nuclear missles detected from Rocket Silo number 35 - Ares, California, USA. Time - 11:57 ------------ Warning! Multiple launches of approximately 11376 Nuclear Missles detected from 49 States, USA. Time - 11:57  ------------  Warnig! Multiple launches of Nuclear missles detected from China... Warning! Unable to update the status. Reason: No connection with the settlite. Time - 11:58.  ------------  Warning! Multiple laucnhes detected from USSR, Great Britain, The Great Republic of France, The New Europe Confederation... Error. unable to update the status... Error... Error.  ------------ The risk of the GA scenario - 89 %. Sealing the Vault in 5 minutes.}
+{6010}{}{[ Back ]}
+

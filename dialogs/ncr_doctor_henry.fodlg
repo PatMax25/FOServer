@@ -1,0 +1,123 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+50 1010 D _param p ST_INTELLECT < 4 #
+2 1020 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+3 1030 D _var n name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 #
+0 4020 @
+5 5000 None 0 #
+0 5010 @
+50 6000 None 0 &
+
+[engl]
+{100}{}{Dr. Henry}
+{200}{}{You see a pudgy guy with a shiny bald head and thick-lensed glasses.}
+{210}{}{It's Dr. Henry.}
+{210}{}{This guy is so out of place it's painful. He's got that egghead, not living in the real world air about him, that's for sure.}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Unknown}
+{1030}{}{Known}
+{2000}{}{Good day, I'm Doctor Henry. How can I be of help?}
+{2010}{}{I had some questions for you, Dr. Henry.}
+{2020}{}{Nothing, sorry for the disturbance. [ end dialogue ]}
+{3000}{}{Oh, it is you again. The purpose of this visit is..?}
+{3010}{}{Questions, all kind of them.}
+{3020}{}{Nothing, sorry for the disturbance. [ end dialogue ]}
+{4000}{}{Good, but please be quick. I still have a lot to do today.}
+{4010}{}{Doc, could you patch me up?}
+{4020}{}{I better go. [ end dialogue ]}
+{5000}{}{I am very sorry, but my duties do not allow me to take care of additional patients right now. You still can try over there, at the Dr. Jubilee's clinic.}
+{5010}{}{Well, thanks for nothing. [ end dialogue ]}
+{6000}{}{Excuse me, I'm very busy.@@Please, leave me to my work.@@Don't bother me.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Unknown}
+{1030}{}{Known}
+{2000}{}{Good day, I'm Doctor Henry. How can I be of help?}
+{2010}{}{I had some questions for you, Dr. Henry.}
+{2020}{}{Nothing, sorry for disturbance.}
+{3000}{}{Oh, it is you again. The purpose of this visit is..?}
+{3010}{}{Questions, all kind of them.}
+{3020}{}{Nothing, sorry for disturbance.}
+{4000}{}{Good, but please be quick. I still have a lot to do today.}
+{4010}{}{Doc, could you patch me up?}
+{4020}{}{I better go.}
+{5000}{}{I am very sorry, but my duties do not allow me to take care of additional patients right now. You still can try over there, at the Dr. Jubilee's clinic.}
+{5010}{}{Well, thanks for nothing.}
+{6000}{}{Excuse me, I'm very busy.@@Please, leave me to my work.@@Don't bother me.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Unknown}
+{1030}{}{Known}
+{2000}{}{Good day, I'm Doctor Henry. How can I be of help?}
+{2010}{}{I had some questions for you, Dr. Henry.}
+{2020}{}{Nothing, sorry for disturbance.}
+{3000}{}{Oh, it is you again. The purpose of this visit is..?}
+{3010}{}{Questions, all kind of them.}
+{3020}{}{Nothing, sorry for disturbance.}
+{4000}{}{Good, but please be quick. I still have a lot to do today.}
+{4010}{}{Doc, could you patch me up?}
+{4020}{}{I better go.}
+{5000}{}{I am very sorry, but my duties do not allow me to take care of additional patients right now. You still can try over there, at the Dr. Jubilee's clinic.}
+{5010}{}{Well, thanks for nothing.}
+{6000}{}{Excuse me, I'm very busy.@@Please, leave me to my work.@@Don't bother me.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Unknown}
+{1030}{}{Known}
+{2000}{}{Good day, I'm Doctor Henry. How can I be of help?}
+{2010}{}{I had some questions for you, Dr. Henry.}
+{2020}{}{Nothing, sorry for disturbance.}
+{3000}{}{Oh, it is you again. The purpose of this visit is..?}
+{3010}{}{Questions, all kind of them.}
+{3020}{}{Nothing, sorry for disturbance.}
+{4000}{}{Good, but please be quick. I still have a lot to do today.}
+{4010}{}{Doc, could you patch me up?}
+{4020}{}{I better go.}
+{5000}{}{I am very sorry, but my duties do not allow me to take care of additional patients right now. You still can try over there, at the Dr. Jubilee's clinic.}
+{5010}{}{Well, thanks for nothing.}
+{6000}{}{Excuse me, I'm very busy.@@Please, leave me to my work.@@Don't bother me.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Unknown}
+{1030}{}{Known}
+{2000}{}{Good day, I'm Doctor Henry. How can I be of help?}
+{2010}{}{I had some questions for you, Dr. Henry.}
+{2020}{}{Nothing, sorry for disturbance.}
+{3000}{}{Oh, it is you again. The purpose of this visit is..?}
+{3010}{}{Questions, all kind of them.}
+{3020}{}{Nothing, sorry for disturbance.}
+{4000}{}{Good, but please be quick. I still have a lot to do today.}
+{4010}{}{Doc, could you patch me up?}
+{4020}{}{I better go.}
+{5000}{}{I am very sorry, but my duties do not allow me to take care of additional patients right now. You still can try over there, at the Dr. Jubilee's clinic.}
+{5010}{}{Well, thanks for nothing.}
+{6000}{}{Excuse me, I'm very busy.@@Please, leave me to my work.@@Don't bother me.}
+

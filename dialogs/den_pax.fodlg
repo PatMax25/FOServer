@@ -1,0 +1,103 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Private Pax}
+{200}{}{A person in some sort of a gas mask.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Can I help you?}
+{2010}{}{What is going on here?}
+{2020}{}{I don't think so.}
+{3000}{}{Looks like some nasty epidemic to me. People are dropping like flies every day, dead. You better watch yourself.}
+{3010}{}{And who are you then?}
+{3020}{}{Fine. That's all what I need to know.}
+{4000}{}{Once we used to serve Vault City - but no longer now. We escaped with doctor Andrew and his collegues and now we try to find a cure for this... virus. Doc says that it must be humanmade because of some genetic stamp or something... Well, I am not so good in some fucking studies. My mission is to hold this flamer and secure our doctors.}
+{4010}{}{I see.}
+{5000}{}{Wanna hear the funny thing though? Locals are true brats, they don't even care about the epidemic in the city. Gangs still fight with each other and some even try to attack us... What a job... It is even harder since the moment when Enclave decided to wipe the place away. I heard they are still fighting with Brotherhood of Steel sometimes near the BoS embassy here.}
+{5010}{}{Alright, I better go check everything myself.}
+{6000}{}{Yeah, yeah... Be careful out there.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Can I help you?}
+{2010}{}{What is going on here?}
+{2020}{}{I don't think so.}
+{3000}{}{Looks like some nasty epidemic to me. People are dying like flies every day. You better watch yourself.}
+{3010}{}{And who are you then?}
+{3020}{}{Fine. That's all what I need to know.}
+{4000}{}{Once we used to serve Vault City - but no longer now. We escaped with doctor Andrew and his collegues and now try to find a cure from this... virus. Doc says that it must be some humanmade stamp... Well, I am not so good in some fucking studies. My mission is to hold this flamer and secure our doctors.}
+{4010}{}{I see.}
+{5000}{}{Wonna hear the funny thing though? Locals are true brats, they don't even care about the epidemic in the city. Gangs still fight with each other and some even try to attack us... What a job... It is even harder since the moment when Enclave decided to wipe the place away. I heard they are still fighting with Brotherhood of Steel sometimes near the BoS embassy here.}
+{5010}{}{Alright, I better go check everything myself.}
+{6000}{}{Yeah, yeah... Be careful out there.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Can I help you?}
+{2010}{}{What is going on here?}
+{2020}{}{I don't think so.}
+{3000}{}{Looks like some nasty epidemic to me. People are dying like flies every day. You better watch yourself.}
+{3010}{}{And who are you then?}
+{3020}{}{Fine. That's all what I need to know.}
+{4000}{}{Once we used to serve Vault City - but no longer now. We escaped with doctor Andrew and his collegues and now try to find a cure from this... virus. Doc says that it must be some humanmade stamp... Well, I am not so good in some fucking studies. My mission is to hold this flamer and secure our doctors.}
+{4010}{}{I see.}
+{5000}{}{Wonna hear the funny thing though? Locals are true brats, they don't even care about the epidemic in the city. Gangs still fight with each other and some even try to attack us... What a job... It is even harder since the moment when Enclave decided to wipe the place away. I heard they are still fighting with Brotherhood of Steel sometimes near the BoS embassy here.}
+{5010}{}{Alright, I better go check everything myself.}
+{6000}{}{Yeah, yeah... Be careful out there.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Can I help you?}
+{2010}{}{What is going on here?}
+{2020}{}{I don't think so.}
+{3000}{}{Looks like some nasty epidemic to me. People are dying like flies every day. You better watch yourself.}
+{3010}{}{And who are you then?}
+{3020}{}{Fine. That's all what I need to know.}
+{4000}{}{Once we used to serve Vault City - but no longer now. We escaped with doctor Andrew and his collegues and now try to find a cure from this... virus. Doc says that it must be some humanmade stamp... Well, I am not so good in some fucking studies. My mission is to hold this flamer and secure our doctors.}
+{4010}{}{I see.}
+{5000}{}{Wonna hear the funny thing though? Locals are true brats, they don't even care about the epidemic in the city. Gangs still fight with each other and some even try to attack us... What a job... It is even harder since the moment when Enclave decided to wipe the place away. I heard they are still fighting with Brotherhood of Steel sometimes near the BoS embassy here.}
+{5010}{}{Alright, I better go check everything myself.}
+{6000}{}{Yeah, yeah... Be careful out there.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Can I help you?}
+{2010}{}{What is going on here?}
+{2020}{}{I don't think so.}
+{3000}{}{Looks like some nasty epidemic to me. People are dying like flies every day. You better watch yourself.}
+{3010}{}{And who are you then?}
+{3020}{}{Fine. That's all what I need to know.}
+{4000}{}{Once we used to serve Vault City - but no longer now. We escaped with doctor Andrew and his collegues and now try to find a cure from this... virus. Doc says that it must be some humanmade stamp... Well, I am not so good in some fucking studies. My mission is to hold this flamer and secure our doctors.}
+{4010}{}{I see.}
+{5000}{}{Wonna hear the funny thing though? Locals are true brats, they don't even care about the epidemic in the city. Gangs still fight with each other and some even try to attack us... What a job... It is even harder since the moment when Enclave decided to wipe the place away. I heard they are still fighting with Brotherhood of Steel sometimes near the BoS embassy here.}
+{5010}{}{Alright, I better go check everything myself.}
+{6000}{}{Yeah, yeah... Be careful out there.}
+

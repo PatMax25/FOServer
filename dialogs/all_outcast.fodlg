@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Outcast}
+{200}{}{You see an outcast.}
+{210}{}{This person was formerly a part of a major faction, but then life turned sour.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Do not run.@@We are your friends. You'll never be alone again.@@Do not attack.@@Sucker.@@Leave us!@@Unclean!@@Go away!@@No one understands us.@@We don't belong anywhere.@@Don't judge me.@@You don't know what I've been through!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Do not run.@@We are your friends. You'll never be alone again.@@Do not attack.@@Sucker.@@Leave us!@@Unclean!@@Go away!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Do not run.@@We are your friends. You'll never be alone again.@@Do not attack.@@Sucker.@@Leave us!@@Unclean!@@Go away!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Do not run.@@We are your friends. You'll never be alone again.@@Do not attack.@@Sucker.@@Leave us!@@Unclean!@@Go away!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Do not run.@@We are your friends. You'll never be alone again.@@Do not attack.@@Sucker.@@Leave us!@@Unclean!@@Go away!}
+

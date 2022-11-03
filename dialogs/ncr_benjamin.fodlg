@@ -1,0 +1,180 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 R _script dialog@r_PlaySound 1 50 @
+2 2000 None 0 #
+3 2010 R _script dialog@r_PlaySound 1 51 #
+6 2020 D _var p ncr_benjamin = 0 R _script dialog@r_PlaySound 1 54 #
+8 2030 D _var p ncr_benjamin = 2 D _item p PID_PRINTER } 1 #
+0 2040 @
+3 3000 None 0 #
+4 3010 R _script dialog@r_PlaySound 1 52 #
+2 3020 @
+4 4000 None 0 #
+5 4010 R _script dialog@r_PlaySound 1 53 #
+2 4020 @
+5 5000 None 0 #
+2 5010 #
+0 5020 @
+6 6000 None 0 #
+7 6010 R _script dialog@r_PlaySound 1 55 #
+0 6020 @
+7 7000 None 0 #
+0 7010 R _var p ncr_benjamin = 1 #
+0 7020 R _var p ncr_benjamin = 1 @
+8 8000 None 0 #
+9 8010 D _item p PID_PRINTER } 1 D _var p ncr_benjamin = 2 R _var p ncr_benjamin = 3 R _item p PID_PRINTER - 1 R _param p ST_EXPERIENCE + 1400 R _item p PID_NCR_MONEY + 900 R _item p PID_SAMURAI + 1 R _item p PID_BEANS + 2 R _param p REPUTATION_NCR + 30 #
+0 8020 R _var p ncr_benjamin = 3 R _param p ST_EXPERIENCE + 1400 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{Benjamin}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{I am looking for some job. Do you have anything?}
+{2030}{}{And here is the chip, brand new one for your printing business.}
+{2040}{}{Just passing by. See ya. [ end dialogue ]}
+{3000}{}{I am Benjamin McCrew, the owner of this printing house and I am also the publisher of the Modern Samurai journal.}
+{3010}{}{Modern Samurai? Interesting... Tell me more about your journal.}
+{3020}{}{I see. I have some other questions.}
+{4000}{}{Well, Shady Sands is a big city and people need to read something alternative to governmental newspapers that a filled with propaganda. [ He chuckles ] So my mission is to give them our journal to read, entertain and learn something new.}
+{4010}{}{Well, your journal really looks like some yellow press. No offence.}
+{4020}{}{I see, let's switch the topic.}
+{5000}{}{This... Well you know what... I... I don't discuss the publisher's policy with some outsiders!}
+{5010}{}{Alright, alright, relax. Let's switch the topic.}
+{5020}{}{Who even cares about your policy? Farewell, "publisher". [ end dialogue ]}
+{6000}{}{Yeah, there is a problem I have with my computer. The printing chip went down and I don't have the extra one. Without my printer, I won't be able to mass produce the journal.}
+{6010}{}{So why don't you take another chip?}
+{6020}{}{Not interested. Deal with your problems alone. [ end dialogue ]}
+{7000}{}{Well, here comes the problem. Printer chips are very rare and there are 3 people in the city who have them. First person is Dorothy, she works in the power station. But she won't give it so easily because... Oh well... She is my ex. The divorce was damn rough and... Anyway... Brotherhood of Steel here has the chip too, but these freaking techno fanatics will rather die than give somebody a piece of technology. But who knows... Maybe you can talk them down. And also I heard that Buster has the chip, but knowing him... In another words, he will ask a lot of money for it, but maybe you can try to talk with him as well.}
+{7010}{}{Fine, I will see what I can do. [ end dialogue ]}
+{7020}{}{I will think about it. [ end dialogue ]}
+{8000}{}{You did it! Thank you a lot. Now the printer will go up again.}
+{8010}{}{Alright, what about my reward?}
+{8020}{}{Though... You know what? I think I will keep this chip. See ya, loser. [ end dialogue ]}
+{9000}{}{Right, take this. Thank you once again.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{I am looking for some job. Do you have anything?}
+{2030}{}{And here is the chip, brand new one for your printing business.}
+{2040}{}{Just passing by. See ya.}
+{3000}{}{I am Benjamin McCrew, the owner of this printing house and I am also the publisher of the Modern Samurai journal.}
+{3010}{}{Modern Samurai? Interesting... Tell me more about your journal.}
+{3020}{}{I see. I have some other questions.}
+{4000}{}{Well, Shady Sands is a big city and people need to read something alternative to governmental newspapers that a filled with propaganda. [ He chuckles ] So my mission is to give them our journal to read, entertain and learn something new.}
+{4010}{}{Well, your journal really looks like some yellow press. No offence.}
+{4020}{}{I see, let's switch the topic.}
+{5000}{}{This... Well you know what... I... I don't discuss the publisher's policy with some outsiders!}
+{5010}{}{Alright, alright, relax. Let's switch the topic.}
+{5020}{}{Who even cares about your policy? Farewell, "publisher".}
+{6000}{}{Yeah, there is a problem I have with my computer. The printing chip went down and I don't have the extra one. Without my printer, I won't be able to mass produce the journal.}
+{6010}{}{So why don't you take another chip?}
+{6020}{}{Not interested. Deal with your problems alone.}
+{7000}{}{Well, here comes the problem. Printer chips are very rare and there are 3 people in the city who have them. First person is Dorothy, she works in the power station. But she won't give it so easily because... Oh well... She is my ex. The divorce was damn rough and... Anyway... Brotherhood of Steel here has the chip too, but these freaking techno fanatics will rather die than give somebody a piece of technology. But who knows... Maybe you can talk them down. And also I heard that Buster has the chip, but knowing him... In another words, he will ask a lot of money for it, but maybe you can try to talk with him as well.}
+{7010}{}{Fine, I will see what I can do.}
+{7020}{}{I will think about it.}
+{8000}{}{You did it! Thank you a lot. Now the printer will go up again. Here, take this as your reward, you are always welcomed in this house now.}
+{8010}{}{Alright, what about my reward?}
+{8020}{}{Though... You know what? I think I will keep this chip. See ya, looser.}
+{9000}{}{Right, take this. Thank you once again.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{I am looking for some job. Do you have anything?}
+{2030}{}{And here is the chip, brand new one for your printing business.}
+{2040}{}{Just passing by. See ya.}
+{3000}{}{I am Benjamin McCrew, the owner of this printing house and I am also the publisher of the Modern Samurai journal.}
+{3010}{}{Modern Samurai? Interesting... Tell me more about your journal.}
+{3020}{}{I see. I have some other questions.}
+{4000}{}{Well, Shady Sands is a big city and people need to read something alternative to governmental newspapers that a filled with propaganda. [ He chuckles ] So my mission is to give them our journal to read, entertain and learn something new.}
+{4010}{}{Well, your journal really looks like some yellow press. No offence.}
+{4020}{}{I see, let's switch the topic.}
+{5000}{}{This... Well you know what... I... I don't discuss the publisher's policy with some outsiders!}
+{5010}{}{Alright, alright, relax. Let's switch the topic.}
+{5020}{}{Who even cares about your policy? Farewell, "publisher".}
+{6000}{}{Yeah, there is a problem I have with my computer. The printing chip went down and I don't have the extra one. Without my printer, I won't be able to mass produce the journal.}
+{6010}{}{So why don't you take another chip?}
+{6020}{}{Not interested. Deal with your problems alone.}
+{7000}{}{Well, here comes the problem. Printer chips are very rare and there are 3 people in the city who have them. First person is Dorothy, she works in the power station. But she won't give it so easily because... Oh well... She is my ex. The divorce was damn rough and... Anyway... Brotherhood of Steel here has the chip too, but these freaking techno fanatics will rather die than give somebody a piece of technology. But who knows... Maybe you can talk them down. And also I heard that Buster has the chip, but knowing him... In another words, he will ask a lot of money for it, but maybe you can try to talk with him as well.}
+{7010}{}{Fine, I will see what I can do.}
+{7020}{}{I will think about it.}
+{8000}{}{You did it! Thank you a lot. Now the printer will go up again. Here, take this as your reward, you are always welcomed in this house now.}
+{8010}{}{Alright, what about my reward?}
+{8020}{}{Though... You know what? I think I will keep this chip. See ya, looser.}
+{9000}{}{Right, take this. Thank you once again.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{I am looking for some job. Do you have anything?}
+{2030}{}{And here is the chip, brand new one for your printing business.}
+{2040}{}{Just passing by. See ya.}
+{3000}{}{I am Benjamin McCrew, the owner of this printing house and I am also the publisher of the Modern Samurai journal.}
+{3010}{}{Modern Samurai? Interesting... Tell me more about your journal.}
+{3020}{}{I see. I have some other questions.}
+{4000}{}{Well, Shady Sands is a big city and people need to read something alternative to governmental newspapers that a filled with propaganda. [ He chuckles ] So my mission is to give them our journal to read, entertain and learn something new.}
+{4010}{}{Well, your journal really looks like some yellow press. No offence.}
+{4020}{}{I see, let's switch the topic.}
+{5000}{}{This... Well you know what... I... I don't discuss the publisher's policy with some outsiders!}
+{5010}{}{Alright, alright, relax. Let's switch the topic.}
+{5020}{}{Who even cares about your policy? Farewell, "publisher".}
+{6000}{}{Yeah, there is a problem I have with my computer. The printing chip went down and I don't have the extra one. Without my printer, I won't be able to mass produce the journal.}
+{6010}{}{So why don't you take another chip?}
+{6020}{}{Not interested. Deal with your problems alone.}
+{7000}{}{Well, here comes the problem. Printer chips are very rare and there are 3 people in the city who have them. First person is Dorothy, she works in the power station. But she won't give it so easily because... Oh well... She is my ex. The divorce was damn rough and... Anyway... Brotherhood of Steel here has the chip too, but these freaking techno fanatics will rather die than give somebody a piece of technology. But who knows... Maybe you can talk them down. And also I heard that Buster has the chip, but knowing him... In another words, he will ask a lot of money for it, but maybe you can try to talk with him as well.}
+{7010}{}{Fine, I will see what I can do.}
+{7020}{}{I will think about it.}
+{8000}{}{You did it! Thank you a lot. Now the printer will go up again. Here, take this as your reward, you are always welcomed in this house now.}
+{8010}{}{Alright, what about my reward?}
+{8020}{}{Though... You know what? I think I will keep this chip. See ya, looser.}
+{9000}{}{Right, take this. Thank you once again.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{I am looking for some job. Do you have anything?}
+{2030}{}{And here is the chip, brand new one for your printing business.}
+{2040}{}{Just passing by. See ya.}
+{3000}{}{I am Benjamin McCrew, the owner of this printing house and I am also the publisher of the Modern Samurai journal.}
+{3010}{}{Modern Samurai? Interesting... Tell me more about your journal.}
+{3020}{}{I see. I have some other questions.}
+{4000}{}{Well, Shady Sands is a big city and people need to read something alternative to governmental newspapers that a filled with propaganda. [ He chuckles ] So my mission is to give them our journal to read, entertain and learn something new.}
+{4010}{}{Well, your journal really looks like some yellow press. No offence.}
+{4020}{}{I see, let's switch the topic.}
+{5000}{}{This... Well you know what... I... I don't discuss the publisher's policy with some outsiders!}
+{5010}{}{Alright, alright, relax. Let's switch the topic.}
+{5020}{}{Who even cares about your policy? Farewell, "publisher".}
+{6000}{}{Yeah, there is a problem I have with my computer. The printing chip went down and I don't have the extra one. Without my printer, I won't be able to mass produce the journal.}
+{6010}{}{So why don't you take another chip?}
+{6020}{}{Not interested. Deal with your problems alone.}
+{7000}{}{Well, here comes the problem. Printer chips are very rare and there are 3 people in the city who have them. First person is Dorothy, she works in the power station. But she won't give it so easily because... Oh well... She is my ex. The divorce was damn rough and... Anyway... Brotherhood of Steel here has the chip too, but these freaking techno fanatics will rather die than give somebody a piece of technology. But who knows... Maybe you can talk them down. And also I heard that Buster has the chip, but knowing him... In another words, he will ask a lot of money for it, but maybe you can try to talk with him as well.}
+{7010}{}{Fine, I will see what I can do.}
+{7020}{}{I will think about it.}
+{8000}{}{You did it! Thank you a lot. Now the printer will go up again. Here, take this as your reward, you are always welcomed in this house now.}
+{8010}{}{Alright, what about my reward?}
+{8020}{}{Though... You know what? I think I will keep this chip. See ya, looser.}
+{9000}{}{Right, take this. Thank you once again.}
+

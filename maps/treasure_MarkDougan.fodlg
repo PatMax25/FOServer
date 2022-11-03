@@ -1,0 +1,94 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player < 1 #
+30 1020 D _param p ST_INTELLECT < 3 #
+9 1030 D _var p name_mem_npc_player > 0 @
+2 2000 None 0 #
+16 2010 R _var p name_mem_npc_player = 1 @
+9 3000 None 0 #
+10 3010 #
+0 3020 @
+10 4000 None 0 #
+11 4010 #
+12 4020 #
+14 4030 #
+0 4040 @
+11 5000 None 0 #
+10 5010 #
+0 5020 @
+30 6000 None 0 @
+12 7000 None 0 #
+10 7010 @
+14 8000 None 0 #
+15 8010 D _item p PID_FUZZY_PAINTING > 0 #
+10 8020 #
+0 8030 #
+17 8040 D _item p PID_GOLD_LOCKET } 1 R _item p PID_BOTTLE_CAPS + 700 R _param p ST_EXPERIENCE + 450 R _item p PID_GOLD_LOCKET - 1 #
+17 8050 D _item p PID_MAGIC_8_BALL } 1 R _item p PID_BOTTLE_CAPS + 700 R _param p ST_EXPERIENCE + 450 R _item p PID_MAGIC_8_BALL - 1 #
+17 8060 D _item p PID_WATCH } 1 R _item p PID_BOTTLE_CAPS + 700 R _param p ST_EXPERIENCE + 450 R _item p PID_WATCH - 1 #
+17 8070 D _item p PID_NECKLACE } 1 R _item p PID_BOTTLE_CAPS + 700 R _param p ST_EXPERIENCE + 450 R _item p PID_NECKLACE - 1 #
+18 8080 D _item p PID_FLOWER } 1 R _item p PID_BOTTLE_CAPS + 400 R _param p ST_EXPERIENCE + 300 R _item p PID_FLOWER - 1 #
+18 8090 D _item p PID_GOGGLES } 1 R _item p PID_BOTTLE_CAPS + 400 R _param p ST_EXPERIENCE + 300 R _item p PID_GOGGLES - 1 #
+18 8100 D _item p PID_PSYCHIC_NULLIFIER } 1 R _item p PID_BOTTLE_CAPS + 400 R _param p ST_EXPERIENCE + 300 R _item p PID_PSYCHIC_NULLIFIER - 1 @
+15 9000 None 0 #
+14 9010 D _item p PID_FUZZY_PAINTING > 0 R _item p PID_FUZZY_PAINTING - 1 R _item p PID_BOTTLE_CAPS + 1000 R _param p ST_EXPERIENCE + 600 #
+10 9020 #
+0 9030 @
+16 10000 None 0 #
+10 10010 @
+17 11000 None 0 @
+18 12000 None 0 &
+
+[engl]
+{100}{}{Mark Dougan}
+{210}{}{You see a happy expression on his face, he definetely enjoys this place and himself.}
+{230}{}{You see a happy expression on his face, he definetely enjoys this place and himself.}
+{250}{}{Poor guy...}
+{270}{}{Poor guy...}
+{1000}{}{Predialogue installations}
+{1010}{}{Not known}
+{1020}{}{Dumb}
+{1030}{}{Known}
+{2000}{}{Hello, stranger, are you new in these places ? I haven't seen your face before...}
+{2010}{}{Yeah I am new here, my name is @pname@, looking for some work around here.}
+{3000}{}{It's you ! I hope wasteland was'nt too harsh this time for you.}
+{3010}{}{Thank you, business ?}
+{3020}{}{Just passing by, see you.}
+{4000}{}{Oh, lets talk business then!}
+{4010}{}{What kind of business you mean ?}
+{4020}{}{So what about maps?}
+{4030}{}{I was thinking if you want to check out the unusual stuff I've found during my runs.}
+{4040}{}{I should go.}
+{5000}{}{Well, people who know me come basically for two things. It's money, shiny pre war artifacts and treasure maps, I am selling and buying those. If you ever going for a treasure run, you better ask me for an assistance. Small tip, and you're packed up.}
+{5010}{}{That's a good proposition, I will note this.}
+{5020}{}{Noted, gotta go.}
+{6000}{}{Hey-hey-hey-hey... hey.. easy there, careful with the drinks, you dummy !}
+{7000}{}{Well, everything is fairly easy. When I get some, I usually announce everywhere about the fact, that I am selling em. So, just follow the announcements and come here when I have any for sale.}
+{7010}{}{Alright, I got you.}
+{8000}{}{Let's see, what do you have.}
+{8010}{}{I have something really special. Look at this painting I've got over here !}
+{8020}{}{Actually, let's talk about something else.}
+{8030}{}{Gotta go,}
+{8040}{}{I found this golden locket among the ruins. What do you think about it?}
+{8050}{}{This is a magic 8 ball. I think it really worths something.}
+{8060}{}{What do you think about this golden watch?}
+{8070}{}{This is a real diamond neckless. It must cost something.}
+{8080}{}{What do you think about this flower?}
+{8090}{}{I can sell you these goggles.}
+{8100}{}{What about this Psychic Nullifier?}
+{9000}{}{Wow ! That's a lot of potential over there, I would buy it for 1000 caps. Deal?}
+{9010}{}{Sure, let's do this. [Hang him the painting]}
+{9020}{}{Let's better talk about something else.}
+{9030}{}{I've changed my mind, see you.}
+{10000}{}{Well, you've just found it ! My name is Mark Dougan, I am the man of business around here.}
+{10010}{}{Business you say ? Let's talk about business of yours then.}
+{11000}{}{This one is a shiny looking thing. Here are your 700 caps.}
+{12000}{}{Hmh... Not bad. 400 caps is a fine price for it.}
+

@@ -1,0 +1,73 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _script map_sad@d_PowerOff 0  @
+3 2000 None 0 #
+0 2010 R _script dialog@r_OpenDoor 2 500 30 &
+
+[engl]
+{100}{}{Soldier from Sierra}
+{200}{}{You see a Soldier from Sierra.}
+{210}{}{Looks like someone who was born before The Great War.}
+{1000}{}{Predialogue installations}
+{1010}{}{Power is off}
+{2000}{}{<<Sierra Army Complex Terminal>>
+>>AUTHORIZED PERSONNEL ONLY
+
+}
+{2010}{}{[Open Evacuation Gate]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Power is off}
+{2000}{}{<<Sierra Army Complex Termina>>
+>>AUTHORIZED PERSONNEL ONLY
+
+>Power status: Low power, running off of emergency back-up battery
+>Security robots currently deactivated. Contact Level 2 maintenance team for support.
+>Elevator access approved. Guards have been contacted to observe elevator usage.}
+{2010}{}{[Log off]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Power is off}
+{2000}{}{<<Sierra Army Complex Termina>>
+>>AUTHORIZED PERSONNEL ONLY
+
+>Power status: Low power, running off of emergency back-up battery
+>Security robots currently deactivated. Contact Level 2 maintenance team for support.
+>Elevator access approved. Guards have been contacted to observe elevator usage.}
+{2010}{}{[Log off]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Power is off}
+{2000}{}{<<Sierra Army Complex Termina>>
+>>AUTHORIZED PERSONNEL ONLY
+
+>Power status: Low power, running off of emergency back-up battery
+>Security robots currently deactivated. Contact Level 2 maintenance team for support.
+>Elevator access approved. Guards have been contacted to observe elevator usage.}
+{2010}{}{[Log off]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Power is off}
+{2000}{}{<<Sierra Army Complex Termina>>
+>>AUTHORIZED PERSONNEL ONLY
+
+>Power status: Low power, running off of emergency back-up battery
+>Security robots currently deactivated. Contact Level 2 maintenance team for support.
+>Elevator access approved. Guards have been contacted to observe elevator usage.}
+{2010}{}{[Log off]}
+

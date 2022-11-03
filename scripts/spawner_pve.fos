@@ -1,0 +1,786 @@
+//
+// FOnline: Aftertimes
+// worldremaker
+//4
+// spawner_pve.fos
+//
+// Reworked spawner_pvp.fos script from FOnline: Reloaded S2
+//
+
+#include "utils.fos"
+#include "_macros.fos"
+#include "_colors.fos"
+#include "npc_roles_h.fos"
+#include "elevators_h.fos"
+#include "triggers.fos"
+#include "item_pools_h.fos"
+
+// 1 elevator 1-2
+CElevator FirstElevator(ELEVATOR_MILITARY_12);
+// 2 elevator 1-3
+CElevator SecondElevator(ELEVATOR_MILITARY_123);
+
+bool ElevatorsAdded = false;
+//import bool LockerClose(Item& item) from "lockers";
+import void AddSpecialBonus(Item@ it) from "item_bonus";
+import void InitializeDynamicMob(Map& map) from "mob_dynamic";
+import void FillMapByMobs(Map& map, uint8 reqNumMobs, uint8 kindof, uint8 subtype, uint8 weapgroup) from "mob_dynamic";
+import void CallMobs(Map& map, int howmany, int whatkind, int whattype, uint16 x, uint16 y) from "mob_dynamic";
+import void InitializeDynamicMob(Map& map, bool withBoss) from "mob_dynamic";
+int v14dead = 0;
+int v15dead = 0;
+void init_v14(Map& map, bool firsttime)
+{
+	
+    map.SetEvent(MAP_EVENT_CRITTER_DEAD, "_DeadCritterv14");
+	map.SetEvent(MAP_EVENT_OUT_CRITTER, "_CritterOut");
+    if(firsttime) 
+	{
+	if(map.GetProtoId() == MAP_Vault14Level1)
+		InitializeDynamicMob(map);
+	if(map.GetProtoId() == MAP_NavarroSublevel2)
+		InitializeDynamicMob(map, true);
+	}
+}
+void _CritterOut(Map& map, Critter& cr)
+{
+	uint mobnum = map.GetNpcCount(ROLE_MOB_DYNAMIC, FIND_LIFE_AND_KO | FIND_ONLY_NPC);
+	array<Critter@> critters;
+    uint            num = map.GetCritters(0, FIND_ALL, critters);
+
+	if(mobnum > 10)
+	{
+    for(uint i = 0; i < num; i++)
+    {
+        if(critters[i].IsPlayer())
+            break;
+
+        if(!critters[i].IsDead())
+            DeleteNpc(critters[i]);
+    }
+	}
+	if(mobnum < 1)
+	{
+		if(map.GetProtoId() == MAP_Vault15Level1)
+		{
+        CallMobs(map,3, 3, 1,98,109);
+		}
+		if(map.GetProtoId() == MAP_Vault14Level1)
+		{
+        CallMobs(map,3, 25, 1,67,74);
+		}
+		if(map.GetProtoId() == MAP_NavarroSublevel2)
+		{
+        CallMobs(map,3, 20, 4,262,49);
+		}
+	}
+}
+void init_v15(Map& map, bool firsttime)
+{
+    if(map.GetProtoId() == MAP_Vault15Level1)
+    map.SetEvent(MAP_EVENT_CRITTER_DEAD, "_DeadCritterv15");
+	map.SetEvent(MAP_EVENT_OUT_CRITTER, "_CritterOut");
+    if(firsttime) InitializeDynamicMob(map);
+    if(!ElevatorsAdded)
+    {
+        // add elevators
+        AddElevator(FirstElevator);
+        AddElevator(SecondElevator);
+        ElevatorsAdded = true;
+    }
+    // parse elevators floors
+    uint16 x = 0, y = 0;
+
+    switch(map.GetProtoId())
+    {
+    case MAP_Vault15Surface:
+        if(map.GetEntireCoords(1, 0, x, y))
+            FirstElevator.AddFloor(map.Id, 1);
+        break;
+    case MAP_Vault15Level1:
+        if(map.GetEntireCoords(1, 0, x, y))
+            FirstElevator.AddFloor(map.Id, 1);
+        if(map.GetEntireCoords(2, 0, x, y))
+            SecondElevator.AddFloor(map.Id, 2);
+        break;
+    case MAP_Vault15Level2:
+        if(map.GetEntireCoords(2, 0, x, y))
+            SecondElevator.AddFloor(map.Id, 2);
+        break;
+    case MAP_Vault15Level3:
+        if(map.GetEntireCoords(2, 0, x, y))
+            SecondElevator.AddFloor(map.Id, 2);
+        break;
+    default:
+    }
+}
+int wavev14 =1;
+void _DeadCritterv14(Map& map, Critter& cr, Critter@ killer)
+{
+    if(!cr.IsPlayer())
+    {
+    v14dead +=1;
+    }
+	uint mobnum = map.GetNpcCount(ROLE_MOB_DYNAMIC, FIND_LIFE_AND_KO | FIND_ONLY_NPC);
+    if( mobnum < 1)
+        {
+		if(map.GetProtoId() == MAP_Vault14Level1)
+		{
+        FillMapByMobs(map, 6, 25, 1, 15);
+        FillMapByMobs(map, 2, 7, 1, 13);
+		}
+		if(map.GetProtoId() == MAP_NavarroSublevel2)
+		{
+		FillMapByMobs(map, 8, 4, 1, 13);
+        FillMapByMobs(map, 4, 20, 3, 13);
+		}
+        }
+	
+    killer.ParamBase[ST_EXPERIENCE] += 25 * wavev14;
+    wavev14 += 1;
+    if(map.GetNpcCount(0, FIND_LIFE_AND_KO | FIND_ONLY_PLAYERS) < 1)
+        {
+        wavev14 = 1;
+        }
+    if(v14dead>Random(20,55))
+    {
+    v14dead = 0;
+    array<Item@> lockers;
+    map.GetItemsByType(ITEM_TYPE_CONTAINER, lockers);
+    for(uint k = 0, l = lockers.length; k < l; k++)
+        {
+        CreateTimeEvent(0, "e_SpawnHighV", lockers[k].Id, false);
+        }
+    }
+}
+int wavev15 =1;
+void _DeadCritterv15(Map& map, Critter& cr, Critter@ killer)
+{
+	uint mobnum = map.GetNpcCount(ROLE_MOB_DYNAMIC, FIND_LIFE_AND_KO | FIND_ONLY_NPC);
+    if(!cr.IsPlayer())
+    {
+    v15dead +=1;
+    }
+    if(mobnum < 1)
+        {
+        FillMapByMobs(map, 4, 2, 1, 1);
+        FillMapByMobs(map, 3, 17, 1, 13);
+        }
+	array<Critter@> players;
+	if(mobnum > 9 && map.GetCritters(0, FIND_ONLY_PLAYERS, players) < 1)
+	{
+	array<Critter@> crits;
+    uint            count = map.GetCritters(0, FIND_ONLY_NPC, crits);
+	for(uint k = 0; k < count; k++)
+        {
+		if(map.GetNpcCount(ROLE_MOB_DYNAMIC, FIND_LIFE_AND_KO | FIND_ONLY_NPC) < 9)
+			break;
+		if(crits[k].Param[ST_NPC_ROLE] != ROLE_MOB_DYNAMIC)
+			continue;
+		DeleteNpc(crits[k]);
+		}
+	}
+    killer.ParamBase[ST_EXPERIENCE] += 5 * wavev15;
+    wavev15 += 1;
+    if(map.GetNpcCount(0, FIND_LIFE_AND_KO | FIND_ONLY_PLAYERS) < 1)
+        {
+        wavev15 = 1;
+        }
+    if(v15dead>Random(40,80))
+    {
+    v15dead = 0;
+    array<Item@> lockers;
+    map.GetItemsByType(ITEM_TYPE_CONTAINER, lockers);
+    for(uint k = 0, l = lockers.length; k < l; k++)
+        {
+        CreateTimeEvent(0, "e_SpawnLowV", lockers[k].Id, false);
+        }
+    }
+}
+void init_high(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+    CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_SpawnHigh", item.Id, false);
+}
+
+void skytower(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+    CreateTimeEvent(AFTER(REAL_HOUR(12)), "e_skytower", item.Id, false);
+}
+
+void init_low(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+    CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_SpawnLow", item.Id, false);
+}
+
+// Executed when opening reward chest
+bool _UseRewardContainer(Item& item, Critter& crit, int skill)
+{
+    // Opening / Closing
+    if((skill == -1) || (skill == SK_ENGINE))
+    {
+        if(!isMobsKilled(crit))
+        {
+            uint16 hexX = 0;
+            uint16 hexY = 0;
+            Map@   map = item.GetMapPosition(hexX, hexY);
+            map.SetText(hexX, hexY, COLOR_WHITE,  "The locker looks guarded.");
+            return true;
+        }
+
+        // open it if closed
+        if(_LockerIsClose(item))
+        {
+            //item.LockerId = 0;
+            //item.LockerId = Random(98989, 989898);
+            //item.LockerComplexity = Random(50,50);
+            return false;
+        }
+    }
+    return false;
+}
+
+bool isMobsKilled(Critter& player)
+{
+    bool ThereAreMobs = false;
+
+    uint numLifeMobs = player.GetMap().GetNpcCount(ROLE_MOB_AGRESSIVE, FIND_ONLY_NPC | FIND_LIFE);
+
+    if(numLifeMobs!=0)
+    {
+        for(uint i = 0; i < numLifeMobs; i++)
+        {
+            Critter@ mob = player.GetMap().GetNpc(ROLE_MOB_AGRESSIVE, FIND_ONLY_NPC | FIND_LIFE, i);
+            //mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!");
+            CritterShout(mob);
+        }
+        ThereAreMobs = true;
+    }
+
+    numLifeMobs = player.GetMap().GetNpcCount(ROLE_MOB_PASSIVE, FIND_ONLY_NPC | FIND_LIFE);
+
+    if(numLifeMobs!=0)
+    {
+        for(uint i = 0; i < numLifeMobs; i++)
+        {
+            Critter@ mob = player.GetMap().GetNpc(ROLE_MOB_PASSIVE, FIND_ONLY_NPC | FIND_LIFE, i);
+            //mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!");
+            CritterShout(mob);
+        }
+        ThereAreMobs = true;
+    }
+
+    numLifeMobs = player.GetMap().GetNpcCount(ROLE_MOB_ISTOWN_AGRESSIVE, FIND_ONLY_NPC | FIND_LIFE);
+
+    if(numLifeMobs!=0)
+    {
+        for(uint i = 0; i < numLifeMobs; i++)
+        {
+            Critter@ mob = player.GetMap().GetNpc(ROLE_MOB_ISTOWN_AGRESSIVE, FIND_ONLY_NPC | FIND_LIFE, i);
+            //mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!");
+            CritterShout(mob);
+        }
+        ThereAreMobs = true;
+    }
+
+    numLifeMobs = player.GetMap().GetNpcCount(ROLE_MOB_ISTOWN_PASSIVE, FIND_ONLY_NPC | FIND_LIFE);
+
+    if(numLifeMobs!=0)
+    {
+        for(uint i = 0; i < numLifeMobs; i++)
+        {
+            Critter@ mob = player.GetMap().GetNpc(ROLE_MOB_ISTOWN_PASSIVE, FIND_ONLY_NPC | FIND_LIFE, i);
+            //mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!");
+            CritterShout(mob);
+        }
+        ThereAreMobs = true;
+    }
+
+    numLifeMobs = player.GetMap().GetNpcCount(ROLE_MOB_DYNAMIC, FIND_ONLY_NPC | FIND_LIFE);
+
+    if(numLifeMobs!=0)
+    {
+        for(uint i = 0; i < numLifeMobs; i++)
+        {
+            Critter@ mob = player.GetMap().GetNpc(ROLE_MOB_DYNAMIC, FIND_ONLY_NPC | FIND_LIFE, i);
+            //mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!");
+            CritterShout(mob);
+        }
+        ThereAreMobs = true;
+    }
+    numLifeMobs = player.GetMap().GetNpcCount(215, FIND_ONLY_NPC | FIND_LIFE);
+
+    if(numLifeMobs!=0)
+    {
+        for(uint i = 0; i < numLifeMobs; i++)
+        {
+            Critter@ mob = player.GetMap().GetNpc(215, FIND_ONLY_NPC | FIND_LIFE, i);
+            //mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!");
+            CritterShout(mob);
+        }
+        ThereAreMobs = true;
+    }
+    if(ThereAreMobs)
+        return false;
+    else
+        return true;
+
+}
+
+uint e_SpawnHigh(array<uint>@ values)
+{
+	float tier4ammochance = 0;
+	float tier4partschance = 0;
+	float tier4bpchance = 0;
+	float implantchance = 0;
+	float rarechance = 0;
+	float implant_combatchance = 0;
+	float verti_partschance = 0;
+	float addbasemapchance = 0;
+	float t4chance = 0;
+	
+	switch(week_patch)
+	{
+	case 1:
+	case 2:
+	tier4ammochance = 0; tier4partschance = 2; tier4bpchance = 0; implantchance = 6; rarechance = 8; 
+	implant_combatchance = 0.2; verti_partschance = 0; t4chance = 0; addbasemapchance = 24; break;
+	//todo other weeks
+	}
+	
+    Item@ item = GetItem(values[0]);
+    if(!valid(item))
+        return 0;
+    ClearContainer(item);
+        SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+		//item.AddItem(tier3ammo(), Random(50,420), 0);
+		item.AddItem(tier3drugs(), Random(5,8) , 0);
+		item.AddItem(tier3bp(), Random(5,8) , 0);
+        
+    if(dropchance(tier4ammochance * doubleloot))
+        item.AddItem(tier4ammo(),Random(10,25), 5);
+
+    if(dropchance(rarechance * doubleloot))
+        item.AddItem(rareitem(), 1, 0);
+
+    if(dropchance(tier4partschance * doubleloot))
+        item.AddItem(tier4parts(), 1, 0);
+
+    if(dropchance(implantchance * doubleloot))
+        item.AddItem(implant(), 1, 0);
+
+    if(dropchance(implant_combatchance * doubleloot))
+        item.AddItem(implant_combat(), 1, 0);
+	if(dropchance(addbasemapchance * doubleloot))
+		addbasemap(item);	
+    
+    if(dropchance(tier4bpchance * doubleloot))
+        item.AddItem(tier4bp(),1, 0);
+
+    if(dropchance(verti_partschance * doubleloot))
+        item.AddItem(verti_parts(),1, 0);
+	if(dropchance(t4chance * doubleloot))
+        item.AddItem(tier4item(),1, 0);
+    item.AddItem(currency(), Random(1,15000) , 0);
+	item.AddItem(PID_UPGRATE_PARTS, Random(2,8) , 0);
+    if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+
+    return REAL_MINUTE(Random(23 /  doubleloot ,30 /  doubleloot));
+}
+
+
+uint e_SpawnLow(array<uint>@ values)
+{
+    float tier4ammochance = 0;
+	float tier4partschance = 0;
+	float tier4bpchance = 0;
+	float implantchance = 0;
+	float rarechance = 0;
+	float implant_combatchance = 0;
+	float verti_partschance = 0;
+	float addbasemapchance = 0;
+	float t4chance = 0;
+	
+	switch(week_patch)
+	{
+	case 1:
+	case 2:
+	tier4ammochance = 0; tier4partschance = 1; tier4bpchance = 0; implantchance = 3; rarechance = 4; 
+	implant_combatchance = 0.1; verti_partschance = 0; t4chance = 0; addbasemapchance = 12; break;
+	//todo other weeks
+	}
+	
+    Item@ item = GetItem(values[0]);
+    if(!valid(item))
+        return 0;
+    ClearContainer(item);
+        SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+		//item.AddItem(tier3ammo(), Random(50,420), 0);
+		item.AddItem(tier3drugs(), Random(5,8) , 0);
+		item.AddItem(tier3bp(), Random(5,8) , 0);
+        
+    if(dropchance(tier4ammochance * doubleloot))
+        item.AddItem(tier4ammo(),Random(10,25), 5);
+
+    if(dropchance(rarechance * doubleloot))
+        item.AddItem(rareitem(), 1, 0);
+
+    if(dropchance(tier4partschance * doubleloot))
+        item.AddItem(tier4parts(), 1, 0);
+
+    if(dropchance(implantchance * doubleloot))
+        item.AddItem(implant(), 1, 0);
+
+    if(dropchance(implant_combatchance * doubleloot))
+        item.AddItem(implant_combat(), 1, 0);
+	if(dropchance(addbasemapchance * doubleloot))
+		addbasemap(item);	
+    
+    if(dropchance(tier4bpchance * doubleloot))
+        item.AddItem(tier4bp(),1, 0);
+
+    if(dropchance(verti_partschance * doubleloot))
+        item.AddItem(verti_parts(),1, 0);
+	if(dropchance(t4chance * doubleloot))
+        item.AddItem(tier4item(),1, 0);
+    item.AddItem(currency(), Random(1,15000) , 0);
+	item.AddItem(PID_UPGRATE_PARTS, Random(2,8) , 0);
+    if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+
+    return REAL_MINUTE(Random(23 /  doubleloot ,30 /  doubleloot));
+}
+uint e_skytower(array<uint>@ values)
+{
+    float tier4ammochance = 0;
+	float tier4partschance = 0;
+	float tier4bpchance = 0;
+	float implantchance = 0;
+	float rarechance = 0;
+	float implant_combatchance = 0;
+	float verti_partschance = 0;
+	float addbasemapchance = 0;
+	float t4chance = 0;
+	
+	switch(week_patch)
+	{
+	case 1:
+	case 2:
+	tier4ammochance = 0; tier4partschance = 2; tier4bpchance = 0; implantchance = 6; rarechance = 8; 
+	implant_combatchance = 0.2; verti_partschance = 0; t4chance = 0; addbasemapchance = 24; break;
+	//todo other weeks
+	}
+	
+    Item@ item = GetItem(values[0]);
+    if(!valid(item))
+        return 0;
+    ClearContainer(item);
+        SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+		//item.AddItem(tier3ammo(), Random(50,420), 0);
+		item.AddItem(tier3drugs(), Random(5,8) , 0);
+		item.AddItem(tier3bp(), Random(5,8) , 0);
+        
+    if(dropchance(tier4ammochance * doubleloot))
+        item.AddItem(tier4ammo(),Random(10,25), 5);
+
+    if(dropchance(rarechance * doubleloot))
+        item.AddItem(rareitem(), 1, 0);
+
+    if(dropchance(tier4partschance * doubleloot))
+        item.AddItem(tier4parts(), 1, 0);
+
+    if(dropchance(implantchance * doubleloot))
+        item.AddItem(implant(), 1, 0);
+
+    if(dropchance(implant_combatchance * doubleloot))
+        item.AddItem(implant_combat(), 1, 0);
+	if(dropchance(addbasemapchance * doubleloot))
+		addbasemap(item);	
+    
+    if(dropchance(tier4bpchance * doubleloot))
+        item.AddItem(tier4bp(),1, 0);
+
+    if(dropchance(verti_partschance * doubleloot))
+        item.AddItem(verti_parts(),1, 0);
+	if(dropchance(t4chance * doubleloot))
+        item.AddItem(tier4item(),1, 0);
+    item.AddItem(currency(), Random(1,15000) , 0);
+	item.AddItem(PID_UPGRATE_PARTS, Random(2,8) , 0);
+    if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+
+    return REAL_HOUR(12);
+}
+import void _weapon_perk(Item& item, bool firstTime) from "item_level";
+import void _armor_perk(Item& item, bool firstTime) from "item_level";
+void SpawnBuffItem(Item& container, uint16 pid)
+{
+    Item@ it = container.AddItem(pid, 1, 0);
+	it.Val0 = Random(1,50000);
+	it.Update();
+	if(it.GetType() == ITEM_TYPE_WEAPON)
+		_weapon_perk(it, false);
+
+	if(it.GetType() == ITEM_TYPE_ARMOR)
+		_armor_perk(it, false);
+}
+
+void CritterShout(Critter& mob)
+{
+    switch(mob.Param[ST_BODY_TYPE])
+    {
+        case BT_MEN :
+        case BT_WOMEN :
+        case BT_CHILDREN :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "PUT YOUR HANDS AWAY!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "GET AWAY FROM THE LOCKER!"); break;}
+            }
+            break;
+        case BT_SUPER_MUTANT :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "NO HUMAN!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "DIE HUMAN FIRST!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "GET THIS HUMAN!"); break;}
+            }
+            break;
+        case BT_GHOUL :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "I'M SO HUNGRY!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "EAT HIM!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "MMMMM... A FRESH MEAT!"); break;}
+            }
+            break;
+        case BT_BRAHMIN :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "MOOO!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "MOOOO! MOOOO!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "MOO! I SAID MOOOOOOOO!"); break;}
+            }
+            break;
+        case BT_RADSCORPION :
+            mob.Say(SAY_EMOTE_ON_HEAD, "Crackling with the stitches.");
+            break;
+        case BT_RAT :
+            mob.Say(SAY_EMOTE_ON_HEAD, "Rat squeaking.");
+            break;
+        case BT_FLOATER :
+        case BT_CENTAUR :
+            mob.Say(SAY_EMOTE_ON_HEAD, "The sound of splashing.");
+            break;
+        case BT_ROBOT :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "BAD INTERRUPT!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "DEFENSE PROGRAM: INITIALIZED!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "EXTERMINATE THE CURRENT SURFACE!"); break;}
+            }
+            break;
+        case BT_DOG :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "Wooof! Wooof!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "GRRRRRR!!!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "ANGGRRRRR!!!"); break;}
+            }
+            break;
+        case BT_MANTI :
+            break;
+        case BT_DEADCLAW :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "HRRRR!!!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "GRRRRRR!!!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "ANGGRRRRR!!!"); break;}
+            }
+            break;
+        case BT_PLANT :
+            break;
+        case BT_GECKO :
+            break;
+        case BT_ALIEN :
+            mob.Say(SAY_EMOTE_ON_HEAD, "It's trying say something...");
+            break;
+        case BT_GIANT_ANT :
+            break;
+        case BT_BIG_BAD_BOSS :
+            break;
+        case BT_DESERT_STALKER :
+            break;
+        case BT_MAN_TRAP :
+            break;
+        case BT_RAD_TOAD :
+            break;
+        case BT_THORNSLINGER :
+            break;
+        case BT_PASHTSHUUR :
+            break;
+        default :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "PUT YOUR HANDS AWAY!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "GET AWAY FROM THE LOCKER!"); break;}
+            }
+            break;
+    }
+
+
+
+
+}
+
+uint e_SpawnHighV(array<uint>@ values)
+{
+   float tier4ammochance = 0;
+	float tier4partschance = 0;
+	float tier4bpchance = 0;
+	float implantchance = 0;
+	float rarechance = 0;
+	float implant_combatchance = 0;
+	float verti_partschance = 0;
+	float addbasemapchance = 0;
+	float t4chance = 0;
+	
+	switch(week_patch)
+	{
+	case 1:
+	case 2:
+	tier4ammochance = 0; tier4partschance = 2; tier4bpchance = 0; implantchance = 6; rarechance = 8; 
+	implant_combatchance = 0.2; verti_partschance = 0; t4chance = 0; addbasemapchance = 24; break;
+	//todo other weeks
+	}
+	
+    Item@ item = GetItem(values[0]);
+    if(!valid(item))
+        return 0;
+        SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+		//item.AddItem(tier3ammo(), Random(50,420), 0);
+		item.AddItem(tier3drugs(), Random(5,8) , 0);
+		item.AddItem(tier3bp(), Random(5,8) , 0);
+        
+    if(dropchance(tier4ammochance * doubleloot))
+        item.AddItem(tier4ammo(),Random(10,25), 5);
+
+    if(dropchance(rarechance * doubleloot))
+        item.AddItem(rareitem(), 1, 0);
+
+    if(dropchance(tier4partschance * doubleloot))
+        item.AddItem(tier4parts(), 1, 0);
+
+    if(dropchance(implantchance * doubleloot))
+        item.AddItem(implant(), 1, 0);
+
+    if(dropchance(implant_combatchance * doubleloot))
+        item.AddItem(implant_combat(), 1, 0);
+	if(dropchance(addbasemapchance * doubleloot))
+		addbasemap(item);	
+    
+    if(dropchance(tier4bpchance * doubleloot))
+        item.AddItem(tier4bp(),1, 0);
+
+    if(dropchance(verti_partschance * doubleloot))
+        item.AddItem(verti_parts(),1, 0);
+	if(dropchance(t4chance * doubleloot))
+        item.AddItem(tier4item(),1, 0);
+    item.AddItem(currency(), Random(1,15000) , 0);
+	item.AddItem(PID_UPGRATE_PARTS, Random(2,8) , 0);
+    if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+    return 0;
+    //return REAL_MINUTE(Random(45,65));
+}
+
+
+uint e_SpawnLowV(array<uint>@ values)
+{
+    float tier4ammochance = 0;
+	float tier4partschance = 0;
+	float tier4bpchance = 0;
+	float implantchance = 0;
+	float rarechance = 0;
+	float implant_combatchance = 0;
+	float verti_partschance = 0;
+	float addbasemapchance = 0;
+	float t4chance = 0;
+	
+	switch(week_patch)
+	{
+	case 1:
+	case 2:
+	tier4ammochance = 0; tier4partschance = 1; tier4bpchance = 0; implantchance = 3; rarechance = 4; 
+	implant_combatchance = 0.1; verti_partschance = 0; t4chance = 0; addbasemapchance = 12; break;
+	//todo other weeks
+	}
+	
+    Item@ item = GetItem(values[0]);
+    if(!valid(item))
+        return 0;
+    ClearContainer(item);
+        SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+		//item.AddItem(tier3ammo(), Random(50,420), 0);
+		item.AddItem(tier3drugs(), Random(5,8) , 0);
+		item.AddItem(tier3bp(), Random(5,8) , 0);
+        
+    if(dropchance(tier4ammochance * doubleloot))
+        item.AddItem(tier4ammo(),Random(10,25), 5);
+
+    if(dropchance(rarechance * doubleloot))
+        item.AddItem(rareitem(), 1, 0);
+
+    if(dropchance(tier4partschance * doubleloot))
+        item.AddItem(tier4parts(), 1, 0);
+
+    if(dropchance(implantchance * doubleloot))
+        item.AddItem(implant(), 1, 0);
+
+    if(dropchance(implant_combatchance * doubleloot))
+        item.AddItem(implant_combat(), 1, 0);
+	if(dropchance(addbasemapchance * doubleloot))
+		addbasemap(item);	
+    
+    if(dropchance(tier4bpchance * doubleloot))
+        item.AddItem(tier4bp(),1, 0);
+
+    if(dropchance(verti_partschance * doubleloot))
+        item.AddItem(verti_parts(),1, 0);
+	if(dropchance(t4chance * doubleloot))
+        item.AddItem(tier4item(),1, 0);
+    item.AddItem(currency(), Random(1,15000) , 0);
+	item.AddItem(PID_UPGRATE_PARTS, Random(2,8) , 0);
+    if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+        return 0;
+//    return REAL_MINUTE(Random(45,60));
+}

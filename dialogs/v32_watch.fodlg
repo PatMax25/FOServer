@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+65507 2010 #
+3 2020 D _item p PID_V15_KEYCARD } 1 R _script dialog@r_OpenDoor 2 46 20 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Watch Guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! Please show me your keycard.}
+{2010}{}{I.. eh... I came to the wrong place I guess.}
+{2020}{}{Here you are. [ Show your Keycard ]}
+{3000}{}{Welcome back, Overseer.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! Please show me your keycard.}
+{2010}{}{I.. eh... I came to the wrong place I guess.}
+{2020}{}{Here you are. [ Show her a Keycard ]}
+{3000}{}{Welcome back, Overseer.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! Please show me your keycard.}
+{2010}{}{I.. eh... I came to the wrong place I guess.}
+{2020}{}{Here you are. [ Show her a Keycard ]}
+{3000}{}{Welcome back, Overseer.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! Please show me your keycard.}
+{2010}{}{I.. eh... I came to the wrong place I guess.}
+{2020}{}{Here you are. [ Show her a Keycard ]}
+{3000}{}{Welcome back, Overseer.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! Please show me your keycard.}
+{2010}{}{I.. eh... I came to the wrong place I guess.}
+{2020}{}{Here you are. [ Show her a Keycard ]}
+{3000}{}{Welcome back, Overseer.}
+

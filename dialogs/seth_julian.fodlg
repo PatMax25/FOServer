@@ -1,0 +1,264 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p name_mem_npc_player = 0 #
+13 2020 #
+9 2030 #
+10 2040 #
+5 2050 #
+8 2060 D _var p seth_julian = 0 #
+0 2070 #
+15 2080 D _var p seth_julian = 2 D _item p PID_FUZZY_PAINTING } 1 R _item p PID_FUZZY_PAINTING - 1 R _item p PID_BOTTLE_CAPS + 100 R _param p ST_EXPERIENCE + 100 R _var p seth_julian = 3 @
+3 3000 None 0 #
+4 3010 R _var p name_mem_npc_player = 1 #
+0 3020 @
+4 4000 None 0 #
+13 4010 #
+5 4020 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+2 7010 #
+65507 7020 @
+8 8000 None 0 #
+11 8010 @
+9 9000 None 0 @
+10 10000 None 0 @
+11 11000 None 0 #
+12 11010 R _var p seth_julian = 1 #
+0 11020 @
+12 12000 None 0 @
+13 13000 None 0 #
+14 13010 D _script dialog@d_havepropermoney 1 400 R _script dialog@r_RemoveMoney 1 400 R _script dialog@r_ToHeal 0  R _param p ADDICTION_NUKA_COLA = 0 R _param p ADDICTION_BUFFOUT = 0 R _param p ADDICTION_MENTATS = 0 R _param p ADDICTION_PSYCHO = 0 R _param p ADDICTION_RADAWAY = 0 R _param p ADDICTION_JET = 0 R _param p ST_RADIATION_LEVEL = 0 R _param p ST_POISONING_LEVEL = 0 #
+0 13020 @
+14 14000 None 0 @
+15 15000 None 0 #
+0 15010 R _param p SK_FIRST_AID + 10 #
+0 15020 &
+
+[engl]
+{100}{}{Julian}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? Can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{I need your doctor's help!}
+{2030}{}{Why do you keep coffins here?}
+{2040}{}{Nice poster you have here.}
+{2050}{}{What can you tell me about this town?}
+{2060}{}{Can I help you with something?}
+{2070}{}{No, see you.}
+{2080}{}{I got the painting. Here it is.}
+{3000}{}{I am Doctor Julian. Just a local medic. And you are...?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{I see. Nice to meet you. Do you need some medical assistance or do you just wish to chit chat?}
+{4010}{}{I need your medical assistance.}
+{4020}{}{What can you tell me about this town?}
+{5000}{}{Nothing much. It is a regular small settlement. Nothing much interesting... The only problem I have is about the bums.}
+{5010}{}{What is wrong with bums?}
+{5020}{}{I don't care. See you.}
+{6000}{}{Well you can see exactly what is wrong about them. They just litter the place with their presence. Isaac says that we should be sorry for them... Like they are refugees running from the war and horrors of the wastes. But the guy must be blind to not see the basic fact, that they are running not from bullets, but from taxes. Go, ask them about their homeland. Half of them are from Shady Sands. Losers, drunks, small criminals. The ones who didn't have enough brain or will to set themselves to work in the capital. Did you get the thing now?}
+{6010}{}{I see... You should...}
+{7000}{}{...Oh and also those damn scorpions. Isaac and his crazy wife decided to make a scorpion farm out of the junkyard. And for some reason they didn't ask my opinion... I hate scorpions.}
+{7010}{}{Great.. Lets talk about something else.}
+{7020}{}{Oh really? And I hate people like you. Time to feed you to those scorpions.}
+{8000}{}{Hmm... Look, I saw one guy threw a really nice painting in junkyard. May you check around the junk there and find it? I will pay you well for it.}
+{8010}{}{Why can't you do it yourself?}
+{9000}{}{Just in case, you know.}
+{10000}{}{It... It is not mine. One of locals decided to make a really funny joke. Damn barbarians.}
+{11000}{}{Because there are scorpions there. Say thanks to Isaac and Samantha. They are in charge of this damn scorpions breeding farm.}
+{11010}{}{Alright. I will do it.}
+{11020}{}{Fuck that. Not interested.}
+{12000}{}{Good. One more thing - watch out for Isaac. If he sees you killing his fucking pets, he might shoot you.}
+{13000}{}{Alright. 400 Currency and you will be alright. But please notice that I don't heal crippled arms and legs.}
+{13010}{}{Here are the Currency. Just help me already!}
+{13020}{}{On the second thought. It is not so bad.}
+{14000}{}{Here you go.}
+{15000}{}{Excellent! Thank you. Here is your payment. Also, I can teach you a few tips in medicine. Are you interested?}
+{15010}{}{Sure!}
+{15020}{}{Nah, I don't care about your mumbling.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? Can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{I need your doctor's help!}
+{2030}{}{Why do you keep coffins here?}
+{2040}{}{Nice poster you have here.}
+{2050}{}{What can you tell me about this town?}
+{2060}{}{Can I help you with something?}
+{2070}{}{No, see you.}
+{2080}{}{I got the painting. Here it is.}
+{3000}{}{I am Doctor Julian. Just a local medic. And you are...?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{I see. Nice to meet you. Do you need some medical assistance or do you just wish to chit chat?}
+{4010}{}{I need your medical assistance.}
+{4020}{}{What can you tell me about this town?}
+{5000}{}{Nothing much. It is a regular small settlement. Nothing much interesting... The only problem is about bums though.}
+{5010}{}{What is wrong with bums?}
+{5020}{}{I don't care. See you.}
+{6000}{}{Well you can see exactly what is wrong about them. They just litter the place with their presence. Isaac says that we should be sorry for them... Like they are refugees running from the war and horrors of the wastes. But the guy must be blind to not see the basic fact, that they are running not from bullets, but from taxes. Go, ask them about their homeland. Half of them are from Shady Sands. Losers, drunks, small criminals. The ones who didn't have enough brain or will to set themselves in the capital. Did you get the thing now?}
+{6010}{}{I see... You should...}
+{7000}{}{...Oh and also those damn scorpios. Isaac and his crazy wife decided to make a scorpios' farm out of the junkyard. And for some reason they didn't ask my opinion... I hate scorpios.}
+{7010}{}{Great.. Lets talk about something else.}
+{7020}{}{Oh really? And I hate people like you. Time to feed you to those scorpios.}
+{8000}{}{Hmm... Look, I saw one guy threw a really nice painting in junkyard. May you check around the junk there and find it? I will pay you well for it.}
+{8010}{}{Why can't you do it yourself?}
+{9000}{}{Just in case, you know.}
+{10000}{}{It... It is not mine. One of locals decided to make a really funny joke. Damn barbarians.}
+{11000}{}{Because there are scorpios there. Say thanks to Isaac and Samantha. They are in charge of this damn scorpios' breeding farm.}
+{11010}{}{Alright. I will do it.}
+{11020}{}{Fuck that. Not interested.}
+{12000}{}{Good. One more thing - watch out for Isaac. If he sees you killing his fucking pets, he might shoot you.}
+{13000}{}{Alright. 400 Currency and you will be alright. But please notice that I don't heal crippled arms and legs.}
+{13010}{}{Here are the Currency. Just help me already!}
+{13020}{}{On the second thought. It is not so bad.}
+{14000}{}{Here you go.}
+{15000}{}{Excellent! Thank you. Here is your payment. Also, I can teach you few tips in medicine. Are you interested?}
+{15010}{}{Sure!}
+{15020}{}{Nah, I don't care about your mumbling.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? Can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{I need your doctor's help!}
+{2030}{}{Why do you keep coffins here?}
+{2040}{}{Nice poster you have here.}
+{2050}{}{What can you tell me about this town?}
+{2060}{}{Can I help you with something?}
+{2070}{}{No, see you.}
+{2080}{}{I got the painting. Here it is.}
+{3000}{}{I am Doctor Julian. Just a local medic. And you are...?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{I see. Nice to meet you. Do you need some medical assistance or do you just wish to chit chat?}
+{4010}{}{I need your medical assistance.}
+{4020}{}{What can you tell me about this town?}
+{5000}{}{Nothing much. It is a regular small settlement. Nothing much interesting... The only problem is about bums though.}
+{5010}{}{What is wrong with bums?}
+{5020}{}{I don't care. See you.}
+{6000}{}{Well you can see exactly what is wrong about them. They just litter the place with their presence. Isaac says that we should be sorry for them... Like they are refugees running from the war and horrors of the wastes. But the guy must be blind to not see the basic fact, that they are running not from bullets, but from taxes. Go, ask them about their homeland. Half of them are from Shady Sands. Losers, drunks, small criminals. The ones who didn't have enough brain or will to set themselves in the capital. Did you get the thing now?}
+{6010}{}{I see... You should...}
+{7000}{}{...Oh and also those damn scorpios. Isaac and his crazy wife decided to make a scorpios' farm out of the junkyard. And for some reason they didn't ask my opinion... I hate scorpios.}
+{7010}{}{Great.. Lets talk about something else.}
+{7020}{}{Oh really? And I hate people like you. Time to feed you to those scorpios.}
+{8000}{}{Hmm... Look, I saw one guy threw a really nice painting in junkyard. May you check around the junk there and find it? I will pay you well for it.}
+{8010}{}{Why can't you do it yourself?}
+{9000}{}{Just in case, you know.}
+{10000}{}{It... It is not mine. One of locals decided to make a really funny joke. Damn barbarians.}
+{11000}{}{Because there are scorpios there. Say thanks to Isaac and Samantha. They are in charge of this damn scorpios' breeding farm.}
+{11010}{}{Alright. I will do it.}
+{11020}{}{Fuck that. Not interested.}
+{12000}{}{Good. One more thing - watch out for Isaac. If he sees you killing his fucking pets, he might shoot you.}
+{13000}{}{Alright. 400 Currency and you will be alright. But please notice that I don't heal crippled arms and legs.}
+{13010}{}{Here are the Currency. Just help me already!}
+{13020}{}{On the second thought. It is not so bad.}
+{14000}{}{Here you go.}
+{15000}{}{Excellent! Thank you. Here is your payment. Also, I can teach you few tips in medicine. Are you interested?}
+{15010}{}{Sure!}
+{15020}{}{Nah, I don't care about your mumbling.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? Can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{I need your doctor's help!}
+{2030}{}{Why do you keep coffins here?}
+{2040}{}{Nice poster you have here.}
+{2050}{}{What can you tell me about this town?}
+{2060}{}{Can I help you with something?}
+{2070}{}{No, see you.}
+{2080}{}{I got the painting. Here it is.}
+{3000}{}{I am Doctor Julian. Just a local medic. And you are...?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{I see. Nice to meet you. Do you need some medical assistance or do you just wish to chit chat?}
+{4010}{}{I need your medical assistance.}
+{4020}{}{What can you tell me about this town?}
+{5000}{}{Nothing much. It is a regular small settlement. Nothing much interesting... The only problem is about bums though.}
+{5010}{}{What is wrong with bums?}
+{5020}{}{I don't care. See you.}
+{6000}{}{Well you can see exactly what is wrong about them. They just litter the place with their presence. Isaac says that we should be sorry for them... Like they are refugees running from the war and horrors of the wastes. But the guy must be blind to not see the basic fact, that they are running not from bullets, but from taxes. Go, ask them about their homeland. Half of them are from Shady Sands. Losers, drunks, small criminals. The ones who didn't have enough brain or will to set themselves in the capital. Did you get the thing now?}
+{6010}{}{I see... You should...}
+{7000}{}{...Oh and also those damn scorpios. Isaac and his crazy wife decided to make a scorpios' farm out of the junkyard. And for some reason they didn't ask my opinion... I hate scorpios.}
+{7010}{}{Great.. Lets talk about something else.}
+{7020}{}{Oh really? And I hate people like you. Time to feed you to those scorpios.}
+{8000}{}{Hmm... Look, I saw one guy threw a really nice painting in junkyard. May you check around the junk there and find it? I will pay you well for it.}
+{8010}{}{Why can't you do it yourself?}
+{9000}{}{Just in case, you know.}
+{10000}{}{It... It is not mine. One of locals decided to make a really funny joke. Damn barbarians.}
+{11000}{}{Because there are scorpios there. Say thanks to Isaac and Samantha. They are in charge of this damn scorpios' breeding farm.}
+{11010}{}{Alright. I will do it.}
+{11020}{}{Fuck that. Not interested.}
+{12000}{}{Good. One more thing - watch out for Isaac. If he sees you killing his fucking pets, he might shoot you.}
+{13000}{}{Alright. 400 Currency and you will be alright. But please notice that I don't heal crippled arms and legs.}
+{13010}{}{Here are the Currency. Just help me already!}
+{13020}{}{On the second thought. It is not so bad.}
+{14000}{}{Here you go.}
+{15000}{}{Excellent! Thank you. Here is your payment. Also, I can teach you few tips in medicine. Are you interested?}
+{15010}{}{Sure!}
+{15020}{}{Nah, I don't care about your mumbling.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? Can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{I need your doctor's help!}
+{2030}{}{Why do you keep coffins here?}
+{2040}{}{Nice poster you have here.}
+{2050}{}{What can you tell me about this town?}
+{2060}{}{Can I help you with something?}
+{2070}{}{No, see you.}
+{2080}{}{I got the painting. Here it is.}
+{3000}{}{I am Doctor Julian. Just a local medic. And you are...?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{I see. Nice to meet you. Do you need some medical assistance or do you just wish to chit chat?}
+{4010}{}{I need your medical assistance.}
+{4020}{}{What can you tell me about this town?}
+{5000}{}{Nothing much. It is a regular small settlement. Nothing much interesting... The only problem is about bums though.}
+{5010}{}{What is wrong with bums?}
+{5020}{}{I don't care. See you.}
+{6000}{}{Well you can see exactly what is wrong about them. They just litter the place with their presence. Isaac says that we should be sorry for them... Like they are refugees running from the war and horrors of the wastes. But the guy must be blind to not see the basic fact, that they are running not from bullets, but from taxes. Go, ask them about their homeland. Half of them are from Shady Sands. Losers, drunks, small criminals. The ones who didn't have enough brain or will to set themselves in the capital. Did you get the thing now?}
+{6010}{}{I see... You should...}
+{7000}{}{...Oh and also those damn scorpios. Isaac and his crazy wife decided to make a scorpios' farm out of the junkyard. And for some reason they didn't ask my opinion... I hate scorpios.}
+{7010}{}{Great.. Lets talk about something else.}
+{7020}{}{Oh really? And I hate people like you. Time to feed you to those scorpios.}
+{8000}{}{Hmm... Look, I saw one guy threw a really nice painting in junkyard. May you check around the junk there and find it? I will pay you well for it.}
+{8010}{}{Why can't you do it yourself?}
+{9000}{}{Just in case, you know.}
+{10000}{}{It... It is not mine. One of locals decided to make a really funny joke. Damn barbarians.}
+{11000}{}{Because there are scorpios there. Say thanks to Isaac and Samantha. They are in charge of this damn scorpios' breeding farm.}
+{11010}{}{Alright. I will do it.}
+{11020}{}{Fuck that. Not interested.}
+{12000}{}{Good. One more thing - watch out for Isaac. If he sees you killing his fucking pets, he might shoot you.}
+{13000}{}{Alright. 400 Currency and you will be alright. But please notice that I don't heal crippled arms and legs.}
+{13010}{}{Here are the Currency. Just help me already!}
+{13020}{}{On the second thought. It is not so bad.}
+{14000}{}{Here you go.}
+{15000}{}{Excellent! Thank you. Here is your payment. Also, I can teach you few tips in medicine. Are you interested?}
+{15010}{}{Sure!}
+{15020}{}{Nah, I don't care about your mumbling.}
+

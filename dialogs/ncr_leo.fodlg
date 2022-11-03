@@ -1,0 +1,174 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+6 2030 D _var p leo_watch = 0 #
+0 2040 #
+8 2050 D _var p leo_watch = 3 D _item p PID_CORNELIUS_GOLD_WATCH } 1 R _var p leo_watch = 4 R _param p ST_EXPERIENCE + 1000 R _item p PID_BOTTLE_CAPS + 80 R _item p PID_WATCH - 1 R _item p PID_CORNELIUS_GOLD_WATCH - 1 @
+3 3000 None 0 #
+5 3010 #
+2 3020 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+4 5010 #
+2 5020 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+0 7010 R _var p leo_watch = 1 #
+0 7020 @
+8 8000 None 0 #
+9 8010 #
+0 8020 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{Leo}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{A nie robe you have.}
+{2030}{}{Do you have a job for me?}
+{2040}{}{Nothing. I need to go.}
+{2050}{}{Hey I got your watch.}
+{3000}{}{Name's Leo. I am a teaher of history in this school. The person near me is Clavdis, he is a teacher of biology. He is not so talkative though...}
+{3010}{}{So what do you study exactly?}
+{3020}{}{I have something else to ask.}
+{4000}{}{These are robes of Followers of the Apocalypse. Blue sybolizes the purity of our intentions. We are here to make the world better.}
+{4010}{}{Alright... One more thing.}
+{5000}{}{History, as I've just told you. Children should know about mistakes of the past, so they will never commit them in the future.}
+{5010}{}{Interesting... What about your robes?}
+{5020}{}{Lets change the topic.}
+{6000}{}{Ah yes... See the plant over there? May you ask him to give back my watch please? We had... Eh... I am pretty bad in card games. But the watch is very important to me. It is from my mother.}
+{6010}{}{Wait... What? Did you play cards with a plant?}
+{7000}{}{Yes, we tested some... some things on it, so it turned into a very smart plant... Don't be surprised.}
+{7010}{}{Alright. I will get your watch back.}
+{7020}{}{No way! I will not waste my time on that.}
+{8000}{}{Did you? Great! Thank you a lot for that.}
+{8010}{}{You really shouldn't play cards with every... plant you see.}
+{8020}{}{All the days work.}
+{9000}{}{I shall think about it...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{A nie robe you have.}
+{2030}{}{Do you have a job for me?}
+{2040}{}{Nothing. I need to go.}
+{2050}{}{Hey I got your watch.}
+{3000}{}{Name's Leo. I am a teaher of history in this school. The person near me is Clavdis, he is a teacher of biology. He is not so talkative though...}
+{3010}{}{So what do you study exactly?}
+{3020}{}{I have something else to ask.}
+{4000}{}{These are robes of Followers of the Apocalypse. Blue sybolize the purity of our intensions. We are here to make the world better.}
+{4010}{}{Alright... One more thing.}
+{5000}{}{History, as I've just told you. children should know about mistakes of the past, so they will never commit them in the future.}
+{5010}{}{Interesting... What about your robes?}
+{5020}{}{Lets change the topic.}
+{6000}{}{Ah yes... See the plant over there? May you ask him to give back my wath please? We had... Eh... I am pretty bad in card games. But the watch are very important to me. They are from my mother.}
+{6010}{}{Wait... What? Did you play cards with a plant?}
+{7000}{}{Yes, we tested some... some things on it, so it turned into a very smart plant... Don't be surprised.}
+{7010}{}{Alright. I will get your wath back.}
+{7020}{}{No way I will waste my time on that,}
+{8000}{}{Did you? Great! Thank you a lot for that.}
+{8010}{}{You really shouldn't play cards with every... plant you see.}
+{8020}{}{All the days work.}
+{9000}{}{I shall think about it...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{A nie robe you have.}
+{2030}{}{Do you have a job for me?}
+{2040}{}{Nothing. I need to go.}
+{2050}{}{Hey I got your watch.}
+{3000}{}{Name's Leo. I am a teaher of history in this school. The person near me is Clavdis, he is a teacher of biology. He is not so talkative though...}
+{3010}{}{So what do you study exactly?}
+{3020}{}{I have something else to ask.}
+{4000}{}{These are robes of Followers of the Apocalypse. Blue sybolize the purity of our intensions. We are here to make the world better.}
+{4010}{}{Alright... One more thing.}
+{5000}{}{History, as I've just told you. children should know about mistakes of the past, so they will never commit them in the future.}
+{5010}{}{Interesting... What about your robes?}
+{5020}{}{Lets change the topic.}
+{6000}{}{Ah yes... See the plant over there? May you ask him to give back my wath please? We had... Eh... I am pretty bad in card games. But the watch are very important to me. They are from my mother.}
+{6010}{}{Wait... What? Did you play cards with a plant?}
+{7000}{}{Yes, we tested some... some things on it, so it turned into a very smart plant... Don't be surprised.}
+{7010}{}{Alright. I will get your wath back.}
+{7020}{}{No way I will waste my time on that,}
+{8000}{}{Did you? Great! Thank you a lot for that.}
+{8010}{}{You really shouldn't play cards with every... plant you see.}
+{8020}{}{All the days work.}
+{9000}{}{I shall think about it...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{A nie robe you have.}
+{2030}{}{Do you have a job for me?}
+{2040}{}{Nothing. I need to go.}
+{2050}{}{Hey I got your watch.}
+{3000}{}{Name's Leo. I am a teaher of history in this school. The person near me is Clavdis, he is a teacher of biology. He is not so talkative though...}
+{3010}{}{So what do you study exactly?}
+{3020}{}{I have something else to ask.}
+{4000}{}{These are robes of Followers of the Apocalypse. Blue sybolize the purity of our intensions. We are here to make the world better.}
+{4010}{}{Alright... One more thing.}
+{5000}{}{History, as I've just told you. children should know about mistakes of the past, so they will never commit them in the future.}
+{5010}{}{Interesting... What about your robes?}
+{5020}{}{Lets change the topic.}
+{6000}{}{Ah yes... See the plant over there? May you ask him to give back my wath please? We had... Eh... I am pretty bad in card games. But the watch are very important to me. They are from my mother.}
+{6010}{}{Wait... What? Did you play cards with a plant?}
+{7000}{}{Yes, we tested some... some things on it, so it turned into a very smart plant... Don't be surprised.}
+{7010}{}{Alright. I will get your wath back.}
+{7020}{}{No way I will waste my time on that,}
+{8000}{}{Did you? Great! Thank you a lot for that.}
+{8010}{}{You really shouldn't play cards with every... plant you see.}
+{8020}{}{All the days work.}
+{9000}{}{I shall think about it...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{A nie robe you have.}
+{2030}{}{Do you have a job for me?}
+{2040}{}{Nothing. I need to go.}
+{2050}{}{Hey I got your watch.}
+{3000}{}{Name's Leo. I am a teaher of history in this school. The person near me is Clavdis, he is a teacher of biology. He is not so talkative though...}
+{3010}{}{So what do you study exactly?}
+{3020}{}{I have something else to ask.}
+{4000}{}{These are robes of Followers of the Apocalypse. Blue sybolize the purity of our intensions. We are here to make the world better.}
+{4010}{}{Alright... One more thing.}
+{5000}{}{History, as I've just told you. children should know about mistakes of the past, so they will never commit them in the future.}
+{5010}{}{Interesting... What about your robes?}
+{5020}{}{Lets change the topic.}
+{6000}{}{Ah yes... See the plant over there? May you ask him to give back my wath please? We had... Eh... I am pretty bad in card games. But the watch are very important to me. They are from my mother.}
+{6010}{}{Wait... What? Did you play cards with a plant?}
+{7000}{}{Yes, we tested some... some things on it, so it turned into a very smart plant... Don't be surprised.}
+{7010}{}{Alright. I will get your wath back.}
+{7020}{}{No way I will waste my time on that,}
+{8000}{}{Did you? Great! Thank you a lot for that.}
+{8010}{}{You really shouldn't play cards with every... plant you see.}
+{8020}{}{All the days work.}
+{9000}{}{I shall think about it...}
+

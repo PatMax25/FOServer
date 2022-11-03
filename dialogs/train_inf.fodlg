@@ -1,0 +1,67 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script perks@can_class 1 130 D _param p ST_LEVEL } 130 R _param p PE_INFANTRY + 1 &
+
+[engl]
+{100}{}{Soldier}
+{210}{}{Here you are... Meet the soldier.}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Brotherhood? Vault City? No? Who are you? Doesn't matter! Don't tell me! I'm busy! I must defend my Navarro.}
+{2010}{}{Navarro? Are you about that huge crater on the North?}
+{3000}{}{Shut up! Will you fight for America or not? Oh wait... You must be a newcomer. Alright, alright... I will teach you some basics regarding the infantry class. Ready to listen?}
+{3010}{}{Nah, I don't wish to hear anything from a crazy guy.}
+{3020}{}{Fine, tell me what you know.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+

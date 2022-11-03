@@ -1,0 +1,55 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+22 1010 D _param p ST_INTELLECT < 2 #
+5 1020 D _param p MQ_MAIN_PROGRESS > 0 #
+2 1030 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+4 2030 #
+0 2040 @
+3 3000 None 0 #
+0 3010 R _script main_quest@tp_to_jason 1 4501 #
+0 3020 @
+4 4000 None 0 #
+3 4010 #
+0 4020 @
+22 5000 None 0 #
+0 5010 @
+5 6000 None 0 #
+0 6010 #
+0 6020 &
+
+[engl]
+{100}{}{BCD Recruiter}
+{200}{}{You see a BCD Recruitment officer.}
+{210}{}{It's the local BCD recruiter. He looks very serious right now.}
+{1000}{}{Predialogue installations}
+{1010}{}{dumb}
+{1020}{}{- Does not know Player}
+{1030}{}{- Knows Player}
+{2000}{}{Hey, are you here about the new courier position available? We need someone right away.}
+{2010}{}{Uhh, maybe. What's the pay?}
+{2020}{}{Wait, what happened to the last guy?}
+{2030}{}{Can I ask you another question?}
+{2040}{}{Nope! Sorry. [ end dialogue ]
+}
+{3000}{}{Look, it doesn't matter. I don't know all the details, but if you're interested I'll take you to my boss for an interview.}
+{3010}{}{Alright, sure. [ follow him ]}
+{3020}{}{Yeah, not interested any more. Bye! [ end dialogue ]}
+{4000}{}{I'm not paid to stand around and chit chat, alright? Now, do you want the job or not?}
+{4010}{}{Hey, tell me what this is all about. Maybe I do.}
+{4020}{}{Maybe I'll be back later. [ end dialogue ]}
+{5000}{}{Hey, we don't have any work for idiots here. Get outta my face.}
+{5010}{}{Noooo! Me want make friendsss!!! [ end dialogue ]}
+{6000}{}{Hello, Courier, are you here to meet Jason?}
+{6010}{}{Sure, take me to him! [ follow him ]}
+{6020}{}{No, I just came here to say hi! [ end dialogue ]}
+

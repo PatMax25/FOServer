@@ -1,0 +1,156 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+8 2010 #
+3 2020 #
+5 2030 D _var p ncr_benjamin = 0 #
+6 2040 #
+0 2050 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+2 6010 @
+7 7000 None 0 @
+8 8000 None 0 #
+0 8010 #
+7 8020 D _item p PID_NCR_MONEY } 20 R _item p PID_NCR_MONEY - 20 R _item p PID_SAMURAI + 1 #
+9 8030 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{Jeremy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Extra! Extra! New robots made by the Brotherhood of Steel are stolen technologies, read about it in the new issue of Modern Samurai!@@Extra! Extra! Famous Councilor is building a brothel with deathclaw whores! Read about it in our newest issue!@@Find out what NCR Rangers found in the old cavern near Vault 15! That was a true horror hidden between the rocks! Read about it in our newest issue!@@Exta! Extra! Smart deathclaws exist and some of them work as whores! Read more about it in our newest issue!@@Extra! Extra! The government buys a lot of bricks from... You will never believe it...  Raiders! Read more about it in our newest issue!@@Extra! Extra! KompreSor and Vinet are among us. Read about it in our newest issue.@@Extra! Extra! Enclave changes its command... 4th time this week! Read more about it in Modern Samurai!@@Extra! Extra! What will you get by mixing Nuka Cola with mentats? The result will shock you! Read more about it in Modern Samurai.}
+{2010}{}{Hey, I will buy one. How much is it?}
+{2020}{}{Hey boy. What is that you are selling?}
+{2030}{}{Hey boy, I am new in the city. And I am looking for some job around here. Do you know anyone who can give me some work to do?}
+{2040}{}{What is it like to live in Shady Sands?}
+{2050}{}{Nevermind. Bye.}
+{3000}{}{Hey there. I am Jeremy and I sell Modern Samurai. This is the most popular journal in the entire city! Do you wish to buy one?}
+{3010}{}{Right... And who is the creator of the journal?}
+{4000}{}{The owner is mister Benjamin. He lives in the city. You can find his office near the bank.}
+{4010}{}{Alright, let me ask you one more thing...}
+{5000}{}{Well... I heard mister Benjamin had some issues with his terminal. Maybe you can help him.}
+{5010}{}{I will surely visit him. Now let's switch the topic.}
+{6000}{}{[ He shrugs his shoulders ] Pretty boring. Nothing interesting is happening here... And this damn school every day...}
+{6010}{}{I see... Let's talk about something else then.}
+{7000}{}{Here is your issue. Extra! Extra! Buy the new issue of the Modern Samurai!}
+{8000}{}{20 NCR scripts per journal.}
+{8010}{}{HOW MUCH?! Well, with such prices then, no way!}
+{8020}{}{I will buy one. Here is the money.}
+{8030}{}{NCR scripts? But... I have only caps...}
+{9000}{}{You can exchange your money in our FLC bank in the city.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Extra! Extra! New robots made by the Brotherhood of Steel are stolen technologies, read about it in the new issue of Modern Samurai!@@Extra! Extra! Famout Councilor is building a brothel with deathclaws whores! Read about it in our newest issue!@@Find out what NCR Rangers found in the old cavern near Vault 15! That was atrue horror hidden between the rocks! Read about it in our newest issue!@@Exta! Extra! Smart deathclaws exist and some of them work as whores! Read more about it in our newest issue!@@Extra! Extra! The government buys a lot of bricks from... You will never believe it...  Raiders! Read more about it in our newest issue!@@Extra! Extra! KompreSor and Vinet are among us. Read about it in our newest issue.}
+{2010}{}{Hey, I will buy one. How much is it?}
+{2020}{}{Hey boy. What is that you are selling?}
+{2030}{}{Hey boy, I am new in the city. And I am looking for some job around here. Do you know anyone who can give me some work to do?}
+{2040}{}{What is it like to live in Shady Sands?}
+{2050}{}{Nevermind. Bye.}
+{3000}{}{Hey there. I am Jeremy and I sell Modern Samurai. This is the most popular journal in the entire city! Do you wish to buy one?}
+{3010}{}{Right... And who is the creator of the journal?}
+{4000}{}{The owner is mister Benjamin. He lives in the city. You can find his office near the bank.}
+{4010}{}{Alright, let me ask you one more thing...}
+{5000}{}{Well... I heard mister Benjamin had some issues with his terminal. Maybe you can help him.}
+{5010}{}{I will surely visit him. Now let's switch the topic.}
+{6000}{}{[ He shrugs his shoulders ] Pretty broing. Nothing interesting is happening here... And this damn school every day...}
+{6010}{}{I see... Let's talk about something else then.}
+{7000}{}{Here is your issue. Extra! Extra! Buy the new issue of the Modern Samurai!}
+{8000}{}{20 NCR scripts per journal.}
+{8010}{}{HOW MUCH?! Well, freak off with such prices then.}
+{8020}{}{I will buy one. Here are the money.}
+{8030}{}{NCR scripts? But... I have only caps...}
+{9000}{}{You can exchange your money in our FLC bank in the city.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Extra! Extra! New robots made by the Brotherhood of Steel are stolen technologies, read about it in the new issue of Modern Samurai!@@Extra! Extra! Famout Councilor is building a brothel with deathclaws whores! Read about it in our newest issue!@@Find out what NCR Rangers found in the old cavern near Vault 15! That was atrue horror hidden between the rocks! Read about it in our newest issue!@@Exta! Extra! Smart deathclaws exist and some of them work as whores! Read more about it in our newest issue!@@Extra! Extra! The government buys a lot of bricks from... You will never believe it...  Raiders! Read more about it in our newest issue!@@Extra! Extra! KompreSor and Vinet are among us. Read about it in our newest issue.}
+{2010}{}{Hey, I will buy one. How much is it?}
+{2020}{}{Hey boy. What is that you are selling?}
+{2030}{}{Hey boy, I am new in the city. And I am looking for some job around here. Do you know anyone who can give me some work to do?}
+{2040}{}{What is it like to live in Shady Sands?}
+{2050}{}{Nevermind. Bye.}
+{3000}{}{Hey there. I am Jeremy and I sell Modern Samurai. This is the most popular journal in the entire city! Do you wish to buy one?}
+{3010}{}{Right... And who is the creator of the journal?}
+{4000}{}{The owner is mister Benjamin. He lives in the city. You can find his office near the bank.}
+{4010}{}{Alright, let me ask you one more thing...}
+{5000}{}{Well... I heard mister Benjamin had some issues with his terminal. Maybe you can help him.}
+{5010}{}{I will surely visit him. Now let's switch the topic.}
+{6000}{}{[ He shrugs his shoulders ] Pretty broing. Nothing interesting is happening here... And this damn school every day...}
+{6010}{}{I see... Let's talk about something else then.}
+{7000}{}{Here is your issue. Extra! Extra! Buy the new issue of the Modern Samurai!}
+{8000}{}{20 NCR scripts per journal.}
+{8010}{}{HOW MUCH?! Well, freak off with such prices then.}
+{8020}{}{I will buy one. Here are the money.}
+{8030}{}{NCR scripts? But... I have only caps...}
+{9000}{}{You can exchange your money in our FLC bank in the city.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Extra! Extra! New robots made by the Brotherhood of Steel are stolen technologies, read about it in the new issue of Modern Samurai!@@Extra! Extra! Famout Councilor is building a brothel with deathclaws whores! Read about it in our newest issue!@@Find out what NCR Rangers found in the old cavern near Vault 15! That was atrue horror hidden between the rocks! Read about it in our newest issue!@@Exta! Extra! Smart deathclaws exist and some of them work as whores! Read more about it in our newest issue!@@Extra! Extra! The government buys a lot of bricks from... You will never believe it...  Raiders! Read more about it in our newest issue!@@Extra! Extra! KompreSor and Vinet are among us. Read about it in our newest issue.}
+{2010}{}{Hey, I will buy one. How much is it?}
+{2020}{}{Hey boy. What is that you are selling?}
+{2030}{}{Hey boy, I am new in the city. And I am looking for some job around here. Do you know anyone who can give me some work to do?}
+{2040}{}{What is it like to live in Shady Sands?}
+{2050}{}{Nevermind. Bye.}
+{3000}{}{Hey there. I am Jeremy and I sell Modern Samurai. This is the most popular journal in the entire city! Do you wish to buy one?}
+{3010}{}{Right... And who is the creator of the journal?}
+{4000}{}{The owner is mister Benjamin. He lives in the city. You can find his office near the bank.}
+{4010}{}{Alright, let me ask you one more thing...}
+{5000}{}{Well... I heard mister Benjamin had some issues with his terminal. Maybe you can help him.}
+{5010}{}{I will surely visit him. Now let's switch the topic.}
+{6000}{}{[ He shrugs his shoulders ] Pretty broing. Nothing interesting is happening here... And this damn school every day...}
+{6010}{}{I see... Let's talk about something else then.}
+{7000}{}{Here is your issue. Extra! Extra! Buy the new issue of the Modern Samurai!}
+{8000}{}{20 NCR scripts per journal.}
+{8010}{}{HOW MUCH?! Well, freak off with such prices then.}
+{8020}{}{I will buy one. Here are the money.}
+{8030}{}{NCR scripts? But... I have only caps...}
+{9000}{}{You can exchange your money in our FLC bank in the city.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Extra! Extra! New robots made by the Brotherhood of Steel are stolen technologies, read about it in the new issue of Modern Samurai!@@Extra! Extra! Famout Councilor is building a brothel with deathclaws whores! Read about it in our newest issue!@@Find out what NCR Rangers found in the old cavern near Vault 15! That was atrue horror hidden between the rocks! Read about it in our newest issue!@@Exta! Extra! Smart deathclaws exist and some of them work as whores! Read more about it in our newest issue!@@Extra! Extra! The government buys a lot of bricks from... You will never believe it...  Raiders! Read more about it in our newest issue!@@Extra! Extra! KompreSor and Vinet are among us. Read about it in our newest issue.}
+{2010}{}{Hey, I will buy one. How much is it?}
+{2020}{}{Hey boy. What is that you are selling?}
+{2030}{}{Hey boy, I am new in the city. And I am looking for some job around here. Do you know anyone who can give me some work to do?}
+{2040}{}{What is it like to live in Shady Sands?}
+{2050}{}{Nevermind. Bye.}
+{3000}{}{Hey there. I am Jeremy and I sell Modern Samurai. This is the most popular journal in the entire city! Do you wish to buy one?}
+{3010}{}{Right... And who is the creator of the journal?}
+{4000}{}{The owner is mister Benjamin. He lives in the city. You can find his office near the bank.}
+{4010}{}{Alright, let me ask you one more thing...}
+{5000}{}{Well... I heard mister Benjamin had some issues with his terminal. Maybe you can help him.}
+{5010}{}{I will surely visit him. Now let's switch the topic.}
+{6000}{}{[ He shrugs his shoulders ] Pretty broing. Nothing interesting is happening here... And this damn school every day...}
+{6010}{}{I see... Let's talk about something else then.}
+{7000}{}{Here is your issue. Extra! Extra! Buy the new issue of the Modern Samurai!}
+{8000}{}{20 NCR scripts per journal.}
+{8010}{}{HOW MUCH?! Well, freak off with such prices then.}
+{8020}{}{I will buy one. Here are the money.}
+{8030}{}{NCR scripts? But... I have only caps...}
+{9000}{}{You can exchange your money in our FLC bank in the city.}
+

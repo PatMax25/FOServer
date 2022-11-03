@@ -1,0 +1,917 @@
+//Daily quests
+//FOnline 3
+//KompreSor
+
+
+#include "_defines.fos"
+#include "_macros.fos"
+#include "_maps.fos"
+#include "entire.fos"
+#include "npc_roles_h.fos"
+#include "npc_planes_h.fos"
+#include "utils_h.fos"
+#include "broadcast_h.fos"
+#include "_npc_pids.fos"
+#include "item_bonus.fos"
+#include "_dialogs.fos"
+#include "_ai.fos"
+#include "_entires.fos"
+#include "polygon_h.fos"
+#include "mob_dynamic_h.fos"
+#include "factions_h.fos"
+#include "_colors.fos"
+
+import void addbasemap(Critter& player) from "personal_base";
+import void addbasemap(Item& con) from "personal_base";
+import bool LockerClose(Item& item) from "lockers";
+//import void AddBonusOrNot(Item@ it) from "item_bonus";
+//NPCs
+void SpawnMobs(Critter& cr, int kind, int tier, int howmuch)
+{
+    SpawnMobs(cr.GetMap(),  kind, tier, howmuch, howmuch);
+}
+
+void SpawnMobs(Map& map, uint kind, uint tier, int howmuch, uint level)
+{
+    string script = "daily_quest@mob_init";
+    uint16 pid = Random(888,889);
+    uint8 dir = Random(0,5);
+    uint dialogId = 0;
+    uint aiPack = 0;
+    uint bagId = 0;
+    uint teamIdPack = 0;
+    uint weaponforgroup = 1;
+    uint16 x = 1;
+    uint16 y = 2;
+    uint rushing = 0;
+
+    uint entires = map.CountEntire(150);
+    for( int i =1; i <= howmuch; i++ )
+        {
+        map.GetEntireCoords(150, Random(0,entires), x, y);
+        kind *= 10;
+        uint mobkind = kind + tier;
+        switch(mobkind)
+            {
+    /*RATs*/case 11: pid = Random(5001,5005);
+                    if(pid==5001||pid==5002) dialogId = DIALOG_mob_norm_rat; if(pid==5003||pid==5004) dialogId = DIALOG_mob_pig_rat; if(pid==5005) dialogId = DIALOG_mob_mole_rat ;break;
+/*geckos*/  case 12: pid = Random(5006,5010);
+                    if(pid==5006||pid==5007) dialogId = DIALOG_mob_silver_gecko;if(pid==5008||pid==5008) dialogId = DIALOG_mob_golden_gecko; if(pid==5010) dialogId = DIALOG_mob_fire_gecko; break;
+/*melhior*/ case 13: pid = Random(5011,5015);
+                    if(pid==5011) dialogId = DIALOG_mob_floater; if(pid==5012) dialogId = DIALOG_mob_centaur; if(pid==5013) dialogId = DIALOG_mob_alien; if(pid==5014) dialogId = DIALOG_mob_fire_gecko; if(pid==5015) dialogId = DIALOG_mob_adult_deathclaw;break;
+/*deathcla*/case 14: pid = Random(5016,5020);
+                    if(pid==5016||pid==5017) dialogId = DIALOG_mob_baby_deathclaw; if(pid==5018||pid==5019) dialogId = DIALOG_mob_adult_deathclaw; if(pid==5020) dialogId = DIALOG_mob_int_deathclaw; break;
+/*patashur*/case 15: pid = Random(5021,5025);
+                     dialogId = DIALOG_mob_pashtshuur; break;
+/*bandits */case 21: pid = Random(5026,5030);
+                    dialogId = DIALOG_slags_bandits; break;
+/*Rogues  */case 22: pid = Random(5031,5035);
+                    dialogId = DIALOG_all_raider; break;
+/*Slags   */case 23: pid = Random(5036,5040);
+                    dialogId = DIALOG_all_slaver; break;
+/*Renegade*/case 24: pid = Random(5041,5045);
+                    dialogId = DIALOG_all_renegade; break;
+/*factions*/case 25: pid = Random(5046,5050);/*TODO other factions*/
+                    dialogId = DIALOG_all_enclave_patrol; break;
+/*zombies */case 31: pid = Random(5051,5055);
+                    dialogId = DIALOG_bh_ghoul; break;
+/*ghouls  */case 32: pid = Random(5056,5060);
+                    dialogId = DIALOG_bh_ghoul; break;
+/*muties  */case 33: pid = Random(5061,5065);
+                    dialogId = DIALOG_mob_mutant; break;
+/*elite mu*/case 34: pid = Random(5066,5070);
+                    dialogId = DIALOG_mob_mutant; break;
+/*unity   */case 35: pid = Random(5071,5075);
+                    dialogId = DIALOG_all_unity; break;
+/*eyeballs*/case 41: pid = Random(5076,5080);
+                    dialogId = DIALOG_mob_fly_eyeball; break;
+/*robobrai*/case 42: pid = Random(5081,5085);
+                    dialogId = DIALOG_mob_robobrain; break;
+/*mr handy*/case 43: pid = Random(5086,5090);
+                    dialogId = DIALOG_mob_mr_handy; break;
+/*Sentry B*/case 44: pid = Random(5091,5095);
+                    dialogId = DIALOG_mob_sentry_bot; break;
+/*Cyborgs */case 45: pid = Random(5096,5100);
+                    dialogId = 6663; break;
+            }
+        if(pid==5010)
+        bagId=552;
+        uint NpcLevel = Random(50,100);
+        Critter@ mob = AddNpc(map, pid,x , y, dir, dialogId, script, aiPack, bagId, teamIdPack, true, level);
+		//guardsMoveToFreeHex(mob);
+    //  RemoveItems(mob);
+        if(pid>=5026 && pid<= 5050 || pid>=5096 && pid<= 5100 || pid== 5075)
+        AddMobIteams(mob,0);
+        if(pid>=5051 && pid<= 5060 || pid>=5081 && pid<= 5085|| pid== 5078 || pid== 5079)
+        AddMobIteams(mob,1);
+        if(pid>=5066 && pid<= 5075 || pid>=5086 && pid<= 5095 || pid== 5076 || pid== 5077)
+        AddMobIteams(mob,2);
+        }
+}
+
+void mob_init(Critter& cr, bool firstTime)
+{
+    cr.SetEvent(CRITTER_EVENT_ATTACKED, "_Alert");
+    cr.SetEvent(CRITTER_EVENT_IDLE, "_MobIdle");
+	cr.SetEvent(CRITTER_EVENT_ATTACK, "mob_dynamic@_DodgeHex");
+    //cr.SetEvent(CRITTER_EVENT_SMTH_STEALING, "_OnSomeoneSteal");
+    cr.ParamBase[ST_NPC_ROLE] = 215;
+    cr.ParamBase[ST_REPLICATION_TIME] = -1;
+    //mobsMoveToFreeHex(cr);
+
+        cr.ParamBase[PE_BONUS_HTH_ATTACKS] += Random(0, 1);
+        cr.ParamBase[PE_BONUS_RATE_OF_FIRE] = 1;
+        cr.ParamBase[PE_BONUS_RANGED_DAMAGE] += Random(1, 2);
+        cr.ParamBase[PE_BONUS_HTH_DAMAGE] += Random(1, 2);
+        cr.ParamBase[MODE_NO_BARTER] = 0;
+        //cr.ParamBase[MODE_NO_LOOT] = 0;
+        for(uint i = SK_SMALL_GUNS; i <= SK_THROWING; i++)
+            cr.ParamBase[i] = Random(180, 240);
+        //cr.ParamBase[ST_LEVEL] = Random(45,70);
+        cr.ParamBase[ST_INTELLECT] = Random(7, 10);
+        cr.ParamBase[ST_PERCEPTION] = Random(15, 20);
+        cr.ParamBase[ST_CURRENT_HP] = cr.Param[ST_MAX_LIFE];
+}
+
+void guardsMoveToFreeHex(Critter& cr)
+{
+    uint8  dir = Random(0,5);
+    uint16 x, y;
+    x = y = 0;
+	uint entires = cr.GetMap().CountEntire(150);  
+		bool heisonplace = false;
+		while(!heisonplace)
+		{
+		cr.GetMap().GetEntireCoords(150, Random(0,entires), x, y);
+       // AddWalkPlane(cr, 0, x, y, dir, true, 0);
+		if(cr.GetMap().IsHexPassed(x,y))
+        {
+			AddWalkPlane(cr, 0, x, y, dir, true, 0);
+            cr.SetHomePos(x, y, dir);
+            return;
+        }
+		else cr.GetMap().GetEntireCoords(150, Random(0,entires), x, y);
+		}
+}
+
+bool _Alert(Critter& mob, Critter& attacker)
+{
+    if(!valid(mob))
+        return true;
+
+    if(!valid(attacker))
+        return true;
+
+    if(attacker.Param[ST_NPC_ROLE] == 215)
+        return true;
+
+    uint radius = (mob.Param[ST_STRENGTH] + mob.Param[ST_ENDURANCE]) * 2;
+
+    array<Critter@> mobstoalert;
+    mob.GetMap().GetCrittersHex(mob.HexX, mob.HexY, radius, FIND_LIFE_AND_KO | FIND_ONLY_NPC, mobstoalert);
+
+    for(uint8 i = 0; i < mobstoalert.length(); i++)
+    {
+        if(!valid(mobstoalert[i])) continue;
+        if(mobstoalert[i].Param[ST_NPC_ROLE] == 215)
+        {
+            mobstoalert[i].AddEnemyInStack(attacker.Id);
+            AddAttackPlane(mobstoalert[i], 0, attacker);
+        }
+
+    }
+
+    return false;
+}
+
+void _MobIdle(Critter& mob)
+{
+    if(!valid(mob))
+        return;
+    // the great optimizer
+    if(!mob.IsLife())
+    {
+        mob.Wait(IDLE_ALERTED);
+        return;
+    }
+
+	if(Random(1,250)==1)
+		guardsMoveToFreeHex;
+    // check critters in sight
+     array<Critter@> crits;
+    // get visible players
+    uint            num = mob.GetCritters(false, FIND_LIFE_AND_KO, crits);
+    // check distance
+    uint dist = GetDistance(mob);
+    for(uint i = 0; i < num; i++)
+    {
+
+            if(TryAttack(mob, crits[i])) return;
+
+    }
+
+    if(crits.length() > 0)
+    {
+        MoveMob(mob, false);
+        mob.Wait(IDLE_ALERTED_2);
+    }
+    else
+
+    {
+        MoveMob(mob, false);
+        mob.Wait(IDLE_ALERTED_2);
+    }
+
+}
+
+bool TryAttack(Critter& mob, Critter@ targetCr)
+{
+
+    if((targetCr.Param[ST_NPC_ROLE] != 215))
+    {
+        NpcPlane@ plane = mob.GetCurPlane();
+        if((valid(plane)) && (plane.Identifier != AI_PLANE_ATTACK))
+            mob.DropPlanes();
+
+        mob.AddEnemyInStack(targetCr.Id);
+        AddAttackPlane(mob, 0, targetCr);
+            return true;
+    }
+    return false;
+}
+
+int GetDistance(Critter& mob)
+{
+
+    // TODO: damaged eye??
+    int base = __LookNormal + 3 * mob.Param[ST_PERCEPTION];
+
+    return base / 2;
+}
+
+void MoveMob(Critter& mob, bool run)
+{
+    int dist = Random(0, (mob.Param[ST_NPC_ROLE] % 100 / 10));
+    if(dist == 0)
+    {
+        mob.MoveRandom();
+    }
+    else
+    {
+        // bool AddWalkPlane(Critter& npc, uint priory, uint16 hexX, uint16 hexY, uint8 dir, bool run, uint8 cut)
+        uint16 hexX = mob.HexX;
+        uint16 hexY = mob.HexY;
+        mob.GetMap().MoveHexByDir(hexX, hexY, Random(0, 5), dist);
+        AddWalkPlane(mob, 0, hexX, hexY, 0xff, run, 0);
+    }
+}
+
+void RemoveItems(Critter& mob)
+{
+    array<Item@> items;
+    mob.GetItems(-1, items);
+    for(uint8 i = 0; i < items.length(); i++)
+    {
+        if(valid(items[i]))
+        {
+            mob.MoveItem(items[i].Id, 1, SLOT_INV);
+            DeleteItem(items[i]);
+        }
+
+    }
+    mob.Wait(2000);
+}
+//Loot
+void SpawnBuffItem(Critter& cr, uint pid)
+{
+    Item@ it = cr.AddItem(pid, 1);
+    AddBonusOrNot(it);
+}
+
+void SpawnBuffItem(Item& item, uint pid)
+{
+    Item@ it = item.AddItem(pid, 1,0);
+    AddBonusOrNot(it);
+}
+
+void AddMobIteams(Critter& item, int mob)
+{
+    if(mob==0)
+    {
+        switch(Random(1,25))
+            {
+            case 1:     {SpawnBuffItem(item, PID_ROCKET_LAUNCHER); item.AddItem(PID_ROCKET_AP,  Random(5, 9));break;}
+            case 2:     {SpawnBuffItem(item, PID_PLASMA_RIFLE); item.AddItem(PID_MICRO_FUSION_CELL,  Random(2, 10));break;}
+            case 3:     {SpawnBuffItem(item, PID_SUPER_CATTLE_PROD); item.AddItem(PID_SMALL_ENERGY_CELL,  Random(2, 10));break;}
+            case 4:     {SpawnBuffItem(item, PID_SUPER_SLEDGE); break;}
+            case 5:     {SpawnBuffItem(item, PID_SNIPER_RIFLE); item.AddItem(PID_223_FMJ,  Random(2, 10)); break;}
+            case 6:     {SpawnBuffItem(item, PID_223_PISTOL); item.AddItem(PID_223_FMJ,  Random(2, 10)); break;}
+            case 7:     {SpawnBuffItem(item, PID_HK_P90C); item.AddItem(PID_10MM_AP,  Random(20, 100)); break;}
+            case 8:     {SpawnBuffItem(item, PID_HK_CAWS); item.AddItem(PID_SHOTGUN_SHELLS_SLUG,  Random(10, 50));break;}
+            case 9:     {SpawnBuffItem(item, PID_LIGHT_SUPPORT_WEAPON); item.AddItem(PID_223_FMJ,  Random(10, 90)); break;}
+            case 10:    {SpawnBuffItem(item, PID_SNIPER_RIFLE); item.AddItem(PID_223_FMJ,  Random(2, 10)); break;}
+            case 11:    {SpawnBuffItem(item, PID_AVENGER_MINIGUN); item.AddItem(PID_5MM_AP, Random(50 , 300)); break;}
+            case 12:    {SpawnBuffItem(item, PID_IMPROVED_FLAMETHROWER); item.AddItem(PID_FLAMETHROWER_FUEL_MK_II,  Random(2, 7));break;}
+            case 13:    {SpawnBuffItem(item, PID_LASER_RIFLE_EXT_CAP); item.AddItem(PID_MICRO_FUSION_CELL,  Random(2, 10));break;}
+            case 14:    {SpawnBuffItem(item, PID_WAKIZASHI_BLADE); break;}
+            case 15:    {SpawnBuffItem(item, PID_INDEPENDENT); item.AddItem(PID_5MM_AP, Random(10 , 500)); break;}
+            case 16:    {SpawnBuffItem(item, PID_GATLING_LASER); item.AddItem(PID_MICRO_FUSION_CELL,  Random(100, 500));break;}
+            case 17:    {SpawnBuffItem(item, PID_M16); item.AddItem(PID_5MM_AP,  Random(20, 90)); break;}
+            case 18:    {SpawnBuffItem(item, PID_EL_ROCKET_LAUNCHER); item.AddItem(PID_EL_ROCKET,  Random(20, 70)); break;}
+            case 19:    {SpawnBuffItem(item, PID_MEGA_POWER_FIST); item.AddItem(PID_SMALL_ENERGY_CELL,  Random(20, 100));break;}
+            case 20:    {SpawnBuffItem(item, PID_YK32_PULSE_PISTOL); item.AddItem(PID_SMALL_ENERGY_CELL,  Random(20, 100));break;}
+            case 21:    {SpawnBuffItem(item, PID_GRENADE_LAUNCHER); item.AddItem(PID_40MM_GRENADE,  Random(20, 70));break;}
+            case 22:    {SpawnBuffItem(item, PID_PLASMA_SMG); item.AddItem(PID_SMALL_ENERGY_CELL,  Random(150, 900)); break;}
+            case 23:    {SpawnBuffItem(item, PID_MAGNETO_LASER_PISTOL);  item.AddItem(PID_SMALL_ENERGY_CELL,  Random(20, 100));break;}
+            case 24:    {SpawnBuffItem(item, PID_PLASMA_PISTOL_EXT_CART);  item.AddItem(PID_SMALL_ENERGY_CELL,  Random(20, 100));break;}
+            case 25:    {SpawnBuffItem(item, PID_NEEDLER_PISTOL);  item.AddItem(PID_HN_NEEDLER_CARTRIDGE,  Random(20, 100)); break;}
+            }
+    }
+    if(mob==1)
+    {
+        switch(Random(1,6))
+            {
+            case 1:     {SpawnBuffItem(item, PID_SNIPER_RIFLE); item.AddItem(PID_223_FMJ,  Random(20, 40)); break;}
+            case 2:     {SpawnBuffItem(item, PID_HK_CAWS); item.AddItem(PID_SHOTGUN_SHELLS_SLUG,  Random(100, 150));break;}
+            case 3:     {SpawnBuffItem(item, PID_SNIPER_RIFLE); item.AddItem(PID_223_FMJ,  Random(20, 40)); break;}
+            case 4:     {SpawnBuffItem(item, PID_INDEPENDENT); item.AddItem(PID_5MM_AP, Random(100 , 200)); break;}
+            case 5:     {SpawnBuffItem(item, PID_M16); item.AddItem(PID_5MM_AP,  Random(100, 200)); break;}
+            case 6:     {SpawnBuffItem(item, PID_GRENADE_LAUNCHER); item.AddItem(PID_40MM_GRENADE,  Random(20, 70));break;}
+            }
+    }
+    if(mob==2)
+    {
+        switch(Random(1,7))
+            {
+            case 1:     {SpawnBuffItem(item, PID_ROCKET_LAUNCHER); item.AddItem(PID_ROCKET_AP,  Random(5, 40));break;}
+            case 2:     {SpawnBuffItem(item, PID_PLASMA_RIFLE); item.AddItem(PID_MICRO_FUSION_CELL,  Random(20, 100));break;}
+            case 3:     {SpawnBuffItem(item, PID_LIGHT_SUPPORT_WEAPON); item.AddItem(PID_223_FMJ,  Random(150, 900)); break;}
+            case 4:     {SpawnBuffItem(item, PID_AVENGER_MINIGUN); item.AddItem(PID_5MM_AP, Random(500 , 3000)); break;}
+            case 5:     {SpawnBuffItem(item, PID_IMPROVED_FLAMETHROWER); item.AddItem(PID_FLAMETHROWER_FUEL_MK_II,  Random(20, 70));break;}
+            case 6:     {SpawnBuffItem(item, PID_GATLING_LASER); item.AddItem(PID_MICRO_FUSION_CELL,  Random(100, 500));break;}
+            case 7:     {SpawnBuffItem(item, PID_EL_ROCKET_LAUNCHER); item.AddItem(PID_EL_ROCKET,  Random(20, 70)); break;}
+            }
+    }
+    if(Random(0,1)==1)
+    item.AddItem(PID_SUPER_STIMPAK,  Random(0, 5));
+    else item.AddItem(PID_STIMPAK,  Random(0, 5));
+
+    for( int i =1; i <= Random(2,10); i++ )
+        {
+        switch(Random(1,164))
+            {
+            case 1:     item.AddItem(PID_BLUEPRINT_14MM_PISTOL, 1); break;
+                case 2:     item.AddItem(PID_BLUEPRINT_NEEDLER_PISTOL, 1); break;
+                case 3:     item.AddItem(PID_BLUEPRINT_223_PISTOL, 1); break;
+                case 4:     item.AddItem(PID_BLUEPRINT_ASSAULT_RIFLE, 1); break;
+                case 5:     item.AddItem(PID_BLUEPRINT_FN_FAL, 1); break;
+                case 6:     item.AddItem(PID_BLUEPRINT_SNIPER_RIFLE, 1); break;
+                case 7:     item.AddItem(PID_BLUEPRINT_P90, 1); break;
+                case 8:     item.AddItem(PID_BLUEPRINT_HK_CAWS, 1); break;
+                case 9:     item.AddItem(PID_BLUEPRINT_PANCOR_JACKHAMMER, 1); break;
+                case 10:    item.AddItem(PID_BLUEPRINT_PLASMA_PISTOL, 1); break;
+                case 11:    item.AddItem(PID_BLUEPRINT_LASER_RIFLE, 1); break;
+                case 12:    item.AddItem(PID_BLUEPRINT_PLASMA_RIFLE, 1); break;
+                case 13:    item.AddItem(PID_BLUEPRINT_MEGA_POWER_FIST, 1); break;
+                case 14:    item.AddItem(PID_BLUEPRINT_SUPER_CATTLE_PROD, 1); break;
+                case 15:    item.AddItem(PID_BLUEPRINT_RIPPER, 1); break;
+                case 16:    item.AddItem(PID_BLUEPRINT_ROCKET_LAUNCHER, 1); break;
+                case 17:    item.AddItem(PID_BLUEPRINT_LIGHT_SUPPORT_WEAPON, 1); break;
+                case 18:    item.AddItem(PID_BLUEPRINT_MINIGUN, 1); break;
+                case 19:    item.AddItem(PID_BLUEPRINT_PLASMA_GRENADE, 1); break;
+                case 20:    item.AddItem(PID_BLUEPRINT_DYNAMITE, 1); break;
+                case 21:    item.AddItem(PID_BLUEPRINT_PLASTIC_EXPLOSIVES, 1); break;
+                case 22:    item.AddItem(PID_BLUEPRINT_SUPER_SLEDGE, 1); break;
+                case 23:    item.AddItem(PID_BLUEPRINT_IMPROVED_FLAMETHROWER, 1); break;
+                case 24:    item.AddItem(PID_BLUEPRINT_INDEPENDENT, 1); break;
+                case 25:    item.AddItem(PID_BLUEPRINT_AVENGER_MINIGUN, 1); break;
+                case 26:    item.AddItem(PID_BLUEPRINT_METAL_ARMOR_MK_II, 1); break;
+                case 27:    item.AddItem(PID_BLUEPRINT_TESLA_ARMOR, 1); break;
+                case 28:    item.AddItem(PID_BLUEPRINT_COMBAT_ARMOR_MK_II, 1); break;
+                case 29:    item.AddItem(PID_BLUEPRINT_BROTHERHOOD_COMBAT_ARMOR, 1); break;
+                case 30:    item.AddItem(PID_BLUEPRINT_ENCLAVE_COMBAT_ARMOR, 1); break;
+                case 31:    item.AddItem(PID_BLUEPRINT_DESERT_COMBAT_ARMOR, 1); break;
+                case 32:    item.AddItem(PID_BLUEPRINT_NCR_ARMOR, 1); break;
+                case 33:    item.AddItem(PID_BLUEPRINT_SUPER_STIMPAK, 1); break;
+                case 34:    item.AddItem(PID_BLUEPRINT_STIMPAK, 1); break;
+                case 35:    item.AddItem(PID_BLUEPRINT_JET, 1); break;
+                case 36:    item.AddItem(PID_BLUEPRINT_BUFFOUT,1); break;
+                case 37:    item.AddItem(PID_BLUEPRINT_MENTATS, 1); break;
+                case 38:    item.AddItem(PID_BLUEPRINT_PSYCHO, 1); break;
+                case 39:    item.AddItem(PID_BLUEPRINT_RADAWAY, 1); break;
+                case 40:    item.AddItem(PID_BLUEPRINT_RADX, 1); break;
+                case 41:    item.AddItem(PID_BLUEPRINT_JET_ANTIDOTE, 1); break;
+                case 42:    item.AddItem(PID_BLUEPRINT_YK32_PULSE_PISTOL, 1); break;
+                case 43:    item.AddItem(PID_BLUEPRINT_SHOTGUN_DRAGON_BREATH_SHELLS, 1); break;
+                case 44:    item.AddItem(PID_BLUEPRINT_4_7MM_CASELESS, 1); break;
+                case 45:    item.AddItem(PID_BLUEPRINT_2MM_EC_AMMO, 1); break;
+                case 46:    item.AddItem(PID_BLUEPRINT_METAL_ARMOR_MK_III, 1); break;
+                case 47:    item.AddItem(PID_BLUEPRINT_PULSE_GRENADE, 1); break;
+                case 48:    item.AddItem(PID_BLUEPRINT_GATLING_LASER, 1); break;
+                case 49:    item.AddItem(PID_BLUEPRINT_M16, 1); break;
+                case 50:    item.AddItem(PID_BLUEPRINT_EL_ROCKET_LAUNCHER, 1); break;
+                case 51:    item.AddItem(PID_BLUEPRINT_SHOCK_GRENADE, 1); break;
+                case 52:    item.AddItem(PID_BLUEPRINT_GUM, 1); break;
+                case 53:    item.AddItem(PID_BLUEPRINT_MUTIE, 1); break;
+                case 54:    item.AddItem(PID_BLUEPRINT_VOODOO, 1); break;
+                case 55:    item.AddItem(PID_BLUEPRINT_SENSOR, 1); break;
+                case 56:    item.AddItem(PID_BLUEPRINT_FIREGECKO_JACKET, 1); break;
+                case 57:    item.AddItem(PID_BLUEPRINT_INFERNO_ARMOR, 1); break;
+                case 58:    item.AddItem(PID_BLUEPRINT_LAMK2, 1); break;
+                case 59:    item.AddItem(PID_BLUEPRINT_COMBAT_JACKET, 1); break;
+                case 60:    item.AddItem(PID_BLUEPRINT_MUT_ARMOR, 1); break;
+                case 61:    item.AddItem(PID_BLUEPRINT_LASER_SPEAR, 1); break;
+                case 62:    item.AddItem(PID_BLUEPRINT_PLASMA_SMG, 1); break;
+                case 63:    item.AddItem(PID_BLUEPRINT_EFC, 1); break;
+                case 64:    item.AddItem(PID_BLUEPRINT_HEALING_NEEDLER_AMMO, 1); break;
+
+                case 65:    item.AddItem(PID_BALL_GAG, 1); break;
+                    case 66:    item.AddItem(PID_MIRROR_SHADES, 1); break;
+
+                    case 67:    item.AddItem(PID_FIBRE2, 1); break;
+                    case 68:    item.AddItem(PID_ELECTRONIC_PARTS               , 1); break;
+                    case 69:    item.AddItem(PID_CHEMICALS                      , 1 ); break;
+                    //Drugs
+
+                //Armors
+                    case 70:    item.AddItem(PID_CLOTHES_POLICE, 1); break;
+                    case 71:    item.AddItem(PID_BROTHERHOOD_COMBAT_ARMOR, 1); break;
+                    case 72:    item.AddItem(PID_NCR_ARMOR, 1); break;
+                    case 73:    item.AddItem(PID_ENCLAVE_COMBAT_ARMOR, 1); break;
+                    case 74:    item.AddItem(PID_KEEPBRIGE_ROBE, 1); break;
+                    case 75:    item.AddItem(PID_DESERT_COMBAT_ARMOR, 1); break;
+                    case 76:    item.AddItem(PID_MUT_METAL, 1); break;
+                    case 77:    item.AddItem(PID_METAL_ARMOR_MK_III, 1); break;
+                    case 78:    item.AddItem(PID_INFERNO_ARMOR, 1); break;
+                    case 79:    item.AddItem(PID_TESLA_ARMOR, 1); break;
+                    case 80:    item.AddItem(PID_METAL_ARMOR_MK_II, 1); break;
+                    case 81:    item.AddItem(PID_COMBAT_ARMOR_MK_II, 1); break;
+                    case 82:    item.AddItem(PID_FOLLOWER_ROBE, 1); break;
+                    case 83:    item.AddItem(PID_HUBO_ROBE, 1); break;
+                    //helmets
+                    case 84:    item.AddItem(PID_METAL_HELMET_MK2, 1); break;
+                    case 85:    item.AddItem(PID_COMBAT_HELMET_MK_II, 1); break;
+                     case 86:   item.AddItem(PID_GAS_MASK_PVP, 1); break;
+                    case 87:    item.AddItem(PID_VC_HELMET, 1); break;
+                     case 88:   item.AddItem(PID_OLD_SHOVEL  , 1); break;
+
+                     case 89:   item.AddItem(PID_QUESTIONNAIRE                , 1); break;
+                     case 90:   item.AddItem(PID_ELECTRONIC_PARTS              , 1); break;
+                     case 91:   item.AddItem(PID_ALLOYS                        , 1); break;
+                     case 92:   item.AddItem(PID_BRAHMIN_HIDE               , 1); break;
+                     case 93:   item.AddItem(PID_METAL_PARTS                   , 1); break;
+                     case 94:   item.AddItem(PID_DAY_PASS2                   , 1); break;
+                     case 95:   item.AddItem(PID_BOUNTY_DOG_TAG                , 1); break;
+                     case 96:   item.AddItem(PID_LOST_HILLS_DISK             , 1); break;
+                     case 97:   item.AddItem(PID_BOS_DISK                       , 1); break;
+                     case 98:   item.AddItem(PID_PROCESSED_BOS_DISK            , 1); break;
+
+                     case 99:   item.AddItem(PID_FIBER                      , 1); break;
+                     case 100:  item.AddItem(PID_BRAHMINSHIT           , 1); break;
+                     case 101:  item.AddItem(PID_ALLOYS2              , 1); break;
+                     case 102:  item.AddItem(PID_CHEMICALS           , 1); break;
+                     case 103:  item.AddItem(PID_FIREGECKO_PELT        , 1); break;
+                     case 104:  item.AddItem(PID_GUNPOWDER2         , 1); break;
+                     case 105:  item.AddItem(PID_FIBRE2             , 1); break;
+                     case 106:  item.AddItem(PID_ORE2             , 1); break;
+                     case 107:  item.AddItem(PID_MINERALS2             , 1); break;
+                     case 108:  item.AddItem(PID_TOBACCO             , 1); break;
+                     case 109:  item.AddItem(PID_METAL_PARTS2                   , 1); break;
+                     case 110:  item.AddItem(PID_CAR_REPLACEMENT_PARTS      , 1); break;
+                     case 111:  item.AddItem(PID_ELECTRONIC_PARTS2      , 1); break;
+                     case 112:  item.AddItem(PID_CHEMICALS2            , 1); break;
+                     case 113:  item.AddItem(PID_BARLEY        , 1); break;
+                         //Tech
+                     case 114:  item.AddItem(PID_MULTI_TOOL              , 1); break;
+                     case 115:  item.AddItem(PID_SUPER_TOOL_KIT              , 1); break;
+                     case 116:  item.AddItem(PID_OIL_CAN                     , 1); break;
+                     case 117:  item.AddItem(PID_LOCKPICKS       , 1); break;
+                     case 118:  item.AddItem(PID_EXP_LOCKPICK_SET    , 1); break;
+                     case 119:  item.AddItem(PID_LOCK                         , 1); break;
+
+    //Medical
+                     case 120:  item.AddItem(PID_FIRST_AID_KIT                  , 1); break;
+                     case 121:  item.AddItem(PID_FIELD_MEDIC_KIT               , 1); break;
+                     case 122:  item.AddItem(PID_DOCTORS_BAG                  , 1); break;
+                     case 123:  item.AddItem(PID_PARAMEDICS_BAG               , 1); break;
+                     case 124:  item.AddItem(PID_MEDICAL_SUPPLIES     , 1); break;
+                     case 125:  item.AddItem(PID_BIO_GEL                  , 1); break;
+    //Other
+                     case 126:  item.AddItem(PID_SHOVEL                         , 1); break;
+                     case 127:  item.AddItem(PID_PLANK                  , 1); break;
+                     case 128:  item.AddItem(PID_AXE               , 1); break;
+    //Special
+                     case 129:  item.AddItem(PID_GEIGER_COUNTER              , 1); break;
+                     case 130:  item.AddItem(PID_ACTIVE_GEIGER_COUNTER       , 1); break;
+                     case 131:  item.AddItem(PID_STEALTH_BOY            , 1); break;
+                     case 132:  item.AddItem(PID_RADIO        , 1); break;
+                     case 133:  item.AddItem(PID_MOTION_SENSOR            , 1); break;
+                     case 134:  item.AddItem(PID_RADIO         , 1); break;
+                     case 135:  item.AddItem(PID_WATER_BAG                 , 1); break;
+
+//Books
+                     case 136:  item.AddItem(PID_BIG_BOOK_OF_SCIENCE   , 1); break;
+                     case 137:  item.AddItem(PID_DEANS_ELECTRONICS         , 1); break;
+                     case 138:  item.AddItem(PID_FIRST_AID_BOOK           , 1); break;
+                     case 139:  item.AddItem(PID_SCOUT_HANDBOOK         , 1); break;
+                     case 140:  item.AddItem(PID_GUNS_AND_BULLETS      , 1); break;
+                     case 141:  item.AddItem(PID_CATS_PAW               , 1); break;
+                     case 142:  item.AddItem(PID_TECHNICAL_MANUAL         , 1); break;
+                     case 143:  item.AddItem(PID_CHEMISTRY_MANUAL           , 1); break;
+                     case 144:  item.AddItem(PID_CATS_PAW_ISSUE_5           , 1); break;
+                     case 145:  item.AddItem(PID_BECKY_BOOK                 , 1); break;
+                     case 146:  item.AddItem(PID_BARTER_BOOK                , 1); break;
+                     case 147:  item.AddItem(PID_BG_BOOK                    , 1); break;
+                     case 148:  item.AddItem(PID_DOCTOR_BOOK            , 1); break;
+                     case 149:  item.AddItem(PID_EW_BOOK                , 1); break;
+                     case 150:  item.AddItem(PID_SNEAK_BOOK                 , 1); break;
+                     case 151:  item.AddItem(PID_STEAL_BOOK             , 1); break;
+                     case 152:  item.AddItem(PID_LOCKPICK_BOOK          , 1); break;
+                     case 153:  item.AddItem(PID_THROWING_BOOK      , 1); break;
+                     case 154:  item.AddItem(PID_TRAPS_BOOK         , 1); break;
+                     case 155:  item.AddItem(PID_CLOSE_COMBAT_BOOK, 1); break;
+                    //helmets
+                    // Clothes:
+                    case 156:   item.AddItem(PID_CLOTHES_SCIENTIST1, 1); break;
+                    case 157:   item.AddItem(PID_CLOTHES_SCIENTIST2, 1); break;
+                    case 158:   item.AddItem(PID_CLOTHES_ELEGANT_SUIT, 1); break;
+                    case 159:   item.AddItem(PID_CLOTHES_DOCTOR, 1); break;
+                    case 160:   item.AddItem(PID_CLOTHES_FAT1, 1); break;
+                    case 161:   item.AddItem(PID_SF_COMBAT_JACKET, 1); break;
+                    case 162:   item.AddItem(PID_MORDINO_METAL_JACKET, 1); break;
+                    case 163:   if(Random(1,55)==55) item.AddItem(PID_VAULT_TEC_BOX, 1); break;
+                    //missing solar bp
+                    case 164:   item.AddItem(PID_BLUEPRINT_SOLAR_SCORCHER,1); break;
+            }
+        }
+		if(dropchance(5 * doubleloot))
+			addbasemap(item);
+}
+
+void SpawnLoot(Critter& cr, int kind, int tier, int howmuch)
+{
+    SpawnLoot(cr.GetMap());
+}
+
+void SpawnLoot(Map& map)
+{
+    uint16 x = 1;
+    uint16 y = 2;
+    for( int i =1; i <= 10; i++ )
+        {
+        map.GetEntireCoords(10, i, x, y); //130, 131 LOCKERY PRAWE
+        if(Random(1,5)==1)
+        {
+        Item@ box1 = map.AddItem(x, y, Random(130,131), 1);
+        addloot(box1);
+        LockerClose(box1);
+        }
+        map.GetEntireCoords(11, i, x, y); //134, 135, 189 LOCKERY PRAWE
+        if(Random(1,5)==1)
+        {
+        int pid = 134;
+        switch(Random(1,3))
+        {
+        case 1: pid = 134; break;
+        case 2: pid = 135; break;
+        case 3: pid = 189; break;
+        }
+
+        Item@ box2 = map.AddItem(x, y, pid, 1);
+        addloot(box2);
+        LockerClose(box2);
+        }
+        map.GetEntireCoords(12, i, x, y); //128, 129 LOCKERY GORNE
+        if(Random(1,5)==1)
+        {
+        Item@ box3 = map.AddItem(x, y, Random(128,129), 1);
+        addloot(box3);
+        LockerClose(box3);
+        }
+        map.GetEntireCoords(13, i, x, y); //132, 133, 188 LOCKERY GORNE
+        if(Random(1,5)==1)
+        {
+        int pid = 134;
+        switch(Random(1,3))
+        {
+        case 1: pid = 132; break;
+        case 2: pid = 133; break;
+        case 3: pid = 188; break;
+        }
+        Item@ box4 = map.AddItem(x, y, pid, 1);
+        addloot(box4);
+        LockerClose(box4);
+        }
+        map.GetEntireCoords(14, i, x, y); //367, 368 LOCKERY PRAWE
+        if(Random(1,5)==1)
+        {
+        Item@ box5 = map.AddItem(x, y, Random(367,368), 1);
+        addloot(box5);
+        LockerClose(box5);
+        }
+        map.GetEntireCoords(15, i, x, y); //369, 370 LOCKERY GORNE
+        if(Random(1,5)==1)
+        {
+        Item@ box6 = map.AddItem(x, y, Random(369,370), 1);
+        addloot(box6);
+        LockerClose(box6);
+        }
+        map.GetEntireCoords(16, i, x, y); //197-204 Random
+        if(Random(1,5)==1)
+        {
+        Item@ box7 = map.AddItem(x, y, Random(197,204), 1);
+        addloot(box7);
+        LockerClose(box7);
+        }
+        }
+}
+void addloot(Item& item)
+{
+    if(Random(1,14)==14)
+    {
+        switch(Random(1,25))
+            {
+            case 1:     {SpawnBuffItem(item, PID_ROCKET_LAUNCHER); item.AddItem(PID_ROCKET_AP,  5, 40);break;}
+            case 2:     {SpawnBuffItem(item, PID_PLASMA_RIFLE); item.AddItem(PID_MICRO_FUSION_CELL,  20, 100);break;}
+            case 3:     {SpawnBuffItem(item, PID_SUPER_CATTLE_PROD); item.AddItem(PID_SMALL_ENERGY_CELL,  20, 100);break;}
+            case 4:     {SpawnBuffItem(item, PID_SUPER_SLEDGE); break;}
+            case 5:     {SpawnBuffItem(item, PID_SNIPER_RIFLE); item.AddItem(PID_223_FMJ,  20, 100); break;}
+            case 6:     {SpawnBuffItem(item, PID_223_PISTOL); item.AddItem(PID_223_FMJ, 20, 100); break;}
+            case 7:     {SpawnBuffItem(item, PID_HK_P90C); item.AddItem(PID_10MM_AP,  200, 1000); break;}
+            case 8:     {SpawnBuffItem(item, PID_HK_CAWS); item.AddItem(PID_SHOTGUN_SHELLS_SLUG,  100, 500);break;}
+            case 9:     {SpawnBuffItem(item, PID_LIGHT_SUPPORT_WEAPON); item.AddItem(PID_223_FMJ, 150, 900); break;}
+            case 10:    {SpawnBuffItem(item, PID_SNIPER_RIFLE); item.AddItem(PID_223_FMJ,  20, 100); break;}
+            case 11:    {SpawnBuffItem(item, PID_AVENGER_MINIGUN); item.AddItem(PID_5MM_AP, 500 , 3000); break;}
+            case 12:    {SpawnBuffItem(item, PID_IMPROVED_FLAMETHROWER); item.AddItem(PID_FLAMETHROWER_FUEL_MK_II,  20, 70);break;}
+            case 13:    {SpawnBuffItem(item, PID_LASER_RIFLE_EXT_CAP); item.AddItem(PID_MICRO_FUSION_CELL,  20, 100);break;}
+            case 14:    {SpawnBuffItem(item, PID_WAKIZASHI_BLADE); break;}
+            case 15:    {SpawnBuffItem(item, PID_INDEPENDENT); item.AddItem(PID_5MM_AP, 100 , 500); break;}
+            case 16:    {SpawnBuffItem(item, PID_GATLING_LASER); item.AddItem(PID_MICRO_FUSION_CELL,  100, 500);break;}
+            case 17:    {SpawnBuffItem(item, PID_M16); item.AddItem(PID_5MM_AP,  20, 90); break;}
+            case 18:    {SpawnBuffItem(item, PID_EL_ROCKET_LAUNCHER); item.AddItem(PID_EL_ROCKET,  20, 70); break;}
+            case 19:    {SpawnBuffItem(item, PID_MEGA_POWER_FIST); item.AddItem(PID_SMALL_ENERGY_CELL,  20, 100);break;}
+            case 20:    {SpawnBuffItem(item, PID_YK32_PULSE_PISTOL); item.AddItem(PID_SMALL_ENERGY_CELL,  20, 100);break;}
+            case 21:    {SpawnBuffItem(item, PID_GRENADE_LAUNCHER); item.AddItem(PID_40MM_GRENADE,  20, 70);break;}
+            case 22:    {SpawnBuffItem(item, PID_PLASMA_SMG); item.AddItem(PID_SMALL_ENERGY_CELL,  150, 900); break;}
+            case 23:    {SpawnBuffItem(item, PID_MAGNETO_LASER_PISTOL);  item.AddItem(PID_SMALL_ENERGY_CELL,  20, 100);break;}
+            case 24:    {SpawnBuffItem(item, PID_PLASMA_PISTOL_EXT_CART);  item.AddItem(PID_SMALL_ENERGY_CELL, 20, 100);break;}
+            case 25:    {SpawnBuffItem(item, PID_NEEDLER_PISTOL);  item.AddItem(PID_HN_NEEDLER_CARTRIDGE,  20, 100); break;}
+            }
+        }
+    if(Random(0,7)==1)
+    item.AddItem(PID_SUPER_STIMPAK,0, 5);
+
+    for( int i =1; i <= Random(7,10); i++ )
+        {
+        switch(Random(1,163))
+            {
+            case 1:     item.AddItem(PID_BLUEPRINT_14MM_PISTOL, 1,0); break;
+                case 2:     item.AddItem(PID_BLUEPRINT_NEEDLER_PISTOL, 1,0); break;
+                case 3:     item.AddItem(PID_BLUEPRINT_223_PISTOL, 1,0); break;
+                case 4:     item.AddItem(PID_BLUEPRINT_ASSAULT_RIFLE, 1,0); break;
+                case 5:     item.AddItem(PID_BLUEPRINT_FN_FAL, 1,0); break;
+                case 6:     item.AddItem(PID_BLUEPRINT_SNIPER_RIFLE, 1,0); break;
+                case 7:     item.AddItem(PID_BLUEPRINT_P90, 1,0); break;
+                case 8:     item.AddItem(PID_BLUEPRINT_HK_CAWS, 1,0); break;
+                case 9:     item.AddItem(PID_BLUEPRINT_PANCOR_JACKHAMMER, 1,0); break;
+                case 10:    item.AddItem(PID_BLUEPRINT_PLASMA_PISTOL, 1,0); break;
+                case 11:    item.AddItem(PID_BLUEPRINT_LASER_RIFLE, 1,0); break;
+                case 12:    item.AddItem(PID_BLUEPRINT_PLASMA_RIFLE, 1,0); break;
+                case 13:    item.AddItem(PID_BLUEPRINT_MEGA_POWER_FIST, 1,0); break;
+                case 14:    item.AddItem(PID_BLUEPRINT_SUPER_CATTLE_PROD, 1,0); break;
+                case 15:    item.AddItem(PID_BLUEPRINT_RIPPER, 1,0); break;
+                case 16:    item.AddItem(PID_BLUEPRINT_ROCKET_LAUNCHER, 1,0); break;
+                case 17:    item.AddItem(PID_BLUEPRINT_LIGHT_SUPPORT_WEAPON, 1,0); break;
+                case 18:    item.AddItem(PID_BLUEPRINT_MINIGUN, 1,0); break;
+                case 19:    item.AddItem(PID_BLUEPRINT_PLASMA_GRENADE, 1,0); break;
+                case 20:    item.AddItem(PID_BLUEPRINT_DYNAMITE, 1,0); break;
+                case 21:    item.AddItem(PID_BLUEPRINT_PLASTIC_EXPLOSIVES, 1,0); break;
+                case 22:    item.AddItem(PID_BLUEPRINT_SUPER_SLEDGE, 1,0); break;
+                case 23:    item.AddItem(PID_BLUEPRINT_IMPROVED_FLAMETHROWER, 1,0); break;
+                case 24:    item.AddItem(PID_BLUEPRINT_INDEPENDENT, 1,0); break;
+                case 25:    item.AddItem(PID_BLUEPRINT_AVENGER_MINIGUN, 1,0); break;
+                case 26:    item.AddItem(PID_BLUEPRINT_METAL_ARMOR_MK_II, 1,0); break;
+                case 27:    item.AddItem(PID_BLUEPRINT_TESLA_ARMOR, 1,0); break;
+                case 28:    item.AddItem(PID_BLUEPRINT_COMBAT_ARMOR_MK_II, 1,0); break;
+                case 29:    item.AddItem(PID_BLUEPRINT_BROTHERHOOD_COMBAT_ARMOR, 1,0); break;
+                case 30:    item.AddItem(PID_BLUEPRINT_ENCLAVE_COMBAT_ARMOR, 1,0); break;
+                case 31:    item.AddItem(PID_BLUEPRINT_DESERT_COMBAT_ARMOR, 1,0); break;
+                case 32:    item.AddItem(PID_BLUEPRINT_NCR_ARMOR, 1,0); break;
+                case 33:    item.AddItem(PID_BLUEPRINT_SUPER_STIMPAK, 1,0); break;
+                case 34:    item.AddItem(PID_BLUEPRINT_STIMPAK, 1,0); break;
+                case 35:    item.AddItem(PID_BLUEPRINT_JET, 1,0); break;
+                case 36:    item.AddItem(PID_BLUEPRINT_BUFFOUT,1,0); break;
+                case 37:    item.AddItem(PID_BLUEPRINT_MENTATS, 1,0); break;
+                case 38:    item.AddItem(PID_BLUEPRINT_PSYCHO, 1,0); break;
+                case 39:    item.AddItem(PID_BLUEPRINT_RADAWAY, 1,0); break;
+                case 40:    item.AddItem(PID_BLUEPRINT_RADX, 1,0); break;
+                case 41:    item.AddItem(PID_BLUEPRINT_JET_ANTIDOTE, 1,0); break;
+                case 42:    item.AddItem(PID_BLUEPRINT_YK32_PULSE_PISTOL, 1,0); break;
+                case 43:    item.AddItem(PID_BLUEPRINT_SHOTGUN_DRAGON_BREATH_SHELLS, 1,0); break;
+                case 44:    item.AddItem(PID_BLUEPRINT_4_7MM_CASELESS, 1,0); break;
+                case 45:    item.AddItem(PID_BLUEPRINT_2MM_EC_AMMO, 1,0); break;
+                case 46:    item.AddItem(PID_BLUEPRINT_METAL_ARMOR_MK_III, 1,0); break;
+                case 47:    item.AddItem(PID_BLUEPRINT_PULSE_GRENADE, 1,0); break;
+                case 48:    item.AddItem(PID_BLUEPRINT_GATLING_LASER, 1,0); break;
+                case 49:    item.AddItem(PID_BLUEPRINT_M16, 1,0); break;
+                case 50:    item.AddItem(PID_BLUEPRINT_EL_ROCKET_LAUNCHER, 1,0); break;
+                case 51:    item.AddItem(PID_BLUEPRINT_SHOCK_GRENADE, 1,0); break;
+                case 52:    item.AddItem(PID_BLUEPRINT_GUM, 1,0); break;
+                case 53:    item.AddItem(PID_BLUEPRINT_MUTIE, 1,0); break;
+                case 54:    item.AddItem(PID_BLUEPRINT_VOODOO, 1,0); break;
+                case 55:    item.AddItem(PID_BLUEPRINT_SENSOR, 1,0); break;
+                case 56:    item.AddItem(PID_BLUEPRINT_FIREGECKO_JACKET, 1,0); break;
+                case 57:    item.AddItem(PID_BLUEPRINT_INFERNO_ARMOR, 1,0); break;
+                case 58:    item.AddItem(PID_BLUEPRINT_LAMK2, 1,0); break;
+                case 59:    item.AddItem(PID_BLUEPRINT_COMBAT_JACKET, 1,0); break;
+                case 60:    item.AddItem(PID_BLUEPRINT_MUT_ARMOR, 1,0); break;
+                case 61:    item.AddItem(PID_BLUEPRINT_LASER_SPEAR, 1,0); break;
+                case 62:    item.AddItem(PID_BLUEPRINT_PLASMA_SMG, 1,0); break;
+                case 63:    item.AddItem(PID_BLUEPRINT_EFC, 1,0); break;
+                case 64:    item.AddItem(PID_BLUEPRINT_HEALING_NEEDLER_AMMO, 1,0); break;
+
+                case 65:    item.AddItem(PID_BALL_GAG, 1,0); break;
+                    case 66:    item.AddItem(PID_MIRROR_SHADES, 1,0); break;
+
+                    case 67:    item.AddItem(PID_FIBRE2, 1,0); break;
+                    case 68:    item.AddItem(PID_ELECTRONIC_PARTS               , 1,0); break;
+                    case 69:    item.AddItem(PID_CHEMICALS                      , 1,0 ); break;
+                    //Drugs
+
+                //Armors
+                    case 70:    item.AddItem(PID_CLOTHES_POLICE, 1,0); break;
+                    case 71:    item.AddItem(PID_BROTHERHOOD_COMBAT_ARMOR, 1,0); break;
+                    case 72:    item.AddItem(PID_NCR_ARMOR, 1,0); break;
+                    case 73:    item.AddItem(PID_ENCLAVE_COMBAT_ARMOR, 1,0); break;
+                    case 74:    item.AddItem(PID_KEEPBRIGE_ROBE, 1,0); break;
+                    case 75:    item.AddItem(PID_DESERT_COMBAT_ARMOR, 1,0); break;
+                    case 76:    item.AddItem(PID_MUT_METAL, 1,0); break;
+                    case 77:    item.AddItem(PID_METAL_ARMOR_MK_III, 1,0); break;
+                    case 78:    item.AddItem(PID_INFERNO_ARMOR, 1,0); break;
+                    case 79:    item.AddItem(PID_TESLA_ARMOR, 1,0); break;
+                    case 80:    item.AddItem(PID_METAL_ARMOR_MK_II, 1,0); break;
+                    case 81:    item.AddItem(PID_COMBAT_ARMOR_MK_II, 1,0); break;
+                    case 82:    item.AddItem(PID_FOLLOWER_ROBE, 1,0); break;
+                    case 83:    item.AddItem(PID_HUBO_ROBE, 1,0); break;
+                    //helmets
+                    case 84:    item.AddItem(PID_METAL_HELMET_MK2, 1,0); break;
+                    case 85:    item.AddItem(PID_COMBAT_HELMET_MK_II, 1,0); break;
+                     case 86:   item.AddItem(PID_GAS_MASK_PVP, 1,0); break;
+                    case 87:    item.AddItem(PID_VC_HELMET, 1,0); break;
+                     case 88:   item.AddItem(PID_OLD_SHOVEL  , 1,0); break;
+
+                     case 89:   item.AddItem(PID_QUESTIONNAIRE                , 1,0); break;
+                     case 90:   item.AddItem(PID_ELECTRONIC_PARTS              , 1,0); break;
+                     case 91:   item.AddItem(PID_ALLOYS                        , 1,0); break;
+                     case 92:   item.AddItem(PID_BRAHMIN_HIDE               , 1,0); break;
+                     case 93:   item.AddItem(PID_METAL_PARTS                   , 1,0); break;
+                     case 94:   item.AddItem(PID_DAY_PASS2                   , 1,0); break;
+                     case 95:   item.AddItem(PID_BOUNTY_DOG_TAG                , 1,0); break;
+                     case 96:   item.AddItem(PID_LOST_HILLS_DISK             , 1,0); break;
+                     case 97:   item.AddItem(PID_BOS_DISK                       , 1,0); break;
+                     case 98:   item.AddItem(PID_PROCESSED_BOS_DISK            , 1,0); break;
+
+                     case 99:   item.AddItem(PID_FIBER                      , 1,0); break;
+                     case 100:  item.AddItem(PID_BRAHMINSHIT           , 1,0); break;
+                     case 101:  item.AddItem(PID_ALLOYS2              , 1,0); break;
+                     case 102:  item.AddItem(PID_CHEMICALS           , 1,0); break;
+                     case 103:  item.AddItem(PID_FIREGECKO_PELT        , 1,0); break;
+                     case 104:  item.AddItem(PID_GUNPOWDER2         , 1,0); break;
+                     case 105:  item.AddItem(PID_FIBRE2             , 1,0); break;
+                     case 106:  item.AddItem(PID_ORE2             , 1,0); break;
+                     case 107:  item.AddItem(PID_MINERALS2             , 1,0); break;
+                     case 108:  item.AddItem(PID_TOBACCO             , 1,0); break;
+                     case 109:  item.AddItem(PID_METAL_PARTS2                   , 1,0); break;
+                     case 110:  item.AddItem(PID_CAR_REPLACEMENT_PARTS      , 1,0); break;
+                     case 111:  item.AddItem(PID_ELECTRONIC_PARTS2      , 1,0); break;
+                     case 112:  item.AddItem(PID_CHEMICALS2            , 1,0); break;
+                     case 113:  item.AddItem(PID_BARLEY        , 1,0); break;
+                         //Tech
+                     case 114:  item.AddItem(PID_MULTI_TOOL              , 1,0); break;
+                     case 115:  item.AddItem(PID_SUPER_TOOL_KIT              , 1,0); break;
+                     case 116:  item.AddItem(PID_OIL_CAN                     , 1,0); break;
+                     case 117:  item.AddItem(PID_LOCKPICKS       , 1,0); break;
+                     case 118:  item.AddItem(PID_EXP_LOCKPICK_SET    , 1,0); break;
+                     case 119:  item.AddItem(PID_LOCK                         , 1,0); break;
+
+    //Medical
+                     case 120:  item.AddItem(PID_FIRST_AID_KIT                  , 1,0); break;
+                     case 121:  item.AddItem(PID_FIELD_MEDIC_KIT               , 1,0); break;
+                     case 122:  item.AddItem(PID_DOCTORS_BAG                  , 1,0); break;
+                     case 123:  item.AddItem(PID_PARAMEDICS_BAG               , 1,0); break;
+                     case 124:  item.AddItem(PID_MEDICAL_SUPPLIES     , 1,0); break;
+                     case 125:  item.AddItem(PID_BIO_GEL                  , 1,0); break;
+    //Other
+                     case 126:  item.AddItem(PID_SHOVEL                         , 1,0); break;
+                     case 127:  item.AddItem(PID_PLANK                  , 1,0); break;
+                     case 128:  item.AddItem(PID_AXE               , 1,0); break;
+    //Special
+                     case 129:  item.AddItem(PID_GEIGER_COUNTER              , 1,0); break;
+                     case 130:  item.AddItem(PID_ACTIVE_GEIGER_COUNTER       , 1,0); break;
+                     case 131:  item.AddItem(PID_STEALTH_BOY            , 1,0); break;
+                     case 132:  item.AddItem(PID_ACTIVE_STEALTH_BOY        , 1,0); break;
+                     case 133:  item.AddItem(PID_MOTION_SENSOR            , 1,0); break;
+                     case 134:  item.AddItem(PID_ACTIVE_MOTION_SENSOR         , 1,0); break;
+                     case 135:  item.AddItem(PID_WATER_BAG                 , 1,0); break;
+
+//Books
+                     case 136:  item.AddItem(PID_BIG_BOOK_OF_SCIENCE   , 1,0); break;
+                     case 137:  item.AddItem(PID_DEANS_ELECTRONICS         , 1,0); break;
+                     case 138:  item.AddItem(PID_FIRST_AID_BOOK           , 1,0); break;
+                     case 139:  item.AddItem(PID_SCOUT_HANDBOOK         , 1,0); break;
+                     case 140:  item.AddItem(PID_GUNS_AND_BULLETS      , 1,0); break;
+                     case 141:  item.AddItem(PID_CATS_PAW               , 1,0); break;
+                     case 142:  item.AddItem(PID_TECHNICAL_MANUAL         , 1,0); break;
+                     case 143:  item.AddItem(PID_CHEMISTRY_MANUAL           , 1,0); break;
+                     case 144:  item.AddItem(PID_CATS_PAW_ISSUE_5           , 1,0); break;
+                     case 145:  item.AddItem(PID_BECKY_BOOK                 , 1,0); break;
+                     case 146:  item.AddItem(PID_BARTER_BOOK                , 1,0); break;
+                     case 147:  item.AddItem(PID_BG_BOOK                    , 1,0); break;
+                     case 148:  item.AddItem(PID_DOCTOR_BOOK            , 1,0); break;
+                     case 149:  item.AddItem(PID_EW_BOOK                , 1,0); break;
+                     case 150:  item.AddItem(PID_SNEAK_BOOK                 , 1,0); break;
+                     case 151:  item.AddItem(PID_STEAL_BOOK             , 1,0); break;
+                     case 152:  item.AddItem(PID_LOCKPICK_BOOK          , 1,0); break;
+                     case 153:  item.AddItem(PID_THROWING_BOOK      , 1,0); break;
+                     case 154:  item.AddItem(PID_TRAPS_BOOK         , 1,0); break;
+                     case 155:  item.AddItem(PID_CLOSE_COMBAT_BOOK, 1,0); break;
+                    //helmets
+                    // Clothes:
+                    case 156:   item.AddItem(PID_CLOTHES_SCIENTIST1, 1,0); break;
+                    case 157:   item.AddItem(PID_CLOTHES_SCIENTIST2, 1,0); break;
+                    case 158:   item.AddItem(PID_CLOTHES_ELEGANT_SUIT, 1,0); break;
+                    case 159:   item.AddItem(PID_CLOTHES_DOCTOR, 1,0); break;
+                    case 160:   item.AddItem(PID_CLOTHES_FAT1, 1,0); break;
+                    case 161:   item.AddItem(PID_SF_COMBAT_JACKET, 1,0); break;
+                    case 162:   item.AddItem(PID_MORDINO_METAL_JACKET, 1,0); break;
+                    case 163:   if(Random(1,55)==55) item.AddItem(PID_VAULT_TEC_BOX, 1,0); break;
+            }
+        }
+		
+	if(dropchance(25 * doubleloot))
+		addbasemap(item);
+}
+//Init
+
+void map_init(Map& map, bool firstTime)
+{
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterMap");
+}
+
+
+void init_quest(Critter& player, Critter@ npc)
+{
+    GameVar@ farmloc = GetLocalVar(LVAR_farmlocCD, player.Id);
+    if(player.Param[ST_LEVEL]<50)
+        {
+        player.Say(SAY_NETMSG, "I can't read it, maybe on 50 level I will");
+        return;
+        }
+    if(farmloc.GetValue() == 0)
+    {
+        Critter@[] crits = { player };
+        int loc = CreateLocation(Random(900,909), Random(1600,1800), Random(1850,2200), crits);
+        Location@ location = GetLocation(loc);
+        GameVar@  locidv = GetLocalVar(LVAR_farmlocID, player.Id);
+        locidv = loc;
+        location.Color = COLOR_WM_QUEST;
+        location.Update();
+        farmloc = 1;
+        array<Map@> maps;
+        location.GetMaps(maps);
+        SpawnMobs(maps[0],Random(1,4), Random(1,5), Random(6,23), Random(1,30));
+        SpawnLoot(maps[0]);
+        //CreateTimeEvent(AFTER(REAL_HOUR(24)), "e_Newquest", player.Id, false);
+        SetQuestGarbager(1440, player.Id, loc, LVAR_farmlocID, 0);
+        uint[] values = { player.Id, npc.Id };
+        CreateTimeEvent(AFTER(REAL_HOUR(24)), "e_reset_quest_var", values, true);
+        player.Say(SAY_NETMSG, "I saw interesing place on his map.");
+    }
+    else
+    {
+    player.Say(SAY_NETMSG, "I was in that place, but I'm sure tommorow he will have another map.");
+    }
+}
+
+uint e_reset_quest_var(array<uint>@ values)
+{
+    GameVar@ var = GetLocalVar(LVAR_farmlocCD, values[0]);
+    var = 0;
+
+    GameVar@ var0 = GetLocalVar(LVAR_farmlocID, values[0]);
+    var0 = 0;
+    return 0;
+}
+
+void _OnEnterMap(Map& map, Critter& cr)
+{
+    if(cr.IsPlayer())
+    {
+    Location@ loc = map.GetLocation();
+    if (valid(loc) && !cr.IsKnownLoc(true,loc.Id))
+        {
+        cr.SetKnownLoc(true, loc.Id);
+        cr.Say(SAY_NETMSG, "You note coordinates of this location in your PipBoy.");
+        }
+    }
+}

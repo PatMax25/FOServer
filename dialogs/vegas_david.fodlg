@@ -1,0 +1,180 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+4 1010 @
+4 2000 None 0 #
+5 2010 #
+6 2020 #
+9 2030 D _item p PID_NUKA_COLA_QUEST } 50 R _item p PID_NUKA_COLA_QUEST - 50 R _param p ST_EXPERIENCE + 2000 R _item p PID_KOKOWEEF_MINE_SCRIP + 1 #
+0 2040 @
+5 3000 None 0 #
+7 3010 #
+8 3020 #
+7 3030 #
+7 3040 D _item p PID_NUKA_COLA_QUEST } 50 R _item p PID_NUKA_COLA_QUEST - 50 R _item p PID_KOKOWEEF_MINE_SCRIP + 3 R _param p ST_EXPERIENCE + 2000 #
+0 3050 @
+6 4000 None 0 #
+0 4010 @
+7 5000 None 0 #
+5 5010 @
+8 6000 None 0 #
+5 6010 @
+9 7000 None 0 #
+10 7010 #
+0 7020 @
+10 8000 None 0 #
+0 8010 #
+0 8020 #
+65507 8030 &
+
+[engl]
+{100}{}{David}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help around?}
+{2030}{}{I got those 50 bottles for you. Where is my reward?}
+{2040}{}{Bye.}
+{3000}{}{Name's David, I am a local cooker, or whatever they call me... [ he spits ]. What do you need?}
+{3010}{}{What do you think about Vegas?}
+{3020}{}{What do you think about NCR?}
+{3030}{}{Anything I can help you with?}
+{3040}{}{I have those 50 bottles for you.}
+{3050}{}{Great. I need to go now.}
+{4000}{}{Help, huh? Well you can help me a little. Do you know about the existence of Special Edition Nuka Cola? These are those damn yellow bottles. So the thing is - I need around 50 bottles of these things. Lets just say... Our local Captain doesn't like to drink the same shit as his soldiers do. So, just bring me 50 bottles of special Nuka and I will give you something special in return. How does it sound?}
+{4010}{}{I will keep it in mind,}
+{5000}{}{Nothing to say. I feel fine here, lots of fun, booze and girls. Definitely a better city to be sent to, in compare with Junktown or Hub.}
+{5010}{}{One more question.}
+{6000}{}{What should I think about them? I am just a cooker. They pay me - I cook for them. As simple as that.}
+{6010}{}{Wanted to ask you about something else.}
+{7000}{}{Hey! Fine job you made! [ He gives you a strange sheet of paper with 10$ written on it. ] Here you go. Keep in mind that I will pay you for every 50 bottles you bring me.}
+{7010}{}{What are these?}
+{7020}{}{Nice to have a business with you.}
+{8000}{}{Don't you know? These are Redding dollars of course! You can exchange them for different things in "Happy Stockman's" in Adytum. Just... Don't try to exchange them in Redding, there are some problems with the local mayor.}
+{8010}{}{Great...}
+{8020}{}{Alright, thank you.}
+{8030}{}{YOU LIE, SCUM! NOW YOU GONNA PAY WITH YOUR BLOOD!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help around?}
+{2030}{}{I got those 50 locals for you. Where is my reward?}
+{2040}{}{Bye.}
+{3000}{}{Name's David, I am a local cooker, or whatever they call me... [ he spits ]. What do you need?}
+{3010}{}{What do you think about Vegas?}
+{3020}{}{What do you think about NCR?}
+{3030}{}{Anything I can help you with?}
+{3040}{}{I have those 50 locals for you.}
+{3050}{}{Great. I need to go now.}
+{4000}{}{Help, huh? Well you can help me a little. Do you know about existance of Special Edition Nuka Cola? These are that damn yellow locals. So the thing is - I need around 50 locals of these things. Lets say... Our local Captain doesn't like to drink the same shit as his soldiers do. So, just bring me 50 locals of special Nuka and I will give you something special in return. How does it sound?}
+{4010}{}{I will keep it in mind,}
+{5000}{}{Nothing to say. I feel fine here, lots of fun, booze and girls. Deffinately a better city to be sent in, in compare with Junktown or Hub.}
+{5010}{}{One more question.}
+{6000}{}{What should I think about them? I am just a cooker. They pay me - I cook for them. As simple as that.}
+{6010}{}{Wanted to ask you about something else.}
+{7000}{}{Hey! Fine job you made! [ He gives you a strange sheet of papers with writter 10$ on them. ] Here you go. Keep in mind that I will pay you for every 50 locals you bring me.}
+{7010}{}{What are these?}
+{7020}{}{Nice to have a business with you.}
+{8000}{}{Don't you know? These are Redding dollars of course! You can exchange them on different things in "Happy Stockman's" in Adytum. Just... Don;t try to exchange them in Redding, there are some problems with local mayor.}
+{8010}{}{Great...}
+{8020}{}{Alright, thank you.}
+{8030}{}{YOU LIE, SCUM! NOW YOU GONNA PAY WITH YOUR BLOOD!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help around?}
+{2030}{}{I got those 50 locals for you. Where is my reward?}
+{2040}{}{Bye.}
+{3000}{}{Name's David, I am a local cooker, or whatever they call me... [ he spits ]. What do you need?}
+{3010}{}{What do you think about Vegas?}
+{3020}{}{What do you think about NCR?}
+{3030}{}{Anything I can help you with?}
+{3040}{}{I have those 50 locals for you.}
+{3050}{}{Great. I need to go now.}
+{4000}{}{Help, huh? Well you can help me a little. Do you know about existance of Special Edition Nuka Cola? These are that damn yellow locals. So the thing is - I need around 50 locals of these things. Lets say... Our local Captain doesn't like to drink the same shit as his soldiers do. So, just bring me 50 locals of special Nuka and I will give you something special in return. How does it sound?}
+{4010}{}{I will keep it in mind,}
+{5000}{}{Nothing to say. I feel fine here, lots of fun, booze and girls. Deffinately a better city to be sent in, in compare with Junktown or Hub.}
+{5010}{}{One more question.}
+{6000}{}{What should I think about them? I am just a cooker. They pay me - I cook for them. As simple as that.}
+{6010}{}{Wanted to ask you about something else.}
+{7000}{}{Hey! Fine job you made! [ He gives you a strange sheet of papers with writter 10$ on them. ] Here you go. Keep in mind that I will pay you for every 50 locals you bring me.}
+{7010}{}{What are these?}
+{7020}{}{Nice to have a business with you.}
+{8000}{}{Don't you know? These are Redding dollars of course! You can exchange them on different things in "Happy Stockman's" in Adytum. Just... Don;t try to exchange them in Redding, there are some problems with local mayor.}
+{8010}{}{Great...}
+{8020}{}{Alright, thank you.}
+{8030}{}{YOU LIE, SCUM! NOW YOU GONNA PAY WITH YOUR BLOOD!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help around?}
+{2030}{}{I got those 50 locals for you. Where is my reward?}
+{2040}{}{Bye.}
+{3000}{}{Name's David, I am a local cooker, or whatever they call me... [ he spits ]. What do you need?}
+{3010}{}{What do you think about Vegas?}
+{3020}{}{What do you think about NCR?}
+{3030}{}{Anything I can help you with?}
+{3040}{}{I have those 50 locals for you.}
+{3050}{}{Great. I need to go now.}
+{4000}{}{Help, huh? Well you can help me a little. Do you know about existance of Special Edition Nuka Cola? These are that damn yellow locals. So the thing is - I need around 50 locals of these things. Lets say... Our local Captain doesn't like to drink the same shit as his soldiers do. So, just bring me 50 locals of special Nuka and I will give you something special in return. How does it sound?}
+{4010}{}{I will keep it in mind,}
+{5000}{}{Nothing to say. I feel fine here, lots of fun, booze and girls. Deffinately a better city to be sent in, in compare with Junktown or Hub.}
+{5010}{}{One more question.}
+{6000}{}{What should I think about them? I am just a cooker. They pay me - I cook for them. As simple as that.}
+{6010}{}{Wanted to ask you about something else.}
+{7000}{}{Hey! Fine job you made! [ He gives you a strange sheet of papers with writter 10$ on them. ] Here you go. Keep in mind that I will pay you for every 50 locals you bring me.}
+{7010}{}{What are these?}
+{7020}{}{Nice to have a business with you.}
+{8000}{}{Don't you know? These are Redding dollars of course! You can exchange them on different things in "Happy Stockman's" in Adytum. Just... Don;t try to exchange them in Redding, there are some problems with local mayor.}
+{8010}{}{Great...}
+{8020}{}{Alright, thank you.}
+{8030}{}{YOU LIE, SCUM! NOW YOU GONNA PAY WITH YOUR BLOOD!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help around?}
+{2030}{}{I got those 50 locals for you. Where is my reward?}
+{2040}{}{Bye.}
+{3000}{}{Name's David, I am a local cooker, or whatever they call me... [ he spits ]. What do you need?}
+{3010}{}{What do you think about Vegas?}
+{3020}{}{What do you think about NCR?}
+{3030}{}{Anything I can help you with?}
+{3040}{}{I have those 50 locals for you.}
+{3050}{}{Great. I need to go now.}
+{4000}{}{Help, huh? Well you can help me a little. Do you know about existance of Special Edition Nuka Cola? These are that damn yellow locals. So the thing is - I need around 50 locals of these things. Lets say... Our local Captain doesn't like to drink the same shit as his soldiers do. So, just bring me 50 locals of special Nuka and I will give you something special in return. How does it sound?}
+{4010}{}{I will keep it in mind,}
+{5000}{}{Nothing to say. I feel fine here, lots of fun, booze and girls. Deffinately a better city to be sent in, in compare with Junktown or Hub.}
+{5010}{}{One more question.}
+{6000}{}{What should I think about them? I am just a cooker. They pay me - I cook for them. As simple as that.}
+{6010}{}{Wanted to ask you about something else.}
+{7000}{}{Hey! Fine job you made! [ He gives you a strange sheet of papers with writter 10$ on them. ] Here you go. Keep in mind that I will pay you for every 50 locals you bring me.}
+{7010}{}{What are these?}
+{7020}{}{Nice to have a business with you.}
+{8000}{}{Don't you know? These are Redding dollars of course! You can exchange them on different things in "Happy Stockman's" in Adytum. Just... Don;t try to exchange them in Redding, there are some problems with local mayor.}
+{8010}{}{Great...}
+{8020}{}{Alright, thank you.}
+{8030}{}{YOU LIE, SCUM! NOW YOU GONNA PAY WITH YOUR BLOOD!}
+

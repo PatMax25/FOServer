@@ -1,0 +1,67 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script perks@can_class 1 90 R _param p PE_ASSASIN + 1 R _script perks@assasin 0  &
+
+[engl]
+{100}{}{Shadow Junior}
+{210}{}{Stupid son of Shadow}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Talk with my father if you need something.}
+{2010}{}{So you don't do anything in family business?}
+{3000}{}{Don't do anything? Are you kidding me? I'm a true sneaky assassin. I can shoot YOUR rifle without even showing my position.}
+{3010}{}{Sounds lame. I hope that at least your father is less of a party pooper.}
+{3020}{}{Could you show me how?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Talk with my father if you need something.}
+{2010}{}{So you don't do anything in family business?}
+{3000}{}{Don't do anything? Are you kinding me? I'm teaching how to sneak and shot in one time.}
+{3010}{}{ok then, gonna talk with your dad.}
+{3020}{}{Could you show me how?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Talk with my father if you need something.}
+{2010}{}{So you don't do anything in family business?}
+{3000}{}{Don't do anything? Are you kinding me? I'm teaching how to sneak and shot in one time.}
+{3010}{}{ok then, gonna talk with your dad.}
+{3020}{}{Could you show me how?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Talk with my father if you need something.}
+{2010}{}{So you don't do anything in family business?}
+{3000}{}{Don't do anything? Are you kinding me? I'm teaching how to sneak and shot in one time.}
+{3010}{}{ok then, gonna talk with your dad.}
+{3020}{}{Could you show me how?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Talk with my father if you need something.}
+{2010}{}{So you don't do anything in family business?}
+{3000}{}{Don't do anything? Are you kinding me? I'm teaching how to sneak and shot in one time.}
+{3010}{}{ok then, gonna talk with your dad.}
+{3020}{}{Could you show me how?}
+

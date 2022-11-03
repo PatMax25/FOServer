@@ -1,0 +1,90 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _param p ST_TEAM_ID = 4 R _script dialog@r_OpenDoor 2 61 30 #
+0 2020 #
+65507 2030 #
+4 2040 @
+3 3000 None 0 @
+4 4000 None 0 #
+0 4010 #
+65507 4020 &
+
+[engl]
+{100}{}{Gate guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stop right there! Only true followers of Master's Army may pass farther.}
+{2010}{}{[ Show him a mark on your arm ] In His name, brother.}
+{2020}{}{Fine, I am leaving.}
+{2030}{}{You either get out of my way, or I will make a necklace out of your teeth!}
+{2040}{}{Master's Army?}
+{3000}{}{Come in, initiate. Let the Master bless you. Do not forget to close the gate behind you.}
+{4000}{}{Yes, this is the holy place, where only His army may pass. If you have nothing to do with us - leave.}
+{4010}{}{Alright, I am going.}
+{4020}{}{Listen up, dickhead. You either open this gate, or I will make sure your "holy" guts will go nicely for my dinner!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stop right there! Only those who are the members of the holy Master's Army may go farther.}
+{2010}{}{[ Listen further ]}
+{2020}{}{Fuck this. [ Leave ]}
+{2030}{}{You either get out of my way, or I will make a neckless out of your teeth!}
+{2040}{}{Master's Army?}
+{3000}{}{Come in, initiate. Let the Master bless you. Do not forget to close the gate behind you.}
+{4000}{}{Yes, this is the holy place, where only His army may pass. If you have nothing to do with us - leave.}
+{4010}{}{Alright, I am going.}
+{4020}{}{Listen up, dickhead. You either open this gate, or I will make sure your "holy" guts will go nicely for my dinner!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stop right there! Only those who are the members of the holy Master's Army may go farther.}
+{2010}{}{[ Listen further ]}
+{2020}{}{Fuck this. [ Leave ]}
+{2030}{}{You either get out of my way, or I will make a neckless out of your teeth!}
+{2040}{}{Master's Army?}
+{3000}{}{Come in, initiate. Let the Master bless you. Do not forget to close the gate behind you.}
+{4000}{}{Yes, this is the holy place, where only His army may pass. If you have nothing to do with us - leave.}
+{4010}{}{Alright, I am going.}
+{4020}{}{Listen up, dickhead. You either open this gate, or I will make sure your "holy" guts will go nicely for my dinner!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stop right there! Only those who are the members of the holy Master's Army may go farther.}
+{2010}{}{[ Listen further ]}
+{2020}{}{Fuck this. [ Leave ]}
+{2030}{}{You either get out of my way, or I will make a neckless out of your teeth!}
+{2040}{}{Master's Army?}
+{3000}{}{Come in, initiate. Let the Master bless you. Do not forget to close the gate behind you.}
+{4000}{}{Yes, this is the holy place, where only His army may pass. If you have nothing to do with us - leave.}
+{4010}{}{Alright, I am going.}
+{4020}{}{Listen up, dickhead. You either open this gate, or I will make sure your "holy" guts will go nicely for my dinner!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stop right there! Only those who are the members of the holy Master's Army may go farther.}
+{2010}{}{[ Listen further ]}
+{2020}{}{Fuck this. [ Leave ]}
+{2030}{}{You either get out of my way, or I will make a neckless out of your teeth!}
+{2040}{}{Master's Army?}
+{3000}{}{Come in, initiate. Let the Master bless you. Do not forget to close the gate behind you.}
+{4000}{}{Yes, this is the holy place, where only His army may pass. If you have nothing to do with us - leave.}
+{4010}{}{Alright, I am going.}
+{4020}{}{Listen up, dickhead. You either open this gate, or I will make sure your "holy" guts will go nicely for my dinner!}
+

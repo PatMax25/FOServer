@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+6 1010 @
+6 2000 None 0 &
+
+[engl]
+{100}{}{Civil}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Do I know you?@@Feels strange to go outside the City walls...@@Hello.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Do I know you?@@Feels strange to go outside the City walls...@@Hello.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Do I know you?@@Feels strange to go outside the City walls...@@Hello.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Do I know you?@@Feels strange to go outside the City walls...@@Hello.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Do I know you?@@Feels strange to go outside the City walls...@@Hello.}
+

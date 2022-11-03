@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+2 3010 #
+0 3020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #63 ]
+}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: "Laser-Gat" # 1.02 (Experimental)
+
+Test-Target: Combat Armor Model 333 
+
+Surprisingly, experimental Laser Gatling shows great results in efficiency: it is much simpler technology, and not so weak in comparsion to the Plasma version. This could be a "cheaper" type of "big" energy-weapons easily available by mass production. 
+UPD: Unfortunately, melting power dropped drastically when tested on newer PA. We will try different power modes and make a few more tests before making any official recommendation.}
+{3010}{}{error}
+{3020}{}{error}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #63 ]
+}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: "Laser-Gat" # 1.02 (Experimental)
+
+Test-Target: Combat Armor Model 333 
+
+Surprisingly, experimental Laser Gatling shows great results in efficiency: more simplier technology, yet not so weak in comparsion to Plasma version, it could be a "cheaper" type of "big" energy-weapons to mass production. 
+UPD: Unfortunatley, melting power dropped slightly, when tested on new PA. Should try different power modes and make few more tests.}
+{3010}{}{error}
+{3020}{}{error}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #63 ]
+}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: "Laser-Gat" # 1.02 (Experimental)
+
+Test-Target: Combat Armor Model 333 
+
+Surprisingly, experimental Laser Gatling shows great results in efficiency: more simplier technology, yet not so weak in comparsion to Plasma version, it could be a "cheaper" type of "big" energy-weapons to mass production. 
+UPD: Unfortunatley, melting power dropped slightly, when tested on new PA. Should try different power modes and make few more tests.}
+{3010}{}{error}
+{3020}{}{error}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #63 ]
+}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: "Laser-Gat" # 1.02 (Experimental)
+
+Test-Target: Combat Armor Model 333 
+
+Surprisingly, experimental Laser Gatling shows great results in efficiency: more simplier technology, yet not so weak in comparsion to Plasma version, it could be a "cheaper" type of "big" energy-weapons to mass production. 
+UPD: Unfortunatley, melting power dropped slightly, when tested on new PA. Should try different power modes and make few more tests.}
+{3010}{}{error}
+{3020}{}{error}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #63 ]
+}
+{2020}{}{[ Exit ]}
+{3000}{}{Test-Subject: "Laser-Gat" # 1.02 (Experimental)
+
+Test-Target: Combat Armor Model 333 
+
+Surprisingly, experimental Laser Gatling shows great results in efficiency: more simplier technology, yet not so weak in comparsion to Plasma version, it could be a "cheaper" type of "big" energy-weapons to mass production. 
+UPD: Unfortunatley, melting power dropped slightly, when tested on new PA. Should try different power modes and make few more tests.}
+{3010}{}{error}
+{3020}{}{error}
+

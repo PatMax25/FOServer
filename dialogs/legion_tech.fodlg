@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Tech priest}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let the machine hear you...@@I know how to deal with machines.@@Let us both pray to the machine spirit.@@Legion deserves best technologies.@@Have you seen my blueprints?@@What is it? I am very busy.@@In the name of Ceasar.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let the machine hear you...@@I know how to deal with machines.@@Let us both pray to the machine spirit.@@Legion deserves best technologies.@@Have you seen my blueprints?@@What is it? I am very busy.@@In the name of Ceasar.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let the machine hear you...@@I know how to deal with machines.@@Let us both pray to the machine spirit.@@Legion deserves best technologies.@@Have you seen my blueprints?@@What is it? I am very busy.@@In the name of Ceasar.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let the machine hear you...@@I know how to deal with machines.@@Let us both pray to the machine spirit.@@Legion deserves best technologies.@@Have you seen my blueprints?@@What is it? I am very busy.@@In the name of Ceasar.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let the machine hear you...@@I know how to deal with machines.@@Let us both pray to the machine spirit.@@Legion deserves best technologies.@@Have you seen my blueprints?@@What is it? I am very busy.@@In the name of Ceasar.}
+

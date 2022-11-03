@@ -1,0 +1,77 @@
+#include "_macros.fos"
+#include "_maps.fos"
+#include "_colors.fos"
+
+import void InitializeDynamicMob(Map& map) from "mob_dynamic";
+import void FillMapByMobs(Map& map, uint8 reqNumMobs, uint8 kindof, uint8 subtype, uint8 weapgroup) from "mob_dynamic";
+
+
+void enter(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+	Map@   map = player.GetMap();
+		if(player.IsLife() && entered)				
+		player.TransitToMap(map.Id + 1, 0, false); 
+}
+
+void outfrom(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+	Map@   map = player.GetMap();
+		if(player.IsLife() && entered)				
+		player.TransitToMap(map.Id - 1, 0, false); 
+}
+
+void map_init(Map& map, bool firstTime)
+{
+
+}
+
+void _map_hiden(Map& map, Critter& cr)
+{
+	Location@ location = map.GetLocation();
+	cr.UnsetKnownLoc(true, location.Id);
+	//cr.Say(SAY_NETMSG, "I forgot how i came here.");
+}
+
+void d_show_map(Critter& player, Critter@ npc)
+{
+	int roll = Random(1,6);
+	uint locname;
+	if(roll==1) locname = LOCATION_farmloc1;
+	if(roll==2) locname =  LOCATION_farmloc2;
+	if(roll==3) locname =  LOCATION_farmloc3;
+	if(roll==4) locname =  LOCATION_farmloc4;
+	if(roll==5) locname =  LOCATION_farmloc5;
+	if(roll==6) locname =  LOCATION_farmloc6;
+	GameVar@ farmloc = GetLocalVar(LVAR_farmlocID, player.Id);
+	if(farmloc.GetValue() == 0)
+	{
+		Critter@[] crits = { player };
+		int loc = CreateLocation(locname, Random(1600,1800), Random(1850,2200), crits);
+		Location@ location = GetLocation(loc);
+		location.Color = COLOR_WM_QUEST;
+		location.Update();
+		farmloc = loc;
+		CreateTimeEvent(AFTER(REAL_MINUTE(120)), "e_Newquest", player.Id, false);
+	}
+	else
+	{
+	player.Say(SAY_NETMSG, "I should come check later.");
+	}
+}
+
+uint e_DeleteStartLocation(array<uint>@ LocData)
+{
+	Location@ loc = GetLocation(LocData[0]);
+	if(!valid(loc)) return 0;
+	
+	DeleteLocation(loc.Id);
+	return 0;
+}
+
+uint e_Newquest(array<uint>@ LocData)
+{
+	Critter@ player = GetCritter(LocData[0]);
+	GameVar@ farmloc = GetLocalVar(LVAR_farmlocID, player.Id);	
+	farmloc = 0;
+	return 0;
+}

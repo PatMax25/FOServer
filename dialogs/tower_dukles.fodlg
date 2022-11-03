@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+5 2020 #
+65506 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 &
+
+[engl]
+{100}{}{Dukles}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ay?}
+{2010}{}{What's this place?}
+{2020}{}{What's your name?}
+{2030}{}{Show me what you have.}
+{2040}{}{I will be going.}
+{3000}{}{Just a small bar it is, mate. I have official permission from the Tower to have my business here. Can't say it goes well, since most of the poor souls here don't have money for alcohol... Most of my business is from tourists like you. Want to buy something?}
+{3010}{}{How is it.... living in such a place?}
+{4000}{}{[ He carefully looks around, checking whether there are any police patrols around ] To be honest with ya... This place is Hell. Fuckers from the "Tower" don't give a damn about us. But since we can't go anywhere, especially us poor folks have to work... of course the rich bastards on the upper floors won't let us come any closer to them. Have you seen the Tower? Of course you did, it's the highest building in San Diego...}
+{4010}{}{I see. Let's switch the subject...}
+{5000}{}{Name's Dukles. Spent my entire life in this city and guess it will also be my burial site one day... Heh...}
+{5010}{}{Alright, one more thing...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ay?}
+{2010}{}{What's this place?}
+{2020}{}{What's your name?}
+{2030}{}{Show me what you have.}
+{2040}{}{I will be going.}
+{3000}{}{Just a small bar it is, mate. I have an official permition from the tower to have my business here. Can't say it goes well, since most of the poor souls here don't have money for alcohole... Surviving only on tourists like you are. Wish to buy something?}
+{3010}{}{How is it.... living in such place?}
+{4000}{}{[ He carefully looks around, checking either there are any police patrols around ] To be honest with ya... This place is Hell. Fuckers from the tower don't give a damn about us. But since we can't go anywhere, most of us have to work for the sake of the Tower... But of course the rich bastards from upper floors won't even let us come anyhow closer to it. Have you seen the tower? Of course you did, it's the highest building in San Diego...}
+{4010}{}{I see. Let's switch the subject...}
+{5000}{}{Name's Dukles. Spent my entire life in this city and guess it will also be my burial one day... Heh...}
+{5010}{}{Alright, one more thing...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ay?}
+{2010}{}{What's this place?}
+{2020}{}{What's your name?}
+{2030}{}{Show me what you have.}
+{2040}{}{I will be going.}
+{3000}{}{Just a small bar it is, mate. I have an official permition from the tower to have my business here. Can't say it goes well, since most of the poor souls here don't have money for alcohole... Surviving only on tourists like you are. Wish to buy something?}
+{3010}{}{How is it.... living in such place?}
+{4000}{}{[ He carefully looks around, checking either there are any police patrols around ] To be honest with ya... This place is Hell. Fuckers from the tower don't give a damn about us. But since we can't go anywhere, most of us have to work for the sake of the Tower... But of course the rich bastards from upper floors won't even let us come anyhow closer to it. Have you seen the tower? Of course you did, it's the highest building in San Diego...}
+{4010}{}{I see. Let's switch the subject...}
+{5000}{}{Name's Dukles. Spent my entire life in this city and guess it will also be my burial one day... Heh...}
+{5010}{}{Alright, one more thing...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ay?}
+{2010}{}{What's this place?}
+{2020}{}{What's your name?}
+{2030}{}{Show me what you have.}
+{2040}{}{I will be going.}
+{3000}{}{Just a small bar it is, mate. I have an official permition from the tower to have my business here. Can't say it goes well, since most of the poor souls here don't have money for alcohole... Surviving only on tourists like you are. Wish to buy something?}
+{3010}{}{How is it.... living in such place?}
+{4000}{}{[ He carefully looks around, checking either there are any police patrols around ] To be honest with ya... This place is Hell. Fuckers from the tower don't give a damn about us. But since we can't go anywhere, most of us have to work for the sake of the Tower... But of course the rich bastards from upper floors won't even let us come anyhow closer to it. Have you seen the tower? Of course you did, it's the highest building in San Diego...}
+{4010}{}{I see. Let's switch the subject...}
+{5000}{}{Name's Dukles. Spent my entire life in this city and guess it will also be my burial one day... Heh...}
+{5010}{}{Alright, one more thing...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Ay?}
+{2010}{}{What's this place?}
+{2020}{}{What's your name?}
+{2030}{}{Show me what you have.}
+{2040}{}{I will be going.}
+{3000}{}{Just a small bar it is, mate. I have an official permition from the tower to have my business here. Can't say it goes well, since most of the poor souls here don't have money for alcohole... Surviving only on tourists like you are. Wish to buy something?}
+{3010}{}{How is it.... living in such place?}
+{4000}{}{[ He carefully looks around, checking either there are any police patrols around ] To be honest with ya... This place is Hell. Fuckers from the tower don't give a damn about us. But since we can't go anywhere, most of us have to work for the sake of the Tower... But of course the rich bastards from upper floors won't even let us come anyhow closer to it. Have you seen the tower? Of course you did, it's the highest building in San Diego...}
+{4010}{}{I see. Let's switch the subject...}
+{5000}{}{Name's Dukles. Spent my entire life in this city and guess it will also be my burial one day... Heh...}
+{5010}{}{Alright, one more thing...}
+

@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Guard}
+{200}{}{You see a guard.}
+{210}{}{Armor. Gun. It's a guard.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Keep it moving, pal.@@What are you looking at?@@Keep bothering me, see what happens.@@Don't bother me.@@Get moving.@@Leave me alone.@@Dammit, why does this always happen on my shift?@@I need more coffee for this.@@Go away.@@Don't push me!@@Fuck, are you always so annoying?@@I shouldn't have to deal with you.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Keep it moving, pal.@@What are you looking at?@@Keep  bothering me, see what happens.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Keep it moving, pal.@@What are you looking at?@@Keep  bothering me, see what happens.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Keep it moving, pal.@@What are you looking at?@@Keep  bothering me, see what happens.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Keep it moving, pal.@@What are you looking at?@@Keep  bothering me, see what happens.}
+

@@ -1,0 +1,16 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = -NiXIE-;
+@gender = 0;
+@age = 19;
+
+@special = 7 4 6 6 4 6 6;
+@xp = 3 4536 6000;
+@life = 80 80 0 0 0 0 0 0 0;
+@stats = 36 8 110600 2 0 30 12 8 4 6;
+@skills = 30 20 12 65 46 24 20 20 25 24 18 20 20 15 30 26 30 22 0;
+@traits = 558 563;
+@perks = 301 429;
+@reputation = 605:-97 634:26;
+@kills = 266:8 267:32 275;

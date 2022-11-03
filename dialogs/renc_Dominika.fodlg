@@ -1,0 +1,155 @@
+[comment]
+Choosing line 16010 should incapacitate Dominika until the player has left. My idea is to have Scruffy and Dominika passed out on the ground while the player can take their motorcycle if he is wise enough to outdrink Dominika and knock out Scruff or simply kill both of them.
+Also, line 11010 and 10020 
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+40 1010 D _param p ST_INTELLECT < 4 #
+2 1020 D _var n name_mem_npc_player = 0 #
+2 1030 D _var n name_mem_npc_player > 0 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+4 2030 #
+0 2040 @
+3 3000 None 0 #
+5 3010 #
+4 3020 #
+0 3030 @
+4 4000 None 0 #
+5 4010 #
+42 4020 #
+0 4030 #
+0 4040 @
+5 5000 None 0 #
+6 5010 #
+41 5020 #
+65507 5030 #
+0 5040 @
+6 6000 None 0 #
+7 6010 #
+8 6020 #
+0 6030 @
+7 7000 None 0 #
+8 7010 #
+0 7020 @
+8 8000 None 0 #
+9 8010 #
+9 8020 #
+0 8030 @
+9 9000 None 0 #
+10 9010 #
+10 9020 @
+10 10000 None 0 #
+11 10010 #
+12 10020 #
+13 10030 #
+0 10040 @
+11 11000 None 0 #
+12 11010 #
+0 11020 @
+12 12000 None 0 #
+0 12010 #
+0 12020 #
+0 12030 @
+13 13000 None 0 #
+14 13010 @
+14 14000 None 0 #
+12 14010 #
+15 14020 @
+15 15000 None 0 #
+16 15010 @
+16 16000 None 0 #
+12 16010 #
+17 16020 @
+17 17000 None 0 #
+0 17010 @
+40 18000 None 0 #
+41 18010 #
+0 18020 @
+41 19000 None 0 #
+42 19010 #
+0 19020 @
+42 20000 None 0 #
+65507 20010 #
+0 20020 &
+
+[engl]
+{100}{}{Dominika}
+{200}{}{It's Dominika. She's holding a guitar like she might sing, but she doesn't look happy.}
+{210}{}{You see Dominika. She's a very beautiful woman, but most of it has faded from years of self-abuse and drugs.}
+{1000}{}{Predialogue installations}
+{1010}{}{dumb}
+{1020}{}{- Does not know Player}
+{1030}{}{- Knows Player}
+{2000}{}{Hey there, how's it going? Thanks for rescuing me from that raider, these are tough times and unfortunately I was captured by him. I'll just take him with me and we'll be on our way...}
+{2010}{}{Hey, no problem! Have a wonderful rest of your day, I hope things improve!}
+{2020}{}{Do you need anything else before you go?}
+{2030}{}{Uhh, why are you taking him with you if he captured you?}
+{2040}{}{Uhh, okay then. [ end dialogue ]}
+{3000}{}{Hey, thanks... I think I'll be ok. I'll drop him off at the nearest police station, no worries.}
+{3010}{}{So, who are you anyway?}
+{3020}{}{That doesn't really make a lot of sense. If he's really dead, he's useless, and what if he wakes up somehow on the way there? You should just make sure he's dead and leave him.}
+{3030}{}{Well, all's well that ends well. Bye! [ end dialogue ]}
+{4000}{}{He's a loser, but for now he's my loser. Just get lost before I have to hurt you as well.}
+{4010}{}{So, you think you can threaten me now? Just who the hell are you, anyway?}
+{4020}{}{You're actually taking him with you? You're not too smart, I take it?}
+{4030}{}{You know, I did just save your life. You could be more grateful. [ end dialogue ]}
+{4040}{}{Whatever, I gotta go. [ end dialogue ]}
+{5000}{}{My name's Dominika, and you already met my pet Scruffy. You don't know who you're messing with. Turn around and walk away.}
+{5010}{}{Wait, you guys are a team?}
+{5020}{}{Dominika, why are you doing this? You don't have to live this way, you know.}
+{5030}{}{You are one sick puppy, bitch. I think I'll put you both to sleep for good. [ Attack ]}
+{5040}{}{Fine, fine. Everyone's always so pushy, geez. [ end dialogue ]}
+{6000}{}{He's not my team, he's my dog. Now, unless you want to be next, leave.}
+{6010}{}{So this was all your idea?}
+{6020}{}{He's... your dog? That's... pretty sexy actually. You know, you should dump this loser, I might be willing to be your "dog" for a while.}
+{6030}{}{Alright, I've had enough. Bye. [ end dialogue ]}
+{7000}{}{Of course it was all my idea! Now, get out of here, you're ruining everything!}
+{7010}{}{Hey, could you use a new pet? You're really attractive and I've never been on a leash before. Maybe this will be fun.}
+{7020}{}{Wow, yeah. This is awkward. I am out of here now. [ end dialogue ]}
+{8000}{}{*she thinks carefully and eyes you up and down for a minute, then looks over at Scruffy collapsed on the ground* Well, I am probably going to need a new dog, it's true. Alright, if you're sure, here's what you have to do. *she walks over to you and starts taking off your helmet*}
+{8010}{}{Please, continue. This is interesting.}
+{8020}{}{[ wait patiently ]}
+{8030}{}{This is getting way too personal. I'm out, sorry. [ end dialogue ]}
+{9000}{}{*after she has removed your helmet, she looks you in the eyes* Hey, you're really good looking, too!}
+{9010}{}{What, were you expecting something else?}
+{9020}{}{[ yawn ] Yes, yes. I am a star and I know it.}
+{10000}{}{Alright, not much left now. You'll make an excellent pet. *she starts eyeing you hungrily* Now, take off the rest of that hot, sweaty armor so I can have my way with you...}
+{10010}{}{Dominika, do you really think I am this stupid? I see right through your feminine wiles.}
+{10020}{}{Oh yeah, bring it on! [ remove your armor ]}
+{10030}{}{Dominika, before we get to the "main event", have a drink with me! Let's celebrate our new... partnership.}
+{10040}{}{Ugh, this is so not where I want to be. I'm gone, sorry. [ end dialogue ]}
+{11000}{}{Oh, come on sweetie. *she bats her eyelashes* It's the least I can do after you rescued me from that nasty old raider! Saving my life has made me really... *she twists her face and bites her lip softly in a cute but very frustrated expression*}
+{11010}{}{Oh yeah, here we go. I'm convinced. Let's do it. [ remove your armor ]}
+{11020}{}{Nope, not buying it. [ end dialogue ]}
+{12000}{}{*after spending several satisfying hours with Dominika doing exactly what you are told just for fun, you wake up uncomfortable with a kink in your neck and the feeling of sand in your mouth... as you look around you, you realize that Dominika and Scruffy and their motorcycle are gone, along with all your posessions*}
+{12010}{}{[ spend several hours howling at the sky, scratching yourself behind the ears, chasing rabbits across the desert ] [ end dialogue ]}
+{12020}{}{*sigh* Hey, at least it was worth it. [ end dialogue ]}
+{12030}{}{God damnit, this always happens!!! [ end dialogue ]}
+{13000}{}{Actually, check it out! I have some Booze here already. Let's get wasted!}
+{13010}{}{[ drink a shot with Dominika ]}
+{14000}{}{Whew, that was good! It's been a stressful day, and I am really looking forward to this. How about another before we get this party started?}
+{14010}{}{[ remove your armor ] Dominika, I'm having fun already! What do you want me to do?}
+{14020}{}{Oh yeah, I could do this all day. [ do another shot with Dominika ]}
+{15000}{}{I don't know if I'm quite there yet, I think I need one more. How about you?}
+{15010}{}{Hmm, why not? Good idea! [ do another shot with Dominika ]}
+{16000}{}{Alright, I'm starting to really feel it. This is fun! Ohhhh, I almost can't wait any longer, you'd better not make me wait too long...}
+{16010}{}{Alright Dominika, it's time. Tell me what you want from me, my queen... I am not worthy. [ remove your armor ]}
+{16020}{}{Let's do some more shots! [ pour some more drinks ]}
+{17000}{}{*Dominika is starting to slur her words and look very dizzy* Ugh, I don't feel so good. Maybe I should take a little... nap... *she passes out next to Scruffy on the ground*}
+{17010}{}{The moral of the story Dominika, is that it pays to be an alcoholic. You wouldn't know what to do with me anyway. Sayonara, suckers! [ end dialogue ]}
+{18000}{}{Ugh, it's the genius. Haven't you done enough damage for one day?}
+{18010}{}{Wait, what do you mean?}
+{18020}{}{Hmm. I guess so. Bye. [ end dialogue ]}
+{19000}{}{Damn, you really are a stupid mother fucker. Please leave before I have to rearrange your face.}
+{19010}{}{What the? Well, fuck you both, then!}
+{19020}{}{Whoa, ok! [ end dialogue ]}
+{20000}{}{Just leave already!}
+{20010}{}{I go where I want. [ Attack ]}
+{20020}{}{Okay, fine! [ end dialogue ]}
+

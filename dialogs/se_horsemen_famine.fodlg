@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Famine}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Anybody has something to eat?@@Hey, where are my chips?@@Hunger was supposed to be my job, but hey! I see you are doing good all on your own.@@Just look at us, we all lost our jobs!@@And what are we supposed to do now?@@Yeah... Who would even imagine, ey?@@War was very angry, it turned out humans managed to overcome all of his own techniques.@@Conquest was actually preparing... And now there is no point in anything... Especially for him.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Anybody has something to eat?@@Hey, where are my chips?@@Hunger was supposed to be my job, but hey! I see you are being good all on your own.@@Just look at us, we all lost our jobs!@@And what are we supposed to do now?@@Yeah... Who would even imagine, ey?@@War was very angry, it turned out humans managed to overcome all of his own techniques.@@Conquest was actually preparing... And now there is no point in anything... Especially for him.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Anybody has something to eat?@@Hey, where are my chips?@@Hunger was supposed to be my job, but hey! I see you are being good all on your own.@@Just look at us, we all lost our jobs!@@And what are we supposed to do now?@@Yeah... Who would even imagine, ey?@@War was very angry, it turned out humans managed to overcome all of his own techniques.@@Conquest was actually preparing... And now there is no point in anything... Especially for him.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Anybody has something to eat?@@Hey, where are my chips?@@Hunger was supposed to be my job, but hey! I see you are being good all on your own.@@Just look at us, we all lost our jobs!@@And what are we supposed to do now?@@Yeah... Who would even imagine, ey?@@War was very angry, it turned out humans managed to overcome all of his own techniques.@@Conquest was actually preparing... And now there is no point in anything... Especially for him.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Anybody has something to eat?@@Hey, where are my chips?@@Hunger was supposed to be my job, but hey! I see you are being good all on your own.@@Just look at us, we all lost our jobs!@@And what are we supposed to do now?@@Yeah... Who would even imagine, ey?@@War was very angry, it turned out humans managed to overcome all of his own techniques.@@Conquest was actually preparing... And now there is no point in anything... Especially for him.}
+

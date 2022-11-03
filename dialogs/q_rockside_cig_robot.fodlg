@@ -1,0 +1,186 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_v99_cigs_mashine = 0 #
+0 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+6 4010 R _var p q_v99_cigs_mashine = 1 #
+0 4020 @
+5 5000 None 0 @
+6 6000 None 0 #
+9 6010 #
+9 6020 #
+7 6030 @
+7 7000 None 0 #
+8 7010 #
+9 7020 #
+9 7030 @
+8 8000 None 0 #
+11 8010 R _var p q_v99_cigs_mashine = 2 R _item p PID_CIGARETTES + 7 R _param p ST_EXPERIENCE + 100 #
+10 8020 #
+9 8030 @
+9 9000 None 0 @
+10 10000 None 0 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Cig Selling Robot}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Howdy, partner!}
+{2010}{}{Hey, do you sell cigs, buddy?}
+{2020}{}{A talking cig selling robot... Fantastic, now I've seen everything. [ end dialogue ]}
+{2030}{}{Hey hey... I better go, alright? [ end dialogue ]}
+{3000}{}{Sure, it will cost you 5 dollars per pack!}
+{3010}{}{Dollars? But... I have no dollars.}
+{4000}{}{No money? What a pity! But don't worry, you can get it in some other way! What about playing a little quiz? I will ask you 3 questions, if you answer them correctly I will give you a pack of cigs! You will have only 1 try.}
+{4010}{}{Alright...}
+{4020}{}{Later maybe... [ end dialogue ]}
+{5000}{}{Come back next time then maybe.}
+{6000}{}{Alright, so the first question is... What is the capital of our country?}
+{6010}{}{New York.}
+{6020}{}{Moscow}
+{6030}{}{Washington}
+{7000}{}{Great! Now second question is... What is the name of our country?}
+{7010}{}{United States of America}
+{7020}{}{Imperium of Man}
+{7030}{}{Arztocka!}
+{8000}{}{Good enough! Now the third question... How many states does our country have?}
+{8010}{}{51}
+{8020}{}{50}
+{8030}{}{5}
+{9000}{}{Oh no... this is an incorrect answer!}
+{10000}{}{Oh no, no... Seems like you've forgotten about Canada! It was annexed, didn't you know?}
+{11000}{}{Great job! Here is your pack of cigs!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Howdy, partner!}
+{2010}{}{Hey, do you sell some cigs, buddy?}
+{2020}{}{A talking cig selling robot... Fantastic, now I've seen everything.}
+{2030}{}{Hey hey... I better go, alright?}
+{3000}{}{Sure, it will cost you 5 dollars per one!}
+{3010}{}{Dollars? But... I have no dollars.}
+{4000}{}{No money? What a pity! But don't worry, you can get it in some other way! What about playing a little quize? I will ask you 3 questions, if you answer them correct I will give you a pack of cigs. You will have only 1 try.}
+{4010}{}{Alright...}
+{4020}{}{Later maybe...}
+{5000}{}{Come back next time then maybe.}
+{6000}{}{Alright, so the first question is... What is the capital of our country?}
+{6010}{}{New York.}
+{6020}{}{Moscow}
+{6030}{}{Washington}
+{7000}{}{Great! Now second question is... What is the name of our country?}
+{7010}{}{United States of America}
+{7020}{}{Imperium of Man}
+{7030}{}{Arztocka!}
+{8000}{}{Good enough! Now the third question... How many states does our country have?}
+{8010}{}{51}
+{8020}{}{50}
+{8030}{}{5}
+{9000}{}{Oh no... this is an incorrect answer!}
+{10000}{}{Oh no, no... Seems like you've forgotten about Canada! It was annexed, didn't you know?}
+{11000}{}{Great job! Here is your pack of cigs!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Howdy, partner!}
+{2010}{}{Hey, do you sell some cigs, buddy?}
+{2020}{}{A talking cig selling robot... Fantastic, now I've seen everything.}
+{2030}{}{Hey hey... I better go, alright?}
+{3000}{}{Sure, it will cost you 5 dollars per one!}
+{3010}{}{Dollars? But... I have no dollars.}
+{4000}{}{No money? What a pity! But don't worry, you can get it in some other way! What about playing a little quize? I will ask you 3 questions, if you answer them correct I will give you a pack of cigs. You will have only 1 try.}
+{4010}{}{Alright...}
+{4020}{}{Later maybe...}
+{5000}{}{Come back next time then maybe.}
+{6000}{}{Alright, so the first question is... What is the capital of our country?}
+{6010}{}{New York.}
+{6020}{}{Moscow}
+{6030}{}{Washington}
+{7000}{}{Great! Now second question is... What is the name of our country?}
+{7010}{}{United States of America}
+{7020}{}{Imperium of Man}
+{7030}{}{Arztocka!}
+{8000}{}{Good enough! Now the third question... How many states does our country have?}
+{8010}{}{51}
+{8020}{}{50}
+{8030}{}{5}
+{9000}{}{Oh no... this is an incorrect answer!}
+{10000}{}{Oh no, no... Seems like you've forgotten about Canada! It was annexed, didn't you know?}
+{11000}{}{Great job! Here is your pack of cigs!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Howdy, partner!}
+{2010}{}{Hey, do you sell some cigs, buddy?}
+{2020}{}{A talking cig selling robot... Fantastic, now I've seen everything.}
+{2030}{}{Hey hey... I better go, alright?}
+{3000}{}{Sure, it will cost you 5 dollars per one!}
+{3010}{}{Dollars? But... I have no dollars.}
+{4000}{}{No money? What a pity! But don't worry, you can get it in some other way! What about playing a little quize? I will ask you 3 questions, if you answer them correct I will give you a pack of cigs. You will have only 1 try.}
+{4010}{}{Alright...}
+{4020}{}{Later maybe...}
+{5000}{}{Come back next time then maybe.}
+{6000}{}{Alright, so the first question is... What is the capital of our country?}
+{6010}{}{New York.}
+{6020}{}{Moscow}
+{6030}{}{Washington}
+{7000}{}{Great! Now second question is... What is the name of our country?}
+{7010}{}{United States of America}
+{7020}{}{Imperium of Man}
+{7030}{}{Arztocka!}
+{8000}{}{Good enough! Now the third question... How many states does our country have?}
+{8010}{}{51}
+{8020}{}{50}
+{8030}{}{5}
+{9000}{}{Oh no... this is an incorrect answer!}
+{10000}{}{Oh no, no... Seems like you've forgotten about Canada! It was annexed, didn't you know?}
+{11000}{}{Great job! Here is your pack of cigs!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Howdy, partner!}
+{2010}{}{Hey, do you sell some cigs, buddy?}
+{2020}{}{A talking cig selling robot... Fantastic, now I've seen everything.}
+{2030}{}{Hey hey... I better go, alright?}
+{3000}{}{Sure, it will cost you 5 dollars per one!}
+{3010}{}{Dollars? But... I have no dollars.}
+{4000}{}{No money? What a pity! But don't worry, you can get it in some other way! What about playing a little quize? I will ask you 3 questions, if you answer them correct I will give you a pack of cigs. You will have only 1 try.}
+{4010}{}{Alright...}
+{4020}{}{Later maybe...}
+{5000}{}{Come back next time then maybe.}
+{6000}{}{Alright, so the first question is... What is the capital of our country?}
+{6010}{}{New York.}
+{6020}{}{Moscow}
+{6030}{}{Washington}
+{7000}{}{Great! Now second question is... What is the name of our country?}
+{7010}{}{United States of America}
+{7020}{}{Imperium of Man}
+{7030}{}{Arztocka!}
+{8000}{}{Good enough! Now the third question... How many states does our country have?}
+{8010}{}{51}
+{8020}{}{50}
+{8030}{}{5}
+{9000}{}{Oh no... this is an incorrect answer!}
+{10000}{}{Oh no, no... Seems like you've forgotten about Canada! It was annexed, didn't you know?}
+{11000}{}{Great job! Here is your pack of cigs!}
+

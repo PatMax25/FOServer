@@ -1,0 +1,46 @@
+[comment]
+Needs to be reworked, see http://www.falloutwiki.com/MAXSON.MSG
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{General Maxson}
+{200}{}{You see General Maxson.}
+{210}{}{You see General John Maxson.}
+{240}{}{You see a dead elder.}
+{260}{}{You see a brutally slain elder.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{You look a little lost@@Are you sure you didn't go to the wrong floor?@@I don't have time to deal with you.@@Look, I'm in the middle of something important.@@Talk to someone else if you need to make a report.@@It isn't my job to talk to you, you know.@@Come back if you are here on official business.@@Yes, nice to meet you. Now, please leave.@@We don't like people who aren't supposed to be here...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{You look a little lost@@Are you sure you didn't go to the wrong floor?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{You look a little lost@@Are you sure you didn't go to the wrong floor?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{You look a little lost@@Are you sure you didn't go to the wrong floor?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{You look a little lost@@Are you sure you didn't go to the wrong floor?}
+

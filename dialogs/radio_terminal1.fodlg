@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 #
+0 2010 R _script dialog@r_OpenDoor 2 45 60 #
+0 2020 &
+
+[engl]
+{100}{}{Child of Colt}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome. Please authorize. *you briefly check through the system... it seems like someone has already hacked it!..* ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Leave ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome. Please authorize. ( You briefly check through the system. It seems like someone has already hacked it. ) ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Leave ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome. Please authorize. ( You briefly check through the system. It seems like someone has already hacked it. ) ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Leave ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome. Please authorize. ( You briefly check through the system. It seems like someone has already hacked it. ) ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Leave ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome. Please authorize. ( You briefly check through the system. It seems like someone has already hacked it. ) ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Leave ]}
+

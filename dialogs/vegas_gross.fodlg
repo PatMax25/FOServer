@@ -1,0 +1,108 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p vegas_douglas = 1 #
+6 1020 D _var p vegas_douglas = 3 #
+7 1030 D _var p vegas_douglas = 2 @
+2 2000 None 0 #
+3 2010 D _var p vegas_douglas = 1 #
+0 2020 @
+3 3000 None 0 #
+4 3010 D _var p vegas_douglas = 1 R _var p vegas_douglas = 2 R _script dialog@r_OpenDoor 2 12 1000 #
+0 3020 @
+4 4000 None 0 @
+6 5000 None 0 @
+7 6000 None 0 #
+0 6010 R _script dialog@r_OpenDoor 2 12 1000 &
+
+[engl]
+{100}{}{Captain Gross}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{I guess I came to the wrong place... I will be going.}
+{1030}{}{ddd}
+{2000}{}{Are you from Douglas? He told me about reinforcements through the radio.}
+{2010}{}{Yes, I am from him.}
+{2020}{}{I guess I came to the wrong place... I will be going. [ end dialogue ]}
+{3000}{}{Good. We are preparing to storm this facility. Our mission - clear all mutants and download the data from the terminal. Tell me once you are ready. }
+{3010}{}{I am ready. Let's rock!}
+{3020}{}{I need to prepare first. Will be back soon. [ end dialogue ]}
+{4000}{}{WE ARE STARTING, PEOPLE! PREPARE YOURSELF!}
+{5000}{}{Get the data from the terminal and bring it to Douglas.}
+{6000}{}{What?}
+{6010}{}{Bloody door is locked! We need to unlock it. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{I guess I came to the wrong place... I will be going.}
+{1030}{}{ddd}
+{2000}{}{Are you from Douglas? He told me about reinforcements through the radio.}
+{2010}{}{Yes, I am from him.}
+{2020}{}{I guess I came to the wrong place... I will be going.}
+{3000}{}{Good. We are preparing to storm this facility. Our mission - clear all mutants and load the data from the terminal. Tell me once you are ready. }
+{3010}{}{I am ready. Let's rock!}
+{3020}{}{I need to prepare first. Will be back soon.}
+{4000}{}{WE ARE STARTING, PEOPLE! PREPARE YOURSELF!}
+{5000}{}{Get the data from the terminal and bring it to Douglas.}
+{6000}{}{What?}
+{6010}{}{Bloody door is locked! We need to unlock it.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{I guess I came to the wrong place... I will be going.}
+{1030}{}{ddd}
+{2000}{}{Are you from Douglas? He told me about reinforcements through the radio.}
+{2010}{}{Yes, I am from him.}
+{2020}{}{I guess I came to the wrong place... I will be going.}
+{3000}{}{Good. We are preparing to storm this facility. Our mission - clear all mutants and load the data from the terminal. Tell me once you are ready. }
+{3010}{}{I am ready. Let's rock!}
+{3020}{}{I need to prepare first. Will be back soon.}
+{4000}{}{WE ARE STARTING, PEOPLE! PREPARE YOURSELF!}
+{5000}{}{Get the data from the terminal and bring it to Douglas.}
+{6000}{}{What?}
+{6010}{}{Bloody door is locked! We need to unlock it.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{I guess I came to the wrong place... I will be going.}
+{1030}{}{ddd}
+{2000}{}{Are you from Douglas? He told me about reinforcements through the radio.}
+{2010}{}{Yes, I am from him.}
+{2020}{}{I guess I came to the wrong place... I will be going.}
+{3000}{}{Good. We are preparing to storm this facility. Our mission - clear all mutants and load the data from the terminal. Tell me once you are ready. }
+{3010}{}{I am ready. Let's rock!}
+{3020}{}{I need to prepare first. Will be back soon.}
+{4000}{}{WE ARE STARTING, PEOPLE! PREPARE YOURSELF!}
+{5000}{}{Get the data from the terminal and bring it to Douglas.}
+{6000}{}{What?}
+{6010}{}{Bloody door is locked! We need to unlock it.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{I guess I came to the wrong place... I will be going.}
+{1030}{}{ddd}
+{2000}{}{Are you from Douglas? He told me about reinforcements through the radio.}
+{2010}{}{Yes, I am from him.}
+{2020}{}{I guess I came to the wrong place... I will be going.}
+{3000}{}{Good. We are preparing to storm this facility. Our mission - clear all mutants and load the data from the terminal. Tell me once you are ready. }
+{3010}{}{I am ready. Let's rock!}
+{3020}{}{I need to prepare first. Will be back soon.}
+{4000}{}{WE ARE STARTING, PEOPLE! PREPARE YOURSELF!}
+{5000}{}{Get the data from the terminal and bring it to Douglas.}
+{6000}{}{What?}
+{6010}{}{Bloody door is locked! We need to unlock it.}
+

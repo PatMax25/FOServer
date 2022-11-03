@@ -1,0 +1,90 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+5 2020 D _var p sas_garage = 1 R _var p sas_garage = 0 R _script dialog@r_OpenDoor 2 444 250 #
+6 2030 D _var p sas_garage = 0 #
+0 2040 @
+3 3000 None 0 #
+2 3010 @
+5 4000 None 0 @
+6 5000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Sierra Backup Terminal #417 ]}
+{2010}{}{[ From: Oliver ]}
+{2020}{}{[ open garage doors ]}
+{2030}{}{[ open garage doors ]}
+{2040}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ Guess what? Somebody stole shells from the garage again. The entire thing made HQ so mad that now we are ordered to open this damn garage only via confirmation from the underground shelter. Do you know what this means for me? More headache running up and down to open the fucking garage. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Acess Confirmed. Opening... ]}
+{5000}{}{[ Access Denied. Please get confirmation from S.A.S. ( Sierra Antiblast Shelter ) ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Sierra backup terminal #417 ]}
+{2010}{}{[ From: Oliver ]}
+{2020}{}{[ Open garage doors ]}
+{2030}{}{[ Open garage doors ]}
+{2040}{}{[ Exit ]}
+{3000}{}{[ Guess what? Somebody stole shells from the garage again. The entire thing made HQ so mad that now we are ordered to open this damn garage only via confirmation from the underground shelter. Do you know what this means for me? More headache running up and down to open the fucking garage. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Acess cofirmed. Opening... ]}
+{5000}{}{[ Access denied. Please get your confirmation from S.A.S. ( Sierra Antiblast Shelter ) downstairs. ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Sierra backup terminal #417 ]}
+{2010}{}{[ From: Oliver ]}
+{2020}{}{[ Open garage doors ]}
+{2030}{}{[ Open garage doors ]}
+{2040}{}{[ Exit ]}
+{3000}{}{[ Guess what? Somebody stole shells from the garage again. The entire thing made HQ so mad that now we are ordered to open this damn garage only via confirmation from the underground shelter. Do you know what this means for me? More headache running up and down to open the fucking garage. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Acess cofirmed. Opening... ]}
+{5000}{}{[ Access denied. Please get your confirmation from S.A.S. ( Sierra Antiblast Shelter ) downstairs. ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Sierra backup terminal #417 ]}
+{2010}{}{[ From: Oliver ]}
+{2020}{}{[ Open garage doors ]}
+{2030}{}{[ Open garage doors ]}
+{2040}{}{[ Exit ]}
+{3000}{}{[ Guess what? Somebody stole shells from the garage again. The entire thing made HQ so mad that now we are ordered to open this damn garage only via confirmation from the underground shelter. Do you know what this means for me? More headache running up and down to open the fucking garage. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Acess cofirmed. Opening... ]}
+{5000}{}{[ Access denied. Please get your confirmation from S.A.S. ( Sierra Antiblast Shelter ) downstairs. ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Sierra backup terminal #417 ]}
+{2010}{}{[ From: Oliver ]}
+{2020}{}{[ Open garage doors ]}
+{2030}{}{[ Open garage doors ]}
+{2040}{}{[ Exit ]}
+{3000}{}{[ Guess what? Somebody stole shells from the garage again. The entire thing made HQ so mad that now we are ordered to open this damn garage only via confirmation from the underground shelter. Do you know what this means for me? More headache running up and down to open the fucking garage. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ Acess cofirmed. Opening... ]}
+{5000}{}{[ Access denied. Please get your confirmation from S.A.S. ( Sierra Antiblast Shelter ) downstairs. ]}
+

@@ -1,0 +1,243 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+6 2010 D _script map_events@d_canenclave 0  R _script map_events@dlg_toenclave 0  #
+7 2020 D _script map_events@d_canbos 0  R _script map_events@dlg_tobos 0  #
+8 2030 D _script map_events@d_canncr 0  R _script map_events@dlg_toncr 0  #
+8 2040 D _script map_events@d_canvc 0  R _script map_events@dlg_tovc 0  #
+6 2050 D _script map_events@d_candef 0  R _script map_events@dlg_todef 0  #
+3 2060 D _param p ST_NPC_ROLE = 203 #
+9 2070 D _var p name_mem_npc_player = 0 #
+8 2080 D _script map_events@d_canunity 0  R _script map_events@dlg_tounity 0  #
+0 2090 @
+3 3000 None 0 #
+4 3010 #
+5 3020 @
+4 4000 None 0 #
+4 4010 R _script map_events@dlg_disenclave 0  #
+4 4020 R _script map_events@dlg_disbos 0  #
+4 4030 R _script map_events@dlg_disncr 0  #
+4 4040 R _script map_events@dlg_disvc 0  #
+4 4050 R _script map_events@dlg_disdef 0  #
+4 4060 R _script map_events@dlg_disunity 0  #
+5 4070 @
+5 5000 None 0 #
+5 5010 R _script map_events@dlg_addenclave 0  #
+5 5020 R _script map_events@dlg_addbos 0  #
+5 5030 R _script map_events@dlg_addncr 0  #
+5 5040 R _script map_events@dlg_addvc 0  #
+5 5050 R _script map_events@dlg_adddef 0  #
+5 5060 R _script map_events@dlg_addunity 0  #
+4 5070 @
+6 6000 None 0 @
+7 7000 None 0 @
+8 8000 None 0 @
+9 9000 None 0 #
+2 9010 R _var p name_mem_npc_player = 1 &
+
+[engl]
+{100}{}{Team recruiter}
+{200}{}{You see the team recruiter, talk with him to join a faction.}
+{240}{}{You see a dead follower of the apocalypse.}
+{260}{}{You see a slain follower of the apocalypse.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Recruitment for the upcoming event is now OPEN. Willing to take part in the upcoming massacre? Which side would you like to join?}
+{2010}{}{Enclave.}
+{2020}{}{Brotherhood of Steel.}
+{2030}{}{NCR... I guess.}
+{2040}{}{I want to be with Vault City.}
+{2050}{}{Gonna choose to be neutral and defend the town's independence.}
+{2060}{}{I BURST here, and the wasteland is safe. [ show your pass ]}
+{2070}{}{Black Cross Department? What is your organization about?}
+{2080}{}{I want to serve the Master! Let me join Unity.}
+{2090}{}{I better go somewhere else.}
+{3000}{}{Ouh... Ehm... Sure thing, my Lord. What can I do for you?}
+{3010}{}{BLOCK}
+{3020}{}{ALLOW}
+{4000}{}{Engaging the protocole... Done. Which side would you like to block?}
+{4010}{}{ENCLAVE}
+{4020}{}{BOS}
+{4030}{}{NCR}
+{4040}{}{VC}
+{4050}{}{DEF}
+{4060}{}{UNITY}
+{4070}{}{NOW ALLOW}
+{5000}{}{Engaging the protocole... Done. Which side would you like to allow?}
+{5010}{}{ENCLAVE}
+{5020}{}{BOS}
+{5030}{}{NCR}
+{5040}{}{VC}
+{5050}{}{DEF}
+{5060}{}{UNITY}
+{5070}{}{ME BLOCK}
+{6000}{}{Here we go. Please note that we won't pay your family any compensation in the event of your death. NEXT ONE!}
+{7000}{}{Here you go. NEXT ONE!}
+{8000}{}{Have a nice day. And right... NEXT ONE!}
+{9000}{}{Uh... Listen, I have many things to do. Lets skip all the unimportant questions, shall we? If you really want to something about our organisation - then just visit our office. Now, lets start from the very begining...}
+{9010}{}{Wait, I...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Black Cross Department army distributer is listening. Willing to take part in the upcoming massacre? Which side would you like to join?}
+{2010}{}{Enclave.}
+{2020}{}{Brotherhood of Steel.}
+{2030}{}{NCR... I guess.}
+{2040}{}{I want be with Vault City.}
+{2050}{}{Gonna choose to be neutral and defend town's independence.}
+{2060}{}{I BURST here, wasteland is safe. [ show your pass ]}
+{2070}{}{Black Cross Department? What is your organisation about?}
+{2080}{}{I want to serve to Master! Let me join Unity}
+{2090}{}{I better go somewhere else.}
+{3000}{}{Ouh... Ehm... Sure thing, my Lord. What can I do for you?}
+{3010}{}{BLOCK}
+{3020}{}{ALLOW}
+{4000}{}{Engaging the protocole... Done. Which side would you like to block?}
+{4010}{}{ENCLAVE}
+{4020}{}{BOS}
+{4030}{}{NCR}
+{4040}{}{VC}
+{4050}{}{DEF}
+{4060}{}{UNITY}
+{4070}{}{NOW ALLOW}
+{5000}{}{Engaging the protocole... Done. Which side would you like to allow?}
+{5010}{}{ENCLAVE}
+{5020}{}{BOS}
+{5030}{}{NCR}
+{5040}{}{VC}
+{5050}{}{DEF}
+{5060}{}{UNITY}
+{5070}{}{ME BLOCK}
+{6000}{}{Here we go. Please notice, that we won't pay your family compensation for your death. NEXT ONE!}
+{7000}{}{Here you go. NEXT ONE!}
+{8000}{}{Have a nice day. And right... NEXT ONE!}
+{9000}{}{Uh... Listen, I have many things to do. Lets skip all unimportant questions, shall we? If you really want to something about our organisation - then just visit our office, ok? Now lets start from the very begining...}
+{9010}{}{Wait, I...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Black Cross Department army distributer is listening. Willing to take part in the upcoming massacre? Which side would you like to join?}
+{2010}{}{Enclave.}
+{2020}{}{Brotherhood of Steel.}
+{2030}{}{NCR... I guess.}
+{2040}{}{I want be with Vault City.}
+{2050}{}{Gonna choose to be neutral and defend town's independence.}
+{2060}{}{I BURST here, wasteland is safe. [ show your pass ]}
+{2070}{}{Black Cross Department? What is your organisation about?}
+{2080}{}{I want to serve to Master! Let me join Unity}
+{2090}{}{I better go somewhere else.}
+{3000}{}{Ouh... Ehm... Sure thing, my Lord. What can I do for you?}
+{3010}{}{BLOCK}
+{3020}{}{ALLOW}
+{4000}{}{Engaging the protocole... Done. Which side would you like to block?}
+{4010}{}{ENCLAVE}
+{4020}{}{BOS}
+{4030}{}{NCR}
+{4040}{}{VC}
+{4050}{}{DEF}
+{4060}{}{UNITY}
+{4070}{}{NOW ALLOW}
+{5000}{}{Engaging the protocole... Done. Which side would you like to allow?}
+{5010}{}{ENCLAVE}
+{5020}{}{BOS}
+{5030}{}{NCR}
+{5040}{}{VC}
+{5050}{}{DEF}
+{5060}{}{UNITY}
+{5070}{}{ME BLOCK}
+{6000}{}{Here we go. Please notice, that we won't pay your family compensation for your death. NEXT ONE!}
+{7000}{}{Here you go. NEXT ONE!}
+{8000}{}{Have a nice day. And right... NEXT ONE!}
+{9000}{}{Uh... Listen, I have many things to do. Lets skip all unimportant questions, shall we? If you really want to something about our organisation - then just visit our office, ok? Now lets start from the very begining...}
+{9010}{}{Wait, I...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Black Cross Department army distributer is listening. Willing to take part in the upcoming massacre? Which side would you like to join?}
+{2010}{}{Enclave.}
+{2020}{}{Brotherhood of Steel.}
+{2030}{}{NCR... I guess.}
+{2040}{}{I want be with Vault City.}
+{2050}{}{Gonna choose to be neutral and defend town's independence.}
+{2060}{}{I BURST here, wasteland is safe. [ show your pass ]}
+{2070}{}{Black Cross Department? What is your organisation about?}
+{2080}{}{I want to serve to Master! Let me join Unity}
+{2090}{}{I better go somewhere else.}
+{3000}{}{Ouh... Ehm... Sure thing, my Lord. What can I do for you?}
+{3010}{}{BLOCK}
+{3020}{}{ALLOW}
+{4000}{}{Engaging the protocole... Done. Which side would you like to block?}
+{4010}{}{ENCLAVE}
+{4020}{}{BOS}
+{4030}{}{NCR}
+{4040}{}{VC}
+{4050}{}{DEF}
+{4060}{}{UNITY}
+{4070}{}{NOW ALLOW}
+{5000}{}{Engaging the protocole... Done. Which side would you like to allow?}
+{5010}{}{ENCLAVE}
+{5020}{}{BOS}
+{5030}{}{NCR}
+{5040}{}{VC}
+{5050}{}{DEF}
+{5060}{}{UNITY}
+{5070}{}{ME BLOCK}
+{6000}{}{Here we go. Please notice, that we won't pay your family compensation for your death. NEXT ONE!}
+{7000}{}{Here you go. NEXT ONE!}
+{8000}{}{Have a nice day. And right... NEXT ONE!}
+{9000}{}{Uh... Listen, I have many things to do. Lets skip all unimportant questions, shall we? If you really want to something about our organisation - then just visit our office, ok? Now lets start from the very begining...}
+{9010}{}{Wait, I...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Black Cross Department army distributer is listening. Willing to take part in the upcoming massacre? Which side would you like to join?}
+{2010}{}{Enclave.}
+{2020}{}{Brotherhood of Steel.}
+{2030}{}{NCR... I guess.}
+{2040}{}{I want be with Vault City.}
+{2050}{}{Gonna choose to be neutral and defend town's independence.}
+{2060}{}{I BURST here, wasteland is safe. [ show your pass ]}
+{2070}{}{Black Cross Department? What is your organisation about?}
+{2080}{}{I want to serve to Master! Let me join Unity}
+{2090}{}{I better go somewhere else.}
+{3000}{}{Ouh... Ehm... Sure thing, my Lord. What can I do for you?}
+{3010}{}{BLOCK}
+{3020}{}{ALLOW}
+{4000}{}{Engaging the protocole... Done. Which side would you like to block?}
+{4010}{}{ENCLAVE}
+{4020}{}{BOS}
+{4030}{}{NCR}
+{4040}{}{VC}
+{4050}{}{DEF}
+{4060}{}{UNITY}
+{4070}{}{NOW ALLOW}
+{5000}{}{Engaging the protocole... Done. Which side would you like to allow?}
+{5010}{}{ENCLAVE}
+{5020}{}{BOS}
+{5030}{}{NCR}
+{5040}{}{VC}
+{5050}{}{DEF}
+{5060}{}{UNITY}
+{5070}{}{ME BLOCK}
+{6000}{}{Here we go. Please notice, that we won't pay your family compensation for your death. NEXT ONE!}
+{7000}{}{Here you go. NEXT ONE!}
+{8000}{}{Have a nice day. And right... NEXT ONE!}
+{9000}{}{Uh... Listen, I have many things to do. Lets skip all unimportant questions, shall we? If you really want to something about our organisation - then just visit our office, ok? Now lets start from the very begining...}
+{9010}{}{Wait, I...}
+

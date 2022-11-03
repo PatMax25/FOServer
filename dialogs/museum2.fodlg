@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Here is a wonderful creation of our collegues from ROBCO - Mr. Handy. The robot who changed our lives. This fellow can do everything you wish him to do. Here you can see Mr. Handy playing with a dog. Isn't it lovely? Did we mention that visitors of our museum get the discount on ROBCO products? Buy your own Mr. Handy for just 75000 dollars instead of 78000! ]}
+{2010}{}{[ Leave ]}
+

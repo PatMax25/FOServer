@@ -1,0 +1,156 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+6 2030 #
+8 2040 @
+3 3000 None 0 #
+3 3010 D _item p PID_BOTTLE_CAPS } 35 R _item p PID_BOTTLE_CAPS - 35 R _item p PID_BEER + 1 #
+3 3020 D _item p PID_BOTTLE_CAPS } 55 R _item p PID_BOTTLE_CAPS - 55 R _item p PID_BOOZE + 1 #
+3 3030 D _item p PID_BOTTLE_CAPS } 100 R _item p PID_BOTTLE_CAPS - 100 R _item p PID_GAMMA_GULP_BEER + 1 #
+2 3040 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+7 6010 #
+2 6020 @
+7 7000 None 0 #
+2 7010 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Mr. Gutsy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely time of the day to you, dear traveller. Welcome to Mr. Gutsy's Bar. I am Mr. Gutsy and I will be your host today. Wish to buy something to drink?}
+{2010}{}{I wish to get a cold one. What do you have?}
+{2020}{}{A robot host?}
+{2030}{}{What can you tell me about this settlement?}
+{2040}{}{I need to go. [ end dialogue ]}
+{3000}{}{Sure. Selling beer for 35 caps, booze for 55 caps and Gamma Gulp for 100 caps.}
+{3010}{}{Give me a bottle of beer.}
+{3020}{}{Give me a bottle of booze.}
+{3030}{}{Give me a bottle of Gamma Gulp.}
+{3040}{}{Let's switch the topic.}
+{4000}{}{Yes, I am the owner of the bar. I built it and set it all working. And yes, I am just a robot, but unlike most of my robotic collegues I have a bit modified AI.}
+{4010}{}{What's the point of opening the second bar in such a small settlement?}
+{5000}{}{A fair competition! We are in America and we can't let monopoly grow anywhere.}
+{5010}{}{Right, let's talk about something else.}
+{6000}{}{This lovely settlement is called Reactor 58, but before that it was named Sarmatia. The original founder of it was named Mirim and unfortunately he's been missing for several years already.}
+{6010}{}{What about people here?}
+{6020}{}{Fine, one more thing to discuss...}
+{7000}{}{Everybody is usually friendly to each other here. However locals have some conflicts with these guys from the ranch...}
+{7010}{}{I see, let's switch the topic.}
+{8000}{}{Come back soon!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely time of the day to you, dear traveller. Welcome to Mr. Gutsy's Bar. I am Mr. Gutsy and I will be your host today. Wish to buy something to drink?}
+{2010}{}{I wish to get a cold one. What do you have?}
+{2020}{}{A robot host?}
+{2030}{}{What can you tell me about this settlement?}
+{2040}{}{I need to go.}
+{3000}{}{Sure. Selling beer for 35 caps, booze for 55 caps and Gamma Gulp for 100 caps.}
+{3010}{}{Give me a bottle of beer.}
+{3020}{}{Give me a bottle of booze.}
+{3030}{}{Give me a bottle of Gamma Gulp.}
+{3040}{}{Let's switch the topic.}
+{4000}{}{Yes, I am the owner of the bar. I built it and set it all working. And yes, I am just a robot, but unlike most of my robotic collegues I have a bit modified AI.}
+{4010}{}{What's the point of opening the second bar in such a small settlement?}
+{5000}{}{A fair competition! We are in America and we can't let monopoly grow anywhere.}
+{5010}{}{Right, let's talk about something else.}
+{6000}{}{This lovely settlement is called Reactor 58, but before that it was named Sarmatia. The original founder of it was named Mirim and unfortunately he's been missing for several years already.}
+{6010}{}{What about people here?}
+{6020}{}{Fine, one more thing to discuss...}
+{7000}{}{Everybody is usually friendly to each other here. However locals have some conflicts with these guys from the ranch...}
+{7010}{}{I see, let's switch the topic.}
+{8000}{}{Come back soon!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely time of the day to you, dear traveller. Welcome to Mr. Gutsy's Bar. I am Mr. Gutsy and I will be your host today. Wish to buy something to drink?}
+{2010}{}{I wish to get a cold one. What do you have?}
+{2020}{}{A robot host?}
+{2030}{}{What can you tell me about this settlement?}
+{2040}{}{I need to go.}
+{3000}{}{Sure. Selling beer for 35 caps, booze for 55 caps and Gamma Gulp for 100 caps.}
+{3010}{}{Give me a bottle of beer.}
+{3020}{}{Give me a bottle of booze.}
+{3030}{}{Give me a bottle of Gamma Gulp.}
+{3040}{}{Let's switch the topic.}
+{4000}{}{Yes, I am the owner of the bar. I built it and set it all working. And yes, I am just a robot, but unlike most of my robotic collegues I have a bit modified AI.}
+{4010}{}{What's the point of opening the second bar in such a small settlement?}
+{5000}{}{A fair competition! We are in America and we can't let monopoly grow anywhere.}
+{5010}{}{Right, let's talk about something else.}
+{6000}{}{This lovely settlement is called Reactor 58, but before that it was named Sarmatia. The original founder of it was named Mirim and unfortunately he's been missing for several years already.}
+{6010}{}{What about people here?}
+{6020}{}{Fine, one more thing to discuss...}
+{7000}{}{Everybody is usually friendly to each other here. However locals have some conflicts with these guys from the ranch...}
+{7010}{}{I see, let's switch the topic.}
+{8000}{}{Come back soon!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely time of the day to you, dear traveller. Welcome to Mr. Gutsy's Bar. I am Mr. Gutsy and I will be your host today. Wish to buy something to drink?}
+{2010}{}{I wish to get a cold one. What do you have?}
+{2020}{}{A robot host?}
+{2030}{}{What can you tell me about this settlement?}
+{2040}{}{I need to go.}
+{3000}{}{Sure. Selling beer for 35 caps, booze for 55 caps and Gamma Gulp for 100 caps.}
+{3010}{}{Give me a bottle of beer.}
+{3020}{}{Give me a bottle of booze.}
+{3030}{}{Give me a bottle of Gamma Gulp.}
+{3040}{}{Let's switch the topic.}
+{4000}{}{Yes, I am the owner of the bar. I built it and set it all working. And yes, I am just a robot, but unlike most of my robotic collegues I have a bit modified AI.}
+{4010}{}{What's the point of opening the second bar in such a small settlement?}
+{5000}{}{A fair competition! We are in America and we can't let monopoly grow anywhere.}
+{5010}{}{Right, let's talk about something else.}
+{6000}{}{This lovely settlement is called Reactor 58, but before that it was named Sarmatia. The original founder of it was named Mirim and unfortunately he's been missing for several years already.}
+{6010}{}{What about people here?}
+{6020}{}{Fine, one more thing to discuss...}
+{7000}{}{Everybody is usually friendly to each other here. However locals have some conflicts with these guys from the ranch...}
+{7010}{}{I see, let's switch the topic.}
+{8000}{}{Come back soon!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely time of the day to you, dear traveller. Welcome to Mr. Gutsy's Bar. I am Mr. Gutsy and I will be your host today. Wish to buy something to drink?}
+{2010}{}{I wish to get a cold one. What do you have?}
+{2020}{}{A robot host?}
+{2030}{}{What can you tell me about this settlement?}
+{2040}{}{I need to go.}
+{3000}{}{Sure. Selling beer for 35 caps, booze for 55 caps and Gamma Gulp for 100 caps.}
+{3010}{}{Give me a bottle of beer.}
+{3020}{}{Give me a bottle of booze.}
+{3030}{}{Give me a bottle of Gamma Gulp.}
+{3040}{}{Let's switch the topic.}
+{4000}{}{Yes, I am the owner of the bar. I built it and set it all working. And yes, I am just a robot, but unlike most of my robotic collegues I have a bit modified AI.}
+{4010}{}{What's the point of opening the second bar in such a small settlement?}
+{5000}{}{A fair competition! We are in America and we can't let monopoly grow anywhere.}
+{5010}{}{Right, let's talk about something else.}
+{6000}{}{This lovely settlement is called Reactor 58, but before that it was named Sarmatia. The original founder of it was named Mirim and unfortunately he's been missing for several years already.}
+{6010}{}{What about people here?}
+{6020}{}{Fine, one more thing to discuss...}
+{7000}{}{Everybody is usually friendly to each other here. However locals have some conflicts with these guys from the ranch...}
+{7010}{}{I see, let's switch the topic.}
+{8000}{}{Come back soon!}
+

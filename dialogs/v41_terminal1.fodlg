@@ -1,0 +1,164 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p wow_howard = 1 R _script dialog@r_OpenDoor 2 55 1200 R _var p wow_howard = 0 R _script dialog@r_GlobalTimer 1 1 #
+4 2020 D _var p wow_howard = 0 #
+0 2030 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+0 4010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading...
+
+Vault Tec OS greets you. Please input command.
+
+Command: ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Open the door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Loading...
+
+Vault Tec OS greets you. Please input command.
+
+Command: Open_door
+
+Executive command accepted. ]}
+{3010}{}{[ Leave ]}
+{4000}{}{[ Loading...
+
+Vault Tec OS greets you. Please input command.
+
+Command: Open_door
+
+Executive command failure. Access denied. ]}
+{4010}{}{[ Leave ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading...
+
+Vault Tec OS greets you. Please input command.
+
+Command: ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Open the door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: Open_door
+
+Executive command accepted. ]}
+{3010}{}{[ Leave ]}
+{4000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: Open_door
+
+Executive command failure. Access denied. ]}
+{4010}{}{[ Leave ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Open the door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: Open_door
+
+Executive command accepted. ]}
+{3010}{}{[ Leave ]}
+{4000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: Open_door
+
+Executive command failure. Access denied. ]}
+{4010}{}{[ Leave ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Open the door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: Open_door
+
+Executive command accepted. ]}
+{3010}{}{[ Leave ]}
+{4000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: Open_door
+
+Executive command failure. Access denied. ]}
+{4010}{}{[ Leave ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Open the door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: Open_door
+
+Executive command accepted. ]}
+{3010}{}{[ Leave ]}
+{4000}{}{[ Loading...
+
+Vault Tec OS greets you. Please insert the command.
+
+Command: Open_door
+
+Executive command failure. Access denied. ]}
+{4010}{}{[ Leave ]}
+

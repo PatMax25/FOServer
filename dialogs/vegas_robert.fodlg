@@ -1,0 +1,162 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+6 2010 #
+4 2020 #
+7 2030 D _var p vegas_robert = 0 #
+9 2040 D _var p vegas_robert = 2 D _item p PID_AUTODOC_PARTS } 1 R _var p vegas_robert = 3 R _param p ST_EXPERIENCE + 2000 R _item p PID_DOLLAR + 5 R _item p PID_DOCTOR_BOOK + 2 R _item p PID_COFFEE + 1 R _item p PID_AUTODOC_PARTS - 1 #
+0 2050 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 #
+5 4020 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _script dialog@r_ToHeal 0  R _param p ST_POISONING_LEVEL = 0 R _param p ST_RADIATION_LEVEL = 0 @
+5 5000 None 0 @
+6 6000 None 0 #
+3 6010 #
+4 6020 #
+2 6030 @
+7 7000 None 0 #
+8 7010 R _var p vegas_robert = 1 #
+0 7020 @
+8 8000 None 0 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{Robert Who}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely day to you. Do you need something?}
+{2010}{}{Let me first ask you who you are and what is this place.}
+{2020}{}{I need help, doc!}
+{2030}{}{I am looking for some work. Do you have anything for me?}
+{2040}{}{I found that module for you. Here it is. What about my reward?}
+{2050}{}{Nah, I will be going.}
+{3000}{}{No, I operate from the face of the city. I do not sell supplies.}
+{3010}{}{Fine, let's switch the topic.}
+{4000}{}{Medical therapy will cost you 1 golden dollar.}
+{4010}{}{On the second though it's not that bad. Let's talk about something else.}
+{4020}{}{Here, just save my life, doc!}
+{5000}{}{Here you are, good as new.}
+{6000}{}{[ He points at his badge ] Dr. Robert Who. City's head doctor. I operate this lovely facility.}
+{6010}{}{Do you sell some medical supplies maybe?}
+{6020}{}{Oh so you are a doctor! I need your help!}
+{6030}{}{Let's talk about something else.}
+{7000}{}{Hmh... You look like a tough merc. You can really help me with something. Ever heard about Hospital of Mercy? This old pre war hospital stands in Salt Lake City. I heard rumors that there is an experimental autodoc model standing there. I would really love to get its control module. So... Can you find it for me?}
+{7010}{}{Alright, I will get you your module. See ya later.}
+{7020}{}{Heck no, find somebody else for this work.}
+{8000}{}{Goodbye.}
+{9000}{}{Let me see... Yes... Yes, it's the right part! Amazing... Now I just need to find a proper technician and... Oh anyway. Here, take this for your work... Now if you excuse me, I need to investigate this thing more carefully.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely day to you. Do you need something?}
+{2010}{}{Let me first ask you who you are and what is this place.}
+{2020}{}{I need help, doc!}
+{2030}{}{I am looking for some work. Do you have anything for me?}
+{2040}{}{I found that module for you. Here it is. What about my reward?}
+{2050}{}{Nah, I will be going.}
+{3000}{}{No, I operate from the face of the city. I do not sell supplies.}
+{3010}{}{Fine, let's switch the topic.}
+{4000}{}{Medical therapy will cost you 1 golden dollar.}
+{4010}{}{On the second though it's not that bad. Let's talk about something else.}
+{4020}{}{Here, just save my life, doc!}
+{5000}{}{Here you are, good as new.}
+{6000}{}{[ He points at his badge ] Dr. Robert Who. City's head doctor. I operate this lovely facility.}
+{6010}{}{Do you sell some medical supplies maybe?}
+{6020}{}{Oh so you are a doctor! I need your help!}
+{6030}{}{Let's talk about something else.}
+{7000}{}{Hmh... You look like a tough merc. You can really help me with something. Ever heard about Hospital of Mercy? This old pre war hospital stands in Salt Lake City. I heard rumors that there is an experimental autodoc model standing there. I would really love getting its control module. So... Do you take the task?}
+{7010}{}{Alright, I will get you your module. See ya later.}
+{7020}{}{Heck no, find somebody else for this work.}
+{8000}{}{Goodbye.}
+{9000}{}{Let me see... Yes... Yes, it's that part! Amazing... Now I just need to find a proper technician and... Oh anyway. Here, take this for your work... Now if you excuse me, I need to investigate this thing more carefully.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely day to you. Do you need something?}
+{2010}{}{Let me first ask you who you are and what is this place.}
+{2020}{}{I need help, doc!}
+{2030}{}{I am looking for some work. Do you have anything for me?}
+{2040}{}{I found that module for you. Here it is. What about my reward?}
+{2050}{}{Nah, I will be going.}
+{3000}{}{No, I operate from the face of the city. I do not sell supplies.}
+{3010}{}{Fine, let's switch the topic.}
+{4000}{}{Medical therapy will cost you 1 golden dollar.}
+{4010}{}{On the second though it's not that bad. Let's talk about something else.}
+{4020}{}{Here, just save my life, doc!}
+{5000}{}{Here you are, good as new.}
+{6000}{}{[ He points at his badge ] Dr. Robert Who. City's head doctor. I operate this lovely facility.}
+{6010}{}{Do you sell some medical supplies maybe?}
+{6020}{}{Oh so you are a doctor! I need your help!}
+{6030}{}{Let's talk about something else.}
+{7000}{}{Hmh... You look like a tough merc. You can really help me with something. Ever heard about Hospital of Mercy? This old pre war hospital stands in Salt Lake City. I heard rumors that there is an experimental autodoc model standing there. I would really love getting its control module. So... Do you take the task?}
+{7010}{}{Alright, I will get you your module. See ya later.}
+{7020}{}{Heck no, find somebody else for this work.}
+{8000}{}{Goodbye.}
+{9000}{}{Let me see... Yes... Yes, it's that part! Amazing... Now I just need to find a proper technician and... Oh anyway. Here, take this for your work... Now if you excuse me, I need to investigate this thing more carefully.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely day to you. Do you need something?}
+{2010}{}{Let me first ask you who you are and what is this place.}
+{2020}{}{I need help, doc!}
+{2030}{}{I am looking for some work. Do you have anything for me?}
+{2040}{}{I found that module for you. Here it is. What about my reward?}
+{2050}{}{Nah, I will be going.}
+{3000}{}{No, I operate from the face of the city. I do not sell supplies.}
+{3010}{}{Fine, let's switch the topic.}
+{4000}{}{Medical therapy will cost you 1 golden dollar.}
+{4010}{}{On the second though it's not that bad. Let's talk about something else.}
+{4020}{}{Here, just save my life, doc!}
+{5000}{}{Here you are, good as new.}
+{6000}{}{[ He points at his badge ] Dr. Robert Who. City's head doctor. I operate this lovely facility.}
+{6010}{}{Do you sell some medical supplies maybe?}
+{6020}{}{Oh so you are a doctor! I need your help!}
+{6030}{}{Let's talk about something else.}
+{7000}{}{Hmh... You look like a tough merc. You can really help me with something. Ever heard about Hospital of Mercy? This old pre war hospital stands in Salt Lake City. I heard rumors that there is an experimental autodoc model standing there. I would really love getting its control module. So... Do you take the task?}
+{7010}{}{Alright, I will get you your module. See ya later.}
+{7020}{}{Heck no, find somebody else for this work.}
+{8000}{}{Goodbye.}
+{9000}{}{Let me see... Yes... Yes, it's that part! Amazing... Now I just need to find a proper technician and... Oh anyway. Here, take this for your work... Now if you excuse me, I need to investigate this thing more carefully.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely day to you. Do you need something?}
+{2010}{}{Let me first ask you who you are and what is this place.}
+{2020}{}{I need help, doc!}
+{2030}{}{I am looking for some work. Do you have anything for me?}
+{2040}{}{I found that module for you. Here it is. What about my reward?}
+{2050}{}{Nah, I will be going.}
+{3000}{}{No, I operate from the face of the city. I do not sell supplies.}
+{3010}{}{Fine, let's switch the topic.}
+{4000}{}{Medical therapy will cost you 1 golden dollar.}
+{4010}{}{On the second though it's not that bad. Let's talk about something else.}
+{4020}{}{Here, just save my life, doc!}
+{5000}{}{Here you are, good as new.}
+{6000}{}{[ He points at his badge ] Dr. Robert Who. City's head doctor. I operate this lovely facility.}
+{6010}{}{Do you sell some medical supplies maybe?}
+{6020}{}{Oh so you are a doctor! I need your help!}
+{6030}{}{Let's talk about something else.}
+{7000}{}{Hmh... You look like a tough merc. You can really help me with something. Ever heard about Hospital of Mercy? This old pre war hospital stands in Salt Lake City. I heard rumors that there is an experimental autodoc model standing there. I would really love getting its control module. So... Do you take the task?}
+{7010}{}{Alright, I will get you your module. See ya later.}
+{7020}{}{Heck no, find somebody else for this work.}
+{8000}{}{Goodbye.}
+{9000}{}{Let me see... Yes... Yes, it's that part! Amazing... Now I just need to find a proper technician and... Oh anyway. Here, take this for your work... Now if you excuse me, I need to investigate this thing more carefully.}
+

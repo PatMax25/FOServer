@@ -1,0 +1,22 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p mayor_citizenship = 2 @
+2 2000 None 0 #
+0 2010 #
+0 2020 R _var p mayor_citizenship = 3 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Dear Julia, you finally found out the truth. Here... in our old family Vault, made by parents of your parents. Here, is where they went. All 3 of them, infected, suffering from the pain. The Plague was killing them. They came here, hoping that the autodoc would help them. It didn't. I lied to you, Julia... I lied. I knew what happened with them a long time ago, I just didn't tell you. I knew you wouldn't get over such news, our son... When I found him, he was still alive. He called for me, he begged me to help. What could I do? I... Yes, I killed my own son. I killed your parents. I had no other choice, they were already dead. I lied to you. I told you that all of them are fine and are waiting for us in Den. I did it for you. I didn't want to lose you... I came late, you... You couldn't stand seeing your son dead and you killed yourself. I am sorry, Julia. I am so sorry. There is only one way for me left. ]}
+{2010}{}{[ Leave ]}
+{2020}{}{[ Load data ]}
+

@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{Police Shield}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Solid as Law, Unbreakable as Justice. Relic from the peacemakers of the past. Irreplaceable tool for spreading order... or breaking faces of protestors.}
+{2010}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Solid as Law, Unbreakable as Justice. Relic from the peacemakers of the past. Irreplaceable tool for spreading order... or break a face of protestor.}
+{2010}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Solid as Law, Unbreakable as Justice. Relic from the peacemakers of the past. Irreplaceable tool for spreading order... or break a face of protestor.}
+{2010}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Solid as Law, Unbreakable as Justice. Relic from the peacemakers of the past. Irreplaceable tool for spreading order... or break a face of protestor.}
+{2010}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Solid as Law, Unbreakable as Justice. Relic from the peacemakers of the past. Irreplaceable tool for spreading order... or break a face of protestor.}
+{2010}{}{[ Exit ]}
+

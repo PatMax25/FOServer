@@ -1,0 +1,468 @@
+//encounter event
+//FOnline:3
+//KompreSor
+
+//#include "_macros.fos"
+//#include "broadcast_h.fos"
+//#include "item_bonus.fos"
+//#include "utils_h.fos"
+//#include "_maps.fos"
+#include "_colors.fos"
+#include "mob_dynamic.fos"
+#include "item_pools_h.fos"
+import void ServerEventCountDownStart(string& message, int location, int time, int type)  from "broadcast";
+import bool LockerClose(Item& item) from "lockers";
+
+void ForceEvent(Critter& cr, int howmany, int whatkind, int team)
+{
+    array<uint> filldata = {howmany, whatkind, team};
+    CreateTimeEvent(AFTER(REAL_MINUTE(howmany)), "e_EventEncounter", filldata, false);
+}
+
+void init_events()
+{
+    array<uint> filldata = {};
+    CreateTimeEvent(AFTER(REAL_MINUTE(Random(60,180))), "e_EventEncounter", filldata, false);
+}
+
+void ForceBossEvent(Critter& cr, int howmany, int whatkind, int team)
+{
+    array<uint> filldata = {howmany, whatkind, team};
+    CreateTimeEvent(AFTER(REAL_MINUTE(howmany)), "e_EventBoss", filldata, false);
+}
+
+void init_boss_events()
+{
+    array<uint> filldata = {};
+    CreateTimeEvent(AFTER(REAL_MINUTE(Random(60,180))), "e_EventBoss", filldata, false);
+}
+
+uint e_EventEncounter(array<uint>@ values)
+{
+    int type = EVENT_TYPE_TRADER_1;//values[0];
+
+    array<Critter@> players;
+    array<uint> pid = { LOCATION_CrashedVertibirdDesert,LOCATION_CrashedVertibirdCity,  LOCATION_CrashedVertibirdMountain,
+                        LOCATION_CrashedTrainDesert,    LOCATION_CrashedTrainCity,      LOCATION_CrashedTrainMountain,LOCATION_CrashedHummerDesert,   LOCATION_CrashedHummerCity,     LOCATION_CrashedHummerMountain,LOCATION_CrashedPoliceDesert,   LOCATION_CrashedPoliceCity,     LOCATION_CrashedPoliceMountain, LOCATION_lost_signal, LOCATION_lost_signal2, LOCATION_lost_signal3};
+
+    uint            count = GetAllPlayers(players);
+    uint location = pid[Random(0,14)];
+    uint x = Random(800,1400);
+    uint y = Random(1100,1700);
+    int id = CreateLocation(location, x, y, players);
+    Location@ loc = GetLocation(id);
+    Map@ map = loc.GetMapByIndex(0);
+    uint16 hexX = 0;
+    uint16 hexY = 0;
+    uint aiPack = 0;
+    uint teamIdPack = 0;
+    int time = REAL_MINUTE(15);
+    uint zoneX = getZone(x);
+    uint zoneY = getZone(y);
+    map.GetEntireCoords(50, Random(0,2), hexX, hexY);
+    loc.Color = COLOR_RGBA(255, 0, 0, 255);
+    loc.Update();
+    switch(location)
+    {
+    case LOCATION_CrashedVertibirdDesert:
+    case LOCATION_CrashedVertibirdCity:
+    case LOCATION_CrashedVertibirdMountain:
+        {
+        string message = "Vertibird crashed at " + zoneX + ":" + zoneY +" zone. %COUNTDOWN% left.";
+        Critter@ mob = AddNpc(map, 1884,hexX , hexY, 3, DIALOG_all_enclave_soldier, "mob_dynamic@init_mobE", aiPack, 0, teamIdPack, true, 50);
+		mob.AddItem(PID_PLASMA_GATLING, 1);
+        ServerEventCNTSet(message, location, type, time);
+        SpawnTeam(mob, Random(1,3), 1, 5,true);
+        SpawnTeam(mob, Random(1,3),1 , 5,false);
+        SpawnTeam(mob, Random(1,3), 1, 5,false);
+        SpawnTeam(mob, Random(1,3), 1, 5,false);
+        break;
+        }
+
+    case LOCATION_CrashedTrainDesert:
+    case LOCATION_CrashedTrainCity:
+    case LOCATION_CrashedTrainMountain:
+        {
+        string message = "Train crashed at " + zoneX + ":" + zoneY +" zone. %COUNTDOWN% left.";
+        Critter@ mob = AddNpc(map, 550,hexX , hexY, 3, DIALOG_mob_mutant, "mob_dynamic@init_mobN", aiPack, 0, teamIdPack, true, 50);
+		mob.AddItem(PID_BOZAR, 1);
+        ServerEventCNTSet(message, location, type, time);
+        SpawnTeam(mob, Random(1,3), 1, 7,false);
+        SpawnTeam(mob, Random(1,3), 1, 7,true);
+        SpawnTeam(mob, Random(1,3), 1, 7,false);
+        SpawnTeam(mob, Random(1,3),1 , 7,false);
+        break;
+        }
+    case LOCATION_CrashedPoliceDesert:
+    case LOCATION_CrashedPoliceCity:
+    case LOCATION_CrashedPoliceMountain:
+        {
+        string message = "Police Car crashed at " + zoneX + ":" + zoneY +" zone. %COUNTDOWN% left.";
+        Critter@ mob = AddNpc(map, 584,hexX , hexY, 3, DIALOG_mob_sentry_bot, "mob_dynamic@init_mobV", aiPack, 0, teamIdPack, true, 50);
+		mob.AddItem(PID_M203, 1);
+        ServerEventCNTSet(message, location, type, time);
+        SpawnTeam(mob, Random(1,3), 1, 8, true);
+        SpawnTeam(mob, Random(1,3), 1, 8, false);
+        SpawnTeam(mob, Random(1,3), 1, 8, false);
+        SpawnTeam(mob, Random(1,3), 1, 8, false);
+        break;
+        }
+    case LOCATION_lost_signal:
+    case LOCATION_lost_signal2:
+    case LOCATION_lost_signal3:
+	case LOCATION_CrashedHummerDesert:
+    case LOCATION_CrashedHummerCity:
+    case LOCATION_CrashedHummerMountain:
+        {
+        string message = "An unknown signal was caught in zone " + zoneX + ":" + zoneY +". %COUNTDOWN% left.";
+        time = time * 2;
+        ServerEventCNTSet(message, location, type, time);
+        break;
+        }
+    }
+    return REAL_MINUTE(Random(60,180));
+}
+
+uint e_EndEvent(array<uint>@ LocData)
+{
+    Location@ loc = GetLocation(LocData[0]);
+    if(!valid(loc)) return 0;
+
+    DeleteLocation(loc.Id);
+    return 0;
+}
+
+uint e_EventBoss(array<uint>@ values)
+{
+    int type = EVENT_TYPE_TRADER_1;//values[0];
+
+    array<Critter@> players;
+    array<uint> pid = { LOCATION_boss_alien , LOCATION_boss_robot, LOCATION_boss_death, LOCATION_boss_melchior, LOCATION_boss_raiders, LOCATION_boss_spiders};
+
+    uint            count = GetAllPlayers(players);
+    uint location = pid[Random(0,5)];
+    uint x = Random(800,1400);
+    uint y = Random(1100,1700);
+    int id = CreateLocation(location, x, y, players);
+    Location@ loc = GetLocation(id);
+    
+    uint16 hexX = 0;
+    uint16 hexY = 0;
+    uint aiPack = 0;
+    uint teamIdPack = 0;
+    int time = REAL_MINUTE(30);
+    uint zoneX = getZone(x);
+    uint zoneY = getZone(y);
+
+    loc.Color = COLOR_RGBA(255, 0, 0, 255);
+    loc.Update();
+    switch(location)
+    {
+    case LOCATION_boss_alien:
+        {
+		Map@ map = loc.GetMapByIndex(1);
+		    map.GetEntireCoords(420,0, hexX, hexY);
+        Critter@ mob = AddNpc(map, 354,hexX , hexY, 3, 0, "mob_dynamic@init_alien", aiPack, 0, teamIdPack, true, Random(350,700));
+        break;
+        }
+	case LOCATION_boss_robot:
+        {
+		Map@ map = loc.GetMapByIndex(1);
+		    map.GetEntireCoords(420,0, hexX, hexY);
+        Critter@ mob = AddNpc(map, 78,hexX , hexY, 3, 0, "mob_dynamic@init_robot", aiPack, 272, teamIdPack, true, Random(1000,1400));
+        break;
+        }
+	case LOCATION_boss_death:
+        {
+		Map@ map = loc.GetMapByIndex(0);
+		    map.GetEntireCoords(420,0, hexX, hexY);
+        Critter@ mob = AddNpc(map, 803,hexX , hexY, 3, 0, "mob_dynamic@init_dc", aiPack, 0, teamIdPack, true, Random(130,200));
+        break;
+        }
+	case LOCATION_boss_melchior:
+        {
+		Map@ map = loc.GetMapByIndex(0);
+		    map.GetEntireCoords(420,0, hexX, hexY);
+        Critter@ mob = AddNpc(map, 843,hexX , hexY, 3, DIALOG_mob_mutant, "mob_dynamic@init_melchior", aiPack, 308, teamIdPack, true, Random(300,500));
+        break;
+        }
+	case LOCATION_boss_raiders:
+        {
+		Map@ map = loc.GetMapByIndex(0);
+		    map.GetEntireCoords(420,0, hexX, hexY);
+        Critter@ mob = AddNpc(map, 869,hexX , hexY, 3, 0, "mob_dynamic@init_raiders", aiPack, 309, teamIdPack, true, Random(50,200));
+        break;
+        }
+	case LOCATION_boss_spiders:
+        {
+		Map@ map = loc.GetMapByIndex(0);
+		    map.GetEntireCoords(420,0, hexX, hexY);
+        Critter@ mob = AddNpc(map, 883,hexX , hexY, 3, 0, "mob_dynamic@init_spiders", aiPack, 0, teamIdPack, true, Random(5000,7000));
+        break;
+        }
+
+    }
+	string message = "Locals Report about Dangers in " + zoneX + ":" + zoneY +" zone. %COUNTDOWN% left.";
+	ServerEventCNTSet(message, location, type, time);
+    return REAL_MINUTE(Random(60,180));
+}
+
+void map_init(Map& map, bool firstTime)
+{
+    if(firstTime)
+        {
+                CreateTimeEvent(AFTER(REAL_MINUTE(17)), "e_EndEvent", map.GetLocation().Id, false);
+        }
+}
+
+void signal_init(Map& map, bool firstTime)
+{
+    if(firstTime)
+        {
+                CreateTimeEvent(AFTER(REAL_MINUTE(32)), "e_EndEvent", map.GetLocation().Id, false);
+        }
+}
+
+uint getZone(uint x)
+{
+    if(x<850)       return 16;
+
+     else if(849<x && x<900)        return 17;
+     else if(899<x && x<950)        return 18;
+     else if(949<x && x<1000)   return 19;
+     else if(999<x && x<1050)   return 20;
+     else if(1049<x && x<1100)   return 21;
+     else if(1099<x && x<1150)   return 22;
+     else if(1149<x && x<1200)  return 23;
+     else if(1199<x && x<1250) return 24;
+     else if(1249<x && x<1300) return 25;
+     else if(1299<x && x<1350) return 26;
+     else if(1349<x && x<1400) return 27;
+     else if(1399<x && x<1450) return 28;
+     else if(1449<x && x<1500) return 29;
+     else if(1499<x && x<1550) return 30;
+     else if(1549<x && x<1600) return 31;
+     else if(1599<x && x<1650) return 32;
+     else if(1649<x && x<1700) return 33;
+     else if(1699<x && x<1750) return 34;
+    else  if(1749<x && x<1800) return 35;
+    else  if(1799<x && x<1850) return 36;
+    else  if(1849<x && x<1900) return 37;
+    else  if(1899<x && x<1950) return 38;
+     else if(1949<x && x<2000) return 39;
+     else if(1999<x && x<2050) return 40;
+     else return 0;
+}
+
+
+
+void SpawnBuffItem(Item& container, uint16 pid)
+{
+    Item@ it = container.AddItem(pid, 1, 0);
+	it.Val0 = Random(1,50000);
+	it.Update();
+	if(it.GetType() == ITEM_TYPE_WEAPON)
+		_weapon_perk(it, false);
+
+	if(it.GetType() == ITEM_TYPE_ARMOR)
+		_armor_perk(it, false);
+}
+
+bool _UseRewardContainer(Item& item, Critter& crit, int skill)
+{
+    // Opening / Closing
+    if((skill == -1) || (skill == SK_ENGINE))
+    {
+        if(!isSlagsKilled(crit))
+        {
+            uint16 hexX = 0;
+            uint16 hexY = 0;
+            Map@   map = item.GetMapPosition(hexX, hexY);
+            map.SetText(hexX, hexY, COLOR_WHITE,  "The locker looks guarded.");
+            return true;
+        }
+
+        // open it if closed
+        if(_LockerIsClose(item))
+        {
+            //item.LockerId = 0;
+            //item.LockerId = Random(98989, 989898);
+            //item.LockerComplexity = Random(50,50);
+            return false;
+        }
+    }
+    return false;
+}
+
+bool isSlagsKilled(Critter& player)
+{
+    array<Critter@> players;
+    uint numLifeSlags = player.GetMap().GetCritters(0, FIND_ONLY_NPC | FIND_LIFE_AND_KO, players);           // Critter_ParamIndex4  ST_NPC_ROLE                                                                                 // Critter_ParamValue4  1
+    if(numLifeSlags!=0)
+        return false;
+    else
+        return true;
+
+}
+
+void CritterShout(Critter& mob)
+{
+    switch(mob.Param[ST_BODY_TYPE])
+    {
+        case BT_MEN :
+        case BT_WOMEN :
+        case BT_CHILDREN :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "PUT YOUR HANDS AWAY!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "GET AWAY FROM THE LOCKER!"); break;}
+            }
+            break;
+        case BT_SUPER_MUTANT :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "NO HUMAN!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "DIE HUMAN FIRST!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "GET THIS HUMAN!"); break;}
+            }
+            break;
+        case BT_GHOUL :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "I'M SO HUNGRY!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "EAT HIM!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "MMMMM... A FRESH MEAT!"); break;}
+            }
+            break;
+        case BT_BRAHMIN :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "MOOO!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "MOOOO! MOOOO!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "MOO! I SAID MOOOOOOOO!"); break;}
+            }
+            break;
+        case BT_RADSCORPION :
+            mob.Say(SAY_EMOTE_ON_HEAD, "Crackling with the stitches.");
+            break;
+        case BT_RAT :
+            mob.Say(SAY_EMOTE_ON_HEAD, "Rat squeaking.");
+            break;
+        case BT_FLOATER :
+        case BT_CENTAUR :
+            mob.Say(SAY_EMOTE_ON_HEAD, "The sound of splashing.");
+            break;
+        case BT_ROBOT :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "BAD INTERRUPT!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "DEFENSE PROGRAM: INITIALIZED!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "EXTERMINATE THE CURRENT SURFACE!"); break;}
+            }
+            break;
+        case BT_DOG :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "Wooof! Wooof!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "GRRRRRR!!!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "ANGGRRRRR!!!"); break;}
+            }
+            break;
+        case BT_MANTI :
+            break;
+        case BT_DEADCLAW :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "HRRRR!!!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "GRRRRRR!!!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "ANGGRRRRR!!!"); break;}
+            }
+            break;
+        case BT_PLANT :
+            break;
+        case BT_GECKO :
+            break;
+        case BT_ALIEN :
+            mob.Say(SAY_EMOTE_ON_HEAD, "It's trying say something...");
+            break;
+        case BT_GIANT_ANT :
+            break;
+        case BT_BIG_BAD_BOSS :
+            break;
+        case BT_DESERT_STALKER :
+            break;
+        case BT_MAN_TRAP :
+            break;
+        case BT_RAD_TOAD :
+            break;
+        case BT_THORNSLINGER :
+            break;
+        case BT_PASHTSHUUR :
+            break;
+        default :
+            switch(Random(1,3))
+            {
+                case 1: {mob.Say(SAY_SHOUT_ON_HEAD, "DON'T TOUCH IT!"); break;}
+                case 2: {mob.Say(SAY_SHOUT_ON_HEAD, "PUT YOUR HANDS AWAY!"); break;}
+                case 3: {mob.Say(SAY_SHOUT_ON_HEAD, "GET AWAY FROM THE LOCKER!"); break;}
+            }
+            break;
+    }
+}
+void reward(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+    float tier4ammochance = 0;
+	float tier4partschance = 0;
+	float tier4bpchance = 0;
+	float implantchance = 0;
+	float rarechance = 0;
+	float implant_combatchance = 0;
+	float verti_partschance = 0;
+	float addbasemapchance = 0;
+	float t4chance = 0;
+	
+	switch(week_patch)
+	{
+	case 1:
+	case 2:
+	tier4ammochance = 0; tier4partschance = 4; tier4bpchance = 0; implantchance = 30; rarechance = 24; 
+	implant_combatchance = 0.6; verti_partschance = 0; t4chance = 0; addbasemapchance = 50; break;
+	//todo other weeks
+	}
+        SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+		//item.AddItem(tier3ammo(), Random(50,420), 0);
+		item.AddItem(tier3drugs(), Random(5,8) , 0);
+		item.AddItem(tier3bp(), Random(5,8) , 0);
+        
+    if(dropchance(tier4ammochance * doubleloot))
+        item.AddItem(tier4ammo(),Random(10,25), 5);
+
+    if(dropchance(rarechance * doubleloot))
+        item.AddItem(rareitem(), 1, 0);
+
+    if(dropchance(tier4partschance * doubleloot))
+        item.AddItem(tier4parts(), 1, 0);
+
+    if(dropchance(implantchance * doubleloot))
+        item.AddItem(implant(), 1, 0);
+
+    if(dropchance(implant_combatchance * doubleloot))
+        item.AddItem(implant_combat(), 1, 0);
+	if(dropchance(addbasemapchance * doubleloot))
+		addbasemap(item);	
+    
+    if(dropchance(tier4bpchance * doubleloot))
+        item.AddItem(tier4bp(),1, 0);
+
+    if(dropchance(verti_partschance * doubleloot))
+        item.AddItem(verti_parts(),1, 0);
+	if(dropchance(t4chance * doubleloot))
+        item.AddItem(tier4item(),1, 0);
+    item.AddItem(currency(), Random(1,15000) , 0);
+	item.AddItem(PID_UPGRATE_PARTS, Random(2,8) , 0);
+    if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+}

@@ -1,0 +1,158 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 D _item p PID_BEER } 1 D _var p rockside_kyles = 0 R _item p PID_BEER - 1 R _param p ST_EXPERIENCE + 400 R _var p rockside_kyles = 1 #
+0 3020 @
+4 4000 None 0 #
+5 4010 #
+0 4020 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+7 6010 #
+0 6020 @
+7 7000 None 0 #
+8 7010 #
+0 7020 @
+8 8000 None 0 #
+0 8010 &
+
+[engl]
+{100}{}{Kyles01 The Prime}
+{200}{}{You see a very strange looking man.}
+{210}{}{This is supposed to be a classic Kyles. This one seems to be quite different though... It seems like something flickers in your mind as you try to remember where you have heard such name.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it you want?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Bye. [ end dialogue ]}
+{3000}{}{Oh well, if you bring me a beer then I will tell you the story about myself.}
+{3010}{}{Here is the bottle. Now tell me about your story.}
+{3020}{}{I will be right back. [ end dialogue ]}
+{4000}{}{Right... So listen up. I am Kyles01 The Prime. I don't know where I was born and who the heck am I, but I, and many other people, know what I did.}
+{4010}{}{[ listen ]}
+{4020}{}{Bo - ring. I will go now. [ end dialogue ]}
+{5000}{}{On September the 20th me and many good men and women found ourselves near the gates of the military facility known as Area 51. We had to storm it and try to save aliens... Yeah, I know it may sound weird, but hey... the Wasteland is crazy, isn't it? One day it's this, one day it's that...}
+{5010}{}{[ listen ]}
+{5020}{}{No one cares. [ end dialogue ]}
+{6000}{}{We died dozens of times, but every time we ressurected and came back to the battlefield. They threw everything that they had at us - hundreds of soldiers, ghouls, supermutants, turrets, artillery... Even giant spiders. It was so tough that we couldn't get through. SO I made a decision. I grouped our forces and united them together and crashed with all our might on their positions!}
+{6010}{}{[ listen ]}
+{6020}{}{I don't believe a single word of this bullshit. [ end dialogue ]}
+{7000}{}{We managed to get inside the facility and make unique photos, gather some artifacts and we saw... Oh damn we saw some things for sure.}
+{7010}{}{[ listen ]}
+{7020}{}{Sounds like a good pile of lies. [ end dialogue ]}
+{8000}{}{Well here is how the story ends. By the way, this alien near me is Frank. You can say hi to him.}
+{8010}{}{I see... [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it you want?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Bye.}
+{3000}{}{Oh well, if you bring me a beer then I will tell you the story about myself.}
+{3010}{}{Here is the local. Now tell me about your story.}
+{3020}{}{I will be right back.}
+{4000}{}{Right... So listen up. I am Kyles01 The Prime. I don't know where I was born and who the heck am I, but I, and many other people, know what I did.}
+{4010}{}{[ Listen ]}
+{4020}{}{Bo - ring. I will go now.}
+{5000}{}{On September the 20th me and many good men an women found ourselves near the gates of the military facility known as Area 51. We had to storm it and try to save aliens... Yeah, I know it may sound weird, but hey... Wasteland is crazy, isn't it?}
+{5010}{}{[ Listen ]}
+{5020}{}{Noone cares.}
+{6000}{}{We died dozens of times, but every time we were ressurecting and coming back to the battlefield. They threw everything what they had on us - hundreds of soldiers, ghouls, supermutants, turrets, artirelly... Even giant spiders. It was so tough that we couldn't get through. SO I made a decission. I grouped our forces and united them together and crashed whole our might on their positions!}
+{6010}{}{[ Listen ]}
+{6020}{}{I don't believe a single word from your side.}
+{7000}{}{We managed to get inside the facility and make unique photos, gather some artifacts and we saw... Oh damn we saw some things for sure.}
+{7010}{}{[ Listen ]}
+{7020}{}{Sounds like a good pile of lie.}
+{8000}{}{Well here is how the story ends. By the way, this alien near me is Frank. You can say hi to him.}
+{8010}{}{I see...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it you want?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Bye.}
+{3000}{}{Oh well, if you bring me a beer then I will tell you the story about myself.}
+{3010}{}{Here is the local. Now tell me about your story.}
+{3020}{}{I will be right back.}
+{4000}{}{Right... So listen up. I am Kyles01 The Prime. I don't know where I was born and who the heck am I, but I, and many other people, know what I did.}
+{4010}{}{[ Listen ]}
+{4020}{}{Bo - ring. I will go now.}
+{5000}{}{On September the 20th me and many good men an women found ourselves near the gates of the military facility known as Area 51. We had to storm it and try to save aliens... Yeah, I know it may sound weird, but hey... Wasteland is crazy, isn't it?}
+{5010}{}{[ Listen ]}
+{5020}{}{Noone cares.}
+{6000}{}{We died dozens of times, but every time we were ressurecting and coming back to the battlefield. They threw everything what they had on us - hundreds of soldiers, ghouls, supermutants, turrets, artirelly... Even giant spiders. It was so tough that we couldn't get through. SO I made a decission. I grouped our forces and united them together and crashed whole our might on their positions!}
+{6010}{}{[ Listen ]}
+{6020}{}{I don't believe a single word from your side.}
+{7000}{}{We managed to get inside the facility and make unique photos, gather some artifacts and we saw... Oh damn we saw some things for sure.}
+{7010}{}{[ Listen ]}
+{7020}{}{Sounds like a good pile of lie.}
+{8000}{}{Well here is how the story ends. By the way, this alien near me is Frank. You can say hi to him.}
+{8010}{}{I see...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it you want?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Bye.}
+{3000}{}{Oh well, if you bring me a beer then I will tell you the story about myself.}
+{3010}{}{Here is the local. Now tell me about your story.}
+{3020}{}{I will be right back.}
+{4000}{}{Right... So listen up. I am Kyles01 The Prime. I don't know where I was born and who the heck am I, but I, and many other people, know what I did.}
+{4010}{}{[ Listen ]}
+{4020}{}{Bo - ring. I will go now.}
+{5000}{}{On September the 20th me and many good men an women found ourselves near the gates of the military facility known as Area 51. We had to storm it and try to save aliens... Yeah, I know it may sound weird, but hey... Wasteland is crazy, isn't it?}
+{5010}{}{[ Listen ]}
+{5020}{}{Noone cares.}
+{6000}{}{We died dozens of times, but every time we were ressurecting and coming back to the battlefield. They threw everything what they had on us - hundreds of soldiers, ghouls, supermutants, turrets, artirelly... Even giant spiders. It was so tough that we couldn't get through. SO I made a decission. I grouped our forces and united them together and crashed whole our might on their positions!}
+{6010}{}{[ Listen ]}
+{6020}{}{I don't believe a single word from your side.}
+{7000}{}{We managed to get inside the facility and make unique photos, gather some artifacts and we saw... Oh damn we saw some things for sure.}
+{7010}{}{[ Listen ]}
+{7020}{}{Sounds like a good pile of lie.}
+{8000}{}{Well here is how the story ends. By the way, this alien near me is Frank. You can say hi to him.}
+{8010}{}{I see...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it you want?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Bye.}
+{3000}{}{Oh well, if you bring me a beer then I will tell you the story about myself.}
+{3010}{}{Here is the local. Now tell me about your story.}
+{3020}{}{I will be right back.}
+{4000}{}{Right... So listen up. I am Kyles01 The Prime. I don't know where I was born and who the heck am I, but I, and many other people, know what I did.}
+{4010}{}{[ Listen ]}
+{4020}{}{Bo - ring. I will go now.}
+{5000}{}{On September the 20th me and many good men an women found ourselves near the gates of the military facility known as Area 51. We had to storm it and try to save aliens... Yeah, I know it may sound weird, but hey... Wasteland is crazy, isn't it?}
+{5010}{}{[ Listen ]}
+{5020}{}{Noone cares.}
+{6000}{}{We died dozens of times, but every time we were ressurecting and coming back to the battlefield. They threw everything what they had on us - hundreds of soldiers, ghouls, supermutants, turrets, artirelly... Even giant spiders. It was so tough that we couldn't get through. SO I made a decission. I grouped our forces and united them together and crashed whole our might on their positions!}
+{6010}{}{[ Listen ]}
+{6020}{}{I don't believe a single word from your side.}
+{7000}{}{We managed to get inside the facility and make unique photos, gather some artifacts and we saw... Oh damn we saw some things for sure.}
+{7010}{}{[ Listen ]}
+{7020}{}{Sounds like a good pile of lie.}
+{8000}{}{Well here is how the story ends. By the way, this alien near me is Frank. You can say hi to him.}
+{8010}{}{I see...}
+

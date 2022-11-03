@@ -1,0 +1,306 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+8 1010 @
+2 2000 None 0 #
+3 2010 #
+8 2020 #
+7 2030 #
+0 2040 #
+0 2050 @
+3 3000 None 0 #
+4 3010 #
+5 3020 #
+6 3030 #
+8 3040 #
+0 3050 @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+8 4030 #
+0 4040 @
+5 5000 None 0 #
+4 5010 #
+6 5020 #
+8 5030 #
+0 5040 @
+6 6000 None 0 #
+5 6010 #
+4 6020 #
+8 6030 #
+0 6040 @
+7 7000 None 0 #
+3 7010 #
+8 7020 #
+0 7030 @
+8 8000 None 0 #
+0 8010 D _param p ST_TIER_MAP = 1 D _item p PID_WATER_CHIP > 2 R _script dungeon@r_take_me_on 1 3 #
+0 8020 D _item p PID_WATER_CHIP > 2 D _param p ST_TIER_MAP = 2 R _script dungeon@r_take_me_on 1 4 #
+0 8030 D _item p PID_WATER_CHIP > 2 D _param p ST_TIER_MAP = 3 R _script dungeon@r_take_me_on 1 5 #
+0 8040 D _item p PID_WATER_CHIP > 2 D _param p ST_TIER_MAP = 4 R _script dungeon@r_take_me_on 1 6 #
+0 8050 D _item p PID_WATER_CHIP > 2 D _param p ST_TIER_MAP = 5 R _script dungeon@r_take_me_on 1 7 #
+0 8060 D _item p PID_WATER_CHIP > 2 D _param p ST_TIER_MAP = 6 R _script dungeon@r_take_me_on 1 8 #
+0 8070 D _param p ST_TIER_MAP = 1 D _item p PID_WATER_CHIP > 1 R _script dungeon@r_take_me_on 1 0 #
+0 8080 D _param p ST_TIER_MAP = 2 D _item p PID_WATER_CHIP > 1 R _script dungeon@r_take_me_on 1 1 #
+0 8090 D _param p ST_TIER_MAP = 3 D _item p PID_WATER_CHIP > 1 R _script dungeon@r_take_me_on 1 2 #
+0 8100 D _param p ST_TIER_MAP = 4 D _item p PID_WATER_CHIP > 1 R _script dungeon@r_take_me_on 1 3 #
+0 8110 D _param p ST_TIER_MAP = 5 D _item p PID_WATER_CHIP > 1 R _script dungeon@r_take_me_on 1 4 #
+0 8120 D _param p ST_TIER_MAP = 6 D _item p PID_WATER_CHIP > 1 R _script dungeon@r_take_me_on 1 5 #
+0 8130 &
+
+[engl]
+{100}{}{Greeter}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{Come here my friend, are you starting to understand this place? I own all of this, and I know what's under it. I can take you deeper.}
+{2010}{}{Wait wait, what can I expect there?}
+{2020}{}{Sure, take me there.}
+{2030}{}{How deep is this hole?}
+{2040}{}{I can go by myself, i don't need a guide.}
+{2050}{}{Sorry I'm busy, another time old man.}
+{3000}{}{Good you ask, my friend, good you ask. Rumous says that there is a complex of the largest pre war labs ever found, and you know what my friend? It's true I saw it with my own eyes.}
+{3010}{}{Is it safe there?}
+{3020}{}{How can I leave it?}
+{3030}{}{What can I find there?}
+{3040}{}{Wow, take me there now!}
+{3050}{}{That sounds great but I just want to go home.}
+{4000}{}{Hah my Friend, a better question where IS a safe place in this world. The Sewers are mostly empty, sometimes you will find dogs, rats, ghouls. If you go deeper you will find more dangerous creatures and bandits, mutants, basically a whole underground world of everything. On every floor I made a safe outpost; you can sometimes meet me there.}
+{4010}{}{How can I leave from there?}
+{4020}{}{Any treasures to find?}
+{4030}{}{Sound great, take me there!}
+{4040}{}{Too scary I'm sorry I don't want it.}
+{5000}{}{My friend, just find ladders up they are mostly at the start of every tunnel, if you my friend don't see a ladder or hole go East. You can find me in outpost and I know the way.}
+{5010}{}{Is it safe there?}
+{5020}{}{What can i find there?}
+{5030}{}{Sign me up, I will join you.}
+{5040}{}{Be trapped for possibly long periods of time searching for a ladder? I can't imagine it sorry I'm out.}
+{6000}{}{I'm happy you ask it, my friend, you can find there many technologies, sewers are already robbed so you can find there only things what others didnt take. When you go deeper there is better loot. There are a lot water chips there and I need them to keep my outposts alive, my friend. Please find them.}
+{6010}{}{Wait, how will I find the exit?}
+{6020}{}{Are there any enemies?}
+{6030}{}{Let's go then, show me the deepest dungeon.}
+{6040}{}{I would like to hopefully escape and do some more safety trading and organizing, I'm sorry. Some other time maybe.}
+{7000}{}{My friend, It's a big underground world, legends speak of a temple under the whole of California. I dont know if its the truth but I could never check everything down there. First you will be in the Sewers of San Francisco, then the metro subway complex, then you will get into some natural caves, then to even deeper glowing green caves I call them deep cave, right under deep cave you can find a huge temple, and under temple is lab. You won't be disappointed.}
+{7010}{}{I see, What can I expect there?}
+{7020}{}{Take me there!}
+{7030}{}{I have to go, I have no time for legends.}
+{8000}{}{My friend, my friend, I would take you but you already probably know how this world works. Everyone needs something. I don't need money, I need technology, and I'm only interested in one type of technology, Water Chips. If you find them we can make a trade. I'll take you deeper and you will give me chips. If you don't have a ladder or a hole find me in outpost like this, I can take you deeper or maybe help find exit to upper floors.}
+{8010}{}{Take me up(3 Water Chips)}
+{8020}{}{Take me up(3 Water Chips)}
+{8030}{}{Take me up(3 Water Chips)}
+{8040}{}{Take me up(3 Water Chips)}
+{8050}{}{Take me up(3 Water Chips)}
+{8060}{}{Take me up(3 Water Chips)}
+{8070}{}{Take me down(2 Water Chips)}
+{8080}{}{Take me down(2 Water Chips)}
+{8090}{}{Take me down(2 Water Chips)}
+{8100}{}{Take me down(2 Water Chips)}
+{8110}{}{Take me down(2 Water Chips)}
+{8120}{}{Take me down(2 Water Chips)}
+{8130}{}{see you}
+
+[czec]
+{100}{}{None}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{Come here my friend, do you see the hole right over there? I own paths of this sewers, and I know what's under it, I can take you deeper.}
+{2010}{}{Wait wait, what can I expect there?}
+{2020}{}{Sure take me there.}
+{2030}{}{How deep is this hole?}
+{2040}{}{I can go by myself, i don't need a guide.}
+{2050}{}{Sorry I'm busy, other time old man.}
+{3000}{}{Good you ask, my friend, good you ask, Well romous says that there is complex of largest pre war labs, and you know what my friend? It's true I saw it on my eyes}
+{3010}{}{Is it safe there?}
+{3020}{}{How can I leave it?}
+{3030}{}{What can I found there?}
+{3040}{}{Ok take me there now!}
+{3050}{}{It sounds great but its not for me.}
+{4000}{}{hah my Friend, better question where is safe place in this world, Sewers are empty, sometimes you will find dogs, rats, ghouls, if you go deeper you will find more dangerous creatures and bandits, mutants, basicly this big underground world of everything, on every floor i made safe outpost you can sometimes meet me there.}
+{4010}{}{How can i leave from there?}
+{4020}{}{Any tresures to find?}
+{4030}{}{Sound great, take me there!}
+{4040}{}{Too scary I'm sorry I don't want it}
+{5000}{}{My friend, just find ladder up they are mostly on start of every tunnel, if you my friend don't see ladder go to East. Always you can find me in outpost and I know the way.}
+{5010}{}{Is it safe there?}
+{5020}{}{What can i find there?}
+{5030}{}{Sign me up, I will join you}
+{5040}{}{Be trapped for long and search for ladder? I can't imagine it sorry I'm out}
+{6000}{}{I'm happy you ask it, my friend, you can find there many technologies, sewers are already robbed so you can find there only things what others didnt take, When you go deeper better loot you got, there is a lot water chips there and I need it, for keep my outposts alive, my friend}
+{6010}{}{Ok how will i find exit?}
+{6020}{}{is there any enemies?}
+{6030}{}{Let's go then, show me deepest dungeons}
+{6040}{}{I would like comeback to safety trading, I'm sorry other time maybe.}
+{7000}{}{My friend, It's big underground world, legends say about temple over whole California, I dont know if its truth but I never check everything down there, first you will be in sewers then metro, then you will get into cave, then to glowing green cave I call it my friend a deep cave, right under deep cave you can find a temple, and under temple its lab, you will be impressed how good is it build.}
+{7010}{}{I see, What can i expect there?}
+{7020}{}{Take me there!}
+{7030}{}{I have to go, I have no time for legends}
+{8000}{}{My friend, my friend, I would take you but you already probably know how this world workinng, everyone needs something, I don't need money, I need technology, and I'm interesed in one type of technology, Water Chips, if you find them we can make trade I'll take you deeper and you will give me chips, if you don't have it go by yourself and find me in outpost, I can take you deeper and help find exit to upper floors.}
+{8010}{}{Take me up(3 Water Chips)}
+{8020}{}{Take me up(3 Water Chips)}
+{8030}{}{Take me up(3 Water Chips)}
+{8040}{}{Take me up(3 Water Chips)}
+{8050}{}{Take me up(3 Water Chips)}
+{8060}{}{Take me up(3 Water Chips)}
+{8070}{}{Take me down(2 Water Chips)}
+{8080}{}{Take me down(2 Water Chips)}
+{8090}{}{Take me down(2 Water Chips)}
+{8100}{}{Take me down(2 Water Chips)}
+{8110}{}{Take me down(2 Water Chips)}
+{8120}{}{Take me down(2 Water Chips)}
+{8130}{}{see you}
+
+[pols]
+{100}{}{None}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{Come here my friend, do you see the hole right over there? I own paths of this sewers, and I know what's under it, I can take you deeper.}
+{2010}{}{Wait wait, what can I expect there?}
+{2020}{}{Sure take me there.}
+{2030}{}{How deep is this hole?}
+{2040}{}{I can go by myself, i don't need a guide.}
+{2050}{}{Sorry I'm busy, other time old man.}
+{3000}{}{Good you ask, my friend, good you ask, Well romous says that there is complex of largest pre war labs, and you know what my friend? It's true I saw it on my eyes}
+{3010}{}{Is it safe there?}
+{3020}{}{How can I leave it?}
+{3030}{}{What can I found there?}
+{3040}{}{Ok take me there now!}
+{3050}{}{It sounds great but its not for me.}
+{4000}{}{hah my Friend, better question where is safe place in this world, Sewers are empty, sometimes you will find dogs, rats, ghouls, if you go deeper you will find more dangerous creatures and bandits, mutants, basicly this big underground world of everything, on every floor i made safe outpost you can sometimes meet me there.}
+{4010}{}{How can i leave from there?}
+{4020}{}{Any tresures to find?}
+{4030}{}{Sound great, take me there!}
+{4040}{}{Too scary I'm sorry I don't want it}
+{5000}{}{My friend, just find ladder up they are mostly on start of every tunnel, if you my friend don't see ladder go to East. Always you can find me in outpost and I know the way.}
+{5010}{}{Is it safe there?}
+{5020}{}{What can i find there?}
+{5030}{}{Sign me up, I will join you}
+{5040}{}{Be trapped for long and search for ladder? I can't imagine it sorry I'm out}
+{6000}{}{I'm happy you ask it, my friend, you can find there many technologies, sewers are already robbed so you can find there only things what others didnt take, When you go deeper better loot you got, there is a lot water chips there and I need it, for keep my outposts alive, my friend}
+{6010}{}{Ok how will i find exit?}
+{6020}{}{is there any enemies?}
+{6030}{}{Let's go then, show me deepest dungeons}
+{6040}{}{I would like comeback to safety trading, I'm sorry other time maybe.}
+{7000}{}{My friend, It's big underground world, legends say about temple over whole California, I dont know if its truth but I never check everything down there, first you will be in sewers then metro, then you will get into cave, then to glowing green cave I call it my friend a deep cave, right under deep cave you can find a temple, and under temple its lab, you will be impressed how good is it build.}
+{7010}{}{I see, What can i expect there?}
+{7020}{}{Take me there!}
+{7030}{}{I have to go, I have no time for legends}
+{8000}{}{My friend, my friend, I would take you but you already probably know how this world workinng, everyone needs something, I don't need money, I need technology, and I'm interesed in one type of technology, Water Chips, if you find them we can make trade I'll take you deeper and you will give me chips, if you don't have it go by yourself and find me in outpost, I can take you deeper and help find exit to upper floors.}
+{8010}{}{Take me up(3 Water Chips)}
+{8020}{}{Take me up(3 Water Chips)}
+{8030}{}{Take me up(3 Water Chips)}
+{8040}{}{Take me up(3 Water Chips)}
+{8050}{}{Take me up(3 Water Chips)}
+{8060}{}{Take me up(3 Water Chips)}
+{8070}{}{Take me down(2 Water Chips)}
+{8080}{}{Take me down(2 Water Chips)}
+{8090}{}{Take me down(2 Water Chips)}
+{8100}{}{Take me down(2 Water Chips)}
+{8110}{}{Take me down(2 Water Chips)}
+{8120}{}{Take me down(2 Water Chips)}
+{8130}{}{see you}
+
+[span]
+{100}{}{None}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{Come here my friend, do you see the hole right over there? I own paths of this sewers, and I know what's under it, I can take you deeper.}
+{2010}{}{Wait wait, what can I expect there?}
+{2020}{}{Sure take me there.}
+{2030}{}{How deep is this hole?}
+{2040}{}{I can go by myself, i don't need a guide.}
+{2050}{}{Sorry I'm busy, other time old man.}
+{3000}{}{Good you ask, my friend, good you ask, Well romous says that there is complex of largest pre war labs, and you know what my friend? It's true I saw it on my eyes}
+{3010}{}{Is it safe there?}
+{3020}{}{How can I leave it?}
+{3030}{}{What can I found there?}
+{3040}{}{Ok take me there now!}
+{3050}{}{It sounds great but its not for me.}
+{4000}{}{hah my Friend, better question where is safe place in this world, Sewers are empty, sometimes you will find dogs, rats, ghouls, if you go deeper you will find more dangerous creatures and bandits, mutants, basicly this big underground world of everything, on every floor i made safe outpost you can sometimes meet me there.}
+{4010}{}{How can i leave from there?}
+{4020}{}{Any tresures to find?}
+{4030}{}{Sound great, take me there!}
+{4040}{}{Too scary I'm sorry I don't want it}
+{5000}{}{My friend, just find ladder up they are mostly on start of every tunnel, if you my friend don't see ladder go to East. Always you can find me in outpost and I know the way.}
+{5010}{}{Is it safe there?}
+{5020}{}{What can i find there?}
+{5030}{}{Sign me up, I will join you}
+{5040}{}{Be trapped for long and search for ladder? I can't imagine it sorry I'm out}
+{6000}{}{I'm happy you ask it, my friend, you can find there many technologies, sewers are already robbed so you can find there only things what others didnt take, When you go deeper better loot you got, there is a lot water chips there and I need it, for keep my outposts alive, my friend}
+{6010}{}{Ok how will i find exit?}
+{6020}{}{is there any enemies?}
+{6030}{}{Let's go then, show me deepest dungeons}
+{6040}{}{I would like comeback to safety trading, I'm sorry other time maybe.}
+{7000}{}{My friend, It's big underground world, legends say about temple over whole California, I dont know if its truth but I never check everything down there, first you will be in sewers then metro, then you will get into cave, then to glowing green cave I call it my friend a deep cave, right under deep cave you can find a temple, and under temple its lab, you will be impressed how good is it build.}
+{7010}{}{I see, What can i expect there?}
+{7020}{}{Take me there!}
+{7030}{}{I have to go, I have no time for legends}
+{8000}{}{My friend, my friend, I would take you but you already probably know how this world workinng, everyone needs something, I don't need money, I need technology, and I'm interesed in one type of technology, Water Chips, if you find them we can make trade I'll take you deeper and you will give me chips, if you don't have it go by yourself and find me in outpost, I can take you deeper and help find exit to upper floors.}
+{8010}{}{Take me up(3 Water Chips)}
+{8020}{}{Take me up(3 Water Chips)}
+{8030}{}{Take me up(3 Water Chips)}
+{8040}{}{Take me up(3 Water Chips)}
+{8050}{}{Take me up(3 Water Chips)}
+{8060}{}{Take me up(3 Water Chips)}
+{8070}{}{Take me down(2 Water Chips)}
+{8080}{}{Take me down(2 Water Chips)}
+{8090}{}{Take me down(2 Water Chips)}
+{8100}{}{Take me down(2 Water Chips)}
+{8110}{}{Take me down(2 Water Chips)}
+{8120}{}{Take me down(2 Water Chips)}
+{8130}{}{see you}
+
+[russ]
+{100}{}{None}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{Come here my friend, do you see the hole right over there? I own paths of this sewers, and I know what's under it, I can take you deeper.}
+{2010}{}{Wait wait, what can I expect there?}
+{2020}{}{Sure take me there.}
+{2030}{}{How deep is this hole?}
+{2040}{}{I can go by myself, i don't need a guide.}
+{2050}{}{Sorry I'm busy, other time old man.}
+{3000}{}{Good you ask, my friend, good you ask, Well romous says that there is complex of largest pre war labs, and you know what my friend? It's true I saw it on my eyes}
+{3010}{}{Is it safe there?}
+{3020}{}{How can I leave it?}
+{3030}{}{What can I found there?}
+{3040}{}{Ok take me there now!}
+{3050}{}{It sounds great but its not for me.}
+{4000}{}{hah my Friend, better question where is safe place in this world, Sewers are empty, sometimes you will find dogs, rats, ghouls, if you go deeper you will find more dangerous creatures and bandits, mutants, basicly this big underground world of everything, on every floor i made safe outpost you can sometimes meet me there.}
+{4010}{}{How can i leave from there?}
+{4020}{}{Any tresures to find?}
+{4030}{}{Sound great, take me there!}
+{4040}{}{Too scary I'm sorry I don't want it}
+{5000}{}{My friend, just find ladder up they are mostly on start of every tunnel, if you my friend don't see ladder go to East. Always you can find me in outpost and I know the way.}
+{5010}{}{Is it safe there?}
+{5020}{}{What can i find there?}
+{5030}{}{Sign me up, I will join you}
+{5040}{}{Be trapped for long and search for ladder? I can't imagine it sorry I'm out}
+{6000}{}{I'm happy you ask it, my friend, you can find there many technologies, sewers are already robbed so you can find there only things what others didnt take, When you go deeper better loot you got, there is a lot water chips there and I need it, for keep my outposts alive, my friend}
+{6010}{}{Ok how will i find exit?}
+{6020}{}{is there any enemies?}
+{6030}{}{Let's go then, show me deepest dungeons}
+{6040}{}{I would like comeback to safety trading, I'm sorry other time maybe.}
+{7000}{}{My friend, It's big underground world, legends say about temple over whole California, I dont know if its truth but I never check everything down there, first you will be in sewers then metro, then you will get into cave, then to glowing green cave I call it my friend a deep cave, right under deep cave you can find a temple, and under temple its lab, you will be impressed how good is it build.}
+{7010}{}{I see, What can i expect there?}
+{7020}{}{Take me there!}
+{7030}{}{I have to go, I have no time for legends}
+{8000}{}{My friend, my friend, I would take you but you already probably know how this world workinng, everyone needs something, I don't need money, I need technology, and I'm interesed in one type of technology, Water Chips, if you find them we can make trade I'll take you deeper and you will give me chips, if you don't have it go by yourself and find me in outpost, I can take you deeper and help find exit to upper floors.}
+{8010}{}{Take me up(3 Water Chips)}
+{8020}{}{Take me up(3 Water Chips)}
+{8030}{}{Take me up(3 Water Chips)}
+{8040}{}{Take me up(3 Water Chips)}
+{8050}{}{Take me up(3 Water Chips)}
+{8060}{}{Take me up(3 Water Chips)}
+{8070}{}{Take me down(2 Water Chips)}
+{8080}{}{Take me down(2 Water Chips)}
+{8090}{}{Take me down(2 Water Chips)}
+{8100}{}{Take me down(2 Water Chips)}
+{8110}{}{Take me down(2 Water Chips)}
+{8120}{}{Take me down(2 Water Chips)}
+{8130}{}{see you}
+

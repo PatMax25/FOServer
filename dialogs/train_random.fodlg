@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+0 2020 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script perks@can_class 1 100 R _param p PE_RANDOM = 1 R _script perks@randomat 0  &
+
+[engl]
+{100}{}{Stranger}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{What made you come here?}
+{2010}{}{I'm a loser at life, I wanna gamble what I have and maybe luck will smile to me this time.}
+{2020}{}{Actually nothing. Bye.}
+{3000}{}{This is a dangerous game you want to play. Remember - there is no way back. The ritual will be painful and if you don't have proper experience... You may just die.}
+{3010}{}{Fine, fine... I will go, then.}
+{3020}{}{Let's play}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{What made you come you here?}
+{2010}{}{I'm life loser, I wanna gamble what i have and maybe luck will smile to me.}
+{2020}{}{Mere nothing. Bye.}
+{3000}{}{This is a dangerouse game you want to play. Remember - there is no way back. The ritual will be painful and if you don't have a proper experience... You may just die.}
+{3010}{}{Fine, fine... I will go, than.}
+{3020}{}{Let's play}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{What made you come you here?}
+{2010}{}{I'm life loser, I wanna gamble what i have and maybe luck will smile to me.}
+{2020}{}{Mere nothing. Bye.}
+{3000}{}{This is a dangerouse game you want to play. Remember - there is no way back. The ritual will be painful and if you don't have a proper experience... You may just die.}
+{3010}{}{Fine, fine... I will go, than.}
+{3020}{}{Let's play}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{What made you come you here?}
+{2010}{}{I'm life loser, I wanna gamble what i have and maybe luck will smile to me.}
+{2020}{}{Mere nothing. Bye.}
+{3000}{}{This is a dangerouse game you want to play. Remember - there is no way back. The ritual will be painful and if you don't have a proper experience... You may just die.}
+{3010}{}{Fine, fine... I will go, than.}
+{3020}{}{Let's play}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{What made you come you here?}
+{2010}{}{I'm life loser, I wanna gamble what i have and maybe luck will smile to me.}
+{2020}{}{Mere nothing. Bye.}
+{3000}{}{This is a dangerouse game you want to play. Remember - there is no way back. The ritual will be painful and if you don't have a proper experience... You may just die.}
+{3010}{}{Fine, fine... I will go, than.}
+{3020}{}{Let's play}
+

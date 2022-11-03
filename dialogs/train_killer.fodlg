@@ -1,0 +1,73 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+0 2020 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script perks@can_class 1 60 R _param p PE_KILLER + 1 R _script perks@killer 0  &
+
+[engl]
+{100}{}{Guy with blood on his body.}
+{210}{}{Bloodymess that's his trait for sure.}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{[You notice a weird crazy kind of light of excitement in his eyes, His hands are covered with blood.]}
+{2010}{}{Are you alright, bud?}
+{2020}{}{Fuck this. I am out of here.}
+{3000}{}{Well, you don't want be next right? Or should I show you how to massacre someone with your bare hands?}
+{3010}{}{Nah, nah, nah... I am out.}
+{3020}{}{Sure, show me what you can, bloody boy.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{[looks busy and his eyes looks crazy, all in blood]}
+{2010}{}{What happen here?}
+{2020}{}{Fuck this. I am out of here.}
+{3000}{}{Well, you don't want be next right? Or should I show you how to massacre someone to be all in blood too?}
+{3010}{}{Yes, i don't want be next.}
+{3020}{}{Could you show me how?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{[looks busy and his eyes looks crazy, all in blood]}
+{2010}{}{What happen here?}
+{2020}{}{Fuck this. I am out of here.}
+{3000}{}{Well, you don't want be next right? Or should I show you how to massacre someone to be all in blood too?}
+{3010}{}{Yes, i don't want be next.}
+{3020}{}{Could you show me how?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{[looks busy and his eyes looks crazy, all in blood]}
+{2010}{}{What happen here?}
+{2020}{}{Fuck this. I am out of here.}
+{3000}{}{Well, you don't want be next right? Or should I show you how to massacre someone to be all in blood too?}
+{3010}{}{Yes, i don't want be next.}
+{3020}{}{Could you show me how?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{[looks busy and his eyes looks crazy, all in blood]}
+{2010}{}{What happen here?}
+{2020}{}{Fuck this. I am out of here.}
+{3000}{}{Well, you don't want be next right? Or should I show you how to massacre someone to be all in blood too?}
+{3010}{}{Yes, i don't want be next.}
+{3020}{}{Could you show me how?}
+

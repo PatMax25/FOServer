@@ -1,0 +1,20 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ America of 2077 is the land of amazing culture! Only our land of the free is responsible for creating most of the most famous and wonderful music compositions! PLEASE DO NOT TOUCH ANYTHING! ]}
+{2010}{}{[ Leave ]}
+

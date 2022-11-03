@@ -1,0 +1,233 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+8 2030 D _var p q_rockside_breakit = 1 D _item p PID_BEER } 1 R _var p q_rockside_breakit = 4 R _param p ST_EXPERIENCE + 100 R _item p PID_BEER - 1 R _item p PID_9MM_MAUSER + 1 R _item p PID_9MM_AMMO + 10 #
+10 2040 D _var p q_rockside_breakit = 3 D _item p PID_BEER } 1 R _var p q_rockside_breakit = 5 R _param p ST_EXPERIENCE + 250 R _item p PID_BEER - 1 R _item p PID_9MM_MAUSER + 1 R _item p PID_9MM_AMMO + 30 #
+0 2050 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 #
+5 4020 #
+9 4030 #
+0 4040 @
+5 5000 None 0 #
+6 5010 #
+6 5020 #
+9 5030 @
+6 6000 None 0 #
+7 6010 D _var p q_rockside_breakit = 0 #
+7 6020 D _var p q_rockside_breakit = 0 #
+9 6030 @
+7 7000 None 0 #
+0 7010 D _var p q_rockside_breakit = 0 R _var p q_rockside_breakit = 1 #
+0 7020 D _var p q_rockside_breakit = 0 R _var p q_rockside_breakit = 1 @
+8 8000 None 0 #
+0 8010 #
+0 8020 #
+0 8030 @
+9 9000 None 0 @
+10 10000 None 0 #
+0 10010 #
+0 10020 &
+
+[engl]
+{100}{}{Dr. Breakit}
+{200}{}{This guy looks like a very old raider.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you need, fresher?}
+{2010}{}{Fresher?}
+{2020}{}{Who are you?}
+{2030}{}{Hey I have a bottle of beer for ya.}
+{2040}{}{Hello again. I have some beer for you. [ give him a bottle of spoiled beer ]}
+{2050}{}{Nothing. Gonna go. [ end dialogue ]}
+{3000}{}{Oh please... You are dumb as a box of rocks. Go waste time somewhere else.}
+{4000}{}{My name is Dr. Breakit. But for you I am your lord and king.}
+{4010}{}{Eh... What?}
+{4020}{}{You look more like the walking dead actually.}
+{4030}{}{You sound like another poor fucker with high self esteem.}
+{4040}{}{Alright. See ya. [ end dialogue ]}
+{5000}{}{Ah whatever, I've lost all my power and charisma since the time I resigned from our party.}
+{5010}{}{What kind of party?
+}
+{5020}{}{Tell me more about yourself.}
+{5030}{}{Who even fucking cares, old man? [ end dialogue ]}
+{6000}{}{I was a raider. And I was a good one I need to tell ya, freshy. My Great Khans fellows called me Dr. Breakit, and I tell you, I earned such name with my pure hands crushing skulls, not like you, mags, do. Filling the freaking gap with some fancy looking names in your stupid Vault or whatever. Nothing makes me laugh so hard seeing some "Dominator of the Wastes" or "Big Boss" or even "NoobSlayer" dying in some dirty pit.}
+{6010}{}{So you are just a classic bandit, huh?}
+{6020}{}{I see.}
+{6030}{}{Lovely story... Lovely ending. You forgot to mention where exactly your coffin will be placed, oldman. [ end dialogue ]}
+{7000}{}{Ah whatever, scrub. Be a good buddy and bring an old raider a bottle of beer.}
+{7010}{}{Fine... [ end dialogue ]}
+{7020}{}{I am not a delivery guy. You better do it yourself... granny. [ end dialogue ]}
+{8000}{}{Da hell, buddy? If you keep on running around, helping everyone like a slut in Reno you will end up in a dumpster. Fucking freshers, look, just take this pistol and go kill somebody. Stop looking at me with this kind look in your eyes and pathetic desire to save the fucking world.
+}
+{8010}{}{Oh fuck off. [ end dialogue ]}
+{8020}{}{Alright. [ end dialogue ]}
+{8030}{}{Whatever. [ end dialogue ]}
+{9000}{}{Oh so we have a smartass here. Go fuck yourself, shithead, before I personally punch your ass out.}
+{10000}{}{Oh lovely. Thank you, little... *he takes a gulp and spits it all out* The fuck is that? Oh you fucking son of a... Hey, actually... Not bad, ahaha. You managed to fool me here. Good job, buddy. That's how we fuck the entire Wasteland. Take this pistol, it will help you on your way to the top.}
+{10010}{}{Thank you, old man. [ end dialogue ]}
+{10020}{}{Pff... You still sound pathetic. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you need, fresher?}
+{2010}{}{Fresher?}
+{2020}{}{Who are you?}
+{2030}{}{Hey I have a local of beer for ya.}
+{2040}{}{Hello again. I have some beery for you. [ Give him a local of spoiled beer ]}
+{2050}{}{Nothing. Gonna go.}
+{3000}{}{Oh please... You are dump as a box of rocks. Go waste time somewhere else.}
+{4000}{}{My name is Dr. Breakit. But for you I am your lord and king.}
+{4010}{}{Eh... What?}
+{4020}{}{You look more like a walking dead actually.}
+{4030}{}{You sound like another poor fucker with high self esteem.}
+{4040}{}{Alright. See ya.}
+{5000}{}{Ah whatever, I've lost all my power and charisma since the time I resigned from our party.}
+{5010}{}{What kind of party?
+}
+{5020}{}{Tell me more about yourself.}
+{5030}{}{Who even fucking cares, old man.}
+{6000}{}{I was a raider. And I was a good one I need to tell ya, freshy. My Great Khans fellows called me Dr. Breakit, and I tell you, I earned such name with my pure hands crashing skulls, not like you, mags, do. Filling the freaking gap with some fancy looking names in your stupid Vault or whatever. Nothing makes me laugh so hard seeing some "Dominator of the Wastes" or "Big Boss" or even "NoobSlayer" dying in some dirty pit.}
+{6010}{}{So you are just a classic bandit or so, huh?}
+{6020}{}{I see.}
+{6030}{}{Lovely story... Lovely ending. You forgot to mention where exactly your coffin will be placed, oldman.}
+{7000}{}{Ah whatever, scrub. Be a good budy and bring old raider a local of beer.}
+{7010}{}{Fine...}
+{7020}{}{I am not a delivery guy. You better do it yourself... granny.}
+{8000}{}{Da hell, budy? If you keep on running around, helping everyone, like a slut in Reno you will end up in a dumpster. Fucking freshers, look, just take this pistol and go kill somebody. Stop messing around me with this kind look in your eyes and desire to save the freaking world.
+}
+{8010}{}{Oh fuck off.}
+{8020}{}{Alright.}
+{8030}{}{Whatever.}
+{9000}{}{Oh so we have a smartass here. Go fuck yourself, shithead, before I will personally punch your ass.}
+{10000}{}{Oh lovely. Thank you, little... [ He takes a gulp and spits it all out ]. The fuck is that? Oh you fucking son of a... Hey, actually... Not bad, ahaha. You managed to fool me here. Good job, budy. That's how we fuck the entire Wasteland. Take this pistol, it will help you in your way to the top.}
+{10010}{}{Thank you, oldman.}
+{10020}{}{Pff... You still sound pathetic.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you need, fresher?}
+{2010}{}{Fresher?}
+{2020}{}{Who are you?}
+{2030}{}{Hey I have a local of beer for ya.}
+{2040}{}{Hello again. I have some beery for you. [ Give him a local of spoiled beer ]}
+{2050}{}{Nothing. Gonna go.}
+{3000}{}{Oh please... You are dump as a box of rocks. Go waste time somewhere else.}
+{4000}{}{My name is Dr. Breakit. But for you I am your lord and king.}
+{4010}{}{Eh... What?}
+{4020}{}{You look more like a walking dead actually.}
+{4030}{}{You sound like another poor fucker with high self esteem.}
+{4040}{}{Alright. See ya.}
+{5000}{}{Ah whatever, I've lost all my power and charisma since the time I resigned from our party.}
+{5010}{}{What kind of party?
+}
+{5020}{}{Tell me more about yourself.}
+{5030}{}{Who even fucking cares, old man.}
+{6000}{}{I was a raider. And I was a good one I need to tell ya, freshy. My Great Khans fellows called me Dr. Breakit, and I tell you, I earned such name with my pure hands crashing skulls, not like you, mags, do. Filling the freaking gap with some fancy looking names in your stupid Vault or whatever. Nothing makes me laugh so hard seeing some "Dominator of the Wastes" or "Big Boss" or even "NoobSlayer" dying in some dirty pit.}
+{6010}{}{So you are just a classic bandit or so, huh?}
+{6020}{}{I see.}
+{6030}{}{Lovely story... Lovely ending. You forgot to mention where exactly your coffin will be placed, oldman.}
+{7000}{}{Ah whatever, scrub. Be a good budy and bring old raider a local of beer.}
+{7010}{}{Fine...}
+{7020}{}{I am not a delivery guy. You better do it yourself... granny.}
+{8000}{}{Da hell, budy? If you keep on running around, helping everyone, like a slut in Reno you will end up in a dumpster. Fucking freshers, look, just take this pistol and go kill somebody. Stop messing around me with this kind look in your eyes and desire to save the freaking world.
+}
+{8010}{}{Oh fuck off.}
+{8020}{}{Alright.}
+{8030}{}{Whatever.}
+{9000}{}{Oh so we have a smartass here. Go fuck yourself, shithead, before I will personally punch your ass.}
+{10000}{}{Oh lovely. Thank you, little... [ He takes a gulp and spits it all out ]. The fuck is that? Oh you fucking son of a... Hey, actually... Not bad, ahaha. You managed to fool me here. Good job, budy. That's how we fuck the entire Wasteland. Take this pistol, it will help you in your way to the top.}
+{10010}{}{Thank you, oldman.}
+{10020}{}{Pff... You still sound pathetic.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you need, fresher?}
+{2010}{}{Fresher?}
+{2020}{}{Who are you?}
+{2030}{}{Hey I have a local of beer for ya.}
+{2040}{}{Hello again. I have some beery for you. [ Give him a local of spoiled beer ]}
+{2050}{}{Nothing. Gonna go.}
+{3000}{}{Oh please... You are dump as a box of rocks. Go waste time somewhere else.}
+{4000}{}{My name is Dr. Breakit. But for you I am your lord and king.}
+{4010}{}{Eh... What?}
+{4020}{}{You look more like a walking dead actually.}
+{4030}{}{You sound like another poor fucker with high self esteem.}
+{4040}{}{Alright. See ya.}
+{5000}{}{Ah whatever, I've lost all my power and charisma since the time I resigned from our party.}
+{5010}{}{What kind of party?
+}
+{5020}{}{Tell me more about yourself.}
+{5030}{}{Who even fucking cares, old man.}
+{6000}{}{I was a raider. And I was a good one I need to tell ya, freshy. My Great Khans fellows called me Dr. Breakit, and I tell you, I earned such name with my pure hands crashing skulls, not like you, mags, do. Filling the freaking gap with some fancy looking names in your stupid Vault or whatever. Nothing makes me laugh so hard seeing some "Dominator of the Wastes" or "Big Boss" or even "NoobSlayer" dying in some dirty pit.}
+{6010}{}{So you are just a classic bandit or so, huh?}
+{6020}{}{I see.}
+{6030}{}{Lovely story... Lovely ending. You forgot to mention where exactly your coffin will be placed, oldman.}
+{7000}{}{Ah whatever, scrub. Be a good budy and bring old raider a local of beer.}
+{7010}{}{Fine...}
+{7020}{}{I am not a delivery guy. You better do it yourself... granny.}
+{8000}{}{Da hell, budy? If you keep on running around, helping everyone, like a slut in Reno you will end up in a dumpster. Fucking freshers, look, just take this pistol and go kill somebody. Stop messing around me with this kind look in your eyes and desire to save the freaking world.
+}
+{8010}{}{Oh fuck off.}
+{8020}{}{Alright.}
+{8030}{}{Whatever.}
+{9000}{}{Oh so we have a smartass here. Go fuck yourself, shithead, before I will personally punch your ass.}
+{10000}{}{Oh lovely. Thank you, little... [ He takes a gulp and spits it all out ]. The fuck is that? Oh you fucking son of a... Hey, actually... Not bad, ahaha. You managed to fool me here. Good job, budy. That's how we fuck the entire Wasteland. Take this pistol, it will help you in your way to the top.}
+{10010}{}{Thank you, oldman.}
+{10020}{}{Pff... You still sound pathetic.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you need, fresher?}
+{2010}{}{Fresher?}
+{2020}{}{Who are you?}
+{2030}{}{Hey I have a local of beer for ya.}
+{2040}{}{Hello again. I have some beery for you. [ Give him a local of spoiled beer ]}
+{2050}{}{Nothing. Gonna go.}
+{3000}{}{Oh please... You are dump as a box of rocks. Go waste time somewhere else.}
+{4000}{}{My name is Dr. Breakit. But for you I am your lord and king.}
+{4010}{}{Eh... What?}
+{4020}{}{You look more like a walking dead actually.}
+{4030}{}{You sound like another poor fucker with high self esteem.}
+{4040}{}{Alright. See ya.}
+{5000}{}{Ah whatever, I've lost all my power and charisma since the time I resigned from our party.}
+{5010}{}{What kind of party?
+}
+{5020}{}{Tell me more about yourself.}
+{5030}{}{Who even fucking cares, old man.}
+{6000}{}{I was a raider. And I was a good one I need to tell ya, freshy. My Great Khans fellows called me Dr. Breakit, and I tell you, I earned such name with my pure hands crashing skulls, not like you, mags, do. Filling the freaking gap with some fancy looking names in your stupid Vault or whatever. Nothing makes me laugh so hard seeing some "Dominator of the Wastes" or "Big Boss" or even "NoobSlayer" dying in some dirty pit.}
+{6010}{}{So you are just a classic bandit or so, huh?}
+{6020}{}{I see.}
+{6030}{}{Lovely story... Lovely ending. You forgot to mention where exactly your coffin will be placed, oldman.}
+{7000}{}{Ah whatever, scrub. Be a good budy and bring old raider a local of beer.}
+{7010}{}{Fine...}
+{7020}{}{I am not a delivery guy. You better do it yourself... granny.}
+{8000}{}{Da hell, budy? If you keep on running around, helping everyone, like a slut in Reno you will end up in a dumpster. Fucking freshers, look, just take this pistol and go kill somebody. Stop messing around me with this kind look in your eyes and desire to save the freaking world.
+}
+{8010}{}{Oh fuck off.}
+{8020}{}{Alright.}
+{8030}{}{Whatever.}
+{9000}{}{Oh so we have a smartass here. Go fuck yourself, shithead, before I will personally punch your ass.}
+{10000}{}{Oh lovely. Thank you, little... [ He takes a gulp and spits it all out ]. The fuck is that? Oh you fucking son of a... Hey, actually... Not bad, ahaha. You managed to fool me here. Good job, budy. That's how we fuck the entire Wasteland. Take this pistol, it will help you in your way to the top.}
+{10010}{}{Thank you, oldman.}
+{10020}{}{Pff... You still sound pathetic.}
+

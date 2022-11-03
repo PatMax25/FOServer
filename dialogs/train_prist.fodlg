@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+0 2020 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script perks@can_class 1 70 R _script perks@faith 0  R _param p PE_PRIEST = 1 &
+
+[engl]
+{100}{}{Pope}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{May God bless you... What are you doing here?}
+{2010}{}{I have many sins, father. I want be God's slave}
+{2020}{}{[ Run away ]}
+{3000}{}{Are you sure you have enough experience and will for such a mighty action?}
+{3010}{}{Eheh... No, I just better go. Ok?}
+{3020}{}{God Bless America!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{May the God bless you... What are you doing here?}
+{2010}{}{I have many sins, father. I want be a God's slave}
+{2020}{}{[ Run away ]}
+{3000}{}{Are you sure you have enough experience and will for such mighty action?}
+{3010}{}{Eheh... No, I just better go. Ok?}
+{3020}{}{God Bless America!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{May the God bless you... What are you doing here?}
+{2010}{}{I have many sins, father. I want be a God's slave}
+{2020}{}{[ Run away ]}
+{3000}{}{Are you sure you have enough experience and will for such mighty action?}
+{3010}{}{Eheh... No, I just better go. Ok?}
+{3020}{}{God Bless America!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{May the God bless you... What are you doing here?}
+{2010}{}{I have many sins, father. I want be a God's slave}
+{2020}{}{[ Run away ]}
+{3000}{}{Are you sure you have enough experience and will for such mighty action?}
+{3010}{}{Eheh... No, I just better go. Ok?}
+{3020}{}{God Bless America!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{May the God bless you... What are you doing here?}
+{2010}{}{I have many sins, father. I want be a God's slave}
+{2020}{}{[ Run away ]}
+{3000}{}{Are you sure you have enough experience and will for such mighty action?}
+{3010}{}{Eheh... No, I just better go. Ok?}
+{3020}{}{God Bless America!}
+

@@ -1,0 +1,269 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 #
+4 2010 #
+5 2020 D _var p name_mem_npc_player = 0 #
+6 2030 D _script dialog@d_CheckMorning 0  #
+7 2040 D _var p reno_piano = 1 #
+9 2050 #
+6 2060 D _script dialog@d_CheckAfternoon 0  #
+14 2070 D _script dialog@d_CheckEvening 0  #
+14 2080 D _script dialog@d_CheckNight 0  @
+4 3000 None 0 #
+3 3010 @
+5 4000 None 0 #
+3 4010 R _var p name_mem_npc_player = 1 @
+6 5000 None 0 #
+6 5010 D _item p PID_FOODPACK_VEGETABLES } 1 R _item p PID_FOODPACK_VEGETABLES - 1 R _item p PID_BOTTLE_CAPS + 2700 #
+6 5020 D _item p PID_FOODPACK_MEAT } 1 R _item p PID_FOODPACK_MEAT - 1 R _item p PID_BOTTLE_CAPS + 4700 #
+6 5030 D _item p PID_FOODPACK_COMBINED } 1 R _item p PID_FOODPACK_COMBINED - 1 R _item p PID_BOTTLE_CAPS + 6250 #
+0 5040 @
+7 6000 None 0 #
+8 6010 D _param p SK_SPEECH } 90 R _var p reno_piano = 2 R _param p ST_EXPERIENCE + 150 #
+12 6020 D _param p SK_SPEECH < 90 #
+8 6030 D _param p ST_CHARISMA } 6 R _var p reno_piano = 2 R _param p ST_EXPERIENCE + 150 #
+12 6040 D _param p ST_CHARISMA < 6 #
+8 6050 D _param p ST_STRENGTH } 8 R _var p reno_piano = 2 R _param p ST_EXPERIENCE + 150 #
+65507 6060 D _param p ST_STRENGTH < 8 #
+0 6070 @
+8 7000 None 0 @
+9 8000 None 0 #
+13 8010 D _param p SK_SPEECH < 90 #
+10 8020 D _param p SK_SPEECH } 90 #
+0 8030 @
+10 9000 None 0 #
+11 9010 @
+11 10000 None 0 #
+3 10010 @
+12 11000 None 0 @
+13 12000 None 0 @
+14 13000 None 0 &
+
+[engl]
+{100}{}{Morgan Montgomery}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings to you, partner. What is it you wish to discuss?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{I heard you accept food here...}
+{2030}{}{I have some food supplies for you.}
+{2040}{}{There is a guy named Olavi not far from this building. He is a very talented pianist. I thought you might be interested...}
+{2050}{}{Tell me more about "Honest Hearts".}
+{2060}{}{I have some supplies for you. Interested?}
+{2070}{}{I have some supplies for you. Interested?}
+{2080}{}{I have some supplies for you. Interested?}
+{3000}{}{My name is Morgan Montgomery. And I am the founder of "Honest Hearts" company. We specify in making business in food distribution. Say, if you are a farmer, then I will be glad to sign up a contract with you,}
+{3010}{}{One more question...}
+{4000}{}{Yes. We gladly accept food supply packs. If you ever have some - bring them to us and we will be glad to pay you.
+}
+{4010}{}{Great, let's switch the topic then...}
+{5000}{}{What do you have for us today? Prices are 2700 caps for vegetables, 4700 for meat and 6250 for combined pack.}
+{5010}{}{I have a Vegetable supply food pack here.}
+{5020}{}{I have a Meat supply food pack here.}
+{5030}{}{I have a Combined supply food pack here.}
+{5040}{}{I will come later.}
+{6000}{}{A talented pianist? In New Reno? Sounds like some fairy tale.}
+{6010}{}{[ Speech 90 ] He will become a legend with your help. You should just listen to him play!}
+{6020}{}{[ Speech 90 ] He will become a legend with your help. You should just listen to him play!}
+{6030}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6040}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6050}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6060}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6070}{}{You know what... We will return to it.}
+{7000}{}{Very well, you can tell him that he can come to my office tomorrow and show his talent.}
+{8000}{}{Sorry, but I prefer to not speak about the company much.}
+{8010}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8020}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8030}{}{Fine, let's close the topic.}
+{9000}{}{Very well, I see you are a trustworthy person. "Honest Hearts" is a part of the Phoenix Consortium, and our branch moved here to start working on the food distribution business. You see... Life in Phoenix is harsh in terms of food. Unfortunately the soil near the city is no good for crops, so we always need to find new trade routes to supply the city with food.}
+{9010}{}{What can you tell me about Phoenix?}
+{10000}{}{It is a big town. A true megapolis, you will never see such an amount of people anywhere else as is in Phoenix. Around 5 years ago the city finally faced some really prosperous times when the Consortium crashed the power of the Followers of Phoenix Church and became the ruling power.}
+{10010}{}{I see. Let's talk about something else.}
+{11000}{}{[ Fail ] Nah, I hardly believe in it...}
+{12000}{}{[ Fail ] Sorry, but my answer is no.}
+{13000}{}{Sorry, but we take food only from 7 AM to 6 PM. Come back at morning.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings to you, partner. What is it you wish to discuss?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{I heard you accept food here...}
+{2030}{}{I have some food supplies for you.}
+{2040}{}{There is a guy named Olavi not far from this building. He is a ver talented pianist. I thought you might be interested...}
+{2050}{}{[ Speech 90 ] Tell me more about "Honest Hearts".}
+{2060}{}{I have some supplies for you. Interested?}
+{2070}{}{I have some supplies for you. Interested?}
+{2080}{}{I have some supplies for you. Interested?}
+{3000}{}{My name is Morgan Montgomery. And I am the founder of "Honest Hearts" company. We specify in making business in food distribution. Say, if you are a farmer, then I will be glad to sign up a contract with you,}
+{3010}{}{One more question...}
+{4000}{}{Yes. We gladly accept food supply packs. If you ever have some - bring them to us and we will be glad to pay you.
+}
+{4010}{}{Great, let's switch the topic then...}
+{5000}{}{What do you have for us today?}
+{5010}{}{I have a Vegetable supply food pack here.}
+{5020}{}{I have a Meat supply food pack here.}
+{5030}{}{I have a COmbines supply food pack here.}
+{5040}{}{I will come later.}
+{6000}{}{A talented pianist? In New Reno? Sounds like some fairy tail.}
+{6010}{}{[ Speech 90 ] He will become a legend with your help. You shall just listen to his play!}
+{6020}{}{[ Speech 90 ] He will become a legend with your help. You shall just listen to his play!}
+{6030}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6040}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6050}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6060}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6070}{}{You know what... We will return to it.}
+{7000}{}{Very well, you can tell him that he can come to my office tomorrow and show his talent.}
+{8000}{}{Sorry, but I prefer to not speak about company much.}
+{8010}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8020}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8030}{}{FIne, let's close the topic.}
+{9000}{}{Very well, I see you are a trustworthy person. "Honest Hearts" is a part of Phoenix Consortium, our branch moved here to start working on food distribution business. You see... Life in Phoenix is harsh in terms of food. Unfortunately the soil near the city is no good for crops, so we always need to find new trade routs to supply the city with food.}
+{9010}{}{What can you tell me about Phoenix?}
+{10000}{}{It is a big town. A tru megapolis, you will never see such amount of people anywhere else as it is in Phoenix. Around 5 years ago the city finally faced some prosperity times when Consortium crashed the power of Followers of Phoenix Church and became the rulling power.}
+{10010}{}{I see. Let's talk about something else.}
+{11000}{}{Nah, I hardly believe in it...}
+{12000}{}{Sorry, but my answer is no.}
+{13000}{}{Sorry, but we take food only from 7 AM to 6 PM. Come back at morning.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings to you, partner. What is it you wish to discuss?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{I heard you accept food here...}
+{2030}{}{I have some food supplies for you.}
+{2040}{}{There is a guy named Olavi not far from this building. He is a ver talented pianist. I thought you might be interested...}
+{2050}{}{[ Speech 90 ] Tell me more about "Honest Hearts".}
+{2060}{}{I have some supplies for you. Interested?}
+{2070}{}{I have some supplies for you. Interested?}
+{2080}{}{I have some supplies for you. Interested?}
+{3000}{}{My name is Morgan Montgomery. And I am the founder of "Honest Hearts" company. We specify in making business in food distribution. Say, if you are a farmer, then I will be glad to sign up a contract with you,}
+{3010}{}{One more question...}
+{4000}{}{Yes. We gladly accept food supply packs. If you ever have some - bring them to us and we will be glad to pay you.
+}
+{4010}{}{Great, let's switch the topic then...}
+{5000}{}{What do you have for us today?}
+{5010}{}{I have a Vegetable supply food pack here.}
+{5020}{}{I have a Meat supply food pack here.}
+{5030}{}{I have a COmbines supply food pack here.}
+{5040}{}{I will come later.}
+{6000}{}{A talented pianist? In New Reno? Sounds like some fairy tail.}
+{6010}{}{[ Speech 90 ] He will become a legend with your help. You shall just listen to his play!}
+{6020}{}{[ Speech 90 ] He will become a legend with your help. You shall just listen to his play!}
+{6030}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6040}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6050}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6060}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6070}{}{You know what... We will return to it.}
+{7000}{}{Very well, you can tell him that he can come to my office tomorrow and show his talent.}
+{8000}{}{Sorry, but I prefer to not speak about company much.}
+{8010}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8020}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8030}{}{FIne, let's close the topic.}
+{9000}{}{Very well, I see you are a trustworthy person. "Honest Hearts" is a part of Phoenix Consortium, our branch moved here to start working on food distribution business. You see... Life in Phoenix is harsh in terms of food. Unfortunately the soil near the city is no good for crops, so we always need to find new trade routs to supply the city with food.}
+{9010}{}{What can you tell me about Phoenix?}
+{10000}{}{It is a big town. A tru megapolis, you will never see such amount of people anywhere else as it is in Phoenix. Around 5 years ago the city finally faced some prosperity times when Consortium crashed the power of Followers of Phoenix Church and became the rulling power.}
+{10010}{}{I see. Let's talk about something else.}
+{11000}{}{Nah, I hardly believe in it...}
+{12000}{}{Sorry, but my answer is no.}
+{13000}{}{Sorry, but we take food only from 7 AM to 6 PM. Come back at morning.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings to you, partner. What is it you wish to discuss?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{I heard you accept food here...}
+{2030}{}{I have some food supplies for you.}
+{2040}{}{There is a guy named Olavi not far from this building. He is a ver talented pianist. I thought you might be interested...}
+{2050}{}{[ Speech 90 ] Tell me more about "Honest Hearts".}
+{2060}{}{I have some supplies for you. Interested?}
+{2070}{}{I have some supplies for you. Interested?}
+{2080}{}{I have some supplies for you. Interested?}
+{3000}{}{My name is Morgan Montgomery. And I am the founder of "Honest Hearts" company. We specify in making business in food distribution. Say, if you are a farmer, then I will be glad to sign up a contract with you,}
+{3010}{}{One more question...}
+{4000}{}{Yes. We gladly accept food supply packs. If you ever have some - bring them to us and we will be glad to pay you.
+}
+{4010}{}{Great, let's switch the topic then...}
+{5000}{}{What do you have for us today?}
+{5010}{}{I have a Vegetable supply food pack here.}
+{5020}{}{I have a Meat supply food pack here.}
+{5030}{}{I have a COmbines supply food pack here.}
+{5040}{}{I will come later.}
+{6000}{}{A talented pianist? In New Reno? Sounds like some fairy tail.}
+{6010}{}{[ Speech 90 ] He will become a legend with your help. You shall just listen to his play!}
+{6020}{}{[ Speech 90 ] He will become a legend with your help. You shall just listen to his play!}
+{6030}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6040}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6050}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6060}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6070}{}{You know what... We will return to it.}
+{7000}{}{Very well, you can tell him that he can come to my office tomorrow and show his talent.}
+{8000}{}{Sorry, but I prefer to not speak about company much.}
+{8010}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8020}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8030}{}{FIne, let's close the topic.}
+{9000}{}{Very well, I see you are a trustworthy person. "Honest Hearts" is a part of Phoenix Consortium, our branch moved here to start working on food distribution business. You see... Life in Phoenix is harsh in terms of food. Unfortunately the soil near the city is no good for crops, so we always need to find new trade routs to supply the city with food.}
+{9010}{}{What can you tell me about Phoenix?}
+{10000}{}{It is a big town. A tru megapolis, you will never see such amount of people anywhere else as it is in Phoenix. Around 5 years ago the city finally faced some prosperity times when Consortium crashed the power of Followers of Phoenix Church and became the rulling power.}
+{10010}{}{I see. Let's talk about something else.}
+{11000}{}{Nah, I hardly believe in it...}
+{12000}{}{Sorry, but my answer is no.}
+{13000}{}{Sorry, but we take food only from 7 AM to 6 PM. Come back at morning.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings to you, partner. What is it you wish to discuss?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{I heard you accept food here...}
+{2030}{}{I have some food supplies for you.}
+{2040}{}{There is a guy named Olavi not far from this building. He is a ver talented pianist. I thought you might be interested...}
+{2050}{}{[ Speech 90 ] Tell me more about "Honest Hearts".}
+{2060}{}{I have some supplies for you. Interested?}
+{2070}{}{I have some supplies for you. Interested?}
+{2080}{}{I have some supplies for you. Interested?}
+{3000}{}{My name is Morgan Montgomery. And I am the founder of "Honest Hearts" company. We specify in making business in food distribution. Say, if you are a farmer, then I will be glad to sign up a contract with you,}
+{3010}{}{One more question...}
+{4000}{}{Yes. We gladly accept food supply packs. If you ever have some - bring them to us and we will be glad to pay you.
+}
+{4010}{}{Great, let's switch the topic then...}
+{5000}{}{What do you have for us today?}
+{5010}{}{I have a Vegetable supply food pack here.}
+{5020}{}{I have a Meat supply food pack here.}
+{5030}{}{I have a COmbines supply food pack here.}
+{5040}{}{I will come later.}
+{6000}{}{A talented pianist? In New Reno? Sounds like some fairy tail.}
+{6010}{}{[ Speech 90 ] He will become a legend with your help. You shall just listen to his play!}
+{6020}{}{[ Speech 90 ] He will become a legend with your help. You shall just listen to his play!}
+{6030}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6040}{}{[ Charisma 6 ] Trust me, I know what I am saying.}
+{6050}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6060}{}{[ Strength 8 ] I will gladly smash your head off, if you don't give the guy a chance.}
+{6070}{}{You know what... We will return to it.}
+{7000}{}{Very well, you can tell him that he can come to my office tomorrow and show his talent.}
+{8000}{}{Sorry, but I prefer to not speak about company much.}
+{8010}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8020}{}{[ Speech 90 ] Come on, I will tell nobody.}
+{8030}{}{FIne, let's close the topic.}
+{9000}{}{Very well, I see you are a trustworthy person. "Honest Hearts" is a part of Phoenix Consortium, our branch moved here to start working on food distribution business. You see... Life in Phoenix is harsh in terms of food. Unfortunately the soil near the city is no good for crops, so we always need to find new trade routs to supply the city with food.}
+{9010}{}{What can you tell me about Phoenix?}
+{10000}{}{It is a big town. A tru megapolis, you will never see such amount of people anywhere else as it is in Phoenix. Around 5 years ago the city finally faced some prosperity times when Consortium crashed the power of Followers of Phoenix Church and became the rulling power.}
+{10010}{}{I see. Let's talk about something else.}
+{11000}{}{Nah, I hardly believe in it...}
+{12000}{}{Sorry, but my answer is no.}
+{13000}{}{Sorry, but we take food only from 7 AM to 6 PM. Come back at morning.}
+

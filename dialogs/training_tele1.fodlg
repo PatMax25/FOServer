@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 R _param p ST_NPC_ROLE = 0 R _script dialog@r_TeleportToMap 2 809 0 R _param p ST_REPLICATION_TIME = 0 R _param p MODE_NO_LOOT = 0 &
+
+[engl]
+{100}{}{Teleporter}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it?}
+{2010}{}{I want to leave. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is that?}
+{2010}{}{I want to leave.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is that?}
+{2010}{}{I want to leave.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is that?}
+{2010}{}{I want to leave.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is that?}
+{2010}{}{I want to leave.}
+

@@ -1,0 +1,557 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
+import string GetCritterLexems(Critter&critter)from"lexems";
+import string GetItemLexems(Item&item)from"lexems";
+
+import bool IsLexem(Critter&critter,string&lex)from"lexems";
+import bool IsLexem(Item&it,string&lex)from"lexems";
+import bool IsLexem(string&lexems,string&lex)from"lexems";
+
+import string GetLexem(Critter&critter,string&lex)from"lexems";
+import string GetLexem(Item&item,string&lex)from"lexems";
+import string GetLexem(string&lexems,string&lex)from"lexems"; 
+
+import void SetLexem(Critter&critter,string&lex,string&value)from"lexems";
+import void SetLexem(Item&item,string&lex,string&value)from"lexems";
+import string SetLexem(string&lexems,string&lex,string&value)from"lexems";
+
+import void UnsetLexem(Critter&critter,string&lex)from"lexems";
+import void UnsetLexem(Item&item,string&lex)from"lexems";
+import string UnsetLexem(string&lexems,string&lex)from"lexems";    
+
+import void ClearEvents(Critter&cr)from"utils";
+import int NextLevelNeedExp(Critter&cr)from"parameters";
+
+void _InitBook(Item&item,bool firstTime)
+{
+	item.SetEvent((2),"_TentUse");
+}
+
+bool _TentUse(Item&item,Critter&cr,Critter@onCritter,Item@onItem,Scenery@onScenery)
+{
+	if((@onCritter!=null)||(@onItem!=null)||(@onScenery!=null))
+	{
+		cr.SayMsg((11),(3),(10202));
+		return(true);
+	}
+	
+	if((@cr!=null))
+	{
+		if((item.Val1==0)&&cr.Param[(77)]>1)
+		{
+			cr.Say((11),"|0xFF4400 You must be level 1 to open this book.");
+			return(true);
+		}
+		else if(item.Val1==0)
+		{
+			item.Val1=cr.Id;
+			cr.ParamBase[(802)]=1;
+			cr.Say((11),"Book assigned to "+cr.Name+".");
+			cr.ParamBase[(76)]=NextLevelNeedExp(cr);
+			if(item.Val0<2)
+			DeleteItem(item);
+			else
+			{
+				item.Val0--;
+				cr.Say((11),item.Val0+" levels remaining.");
+			}
+			item.Update();
+			return(true);
+		}
+		else if(uint(item.Val1)!=cr.Id)
+		{
+			cr.Say((11),"|0xFF4400 It is not your book.");
+			return(true);
+		}
+		else if(uint(item.Val1)==cr.Id)
+		{
+			int level=cr.Param[(77)];
+			uint skillPoints=5+cr.ParamBase[(4)]*2;
+			if(cr.Trait[(564)]!=0)
+			skillPoints+=5;
+			skillPoints+=cr.Param[(319)]*2;
+			
+			if(item.Val0+level!=item.Val2)
+			{
+				cr.Say((11),"|0xFF4400 You cannot use this book anymore.");
+				return(true);
+			}
+			
+			int perkUp=3;    
+			
+			if((((level+1)%perkUp==0&&level<24)||level==29)&&cr.Param[(79)]!=0)
+			{
+				cr.Say((11),"|0xFF4400 Choose your perk.");
+				return(true);
+			}
+			uint exp=0;
+			uint lvl=cr.Param[(77)];
+			if(cr.Param[(384)]>0||cr.Param[(352)]>0||cr.Param[(345)]>0||cr.Param[(404)]>0||cr.Param[(382)]>0||cr.Param[(353)]>0||cr.Param[(408)]>0||cr.Param[(395)]>0||cr.Param[(393)]>0||cr.Param[(418)]>0||cr.Param[(419)]>0||cr.Param[(347)]>0||cr.Param[(450)]>0||cr.Param[(441)]>0||cr.Param[(357)]>0||cr.Param[(358)]>0||cr.Param[(359)]>0||cr.Param[(360)]>0)
+			{
+				exp=((item.Val2-1)*((item.Val2-1)+1)/2)*1000;
+				if(cr.Param[(802)]>0)
+				{
+					
+					cr.ParamBase[(76)]=exp;
+					DeleteItem(item);
+					return true;
+				}
+				
+			} 
+			
+			cr.ParamBase[(76)]=NextLevelNeedExp(cr);
+			if(item.Val0<2)
+			DeleteItem(item);
+			else
+			{
+				item.Val0--;
+				cr.Say((11),item.Val0+" levels remaining.");
+				item.Update();
+			}
+		}
+	}
+	return(true);
+}
+
+bool reroll_check_special(Critter&player,Critter@npc,int special,int plus)
+{
+	if(player.Param[(1091)]<1&&plus>0)
+	return false;
+	if(player.Param[(1093)+special]<2&&plus==0)
+	return false;
+	if(player.Param[(1093)+special]>9&&plus==1)
+	return false;
+	if(special==4&&player.Param[(1092)]==1)
+	return false;
+	if(special==4&&player.Param[(1090)]==1)
+	return false;
+	
+	return true;
+}
+
+bool reroll_check_trait(Critter&player,Critter@npc,int trait)
+{
+	if(player.Param[(1092)]==1&&player.Param[(1097)]<3)
+	return false;
+	if(player.Param[(1090)]==1&&player.Param[(1097)]<3)
+	return false;
+	if(player.Param[(1092)]==trait)
+	return false;
+	if(player.Param[(1090)]==trait)
+	return false;
+	
+	return true;
+}
+
+bool reroll_check_ready(Critter&player,Critter@npc)
+{
+	if(player.Param[(1091)]!=0&&player.Param[(802)]==0)
+	return false;
+	
+	return true;
+}
+bool check_cost(Critter&cr,Critter@npc)
+{
+	
+	uint his_money=cr.CountItem((41))+cr.CountItem((1211))+cr.CountItem((1212))+cr.CountItem((1213))+cr.CountItem((1214))+cr.CountItem((1215));
+	uint cost=1000*cr.Param[(77)];
+	if(cr.Param[(215)]>149)
+	cost=10000;
+	if(his_money>=cost)
+	return true;
+	
+	return false;
+	
+}
+
+void reroll_add_special(Critter&player,Critter@npc,int special,int plus)
+{
+	if(plus>0)
+	{
+		player.ParamBase[(1093)+special]+=1;
+		player.ParamBase[(1091)]--;
+	}
+	if(plus==0)
+	{
+		player.ParamBase[(1093)+special]-=1;
+		player.ParamBase[(1091)]++;
+	}
+}
+
+void reroll_add_trait(Critter&player,Critter@npc,int trait,int trait2)
+{
+	if(trait2>0)
+	player.ParamBase[(1090)]=trait;
+	else player.ParamBase[(1092)]=trait;
+}
+
+void reroll_add_restart(Critter&player,Critter@npc)
+{
+	
+	player.ParamBase[(1093)]=5;
+	player.ParamBase[(1094)]=5;
+	player.ParamBase[(1095)]=5;
+	player.ParamBase[(1096)]=5;
+	player.ParamBase[(1097)]=5;
+	player.ParamBase[(1098)]=5;
+	player.ParamBase[(1099)]=5;
+	player.ParamBase[(1091)]=5;
+	player.ParamBase[(1090)]=0;
+	player.ParamBase[(1092)]=0;
+	
+}
+
+void reroll_add_restart_only_traits(Critter&player,Critter@npc)
+{
+	
+	player.ParamBase[(1090)]=0;
+	player.ParamBase[(1092)]=0;
+}
+
+void reroll_add_restart_only_special(Critter&player,Critter@npc)
+{
+	player.ParamBase[(1093)]=5;
+	player.ParamBase[(1094)]=5;
+	player.ParamBase[(1095)]=5;
+	player.ParamBase[(1096)]=5;
+	player.ParamBase[(1097)]=5;
+	player.ParamBase[(1098)]=5;
+	player.ParamBase[(1099)]=5;
+}
+
+void reroll_take_cost(Critter&player,Critter@npc)
+{
+	uint cost=1000*player.Param[(77)];
+	if(player.Param[(215)]>149)
+	cost=10000;
+	Item@currency=player.GetItem((41),-1);
+	Item@currency2=player.GetItem((1211),-1);
+	Item@currency3=player.GetItem((1212),-1);
+	Item@currency4=player.GetItem((1213),-1);
+	Item@currency5=player.GetItem((1214),-1);
+	Item@currency6=player.GetItem((1215),-1);
+	if((@currency!=null))
+	DeleteItem(currency);
+	if((@currency2!=null))
+	DeleteItem(currency2);
+	if((@currency3!=null))
+	DeleteItem(currency3);
+	if((@currency4!=null))
+	DeleteItem(currency4);
+	if((@currency5!=null))
+	DeleteItem(currency5);
+	if((@currency6!=null))
+	DeleteItem(currency6);
+}
+import void reroll_comapanion(Critter&cr)from"companion";
+void reroll_init(Critter&player,Critter@npc)
+{
+	int crType=69;
+	if(player.Param[(71)]>0)
+	crType=4;
+	for(int i=0;i<9;i++)
+	player.ParamBase[(1172)+i]=0;
+	
+	for(uint i=(900);i<=(924);i++)
+	{
+		if(player.Followers[i]!=0)
+		{
+			Critter@cr=GetCritter(player.Followers[i]);
+			
+			player.FollowersBase[i]=0;
+			if((@cr!=null))
+			{
+				
+				reroll_comapanion(cr);
+				cr.ParamBase[(103)]=0;
+				cr.ParamBase[(104)]=9321;
+				cr.FollowerVarBase[(933)]=0;
+				ClearEvents(cr);
+				(cr.ParamBase[(534)]=(cr.Param[(534)]|((0x00000020)))^((0x00000020)));
+				cr.SetScript("");
+			}
+		}
+	}
+	if(player.Param[(345)]>0||player.Param[(352)]>0)
+	{
+		player.ChangeCrType(crType);
+		player.ParamBase[(112)]=crType;
+	}
+	player.ParamBase[(138)]=0;
+	
+	uint tokens=0;
+	if(player.Param[(462)]>0){player.AddItem((22053),player.Param[(462)]);tokens+=player.Param[(462)];}
+	if(player.Param[(463)]>0){player.AddItem((22054),player.Param[(463)]);tokens+=player.Param[(463)];}
+	if(player.Param[(465)]>0){player.AddItem((22056),player.Param[(465)]);tokens+=player.Param[(465)];}
+	if(player.Param[(464)]>0){player.AddItem((22055),player.Param[(464)]);tokens+=player.Param[(464)];}
+	if(player.Param[(466)]>0){player.AddItem((22057),player.Param[(466)]);tokens+=player.Param[(466)];}
+	if(player.Param[(467)]>0){player.AddItem((22058),player.Param[(467)]);tokens+=player.Param[(467)];}
+	if(player.Param[(468)]>0){player.AddItem((22059),player.Param[(468)]);tokens+=player.Param[(468)];}
+	if(player.Param[(469)]>0){player.AddItem((22060),player.Param[(469)]);tokens+=player.Param[(469)];}
+	if(player.Param[(432)]>0){player.AddItem((22051),player.Param[(432)]);tokens+=player.Param[(432)];}
+	if(player.Param[(433)]>0){player.AddItem((22051),player.Param[(433)]);tokens+=player.Param[(433)];}
+	if(player.Param[(434)]>0){player.AddItem((22052),player.Param[(434)]);tokens+=player.Param[(434)];}
+	if(player.Param[(435)]>0){player.AddItem((22052),player.Param[(435)]);tokens+=player.Param[(435)];}
+	if(player.Param[(300)]>0){player.AddItem((25552),player.Param[(300)]);tokens+=player.Param[(300)];}
+	if(player.Param[(310)]>0){player.AddItem((25552),player.Param[(310)]);tokens+=player.Param[(310)];}
+	if(player.Param[(311)]>0){player.AddItem((25553),player.Param[(311)]);tokens+=player.Param[(311)];}
+	if(player.Param[(321)]>0){player.AddItem((25553),player.Param[(321)]);tokens+=player.Param[(321)];}
+	if(player.Param[(323)]>0){player.AddItem((25554),player.Param[(323)]);tokens+=player.Param[(323)];}
+	if(player.Param[(324)]>0){player.AddItem((25554),player.Param[(324)]);tokens+=player.Param[(324)];}
+	if(player.Param[(325)]>0){player.AddItem((25555),player.Param[(325)]);tokens+=player.Param[(325)];}
+	if(player.Param[(328)]>0){player.AddItem((25555),player.Param[(328)]);tokens+=player.Param[(328)];}
+	if(player.Param[(337)]>0){player.AddItem((25556),player.Param[(337)]);tokens+=player.Param[(337)];}
+	if(player.Param[(340)]>0){player.AddItem((25556),player.Param[(340)]);tokens+=player.Param[(340)];}
+	if(player.Param[(431)]>0){player.AddItem((1216),player.Param[(431)]);tokens+=player.Param[(431)];}
+	if(tokens>0&&player.Param[(347)]==0)
+	player.AddItem((1247),tokens);
+	
+	for(uint i=300;i<566;i++)
+	player.ParamBase[i]=0;
+	
+	switch(player.Param[(1092)])
+	{
+		case 1:player.ParamBase[(563)]=1;break;
+		case 2:player.ParamBase[(564)]=1;break;
+		case 3:player.ParamBase[(565)]=1;break;
+		case 4:player.ParamBase[(550)]=1;break;
+		case 5:player.ParamBase[(551)]=1;break;
+		case 6:player.ParamBase[(552)]=1;break;
+		case 7:player.ParamBase[(553)]=1;break;
+		case 8:player.ParamBase[(554)]=1;break;
+		case 9:player.ParamBase[(555)]=1;break;
+		case 10:player.ParamBase[(556)]=1;break;
+		case 11:player.ParamBase[(557)]=1;break;
+		case 12:player.ParamBase[(558)]=1;break;
+		case 13:player.ParamBase[(559)]=1;break;
+		case 14:player.ParamBase[(560)]=1;break;
+		case 15:player.ParamBase[(561)]=1;break;
+		case 16:player.ParamBase[(562)]=1;break;
+		default:break;
+	}
+	switch(player.Param[(1090)])
+	{
+		case 1:player.ParamBase[(563)]=1;break;
+		case 2:player.ParamBase[(564)]=1;break;
+		case 3:player.ParamBase[(565)]=1;break;
+		case 4:player.ParamBase[(550)]=1;break;
+		case 5:player.ParamBase[(551)]=1;break;
+		case 6:player.ParamBase[(552)]=1;break;
+		case 7:player.ParamBase[(553)]=1;break;
+		case 8:player.ParamBase[(554)]=1;break;
+		case 9:player.ParamBase[(555)]=1;break;
+		case 10:player.ParamBase[(556)]=1;break;
+		case 11:player.ParamBase[(557)]=1;break;
+		case 12:player.ParamBase[(558)]=1;break;
+		case 13:player.ParamBase[(559)]=1;break;
+		case 14:player.ParamBase[(560)]=1;break;
+		case 15:player.ParamBase[(561)]=1;break;
+		case 16:player.ParamBase[(562)]=1;break;
+		default:break;
+	}
+	
+	player.ParamBase[(0)]=player.Param[(1093)];
+	player.ParamBase[(1100)]=player.Param[(1093)]+player.ParamBase[(564)];
+	player.ParamBase[(1)]=player.Param[(1094)];
+	player.ParamBase[(1101)]=player.Param[(1094)]+player.ParamBase[(564)];
+	player.ParamBase[(2)]=player.Param[(1095)];
+	player.ParamBase[(1102)]=player.Param[(1095)]+player.ParamBase[(564)];
+	player.ParamBase[(3)]=player.Param[(1096)];
+	player.ParamBase[(1103)]=player.Param[(1096)]+player.ParamBase[(564)];
+	player.ParamBase[(5)]=player.Param[(1098)];
+	player.ParamBase[(1105)]=player.Param[(1098)]+player.ParamBase[(564)];
+	player.ParamBase[(4)]=player.Param[(1097)];
+	player.ParamBase[(1104)]=player.Param[(1097)]+player.ParamBase[(564)];
+	player.ParamBase[(6)]=player.Param[(1099)];
+	player.ParamBase[(1106)]=player.Param[(1099)]+player.ParamBase[(564)];
+	
+	int blodymess=0;
+	if(player.Param[(558)]!=0)
+	blodymess=20;
+	player.ParamBase[(200)]=5+4*player.ParamBase[(5)]-blodymess;
+	player.ParamBase[(201)]=0+2*player.ParamBase[(5)]-blodymess;
+	player.ParamBase[(202)]=0+2*player.ParamBase[(5)]-blodymess;
+	player.ParamBase[(203)]=30+2*(player.ParamBase[(5)]+player.ParamBase[(0)])-blodymess;
+	player.ParamBase[(204)]=0+6*player.ParamBase[(4)]-blodymess;
+	player.ParamBase[(205)]=0+4*player.ParamBase[(5)]-blodymess;
+	player.ParamBase[(206)]=0+2*(player.ParamBase[(1)]+player.ParamBase[(4)])-blodymess;
+	player.ParamBase[(207)]=5+player.ParamBase[(1)]+player.ParamBase[(4)]-blodymess;
+	player.ParamBase[(208)]=5+3*player.ParamBase[(5)]-blodymess;
+	player.ParamBase[(209)]=10+player.ParamBase[(1)]+player.ParamBase[(5)]-blodymess;
+	player.ParamBase[(210)]=0+4*player.ParamBase[(4)]-blodymess;
+	player.ParamBase[(211)]=10+player.ParamBase[(1)]+player.ParamBase[(5)]-blodymess;
+	player.ParamBase[(212)]=0+4*player.ParamBase[(4)]-blodymess;
+	player.ParamBase[(213)]=0+3*player.ParamBase[(4)]-blodymess;
+	player.ParamBase[(214)]=0+5*player.ParamBase[(3)]-blodymess;
+	player.ParamBase[(215)]=0+4*player.ParamBase[(3)]-blodymess;
+	player.ParamBase[(216)]=5+3*player.ParamBase[(4)]-blodymess;
+	player.ParamBase[(217)]=0+2*(player.ParamBase[(2)]+player.ParamBase[(4)])-blodymess;         
+	
+	array<Critter@>critters;
+	uint num=GetAllNpc(0,critters);
+	for(uint i=0;i<num;i++)
+	{
+		GameVar@var=GetUnicumVar((2015),player.Id,critters[i].Id);
+		var=0;
+		GameVar@acquaintance=GetUnicumVar((2018),player.Id,critters[i].Id);
+		acquaintance=0;
+	}
+	player.ParamBase[(1168)]=0;
+	GameVar@var2=GetUnicumVar((2015),player.Id,5002861);
+	var2=0;
+	GameVar@snak=GetLocalVar((7141),player.Id);
+	snak=0;
+	GameVar@seth_julian=GetLocalVar((530),player.Id);
+	seth_julian=0;
+	
+	GameVar@q_ncr_explorer_perk=GetLocalVar((7142),player.Id);
+	q_ncr_explorer_perk=0; 
+	
+	array<uint>books_pid={(73),(76),(80),(86),(22050),(102),(25557),(25558),(25559),(25560),(25561),(25562),(25563),(25564),(25565)};
+	array<uint>books_var={(9946),(9947),(9951),(9949),(9950),(9952),(9954),(9955),(9956),(9957),(9958),(9959),(9960),(9961),(9962)};
+	array<uint>books_caps={(1121),(1122),(1115),(1126),(1124),(1109),(1110),(1116),(1111),(1117),(1125),(1118),(1114),(1120),(1112)};
+	for(uint i=0;i<15;i++)
+	{
+		uint bookcount=0;
+		GameVar@book1=GetLocalVar(books_var[i],player.Id);
+		bookcount=book1.GetValue();
+		if(player.Param[books_caps[i]]>0)
+		bookcount+=player.Param[books_caps[i]]/10;
+		if(bookcount>0)
+		player.AddItem(books_pid[i],bookcount);
+		book1=0;
+		player.ParamBase[books_caps[i]]=0;
+	}
+	
+	if(player.Param[(77)]>1)
+	{
+		Item@hintbook=player.AddItem((623),1);
+		hintbook.Val0=player.Param[(77)]-1;
+		hintbook.Val2=player.Param[(77)];
+		hintbook.Update();
+	}
+	player.ParamBase[(77)]=1;
+	player.ParamBase[(301)]=1;
+	player.ParamBase[(76)]=0;
+	player.ParamBase[(79)]=0;
+	player.ParamBase[(78)]=0;
+	player.ParamBase[(72)]=1;
+	player.ParamBase[(75)]=1;
+	player.ParamBase[(802)]=1;
+	player.ParamBase[(190)]=0;
+	
+} 
+
+void reroll_cost(Critter&player,Critter@npc,string@text)
+{
+	uint cost=1000*player.Param[(77)];
+	if(player.Param[(215)]>149)
+	cost=10000;
+	SetLexem(player,"$reroll",""+cost);
+	text+=("$reroll"+""+cost);
+}
+void reroll_info(Critter&player,Critter@npc,string@text)
+{
+	SetLexem(player,"$st",""+player.ParamBase[(1093)]);
+	text+=("$st"+""+player.ParamBase[(1093)]);
+	
+	SetLexem(player,"$pe",""+player.ParamBase[(1094)]);
+	text+=("$pe"+""+player.ParamBase[(1094)]);
+	
+	SetLexem(player,"$en",""+player.ParamBase[(1095)]);
+	text+=("$en"+""+player.ParamBase[(1095)]);
+	
+	SetLexem(player,"$ch",""+player.ParamBase[(1096)]);
+	text+=("$ch"+""+player.ParamBase[(1096)]);
+	
+	SetLexem(player,"$in",""+player.ParamBase[(1097)]);
+	text+=("$in"+""+player.ParamBase[(1097)]);
+	
+	SetLexem(player,"$ag",""+player.ParamBase[(1098)]);
+	text+=("$ag"+""+player.ParamBase[(1098)]);
+	
+	SetLexem(player,"$lk",""+player.ParamBase[(1099)]);
+	text+=("$lk"+""+player.ParamBase[(1099)]);
+	
+	SetLexem(player,"$free",""+player.ParamBase[(1091)]);
+	text+=("$free"+""+player.ParamBase[(1091)]);
+	string trait="Free";
+	switch(player.Param[(1092)])
+	{
+		case 1:trait="Bonehead";break;
+		case 2:trait="Gifted";break;
+		case 3:trait="Loner";break;
+		case 4:trait="Fast Metabolism";break;
+		case 5:trait="Bruiser";break;
+		case 6:trait="Small Frame";break;
+		case 7:trait="One Hander";break;
+		case 8:trait="Finesse";break;
+		case 9:trait="Kamikaze";break;
+		case 10:trait="Heavy Handed";break;
+		case 11:trait="Fast Shot";break;
+		case 12:trait="Bloody Mess";break;
+		case 13:trait="Jinxed";break;
+		case 14:trait="Good Natured";break;
+		case 15:trait="Chem Reliant";break;
+		case 16:trait="Cannibal";break;
+		default:trait="Free";break;
+	}
+	SetLexem(player,"$tr",trait);
+	text+=("$tr"+trait);
+	
+	string trait2="Free";
+	switch(player.Param[(1090)])
+	{
+		case 1:trait2="Bonehead";break;
+		case 2:trait2="Gifted";break;
+		case 3:trait2="Loner";break;
+		case 4:trait2="Fast Metabolism";break;
+		case 5:trait2="Bruiser";break;
+		case 6:trait2="Small Frame";break;
+		case 7:trait2="One Hander";break;
+		case 8:trait2="Finesse";break;
+		case 9:trait2="Kamikaze";break;
+		case 10:trait2="Heavy Handed";break;
+		case 11:trait2="Fast Shot";break;
+		case 12:trait2="Bloody Mess";break;
+		case 13:trait2="Jinxed";break;
+		case 14:trait2="Good Natured";break;
+		case 15:trait2="Chem Reliant";break;
+		case 16:trait2="Cannibal";break;
+		default:trait2="Free";break;
+	}
+	SetLexem(player,"$tr2",trait2);
+	text+=("$tr2"+trait2);
+	
+}

@@ -1,0 +1,16 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = anas;
+@gender = 0;
+@age = 28;
+
+@special = 5 6 5 5 6 7 6;
+@xp = 1 513 1000;
+@life = -8 70 0 0 0 0 0 0 0;
+@stats = 21 8 87950 1 0 25 10 16 3 6;
+@skills = 33 14 14 54 44 28 24 17 26 23 21 23 24 18 25 20 30 22 0;
+@traits = 553 560;
+@perks = 301;
+@reputation = 634:14;
+@kills = 266 277:3;

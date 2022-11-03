@@ -1,0 +1,114 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+5 2010 D _item p PID_NCR_MONEY } 100 R _script dialog@r_OpenDoor 2 48 15 R _item p PID_NCR_MONEY - 100 #
+0 2020 #
+65507 2030 #
+7 2040 D _param p ST_TEAM_ID = 5 D _item p PID_NCR_MONEY } 50 R _script dialog@r_OpenDoor 2 48 15 R _item p PID_NCR_MONEY - 50 #
+7 2050 D _item p PID_NCR_MONEY } 50 D _param p ST_TEAM_ID = 2 R _item p PID_NCR_MONEY - 50 R _script dialog@r_OpenDoor 2 48 15 #
+8 2060 D _param p ST_TEAM_ID = 5 D _param p ST_FACTION_RANK } 4 @
+5 3000 None 0 @
+6 4000 None 0 #
+2 4010 #
+0 4020 @
+7 5000 None 0 @
+8 6000 None 0 &
+
+[engl]
+{100}{}{Door guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This territory belongs to the Republic and serves the purposes of the Republic. If you want to get some resources for yourself, then you shall pay the entrance fee - 100 NCR scripts. For soldiers of the Republic we provide a 50% discount.}
+{2010}{}{Here is the money.}
+{2020}{}{Alright, I will come later.}
+{2030}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2040}{}{I am a soldier of New California Republic. Here is my pass. Now let me in.}
+{2050}{}{I am a member of the Alliance, Brotherhood of Steel forces. Here is my pass. Now let me in.}
+{2060}{}{You are speaking with NCR officer. Now let me in.}
+{3000}{}{Get in.}
+{4000}{}{A discount? Are you fucking kidding? Do you know that if I try to make any "deals" with you here I can lose my head? Literally. }
+{4010}{}{Alright, I got you.}
+{4020}{}{Well, fuck you then.}
+{5000}{}{Get in, soldier.}
+{6000}{}{Yes, sir. Please come in,}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This territory belongs to the Republic and serves the purpose of the Republic. If you want to get some resources for yourself, then you shall pay the entrance fee - 1500 caps. For soldiers of the Republic we provide 50% discount.}
+{2010}{}{Here are the money.}
+{2020}{}{Alright, I will come later.}
+{2030}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2040}{}{I am a soldier of New California Republic. Here is my pass. Now let me in.}
+{2050}{}{I am a member of the Alliance, Brotherhood of Steel forces. Here is my pass. Now let me in.}
+{2060}{}{You are speaking with NCR officer. Now let me in.}
+{3000}{}{Get in. Once you are leaving, talk with a guard on the other side.}
+{4000}{}{A discount? Are you fucking kidding? Do you know that if I try to make any "deals" with you here I can lose my head? Literally. }
+{4010}{}{Alright, I got you.}
+{4020}{}{Well, fuck you then.}
+{5000}{}{Get in, soldier.}
+{6000}{}{Yes, sir. Please come in,}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This territory belongs to the Republic and serves the purpose of the Republic. If you want to get some resources for yourself, then you shall pay the entrance fee - 1500 caps. For soldiers of the Republic we provide 50% discount.}
+{2010}{}{Here are the money.}
+{2020}{}{Alright, I will come later.}
+{2030}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2040}{}{I am a soldier of New California Republic. Here is my pass. Now let me in.}
+{2050}{}{I am a member of the Alliance, Brotherhood of Steel forces. Here is my pass. Now let me in.}
+{2060}{}{You are speaking with NCR officer. Now let me in.}
+{3000}{}{Get in. Once you are leaving, talk with a guard on the other side.}
+{4000}{}{A discount? Are you fucking kidding? Do you know that if I try to make any "deals" with you here I can lose my head? Literally. }
+{4010}{}{Alright, I got you.}
+{4020}{}{Well, fuck you then.}
+{5000}{}{Get in, soldier.}
+{6000}{}{Yes, sir. Please come in,}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This territory belongs to the Republic and serves the purpose of the Republic. If you want to get some resources for yourself, then you shall pay the entrance fee - 1500 caps. For soldiers of the Republic we provide 50% discount.}
+{2010}{}{Here are the money.}
+{2020}{}{Alright, I will come later.}
+{2030}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2040}{}{I am a soldier of New California Republic. Here is my pass. Now let me in.}
+{2050}{}{I am a member of the Alliance, Brotherhood of Steel forces. Here is my pass. Now let me in.}
+{2060}{}{You are speaking with NCR officer. Now let me in.}
+{3000}{}{Get in. Once you are leaving, talk with a guard on the other side.}
+{4000}{}{A discount? Are you fucking kidding? Do you know that if I try to make any "deals" with you here I can lose my head? Literally. }
+{4010}{}{Alright, I got you.}
+{4020}{}{Well, fuck you then.}
+{5000}{}{Get in, soldier.}
+{6000}{}{Yes, sir. Please come in,}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This territory belongs to the Republic and serves the purpose of the Republic. If you want to get some resources for yourself, then you shall pay the entrance fee - 1500 caps. For soldiers of the Republic we provide 50% discount.}
+{2010}{}{Here are the money.}
+{2020}{}{Alright, I will come later.}
+{2030}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2040}{}{I am a soldier of New California Republic. Here is my pass. Now let me in.}
+{2050}{}{I am a member of the Alliance, Brotherhood of Steel forces. Here is my pass. Now let me in.}
+{2060}{}{You are speaking with NCR officer. Now let me in.}
+{3000}{}{Get in. Once you are leaving, talk with a guard on the other side.}
+{4000}{}{A discount? Are you fucking kidding? Do you know that if I try to make any "deals" with you here I can lose my head? Literally. }
+{4010}{}{Alright, I got you.}
+{4020}{}{Well, fuck you then.}
+{5000}{}{Get in, soldier.}
+{6000}{}{Yes, sir. Please come in,}
+

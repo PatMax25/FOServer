@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Bank assistant}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Greetings, my friend. Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Just passing by. [ end dialogue ]}
+{3000}{}{Ah, I am a representative of Friendly Loan Company. We are also known as FLC, I am here to suggest that citizens of this magnificent town open a bank! The more people we get into the world of economic prosperity - the better.}
+{3010}{}{Hmh... How does the economic situation work nowadays?}
+{4000}{}{Fairly simple, my friend. First of all - always remember that the Wasteland has many different currencies, from local ones to universal global ones. These are: local Currency, Redding scrips, Vegas golden dollars, Master's Beer chips, Vault City Pounds, Brotherhood Memory modules, Enclave dollars and NCR bucks. Big organizations always fight with each other, so traders in different towns constantly change their currencies. Currencies are good for buying anything in a specific town. Local Currency are universal for exchanging with any currency. You should also know that the best place to visit us is our bank in Black Cross Department Outpost near Shady Sands.}
+{4010}{}{Thank you. [ end dialogue ]}
+{5000}{}{It was my pleasure.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Greetings, my friend. Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Just passing by.}
+{3000}{}{Ah, I am a representer of Friendly Loan Company. We are also known as FLC, I am here to suggest citizens of this magnificent town to open a bank! The more people will get into the world of economic - the better.}
+{3010}{}{Hmh... How does the economic situation work nowadays?}
+{4000}{}{Fairly simple, my firend.First of all - always remember that Wasteland has many different currencies. From local ones to universal global ones. These are: local Currency, Redding scrips, Vegas golden dollars, Master's Beer chips, Vault City Pounds, Brotherhood Memory modules, Enclave dollars and NCR bucks. Big organisations always fight with each other, so traders in different towns constantly change their currencies. Currencies are good for buying anything in a specific town. local Currency are universal for exchanging them on any currency. You shall also know that the best place to do it is to visit our bank in Black Cross Department Outpost near Shady Sands.}
+{4010}{}{Thank you.}
+{5000}{}{It was my pleasure.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Greetings, my friend. Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Just passing by.}
+{3000}{}{Ah, I am a representer of Friendly Loan Company. We are also known as FLC, I am here to suggest citizens of this magnificent town to open a bank! The more people will get into the world of economic - the better.}
+{3010}{}{Hmh... How does the economic situation work nowadays?}
+{4000}{}{Fairly simple, my firend.First of all - always remember that Wasteland has many different currencies. From local ones to universal global ones. These are: local Currency, Redding scrips, Vegas golden dollars, Master's Beer chips, Vault City Pounds, Brotherhood Memory modules, Enclave dollars and NCR bucks. Big organisations always fight with each other, so traders in different towns constantly change their currencies. Currencies are good for buying anything in a specific town. local Currency are universal for exchanging them on any currency. You shall also know that the best place to do it is to visit our bank in Black Cross Department Outpost near Shady Sands.}
+{4010}{}{Thank you.}
+{5000}{}{It was my pleasure.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Greetings, my friend. Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Just passing by.}
+{3000}{}{Ah, I am a representer of Friendly Loan Company. We are also known as FLC, I am here to suggest citizens of this magnificent town to open a bank! The more people will get into the world of economic - the better.}
+{3010}{}{Hmh... How does the economic situation work nowadays?}
+{4000}{}{Fairly simple, my firend.First of all - always remember that Wasteland has many different currencies. From local ones to universal global ones. These are: local Currency, Redding scrips, Vegas golden dollars, Master's Beer chips, Vault City Pounds, Brotherhood Memory modules, Enclave dollars and NCR bucks. Big organisations always fight with each other, so traders in different towns constantly change their currencies. Currencies are good for buying anything in a specific town. local Currency are universal for exchanging them on any currency. You shall also know that the best place to do it is to visit our bank in Black Cross Department Outpost near Shady Sands.}
+{4010}{}{Thank you.}
+{5000}{}{It was my pleasure.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Greetings, my friend. Do you need something?}
+{2010}{}{Who are you?}
+{2020}{}{Nothing. Just passing by.}
+{3000}{}{Ah, I am a representer of Friendly Loan Company. We are also known as FLC, I am here to suggest citizens of this magnificent town to open a bank! The more people will get into the world of economic - the better.}
+{3010}{}{Hmh... How does the economic situation work nowadays?}
+{4000}{}{Fairly simple, my firend.First of all - always remember that Wasteland has many different currencies. From local ones to universal global ones. These are: local Currency, Redding scrips, Vegas golden dollars, Master's Beer chips, Vault City Pounds, Brotherhood Memory modules, Enclave dollars and NCR bucks. Big organisations always fight with each other, so traders in different towns constantly change their currencies. Currencies are good for buying anything in a specific town. local Currency are universal for exchanging them on any currency. You shall also know that the best place to do it is to visit our bank in Black Cross Department Outpost near Shady Sands.}
+{4010}{}{Thank you.}
+{5000}{}{It was my pleasure.}
+

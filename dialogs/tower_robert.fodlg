@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+3 2020 #
+4 2030 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+5 4010 #
+2 4020 @
+5 5000 None 0 #
+2 5010 &
+
+[engl]
+{100}{}{Robert}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. An outsider I believe? I am trading some nice stuff, take a look, bud.}
+{2010}{}{Show me what you have.}
+{2020}{}{Who are you?}
+{2030}{}{What is it like to live here?}
+{3000}{}{Name's Robert. I have an offical permission from the Tower to trade in Centropolis.}
+{3010}{}{Right, one more thing...}
+{4000}{}{All's good. Tower is great, Centropolis is the best place in the world.}
+{4010}{}{Sounds fake...}
+{4020}{}{Right, one more thing...}
+{5000}{}{We shouldn't talk about it.. They are always listening.}
+{5010}{}{Fine, let's switch the topic.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. An outsider I believe? I am trading some nice stuff, take a look, bud.}
+{2010}{}{Show me what you have.}
+{2020}{}{Who are you?}
+{2030}{}{What is it like to live here?}
+{3000}{}{Name's Robert. I have an offical permition from the Tower to trade in Centropolis.}
+{3010}{}{Right, one more thing...}
+{4000}{}{All's good. Tower is great, Centropolis is the best place in the world.}
+{4010}{}{Sounds fake...}
+{4020}{}{Right, one more thing...}
+{5000}{}{We shouldn't talk about it.. They are always listening.}
+{5010}{}{Fine, let's switch the topic.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. An outsider I believe? I am trading some nice stuff, take a look, bud.}
+{2010}{}{Show me what you have.}
+{2020}{}{Who are you?}
+{2030}{}{What is it like to live here?}
+{3000}{}{Name's Robert. I have an offical permition from the Tower to trade in Centropolis.}
+{3010}{}{Right, one more thing...}
+{4000}{}{All's good. Tower is great, Centropolis is the best place in the world.}
+{4010}{}{Sounds fake...}
+{4020}{}{Right, one more thing...}
+{5000}{}{We shouldn't talk about it.. They are always listening.}
+{5010}{}{Fine, let's switch the topic.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. An outsider I believe? I am trading some nice stuff, take a look, bud.}
+{2010}{}{Show me what you have.}
+{2020}{}{Who are you?}
+{2030}{}{What is it like to live here?}
+{3000}{}{Name's Robert. I have an offical permition from the Tower to trade in Centropolis.}
+{3010}{}{Right, one more thing...}
+{4000}{}{All's good. Tower is great, Centropolis is the best place in the world.}
+{4010}{}{Sounds fake...}
+{4020}{}{Right, one more thing...}
+{5000}{}{We shouldn't talk about it.. They are always listening.}
+{5010}{}{Fine, let's switch the topic.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. An outsider I believe? I am trading some nice stuff, take a look, bud.}
+{2010}{}{Show me what you have.}
+{2020}{}{Who are you?}
+{2030}{}{What is it like to live here?}
+{3000}{}{Name's Robert. I have an offical permition from the Tower to trade in Centropolis.}
+{3010}{}{Right, one more thing...}
+{4000}{}{All's good. Tower is great, Centropolis is the best place in the world.}
+{4010}{}{Sounds fake...}
+{4020}{}{Right, one more thing...}
+{5000}{}{We shouldn't talk about it.. They are always listening.}
+{5010}{}{Fine, let's switch the topic.}
+

@@ -1,0 +1,103 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _param p ST_INTELLECT > 3 #
+5 2020 D _param p ST_TEAM_ID = 5 R _script dialog@r_OpenDoor 1 801 #
+0 2030 D _param p ST_INTELLECT < 4 #
+0 2040 D _param p ST_INTELLECT > 3 @
+3 3000 None 0 #
+4 3010 D _param p ST_INTELLECT > 3 R _script dialog@r_ShowLocation 1 10 #
+0 3020 D _param p ST_INTELLECT > 3 @
+4 4000 None 0 #
+0 4010 D _param p ST_INTELLECT > 3 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Guard}
+{200}{}{You see a NCR guard.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This is a restricted area, unauthorized person are not allowed. Please leave this place.}
+{2010}{}{Actually, what is this place?}
+{2020}{}{I am a soldier of New California Republic. I need to get in.}
+{2030}{}{Uhkay. [ end dialogue ]}
+{2040}{}{Uh... sure thing. [ end dialogue ]}
+{3000}{}{This is a military installation of the New California Republic and if you don't have any business here, you have to leave.}
+{3010}{}{Where is the NCR?}
+{3020}{}{Okay. Bye. [ end dialogue ]@@I should go then. [ end dialogue ]@@Okay. [ end dialogue ]}
+{4000}{}{The NCR is all around here. It's a republic and not a single town. What you mean is most likely Shady Sands, the capital of the NCR. You can find it north of here. It's a few days travel through the desert, but you should make it without problems.}
+{4010}{}{Fine, thanks. [ end dialogue ]}
+{5000}{}{*he checks your ID card* Seems fine. Welcome to Fort Seth, soldier.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This is a restricted area, unauthorized person are not allowed. Please leave this place.}
+{2010}{}{Actually, what is this place?}
+{2020}{}{I am a soldier of New California Republic. I need to get in.}
+{2030}{}{Uhkay.}
+{2040}{}{Uh... sure thing.}
+{3000}{}{This is a military installation of the New California Republic and if you don't have any business to do, you have to leave.}
+{3010}{}{Where is the NCR?}
+{3020}{}{Okay. Bye.@@I should go then.@@Okay.}
+{4000}{}{The NCR is all around here. It's a republic and not a single town. What you mean is most likely Shady, the capital of the NCR. You can find it in the north of here. It's a few days travel through the desert, but you should make it without problems.}
+{4010}{}{Fine, thanks.}
+{5000}{}{[ He checks your ID card ] Seems fine. Welcome to Fort Seth, soldier.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This is a restricted area, unauthorized person are not allowed. Please leave this place.}
+{2010}{}{Actually, what is this place?}
+{2020}{}{I am a soldier of New California Republic. I need to get in.}
+{2030}{}{Uhkay.}
+{2040}{}{Uh... sure thing.}
+{3000}{}{This is a military installation of the New California Republic and if you don't have any business to do, you have to leave.}
+{3010}{}{Where is the NCR?}
+{3020}{}{Okay. Bye.@@I should go then.@@Okay.}
+{4000}{}{The NCR is all around here. It's a republic and not a single town. What you mean is most likely Shady, the capital of the NCR. You can find it in the north of here. It's a few days travel through the desert, but you should make it without problems.}
+{4010}{}{Fine, thanks.}
+{5000}{}{[ He checks your ID card ] Seems fine. Welcome to Fort Seth, soldier.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This is a restricted area, unauthorized person are not allowed. Please leave this place.}
+{2010}{}{Actually, what is this place?}
+{2020}{}{I am a soldier of New California Republic. I need to get in.}
+{2030}{}{Uhkay.}
+{2040}{}{Uh... sure thing.}
+{3000}{}{This is a military installation of the New California Republic and if you don't have any business to do, you have to leave.}
+{3010}{}{Where is the NCR?}
+{3020}{}{Okay. Bye.@@I should go then.@@Okay.}
+{4000}{}{The NCR is all around here. It's a republic and not a single town. What you mean is most likely Shady, the capital of the NCR. You can find it in the north of here. It's a few days travel through the desert, but you should make it without problems.}
+{4010}{}{Fine, thanks.}
+{5000}{}{[ He checks your ID card ] Seems fine. Welcome to Fort Seth, soldier.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Halt! This is a restricted area, unauthorized person are not allowed. Please leave this place.}
+{2010}{}{Actually, what is this place?}
+{2020}{}{I am a soldier of New California Republic. I need to get in.}
+{2030}{}{Uhkay.}
+{2040}{}{Uh... sure thing.}
+{3000}{}{This is a military installation of the New California Republic and if you don't have any business to do, you have to leave.}
+{3010}{}{Where is the NCR?}
+{3020}{}{Okay. Bye.@@I should go then.@@Okay.}
+{4000}{}{The NCR is all around here. It's a republic and not a single town. What you mean is most likely Shady, the capital of the NCR. You can find it in the north of here. It's a few days travel through the desert, but you should make it without problems.}
+{4010}{}{Fine, thanks.}
+{5000}{}{[ He checks your ID card ] Seems fine. Welcome to Fort Seth, soldier.}
+

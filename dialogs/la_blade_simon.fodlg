@@ -1,0 +1,104 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+10 1010 D _param p ST_INTELLECT < 4 #
+3 1020 D _var n name_mem_npc_player = 0 #
+2 1030 @
+2 2000 None 0 #
+0 2010 @
+3 3000 None 0 #
+4 3010 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+4 3020 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+0 3030 @
+4 4000 None 0 #
+0 4010 @
+10 5000 None 0 &
+
+[engl]
+{100}{}{Simon}
+{200}{}{It's Simon, one of the Blades' members.}
+{210}{}{A tall, muscular man who looks and smells of grease.}
+{1000}{}{Predialogue installations}
+{1010}{}{Idiot}
+{1020}{}{unknown}
+{1030}{}{known}
+{2000}{}{Oh, it's you again. What brings you here this time?}
+{2010}{}{Erhm... Wrong door, I guess. [ end dialogue ]}
+{3000}{}{Hello, my name’s Simon. Can I help you?}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Just looking, thanks. [ end dialogue ]}
+{4000}{}{This is the place where old stuff comes in, and something useful comes out. We do repairs mostly, or try to make something useful of the junk we find out there.}
+{4010}{}{Interesting. I have to be going now, bye! [ end dialogue ]}
+{5000}{}{Get outta here, you idiot.@@Been out in the sun too long?@@Shoo!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Idiot}
+{1020}{}{unknown}
+{1030}{}{known}
+{2000}{}{Oh, it's you again. What brings you here this time?}
+{2010}{}{Erhm... Wrong door, I guess. [Leave]}
+{3000}{}{Hello, my name’s Simon. Can I help you?}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Just looking, thanks.}
+{4000}{}{This is the place where old stuff comes in, and something useful comes out. We do repairs mostly, or trying to make something useful of the junk we find out there.}
+{4010}{}{Interesting. I have to be going  now, bye!}
+{5000}{}{Get outta here, you idiot.@@Been out in the sun too long?@@Shoo!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Idiot}
+{1020}{}{unknown}
+{1030}{}{known}
+{2000}{}{Oh, it's you again. What brings you here this time?}
+{2010}{}{Erhm... Wrong door, I guess. [Leave]}
+{3000}{}{Hello, my name’s Simon. Can I help you?}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Just looking, thanks.}
+{4000}{}{This is the place where old stuff comes in, and something useful comes out. We do repairs mostly, or trying to make something useful of the junk we find out there.}
+{4010}{}{Interesting. I have to be going  now, bye!}
+{5000}{}{Get outta here, you idiot.@@Been out in the sun too long?@@Shoo!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Idiot}
+{1020}{}{unknown}
+{1030}{}{known}
+{2000}{}{Oh, it's you again. What brings you here this time?}
+{2010}{}{Erhm... Wrong door, I guess. [Leave]}
+{3000}{}{Hello, my name’s Simon. Can I help you?}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Just looking, thanks.}
+{4000}{}{This is the place where old stuff comes in, and something useful comes out. We do repairs mostly, or trying to make something useful of the junk we find out there.}
+{4010}{}{Interesting. I have to be going  now, bye!}
+{5000}{}{Get outta here, you idiot.@@Been out in the sun too long?@@Shoo!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Idiot}
+{1020}{}{unknown}
+{1030}{}{known}
+{2000}{}{Oh, it's you again. What brings you here this time?}
+{2010}{}{Erhm... Wrong door, I guess. [Leave]}
+{3000}{}{Hello, my name’s Simon. Can I help you?}
+{3010}{}{What is this place?}
+{3020}{}{What are you doing here?}
+{3030}{}{Just looking, thanks.}
+{4000}{}{This is the place where old stuff comes in, and something useful comes out. We do repairs mostly, or trying to make something useful of the junk we find out there.}
+{4010}{}{Interesting. I have to be going  now, bye!}
+{5000}{}{Get outta here, you idiot.@@Been out in the sun too long?@@Shoo!}
+

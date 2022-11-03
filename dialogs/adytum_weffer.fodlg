@@ -1,0 +1,329 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+7 1010 @
+2 2000 None 0 #
+4 2010 #
+5 2020 @
+4 3000 None 0 #
+5 3010 #
+7 3020 #
+8 3030 @
+5 4000 None 0 #
+7 4010 @
+6 5000 None 0 @
+7 6000 None 0 #
+2 6010 #
+9 6020 #
+5 6030 #
+0 6040 #
+6 6050 D _item p PID_ELECTRONIC_PARTS } 110 R _item p PID_KOKOWEEF_MINE_SCRIP + 1 R _item p PID_ELECTRONIC_PARTS - 110 R _param p ST_EXPERIENCE + 900 R _item p PID_KOKOWEEF_MINE_SCRIP + 1 @
+8 7000 None 0 @
+9 8000 None 0 #
+16 8010 #
+7 8020 #
+0 8030 #
+10 8040 #
+11 8050 #
+18 8060 #
+19 8070 @
+10 9000 None 0 #
+17 9010 D _item p PID_KOKOWEEF_MINE_SCRIP } 3 R _item p PID_ENCLAVE_COMBAT_HELMET_MK2 + 1 R _item p PID_KOKOWEEF_MINE_SCRIP - 3 #
+0 9020 @
+11 10000 None 0 #
+17 10010 D _item p PID_KOKOWEEF_MINE_SCRIP } 1 R _item p PID_KOKOWEEF_MINE_SCRIP - 1 R _item p PID_RED_RYDER_BB_GUN + 1 #
+17 10020 D _item p PID_KOKOWEEF_MINE_SCRIP } 2 R _item p PID_KOKOWEEF_MINE_SCRIP - 2 R _item p PID_RED_RYDER_LE_BB_GUN + 1 #
+17 10030 D _item p PID_KOKOWEEF_MINE_SCRIP } 1 R _item p PID_KOKOWEEF_MINE_SCRIP - 1 R _item p PID_BBS + 100 R _item p PID_RED_RYDER_LE_BB_GUN + 1 #
+0 10040 @
+12 11000 None 0 @
+13 12000 None 0 @
+14 13000 None 0 @
+15 14000 None 0 @
+16 15000 None 0 #
+17 15010 D _item p PID_KOKOWEEF_MINE_SCRIP } 4 R _item p PID_KOKOWEEF_MINE_SCRIP - 4 R _item p PID_PLASTIC_EXPLOSIVES + 2 #
+17 15020 D _item p PID_KOKOWEEF_MINE_SCRIP } 3 R _item p PID_KOKOWEEF_MINE_SCRIP - 3 R _item p PID_DYNAMITE + 4 #
+0 15030 @
+17 16000 None 0 @
+18 17000 None 0 #
+18 17010 D _item p PID_KOKOWEEF_MINE_SCRIP } 2 R _item p PID_CORNIFER + 1 R _item p PID_CORNIFER_HELMET + 1 R _item p PID_KOKOWEEF_MINE_SCRIP - 2 #
+18 17020 D _item p PID_KOKOWEEF_MINE_SCRIP } 3 R _item p PID_SIGNIFER + 1 R _item p PID_SIGNIFER_HELMET + 1 R _item p PID_KOKOWEEF_MINE_SCRIP - 3 #
+18 17030 D _item p PID_KOKOWEEF_MINE_SCRIP } 5 R _item p PID_DEFENDER + 1 R _item p PID_KOKOWEEF_MINE_SCRIP - 5 #
+0 17040 @
+19 18000 None 0 #
+10 18010 D _item p PID_KOKOWEEF_MINE_SCRIP } 2 R _item p PID_KOKOWEEF_MINE_SCRIP - 2 R _item p PID_PUGIO + 1 &
+
+[engl]
+{100}{}{Weffer}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let's call it a Black Market. Here we sell different things which you won't be able to buy anywhere else. Some of them might seem useless to you... Some may not. The Name's Weffer by the way.}
+{2010}{}{From where do you get all these items?}
+{2020}{}{Do you have any job for me?}
+{3000}{}{It is a secret... But we sell it for Redding's currency, because of fucking Redding's mayor. The guy doesn't take caps, he wishes to "raise the town's economy" by investing goods into local papers... That's why we use these chips.}
+{3010}{}{Do you have any jobs for me?}
+{3020}{}{I want to ask you about something else.}
+{3030}{}{Why don't you operate in Redding then?}
+{4000}{}{Look here, buddy. I am sure that people all around the wastes can give you something to do. For example - that damn NCR cooker in Vegas. But you can help me as well. I am looking for electronic parts. I will pay you 10 bucks for every 110 parts you bring here. Does it sound fine?}
+{4010}{}{Alright. I will remember that.}
+{5000}{}{Here is your 5 bucks. Nice doing business with you.}
+{6000}{}{Hello. How can I assist you?}
+{6010}{}{What is this place?}
+{6020}{}{So... Do you sell something?}
+{6030}{}{Do you have a job for me?}
+{6040}{}{Guess I need to go.}
+{6050}{}{I have electronic parts for you.}
+{7000}{}{Look, this is not for your ears, alright? Get lost.}
+{8000}{}{Explosives, weapons, armors... Pick anything. I take only Kokoweef scrips as a currency.}
+{8010}{}{Tell me more about explosions you offer.}
+{8020}{}{I wish to discuss something else.}
+{8030}{}{Not interested. Bye.}
+{8040}{}{What about armors?}
+{8050}{}{What about weapons?}
+{8060}{}{You have some special armors maybe?}
+{8070}{}{You have some special weapons maybe?}
+{9000}{}{For now we can suggest you: Enclave helmet MK2 [ 30 bucks ].}
+{9010}{}{I will go with Enclave helmet MK2.}
+{9020}{}{Not interested. Bye.}
+{10000}{}{For now we can suggest you: Red Ryder BB Gun [ 10 bucks ], Red Ryder BB Gun Special edition [ 20 bucks ], 100 BB ammo [ 10 bucks ].}
+{10010}{}{Red Ryder BB Gun is fine for me.}
+{10020}{}{Red Ryder BB Gun Special edition is my choice.}
+{10030}{}{I will go with 100 BB ammo.}
+{10040}{}{Nevermind.}
+{11000}{}{For now we can suggest you: Alien Blaster.}
+{12000}{}{For now we can suggest you: A tent, Mr. Nixon Doll, Rubber Doll, Dice, Magic 8 ball, Green flare, Yellow falre.}
+{13000}{}{Hehe, we got you... We can suggest you: Fake NCR citizenship, better reputation with Enclave, better reputation with Brotherhood of Steel.}
+{14000}{}{*manipulates with your Pip Boy* Here you go!}
+{15000}{}{We can offer you: A pack of 2 plastic explosives [ 20 bucks ], a set of 4 pieces of dynamite [ 15 bucks ].}
+{15010}{}{I will take 2 plastic explosives.}
+{15020}{}{Dynamite is just for me.}
+{15030}{}{Nah, later maybe.}
+{16000}{}{Here you go.}
+{17000}{}{Of course. I can sell Cornifer armor for 10 bucks, Signifer Armor for 15 bucks and something exclusive - Defender Armor for 25 bucks.}
+{17010}{}{I will buy Cornifer Armor.}
+{17020}{}{I will buy Signifer Armor.}
+{17030}{}{I will buy Defender Armor.}
+{17040}{}{Later maybe...}
+{18000}{}{Of course. I can sell Pugio for 10 Redding bucks.}
+{18010}{}{I take 1 Pugio.}
+
+[czec]
+{100}{}{Weffer}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let's call it a Black Market. Here we sell different things which you won't be able to buy anywhere else. Some of them might seem useless to you... Some may not. The Name's Weffer by the way.}
+{2010}{}{From where do you get all these items?}
+{2020}{}{Do you have any job for me?}
+{3000}{}{It is a secret... But we sell it for Redding's currency, because of fucking Redding's mayor. The guy doesn't take caps, he wishes to "raise the town's economy" by investing goods into local papers... That's why we use these chips.}
+{3010}{}{Do you have any jobs for me?}
+{3020}{}{I want to ask you about something else.}
+{3030}{}{Why don't you operate in Redding then?}
+{4000}{}{Look here, buddy. I am sure that people all around the wastes can give you something to do. For example - that damn NCR cooker in Vegas. But you can help me as well. I am looking for electronic parts. I will pay you 10 bucks for every 110 parts you bring here. Does it sound fine?}
+{4010}{}{Alright. I will remember that.}
+{5000}{}{Here is your 5 bucks. Nice doing business with you.}
+{6000}{}{Hello. How can I assist you?}
+{6010}{}{What is this place?}
+{6020}{}{So... Do you sell something?}
+{6030}{}{Do you have a job for me?}
+{6040}{}{Guess I need to go.}
+{6050}{}{I have electronic parts for you.}
+{7000}{}{Look, this is not for your ears, alright? Get lost.}
+{8000}{}{Explosives, weapons, armors... Pick anything. I take only Kokoweef scrips as a currency.}
+{8010}{}{Tell me more about explosions you offer.}
+{8020}{}{I wish to discuss something else.}
+{8030}{}{Not interested. Bye.}
+{8040}{}{What about armors?}
+{8050}{}{What about weapons?}
+{8060}{}{You have some special armors maybe?}
+{8070}{}{You have some special weapons maybe?}
+{9000}{}{For now we can suggest you: Enclave helmet MK2 [ 30 bucks ].}
+{9010}{}{I will go with Enclave helmet MK2.}
+{9020}{}{Not interested. Bye.}
+{10000}{}{For now we can suggest you: Red Ryder BB Gun [ 10 bucks ], Red Ryder BB Gun Special edition [ 20 bucks ], 100 BB ammo [ 10 bucks ].}
+{10010}{}{Red Ryder BB Gun is fine for me.}
+{10020}{}{Red Ryder BB Gun Special edition is my choice.}
+{10030}{}{I will go with 100 BB ammo.}
+{10040}{}{Nevermind.}
+{11000}{}{For now we can suggest you: Alien Blaster.}
+{12000}{}{For now we can suggest you: A tent, Mr. Nixon Doll, Rubber Doll, Dice, Magic 8 ball, Green flare, Yellow falre.}
+{13000}{}{Hehe, we got you... We can suggest you: Fake NCR citizenship, better reputation with Enclave, better reputation with Brotherhood of Steel.}
+{14000}{}{*manipulates with your Pip Boy* Here you go!}
+{15000}{}{We can offer you: A pack of 2 plastic explosives [ 20 bucks ], a set of 4 pieces of dynamite [ 15 bucks ].}
+{15010}{}{I will take 2 plastic explosives.}
+{15020}{}{Dynamite is just for me.}
+{15030}{}{Nah, later maybe.}
+{16000}{}{Here you go.}
+{17000}{}{Of course. I can sell Cornifer armor for 10 bucks, Signifer Armor for 15 bucks and something exclusive - Defender Armor for 25 bucks.}
+{17010}{}{I will buy Cornifer Armor.}
+{17020}{}{I will buy Signifer Armor.}
+{17030}{}{I will buy Defender Armor.}
+{17040}{}{Later maybe...}
+{18000}{}{Of course. I can sell Pugio for 10 Redding bucks.}
+{18010}{}{I take 1 Pugio.}
+
+[pols]
+{100}{}{Weffer}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let's call it a Black Market. Here we sell different things which you won't be able to buy anywhere else. Some of them might seem useless to you... Some may not. The Name's Weffer by the way.}
+{2010}{}{From where do you get all these items?}
+{2020}{}{Do you have any job for me?}
+{3000}{}{It is a secret... But we sell it for Redding's currency, because of fucking Redding's mayor. The guy doesn't take caps, he wishes to "raise the town's economy" by investing goods into local papers... That's why we use these chips.}
+{3010}{}{Do you have any jobs for me?}
+{3020}{}{I want to ask you about something else.}
+{3030}{}{Why don't you operate in Redding then?}
+{4000}{}{Look here, buddy. I am sure that people all around the wastes can give you something to do. For example - that damn NCR cooker in Vegas. But you can help me as well. I am looking for electronic parts. I will pay you 10 bucks for every 110 parts you bring here. Does it sound fine?}
+{4010}{}{Alright. I will remember that.}
+{5000}{}{Here is your 5 bucks. Nice doing business with you.}
+{6000}{}{Hello. How can I assist you?}
+{6010}{}{What is this place?}
+{6020}{}{So... Do you sell something?}
+{6030}{}{Do you have a job for me?}
+{6040}{}{Guess I need to go.}
+{6050}{}{I have electronic parts for you.}
+{7000}{}{Look, this is not for your ears, alright? Get lost.}
+{8000}{}{Explosives, weapons, armors... Pick anything. I take only Kokoweef scrips as a currency.}
+{8010}{}{Tell me more about explosions you offer.}
+{8020}{}{I wish to discuss something else.}
+{8030}{}{Not interested. Bye.}
+{8040}{}{What about armors?}
+{8050}{}{What about weapons?}
+{8060}{}{You have some special armors maybe?}
+{8070}{}{You have some special weapons maybe?}
+{9000}{}{For now we can suggest you: Enclave helmet MK2 [ 30 bucks ].}
+{9010}{}{I will go with Enclave helmet MK2.}
+{9020}{}{Not interested. Bye.}
+{10000}{}{For now we can suggest you: Red Ryder BB Gun [ 10 bucks ], Red Ryder BB Gun Special edition [ 20 bucks ], 100 BB ammo [ 10 bucks ].}
+{10010}{}{Red Ryder BB Gun is fine for me.}
+{10020}{}{Red Ryder BB Gun Special edition is my choice.}
+{10030}{}{I will go with 100 BB ammo.}
+{10040}{}{Nevermind.}
+{11000}{}{For now we can suggest you: Alien Blaster.}
+{12000}{}{For now we can suggest you: A tent, Mr. Nixon Doll, Rubber Doll, Dice, Magic 8 ball, Green flare, Yellow falre.}
+{13000}{}{Hehe, we got you... We can suggest you: Fake NCR citizenship, better reputation with Enclave, better reputation with Brotherhood of Steel.}
+{14000}{}{*manipulates with your Pip Boy* Here you go!}
+{15000}{}{We can offer you: A pack of 2 plastic explosives [ 20 bucks ], a set of 4 pieces of dynamite [ 15 bucks ].}
+{15010}{}{I will take 2 plastic explosives.}
+{15020}{}{Dynamite is just for me.}
+{15030}{}{Nah, later maybe.}
+{16000}{}{Here you go.}
+{17000}{}{Of course. I can sell Cornifer armor for 10 bucks, Signifer Armor for 15 bucks and something exclusive - Defender Armor for 25 bucks.}
+{17010}{}{I will buy Cornifer Armor.}
+{17020}{}{I will buy Signifer Armor.}
+{17030}{}{I will buy Defender Armor.}
+{17040}{}{Later maybe...}
+{18000}{}{Of course. I can sell Pugio for 10 Redding bucks.}
+{18010}{}{I take 1 Pugio.}
+
+[span]
+{100}{}{Weffer}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let's call it a Black Market. Here we sell different things which you won't be able to buy anywhere else. Some of them might seem useless to you... Some may not. The Name's Weffer by the way.}
+{2010}{}{From where do you get all these items?}
+{2020}{}{Do you have any job for me?}
+{3000}{}{It is a secret... But we sell it for Redding's currency, because of fucking Redding's mayor. The guy doesn't take caps, he wishes to "raise the town's economy" by investing goods into local papers... That's why we use these chips.}
+{3010}{}{Do you have any jobs for me?}
+{3020}{}{I want to ask you about something else.}
+{3030}{}{Why don't you operate in Redding then?}
+{4000}{}{Look here, buddy. I am sure that people all around the wastes can give you something to do. For example - that damn NCR cooker in Vegas. But you can help me as well. I am looking for electronic parts. I will pay you 10 bucks for every 110 parts you bring here. Does it sound fine?}
+{4010}{}{Alright. I will remember that.}
+{5000}{}{Here is your 5 bucks. Nice doing business with you.}
+{6000}{}{Hello. How can I assist you?}
+{6010}{}{What is this place?}
+{6020}{}{So... Do you sell something?}
+{6030}{}{Do you have a job for me?}
+{6040}{}{Guess I need to go.}
+{6050}{}{I have electronic parts for you.}
+{7000}{}{Look, this is not for your ears, alright? Get lost.}
+{8000}{}{Explosives, weapons, armors... Pick anything. I take only Kokoweef scrips as a currency.}
+{8010}{}{Tell me more about explosions you offer.}
+{8020}{}{I wish to discuss something else.}
+{8030}{}{Not interested. Bye.}
+{8040}{}{What about armors?}
+{8050}{}{What about weapons?}
+{8060}{}{You have some special armors maybe?}
+{8070}{}{You have some special weapons maybe?}
+{9000}{}{For now we can suggest you: Enclave helmet MK2 [ 30 bucks ].}
+{9010}{}{I will go with Enclave helmet MK2.}
+{9020}{}{Not interested. Bye.}
+{10000}{}{For now we can suggest you: Red Ryder BB Gun [ 10 bucks ], Red Ryder BB Gun Special edition [ 20 bucks ], 100 BB ammo [ 10 bucks ].}
+{10010}{}{Red Ryder BB Gun is fine for me.}
+{10020}{}{Red Ryder BB Gun Special edition is my choice.}
+{10030}{}{I will go with 100 BB ammo.}
+{10040}{}{Nevermind.}
+{11000}{}{For now we can suggest you: Alien Blaster.}
+{12000}{}{For now we can suggest you: A tent, Mr. Nixon Doll, Rubber Doll, Dice, Magic 8 ball, Green flare, Yellow falre.}
+{13000}{}{Hehe, we got you... We can suggest you: Fake NCR citizenship, better reputation with Enclave, better reputation with Brotherhood of Steel.}
+{14000}{}{*manipulates with your Pip Boy* Here you go!}
+{15000}{}{We can offer you: A pack of 2 plastic explosives [ 20 bucks ], a set of 4 pieces of dynamite [ 15 bucks ].}
+{15010}{}{I will take 2 plastic explosives.}
+{15020}{}{Dynamite is just for me.}
+{15030}{}{Nah, later maybe.}
+{16000}{}{Here you go.}
+{17000}{}{Of course. I can sell Cornifer armor for 10 bucks, Signifer Armor for 15 bucks and something exclusive - Defender Armor for 25 bucks.}
+{17010}{}{I will buy Cornifer Armor.}
+{17020}{}{I will buy Signifer Armor.}
+{17030}{}{I will buy Defender Armor.}
+{17040}{}{Later maybe...}
+{18000}{}{Of course. I can sell Pugio for 10 Redding bucks.}
+{18010}{}{I take 1 Pugio.}
+
+[russ]
+{100}{}{Weffer}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Let's call it a Black Market. Here we sell different things which you won't be able to buy anywhere else. Some of them might seem useless to you... Some may not. The Name's Weffer by the way.}
+{2010}{}{From where do you get all these items?}
+{2020}{}{Do you have any job for me?}
+{3000}{}{It is a secret... But we sell it for Redding's currency, because of fucking Redding's mayor. The guy doesn't take caps, he wishes to "raise the town's economy" by investing goods into local papers... That's why we use these chips.}
+{3010}{}{Do you have any jobs for me?}
+{3020}{}{I want to ask you about something else.}
+{3030}{}{Why don't you operate in Redding then?}
+{4000}{}{Look here, buddy. I am sure that people all around the wastes can give you something to do. For example - that damn NCR cooker in Vegas. But you can help me as well. I am looking for electronic parts. I will pay you 10 bucks for every 110 parts you bring here. Does it sound fine?}
+{4010}{}{Alright. I will remember that.}
+{5000}{}{Here is your 5 bucks. Nice doing business with you.}
+{6000}{}{Hello. How can I assist you?}
+{6010}{}{What is this place?}
+{6020}{}{So... Do you sell something?}
+{6030}{}{Do you have a job for me?}
+{6040}{}{Guess I need to go.}
+{6050}{}{I have electronic parts for you.}
+{7000}{}{Look, this is not for your ears, alright? Get lost.}
+{8000}{}{Explosives, weapons, armors... Pick anything. I take only Kokoweef scrips as a currency.}
+{8010}{}{Tell me more about explosions you offer.}
+{8020}{}{I wish to discuss something else.}
+{8030}{}{Not interested. Bye.}
+{8040}{}{What about armors?}
+{8050}{}{What about weapons?}
+{8060}{}{You have some special armors maybe?}
+{8070}{}{You have some special weapons maybe?}
+{9000}{}{For now we can suggest you: Enclave helmet MK2 [ 30 bucks ].}
+{9010}{}{I will go with Enclave helmet MK2.}
+{9020}{}{Not interested. Bye.}
+{10000}{}{For now we can suggest you: Red Ryder BB Gun [ 10 bucks ], Red Ryder BB Gun Special edition [ 20 bucks ], 100 BB ammo [ 10 bucks ].}
+{10010}{}{Red Ryder BB Gun is fine for me.}
+{10020}{}{Red Ryder BB Gun Special edition is my choice.}
+{10030}{}{I will go with 100 BB ammo.}
+{10040}{}{Nevermind.}
+{11000}{}{For now we can suggest you: Alien Blaster.}
+{12000}{}{For now we can suggest you: A tent, Mr. Nixon Doll, Rubber Doll, Dice, Magic 8 ball, Green flare, Yellow falre.}
+{13000}{}{Hehe, we got you... We can suggest you: Fake NCR citizenship, better reputation with Enclave, better reputation with Brotherhood of Steel.}
+{14000}{}{*manipulates with your Pip Boy* Here you go!}
+{15000}{}{We can offer you: A pack of 2 plastic explosives [ 20 bucks ], a set of 4 pieces of dynamite [ 15 bucks ].}
+{15010}{}{I will take 2 plastic explosives.}
+{15020}{}{Dynamite is just for me.}
+{15030}{}{Nah, later maybe.}
+{16000}{}{Here you go.}
+{17000}{}{Of course. I can sell Cornifer armor for 10 bucks, Signifer Armor for 15 bucks and something exclusive - Defender Armor for 25 bucks.}
+{17010}{}{I will buy Cornifer Armor.}
+{17020}{}{I will buy Signifer Armor.}
+{17030}{}{I will buy Defender Armor.}
+{17040}{}{Later maybe...}
+{18000}{}{Of course. I can sell Pugio for 10 Redding bucks.}
+{18010}{}{I take 1 Pugio.}

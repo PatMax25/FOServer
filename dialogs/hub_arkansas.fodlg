@@ -1,0 +1,132 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 #
+0 2040 @
+3 3000 None 0 #
+0 3010 #
+2 3020 @
+4 4000 None 0 #
+2 4010 #
+0 4020 @
+5 5000 None 0 #
+6 5010 D _script dialog@d_havepropermoney 1 350 R _script dialog@r_RemoveMoney 1 350 R _script dialog@r_DocHeal 0  R _script dialog@r_FlushScreen 0  #
+0 5020 #
+0 5030 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Doctor Arkansas}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. I am doctor Arkansas. How can I help you today?}
+{2010}{}{Do you sell some meds, doc?}
+{2020}{}{What is it like to be a doctor in such place?}
+{2030}{}{I am hurt. Help me, doc!}
+{2040}{}{Nothing. Goodbye.}
+{3000}{}{No, we are short in medical supplies nowadays, so I can't sell you anything.}
+{3010}{}{Fine then. I need to go.}
+{3020}{}{One more thing...}
+{4000}{}{It is usually quite peaceful here. Mostly I have to fix the wounds and broken limbs of drunks from the local bar.}
+{4010}{}{Alright... One more thing to ask.}
+{4020}{}{That's all what I wanted. See ya.}
+{5000}{}{Just 350 Currency and you will be as good as new again.}
+{5010}{}{Here... Please hurry, it hurts.}
+{5020}{}{How much?! Eh... You know, I feel fine already. Sorry!}
+{5030}{}{Oh no, that's too much. Bye.}
+{6000}{}{Here you go...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. I am doctor Arkansas. How can I help you today?}
+{2010}{}{Do you sell some meds, doc?}
+{2020}{}{What is it like to be a doctor in such place?}
+{2030}{}{I am hurt. Help me, doc!}
+{2040}{}{Nothing. Goodbye.}
+{3000}{}{No, we are short in medical supplies nowadays, so I can't sell you anything.}
+{3010}{}{Fine then. I need to go.}
+{3020}{}{One more thing...}
+{4000}{}{It is usually quite peaceful here. Mostly have to fix wounds and broken limbs of the drunks from local bar.}
+{4010}{}{Alright... One more thing to ask.}
+{4020}{}{That's all what I wanted. See ya.}
+{5000}{}{Just 350 Currency and you will be as good as a new one again.}
+{5010}{}{Here... Please hurry, it hurts.}
+{5020}{}{How many?! Eh... You know, I feel fine already.}
+{5030}{}{Oh no, that's too many. Bye.}
+{6000}{}{Here you go...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. I am doctor Arkansas. How can I help you today?}
+{2010}{}{Do you sell some meds, doc?}
+{2020}{}{What is it like to be a doctor in such place?}
+{2030}{}{I am hurt. Help me, doc!}
+{2040}{}{Nothing. Goodbye.}
+{3000}{}{No, we are short in medical supplies nowadays, so I can't sell you anything.}
+{3010}{}{Fine then. I need to go.}
+{3020}{}{One more thing...}
+{4000}{}{It is usually quite peaceful here. Mostly have to fix wounds and broken limbs of the drunks from local bar.}
+{4010}{}{Alright... One more thing to ask.}
+{4020}{}{That's all what I wanted. See ya.}
+{5000}{}{Just 350 Currency and you will be as good as a new one again.}
+{5010}{}{Here... Please hurry, it hurts.}
+{5020}{}{How many?! Eh... You know, I feel fine already.}
+{5030}{}{Oh no, that's too many. Bye.}
+{6000}{}{Here you go...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. I am doctor Arkansas. How can I help you today?}
+{2010}{}{Do you sell some meds, doc?}
+{2020}{}{What is it like to be a doctor in such place?}
+{2030}{}{I am hurt. Help me, doc!}
+{2040}{}{Nothing. Goodbye.}
+{3000}{}{No, we are short in medical supplies nowadays, so I can't sell you anything.}
+{3010}{}{Fine then. I need to go.}
+{3020}{}{One more thing...}
+{4000}{}{It is usually quite peaceful here. Mostly have to fix wounds and broken limbs of the drunks from local bar.}
+{4010}{}{Alright... One more thing to ask.}
+{4020}{}{That's all what I wanted. See ya.}
+{5000}{}{Just 350 Currency and you will be as good as a new one again.}
+{5010}{}{Here... Please hurry, it hurts.}
+{5020}{}{How many?! Eh... You know, I feel fine already.}
+{5030}{}{Oh no, that's too many. Bye.}
+{6000}{}{Here you go...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. I am doctor Arkansas. How can I help you today?}
+{2010}{}{Do you sell some meds, doc?}
+{2020}{}{What is it like to be a doctor in such place?}
+{2030}{}{I am hurt. Help me, doc!}
+{2040}{}{Nothing. Goodbye.}
+{3000}{}{No, we are short in medical supplies nowadays, so I can't sell you anything.}
+{3010}{}{Fine then. I need to go.}
+{3020}{}{One more thing...}
+{4000}{}{It is usually quite peaceful here. Mostly have to fix wounds and broken limbs of the drunks from local bar.}
+{4010}{}{Alright... One more thing to ask.}
+{4020}{}{That's all what I wanted. See ya.}
+{5000}{}{Just 350 Currency and you will be as good as a new one again.}
+{5010}{}{Here... Please hurry, it hurts.}
+{5020}{}{How many?! Eh... You know, I feel fine already.}
+{5030}{}{Oh no, that's too many. Bye.}
+{6000}{}{Here you go...}
+

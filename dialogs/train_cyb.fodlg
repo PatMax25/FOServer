@@ -1,0 +1,67 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script perks@can_class 1 120 R _param p PE_CYBORG = 1 R _script perks@windowupdate 0  &
+
+[engl]
+{100}{}{Cyborg}
+{210}{}{This is some weird looking terminator... Or whatever...}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hello, can I help you with something? *bzt*}
+{2010}{}{You, just look at yourself... You have implants all across your body!}
+{3000}{}{I'm not a human, I am a cyborg... Made by... m.. m...Made b-b-by [ it shakes its head ] General Atomics, my body is supported by IO system, to improve my brain and muscles. I can make you the same if you wish. But please be sure that you have proper experience. If you don't - you better return when you become tougher and better. In any other case, the operation will kill you.}
+{3010}{}{No way I will choose to be such a mosntrosity. At least not for now.}
+{3020}{}{I'm up for that.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hello, can I help you with something? *bzt*}
+{2010}{}{You just look at yourself... You have implants all across your body!}
+{3000}{}{I'm not a human, I am became a cyborg... Made by... m.. m...Made b-b-by [ it shakes its head ] General Atomics, my body is supported by IO system, to improve my brain and muscles. I can make you same if you wish. But please be sure that you proper experience. If you don't - you better return when you become tougher and better. In another case, the operation will kill you.}
+{3010}{}{No way I will choose to be such a mosntrosity. At least not for now.}
+{3020}{}{I'm up for that.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hello, can I help you with something? *bzt*}
+{2010}{}{You just look at yourself... You have implants all across your body!}
+{3000}{}{I'm not a human, I am became a cyborg... Made by... m.. m...Made b-b-by [ it shakes its head ] General Atomics, my body is supported by IO system, to improve my brain and muscles. I can make you same if you wish. But please be sure that you proper experience. If you don't - you better return when you become tougher and better. In another case, the operation will kill you.}
+{3010}{}{No way I will choose to be such a mosntrosity. At least not for now.}
+{3020}{}{I'm up for that.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hello, can I help you with something? *bzt*}
+{2010}{}{You just look at yourself... You have implants all across your body!}
+{3000}{}{I'm not a human, I am became a cyborg... Made by... m.. m...Made b-b-by [ it shakes its head ] General Atomics, my body is supported by IO system, to improve my brain and muscles. I can make you same if you wish. But please be sure that you proper experience. If you don't - you better return when you become tougher and better. In another case, the operation will kill you.}
+{3010}{}{No way I will choose to be such a mosntrosity. At least not for now.}
+{3020}{}{I'm up for that.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Hello, can I help you with something? *bzt*}
+{2010}{}{You just look at yourself... You have implants all across your body!}
+{3000}{}{I'm not a human, I am became a cyborg... Made by... m.. m...Made b-b-by [ it shakes its head ] General Atomics, my body is supported by IO system, to improve my brain and muscles. I can make you same if you wish. But please be sure that you proper experience. If you don't - you better return when you become tougher and better. In another case, the operation will kill you.}
+{3010}{}{No way I will choose to be such a mosntrosity. At least not for now.}
+{3020}{}{I'm up for that.}
+

@@ -1,0 +1,201 @@
+//
+// FOnline: Aftertimes
+// worldremaker
+//
+// spawner_pvp.fos
+//
+// Spawn functions were copied from old version of spawner_pvp script.
+// Old version of spawner_pvp script is renamed to spawner_pve.
+//
+
+#include "utils.fos"
+#include "_macros.fos"
+#include "_colors.fos"
+import void _weapon_perk(Item& item, bool firstTime) from "item_level";
+import void _armor_perk(Item& item, bool firstTime) from "item_level";
+
+//import bool LockerClose(Item& item) from "lockers";
+import void AddSpecialBonus(Item@ it) from "item_bonus";
+
+void init_high(Item& item, bool firstTime)
+{
+	//item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");
+	CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_SpawnHigh", item.Id, false);
+}
+
+void init_low(Item& item, bool firstTime)
+{
+	//item.SetEvent(ITEM_EVENT_SKILL, "_UseRewardContainer");		
+	CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_SpawnLow", item.Id, false);
+}
+
+/*
+Main alg for PVP locker (factioned)
+1. Player will go to locker and try open it.
+2. ITEM_EVENT_SKILL will look for all players and followers in some distance from locker
+   and compare their ST_TEAM_ID to player who's trying open this locker.
+3. In case of different ST_TEAM_ID stats the function for ITEM_EVENT_SKILL will return true value.
+   ??? EXCEPTION: Faction is friendly ???
+   In case of the same ST_TEAM_ID stats this function will return false value.
+4. Now we can call it spawner_pvp.
+*/
+
+
+// Executed when opening reward locker
+bool _UseRewardContainer(Item& item, Critter& crit, int skill)
+{
+	// Open or close
+    if((skill == -1) || (skill == SK_ENGINE))
+    {
+		if(!isOnlyOneTeam(crit, item))
+        {
+			uint16 hexX = 0;
+			uint16 hexY = 0;
+			Map@   map = item.GetMapPosition(hexX, hexY);
+			map.SetText(hexX, hexY, COLOR_WHITE,  "Your team didn't win this battle yet.");		
+            return true;
+        }
+		
+		if(isWeakPlayer(crit))
+		{
+			uint16 hexX = 0;
+			uint16 hexY = 0;
+			Map@   map = item.GetMapPosition(hexX, hexY);
+			map.SetText(hexX, hexY, COLOR_WHITE,  "You're too weak to open this locker.");		
+            return true;
+        }
+		
+        // open it if closed
+        if(_LockerIsClose(item))
+        {
+			return false;
+        }
+    }
+    return false;
+}
+
+bool isOnlyOneTeam(Critter& player, Item& locker, uint8 radius = 40)
+{     											
+	uint16 lockerhexX1 = 0, lockerhexY1 = 0;
+	locker.GetMapPosition(lockerhexX1, lockerhexY1);
+
+	array<Critter@> crits;
+	player.GetMap().GetCrittersHex(lockerhexX1, lockerhexY1, radius, FIND_LIFE_AND_KO, crits);
+	for(uint8 i = 0; i < crits.length(); i++)
+		if((crits[i].IsPlayer() || _IsFollower(crits[i])) && crits[i].Param[ST_TEAM_ID] != player.Param[ST_TEAM_ID])
+			return false;
+			
+	return true;
+}
+
+bool isWeakPlayer(Critter& player)
+{
+	return (((player.Param[MODE_HIDE] == 0 || player.Param[SK_SNEAK] < 250)) || player.Param[ST_LEVEL] < 18);
+}
+
+bool isInArmor(Critter& player)
+{
+	Item@ armor = player.GetItem(0, SLOT_ARMOR);
+	if(!valid(armor)) return false;
+	
+	uint16 protoid = armor.GetProtoId();
+	
+	return protoid == PID_METAL_ARMOR || protoid == PID_TESLA_ARMOR
+	|| protoid == PID_METAL_ARMOR_MK_II || protoid == PID_METAL_ARMOR_MK_III
+	|| protoid == PID_COMBAT_ARMOR || protoid == PID_BROTHERHOOD_COMBAT_ARMOR
+	|| protoid == PID_COMBAT_ARMOR_MK_II || protoid == PID_ENCLAVE_COMBAT_ARMOR
+	|| protoid == PID_POWERED_ARMOR || protoid == PID_HARDENED_POWER_ARMOR
+	|| protoid == PID_ADVANCED_POWER_ARMOR || protoid == PID_ADVANCED_POWER_ARMOR_MK2 
+	|| protoid == PID_NCR_ARMOR || protoid == PID_DESERT_COMBAT_ARMOR;
+}
+#include "item_pools_h.fos"
+uint e_SpawnHigh(array<uint>@ values)
+{
+	float tier4ammochance = 0;
+	float tier4partschance = 0;
+	float tier4bpchance = 0;
+	float implantchance = 0;
+	float rarechance = 0;
+	float implant_combatchance = 0;
+	float verti_partschance = 0;
+	float addbasemapchance = 0;
+	float t4chance = 0;
+	
+	switch(week_patch)
+	{
+	case 1:
+	case 2:
+	tier4ammochance = 5; tier4partschance = 10; tier4bpchance = 0; implantchance = 15; rarechance = 25; 
+	implant_combatchance = 0.3; verti_partschance = 0; t4chance = 0; addbasemapchance = 50; break;
+	//todo other weeks
+	}
+	
+    Item@ item = GetItem(values[0]);
+    if(!valid(item))
+        return 0;
+    ClearContainer(item);
+        SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+		//item.AddItem(tier3ammo(), Random(50,420), 0);
+		item.AddItem(tier3drugs(), Random(5,8) , 0);
+		item.AddItem(tier3bp(), Random(5,8) , 0);
+        
+    if(dropchance(tier4ammochance * doubleloot))
+        item.AddItem(tier4ammo(),Random(10,25), 5);
+
+    if(dropchance(rarechance * doubleloot))
+        item.AddItem(rareitem(), 1, 0);
+
+    if(dropchance(tier4partschance * doubleloot))
+        item.AddItem(tier4parts(), 1, 0);
+
+    if(dropchance(implantchance * doubleloot))
+        item.AddItem(implant(), 1, 0);
+
+    if(dropchance(implant_combatchance * doubleloot))
+        item.AddItem(implant_combat(), 1, 0);
+	if(dropchance(addbasemapchance * doubleloot))
+		addbasemap(item);	
+    
+    if(dropchance(tier4bpchance * doubleloot))
+        item.AddItem(tier4bp(),1, 0);
+
+    if(dropchance(verti_partschance * doubleloot))
+        item.AddItem(verti_parts(),1, 0);
+	if(dropchance(t4chance * doubleloot))
+        item.AddItem(tier4item(),1, 0);
+    item.AddItem(currency(), Random(1,15000) , 0);
+	item.AddItem(PID_UPGRATE_PARTS, Random(2,8) , 0);
+    if(FLAG(item.LockerCondition, LOCKER_ISOPEN)) LockerClose(item);
+
+    //item.LockerId = Random(98989, 989898);
+    //item.LockerComplexity = Random(50,50);
+
+		
+    return REAL_MINUTE(Random(90,150));	
+}
+
+
+uint e_SpawnLow(array<uint>@ values)
+{
+
+
+	
+    	
+    return 0;	
+}
+
+
+void SpawnBuffItem(Item& container, uint16 pid)
+{
+	 Item@ it = container.AddItem(pid, 1, 0);
+	it.Val0 = Random(1,300000);
+	it.Update();
+	if(it.GetType() == ITEM_TYPE_WEAPON)
+		_weapon_perk(it, false);
+
+	if(it.GetType() == ITEM_TYPE_ARMOR)
+		_armor_perk(it, false);
+}
+

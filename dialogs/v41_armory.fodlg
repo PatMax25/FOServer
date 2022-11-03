@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _var p v41_access = 0 #
+5 2030 D _var p v41_access = 1 R _script dialog@r_OpenDoor 2 19 900 R _var p v41_access = 0 #
+0 2040 #
+6 2050 R _script dialog@r_OpenDoor 2 20 900 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Welcome back. please select the option. ]}
+{2010}{}{[ To: Brother Morrison ]}
+{2020}{}{[ Open Armory ]}
+{2030}{}{[ Open Armory ]}
+{2040}{}{[ Leave ]}
+{2050}{}{[ Emergency elevator opening ]}
+{3000}{}{[ Dear Brother Morrison. What a pity that you couldn't join our Sunday meeting: we had such a delightful discussion about our dear God and his endless love! Are you sure about your condition? We all are worried about your mental health---remember that you can always talk about your feelings and thoughts with us, and most importantly, with God. Also, please notice that by our Overseer's order, the access to the Armory goes only with confirmation from our brothers from levels 4. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ No confirmation from management team. Access denied. ]}
+{5000}{}{[ Access confirmed ]}
+{6000}{}{[ Operating... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Welcome back. please select the option. ]}
+{2010}{}{[ To: Brother Morrison ]}
+{2020}{}{[ Open armory ]}
+{2030}{}{[ Open armory ]}
+{2040}{}{[ Leave ]}
+{2050}{}{[ Emergency elevator opening ]}
+{3000}{}{[ Dear Brother Morrison. What a pity, that you couldn't join our Sunday meeting: we had such a delightful discussions about our dear God and  his endless love! Are you sure about your condition? We all are worried about your mental health---remember, that you can always talk about your feelings and thoughts with us, and most importantly, with our God. Also, please notice that by our Overseer's order, the access to the armory goes only with confirmation from our brothers from levels 4. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ No confirmation from management team. Access denied. ]}
+{5000}{}{[ Access confirmed ]}
+{6000}{}{[ Operating... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Welcome back. please select the option. ]}
+{2010}{}{[ To: Brother Morrison ]}
+{2020}{}{[ Open armory ]}
+{2030}{}{[ Open armory ]}
+{2040}{}{[ Leave ]}
+{2050}{}{[ Emergency elevator opening ]}
+{3000}{}{[ Dear Brother Morrison. What a pity, that you couldn't join our Sunday meeting: we had such a delightful discussions about our dear God and  his endless love! Are you sure about your condition? We all are worried about your mental health---remember, that you can always talk about your feelings and thoughts with us, and most importantly, with our God. Also, please notice that by our Overseer's order, the access to the armory goes only with confirmation from our brothers from levels 4. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ No confirmation from management team. Access denied. ]}
+{5000}{}{[ Access confirmed ]}
+{6000}{}{[ Operating... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Welcome back. please select the option. ]}
+{2010}{}{[ To: Brother Morrison ]}
+{2020}{}{[ Open armory ]}
+{2030}{}{[ Open armory ]}
+{2040}{}{[ Leave ]}
+{2050}{}{[ Emergency elevator opening ]}
+{3000}{}{[ Dear Brother Morrison. What a pity, that you couldn't join our Sunday meeting: we had such a delightful discussions about our dear God and  his endless love! Are you sure about your condition? We all are worried about your mental health---remember, that you can always talk about your feelings and thoughts with us, and most importantly, with our God. Also, please notice that by our Overseer's order, the access to the armory goes only with confirmation from our brothers from levels 4. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ No confirmation from management team. Access denied. ]}
+{5000}{}{[ Access confirmed ]}
+{6000}{}{[ Operating... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading... Welcome back. please select the option. ]}
+{2010}{}{[ To: Brother Morrison ]}
+{2020}{}{[ Open armory ]}
+{2030}{}{[ Open armory ]}
+{2040}{}{[ Leave ]}
+{2050}{}{[ Emergency elevator opening ]}
+{3000}{}{[ Dear Brother Morrison. What a pity, that you couldn't join our Sunday meeting: we had such a delightful discussions about our dear God and  his endless love! Are you sure about your condition? We all are worried about your mental health---remember, that you can always talk about your feelings and thoughts with us, and most importantly, with our God. Also, please notice that by our Overseer's order, the access to the armory goes only with confirmation from our brothers from levels 4. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ No confirmation from management team. Access denied. ]}
+{5000}{}{[ Access confirmed ]}
+{6000}{}{[ Operating... ]}
+

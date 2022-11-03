@@ -1,0 +1,132 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _item p PID_DOLLAR } 1 #
+4 1020 D _item p PID_DOLLAR = 0 @
+2 2000 None 0 #
+5 2010 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_CLOTHES_SCIENTIST1 + 1 #
+5 2020 D _item p PID_DOLLAR } 2 R _item p PID_DOLLAR - 2 R _item p PID_CLOTHES_ELEGANT_SUIT + 1 #
+5 2030 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_CLOTHES_RAGS + 1 #
+5 2040 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_CLOTHES_DWARF + 1 #
+5 2050 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_CAP + 1 #
+5 2060 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_COWBOY_HAT + 1 #
+5 2070 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_BULDER_HAT + 1 #
+5 2080 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_FEDORA_BLACK + 1 #
+5 2090 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_FEDORA_WHITE + 1 #
+5 2100 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_RANGER_HAT + 1 #
+5 2110 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_OFFICER_HAT + 1 #
+0 2120 @
+4 3000 None 0 @
+5 4000 None 0 &
+
+[engl]
+{100}{}{Ronald}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey, don't pass by! You are in Vegas and only here can you buy some exclusive clothes for just 1 dollar. Take a look!}
+{2010}{}{[ Buy a lab coat for 1 dollar ]}
+{2020}{}{[ Buy an elegant suit for 2 dollars ]}
+{2030}{}{[ Buy rag's clothes for 1 dollar ]}
+{2040}{}{[ Buy dwarf's clothes for 1 dollar ]}
+{2050}{}{[ Buy a cap ]}
+{2060}{}{[ Buy a Cowboy hat ]}
+{2070}{}{[ Buy a Builder's helmet ]}
+{2080}{}{[ Buy Fedora black ]}
+{2090}{}{[ Buy Fedora white ]}
+{2100}{}{[ Buy Ranger's hat ]}
+{2110}{}{[ Buy Enclave cap ]}
+{2120}{}{Not interested. [ end dialogue ]}
+{3000}{}{I trade only for dollars... City's order.}
+{4000}{}{Nice choice.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey, don't pass by! You are in Vegas and only here you can buy some exclusive clothes. Take a look!}
+{2010}{}{[ Buy a lab coat for 1 dollar ]}
+{2020}{}{[ Buy an elegant suit for 2 dollars ]}
+{2030}{}{[ Buy rag's clothes for 1 dollar ]}
+{2040}{}{[ Buy dwarf's clothes for 1 dollar ]}
+{2050}{}{[ Buy a cap ]}
+{2060}{}{[ Buy a Cowboy hat ]}
+{2070}{}{[ Buy a Builder's hat ]}
+{2080}{}{[ Buy Fedora black ]}
+{2090}{}{[ Buy Fedora white ]}
+{2100}{}{[ Buy Ranger's hat ]}
+{2110}{}{[ Buy Enclave cap ]}
+{2120}{}{Not interested.}
+{3000}{}{I trade only for dollars... City's order.}
+{4000}{}{Nice choice.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey, don't pass by! You are in Vegas and only here you can buy some exclusive clothes. Take a look!}
+{2010}{}{[ Buy a lab coat for 1 dollar ]}
+{2020}{}{[ Buy an elegant suit for 2 dollars ]}
+{2030}{}{[ Buy rag's clothes for 1 dollar ]}
+{2040}{}{[ Buy dwarf's clothes for 1 dollar ]}
+{2050}{}{[ Buy a cap ]}
+{2060}{}{[ Buy a Cowboy hat ]}
+{2070}{}{[ Buy a Builder's hat ]}
+{2080}{}{[ Buy Fedora black ]}
+{2090}{}{[ Buy Fedora white ]}
+{2100}{}{[ Buy Ranger's hat ]}
+{2110}{}{[ Buy Enclave cap ]}
+{2120}{}{Not interested.}
+{3000}{}{I trade only for dollars... City's order.}
+{4000}{}{Nice choice.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey, don't pass by! You are in Vegas and only here you can buy some exclusive clothes. Take a look!}
+{2010}{}{[ Buy a lab coat for 1 dollar ]}
+{2020}{}{[ Buy an elegant suit for 2 dollars ]}
+{2030}{}{[ Buy rag's clothes for 1 dollar ]}
+{2040}{}{[ Buy dwarf's clothes for 1 dollar ]}
+{2050}{}{[ Buy a cap ]}
+{2060}{}{[ Buy a Cowboy hat ]}
+{2070}{}{[ Buy a Builder's hat ]}
+{2080}{}{[ Buy Fedora black ]}
+{2090}{}{[ Buy Fedora white ]}
+{2100}{}{[ Buy Ranger's hat ]}
+{2110}{}{[ Buy Enclave cap ]}
+{2120}{}{Not interested.}
+{3000}{}{I trade only for dollars... City's order.}
+{4000}{}{Nice choice.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey, don't pass by! You are in Vegas and only here you can buy some exclusive clothes. Take a look!}
+{2010}{}{[ Buy a lab coat for 1 dollar ]}
+{2020}{}{[ Buy an elegant suit for 2 dollars ]}
+{2030}{}{[ Buy rag's clothes for 1 dollar ]}
+{2040}{}{[ Buy dwarf's clothes for 1 dollar ]}
+{2050}{}{[ Buy a cap ]}
+{2060}{}{[ Buy a Cowboy hat ]}
+{2070}{}{[ Buy a Builder's hat ]}
+{2080}{}{[ Buy Fedora black ]}
+{2090}{}{[ Buy Fedora white ]}
+{2100}{}{[ Buy Ranger's hat ]}
+{2110}{}{[ Buy Enclave cap ]}
+{2120}{}{Not interested.}
+{3000}{}{I trade only for dollars... City's order.}
+{4000}{}{Nice choice.}
+

@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{NCR Soldier}
+{200}{}{You see an NCR Soldier.}
+{210}{}{This hardened soldier probably isn't going to show you any mercy.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Move on, wastelander!@@Move along! There's nothing to see here.@@Stand aside, citizen.@@Don't cause us any problems and you won't get hurt.@@Keep it moving, keep it moving!@@March!@@This area is protected by the NCR.@@Be careful out there.@@Report slaver or raider activity to the NCR Police.@@You can count on us!@@Stay out of trouble, citizen.@@Don't mess with NCR!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Move on, wastelander!@@Move along! There's nothing to see here.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Move on, wastelander!@@Move along! There's nothing to see here.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Move on, wastelander!@@Move along! There's nothing to see here.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Move on, wastelander!@@Move along! There's nothing to see here.}
+

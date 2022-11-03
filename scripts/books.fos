@@ -1,0 +1,127 @@
+// Author: cvet
+// Edited by: Kilgore
+#include "_macros.fos"
+#include "msgstr.h"
+#include "_vars.fos"
+
+bool IsReadableBook(uint16 pid) // Export
+{
+	switch(pid)
+	{
+	case PID_BIG_BOOK_OF_SCIENCE: // Science
+	case PID_DEANS_ELECTRONICS: // Repair
+	case PID_FIRST_AID_BOOK: // First Aid
+	case PID_SCOUT_HANDBOOK: // Outdoorsman
+	case PID_BARTER_BOOK:
+	case PID_GUNS_AND_BULLETS: // Small Guns
+	case PID_BG_BOOK: // Small Guns
+	case PID_DOCTOR_BOOK: // Small Guns
+	case PID_EW_BOOK: // Small Guns
+	case PID_SNEAK_BOOK: // Small Guns
+	case PID_STEAL_BOOK: // CRAFTING
+	case PID_LOCKPICK_BOOK: // Small Guns
+	case PID_THROWING_BOOK: // Small Guns
+	case PID_TRAPS_BOOK: // Small Guns
+	case PID_CLOSE_COMBAT_BOOK: // Small Guns
+	// case PID_CATS_PAW_ISSUE_5: // Energy Weapons
+	// case PID_CHEMISTRY_MANUAL:
+	// case PID_TECHNICAL_MANUAL:
+	// case PID_ACCOUNT_BOOK:
+	// case PID_BECKY_BOOK:
+		return true;
+	default: break;
+	}
+	return false; // Not a book
+}
+int getrealint(Critter& cr)
+{
+	int val = cr.Param[ST_START_IN];
+	if(cr.Param[PE_GAIN_INTELLIGENCE]>0) val += cr.Param[PE_GAIN_INTELLIGENCE] * 2; //perk
+	if(cr.Param[TRAIT_SKILLED]>0) val += 1; //gifted
+	if(cr.Param[PE_IMP_INTELLIGENCE]>0) val += cr.Param[PE_IMP_INTELLIGENCE];//implant
+	if(cr.Param[PE_PRIEST]>0) val += 3; //perk
+	if(cr.Param[PE_SOLDIER]>0) val += 1; //perk
+	return CLAMP(val,1,20);
+}
+void TryReadBook(Critter& cr, Item& book) // Export
+{
+	int skillNum;
+	uint strNum;
+	uint readAlready;
+	int capnum;
+
+	switch(book.GetProtoId())
+	{
+	case PID_BIG_BOOK_OF_SCIENCE: skillNum=SK_SCIENCE; strNum=STR_BOOK_READ_SCIENCE; readAlready=LVAR_Book_Science; capnum = SK_SCIENCE_CAP; break; // Science
+	case PID_DEANS_ELECTRONICS: skillNum=SK_REPAIR; strNum=STR_BOOK_READ_REPAIR; readAlready=LVAR_Book_Repair; capnum = SK_REPAIR_CAP; break; // Repair
+	case PID_FIRST_AID_BOOK: skillNum=SK_FIRST_AID; strNum=STR_BOOK_READ_FISRT_AID; readAlready=LVAR_Book_FirstAid; capnum = SK_FIRST_AID_CAP; break; // First Aid
+	case PID_SCOUT_HANDBOOK: skillNum=SK_OUTDOORSMAN; strNum=STR_BOOK_READ_OUTDOORSMAN; readAlready=LVAR_Book_Outdoorsman; capnum = SK_OUTDOORSMAN_CAP; break; // Outdoorsman
+	case PID_BARTER_BOOK: skillNum=SK_BARTER; strNum=10458; readAlready=LVAR_Book_Barter; capnum = SK_BARTER_CAP; break;
+	case PID_GUNS_AND_BULLETS: skillNum=SK_SMALL_GUNS; strNum=STR_BOOK_READ_SMALL_GUNS; readAlready=LVAR_Book_SmallGuns; capnum = SK_SMALL_GUNS_CAP; break; // Small Guns
+	case PID_BG_BOOK: skillNum=SK_BIG_GUNS; strNum=STR_BG_BOOK; readAlready=LVAR_bg_book; capnum = SK_BIG_GUNS_CAP; break;// Small Guns
+	case PID_DOCTOR_BOOK: skillNum=SK_DOCTOR; strNum=STR_DOCTOR_BOOK; readAlready=LVAR_doctor_book; capnum = SK_DOCTOR_CAP; break;
+	case PID_EW_BOOK: skillNum=SK_ENERGY_WEAPONS; strNum=STR_EW_BOOK; readAlready=LVAR_ew_book; capnum = SK_ENERGY_WEAPONS_CAP; break;
+	case PID_SNEAK_BOOK: skillNum=SK_SNEAK; strNum=STR_SNEAK_BOOK; readAlready=LVAR_sneak_book; capnum = SK_SNEAK_CAP; break;
+	case PID_STEAL_BOOK: skillNum=SK_CRAFTING; strNum=STR_STEAL_BOOK; readAlready=LVAR_steal_book; capnum = SK_CRAFTING_CAP; break;
+	case PID_LOCKPICK_BOOK: skillNum=SK_LOCKPICK; strNum=STR_LOCKPICK_BOOK; readAlready=LVAR_lockpick_book; capnum = SK_LOCKPICK_CAP; break;
+	case PID_THROWING_BOOK: skillNum=SK_THROWING; strNum=STR_THROWING_BOOK; readAlready=LVAR_throwing_book; capnum = SK_THROWING_CAP; break;
+	case PID_TRAPS_BOOK: skillNum=SK_TRAPS; strNum=STR_TRAPS_BOOK; readAlready=LVAR_traps_book; capnum = SK_TRAPS_CAP; break;
+	case PID_CLOSE_COMBAT_BOOK: skillNum=SK_UNARMED; strNum=STR_CLOSE_COMBAT_BOOK; readAlready=LVAR_close_combat_book; capnum = SK_UNARMED_CAP; break;
+	//case PID_CATS_PAW_ISSUE_5: skillNum=SK_ENERGY_WEAPONS; strNum=STR_BOOK_READ_ENERGY_WEAPONS; readAlready=LVAR_FO2077_Book_EnergyWeapons; break; // Energy Weapons
+	//case PID_CHEMISTRY_MANUAL: cr.SayMsg(SAY_NETMSG,TEXTMSG_GAME,STR_BOOK_READ_FAIL);return;
+	//case PID_TECHNICAL_MANUAL: cr.SayMsg(SAY_NETMSG,TEXTMSG_GAME,STR_BOOK_READ_FAIL);return;
+	//case PID_ACCOUNT_BOOK: cr.SayMsg(SAY_NETMSG,TEXTMSG_GAME,STR_BOOK_READ_FAIL);return;
+	//case PID_BECKY_BOOK: cr.SayMsg(SAY_NETMSG,TEXTMSG_GAME,STR_BOOK_READ_FAIL);return;
+	default: return;
+	}
+	if(cr.Param[SK_LEARNING] >= 200)
+		{
+		if(skillNum == SK_SNEAK)
+			{
+			cr.Say(SAY_NETMSG, "You can't learn about Sneaking.");
+			return;
+			}
+		if(skillNum == SK_BARTER && cr.Param[capnum] >= 150)
+			{
+			cr.Say(SAY_NETMSG, "You can't learn about Barter.");
+			return;
+			}
+		cr.ParamBase[capnum] += 10;
+		cr.ParamBase[SK_LEARNING] = 0;
+		cr.SayMsg(SAY_NETMSG,TEXTMSG_GAME,strNum);
+		_SubItem(book,1);
+		return;
+		}
+	GameVar@ readAlreadyVar=GetLocalVar(readAlready, cr.Id);
+	if(valid(readAlreadyVar) && readAlreadyVar.GetValue()<10 && cr.Param[skillNum]<151)
+	{
+	
+	//int sp=6;
+	
+	//if(cr.Param[ST_INTELLECT]<=4) sp=8;
+	//else if(cr.Param[ST_INTELLECT]==5 || cr.Param[ST_INTELLECT]==6) sp=Random(9,10);
+	//else if(cr.Param[ST_INTELLECT]==7 || cr.Param[ST_INTELLECT]==8) sp=Random(10,11);
+	//else if(cr.Param[ST_INTELLECT]==9 || cr.Param[ST_INTELLECT]==10) sp=Random(11,12);
+	int sps = 3 + cr.Param[ST_INTELLECT];
+	for(int sp=0;sp<sps+1;sp++)
+	{
+	if(cr.Param[skillNum]>150)
+		continue;
+	cr.ParamBase[skillNum]++;
+	}
+
+	cr.SayMsg(SAY_NETMSG,TEXTMSG_GAME,strNum);
+	readAlreadyVar+=1;
+	_SubItem(book,1);
+	}
+	else cr.SayMsg(SAY_NETMSG,TEXTMSG_GAME,STR_BOOK_READ_FAIL);
+}
+
+
+
+
+
+
+
+
+

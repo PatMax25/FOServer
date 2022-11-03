@@ -1,0 +1,170 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+10 2010 D _param p ST_TEAM_ID = 113 R _script dialog@r_OpenDoor 2 55 20 #
+3 2020 D _var p name_mem_npc_player = 0 #
+9 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 #
+2 4020 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 R _var p name_mem_npc_player = 1 @
+8 8000 None 0 #
+2 8010 @
+9 9000 None 0 #
+2 9010 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Becky from finance}
+{200}{}{Wait a second...}
+{210}{}{It's really her!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, what is it?}
+{2010}{}{[ Reactor Punks ] I need to get to the storage.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{Just passing by. See ya.}
+{3000}{}{Name's Becky. And you?}
+{3010}{}{I am @pname@.}
+{3020}{}{That's not your business. Chao.}
+{4000}{}{Right, @pname@. What is that you wanted?}
+{4010}{}{You have a weird accent. Are you from some distant land?}
+{4020}{}{Nothing, let's switch the topic.}
+{5000}{}{Yes, you are right. I come from Phoenix... Used to live and work there long time ago. Back then I was a young 16 year old foolish girl trying to get some money.}
+{5010}{}{Phoenix? Some city in Arizona I believe?}
+{6000}{}{Yes, the biggest city in the entire Wasteland. I used to work there during the period known as "The Great War of Phoenix". Phoenix was split into several parts controlled by 4 big factions. It was hell for everyone back then, so no matter what people say about the Consortium now, it's good that they ended the bloodfest... All of the factions were crazy fanatics... Apart from Family maybe, they were just mafia. I used to work as a finance agent for all of these factions. That's how I got some money to get the heck out of there. And now I am here... Kinda comfy in a peaceful place and I feel alright about it.}
+{6010}{}{And what are you doing here now?}
+{7000}{}{Doing some paper work mostly.}
+{7010}{}{So in simple words you must be a secretary.}
+{8000}{}{And you must be Captain Obvious.}
+{8010}{}{Right... Let's talk about something else.}
+{9000}{}{This is a fine settlement. People are kind here, though sometimes problems appear. I still wonder why the heck they even need to fuck around that reactor. Don't get me wrong, but I don't really wish to wake up and find myself a ghoul one day just because somebody made a mistake there and now the entire area is nothing but an ocean of radioactive waste.}
+{9010}{}{Fine point. One more thing to ask...}
+{10000}{}{Yes, yes. Come in.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, what is it?}
+{2010}{}{[ Reactor Punks ] I need to get to the storage.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{Just passing by. See ya.}
+{3000}{}{Name's Becky. And you?}
+{3010}{}{I am @pname@.}
+{3020}{}{That's not your business. Chao.}
+{4000}{}{Right, @pname@. What is that you wanted?}
+{4010}{}{You have some weird accent. Are you from some distant lands?}
+{4020}{}{Nothing, let's switch the topic.}
+{5000}{}{Yes, you are right. I am coming from Phoenix... Used to live and work there long time ago. Back then I was a young 16 years old foolish girl trying to get some money.}
+{5010}{}{Phoenix? Some city in Arizona I believe?}
+{6000}{}{Yes, the biggest city in the entire Wasteland. I used to work there during the period known as "The Great War of Phoenix". Phoenix was split into several parts controlled by 4 big factions. It was hell for everyone back then. So no matter what people say about Consortium now, they did well that ended up that bloodfest... Anyway I managed to work for all of these 4 factions. All of them were crazy fanatics... Apart from Family maybe, these were just mafia. I used to work as a finance agent for all of these factions. That's how I got some money to get the heck out of there. And now I am here... Kinda a peaceful place and I feel alright about it.}
+{6010}{}{And what are you doing here now?}
+{7000}{}{Doing some paper work mostly.}
+{7010}{}{So in simple words you must be a secretary.}
+{8000}{}{And you must be Captain Obvious.}
+{8010}{}{Right... Let's talk about something else.}
+{9000}{}{This is a fine settlement. People are kind here, though sometimes some problems appear. I still wonder why the heck they even need to fuck around that reactor. Don't get me wrong, but I don't really wish to wake up being a ghoul one day just because somebody made a mistake there and now the entire area is nothing but the ocean of radioactive waste.}
+{9010}{}{Fine point. One more thing to ask...}
+{10000}{}{Yes, yes. Come in.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, what is it?}
+{2010}{}{[ Reactor Punks ] I need to get to the storage.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{Just passing by. See ya.}
+{3000}{}{Name's Becky. And you?}
+{3010}{}{I am @pname@.}
+{3020}{}{That's not your business. Chao.}
+{4000}{}{Right, @pname@. What is that you wanted?}
+{4010}{}{You have some weird accent. Are you from some distant lands?}
+{4020}{}{Nothing, let's switch the topic.}
+{5000}{}{Yes, you are right. I am coming from Phoenix... Used to live and work there long time ago. Back then I was a young 16 years old foolish girl trying to get some money.}
+{5010}{}{Phoenix? Some city in Arizona I believe?}
+{6000}{}{Yes, the biggest city in the entire Wasteland. I used to work there during the period known as "The Great War of Phoenix". Phoenix was split into several parts controlled by 4 big factions. It was hell for everyone back then. So no matter what people say about Consortium now, they did well that ended up that bloodfest... Anyway I managed to work for all of these 4 factions. All of them were crazy fanatics... Apart from Family maybe, these were just mafia. I used to work as a finance agent for all of these factions. That's how I got some money to get the heck out of there. And now I am here... Kinda a peaceful place and I feel alright about it.}
+{6010}{}{And what are you doing here now?}
+{7000}{}{Doing some paper work mostly.}
+{7010}{}{So in simple words you must be a secretary.}
+{8000}{}{And you must be Captain Obvious.}
+{8010}{}{Right... Let's talk about something else.}
+{9000}{}{This is a fine settlement. People are kind here, though sometimes some problems appear. I still wonder why the heck they even need to fuck around that reactor. Don't get me wrong, but I don't really wish to wake up being a ghoul one day just because somebody made a mistake there and now the entire area is nothing but the ocean of radioactive waste.}
+{9010}{}{Fine point. One more thing to ask...}
+{10000}{}{Yes, yes. Come in.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, what is it?}
+{2010}{}{[ Reactor Punks ] I need to get to the storage.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{Just passing by. See ya.}
+{3000}{}{Name's Becky. And you?}
+{3010}{}{I am @pname@.}
+{3020}{}{That's not your business. Chao.}
+{4000}{}{Right, @pname@. What is that you wanted?}
+{4010}{}{You have some weird accent. Are you from some distant lands?}
+{4020}{}{Nothing, let's switch the topic.}
+{5000}{}{Yes, you are right. I am coming from Phoenix... Used to live and work there long time ago. Back then I was a young 16 years old foolish girl trying to get some money.}
+{5010}{}{Phoenix? Some city in Arizona I believe?}
+{6000}{}{Yes, the biggest city in the entire Wasteland. I used to work there during the period known as "The Great War of Phoenix". Phoenix was split into several parts controlled by 4 big factions. It was hell for everyone back then. So no matter what people say about Consortium now, they did well that ended up that bloodfest... Anyway I managed to work for all of these 4 factions. All of them were crazy fanatics... Apart from Family maybe, these were just mafia. I used to work as a finance agent for all of these factions. That's how I got some money to get the heck out of there. And now I am here... Kinda a peaceful place and I feel alright about it.}
+{6010}{}{And what are you doing here now?}
+{7000}{}{Doing some paper work mostly.}
+{7010}{}{So in simple words you must be a secretary.}
+{8000}{}{And you must be Captain Obvious.}
+{8010}{}{Right... Let's talk about something else.}
+{9000}{}{This is a fine settlement. People are kind here, though sometimes some problems appear. I still wonder why the heck they even need to fuck around that reactor. Don't get me wrong, but I don't really wish to wake up being a ghoul one day just because somebody made a mistake there and now the entire area is nothing but the ocean of radioactive waste.}
+{9010}{}{Fine point. One more thing to ask...}
+{10000}{}{Yes, yes. Come in.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, what is it?}
+{2010}{}{[ Reactor Punks ] I need to get to the storage.}
+{2020}{}{Who are you?}
+{2030}{}{What can you tell me about this place?}
+{2040}{}{Just passing by. See ya.}
+{3000}{}{Name's Becky. And you?}
+{3010}{}{I am @pname@.}
+{3020}{}{That's not your business. Chao.}
+{4000}{}{Right, @pname@. What is that you wanted?}
+{4010}{}{You have some weird accent. Are you from some distant lands?}
+{4020}{}{Nothing, let's switch the topic.}
+{5000}{}{Yes, you are right. I am coming from Phoenix... Used to live and work there long time ago. Back then I was a young 16 years old foolish girl trying to get some money.}
+{5010}{}{Phoenix? Some city in Arizona I believe?}
+{6000}{}{Yes, the biggest city in the entire Wasteland. I used to work there during the period known as "The Great War of Phoenix". Phoenix was split into several parts controlled by 4 big factions. It was hell for everyone back then. So no matter what people say about Consortium now, they did well that ended up that bloodfest... Anyway I managed to work for all of these 4 factions. All of them were crazy fanatics... Apart from Family maybe, these were just mafia. I used to work as a finance agent for all of these factions. That's how I got some money to get the heck out of there. And now I am here... Kinda a peaceful place and I feel alright about it.}
+{6010}{}{And what are you doing here now?}
+{7000}{}{Doing some paper work mostly.}
+{7010}{}{So in simple words you must be a secretary.}
+{8000}{}{And you must be Captain Obvious.}
+{8010}{}{Right... Let's talk about something else.}
+{9000}{}{This is a fine settlement. People are kind here, though sometimes some problems appear. I still wonder why the heck they even need to fuck around that reactor. Don't get me wrong, but I don't really wish to wake up being a ghoul one day just because somebody made a mistake there and now the entire area is nothing but the ocean of radioactive waste.}
+{9010}{}{Fine point. One more thing to ask...}
+{10000}{}{Yes, yes. Come in.}
+

@@ -1,0 +1,98 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 #
+2 1020 D _script dialog@d_IsDisguised 0  @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _var n name_mem_player_npc = 0 R _var n name_mem_player_npc = 1 #
+0 2030 @
+3 3000 None 0 #
+2 3010 #
+0 3020 @
+4 4000 None 0 #
+0 4010 &
+
+[engl]
+{100}{}{Jefferson}
+{200}{}{You see a technician.}
+{210}{}{You see a man in a military uniform. Judging by the tools he's using you think he is more of a technician than a soldier.}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{disguised}
+{2000}{}{Yes, what? Can't you see I'm busy?}
+{2010}{}{Oh, sorry. I'm *blind*, you know.}
+{2020}{}{Who are you?}
+{2030}{}{Ah, nothing. Sorry. [ end dialogue ]}
+{3000}{}{Go playing *blindman* somewhere else then, I gotta work to do.}
+{3010}{}{Sorry, I was just kidding... Actually, I had a few questions for you.}
+{3020}{}{Yeah, right. [ end dialogue ]}
+{4000}{}{Jefferson's the name. I'm mostly repairing various technical junk and there's more of it each day... Armors, plasma rifles, energy cells, you name it. Now did you need something or what? *he looks at you impatiantly*}
+{4010}{}{Nope, I think I'll leave you to your work then. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{disguised}
+{2000}{}{Yes, what? Can't you see I'm busy?}
+{2010}{}{Oh, sorry. I'm *blind*, you know.}
+{2020}{}{Who are you?}
+{2030}{}{Ah, nothing. Sorry.}
+{3000}{}{Go playing *blindman* somewhere else then, I gotta work to do.}
+{3010}{}{Sorry, I was just kidding... Actually, I had a few questions for you.}
+{3020}{}{Yeah, right.}
+{4000}{}{Jefferson's the name. I'm mostly repairing various technical junk and there's more of it each day... Armors, plasma rifles, energy cells, you name it. Now did you need something or what? [Looking at you impatiantly]}
+{4010}{}{Nope, I think I'll leave you to your work then.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{disguised}
+{2000}{}{Yes, what? Can't you see I'm busy?}
+{2010}{}{Oh, sorry. I'm *blind*, you know.}
+{2020}{}{Who are you?}
+{2030}{}{Ah, nothing. Sorry.}
+{3000}{}{Go playing *blindman* somewhere else then, I gotta work to do.}
+{3010}{}{Sorry, I was just kidding... Actually, I had a few questions for you.}
+{3020}{}{Yeah, right.}
+{4000}{}{Jefferson's the name. I'm mostly repairing various technical junk and there's more of it each day... Armors, plasma rifles, energy cells, you name it. Now did you need something or what? [Looking at you impatiantly]}
+{4010}{}{Nope, I think I'll leave you to your work then.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{disguised}
+{2000}{}{Yes, what? Can't you see I'm busy?}
+{2010}{}{Oh, sorry. I'm *blind*, you know.}
+{2020}{}{Who are you?}
+{2030}{}{Ah, nothing. Sorry.}
+{3000}{}{Go playing *blindman* somewhere else then, I gotta work to do.}
+{3010}{}{Sorry, I was just kidding... Actually, I had a few questions for you.}
+{3020}{}{Yeah, right.}
+{4000}{}{Jefferson's the name. I'm mostly repairing various technical junk and there's more of it each day... Armors, plasma rifles, energy cells, you name it. Now did you need something or what? [Looking at you impatiantly]}
+{4010}{}{Nope, I think I'll leave you to your work then.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{disguised}
+{2000}{}{Yes, what? Can't you see I'm busy?}
+{2010}{}{Oh, sorry. I'm *blind*, you know.}
+{2020}{}{Who are you?}
+{2030}{}{Ah, nothing. Sorry.}
+{3000}{}{Go playing *blindman* somewhere else then, I gotta work to do.}
+{3010}{}{Sorry, I was just kidding... Actually, I had a few questions for you.}
+{3020}{}{Yeah, right.}
+{4000}{}{Jefferson's the name. I'm mostly repairing various technical junk and there's more of it each day... Armors, plasma rifles, energy cells, you name it. Now did you need something or what? [Looking at you impatiantly]}
+{4010}{}{Nope, I think I'll leave you to your work then.}
+

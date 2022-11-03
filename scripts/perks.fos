@@ -1,0 +1,726 @@
+
+//
+// FOnline: 2238
+// Rotators
+//
+// perks.fos
+//
+
+// Perk up/down processing. Perk data should be edited with the PerkEditor tool.
+// For perks that require special handling (nongeneric conditions/effects),
+// see the use of SATISFIES macro in InitPerks() function.
+
+#ifdef __CLIENT // Macro defined in client_main.fos
+# define Critter    CritterCl
+#endif
+
+#include "_macros.fos"
+#include "perks_data.fos"
+
+funcdef bool SatisfiesFunc(Critter& cr, int perk, int level, int p0, int p1, int p2);
+funcdef void ProcessFunc(Critter& cr, int perk, int level, int p0, int p1, int p2);
+
+class Requirement
+{
+    uint16 Param;
+    bool   Atleast;   // at most if false
+    int    Value;
+
+    Requirement(uint16 param, bool atleast, int value)
+    {
+        Param = param;
+        Atleast = atleast;
+        Value = value;
+    }
+    bool Satisfies(Critter@ cr)
+    {
+        if(Atleast)
+            return cr.Param[Param] >= Value;
+        else
+            return cr.Param[Param] <= Value;
+    }
+};
+
+#ifdef __SERVER
+class Effect
+{
+    uint16 Param;
+    bool   Increase;   // decrease if false
+    int    Value;
+
+    Effect(uint16 param, bool increase, int value)
+    {
+        Param = param;
+        Increase = increase;
+        Value = value;
+    }
+    void Process(Critter@ cr)
+    {
+        if(Increase)
+            cr.ParamBase[Param] = cr.ParamBase[Param] + Value;
+        else
+            cr.ParamBase[Param] = cr.ParamBase[Param] - Value;
+    }
+};
+#endif
+class LevelData
+{
+    array<Requirement> Requirements;
+    #ifdef __SERVER
+    array<Effect>      UpEffects;
+    array<Effect>      DownEffects;
+    #endif
+    bool Satisfies(Critter@ cr)
+    {
+        for(uint i = 0, j = Requirements.length(); i < j; i++)
+            if(!Requirements[i].Satisfies(cr))
+                return false;
+        return true;
+    }
+    #ifdef __SERVER
+    void ProcessUp(Critter@ cr)
+    {
+        for(uint i = 0, j = UpEffects.length(); i < j; i++)
+            UpEffects[i].Process(cr);
+    }
+    void ProcessDown(Critter@ cr)
+    {
+        for(uint i = 0, j = DownEffects.length(); i < j; i++)
+            DownEffects[i].Process(cr);
+    }
+    #endif
+};
+
+class PerkData
+{
+    int            Id;
+    int            Range;
+    int            Type;
+    SatisfiesFunc@ SatisfiesF;
+    #ifdef __SERVER
+    ProcessFunc@   ProcessUpF;
+    ProcessFunc@   ProcessDownF;
+    #endif
+    int            p0;
+    int            p1;
+    int            p2;
+
+    PerkData()
+    {
+        Id = 0;
+        Range = 0;
+        Type = 2;
+        @SatisfiesF = null;
+        #ifdef __SERVER
+        @ProcessUpF = null;
+        @ProcessDownF = null;
+        #endif
+    }
+
+    array<LevelData> Levels;
+
+    bool Check(Critter@ cr, int level)
+    {
+        if(level >= Range)
+            return false;
+        return Levels[level].Satisfies(cr) && (!valid(SatisfiesF) || SatisfiesF(cr, Id, level, p0, p1, p2));
+    }
+    #ifdef __SERVER
+    void ProcessUp(Critter@ cr, int fromlevel)
+    {
+        if(fromlevel >= int(Range) || fromlevel < 0)
+            return;
+        Levels[fromlevel].ProcessUp(cr);
+        if(valid(ProcessUpF))
+            ProcessUpF(cr, Id, fromlevel, p0, p1, p2);
+    }
+    void ProcessDown(Critter@ cr, int tolevel)
+    {
+        if(tolevel >= int(Range) || tolevel < 0)
+            return;
+        Levels[tolevel].ProcessDown(cr);
+        if(valid(ProcessUpF))
+            ProcessDownF(cr, Id, tolevel, p0, p1, p2);
+    }
+    #endif
+    void CustomSatisfies(SatisfiesFunc@ func, int _p0, int _p1, int _p2)
+    {
+        @SatisfiesF = func;
+        p0 = _p0;
+        p1 = _p1;
+        p2 = _p2;
+    }
+};
+
+
+#ifndef __CLIENT
+import int NextLevelNeedExp(Critter& cr)  from "parameters";
+
+bool d_PerkCheck(Critter& player, Critter@ npc, int perk)
+{
+    return PerkCheck(player, perk, true);
+}
+
+bool d_PerkCheckFalse(Critter& player, Critter@ npc, int perk)
+{
+    return !PerkCheck(player, perk, true);
+}
+
+bool d_ProfessionPerkCheck(Critter& player, Critter@ npc, int perk, int level)
+{
+    if(player.ParamBase[perk] != level)
+        return false;
+    return PerkCheck(player, perk, true);
+}
+
+bool d_ProfessionCheck(Critter& player, Critter@ npc, int perk)
+{
+    return AssertProfessions(player);
+}
+#endif
+
+array<PerkData> Perks;
+
+void InitPerks() // export
+{
+    int i = 0;
+    do
+    {
+        array<int>@ header = PerksData[i];
+        int id = header[0];
+        if(id == -1)
+            break;
+        if(int(Perks.length()) <= id)
+            Perks.resize(id + 1);
+        PerkData@ perk = Perks[id];
+        perk.Id = id;
+        perk.Type = header[1];
+        perk.Range = header[2];
+        perk.Levels.resize(perk.Range);
+        for(int clev = 0; clev < perk.Range; clev++)
+        {
+            i++;
+            perk.Levels[clev].Requirements.resize(PerksData[i].length() / 3);
+            for(uint j = 0, k = perk.Levels[clev].Requirements.length(); j < k; j++)
+            {
+                perk.Levels[clev].Requirements[j].Param = PerksData[i][3 * j];
+                perk.Levels[clev].Requirements[j].Atleast = PerksData[i][3 * j + 1] != 0;
+                perk.Levels[clev].Requirements[j].Value = PerksData[i][3 * j + 2];
+            }
+        }
+        #ifdef __SERVER
+        for(int clev = 0; clev < perk.Range; clev++)
+        {
+            i++;
+            perk.Levels[clev].UpEffects.resize(PerksData[i].length() / 3);
+            for(uint j = 0, k = perk.Levels[clev].UpEffects.length(); j < k; j++)
+            {
+                perk.Levels[clev].UpEffects[j].Param = PerksData[i][3 * j];
+                perk.Levels[clev].UpEffects[j].Increase = PerksData[i][3 * j + 1] != 0;
+                perk.Levels[clev].UpEffects[j].Value = PerksData[i][3 * j + 2];
+            }
+        }
+
+        for(int clev = 0; clev < perk.Range; clev++)
+        {
+            i++;
+            if(PerksData[i].length() == 1)
+            {
+                perk.Levels[clev].DownEffects.resize(perk.Levels[clev].UpEffects.length());
+                for(uint j = 0, k = perk.Levels[clev].UpEffects.length(); j < k; j++)
+                {
+                    perk.Levels[clev].DownEffects[j].Param = perk.Levels[clev].UpEffects[j].Param;
+                    perk.Levels[clev].DownEffects[j].Increase = !perk.Levels[clev].UpEffects[j].Increase;
+                    perk.Levels[clev].DownEffects[j].Value = perk.Levels[clev].UpEffects[j].Value;
+                }
+                continue;
+            }
+            perk.Levels[clev].UpEffects.resize(PerksData[i].length() / 3);
+            for(uint j = 0, k = perk.Levels[clev].DownEffects.length(); j < k; j++)
+            {
+                perk.Levels[clev].DownEffects[j].Param = PerksData[i][3 * j];
+                perk.Levels[clev].DownEffects[j].Increase = PerksData[i][3 * j + 1] != 0;
+                perk.Levels[clev].DownEffects[j].Value = PerksData[i][3 * j + 2];
+            }
+        }
+        #endif
+        i++;
+    }
+    while(true);
+
+    // still some customizing, todo: make it generic
+    #define SATISFIES    # (__perk, __func, __p0, __p1, __p2)Perks[__perk].CustomSatisfies(__func, __p0, __p1, __p2)
+
+    SATISFIES(PE_MORE_CRITICALS,         @_OrRangedSkill, 0, 0, 100);
+    SATISFIES(PE_EVEN_MORE_CRITICALS,    @_OrRangedSkill, 0, 0, 125);
+    SATISFIES(PE_SHARPSHOOTER,           @_OrRangedSkill, 0, 0, 150);
+    SATISFIES(PE_BETTER_CRITICALS,       @_OrRangedSkill, 0, 0, 175);
+    SATISFIES(PE_RIGHT_BETWEEN_THE_EYES, @_OrRangedHtHSkill, 0, 0, 200);
+    SATISFIES(PE_BONUS_RATE_OF_FIRE,     @_OrRangedSkill, 0, 0, 180);
+    SATISFIES(PE_WEAPON_HANDLING,        @_OrRangedSkill, 0, 0, 100);
+    SATISFIES(PE_FAST_RELOAD,            @_OrRangedGunSkill, 0, 0, 125);
+    SATISFIES(PE_SPRAY_AND_PRAY,         @_OrRangedSkill, 0, 0, 125);
+    SATISFIES(PE_MORE_RANGED_DAMAGE,     @_OrRangedSkill, 0, 0, 200);
+
+
+    SATISFIES(PE_BONUS_RANGED_DAMAGE, @_BRD, 0, 0, 0);
+    SATISFIES(PE_HTH_EVADE, @_OrSkill, SK_UNARMED, SK_LEARNING, 75);
+    SATISFIES(PE_HTH_EVADE_II, @_OrSkill, SK_UNARMED, SK_LEARNING, 150);
+    SATISFIES(PE_BONUS_HTH_DAMAGE, @_OrSkill, SK_UNARMED, SK_LEARNING, 75);
+    SATISFIES(PE_BONUS_HTH_DAMAGE_II, @_OrSkill, SK_UNARMED, SK_LEARNING, 100);
+    SATISFIES(PE_IN_YOUR_FACE, @_OrSkill, SK_UNARMED, SK_LEARNING, 125);
+    SATISFIES(PE_HIT_THE_GAPS, @_OrRangedHtHSkill, 0, 0, 150);
+    SATISFIES(PE_HTH_CRITICALS, @_OrSkill, SK_UNARMED, SK_LEARNING, 175);
+    SATISFIES(PE_BONUS_HTH_ATTACKS, @_OrSkill, SK_UNARMED, SK_LEARNING, 180);
+    SATISFIES(PE_AWARENESS, @_Awareness, 0, 0, 0);
+    #ifdef __SERVER
+    @Perks[PE_SPEAKER].ProcessUpF = _SpeakerUp;
+    @Perks[PE_SPEAKER].ProcessDownF = _SpeakerDown;
+    #endif
+}
+
+bool PerkCheck(Critter& cr, uint perk, bool always)   // Export
+{
+    if(perk >= Perks.length() || Perks[perk].Type == 2)
+        return false;
+    return (always || Perks[perk].Type == 0) && Perks[perk].Check(cr, cr.Param[perk]);
+}
+
+bool SupportPerkCheck(Critter& cr, uint perk)   // Export
+{
+    if(perk >= Perks.length() || Perks[perk].Type != 1)
+        return false;
+    return Perks[perk].Check(cr, cr.Param[perk]);
+}
+
+#ifdef __SERVER
+void PerkUp(Critter& cr, uint perk, int fromlevel)   // Export
+{
+    if(perk >= Perks.length())
+        return;
+    Perks[perk].ProcessUp(cr, fromlevel);
+}
+
+void PerkDown(Critter& cr, uint perk, int tolevel)   // Export
+{
+    if(perk >= Perks.length())
+        return;
+    Perks[perk].ProcessDown(cr, tolevel);
+}
+#endif
+
+// todo: make a generic condition in the editor
+bool _OrSkill(Critter& cr, int perk, int level, int skill1, int skill2, int minskill)
+{
+    return cr.Param[skill1] >= minskill || cr.Param[skill2] >= minskill;
+}
+
+bool _OrRangedSkill(Critter& cr, int perk, int level, int, int, int minskill)
+{
+    return cr.Param[SK_SMALL_GUNS] >= minskill || cr.Param[SK_BIG_GUNS] >= minskill ||
+           cr.Param[SK_ENERGY_WEAPONS] >= minskill || cr.Param[SK_THROWING] >= minskill;
+}
+
+bool _OrRangedGunSkill(Critter& cr, int perk, int level, int, int, int minskill)
+{
+    return cr.Param[SK_SMALL_GUNS] >= minskill || cr.Param[SK_BIG_GUNS] >= minskill ||
+           cr.Param[SK_ENERGY_WEAPONS] >= minskill;
+}
+
+bool _OrRangedHtHSkill(Critter& cr, int perk, int level, int, int, int minskill)
+{
+    return cr.Param[SK_SMALL_GUNS] >= minskill || cr.Param[SK_BIG_GUNS] >= minskill ||
+           cr.Param[SK_ENERGY_WEAPONS] >= minskill || cr.Param[SK_UNARMED] >= minskill;
+}
+
+bool _BRD(Critter& cr, int perk, int level, int, int, int)
+{
+    return cr.Param[SK_BIG_GUNS] >= 150 + level * 25 || cr.Param[SK_SMALL_GUNS] >= 150 + level * 25;
+}
+
+bool _Awareness(Critter& cr, int perk, int level, int, int, int)
+{
+    return cr.Param[ST_PERCEPTION] >= 6 || cr.Param[SK_UNARMED] >= 100 || cr.Param[SK_LEARNING] >= 100;
+}
+
+// professions
+
+bool _ProfessionCheck(Critter& cr, int perk, int level, int skill, int level1, int level2)
+{
+    #ifdef __SERVER
+    if(!AssertProfessions(cr))
+        return false;
+    if(level == 0)
+        return cr.Param[skill] >= level1;
+    return cr.Param[skill] >= level2;
+    #endif
+    #ifdef __CLIENT
+    return false;
+    #endif
+}
+
+#ifdef __SERVER
+import int GetFollowers(Critter& player, bool all, array<Critter@>& followers) from "follower_common";
+
+void _SpeakerUp(Critter& cr, int perk, int level, int p0, int p1, int p2)
+{
+    if(level != 0)
+        return;
+    array<Critter@> followers;
+    for(int i = 0, j = GetFollowers(cr, true, followers); i < j; i++)
+        SETFLAG(followers[i].FollowerVarBase[FV_FLAGS], FV_FLAG_MASTER_SPEAKER);
+}
+
+void _SpeakerDown(Critter& cr, int perk, int level, int p0, int p1, int p2)
+{
+    if(level != 0)
+        return;
+    array<Critter@> followers;
+    for(int i = 0, j = GetFollowers(cr, true, followers); i < j; i++)
+        UNSETFLAG(followers[i].FollowerVarBase[FV_FLAGS], FV_FLAG_MASTER_SPEAKER);
+}
+
+bool AssertProfessions(Critter& player)
+{
+    uint count = 0;
+    return count < PROFESSIONS_MAX;
+}
+#endif
+ #ifdef __SERVER
+ import void ChangeCrTypeSafe(Critter& cr, uint8 crType) from "utils";
+void testperk(Critter& player, int perk, int, int)
+{
+	Critter@ trainer;
+	switch(perk)
+	{
+	case 1:
+		{
+		randomat(player, trainer); break;
+		}
+	case 2:
+		{
+		allstatup(player, trainer); break;
+		}
+	case 3:
+		{
+		windowupdate(player, trainer); break;
+		}
+	case 4:
+		{
+		czosnek(player, trainer); break;
+		}
+	case 5:
+		{
+		faith(player, trainer); break;
+		}
+	case 6:
+		{
+		mutant(player, trainer); break;
+		}
+	case 7:
+		{
+		deathclaw(player, trainer); break;
+		}
+	case 8:
+		{
+		hunting(player, trainer); break;
+		}
+		case 9:
+		{
+		killer(player, trainer); break;
+		}
+		case 10:
+		{
+		assasin(player, trainer); break;
+		}
+	default: player.Say(SAY_NETMSG, "avaible perks: 1-10"); break;
+	}
+}
+
+void randomfix(Critter& player, int playerid, int, int)
+{
+	Critter@ cr = GetCritter(playerid);
+	int CW = Random(1000,200000);
+	cr.ParamBase[ST_CARRY_WEIGHT] += CW;
+}
+import void speedboost(Critter& cr) from "critter_item_movement";
+void hunting(Critter& player, Critter@ trainer)
+{
+	speedboost(player);
+}
+
+void killer(Critter& player, Critter@ trainer)
+{
+	speedboost(player);
+}
+
+void assasin(Critter& player, Critter@ trainer)
+{
+	speedboost(player);
+}
+
+void randomat(Critter& player, Critter@ trainer)
+{
+	speedboost(player);
+}
+
+void allstatup(Critter& player, Critter@ trainer)
+{
+	player.Say(SAY_NETMSG, "All stats up!");
+	switch(Random(1,5))
+		{
+		case 1:
+		player.ParamBase[SK_SMALL_GUNS] += 50; break;
+		case 2:
+		player.ParamBase[SK_BIG_GUNS] += 50; break;
+		case 3:
+		player.ParamBase[SK_ENERGY_WEAPONS] += 50; break;
+		case 4:
+		player.ParamBase[SK_UNARMED] += 50; break;
+		case 5:
+		player.ParamBase[SK_THROWING] += 50; break;
+		}
+	speedboost(player);
+}
+bool can_class(Critter& cr, Critter@ trainer, int level)
+{
+	if(cr.Param[PE_SOLDIER] > 0)
+		return false;
+	if(cr.Param[PE_MUTANT] > 0)
+		return false;
+	if(cr.Param[PE_CHOSEN] > 0)
+		return false;
+	if(cr.Param[PE_PRIEST] > 0)
+		return false;
+
+	if(cr.Param[PE_DEATHCLAW] > 0)
+		return false;
+	if(cr.Param[PE_HUNTER] > 0)
+		return false;
+	if(cr.Param[PE_CYBORG] > 0)
+		return false;
+	if(cr.Param[PE_KILLER] > 0)
+		return false;
+	if(cr.Param[PE_ASSASIN] > 0)
+		return false;
+	if(cr.Param[PE_LEADER] > 0)
+		return false;
+	if(cr.Param[PE_PARAMEDIC] > 0)
+		return false;
+	if(cr.Param[PE_SNIPER] > 0)
+		return false;
+	if(cr.Param[PE_INFANTRY] > 0)
+		return false;
+	if(cr.Param[PE_ALIEN] > 0)
+		return false;
+	if(cr.Param[PE_MASTER] > 0)
+		return false;
+	if(cr.Param[PE_WRECKER] > 0)
+		return false;
+	if(cr.Param[PE_CLONE] > 0)
+		return false;
+	if(cr.Param[PE_RANDOM] > 0) //must be last
+		return false;
+		
+	if(cr.Param[ST_LEVEL] >= level)
+		return true;
+	return false;
+}
+
+void windowupdate(Critter& player, Critter@ trainer)
+{
+	//player.ParamBase[ST_EMP_RESIST] -= 1500;
+	player.ParamBase[SK_SCIENCE] += 100;
+	player.Say(SAY_NETMSG, "All systems update done");
+	speedboost(player);
+}
+
+void czosnek(Critter& player, Critter@ trainer)
+{
+	player.ParamBase[ST_UNSPENT_PERKS] += 2;
+	speedboost(player);
+
+}
+
+void medic(Critter& player, Critter@ trainer)
+{
+	player.ParamBase[SK_FIRST_AID] += 50;
+	player.ParamBase[SK_DOCTOR] += 50;
+	speedboost(player);
+
+}
+
+void leader(Critter& player, Critter@ trainer)
+{
+	speedboost(player);
+}
+
+void faith(Critter& player, Critter@ trainer)
+{
+	speedboost(player);
+}
+
+void mutant(Critter& player, Critter@ trainer)
+{
+	ChangeCrTypeSafe(player, 21);
+	player.ParamBase[MODE_NO_RUN] = 1;
+	speedboost(player);
+
+}
+
+void deathclaw(Critter& player, Critter@ trainer)
+{
+	ChangeCrTypeSafe(player, 51);
+	speedboost(player);
+}
+
+void master(Critter& player, Critter@ trainer)
+{
+	for(uint i = TRAIT_BEGIN; i < TRAIT_END; i++)
+		player.ParamBase[i] = 0;
+		
+		
+	speedboost(player);
+}
+//cyborg console
+
+bool d_cd(Critter& player, Critter@ npc)
+{
+    return(player.Timeout[TO_SK_SCIENCE] == 0);
+}
+void r_cd(Critter& player, Critter@ trainer)
+{
+	_SetTimeout(player, TO_SK_SCIENCE, REAL_SECOND(205 - player.Param[SK_SCIENCE]));
+}
+
+void status(Critter& player, Critter@ trainer)
+{
+	player.Say(SAY_NORM, "" + player.Param[ST_CYBORG_CRAFT] );
+}
+void uninstall(Critter& player, Critter@ trainer)
+{
+			if(player.Param[PE_NEMEAN_ARMOR] > 0) {player.AddItem(PID_IMPLANT_NEMEAN, player.Param[PE_NEMEAN_ARMOR]); player.ParamBase[PE_NEMEAN_ARMOR] = 0; }
+			if(player.Param[PE_DERMAL_IMPACT] > 0) {player.AddItem(PID_IMPLANT_DERMAL, player.Param[PE_DERMAL_IMPACT]); player.ParamBase[PE_DERMAL_IMPACT] = 0;  }
+			if(player.Param[PE_DERMAL_IMPACT_ENH] > 0) {player.AddItem(PID_IMPLANT_DERMAL, player.Param[PE_DERMAL_IMPACT_ENH]); player.ParamBase[PE_DERMAL_IMPACT_ENH] = 0;  }
+			if(player.Param[PE_PHOENIX_IMPLANTS] > 0) {player.AddItem(PID_IMPLANT_PHOENIX, player.Param[PE_PHOENIX_IMPLANTS]); player.ParamBase[PE_PHOENIX_IMPLANTS] = 0;  }
+			if(player.Param[PE_PHOENIX_IMPLANTS_ENH] > 0) {player.AddItem(PID_IMPLANT_PHOENIX, player.Param[PE_PHOENIX_IMPLANTS_ENH]); player.ParamBase[PE_PHOENIX_IMPLANTS_ENH] = 0; }
+			if(player.Param[PE_AGRO] > 0) {player.AddItem(PID_IMPLANT_AGRO, player.Param[PE_AGRO]); player.ParamBase[PE_AGRO] = 0; }
+			if(player.Param[PE_AGRO2] > 0) {player.AddItem(PID_IMPLANT_AGRO, player.Param[PE_AGRO2]); player.ParamBase[PE_AGRO2] = 0;  }
+			if(player.Param[PE_DRAGON] > 0) {player.AddItem(PID_IMPLANT_DRAGON, player.Param[PE_DRAGON]); player.ParamBase[PE_DRAGON] = 0; }
+			if(player.Param[PE_DRAGON2] > 0) {player.AddItem(PID_IMPLANT_DRAGON, player.Param[PE_DRAGON2]); player.ParamBase[PE_DRAGON2] = 0;  }
+			if(player.Param[PE_TIGER] > 0) {player.AddItem(PID_IMPLANT_TIGER, player.Param[PE_TIGER]); player.ParamBase[PE_TIGER] = 0;  }
+			if(player.Param[PE_TIGER2] > 0) {player.AddItem(PID_IMPLANT_TIGER, player.Param[PE_TIGER2]); player.ParamBase[PE_TIGER2] = 0;  }
+			if(player.Param[PE_CLAW] > 0) {player.AddItem(PID_IMPLANT_CLAW, player.Param[PE_CLAW]); player.ParamBase[PE_CLAW] = 0;  }
+			if(player.Param[PE_CLAW2] > 0) {player.AddItem(PID_IMPLANT_CLAW, player.Param[PE_CLAW2]); player.ParamBase[PE_CLAW2] = 0; }
+			if(player.Param[PE_TACTICAL] > 0) {player.AddItem(PID_IMPLANT_TACTICS, player.Param[PE_TACTICAL]); player.ParamBase[PE_TACTICAL] = 0;  }
+			if(player.Param[PE_TACTICAL2] > 0) {player.AddItem(PID_IMPLANT_TACTICS, player.Param[PE_TACTICAL2]); player.ParamBase[PE_TACTICAL2] = 0;  }
+			if(player.Param[PE_EMP_IMPLANT] > 0) {player.AddItem(PID_IMPLANT_EMP, player.Param[PE_EMP_IMPLANT]); player.ParamBase[PE_EMP_IMPLANT] = 0;  }
+		//player.ParamBase[PE_COMBAT_IMPLANT_LIMIT] = 0;
+}
+void joke(Critter& player, Critter@ trainer)
+{
+	switch(Random(1,100))
+	{
+	case 1: { player.Say(SAY_NORM, "My granddad has the heart of a lion and a life time ban from the San Diego Zoo."); ;break;}
+	case 2: { player.Say(SAY_NORM, "I went on a once in a lifetime holiday. Never again."); ;break;}
+	case 3: { player.Say(SAY_NORM, "Rick Astley will let you borrow any movie from his Pixar collection, except one. He’s never gonna give you Up."); ;break;}
+	case 4: { player.Say(SAY_NORM, "Two fish are sitting in a tank. One looks over at the other and says: “Hey, do you know how to drive this thing?”"); ;break;}
+	case 5: { player.Say(SAY_NORM, "This is your captain speaking, AND THIS IS YOUR CAPTAIN SHOUTING."); ;break;}
+	case 6: { player.Say(SAY_NORM, "I told my doctor that I broke my arm in two places. He told me to stop going to those places."); ;break;}
+	case 7: { player.Say(SAY_NORM, "Atheism is a non-prophet organization"); ;break;}
+	case 8: { player.Say(SAY_NORM, "What do you call it when Batman skips church? Christian Bale."); ;break;}
+	case 9: { player.Say(SAY_NORM, "What’s orange and sounds like a parrot? A carrot."); ;break;}
+	case 10: { player.Say(SAY_NORM, "What does the aardvark call his dog?Aard-bark! …"); ;break;}
+	case 11: { player.Say(SAY_NORM, "What is the difference between an aardvark and a coyote?One has a long smeller, the other, a loud yeller! …"); ;break;}
+	case 12: { player.Say(SAY_NORM, "Who loves hamburgers, French fries, and ants?Ronald MacAardvark! …"); ;break;}
+	case 13: { player.Say(SAY_NORM, "What does an aardvark keep in his aquarium?An aard-shark! …"); ;break;}
+	case 14: { player.Say(SAY_NORM, "It takes a lot of balls to golf like me."); ;break;}
+	case 15: { player.Say(SAY_NORM, " I asked my North Korean friend how it was there, he said he couldn’t complain."); ;break;}
+	case 16: { player.Say(SAY_NORM, "There’s no “I” in Denial."); ;break;}
+	case 17: { player.Say(SAY_NORM, "A soldier survived mustard gas in battle, and then pepper spray by the police. He’s now a seasoned veteran."); ;break;}
+	case 18: { player.Say(SAY_NORM, "What’s the best thing about Switzerland? I don’t know, but their flag is a huge plus."); ;break;}
+	case 19: { player.Say(SAY_NORM, "A Buddhist walks up to a hotdog stand and says, “Make me one with everything.”"); ;break;}
+	case 20: { player.Say(SAY_NORM, "A plateau is the highest form of flattery."); ;break;}
+	case 21: { player.Say(SAY_NORM, "It’s hard to explain puns to kleptomaniacs because they always take things literally."); ;break;}
+	case 22: { player.Say(SAY_NORM, "Time flies like an arrow, fruit flies like a banana."); ;break;}
+	case 23: { player.Say(SAY_NORM, "The last thing I want to do is hurt you. But it’s still on the list."); ;break;}
+	case 24: { player.Say(SAY_NORM, "Men have two emotions: Hungry and Horny. If you see him without an erection, make him a sandwich."); ;break;}
+	case 25: { player.Say(SAY_NORM, "Having sex is like playing bridge. If you don’t have a good partner, you’d better have a good hand."); ;break;}
+	case 26: { player.Say(SAY_NORM, "Evening news is where they begin with ‘Good evening’, and then proceed to tell you why it isn’t."); ;break;}
+	case 27: { player.Say(SAY_NORM, "How do you keep an idiot in suspense?"); ;break;}
+	case 28: { player.Say(SAY_NORM, "Two whales walk into a bar. The first one says, “Weeeeeooooouuuhhhh”. The next whale says, “Shut up, Steve. You’re drunk.”"); ;break;}
+	case 29: { player.Say(SAY_NORM, "I hate Russian dolls…so full of themselves"); ;break;}
+	case 30: { player.Say(SAY_NORM, "What’s E.T. short for? Because he’s only got little legs."); ;break;}
+	case 31: { player.Say(SAY_NORM, " “I stand corrected,” said the man in the orthopedic shoes."); ;break;}
+	case 32: { player.Say(SAY_NORM, "I’m addicted to brake fluid, but I can stop whenever I want."); ;break;}
+	case 33: { player.Say(SAY_NORM, "God must love stupid people. He made SO many."); ;break;}
+	case 34: { player.Say(SAY_NORM, "Always borrow money from a pessimist. He won’t expect it back."); ;break;}
+	case 35: { player.Say(SAY_NORM, "Money can’t buy happiness, but it sure makes misery easier to live with."); ;break;}
+	case 36: { player.Say(SAY_NORM, "I didn’t say it was your fault. I said I was blaming you."); ;break;}
+	case 37: { player.Say(SAY_NORM, "We have enough gun control. What we need is idiot control."); ;break;}
+	case 38: { player.Say(SAY_NORM, "Women will never be equal to men until they can walk down the street with a bald head and a beer gut, and still think they are sexy."); ;break;}
+	case 39: { player.Say(SAY_NORM, "War does not determine who is right. It determines who is left."); ;break;}
+	case 40: { player.Say(SAY_NORM, "Women might be able to fake orgasms. But men can fake a whole relationship."); ;break;}
+	case 41: { player.Say(SAY_NORM, "What’s the difference between my ex and the titanic? The titanic only went down on 1,000 people"); ;break;}
+	case 42: { player.Say(SAY_NORM, "Why is 6 afraid of 7? Because 7 is a registered 6 offender."); ;break;}
+	case 43: { player.Say(SAY_NORM, "I used to be addicted to soap, but I’m clean now."); ;break;}
+	case 44: { player.Say(SAY_NORM, "A ragged individual stranded for several months on a small desert island in the middle of the Pacific Ocean one day noticed a bottle lying in the sand …"); ;break;}
+	case 45: { player.Say(SAY_NORM, "This customer comes into the computer store. “Im looking for a mystery Adventure Game with lots of graphics. You know, something really challenging.” …"); ;break;}
+	case 46: { player.Say(SAY_NORM, "Redmond, WA –Microsoft announced today that the official release date for the new operating system “Windows 2000” will be delayed until the second qu …"); ;break;}
+	case 47: { player.Say(SAY_NORM, "What do computers eat when they get hungry? Chips. …"); ;break;}
+	case 48: { player.Say(SAY_NORM, "Two penguins walk into a bar… which is stupid because the second one should have seen it."); ;break;}
+	case 49: { player.Say(SAY_NORM, "What do you call a magic dog? A Labracadabrador."); ;break;}
+	case 50: { player.Say(SAY_NORM, "Wanna hear a joke about Potassium? (whether they say ‘yes’ or ‘no’): K."); ;break;}
+	case 51: { player.Say(SAY_NORM, "What’s the difference between a golfer and a skydiver? A golfer goes *whack* “damn” and a skydiver goes “damn” *whack*"); ;break;}
+	case 52: { player.Say(SAY_NORM, "A baby seal walks into a club."); ;break;}
+	case 53: { player.Say(SAY_NORM, "Last night me and my girlfriend watched three DVDs back to back. Luckily I was the one facing the telly."); ;break;}
+	case 54: { player.Say(SAY_NORM, "Exaggerations went up by a million percent last year."); ;break;}
+	case 55: { player.Say(SAY_NORM, "They all laughed when I said I wanted to be a comedian. Well, they’re not laughing now."); ;break;}
+	case 56: { player.Say(SAY_NORM, "Sex is not the answer. Sex is the question. “Yes” is the answer."); ;break;}
+	case 57: { player.Say(SAY_NORM, "We live in a society where pizza gets to your house faster than the police."); ;break;}
+	case 58: { player.Say(SAY_NORM, "To steal ideas from one person is plagiarism. To steal from many is research."); ;break;}
+	case 59: { player.Say(SAY_NORM, "He who smiles in a crisis has found someone to blame."); ;break;}
+	case 60: { player.Say(SAY_NORM, "I asked God for a bike, but I know God doesn’t work that way. So I stole a bike and asked for forgiveness."); ;break;}
+	case 61: { player.Say(SAY_NORM, "Some people say “If you can’t beat them, join them”. I say “If you can’t beat them, beat them”, because they will be expecting you to join them, so you will have the element of surprise."); ;break;}
+	case 62: { player.Say(SAY_NORM, "A bus station is where a bus stops. A train station is where a train stops. On my desk, I have a work station."); ;break;}
+	case 63: { player.Say(SAY_NORM, "I thought I wanted a career, turns out I just wanted paychecks."); ;break;}
+	case 64: { player.Say(SAY_NORM, "I didn’t know my dad was a construction site thief, but when I got home all the signs were there."); ;break;}
+	case 65: { player.Say(SAY_NORM, "I was wondering why does a frisbee appear larger the closer it gets…. then it hit me."); ;break;}
+	case 66: { player.Say(SAY_NORM, "Have I told you this deja vu joke before?"); ;break;}
+	case 67: { player.Say(SAY_NORM, "Where do you find a cow with no legs? Right where you left it."); ;break;}
+	case 68: { player.Say(SAY_NORM, "Nostalgia isn’t what it used to be…"); ;break;}
+	case 69: { player.Say(SAY_NORM, "Escalators don’t break down… they just turn into stairs"); ;break;}
+	case 70: { player.Say(SAY_NORM, "“I’m sorry” and “I apologize” mean the same thing… except when you’re at a funeral."); ;break;}
+	case 71: { player.Say(SAY_NORM, "I intend to live forever… or die trying."); ;break;}
+	case 72: { player.Say(SAY_NORM, "The main reason Santa is so jolly is because he knows where all the bad girls live."); ;break;}
+	case 73: { player.Say(SAY_NORM, "Some cause happiness wherever they go. Others… whenever they go."); ;break;}
+	case 74: { player.Say(SAY_NORM, "Politicians and diapers have one thing in common. They should both be changed regularly, and for the same reason."); ;break;}
+	case 75: { player.Say(SAY_NORM, "I should’ve known it wasn’t going to work out between my ex-wife and me. After all, I’m a Libra and she’s a b!tch."); ;break;}
+	case 76: { player.Say(SAY_NORM, "I want to die peacefully in my sleep, like my grandfather… Not screaming and yelling like the passengers in his car."); ;break;}
+	case 77: { player.Say(SAY_NORM, "I saw a woman wearing a sweat shirt with “Guess” on it… So, I said “Implants?”"); ;break;}
+	case 78: { player.Say(SAY_NORM, "Good girls are bad girls that never get caught."); ;break;}
+	case 79: { player.Say(SAY_NORM, "The hardest part of a business, is minding your own. …"); ;break;}
+	case 80: { player.Say(SAY_NORM, "That lion king moment, when you hold your phone in the air to get a better reception…"); ;break;}
+	case 81: { player.Say(SAY_NORM, "Flies only live for 24 hours. Except for the ones that get in your room. Those bastards live forever!"); ;break;}
+	case 82: { player.Say(SAY_NORM, "I hate people who use big words just to make themselves look perspicacious!"); ;break;}
+	case 83: { player.Say(SAY_NORM, "I get carried away sometimes… Usually because I refuse to leave!"); ;break;}
+	case 84: { player.Say(SAY_NORM, "I wish more people were fluent in silence."); ;break;}
+	case 85: { player.Say(SAY_NORM, "Laugh at your problems, everybody else does."); ;break;}
+	case 86: { player.Say(SAY_NORM, "If I agreed with you, we’d both be wrong."); ;break;}
+	case 87: { player.Say(SAY_NORM, "Children: You spend the first two years of their life teaching them how to walk and talk. The next sixteen? Spent telling them to sit down and shut up."); ;break;}
+	case 88: { player.Say(SAY_NORM, "I don’t trust anything that bleeds for five days and doesn’t die."); ;break;}
+	case 89: { player.Say(SAY_NORM, "I discovered I scream the same way whether I’m about to be devoured by a great white shark or if a piece of seaweed touches my foot."); ;break;}
+	case 90: { player.Say(SAY_NORM, "My mother never realized the irony in calling me a son-of-a-bitch."); ;break;}
+	case 91: { player.Say(SAY_NORM, "How is it one careless match can start a forest fire, but it takes a whole box to start a campfire?"); ;break;}
+	case 92: { player.Say(SAY_NORM, "When I die, I want my grave to have free WiFi so people will come visit more often."); ;break;}
+	case 93: { player.Say(SAY_NORM, "Were there any great men born in this town? No only little babies."); ;break;}
+	case 94: { player.Say(SAY_NORM, "A cop pulled me over and said ”Papers…” So I said, ”Scissors, I win!” and drove off like a boss."); ;break;}
+	case 95: { player.Say(SAY_NORM, "Becoming a vegetarian is a huge missed steak."); ;break;}
+	case 96: { player.Say(SAY_NORM, "Whats the difference between Windows 95 and a virus? A virus does something."); ;break;}
+	case 97: { player.Say(SAY_NORM, "What is uglier than an aardvark?Two aardvarks!"); ;break;}
+	case 98: { player.Say(SAY_NORM, "We never knew he was a drunk… until he showed up to work sober"); ;break;}
+	case 99: { player.Say(SAY_NORM, "A clear conscience is usually the sign of a bad memory. A blind man walks into a bar….And a table, and a chair."); ;break;}
+	case 100: { player.Say(SAY_NORM, "At what age is it appropriate to tell my dog that he’s adopted?"); ;break;}
+	}
+}
+#endif

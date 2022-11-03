@@ -1,0 +1,3791 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+shared interface IItemSpawner
+{
+	IItemSpawner@Lock(uint16 min,uint16 max);
+	IItemSpawner@SpawnTime(uint min,uint max);
+	IItemSpawner@AddItem(uint16 pid,uint chance,uint min,uint max);
+	IItemSpawner@AddItem(uint16 pid,uint chance);
+	IItemSpawner@SetSeparate(bool separate);
+	IItemSpawner@SetBonus(bool bonus);
+	IItemSpawner@SetBonusLow(bool bonus);
+	IItemSpawner@SetBonusOrNot(bool bonus);
+	IItemSpawner@SetClearAtSpawn(bool clearSpawn);
+	IItemSpawner@Clear();
+};                                      
+
+import void WLog(string&type,string&message)from"debug";
+import void WLog(string&type,string&message,int level)from"debug";
+import void InitDebug()from"debug";       
+
+import uint tier3armor()from"item_pools";
+import uint tier3helmet()from"item_pools";
+import uint tier3weapon()from"item_pools";
+import uint tier3alien()from"item_pools";
+import uint tier3bp()from"item_pools";
+import uint tier3drugs()from"item_pools";
+import uint tier3ammo()from"item_pools";
+import uint tierlowammo()from"item_pools";
+import uint tier4parts()from"item_pools";
+import uint tier4bp()from"item_pools";
+import uint tier4item()from"item_pools";
+import uint tier4ammo()from"item_pools";
+import uint rareitem()from"item_pools";
+import uint implant()from"item_pools";
+import uint implant_combat()from"item_pools";
+import uint verti_parts()from"item_pools";
+import uint currency()from"item_pools";
+import uint low_tier()from"item_pools";
+import uint books()from"item_pools";
+import uint mats()from"item_pools";
+import uint misc()from"item_pools";
+import void addbasemap(Critter&player)from"personal_base";
+import void addbasemap(Item&con)from"personal_base";
+
+import bool istier3armor(uint pid)from"item_pools";
+import bool istier3helmet(uint pid)from"item_pools";
+import bool istier3weapon(uint pid)from"item_pools";
+import bool istier3bp(uint pid)from"item_pools";
+import bool istier3drugs(uint pid)from"item_pools";
+import bool istier3ammo(uint pid)from"item_pools";
+import bool istierlowammo(uint pid)from"item_pools";
+import bool istier4parts(uint pid)from"item_pools";
+import bool istier4bp(uint pid)from"item_pools";
+import bool istier4item(uint pid)from"item_pools";
+import bool istier4ammo(uint pid)from"item_pools";
+import bool israreitem(uint pid)from"item_pools";
+import bool isimplant(uint pid)from"item_pools";
+import bool isimplant_combat(uint pid)from"item_pools";
+import bool isverti_parts(uint pid)from"item_pools";
+import bool iscurrency(uint pid)from"item_pools";
+import bool islow_tier(uint pid)from"item_pools";
+import bool isHelmet(uint pid)from"item_pools";   
+
+import bool LockerClose(Item&item)from"lockers";
+import void AddBonusOrNot(Item@it)from"item_bonus";
+import void AddSpecialBonus(Item@it)from"item_bonus";
+import void AddSpecialBonusLow(Item@it)from"item_bonus";
+import void ClearContainerSoft(Item@container)from"utils";
+import bool IsLockableContainer(uint pid)from"lockers";
+import void SetDeterioration(Item&item)from"utils";
+import bool IsPublic(Map@map)from"utils"; 
+
+class ItemInstance
+{
+	uint Pid;
+	uint Chance;
+	uint Min;
+	uint Max;
+	ItemInstance(uint16 pid,uint chance,uint min,uint max)
+	{
+		Pid=pid;
+		Chance=chance;
+		Min=min;
+		Max=max;
+	}
+};
+
+class ItemSpawner:IItemSpawner
+{
+	array<ItemInstance@>items;
+	uint SumChance;
+	uint SpawnTimeMin;
+	uint SpawnTimeMax;
+	uint16 LockerMin;
+	uint16 LockerMax;
+	bool Separate;
+	bool Bonus;
+	bool BonusLow;
+	bool BonusOrNot;
+	bool ClearAtSpawn;
+	
+	ItemSpawner()
+	{
+		SumChance=0;
+		SpawnTimeMin=0;
+		SpawnTimeMax=0;
+		LockerMin=0;
+		LockerMax=0;
+		Separate=false;
+		Bonus=false;
+		BonusLow=false;
+		BonusOrNot=false;
+		ClearAtSpawn=false;
+	}
+	
+	uint GetSpawnTime()
+	{
+		return((Random(SpawnTimeMin,SpawnTimeMax))*__TimeMultiplier*60);
+	}
+	uint GetLock()
+	{
+		int lockVal=Random(LockerMin,LockerMax);
+		lockVal=(((lockVal)>((210)))?((210)):(((lockVal)<(0))?(0):(lockVal)));
+		return lockVal;
+	}
+	IItemSpawner@Lock(uint16 min,uint16 max)
+	{
+		LockerMin=min;
+		LockerMax=(((LockerMin)>(max))?(LockerMin):(max));
+		return this;
+	}
+	IItemSpawner@SpawnTime(uint min,uint max)
+	{
+		SpawnTimeMin=min;
+		SpawnTimeMax=(((SpawnTimeMin)>(max))?(SpawnTimeMin):(max));
+		return this;
+	}
+	IItemSpawner@AddItem(uint16 pid,uint chance,uint min,uint max)
+	{
+		ItemInstance@item=@ItemInstance(pid,chance,min,max);
+		items.insertLast(item);
+		SumChance+=chance;
+		return this;
+	}
+	IItemSpawner@AddItem(uint16 pid,uint chance)
+	{
+		return AddItem(pid,chance,1,1);
+	}
+	
+	IItemSpawner@SetSeparate(bool separate)
+	{
+		Separate=separate;
+		return this;
+	}
+	
+	IItemSpawner@SetBonus(bool bonus)
+	{
+		Bonus=bonus;
+		return this;
+	}
+	
+	IItemSpawner@SetBonusLow(bool bonusLow)
+	{
+		BonusLow=bonusLow;
+		return this;
+	}
+	
+	IItemSpawner@SetBonusOrNot(bool bonusornot)
+	{
+		BonusOrNot=bonusornot;
+		return this;
+	}
+	
+	IItemSpawner@SetClearAtSpawn(bool clearSpawn)
+	{
+		ClearAtSpawn=clearSpawn;
+		return this;
+	}
+	
+	IItemSpawner@Clear()
+	{
+		SumChance=0;
+		SpawnTimeMin=0;
+		SpawnTimeMax=0;
+		LockerMin=0;
+		LockerMax=0;
+		items.resize(0);
+		Separate=false;
+		Bonus=false;
+		BonusLow=false;
+		BonusOrNot=false;
+		ClearAtSpawn=false;
+		return this;
+	}
+	uint Spawn(Item&item)
+	{
+		array<Item@>spawneditems;
+		uint HownManyItems=item.GetItems(uint(-1),spawneditems);  
+		
+		if(HownManyItems>=(5))
+		{
+			uint8 removed=0;
+			
+			for(uint i=0;i<spawneditems.length();i++)
+			{
+				if((@spawneditems[i]!=null))
+				{
+					if(Random(1,7)==1&&!IsSpecialItem(spawneditems[i]))
+					{
+						
+						DeleteItem(spawneditems[i]);
+						removed++;
+					}
+				}
+			}
+			HownManyItems=HownManyItems-removed;
+			
+		} 
+		
+		if(HownManyItems<(5)||!IsPublic(GetMap(item.MapId)))
+		{
+			if(ClearAtSpawn)
+			{ 
+				
+				ClearContainerSoft(item);
+			}
+			
+			if(!Separate)
+			{
+				uint num=Random(1,SumChance);
+				uint idx=0;
+				while(num>items[idx].Chance)
+				num-=items[idx++].Chance;
+				ItemInstance@spawnitem=items[idx];
+				
+				Item@it=item.AddItem(spawnitem.Pid,Random(spawnitem.Min,spawnitem.Max),0);
+				
+				if(Bonus)
+				AddSpecialBonus(it);
+				
+				else if(BonusLow)
+				AddSpecialBonusLow(it);
+				
+				else if(BonusOrNot)
+				AddBonusOrNot(it);
+				
+				if(item.Val4==(3)||item.Val4==(1)||item.Val4==(2))
+				SetDeterioration(it); 
+				
+			}
+			else
+			{
+				for(uint i=0,j=items.length();i<j;i++)
+				{
+					ItemInstance@spawnitem=items[i];
+					if(Random(1,100)<=int(spawnitem.Chance))
+					{
+						Item@it=item.AddItem(spawnitem.Pid,Random(spawnitem.Min,spawnitem.Max),0);
+						
+						if(Bonus)
+						AddSpecialBonus(it);
+						else
+						if(BonusLow)
+						AddSpecialBonusLow(it);
+						else
+						if(BonusOrNot)
+						AddBonusOrNot(it);
+						
+						if(item.Val4==(3)||item.Val4==(1)||item.Val4==(2))
+						SetDeterioration(it);
+						
+					}
+				}
+			}
+		} 
+		
+		if(LockerMax!=0)
+		{
+			if((((item.LockerCondition)&((0x01)))!=0))
+			LockerClose(item);
+			if(IsLockableContainer(item.GetProtoId()))
+			{
+				item.LockerId=Random(0,0x7fffffff);
+				item.LockerComplexity=GetLock();
+			}
+			else
+			{
+				item.LockerId=0;
+				item.LockerComplexity=0;
+			}
+		}
+		
+		return GetSpawnTime();
+	}
+	
+	uint GetValue()
+	{
+		uint sum=0;
+		if(Separate)
+		{
+			
+			for(uint i=0,j=items.length();i<j;i++)
+			{
+				ItemInstance@item=items[i];
+				ProtoItem@proto=GetProtoItem(item.Pid);
+				if(!(@proto!=null))
+				{
+					
+					continue;
+				}
+				sum+=(((100)<(item.Chance))?(100):(item.Chance))*(item.Min+item.Max);
+			}
+			return sum/200;
+		}
+		else
+		{
+			for(uint i=0,j=items.length();i<j;i++)
+			{
+				ItemInstance@item=items[i];
+				ProtoItem@proto=GetProtoItem(item.Pid);
+				if(!(@proto!=null))
+				{
+					
+					continue;
+				}
+				sum+=item.Chance*(item.Min+item.Max);
+			}
+		}
+		return sum/(2*SumChance);
+	}
+	
+	void LogValue(string&st)
+	{
+		
+	}
+};
+
+array<ItemSpawner@>spawners;
+bool Init=false; 
+
+void ItemSpawnInit()
+{
+	if(Init)
+	return;
+	
+	ItemSpawner@FIRST_0=@ItemSpawner();FIRST_0.
+	SpawnTime(720,4320).SetBonusOrNot(true).Lock(0,0).   
+	
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	AddItem(low_tier(),26).
+	
+	AddItem(low_tier(),40)
+	;spawners.insertLast(FIRST_0);
+	
+	ItemSpawner@FAT_PROTECTED_TOWN_CONTAINER_1=@ItemSpawner();FAT_PROTECTED_TOWN_CONTAINER_1.
+	SpawnTime(240,480).SetBonusOrNot(true).Lock(0,0).
+	
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(misc(),10).
+	AddItem(misc(),20).
+	AddItem((25469),1).
+	AddItem((25468),1).
+	AddItem(misc(),15,1,2).
+	AddItem(mats(),1,1,5).
+	AddItem(tier3ammo(),1,1,5)
+	;spawners.insertLast(FAT_PROTECTED_TOWN_CONTAINER_1);
+	
+	ItemSpawner@FAT_ENCOUNTER_STATIC_CONTAINER_2=@ItemSpawner();FAT_ENCOUNTER_STATIC_CONTAINER_2.
+	SpawnTime(0,0).SetBonusOrNot(true).Lock(50,100).
+	
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3drugs(),30).
+	AddItem(low_tier(),13).
+	AddItem(books(),30,1,2).
+	AddItem(mats(),30,1,5).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(misc(),30)
+	;spawners.insertLast(FAT_ENCOUNTER_STATIC_CONTAINER_2);
+	
+	ItemSpawner@FAT_TOWN_CONTAINER_3=@ItemSpawner();FAT_TOWN_CONTAINER_3.
+	SpawnTime(60,120).SetBonusOrNot(true).Lock(0,0).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20)
+	;spawners.insertLast(FAT_TOWN_CONTAINER_3);
+	
+	ItemSpawner@FAT_VAULT_LOCKER_4=@ItemSpawner();FAT_VAULT_LOCKER_4.SpawnTime(60,120).Lock(0,50).SetBonusOrNot(true).
+	
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20)
+	;spawners.insertLast(FAT_VAULT_LOCKER_4);
+	
+	ItemSpawner@FAT_BOOKCASE_5=@ItemSpawner();FAT_BOOKCASE_5.SpawnTime(60,120).Lock(0,0).
+	
+	AddItem(currency(),50,100,200).
+	AddItem(books(),60,1,10).
+	AddItem(books(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(books(),60,1,10).
+	AddItem(books(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(books(),60,1,10).
+	AddItem(books(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(books(),60,1,10).
+	AddItem(books(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(books(),60,1,10).
+	AddItem(books(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(books(),60,1,10).
+	AddItem(books(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(books(),60,1,10).
+	AddItem(books(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(books(),60,1,10).
+	AddItem(books(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20)   
+	
+	;spawners.insertLast(FAT_BOOKCASE_5);
+	
+	ItemSpawner@FAT_CRAFT_LOW_6=@ItemSpawner();FAT_CRAFT_LOW_6.SpawnTime(60,120).Lock(100,100). 
+	
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4).
+	AddItem(mats(),50,1,4)
+	
+	;spawners.insertLast(FAT_CRAFT_LOW_6);
+	
+	ItemSpawner@FAT_CRAFT_HIGH_7=@ItemSpawner();FAT_CRAFT_HIGH_7.SpawnTime(60,120).Lock(100,100).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10).
+	AddItem(mats(),50,5,10)
+	
+	;spawners.insertLast(FAT_CRAFT_HIGH_7);
+	
+	ItemSpawner@FAT_MED_LOW_8=@ItemSpawner();FAT_MED_LOW_8.SpawnTime(60,120).Lock(100,100).
+	AddItem(tier3drugs(),25,1,2).
+	AddItem(tier3drugs(),25,1,2).
+	AddItem(tier3drugs(),25,1,2).
+	AddItem(tier3drugs(),25,1,2).
+	AddItem(tier3drugs(),25,1,2)
+	
+	;spawners.insertLast(FAT_MED_LOW_8);
+	
+	ItemSpawner@FAT_MED_HIGH_9=@ItemSpawner();FAT_MED_HIGH_9.SpawnTime(60,120).Lock(100,100).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5).
+	AddItem(tier3drugs(),25,1,5)
+	;spawners.insertLast(FAT_MED_HIGH_9);
+	
+	ItemSpawner@encounter_container_low_10=@ItemSpawner();encounter_container_low_10.SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(25,50). 
+	
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5)
+	
+	;spawners.insertLast(encounter_container_low_10);
+	
+	ItemSpawner@encounter_container_med_11=@ItemSpawner();encounter_container_med_11.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(rareitem(),1).
+	AddItem(tier3weapon(),1).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5)
+	
+	;spawners.insertLast(encounter_container_med_11);
+	
+	ItemSpawner@encounter_grave_low_13=@ItemSpawner();encounter_grave_low_13.
+	SpawnTime(0,0).SetSeparate(true).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40)
+	;spawners.insertLast(encounter_grave_low_13);
+	
+	ItemSpawner@encounter_grave_high_14=@ItemSpawner();encounter_grave_high_14.
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(rareitem(),1).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(tier3weapon(),1)
+	;spawners.insertLast(encounter_grave_high_14);
+	
+	ItemSpawner@blueprint_container_low_15=@ItemSpawner();blueprint_container_low_15.
+	SpawnTime(60,120).SetSeparate(true).Lock(100,100).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(rareitem(),1).
+	AddItem(tier3weapon(),1)
+	;spawners.insertLast(blueprint_container_low_15);
+	ItemSpawner@blueprint_container_high_17=@ItemSpawner();blueprint_container_high_17.
+	SpawnTime(60,120).SetSeparate(true).Lock(100,100).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(misc(),20).
+	AddItem(tier3bp(),1).
+	AddItem(books(),13).
+	AddItem(tier3drugs(),16,1,5).
+	AddItem(rareitem(),1).
+	AddItem(tier3weapon(),1)
+	;spawners.insertLast(blueprint_container_high_17);
+	
+	ItemSpawner@sewer_trash_container_18=@ItemSpawner();sewer_trash_container_18.
+	SpawnTime(300,500).SetSeparate(true).Lock(0,0).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40)
+	;spawners.insertLast(sewer_trash_container_18);
+	
+	ItemSpawner@ammo_47mm_19=@ItemSpawner();ammo_47mm_19.
+	SpawnTime(650,900).SetSeparate(true).Lock(0,0).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40)
+	;spawners.insertLast(ammo_47mm_19);
+	
+	ItemSpawner@hole_20=@ItemSpawner();hole_20.
+	SpawnTime(300,500).SetSeparate(true).Lock(0,0).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40).
+	AddItem(currency(),50,100,200).
+	AddItem(tier3ammo(),60,1,10).
+	AddItem(low_tier(),20).
+	AddItem(misc(),40)
+	;spawners.insertLast(hole_20);
+	
+	ItemSpawner@hole_21=@ItemSpawner();hole_21.
+	SpawnTime(650,900).SetSeparate(true).Lock(0,0).
+	AddItem(rareitem(),5).
+	AddItem(misc(),50)
+	
+	;spawners.insertLast(hole_21);
+	
+	ItemSpawner@hole_22=@ItemSpawner();hole_22.
+	SpawnTime(0,0).SetSeparate(true).Lock(0,0).
+	AddItem(misc(),1)
+	;spawners.insertLast(hole_22);
+	
+	ItemSpawner@hole_23=@ItemSpawner();hole_23.
+	SpawnTime(0,0).SetSeparate(true).Lock(0,0).
+	AddItem(misc(),1)
+	;spawners.insertLast(hole_23);
+	
+	ItemSpawner@hole_24=@ItemSpawner();hole_24.
+	SpawnTime(0,0).SetSeparate(true).Lock(0,0).
+	AddItem(misc(),1)
+	;spawners.insertLast(hole_24);
+	
+	ItemSpawner@hole_25=@ItemSpawner();hole_25.
+	SpawnTime(0,0).SetSeparate(true).Lock(0,0).
+	AddItem(misc(),1)
+	;spawners.insertLast(hole_25);
+	
+	ItemSpawner@hole_26=@ItemSpawner();hole_26.
+	SpawnTime(0,0).SetSeparate(true).Lock(0,0).
+	AddItem(misc(),1)
+	;spawners.insertLast(hole_26);
+	
+	ItemSpawner@hole_27=@ItemSpawner();hole_27.
+	SpawnTime(0,0).SetSeparate(true).Lock(0,0).
+	AddItem(misc(),1)
+	;spawners.insertLast(hole_27);
+	
+	ItemSpawner@hole_28=@ItemSpawner();hole_28.
+	SpawnTime(0,0).SetSeparate(true).Lock(0,0).
+	AddItem(misc(),1)
+	;spawners.insertLast(hole_28);
+	
+	ItemSpawner@hole_29=@ItemSpawner();hole_29.
+	SpawnTime(0,0).SetSeparate(true).Lock(0,0).
+	AddItem(misc(),1)
+	;spawners.insertLast(hole_29);
+	
+	ItemSpawner@hole_30=@ItemSpawner();hole_30.
+	SpawnTime(0,0).SetSeparate(true).Lock(0,0).
+	AddItem(misc(),1)
+	;spawners.insertLast(hole_30);      
+	
+	ItemSpawner@once_container_SG_low_31=@ItemSpawner();once_container_SG_low_31.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6)     
+	
+	;spawners.insertLast(once_container_SG_low_31);
+	
+	ItemSpawner@once_container_SG_med_32=@ItemSpawner();once_container_SG_med_32.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6)         
+	
+	;spawners.insertLast(once_container_SG_med_32);
+	
+	ItemSpawner@once_container_SG_high_33=@ItemSpawner();once_container_SG_high_33.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6)        
+	
+	;spawners.insertLast(once_container_SG_high_33);
+	
+	ItemSpawner@once_container_BG_med_34=@ItemSpawner();once_container_BG_med_34.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6)
+	;spawners.insertLast(once_container_BG_med_34);
+	
+	ItemSpawner@once_container_BG_high_35=@ItemSpawner();once_container_BG_high_35.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6)     
+	
+	;spawners.insertLast(once_container_BG_high_35);
+	
+	ItemSpawner@once_container_EW_med_36=@ItemSpawner();once_container_EW_med_36.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6)  
+	
+	;spawners.insertLast(once_container_EW_med_36);
+	
+	ItemSpawner@once_container_EW_high_37=@ItemSpawner();once_container_EW_high_37.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3weapon(),6)  
+	
+	;spawners.insertLast(once_container_EW_high_37);
+	
+	ItemSpawner@once_container_Throwing_lowmed_38=@ItemSpawner();once_container_Throwing_lowmed_38.
+	SpawnTime(0,0).SetSeparate(true).Lock(100,100).
+	
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10)
+	;spawners.insertLast(once_container_Throwing_lowmed_38);
+	
+	ItemSpawner@once_container_Throwing_high_39=@ItemSpawner();once_container_Throwing_high_39.
+	SpawnTime(0,0).SetSeparate(true).Lock(100,100).
+	
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10).
+	AddItem(tier3ammo(),80,5,10)
+	;spawners.insertLast(once_container_Throwing_high_39);
+	
+	ItemSpawner@once_container_HtH_lowmed_40=@ItemSpawner();once_container_HtH_lowmed_40.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2).
+	AddItem(low_tier(),40,1,2)
+	;spawners.insertLast(once_container_HtH_lowmed_40);
+	
+	ItemSpawner@once_container_HtH_high_41=@ItemSpawner();once_container_HtH_high_41.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5) 
+	
+	;spawners.insertLast(once_container_HtH_high_41);    
+	
+	ItemSpawner@once_container_Meds_low_42=@ItemSpawner();once_container_Meds_low_42.
+	SpawnTime(0,0).SetSeparate(true).SetSeparate(true).Lock(70,90).
+	
+	AddItem(tier3drugs(),10).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3drugs(),10)
+	;spawners.insertLast(once_container_Meds_low_42);
+	
+	ItemSpawner@once_container_Meds_med_43=@ItemSpawner();once_container_Meds_med_43.
+	SpawnTime(0,0).SetSeparate(true).Lock(100,100).
+	
+	AddItem(tier3drugs(),20).
+	AddItem(tier3drugs(),20).
+	AddItem(tier3drugs(),20).
+	AddItem(tier3drugs(),20).
+	AddItem(tier3drugs(),20)
+	;spawners.insertLast(once_container_Meds_med_43);
+	
+	ItemSpawner@once_container_Meds_high_44=@ItemSpawner();once_container_Meds_high_44.
+	SpawnTime(0,0).SetSeparate(true).Lock(100,100).
+	
+	AddItem(tier3drugs(),20).
+	AddItem(tier3drugs(),20).
+	AddItem(tier3drugs(),20).
+	AddItem(tier3drugs(),20).
+	AddItem(tier3drugs(),20)
+	;spawners.insertLast(once_container_Meds_high_44);
+	
+	ItemSpawner@once_container_Meds_tools_45=@ItemSpawner();once_container_Meds_tools_45.
+	SpawnTime(0,0).SetSeparate(true).Lock(100,100).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(once_container_Meds_tools_45); 
+	
+	ItemSpawner@once_container_Armor_low_46=@ItemSpawner();once_container_Armor_low_46.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(tier3armor(),5).
+	
+	AddItem(tier3helmet(),5)          
+	
+	;spawners.insertLast(once_container_Armor_low_46);
+	
+	ItemSpawner@once_container_Armor_med_47=@ItemSpawner();once_container_Armor_med_47.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(tier3armor(),5).
+	
+	AddItem(tier3helmet(),5)              
+	
+	;spawners.insertLast(once_container_Armor_med_47);
+	
+	ItemSpawner@once_container_Armor_high_48=@ItemSpawner();once_container_Armor_high_48.
+	SpawnTime(0,0).SetSeparate(true).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(tier3armor(),5).
+	
+	AddItem(tier3helmet(),5)             
+	
+	;spawners.insertLast(once_container_Armor_high_48);   
+	
+	ItemSpawner@once_container_BP_mech_low_49=@ItemSpawner();once_container_BP_mech_low_49.
+	SpawnTime(0,0).SetSeparate(true).SetSeparate(true).Lock(100,100). 
+	
+	AddItem(tier3bp(),1)
+	;spawners.insertLast(once_container_BP_mech_low_49);
+	
+	ItemSpawner@once_container_BP_mech_med_50=@ItemSpawner();once_container_BP_mech_med_50.
+	SpawnTime(0,0).SetSeparate(true).SetSeparate(true).Lock(100,100).
+	
+	AddItem(tier3bp(),1)
+	;spawners.insertLast(once_container_BP_mech_med_50);
+	
+	ItemSpawner@once_container_BP_mech_high_51=@ItemSpawner();once_container_BP_mech_high_51.
+	SpawnTime(0,0).SetSeparate(true).SetSeparate(true).Lock(100,100).
+	AddItem(tier3bp(),1)
+	;spawners.insertLast(once_container_BP_mech_high_51);  
+	
+	ItemSpawner@once_container_BP_chem_low_52=@ItemSpawner();once_container_BP_chem_low_52.
+	SpawnTime(0,0).SetSeparate(true).Lock(100,100).
+	
+	AddItem(tier3bp(),1)
+	;spawners.insertLast(once_container_BP_chem_low_52);
+	
+	ItemSpawner@once_container_BP_chem_med_53=@ItemSpawner();once_container_BP_chem_med_53.
+	SpawnTime(0,0).SetSeparate(true).Lock(100,100).
+	
+	AddItem(tier3bp(),1)
+	;spawners.insertLast(once_container_BP_chem_med_53);
+	
+	ItemSpawner@once_container_BP_chem_high_54=@ItemSpawner();once_container_BP_chem_high_54.
+	SpawnTime(0,0).SetSeparate(true).Lock(100,100).
+	
+	AddItem(tier3bp(),1)
+	;spawners.insertLast(once_container_BP_chem_high_54);  
+	
+	ItemSpawner@once_container_BP_mech_all_55=@ItemSpawner();once_container_BP_mech_all_55.
+	SpawnTime(0,0).Lock(100,100).
+	
+	AddItem(tier3bp(),1)
+	;spawners.insertLast(once_container_BP_mech_all_55); 
+	
+	ItemSpawner@once_container_BP_chem_all_56=@ItemSpawner();once_container_BP_chem_all_56.
+	SpawnTime(0,0).Lock(100,100).
+	
+	AddItem(tier3bp(),1)
+	;spawners.insertLast(once_container_BP_chem_all_56);   
+	
+	ItemSpawner@FAT_BATTEL_LOCKER_57=@ItemSpawner();FAT_BATTEL_LOCKER_57.
+	SpawnTime(60,120).SetBonusLow(true).Lock(100,100).
+	AddItem(rareitem(),1).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	
+	;spawners.insertLast(FAT_BATTEL_LOCKER_57);
+	
+	ItemSpawner@FAT_DESK_58=@ItemSpawner();FAT_DESK_58.
+	SpawnTime(60,120).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5) 
+	
+	;spawners.insertLast(FAT_DESK_58);
+	
+	ItemSpawner@FAT_FURNITURE_59=@ItemSpawner();FAT_FURNITURE_59.
+	SpawnTime(60,120).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(FAT_FURNITURE_59);
+	
+	ItemSpawner@FAT_FOOD_60=@ItemSpawner();FAT_FOOD_60.
+	SpawnTime(60,120).Lock(120,150). 
+	
+	AddItem(tier3drugs(),10).
+	AddItem(tier3ammo(),10) 
+	
+	;spawners.insertLast(FAT_FOOD_60);
+	
+	ItemSpawner@FAT_MIX_HTH_61=@ItemSpawner();FAT_MIX_HTH_61.
+	SpawnTime(60,120).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(FAT_MIX_HTH_61);
+	
+	ItemSpawner@FAT_MIX_SG_62=@ItemSpawner();FAT_MIX_SG_62.
+	SpawnTime(60,120).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(FAT_MIX_SG_62);
+	
+	ItemSpawner@FAT_MIX_BG_63=@ItemSpawner();FAT_MIX_BG_63.
+	SpawnTime(60,120).SetBonusOrNot(true).Lock(100,100).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(FAT_MIX_BG_63);
+	
+	ItemSpawner@FAT_MIX_EW_64=@ItemSpawner();FAT_MIX_EW_64.
+	SpawnTime(60,120).SetBonusOrNot(true).Lock(100,100).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(FAT_MIX_EW_64);
+	
+	ItemSpawner@FAT_MIX_DRUGS_65=@ItemSpawner();FAT_MIX_DRUGS_65.
+	SpawnTime(60,120).SetBonusOrNot(true).Lock(100,100).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(FAT_MIX_DRUGS_65);
+	
+	ItemSpawner@FAT_MIX_ARMORS_66=@ItemSpawner();FAT_MIX_ARMORS_66.
+	SpawnTime(60,120).SetBonusOrNot(true).Lock(100,100). 
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(FAT_MIX_ARMORS_66);
+	
+	ItemSpawner@FAT_MIX_AMMO_67=@ItemSpawner();FAT_MIX_AMMO_67.
+	SpawnTime(60,120).Lock(100,100).
+	AddItem(tier3ammo(),5,10,50)  
+	
+	;spawners.insertLast(FAT_MIX_AMMO_67);
+	
+	ItemSpawner@ghost_town_high_68=@ItemSpawner();ghost_town_high_68.
+	SpawnTime(60,120).SetClearAtSpawn(false).Lock(100,100).SetSeparate(true).SetClearAtSpawn(true).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(ghost_town_high_68);  
+	
+	ItemSpawner@GM_BASE_SG_CONTAINER_69=@ItemSpawner();GM_BASE_SG_CONTAINER_69.
+	SpawnTime(10,20).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(GM_BASE_SG_CONTAINER_69);
+	
+	ItemSpawner@GM_BASE_BG_CONTAINER_70=@ItemSpawner();GM_BASE_BG_CONTAINER_70.
+	SpawnTime(10,20).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(GM_BASE_BG_CONTAINER_70);
+	
+	ItemSpawner@GM_BASE_EW_CONTAINER_71=@ItemSpawner();GM_BASE_EW_CONTAINER_71.
+	SpawnTime(10,20).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(GM_BASE_EW_CONTAINER_71);
+	
+	ItemSpawner@GM_BASE_AMMO_CONTAINER_72=@ItemSpawner();GM_BASE_AMMO_CONTAINER_72.
+	SpawnTime(10,20).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(GM_BASE_AMMO_CONTAINER_72);
+	
+	ItemSpawner@GM_BASE_CC_CONTAINER_73=@ItemSpawner();GM_BASE_CC_CONTAINER_73.
+	SpawnTime(10,20).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(GM_BASE_CC_CONTAINER_73);
+	
+	ItemSpawner@GM_BASE_ARMOR_CONTAINER_74=@ItemSpawner();GM_BASE_ARMOR_CONTAINER_74.
+	SpawnTime(10,20).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5).
+	AddItem(books(),17).
+	AddItem(tier3drugs(),10).
+	AddItem(tier3weapon(),6).
+	AddItem(tier3armor(),5).
+	AddItem(tier3helmet(),5)
+	;spawners.insertLast(GM_BASE_ARMOR_CONTAINER_74);
+	
+	ItemSpawner@GM_BASE_SG_CONTAINER_BONUS_LOW_75=@ItemSpawner();GM_BASE_SG_CONTAINER_BONUS_LOW_75.
+	SpawnTime(10,20).SetBonusLow(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_SG_CONTAINER_BONUS_LOW_75);
+	
+	ItemSpawner@GM_BASE_BG_CONTAINER_BONUS_LOW_76=@ItemSpawner();GM_BASE_BG_CONTAINER_BONUS_LOW_76.
+	SpawnTime(10,20).SetBonusLow(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_BG_CONTAINER_BONUS_LOW_76);
+	
+	ItemSpawner@GM_BASE_EW_CONTAINER_BONUS_LOW_77=@ItemSpawner();GM_BASE_EW_CONTAINER_BONUS_LOW_77.
+	SpawnTime(1,2).SetBonusLow(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_EW_CONTAINER_BONUS_LOW_77);
+	
+	ItemSpawner@GM_BASE_CC_CONTAINER_BONUS_LOW_78=@ItemSpawner();GM_BASE_CC_CONTAINER_BONUS_LOW_78.
+	SpawnTime(1,2).SetBonusLow(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_CC_CONTAINER_BONUS_LOW_78);
+	
+	ItemSpawner@GM_BASE_ARMOR_CONTAINER_BONUS_LOW_79=@ItemSpawner();GM_BASE_ARMOR_CONTAINER_BONUS_LOW_79.
+	SpawnTime(1,2).SetBonusLow(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_ARMOR_CONTAINER_BONUS_LOW_79);
+	
+	ItemSpawner@GM_BASE_SG_CONTAINER_BONUS_HI_80=@ItemSpawner();GM_BASE_SG_CONTAINER_BONUS_HI_80.
+	SpawnTime(1,2).SetBonus(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_SG_CONTAINER_BONUS_HI_80);
+	
+	ItemSpawner@GM_BASE_BG_CONTAINER_BONUS_HI_81=@ItemSpawner();GM_BASE_BG_CONTAINER_BONUS_HI_81.
+	SpawnTime(1,2).SetBonus(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_BG_CONTAINER_BONUS_HI_81);
+	
+	ItemSpawner@GM_BASE_EW_CONTAINER_BONUS_HI_82=@ItemSpawner();GM_BASE_EW_CONTAINER_BONUS_HI_82.
+	SpawnTime(1,2).SetBonus(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_EW_CONTAINER_BONUS_HI_82);
+	
+	ItemSpawner@GM_BASE_CC_CONTAINER_BONUS_HI_83=@ItemSpawner();GM_BASE_CC_CONTAINER_BONUS_HI_83.
+	SpawnTime(1,2).SetBonus(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_CC_CONTAINER_BONUS_HI_83);
+	
+	ItemSpawner@GM_BASE_ARMOR_CONTAINER_BONUS_HI_84=@ItemSpawner();GM_BASE_ARMOR_CONTAINER_BONUS_HI_84.
+	SpawnTime(1,2).SetBonus(true).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_BASE_ARMOR_CONTAINER_BONUS_HI_84);
+	
+	ItemSpawner@GM_TEST_SG_CONTAINER_85=@ItemSpawner();GM_TEST_SG_CONTAINER_85.
+	SpawnTime(1,2).SetSeparate(true).SetClearAtSpawn(false).SetBonusOrNot(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_TEST_SG_CONTAINER_85);
+	
+	ItemSpawner@GM_TEST_BG_CONTAINER_86=@ItemSpawner();GM_TEST_BG_CONTAINER_86.
+	SpawnTime(1,2).SetSeparate(true).SetClearAtSpawn(true).SetBonusOrNot(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_TEST_BG_CONTAINER_86);
+	
+	ItemSpawner@GM_TEST_EW_CONTAINER_87=@ItemSpawner();GM_TEST_EW_CONTAINER_87.
+	SpawnTime(1,2).SetSeparate(true).SetClearAtSpawn(false).SetBonusOrNot(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_TEST_EW_CONTAINER_87);
+	
+	ItemSpawner@GM_TEST_AMMO_CONTAINER_88=@ItemSpawner();GM_TEST_AMMO_CONTAINER_88.
+	SpawnTime(1,2).SetSeparate(true).SetClearAtSpawn(true).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_TEST_AMMO_CONTAINER_88);
+	
+	ItemSpawner@GM_TEST_CC_CONTAINER_89=@ItemSpawner();GM_TEST_CC_CONTAINER_89.
+	SpawnTime(1,2).SetSeparate(true).SetClearAtSpawn(false).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_TEST_CC_CONTAINER_89);  
+	
+	ItemSpawner@GM_TEST_ARMOR_CONTAINER_90=@ItemSpawner();GM_TEST_ARMOR_CONTAINER_90.
+	SpawnTime(1,2).SetSeparate(true).SetClearAtSpawn(false).SetBonusOrNot(true).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_TEST_ARMOR_CONTAINER_90);
+	
+	ItemSpawner@GM_TEST_LOCKER_MED_TEST_91=@ItemSpawner();GM_TEST_LOCKER_MED_TEST_91.
+	SpawnTime(1,2).SetClearAtSpawn(true).SetSeparate(true).Lock(0,0).
+	
+	AddItem(rareitem(),1).
+	AddItem(books(),17).
+	
+	AddItem(tier3drugs(),10).
+	
+	AddItem(tier3weapon(),6).
+	
+	AddItem(tier3armor(),5)
+	;spawners.insertLast(GM_TEST_LOCKER_MED_TEST_91);  
+	
+	ItemSpawner@FAT_BATTEL_CRATE_92=@ItemSpawner();FAT_BATTEL_CRATE_92.
+	SpawnTime(1723,3113).SetBonusLow(true).Lock(100,100).
+	AddItem(mats(),1).
+	AddItem(misc(),17).
+	
+	AddItem(misc(),10).
+	
+	AddItem(misc(),6).
+	
+	AddItem(misc(),5)
+	;spawners.insertLast(FAT_BATTEL_CRATE_92);
+	
+	ItemSpawner@FAT_TECH_93=@ItemSpawner();FAT_TECH_93.
+	SpawnTime(0,0).SetBonusLow(true).SetSeparate(true).Lock(50,100).
+	AddItem(mats(),1).
+	AddItem(misc(),17).
+	
+	AddItem(misc(),10).
+	
+	AddItem(misc(),6).
+	
+	AddItem(misc(),5) 
+	
+	;spawners.insertLast(FAT_TECH_93);
+	
+	ItemSpawner@FAT_MED_94=@ItemSpawner();FAT_MED_94.
+	SpawnTime(0,0).SetBonusLow(true).SetSeparate(true).SetClearAtSpawn(false).Lock(50,100).
+	
+	AddItem(mats(),1).
+	AddItem(misc(),17).
+	
+	AddItem(misc(),10).
+	
+	AddItem(misc(),6).
+	
+	AddItem(misc(),5)
+	;spawners.insertLast(FAT_MED_94); 
+	
+	ItemSpawner@EOR_CAPS_95=@ItemSpawner();EOR_CAPS_95.
+	SpawnTime(0,0).SetSeparate(true).SetClearAtSpawn(true).Lock(0,0).
+	AddItem(currency(),100,600000,1200000)
+	;spawners.insertLast(EOR_CAPS_95);
+	ItemSpawner@EOR_CBT_IMPLANTS_96=@ItemSpawner();EOR_CBT_IMPLANTS_96.
+	SpawnTime(0,0).SetBonus(false).SetSeparate(false).SetClearAtSpawn(true).Lock(0,0).
+	AddItem(implant(),100)
+	;spawners.insertLast(EOR_CBT_IMPLANTS_96);
+	ItemSpawner@EOR_SPC_IMPLANTS_97=@ItemSpawner();EOR_SPC_IMPLANTS_97.
+	SpawnTime(0,0).SetBonus(false).SetSeparate(true).SetClearAtSpawn(true).Lock(0,0).
+	AddItem(implant_combat(),2).
+	AddItem((22052),2)
+	;spawners.insertLast(EOR_SPC_IMPLANTS_97);
+	ItemSpawner@EOR_T4_AMMO_98=@ItemSpawner();EOR_T4_AMMO_98.
+	SpawnTime(0,0).SetBonus(false).SetSeparate(true).SetClearAtSpawn(true).Lock(0,0).
+	AddItem(tier4ammo(),100,10,40)
+	;spawners.insertLast(EOR_T4_AMMO_98);
+	ItemSpawner@EOR_T4_PARTS_99=@ItemSpawner();EOR_T4_PARTS_99.
+	SpawnTime(0,0).SetBonus(false).SetSeparate(true).SetClearAtSpawn(true).Lock(0,0).
+	AddItem(tier4parts(),50)
+	;spawners.insertLast(EOR_T4_PARTS_99);
+	ItemSpawner@EOR_T4_WEAPONS_100=@ItemSpawner();EOR_T4_WEAPONS_100.
+	SpawnTime(0,0).SetBonus(true).SetSeparate(true).SetClearAtSpawn(true).Lock(0,0).
+	AddItem(tier3weapon(),55)
+	;spawners.insertLast(EOR_T4_WEAPONS_100);
+	ItemSpawner@EOR_T4_ARMORS_101=@ItemSpawner();EOR_T4_ARMORS_101.
+	SpawnTime(0,0).SetBonus(false).SetSeparate(true).SetClearAtSpawn(true).Lock(0,0).
+	AddItem(tier3weapon(),100,1,2)
+	
+	;spawners.insertLast(EOR_T4_ARMORS_101);
+	ItemSpawner@EOR_T4_BP_102=@ItemSpawner();EOR_T4_BP_102.
+	SpawnTime(0,0).SetBonus(false).SetSeparate(false).SetClearAtSpawn(true).Lock(0,0).
+	
+	AddItem(tier4bp(),100)  
+	
+	;spawners.insertLast(EOR_T4_BP_102);
+	
+	ItemSpawner@EOR_T4_unstatted_103=@ItemSpawner();EOR_T4_unstatted_103.
+	SpawnTime(0,0).SetBonus(false).SetSeparate(false).SetClearAtSpawn(true).Lock(0,0).
+	
+	AddItem(tier4bp(),100)
+	;spawners.insertLast(EOR_T4_unstatted_103);
+	ItemSpawner@EOR_Hypos_104=@ItemSpawner();EOR_Hypos_104.
+	SpawnTime(0,0).SetBonus(false).SetSeparate(true).SetClearAtSpawn(true).Lock(0,0).
+	AddItem(tier4item(),100,20,40)
+	;spawners.insertLast(EOR_Hypos_104);
+	ItemSpawner@EOR_T3_T4_105=@ItemSpawner();EOR_T3_T4_105.
+	SpawnTime(0,0).SetBonus(true).SetSeparate(false).SetClearAtSpawn(true).Lock(0,0).
+	AddItem(implant(),50,1,4).
+	AddItem(rareitem(),50,1,4).
+	AddItem(tier4ammo(),50,1,4).
+	AddItem(tier4parts(),50,1,4)
+	;spawners.insertLast(EOR_T3_T4_105);    
+	
+	Init=true;
+}
+
+uint e_Spawn(array<uint>@values)
+{
+	Item@item=GetItem(values[0]);
+	if(!(@item!=null))
+	return 0;  
+	
+	return spawners[item.Val4].Spawn(item);
+} 
+
+bool IsSpecialItem(Item&item)
+{
+	uint16 pid=item.GetProtoId();
+	
+	return pid==(281)||pid==(282)
+	||pid==(623)||pid==(82)||pid==(25444);
+} 
+
+bool InvalidIndex(uint num)
+{
+	return(30)<num&&num<spawners.length();
+}  
+
+IItemSpawner@GetSpawner(uint num)
+{
+	if(InvalidIndex(num))
+	return null;
+	return spawners[num];
+}
+
+IItemSpawner@MakeSpawner(uint num)
+{
+	if(num<=(30))
+	return null;
+	if(num>=spawners.length())
+	spawners.resize(num+1);
+	@spawners[num]=@ItemSpawner();
+	return spawners[num];
+}
+
+void MakeSpawnerContainer(Item&item,uint type)
+{
+	if(!Init)
+	ItemSpawnInit();
+	item.Val4=type;
+	spawners[item.Val4].Spawn(item);
+	if(spawners[item.Val4].SpawnTimeMax>0)
+	CreateTimeEvent(((__FullSecond)+(spawners[type].GetSpawnTime())),"e_Spawn",item.Id,false);
+}
+

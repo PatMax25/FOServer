@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 #
+4 2030 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+65507 4010 #
+5 4020 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Colonel Fertprah}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it?}
+{2010}{}{What is NCR doing in Junktown?}
+{2020}{}{Nothing.}
+{2030}{}{I am here to piss all over your dead president.}
+{3000}{}{This city is now officially under the jurisdiction of the New California Republic. NCR citizens and local civilians can now feel at ease here.}
+{3010}{}{You are just pathetic clowns. FREE JUNKTOWN FROM NCR!}
+{3020}{}{Whatever...}
+{4000}{}{I have no time for this bullshit... GUARDS!}
+{4010}{}{You are nothing to me!}
+{4020}{}{Hey, hey relax... I just made a joke. I better go, ok?}
+{5000}{}{Get the fuck out of here!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it?}
+{2010}{}{What is NCR doing in Junktown?}
+{2020}{}{Nothing.}
+{2030}{}{I am here to piss your dead president all over.}
+{3000}{}{This city is now under official jurisdiction of New California Republic. NCR citizens and local civils can now feel themselves safe here.}
+{3010}{}{You are just pathetic clowns. FREE JUNKTOWN FROM NCR!}
+{3020}{}{Whatever...}
+{4000}{}{I have no time for this bullshit... GUARDS!}
+{4010}{}{You are nothing to me!}
+{4020}{}{Hey, hey relax... I just made a joke. I better go, ok?}
+{5000}{}{Get the fuck out of here!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it?}
+{2010}{}{What is NCR doing in Junktown?}
+{2020}{}{Nothing.}
+{2030}{}{I am here to piss your dead president all over.}
+{3000}{}{This city is now under official jurisdiction of New California Republic. NCR citizens and local civils can now feel themselves safe here.}
+{3010}{}{You are just pathetic clowns. FREE JUNKTOWN FROM NCR!}
+{3020}{}{Whatever...}
+{4000}{}{I have no time for this bullshit... GUARDS!}
+{4010}{}{You are nothing to me!}
+{4020}{}{Hey, hey relax... I just made a joke. I better go, ok?}
+{5000}{}{Get the fuck out of here!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it?}
+{2010}{}{What is NCR doing in Junktown?}
+{2020}{}{Nothing.}
+{2030}{}{I am here to piss your dead president all over.}
+{3000}{}{This city is now under official jurisdiction of New California Republic. NCR citizens and local civils can now feel themselves safe here.}
+{3010}{}{You are just pathetic clowns. FREE JUNKTOWN FROM NCR!}
+{3020}{}{Whatever...}
+{4000}{}{I have no time for this bullshit... GUARDS!}
+{4010}{}{You are nothing to me!}
+{4020}{}{Hey, hey relax... I just made a joke. I better go, ok?}
+{5000}{}{Get the fuck out of here!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it?}
+{2010}{}{What is NCR doing in Junktown?}
+{2020}{}{Nothing.}
+{2030}{}{I am here to piss your dead president all over.}
+{3000}{}{This city is now under official jurisdiction of New California Republic. NCR citizens and local civils can now feel themselves safe here.}
+{3010}{}{You are just pathetic clowns. FREE JUNKTOWN FROM NCR!}
+{3020}{}{Whatever...}
+{4000}{}{I have no time for this bullshit... GUARDS!}
+{4010}{}{You are nothing to me!}
+{4020}{}{Hey, hey relax... I just made a joke. I better go, ok?}
+{5000}{}{Get the fuck out of here!}
+

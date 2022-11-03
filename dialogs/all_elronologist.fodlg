@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Hubologist}
+{200}{}{You see a member of the Hubologist cult.}
+{210}{}{This cultist appears to be eyeing you warily, probably with good reason!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Perhaps you will be permitted to gaze upon our project.@@Glory to the burning wheel!@@The Hub is everything!@@The Hub will save us!@@Are you interested in joining?@@You are impure and out of balance, but we can help.@@I am only AHS-3, but I will prove myself soon...@@I am AHS-5! State your business here!@@Ugh, the uninitiated cannot possibly understand us.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Perhaps you will be permitted to gaze upon our project.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Perhaps you will be permitted to gaze upon our project.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Perhaps you will be permitted to gaze upon our project.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Perhaps you will be permitted to gaze upon our project.}
+

@@ -1,0 +1,108 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 #
+4 2010 #
+65507 2020 #
+0 2030 @
+4 3000 None 0 #
+0 3010 #
+5 3020 #
+65507 3030 @
+5 4000 None 0 #
+65507 4010 #
+6 4020 @
+6 5000 None 0 &
+
+[engl]
+{100}{}{Helix}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay right there, fu... Hold on... You are a human. Oh shit, you got the signal. You came here to save us!}
+{2010}{}{That's right. You are safe now, people.}
+{2020}{}{No way, shithead! Prepare to die!}
+{2030}{}{Whatever... I am leaving now.}
+{3000}{}{Hey, thank you a lot, mate. We... We will gather things and leave the facility now. Fucking mutants... We tried to investigate this bunker or whatever it is called and suddenly some fucking green shits got us from the behind. Good thing too, you came just in time.}
+{3010}{}{You are welcome. I need to go now.}
+{3020}{}{Good to know... Look, there are locked doors here. I believe there is still something interesting hidden behind them. Do you know how to open them?}
+{3030}{}{Just in time to end your misery! Prepare to die, scum!}
+{4000}{}{Eeh... Yeah, I have a keycard but no. I can't let you have it. These rooms still contain robots inside. Just... just take everything you can find here, but don't try to open these doors, otherwise we all are doomed!}
+{4010}{}{You didn't get it... Give it RIGHT here or your head will be filled with bullets.}
+{4020}{}{Alright, alright... I am leaving then.}
+{5000}{}{Thank you once again. We won't forget you.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay right there, fu... Hold on... You are a human. Oh shit, you got the signal. You came here to save us!}
+{2010}{}{That's right. You are save now, people.}
+{2020}{}{No way, shithead! Prepare to die!}
+{2030}{}{Whatever... I am leaving now.}
+{3000}{}{Hey, thank you a lot, mate. We... We will gather things and leave the facility now. Fucking mutants... We tried to investigate this bunker or whatever it is called and suddenly some fucking green shits got us from the behind. Good thing that you came just in time.}
+{3010}{}{You are welcome. I need to go now.}
+{3020}{}{Good to know... Look, there are locked doors here. I believe there is something interesting hidden behind them. Do you know the way how to open them?}
+{3030}{}{Just in time to end your misery! Prepare to die, scum!}
+{4000}{}{Eeh... Yeah, I have a keycard but no. I can't let you have it. These rooms still contain robots inside. Just... just take everything you can find here, but don't try to open these doors, otherwise we all are doomed!}
+{4010}{}{You didn't get it... Give it RIGHT here or your head will be filled with bullets.}
+{4020}{}{Alright, alright... I am leaving then.}
+{5000}{}{Thank you once again. We won't forget you.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay right there, fu... Hold on... You are a human. Oh shit, you got the signal. You came here to save us!}
+{2010}{}{That's right. You are save now, people.}
+{2020}{}{No way, shithead! Prepare to die!}
+{2030}{}{Whatever... I am leaving now.}
+{3000}{}{Hey, thank you a lot, mate. We... We will gather things and leave the facility now. Fucking mutants... We tried to investigate this bunker or whatever it is called and suddenly some fucking green shits got us from the behind. Good thing that you came just in time.}
+{3010}{}{You are welcome. I need to go now.}
+{3020}{}{Good to know... Look, there are locked doors here. I believe there is something interesting hidden behind them. Do you know the way how to open them?}
+{3030}{}{Just in time to end your misery! Prepare to die, scum!}
+{4000}{}{Eeh... Yeah, I have a keycard but no. I can't let you have it. These rooms still contain robots inside. Just... just take everything you can find here, but don't try to open these doors, otherwise we all are doomed!}
+{4010}{}{You didn't get it... Give it RIGHT here or your head will be filled with bullets.}
+{4020}{}{Alright, alright... I am leaving then.}
+{5000}{}{Thank you once again. We won't forget you.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay right there, fu... Hold on... You are a human. Oh shit, you got the signal. You came here to save us!}
+{2010}{}{That's right. You are save now, people.}
+{2020}{}{No way, shithead! Prepare to die!}
+{2030}{}{Whatever... I am leaving now.}
+{3000}{}{Hey, thank you a lot, mate. We... We will gather things and leave the facility now. Fucking mutants... We tried to investigate this bunker or whatever it is called and suddenly some fucking green shits got us from the behind. Good thing that you came just in time.}
+{3010}{}{You are welcome. I need to go now.}
+{3020}{}{Good to know... Look, there are locked doors here. I believe there is something interesting hidden behind them. Do you know the way how to open them?}
+{3030}{}{Just in time to end your misery! Prepare to die, scum!}
+{4000}{}{Eeh... Yeah, I have a keycard but no. I can't let you have it. These rooms still contain robots inside. Just... just take everything you can find here, but don't try to open these doors, otherwise we all are doomed!}
+{4010}{}{You didn't get it... Give it RIGHT here or your head will be filled with bullets.}
+{4020}{}{Alright, alright... I am leaving then.}
+{5000}{}{Thank you once again. We won't forget you.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay right there, fu... Hold on... You are a human. Oh shit, you got the signal. You came here to save us!}
+{2010}{}{That's right. You are save now, people.}
+{2020}{}{No way, shithead! Prepare to die!}
+{2030}{}{Whatever... I am leaving now.}
+{3000}{}{Hey, thank you a lot, mate. We... We will gather things and leave the facility now. Fucking mutants... We tried to investigate this bunker or whatever it is called and suddenly some fucking green shits got us from the behind. Good thing that you came just in time.}
+{3010}{}{You are welcome. I need to go now.}
+{3020}{}{Good to know... Look, there are locked doors here. I believe there is something interesting hidden behind them. Do you know the way how to open them?}
+{3030}{}{Just in time to end your misery! Prepare to die, scum!}
+{4000}{}{Eeh... Yeah, I have a keycard but no. I can't let you have it. These rooms still contain robots inside. Just... just take everything you can find here, but don't try to open these doors, otherwise we all are doomed!}
+{4010}{}{You didn't get it... Give it RIGHT here or your head will be filled with bullets.}
+{4020}{}{Alright, alright... I am leaving then.}
+{5000}{}{Thank you once again. We won't forget you.}
+

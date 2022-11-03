@@ -1,0 +1,386 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 R _var p name_mem_npc_player = 1 #
+0 2020 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 #
+18 4020 #
+8 4030 #
+22 4040 D _var p q_v99_vangraff = 1 #
+0 4050 @
+5 5000 None 0 #
+6 5010 #
+4 5020 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+4 7010 @
+8 8000 None 0 #
+9 8010 #
+19 8020 #
+4 8030 @
+9 9000 None 0 #
+19 9010 #
+4 9020 @
+14 10000 None 0 @
+15 11000 None 0 #
+16 11010 #
+0 11020 @
+17 12000 None 0 #
+0 12010 @
+18 13000 None 0 @
+19 14000 None 0 #
+20 14010 D _script dialog@d_havepropermoney 1 40 R _script dialog@r_RemoveMoney 1 40 R _item p PID_LASER_PISTOL + 1 #
+20 14020 D _script dialog@d_havepropermoney 1 15 R _script dialog@r_RemoveMoney 1 15 R _item p PID_SMALL_ENERGY_CELL + 12 #
+20 14030 D _script dialog@d_havepropermoney 1 55 R _script dialog@r_RemoveMoney 1 55 R _item p PID_SMALL_ENERGY_CELL + 12 R _item p PID_LASER_PISTOL + 1 #
+0 14040 @
+20 15000 None 0 @
+21 16000 None 0 @
+22 17000 None 0 #
+24 17010 #
+26 17020 D _param p ST_STRENGTH } 7 R _var p q_v99_vangraff = 2 R _param p ST_EXPERIENCE + 100 #
+27 17030 #
+24 17040 #
+25 17050 #
+24 17060 #
+24 17070 @
+23 18000 None 0 @
+24 19000 None 0 @
+25 20000 None 0 #
+24 20010 #
+23 20020 R _var p q_v99_vangraff = 2 @
+26 21000 None 0 @
+27 22000 None 0 #
+26 22010 D _param p ST_INTELLECT } 6 R _param p ST_EXPERIENCE + 100 R _var p q_v99_vangraff = 2 #
+24 22020 &
+
+[engl]
+{100}{}{Constantin}
+{200}{}{You see a shady person wearing a blue robes.}
+{210}{}{You see a shady person wearing a blue robes.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{Oh, I see we have another newbie here. What is your name?}
+{2010}{}{I am @pname@.}
+{2020}{}{Not your business. [ end dialogue ]}
+{3000}{}{Oh, so you are a new replicant. Let me introduce myself then, my name is Constantin Van Graff.}
+{3010}{}{Nice to meet you.}
+{3020}{}{Great, bye. [ end dialogue ]}
+{4000}{}{Do you need something?}
+{4010}{}{Tell me more about yourself.}
+{4020}{}{Just came to say "hi".}
+{4030}{}{You look like a trader, do you sell anything?}
+{4040}{}{I am from Alexis. I want to discuss the possibility of lowering the contract price.}
+{4050}{}{Nothing, bye. [ end dialogue ]}
+{5000}{}{I am an ambassador of my family -  the Van Graffs. I usually travel around the wasteland in order to find new clients - organizations, parties, groups of survivors... Even farmers or raiders.}
+{5010}{}{Tell me about the Van Graffs.}
+{5020}{}{Great, I want to discuss something else...}
+{6000}{}{We are the biggest producers of energy weapons in this area and not only here. In simple words - we make such fantastic weapons that you don't even need bullets. Our HQ is located in Colorado Springs... It is far, far away - in Colorado.}
+{6010}{}{Colorado Springs? How far is it from here?}
+{7000}{}{Oh it's pretty far. Recently we face all sorts of other problems... But that doesn't matter for now.}
+{7010}{}{I see...}
+{8000}{}{I don't, I just search for the clients and sign contracts with them. But as any good trader I always have some extra stuff for sale. I can hook you up with a laser pistol and batteries for an extremely cheap price.}
+{8010}{}{Do you sell anything else?}
+{8020}{}{Alright, tell me the prices.}
+{8030}{}{Nevermind.}
+{9000}{}{No, sorry, there is nothing else I can sell you. You see, we never drag expensive stuff with us as usual farmers don't have money to buy laser or plasma rifles, and usually organizations and parties don't need expensive energy weaponry in such pitiful amounts.}
+{9010}{}{Alright, tell me the prices of stuff you sell then, please.}
+{9020}{}{Nevermind.}
+{10000}{}{See you later then.}
+{11000}{}{Well, you are not the first person whom I helped to escape from here... In case you are wondering why do I help such people as you, I can say that it is profitable for our business, each replicant as you can become our customer in the future. So, I know one method to fool the Vault Tec replication and cloning systems. But such a method is very harsh... You see, I will need to kill you and you will lose everything you have obtained here. }
+{11010}{}{I am ready for it.}
+{11020}{}{Oh hell no, I better find some other way to get out of here. [ end dialogue ]}
+{12000}{}{Good... So, are you sure about your choice? *he takes out a bottle with some green liquid and prepares to fill a hypodermic with it*}
+{12010}{}{No, not yet... Lets wait a little. [ end dialogue ]}
+{13000}{}{Hah, I admire your politeness, good day to you as well.}
+{14000}{}{I can sell you a laser pistol - it will cost you 40 Currency. And a pack of 12 batteries for 15 Currency for each pack.}
+{14010}{}{I will take a laser pistol.}
+{14020}{}{I will take a battery pack.}
+{14030}{}{I will take both.}
+{14040}{}{Nevermind, bye. [ end dialogue ]}
+{15000}{}{Thank you for purchase.}
+{16000}{}{Done.}
+{17000}{}{Interesting... And why should I lower the price?}
+{17010}{}{Because that will grant you amazing options in further dialog with them!}
+{17020}{}{Look, you are alone here and... you know... Some bad things may happen if you behave so mean.}
+{17030}{}{These are just settlers, not rich guys with tons of local Currency in their pockets. You should understand the fact that you won't get a great profit out of them with such prices.}
+{17040}{}{These are just settlers. They are far from understanding your whole business structure, you should just suggest whatever is a good value. Otherwise they might not understand.}
+{17050}{}{Look, they just passed through some hard times and now they are stuck in a crisis cituation. Try to understand them, and suggest a better contract.}
+{17060}{}{Because I said so!}
+{17070}{}{We are humans, we should help each other and understand each other.}
+{18000}{}{Hm, sounds logical... Well, alright, I will lower the price then.}
+{19000}{}{Oh please... Don't be pathetic.}
+{20000}{}{Really? Why should I care about their problems?}
+{20010}{}{Because that is what they expect from you. Try to be a hero in their eyes and help them to overcome the crisis.}
+{20020}{}{Because that's how you will be able to get closer to them. You see... you are a stranger here, and they don't like you. But if you behave yourself and be friendly towards them, they will be more soft towards you and with time you can become really big business partners.}
+{21000}{}{Hm... Ok, I will lower the price.}
+{22000}{}{Phah... That sounds absurd.}
+{22010}{}{No, it is not. They are poor as hell now, but they will grow stronger with time, and when they do, I am sure they will wipe their asses with your contract. But if you behave more flexibly maybe you will be able to sign a long term contract.}
+{22020}{}{I mean it, they just don't have any money. If you want to sell weapons, you have to lower the prices.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{Oh, I see we have another newbie here. What is your name?}
+{2010}{}{I am @pname@.}
+{2020}{}{Not your's business.}
+{3000}{}{Oh, so you are a replicant. Let me introdeuce then, my name is Constantin Van Graff.}
+{3010}{}{Nice to meet you.}
+{3020}{}{Great, bye.}
+{4000}{}{Do you need something?}
+{4010}{}{Tell me more about yourself.}
+{4020}{}{Just came to say "hi".}
+{4030}{}{You look like a trader, do you sell anything?}
+{4040}{}{I am from Alexis. I want to discuss the ability to lower the contract price.}
+{4050}{}{Nothing, bye.}
+{5000}{}{I am an ambassador of my family -  Van Graffs. I usually travel around the wasteland in order to find new clients - organisations, parties, groups of survivors... Even farmers or raiders.}
+{5010}{}{Tell me about Van Graffs.}
+{5020}{}{Great, I want to discuss something else...}
+{6000}{}{We are the biggest producers of energy weapons in this area and not only here. In simple words - we make such fantastic things for which you don't need ammo. Our HQ is located in Colorado Springs... It is far, far away - in Colorado.}
+{6010}{}{Colorado Springs? How far is it from here?}
+{7000}{}{Oh it's pretty far. Recently though we faced some problems in face of Legion... But that doesn't matter for now.}
+{7010}{}{I see...}
+{8000}{}{I don't , I just search for the clients and sign contracts with them. But as any good trader I always have sme extra stuff for sale. I can suggest you to buy a laser pistol with batteries for extremely cheap price though.}
+{8010}{}{Do you sell anything else?}
+{8020}{}{Alright, tell me the prices.}
+{8030}{}{Nevermind.}
+{9000}{}{No, sorry, but there is nothing else I can sell you. You see, we never drag expensive stuff with us as usual farmers don't have money to buy the whole laser or plasma rifles, and usual organisations and parties don't need expensive energy weaponary in such misarable amounts.}
+{9010}{}{Alright, tell me the prices of stuff you sell than, please.}
+{9020}{}{Nevermind.}
+{10000}{}{See you later than.}
+{11000}{}{Well, you are not the first person whome I help to escape from here, in case if you wonder why do I help such people as you, I can say that it is just profitable for our business, each replicant as you can become our customer in future. So, I know one method how to fool the Vault Tec replication and clonning system. But such method is very harsh... You see, I will need to kill you and you will loose everything you got from here. }
+{11010}{}{I am ready for such.}
+{11020}{}{Oh hell no, I better find some other way to get out of here.}
+{12000}{}{Good... So are you sure about your choice? [ he takes a local with some green liquid and prepares to fill a hypodermic with it]}
+{12010}{}{No, not yet... Lets wait a little.}
+{13000}{}{Hah, I admire your politeness, good day to you as well.}
+{14000}{}{I can sell you a laser pistol - it will cost you 40 Currency. And pack of 12 batteries for 15 Currency for each pack.}
+{14010}{}{I will take a laser pistol.}
+{14020}{}{I will take a batteries pack.}
+{14030}{}{I will take both.}
+{14040}{}{Nevermind, bye.}
+{15000}{}{Thank you for purchase.}
+{16000}{}{Done.}
+{17000}{}{Interesting... And why should I lower the price?}
+{17010}{}{Because that will grant you amazing options in further dialog with them!}
+{17020}{}{Look, you are alone here and... you know... Some bad things may happen if you behave so mean.}
+{17030}{}{They are just settlers, not rich guys with tons of localCurrency in pockets. You should just understand the fact that you wount reach a great profit out of them with such prices.}
+{17040}{}{They are just settlers. They are far from whole this business structure, you shoud just give them a good price suggestion. Otherwise they will not understand.}
+{17050}{}{Look, they overpassed hard times and now they stucked into crisis cituation. Try to understand them and suggest them a better contract.}
+{17060}{}{Because I said so!}
+{17070}{}{We are humans, we should help each other and understand each other.}
+{18000}{}{Hm, sounds logical... Well, alright, I will lower the price then.}
+{19000}{}{Oh please... Don't be pathetic.}
+{20000}{}{Really? Why should I care about their problems?}
+{20010}{}{Because that is what they expect from you. Try to be a hero in their eyes and help them to overcome the crisis.}
+{20020}{}{Because thats how you will be able to get closer to them. You see... you are a stranger here, and they don't like you. But if you behave yourself much friednly towards them, they will be more soft towards you and with time you can become really big business partners.}
+{21000}{}{Hm... Ok, I will lower the price.}
+{22000}{}{Phah... That sounds absurdish.}
+{22010}{}{No, it is not. They are poor as hell now, but they will grow stronger with time, and when they will, I am sure they will wipe their asses with your contract. But if you behave more flexible I am sure you will be able to sign a long term contract.}
+{22020}{}{Listen, it is important because...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{Oh, I see we have another newbie here. What is your name?}
+{2010}{}{I am @pname@.}
+{2020}{}{Not your's business.}
+{3000}{}{Oh, so you are a replicant. Let me introdeuce then, my name is Constantin Van Graff.}
+{3010}{}{Nice to meet you.}
+{3020}{}{Great, bye.}
+{4000}{}{Do you need something?}
+{4010}{}{Tell me more about yourself.}
+{4020}{}{Just came to say "hi".}
+{4030}{}{You look like a trader, do you sell anything?}
+{4040}{}{I am from Alexis. I want to discuss the ability to lower the contract price.}
+{4050}{}{Nothing, bye.}
+{5000}{}{I am an ambassador of my family -  Van Graffs. I usually travel around the wasteland in order to find new clients - organisations, parties, groups of survivors... Even farmers or raiders.}
+{5010}{}{Tell me about Van Graffs.}
+{5020}{}{Great, I want to discuss something else...}
+{6000}{}{We are the biggest producers of energy weapons in this area and not only here. In simple words - we make such fantastic things for which you don't need ammo. Our HQ is located in Colorado Springs... It is far, far away - in Colorado.}
+{6010}{}{Colorado Springs? How far is it from here?}
+{7000}{}{Oh it's pretty far. Recently though we faced some problems in face of Legion... But that doesn't matter for now.}
+{7010}{}{I see...}
+{8000}{}{I don't , I just search for the clients and sign contracts with them. But as any good trader I always have sme extra stuff for sale. I can suggest you to buy a laser pistol with batteries for extremely cheap price though.}
+{8010}{}{Do you sell anything else?}
+{8020}{}{Alright, tell me the prices.}
+{8030}{}{Nevermind.}
+{9000}{}{No, sorry, but there is nothing else I can sell you. You see, we never drag expensive stuff with us as usual farmers don't have money to buy the whole laser or plasma rifles, and usual organisations and parties don't need expensive energy weaponary in such misarable amounts.}
+{9010}{}{Alright, tell me the prices of stuff you sell than, please.}
+{9020}{}{Nevermind.}
+{10000}{}{See you later than.}
+{11000}{}{Well, you are not the first person whome I help to escape from here, in case if you wonder why do I help such people as you, I can say that it is just profitable for our business, each replicant as you can become our customer in future. So, I know one method how to fool the Vault Tec replication and clonning system. But such method is very harsh... You see, I will need to kill you and you will loose everything you got from here. }
+{11010}{}{I am ready for such.}
+{11020}{}{Oh hell no, I better find some other way to get out of here.}
+{12000}{}{Good... So are you sure about your choice? [ he takes a local with some green liquid and prepares to fill a hypodermic with it]}
+{12010}{}{No, not yet... Lets wait a little.}
+{13000}{}{Hah, I admire your politeness, good day to you as well.}
+{14000}{}{I can sell you a laser pistol - it will cost you 40 Currency. And pack of 12 batteries for 15 Currency for each pack.}
+{14010}{}{I will take a laser pistol.}
+{14020}{}{I will take a batteries pack.}
+{14030}{}{I will take both.}
+{14040}{}{Nevermind, bye.}
+{15000}{}{Thank you for purchase.}
+{16000}{}{Done.}
+{17000}{}{Interesting... And why should I lower the price?}
+{17010}{}{Because that will grant you amazing options in further dialog with them!}
+{17020}{}{Look, you are alone here and... you know... Some bad things may happen if you behave so mean.}
+{17030}{}{They are just settlers, not rich guys with tons of localCurrency in pockets. You should just understand the fact that you wount reach a great profit out of them with such prices.}
+{17040}{}{They are just settlers. They are far from whole this business structure, you shoud just give them a good price suggestion. Otherwise they will not understand.}
+{17050}{}{Look, they overpassed hard times and now they stucked into crisis cituation. Try to understand them and suggest them a better contract.}
+{17060}{}{Because I said so!}
+{17070}{}{We are humans, we should help each other and understand each other.}
+{18000}{}{Hm, sounds logical... Well, alright, I will lower the price then.}
+{19000}{}{Oh please... Don't be pathetic.}
+{20000}{}{Really? Why should I care about their problems?}
+{20010}{}{Because that is what they expect from you. Try to be a hero in their eyes and help them to overcome the crisis.}
+{20020}{}{Because thats how you will be able to get closer to them. You see... you are a stranger here, and they don't like you. But if you behave yourself much friednly towards them, they will be more soft towards you and with time you can become really big business partners.}
+{21000}{}{Hm... Ok, I will lower the price.}
+{22000}{}{Phah... That sounds absurdish.}
+{22010}{}{No, it is not. They are poor as hell now, but they will grow stronger with time, and when they will, I am sure they will wipe their asses with your contract. But if you behave more flexible I am sure you will be able to sign a long term contract.}
+{22020}{}{Listen, it is important because...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{Oh, I see we have another newbie here. What is your name?}
+{2010}{}{I am @pname@.}
+{2020}{}{Not your's business.}
+{3000}{}{Oh, so you are a replicant. Let me introdeuce then, my name is Constantin Van Graff.}
+{3010}{}{Nice to meet you.}
+{3020}{}{Great, bye.}
+{4000}{}{Do you need something?}
+{4010}{}{Tell me more about yourself.}
+{4020}{}{Just came to say "hi".}
+{4030}{}{You look like a trader, do you sell anything?}
+{4040}{}{I am from Alexis. I want to discuss the ability to lower the contract price.}
+{4050}{}{Nothing, bye.}
+{5000}{}{I am an ambassador of my family -  Van Graffs. I usually travel around the wasteland in order to find new clients - organisations, parties, groups of survivors... Even farmers or raiders.}
+{5010}{}{Tell me about Van Graffs.}
+{5020}{}{Great, I want to discuss something else...}
+{6000}{}{We are the biggest producers of energy weapons in this area and not only here. In simple words - we make such fantastic things for which you don't need ammo. Our HQ is located in Colorado Springs... It is far, far away - in Colorado.}
+{6010}{}{Colorado Springs? How far is it from here?}
+{7000}{}{Oh it's pretty far. Recently though we faced some problems in face of Legion... But that doesn't matter for now.}
+{7010}{}{I see...}
+{8000}{}{I don't , I just search for the clients and sign contracts with them. But as any good trader I always have sme extra stuff for sale. I can suggest you to buy a laser pistol with batteries for extremely cheap price though.}
+{8010}{}{Do you sell anything else?}
+{8020}{}{Alright, tell me the prices.}
+{8030}{}{Nevermind.}
+{9000}{}{No, sorry, but there is nothing else I can sell you. You see, we never drag expensive stuff with us as usual farmers don't have money to buy the whole laser or plasma rifles, and usual organisations and parties don't need expensive energy weaponary in such misarable amounts.}
+{9010}{}{Alright, tell me the prices of stuff you sell than, please.}
+{9020}{}{Nevermind.}
+{10000}{}{See you later than.}
+{11000}{}{Well, you are not the first person whome I help to escape from here, in case if you wonder why do I help such people as you, I can say that it is just profitable for our business, each replicant as you can become our customer in future. So, I know one method how to fool the Vault Tec replication and clonning system. But such method is very harsh... You see, I will need to kill you and you will loose everything you got from here. }
+{11010}{}{I am ready for such.}
+{11020}{}{Oh hell no, I better find some other way to get out of here.}
+{12000}{}{Good... So are you sure about your choice? [ he takes a local with some green liquid and prepares to fill a hypodermic with it]}
+{12010}{}{No, not yet... Lets wait a little.}
+{13000}{}{Hah, I admire your politeness, good day to you as well.}
+{14000}{}{I can sell you a laser pistol - it will cost you 40 Currency. And pack of 12 batteries for 15 Currency for each pack.}
+{14010}{}{I will take a laser pistol.}
+{14020}{}{I will take a batteries pack.}
+{14030}{}{I will take both.}
+{14040}{}{Nevermind, bye.}
+{15000}{}{Thank you for purchase.}
+{16000}{}{Done.}
+{17000}{}{Interesting... And why should I lower the price?}
+{17010}{}{Because that will grant you amazing options in further dialog with them!}
+{17020}{}{Look, you are alone here and... you know... Some bad things may happen if you behave so mean.}
+{17030}{}{They are just settlers, not rich guys with tons of localCurrency in pockets. You should just understand the fact that you wount reach a great profit out of them with such prices.}
+{17040}{}{They are just settlers. They are far from whole this business structure, you shoud just give them a good price suggestion. Otherwise they will not understand.}
+{17050}{}{Look, they overpassed hard times and now they stucked into crisis cituation. Try to understand them and suggest them a better contract.}
+{17060}{}{Because I said so!}
+{17070}{}{We are humans, we should help each other and understand each other.}
+{18000}{}{Hm, sounds logical... Well, alright, I will lower the price then.}
+{19000}{}{Oh please... Don't be pathetic.}
+{20000}{}{Really? Why should I care about their problems?}
+{20010}{}{Because that is what they expect from you. Try to be a hero in their eyes and help them to overcome the crisis.}
+{20020}{}{Because thats how you will be able to get closer to them. You see... you are a stranger here, and they don't like you. But if you behave yourself much friednly towards them, they will be more soft towards you and with time you can become really big business partners.}
+{21000}{}{Hm... Ok, I will lower the price.}
+{22000}{}{Phah... That sounds absurdish.}
+{22010}{}{No, it is not. They are poor as hell now, but they will grow stronger with time, and when they will, I am sure they will wipe their asses with your contract. But if you behave more flexible I am sure you will be able to sign a long term contract.}
+{22020}{}{Listen, it is important because...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{Oh, I see we have another newbie here. What is your name?}
+{2010}{}{I am @pname@.}
+{2020}{}{Not your's business.}
+{3000}{}{Oh, so you are a replicant. Let me introdeuce then, my name is Constantin Van Graff.}
+{3010}{}{Nice to meet you.}
+{3020}{}{Great, bye.}
+{4000}{}{Do you need something?}
+{4010}{}{Tell me more about yourself.}
+{4020}{}{Just came to say "hi".}
+{4030}{}{You look like a trader, do you sell anything?}
+{4040}{}{I am from Alexis. I want to discuss the ability to lower the contract price.}
+{4050}{}{Nothing, bye.}
+{5000}{}{I am an ambassador of my family -  Van Graffs. I usually travel around the wasteland in order to find new clients - organisations, parties, groups of survivors... Even farmers or raiders.}
+{5010}{}{Tell me about Van Graffs.}
+{5020}{}{Great, I want to discuss something else...}
+{6000}{}{We are the biggest producers of energy weapons in this area and not only here. In simple words - we make such fantastic things for which you don't need ammo. Our HQ is located in Colorado Springs... It is far, far away - in Colorado.}
+{6010}{}{Colorado Springs? How far is it from here?}
+{7000}{}{Oh it's pretty far. Recently though we faced some problems in face of Legion... But that doesn't matter for now.}
+{7010}{}{I see...}
+{8000}{}{I don't , I just search for the clients and sign contracts with them. But as any good trader I always have sme extra stuff for sale. I can suggest you to buy a laser pistol with batteries for extremely cheap price though.}
+{8010}{}{Do you sell anything else?}
+{8020}{}{Alright, tell me the prices.}
+{8030}{}{Nevermind.}
+{9000}{}{No, sorry, but there is nothing else I can sell you. You see, we never drag expensive stuff with us as usual farmers don't have money to buy the whole laser or plasma rifles, and usual organisations and parties don't need expensive energy weaponary in such misarable amounts.}
+{9010}{}{Alright, tell me the prices of stuff you sell than, please.}
+{9020}{}{Nevermind.}
+{10000}{}{See you later than.}
+{11000}{}{Well, you are not the first person whome I help to escape from here, in case if you wonder why do I help such people as you, I can say that it is just profitable for our business, each replicant as you can become our customer in future. So, I know one method how to fool the Vault Tec replication and clonning system. But such method is very harsh... You see, I will need to kill you and you will loose everything you got from here. }
+{11010}{}{I am ready for such.}
+{11020}{}{Oh hell no, I better find some other way to get out of here.}
+{12000}{}{Good... So are you sure about your choice? [ he takes a local with some green liquid and prepares to fill a hypodermic with it]}
+{12010}{}{No, not yet... Lets wait a little.}
+{13000}{}{Hah, I admire your politeness, good day to you as well.}
+{14000}{}{I can sell you a laser pistol - it will cost you 40 Currency. And pack of 12 batteries for 15 Currency for each pack.}
+{14010}{}{I will take a laser pistol.}
+{14020}{}{I will take a batteries pack.}
+{14030}{}{I will take both.}
+{14040}{}{Nevermind, bye.}
+{15000}{}{Thank you for purchase.}
+{16000}{}{Done.}
+{17000}{}{Interesting... And why should I lower the price?}
+{17010}{}{Because that will grant you amazing options in further dialog with them!}
+{17020}{}{Look, you are alone here and... you know... Some bad things may happen if you behave so mean.}
+{17030}{}{They are just settlers, not rich guys with tons of localCurrency in pockets. You should just understand the fact that you wount reach a great profit out of them with such prices.}
+{17040}{}{They are just settlers. They are far from whole this business structure, you shoud just give them a good price suggestion. Otherwise they will not understand.}
+{17050}{}{Look, they overpassed hard times and now they stucked into crisis cituation. Try to understand them and suggest them a better contract.}
+{17060}{}{Because I said so!}
+{17070}{}{We are humans, we should help each other and understand each other.}
+{18000}{}{Hm, sounds logical... Well, alright, I will lower the price then.}
+{19000}{}{Oh please... Don't be pathetic.}
+{20000}{}{Really? Why should I care about their problems?}
+{20010}{}{Because that is what they expect from you. Try to be a hero in their eyes and help them to overcome the crisis.}
+{20020}{}{Because thats how you will be able to get closer to them. You see... you are a stranger here, and they don't like you. But if you behave yourself much friednly towards them, they will be more soft towards you and with time you can become really big business partners.}
+{21000}{}{Hm... Ok, I will lower the price.}
+{22000}{}{Phah... That sounds absurdish.}
+{22010}{}{No, it is not. They are poor as hell now, but they will grow stronger with time, and when they will, I am sure they will wipe their asses with your contract. But if you behave more flexible I am sure you will be able to sign a long term contract.}
+{22020}{}{Listen, it is important because...}
+

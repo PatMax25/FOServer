@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols russ span
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+3 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+0 2010 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 R _item p PID_MATRIX_STIMPAK + 1 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Broken Medical Bot}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Once this was a medical bot with tons of high tech parts in its corpse, but most of them have turned into ash or garbage now. However, among the waste, you can clearly see a small electric matrix. ]}
+{2010}{}{[ Take the Matrix ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ There doesn't seem to be anything worthy in there ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+{2010}{}{[ Take the Matrix ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ There doesn't seem to be anything worthy in there ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+{2010}{}{[ Take the Matrix ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ There doesn't seem to be anything worthy in there ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+{2010}{}{[ Take the Matrix ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ There doesn't seem to be anything worthy in there ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+{2010}{}{[ Take the Matrix ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ There doesn't seem to be anything worthy in there ]}
+

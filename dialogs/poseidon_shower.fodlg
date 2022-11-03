@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 R _script dialog@r_ToHeal 0  R _param p ST_RADIATION_LEVEL = 0 R _script dialog@r_FlushScreen 0  #
+0 2020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This shower seems to be in working condition. ]}
+{2010}{}{[ Take a shower ]}
+{2020}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This shower seems to be in working conditions. ]}
+{2010}{}{[ Take a shower ]}
+{2020}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This shower seems to be in working conditions. ]}
+{2010}{}{[ Take a shower ]}
+{2020}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This shower seems to be in working conditions. ]}
+{2010}{}{[ Take a shower ]}
+{2020}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This shower seems to be in working conditions. ]}
+{2010}{}{[ Take a shower ]}
+{2020}{}{[ Exit ]}
+

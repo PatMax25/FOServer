@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 &
+
+[engl]
+{100}{}{Burk}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Pay respect to mister Doe.@@I am watching you.@@This is mister Doe's shop. Behave.@@What?@@Don't disturb me.@@Mister Doe is my boss, he is inside of the shop.@@Got a sig maybe?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Pay respect to mister Doe.@@I am watching you.@@This is mister Doe's shop. Behave.@@What?@@Don't disturb me.@@Mister Doe is my boss, he is inside of the shop.@@Got a sig maybe?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Pay respect to mister Doe.@@I am watching you.@@This is mister Doe's shop. Behave.@@What?@@Don't disturb me.@@Mister Doe is my boss, he is inside of the shop.@@Got a sig maybe?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Pay respect to mister Doe.@@I am watching you.@@This is mister Doe's shop. Behave.@@What?@@Don't disturb me.@@Mister Doe is my boss, he is inside of the shop.@@Got a sig maybe?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Pay respect to mister Doe.@@I am watching you.@@This is mister Doe's shop. Behave.@@What?@@Don't disturb me.@@Mister Doe is my boss, he is inside of the shop.@@Got a sig maybe?}
+

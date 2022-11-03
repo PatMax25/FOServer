@@ -1,0 +1,18 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Local}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not now...@@Darn smoothskins...@@We shouldn't talk, cops are watching.@@Patrols are getting more frequent recently.@@I am so tired watching these fucks from the tower just humilating on us...@@Just go.@@Don't talk to me.@@Police is watching, we shouldn't chat.}
+

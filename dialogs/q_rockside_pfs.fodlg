@@ -1,0 +1,306 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p q_v99_pfs = 0 #
+4 1020 D _var p q_v99_pfs = 1 @
+2 2000 None 0 #
+5 2010 #
+3 2020 #
+4 2030 #
+0 2040 @
+3 3000 None 0 #
+2 3010 #
+5 3020 @
+4 4000 None 0 @
+5 5000 None 0 #
+6 5010 #
+10 5020 #
+10 5030 #
+10 5040 @
+6 6000 None 0 #
+11 6010 #
+11 6020 #
+11 6030 #
+12 6040 #
+11 6050 @
+7 7000 None 0 #
+9 7010 R _var p q_v99_pfs = 1 R _param p SK_SCIENCE + 10 R _param p ST_EXPERIENCE + 50 #
+9 7020 R _var p q_v99_pfs = 1 R _param p SK_SCIENCE + 10 R _param p ST_EXPERIENCE + 50 #
+9 7030 R _var p q_v99_pfs = 1 R _param p SK_SCIENCE + 10 R _param p ST_EXPERIENCE + 50 #
+9 7040 R _var p q_v99_pfs = 1 R _param p SK_SCIENCE + 10 R _param p ST_EXPERIENCE + 50 #
+9 7050 R _var p q_v99_pfs = 1 R _param p SK_SCIENCE + 10 R _param p ST_EXPERIENCE + 50 @
+9 8000 None 0 #
+0 8010 @
+10 9000 None 0 #
+0 9010 @
+11 10000 None 0 #
+0 10010 @
+12 11000 None 0 #
+13 11010 #
+13 11020 #
+13 11030 #
+7 11040 @
+13 12000 None 0 #
+0 12010 &
+
+[engl]
+{100}{}{error}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{ }
+{2000}{}{Good day, dear resident. Here you can take the Vault Tec P.F.S. ( Prepare For Surface ) test. Are you ready for your examination?}
+{2010}{}{Alright, I guess I am ready.}
+{2020}{}{PFS? What is it?}
+{2030}{}{Wait... I don't remember anything. I need to get in contact with the overseer. I... }
+{2040}{}{Later maybe. [ end dialogue ]}
+{3000}{}{P. F. S. is a special test of Vault Tec that will help us to understand whether you are ready to leave your Vault!}
+{3010}{}{Hah... I see.}
+{3020}{}{Alright, then lets do it.}
+{4000}{}{bzzzzt... Error...Error...}
+{5000}{}{Good! So lets get started, shall we? First question:
+
+You're heading to the nearest Vault-Tec office and suddenly, you see a man who claims that he is the President of the United States. He wears an expensive suit and even has an official looking President's Badge. What will you do?
+
+}
+{5010}{}{Shoot him down.}
+{5020}{}{Greet and listen to him.}
+{5030}{}{Shake his hand... Oh damn it is such an honor.}
+{5040}{}{Wait wha...?}
+{6000}{}{Great! Lets continue.
+
+Suddenly, US Army soldiers meet you in your path. They demand that you give them all that you have. What will you do?}
+{6010}{}{Shoot them down.}
+{6020}{}{Yell at them.}
+{6030}{}{Politely tell them that it is my own property.}
+{6040}{}{Give them everything they want.}
+{6050}{}{How is it even connected to...?}
+{7000}{}{Amazing! Now imagine that you got a message on your pip boy. The message warns you about upcoming nuclear rocket strikes nearby! What company will you call to save your life?}
+{7010}{}{Vault Tec}
+{7020}{}{Vault Tec I guess...}
+{7030}{}{Eeehm... Vault Tec?}
+{7040}{}{That must be Vault Tec.}
+{7050}{}{Go- fuck- yourse...}
+{8000}{}{Great job, resident! It seems like you are fully ready to leave this Vault! Don't worry, soon the government forces will finally arrive and let you free - so you will see new fantastic America! The opening date will happen in 2104 and today is... 2242... Error... error...}
+{8010}{}{Hey! Hey! Ah crap... [ end dialogue ]}
+{9000}{}{Wrong! The REAL President would lead our country from his special high-command base, in safety and calmness! How could you listen to some fool right in the middle of nowhere?!}
+{9010}{}{The fuck is...? [ end dialogue ]}
+{10000}{}{These are real American defenders and patriots! How could you ever refuse to give them your last pieces of food, even if you are starving?!}
+{10010}{}{You must be kidding... [ end dialogue ]}
+{11000}{}{Fantastic! Now imagine that in the middle of a desert you've met a person who claims that they are a Vault Tec representative! They wear a special suit and even have an official looking Vault Tec Badge. What will you do?}
+{11010}{}{Shoot him down.}
+{11020}{}{Run away.}
+{11030}{}{Say "hello" and keep moving.}
+{11040}{}{Everything they tell me to, without asking any questions!}
+{12000}{}{Oh no! How could you ever be so unpleasant towards a Vault Tec representative? He even has an official Vault Tec Badge with him! Isn't that enough for you to be sure that he is not some fake?}
+{12010}{}{Who even made this crap?! [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{ }
+{2000}{}{Good day, dear resident. Here you can pass Vault Tec P.F.S. ( Prepare For Surface ) test. Are you ready for your examination?}
+{2010}{}{Alright, I guess I am ready.}
+{2020}{}{PFS? What is it?}
+{2030}{}{Wait... I don't remember anything. I need to get in contact  with overseer. I...}
+{2040}{}{Later maybe.}
+{3000}{}{P. F. S. is a special test of Vault Tec that will help us to understand either you are ready to leave your Vault!}
+{3010}{}{Hah... I see.}
+{3020}{}{Alright, then lets do it.}
+{4000}{}{bzzzzt... Error...Error...}
+{5000}{}{Good! So lets get started, shall we? First question:
+
+You're heading to the nearest Vault-Tec office and suddenly, see a man, who claims that he is the President of the United States. He wears an expensive suit and even has a special president's badge. What will you do?
+
+}
+{5010}{}{Shoot him down.}
+{5020}{}{Greet and listen to him.}
+{5030}{}{Shake his hand... Oh damn it is such an honor.}
+{5040}{}{Wait wha...?}
+{6000}{}{Great! Lets continue.
+
+Suddenly, US Army soldiers met you at your path. They demand you give them all that you have. What will you do?}
+{6010}{}{Shoot them down.}
+{6020}{}{Yell at them.}
+{6030}{}{Politely tell them that it is my own property.}
+{6040}{}{Give them everything they want.}
+{6050}{}{How is it even connected to...?}
+{7000}{}{Amazing! Now imagine that you got a message on your pip boy. The message warns you about upcoming nuclear rocket! What company will you call to save your life?}
+{7010}{}{Vault Tec}
+{7020}{}{Vault Tec I guess...}
+{7030}{}{Eeehm... Vault Tec?}
+{7040}{}{That must be Vault Tec.}
+{7050}{}{Go- fuck- yourse...}
+{8000}{}{Great job, resident! It seems like you are fully ready to leave this Vault! Don't worry, soon the government forces will finally arrive and let you free - so you will see new fantastic America! The opening date will happen in 2104 and today is... 2242... Error... error...}
+{8010}{}{Hey! Hey! Ah crap...}
+{9000}{}{Wrong! The REAL President would led our country from his special high-command base, in safety and calmness! How could you listen to some fool right in the middle of nowhere?!}
+{9010}{}{The fuck is...?}
+{10000}{}{It's real American defenders and patriots! How could you refuse to give them last pieces of food, even if you starving?!}
+{10010}{}{You must be kidding...}
+{11000}{}{Fantastic! Now imagine that in a middle of a desert you've met a person who claims that he is a Vault Tec representer! He wears a special suit and even has a special badge with him. What will you do?}
+{11010}{}{Shoot him down.}
+{11020}{}{Run away.}
+{11030}{}{Greet and listen to him.}
+{11040}{}{Everything they say without asking any questions!}
+{12000}{}{Oh no! How can you actually be so unpleasant towards a Vault Tec representer? He even has a badge with him! Isn't it enough for you to be sure that he is not some fake?}
+{12010}{}{Who even made this crap?!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{ }
+{2000}{}{Good day, dear resident. Here you can pass Vault Tec P.F.S. ( Prepare For Surface ) test. Are you ready for your examination?}
+{2010}{}{Alright, I guess I am ready.}
+{2020}{}{PFS? What is it?}
+{2030}{}{Wait... I don't remember anything. I need to get in contact  with overseer. I...}
+{2040}{}{Later maybe.}
+{3000}{}{P. F. S. is a special test of Vault Tec that will help us to understand either you are ready to leave your Vault!}
+{3010}{}{Hah... I see.}
+{3020}{}{Alright, then lets do it.}
+{4000}{}{bzzzzt... Error...Error...}
+{5000}{}{Good! So lets get started, shall we? First question:
+
+You're heading to the nearest Vault-Tec office and suddenly, see a man, who claims that he is the President of the United States. He wears an expensive suit and even has a special president's badge. What will you do?
+
+}
+{5010}{}{Shoot him down.}
+{5020}{}{Greet and listen to him.}
+{5030}{}{Shake his hand... Oh damn it is such an honor.}
+{5040}{}{Wait wha...?}
+{6000}{}{Great! Lets continue.
+
+Suddenly, US Army soldiers met you at your path. They demand you give them all that you have. What will you do?}
+{6010}{}{Shoot them down.}
+{6020}{}{Yell at them.}
+{6030}{}{Politely tell them that it is my own property.}
+{6040}{}{Give them everything they want.}
+{6050}{}{How is it even connected to...?}
+{7000}{}{Amazing! Now imagine that you got a message on your pip boy. The message warns you about upcoming nuclear rocket! What company will you call to save your life?}
+{7010}{}{Vault Tec}
+{7020}{}{Vault Tec I guess...}
+{7030}{}{Eeehm... Vault Tec?}
+{7040}{}{That must be Vault Tec.}
+{7050}{}{Go- fuck- yourse...}
+{8000}{}{Great job, resident! It seems like you are fully ready to leave this Vault! Don't worry, soon the government forces will finally arrive and let you free - so you will see new fantastic America! The opening date will happen in 2104 and today is... 2242... Error... error...}
+{8010}{}{Hey! Hey! Ah crap...}
+{9000}{}{Wrong! The REAL President would led our country from his special high-command base, in safety and calmness! How could you listen to some fool right in the middle of nowhere?!}
+{9010}{}{The fuck is...?}
+{10000}{}{It's real American defenders and patriots! How could you refuse to give them last pieces of food, even if you starving?!}
+{10010}{}{You must be kidding...}
+{11000}{}{Fantastic! Now imagine that in a middle of a desert you've met a person who claims that he is a Vault Tec representer! He wears a special suit and even has a special badge with him. What will you do?}
+{11010}{}{Shoot him down.}
+{11020}{}{Run away.}
+{11030}{}{Greet and listen to him.}
+{11040}{}{Everything they say without asking any questions!}
+{12000}{}{Oh no! How can you actually be so unpleasant towards a Vault Tec representer? He even has a badge with him! Isn't it enough for you to be sure that he is not some fake?}
+{12010}{}{Who even made this crap?!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{ }
+{2000}{}{Good day, dear resident. Here you can pass Vault Tec P.F.S. ( Prepare For Surface ) test. Are you ready for your examination?}
+{2010}{}{Alright, I guess I am ready.}
+{2020}{}{PFS? What is it?}
+{2030}{}{Wait... I don't remember anything. I need to get in contact  with overseer. I...}
+{2040}{}{Later maybe.}
+{3000}{}{P. F. S. is a special test of Vault Tec that will help us to understand either you are ready to leave your Vault!}
+{3010}{}{Hah... I see.}
+{3020}{}{Alright, then lets do it.}
+{4000}{}{bzzzzt... Error...Error...}
+{5000}{}{Good! So lets get started, shall we? First question:
+
+You're heading to the nearest Vault-Tec office and suddenly, see a man, who claims that he is the President of the United States. He wears an expensive suit and even has a special president's badge. What will you do?
+
+}
+{5010}{}{Shoot him down.}
+{5020}{}{Greet and listen to him.}
+{5030}{}{Shake his hand... Oh damn it is such an honor.}
+{5040}{}{Wait wha...?}
+{6000}{}{Great! Lets continue.
+
+Suddenly, US Army soldiers met you at your path. They demand you give them all that you have. What will you do?}
+{6010}{}{Shoot them down.}
+{6020}{}{Yell at them.}
+{6030}{}{Politely tell them that it is my own property.}
+{6040}{}{Give them everything they want.}
+{6050}{}{How is it even connected to...?}
+{7000}{}{Amazing! Now imagine that you got a message on your pip boy. The message warns you about upcoming nuclear rocket! What company will you call to save your life?}
+{7010}{}{Vault Tec}
+{7020}{}{Vault Tec I guess...}
+{7030}{}{Eeehm... Vault Tec?}
+{7040}{}{That must be Vault Tec.}
+{7050}{}{Go- fuck- yourse...}
+{8000}{}{Great job, resident! It seems like you are fully ready to leave this Vault! Don't worry, soon the government forces will finally arrive and let you free - so you will see new fantastic America! The opening date will happen in 2104 and today is... 2242... Error... error...}
+{8010}{}{Hey! Hey! Ah crap...}
+{9000}{}{Wrong! The REAL President would led our country from his special high-command base, in safety and calmness! How could you listen to some fool right in the middle of nowhere?!}
+{9010}{}{The fuck is...?}
+{10000}{}{It's real American defenders and patriots! How could you refuse to give them last pieces of food, even if you starving?!}
+{10010}{}{You must be kidding...}
+{11000}{}{Fantastic! Now imagine that in a middle of a desert you've met a person who claims that he is a Vault Tec representer! He wears a special suit and even has a special badge with him. What will you do?}
+{11010}{}{Shoot him down.}
+{11020}{}{Run away.}
+{11030}{}{Greet and listen to him.}
+{11040}{}{Everything they say without asking any questions!}
+{12000}{}{Oh no! How can you actually be so unpleasant towards a Vault Tec representer? He even has a badge with him! Isn't it enough for you to be sure that he is not some fake?}
+{12010}{}{Who even made this crap?!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{ }
+{2000}{}{Good day, dear resident. Here you can pass Vault Tec P.F.S. ( Prepare For Surface ) test. Are you ready for your examination?}
+{2010}{}{Alright, I guess I am ready.}
+{2020}{}{PFS? What is it?}
+{2030}{}{Wait... I don't remember anything. I need to get in contact  with overseer. I...}
+{2040}{}{Later maybe.}
+{3000}{}{P. F. S. is a special test of Vault Tec that will help us to understand either you are ready to leave your Vault!}
+{3010}{}{Hah... I see.}
+{3020}{}{Alright, then lets do it.}
+{4000}{}{bzzzzt... Error...Error...}
+{5000}{}{Good! So lets get started, shall we? First question:
+
+You're heading to the nearest Vault-Tec office and suddenly, see a man, who claims that he is the President of the United States. He wears an expensive suit and even has a special president's badge. What will you do?
+
+}
+{5010}{}{Shoot him down.}
+{5020}{}{Greet and listen to him.}
+{5030}{}{Shake his hand... Oh damn it is such an honor.}
+{5040}{}{Wait wha...?}
+{6000}{}{Great! Lets continue.
+
+Suddenly, US Army soldiers met you at your path. They demand you give them all that you have. What will you do?}
+{6010}{}{Shoot them down.}
+{6020}{}{Yell at them.}
+{6030}{}{Politely tell them that it is my own property.}
+{6040}{}{Give them everything they want.}
+{6050}{}{How is it even connected to...?}
+{7000}{}{Amazing! Now imagine that you got a message on your pip boy. The message warns you about upcoming nuclear rocket! What company will you call to save your life?}
+{7010}{}{Vault Tec}
+{7020}{}{Vault Tec I guess...}
+{7030}{}{Eeehm... Vault Tec?}
+{7040}{}{That must be Vault Tec.}
+{7050}{}{Go- fuck- yourse...}
+{8000}{}{Great job, resident! It seems like you are fully ready to leave this Vault! Don't worry, soon the government forces will finally arrive and let you free - so you will see new fantastic America! The opening date will happen in 2104 and today is... 2242... Error... error...}
+{8010}{}{Hey! Hey! Ah crap...}
+{9000}{}{Wrong! The REAL President would led our country from his special high-command base, in safety and calmness! How could you listen to some fool right in the middle of nowhere?!}
+{9010}{}{The fuck is...?}
+{10000}{}{It's real American defenders and patriots! How could you refuse to give them last pieces of food, even if you starving?!}
+{10010}{}{You must be kidding...}
+{11000}{}{Fantastic! Now imagine that in a middle of a desert you've met a person who claims that he is a Vault Tec representer! He wears a special suit and even has a special badge with him. What will you do?}
+{11010}{}{Shoot him down.}
+{11020}{}{Run away.}
+{11030}{}{Greet and listen to him.}
+{11040}{}{Everything they say without asking any questions!}
+{12000}{}{Oh no! How can you actually be so unpleasant towards a Vault Tec representer? He even has a badge with him! Isn't it enough for you to be sure that he is not some fake?}
+{12010}{}{Who even made this crap?!}
+

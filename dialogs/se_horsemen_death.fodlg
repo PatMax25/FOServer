@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Death}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{They were supposed to value their lives!@@No, I have no idea where your grandparents are now... It's not my job to run with souls around.@@8.7 billion people dying like this! *he clicks his fingers*@@In my contract there was supposed to be more than a bunch of survivors waiting for my arrival!@@My scythe? Yes, I have it somewhere around here...@@One day we will surely meet... But now I am playing poker.@@Unbelievable, we all lost our jobs just in one day!@@Darn humans...@@It's not even fair, there was nothing written in the contract about lifeless deserts and empty towns!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{They were supposed to value their lives!@@No, I have no idea where your grandparents are now... It's not my job to run with souls around.@@8.7 billion people dying like this! *he clicks his fingers*@@In my contract there was supposed to be more than a bunch of survivors waiting for my arrival!@@My scythe? Yes, I have it somewhere around here...@@One day we will surely meet... But now I am playing poker.@@Unbelievable, we all lost our jobs just in one day!@@Darn humans...@@It's not even fair, there was snothing written in the contract and lifeless deserts and empty towns!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{They were supposed to value their lives!@@No, I have no idea where your grandparents are now... It's not my job to run with souls around.@@8.7 billion people dying like this! *he clicks his fingers*@@In my contract there was supposed to be more than a bunch of survivors waiting for my arrival!@@My scythe? Yes, I have it somewhere around here...@@One day we will surely meet... But now I am playing poker.@@Unbelievable, we all lost our jobs just in one day!@@Darn humans...@@It's not even fair, there was snothing written in the contract and lifeless deserts and empty towns!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{They were supposed to value their lives!@@No, I have no idea where your grandparents are now... It's not my job to run with souls around.@@8.7 billion people dying like this! *he clicks his fingers*@@In my contract there was supposed to be more than a bunch of survivors waiting for my arrival!@@My scythe? Yes, I have it somewhere around here...@@One day we will surely meet... But now I am playing poker.@@Unbelievable, we all lost our jobs just in one day!@@Darn humans...@@It's not even fair, there was snothing written in the contract and lifeless deserts and empty towns!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{They were supposed to value their lives!@@No, I have no idea where your grandparents are now... It's not my job to run with souls around.@@8.7 billion people dying like this! *he clicks his fingers*@@In my contract there was supposed to be more than a bunch of survivors waiting for my arrival!@@My scythe? Yes, I have it somewhere around here...@@One day we will surely meet... But now I am playing poker.@@Unbelievable, we all lost our jobs just in one day!@@Darn humans...@@It's not even fair, there was snothing written in the contract and lifeless deserts and empty towns!}
+

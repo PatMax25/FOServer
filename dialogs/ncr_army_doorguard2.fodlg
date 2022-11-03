@@ -1,0 +1,61 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+5 2010 D _param p ST_TEAM_ID = 5 R _script dialog@r_OpenDoor 1 801 #
+0 2020 @
+5 3000 None 0 &
+
+[engl]
+{100}{}{Guard}
+{200}{}{You see a NCR guard.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*she salutes you*}
+{2010}{}{Can you open the door?}
+{2020}{}{Nothing. [ end dialogue ]}
+{3000}{}{*she checks your ID card* The door is open now. Do not forget to close it, soldier.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ She salutes you. ]}
+{2010}{}{May you open the door?}
+{2020}{}{Nothing.}
+{3000}{}{[ She checks your ID card ] The door is open now. Do not forget to close it, soldier.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ She salutes you. ]}
+{2010}{}{May you open the door?}
+{2020}{}{Nothing.}
+{3000}{}{[ She checks your ID card ] The door is open now. Do not forget to close it, soldier.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ She salutes you. ]}
+{2010}{}{May you open the door?}
+{2020}{}{Nothing.}
+{3000}{}{[ She checks your ID card ] The door is open now. Do not forget to close it, soldier.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ She salutes you. ]}
+{2010}{}{May you open the door?}
+{2020}{}{Nothing.}
+{3000}{}{[ She checks your ID card ] The door is open now. Do not forget to close it, soldier.}
+

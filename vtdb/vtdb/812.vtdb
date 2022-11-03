@@ -1,0 +1,8 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = amalia;
+@gender = 0;
+@age = 22;
+
+@perks = 301 303 327 329 443 444 445;

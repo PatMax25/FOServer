@@ -1,0 +1,16 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Jora3Ocm;
+@gender = 0;
+@age = 30;
+
+@special = 7 3 8 1 4 10 6;
+@xp = 3 3600 6000;
+@life = 86 86 0 0 0 0 0 0 0;
+@stats = 33 10 110600 2 0 35 14 6 14 6;
+@skills = 56 37 20 64 54 40 22 13 35 23 30 23 20 15 5 4 30 26 0;
+@traits = 550 563;
+@perks = 301 380;
+@reputation = 690:-58;
+@kills = 266:4 267:21 275;

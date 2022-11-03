@@ -1,0 +1,90 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+2 2020 D _item p PID_DOLLAR } 1 R _item p PID_BG_BOOK + 1 R _item p PID_DOLLAR - 1 #
+2 2030 D _item p PID_DOLLAR } 1 R _item p PID_LOCKPICK_BOOK + 1 R _item p PID_DOLLAR - 1 #
+2 2040 D _item p PID_BOTTLE_CAPS } 800 R _item p PID_CATS_PAW + 1 R _item p PID_BOTTLE_CAPS - 800 #
+0 2050 @
+3 3000 None 0 #
+0 3010 #
+2 3020 &
+
+[engl]
+{100}{}{Books trader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there! Come closer, I can sell some really nice books! I sell Lockpicking books and Big Guns books only for 1 golden dollar each! [ He lowers his voice ] And I can even sell some Cat's Paw for your wicked fantasies. Just 800 caps for this.}
+{2010}{}{Why do you even sell stuff here? Aren't The New Legion hostile slavers and criminals? And why using golden dollars?}
+{2020}{}{A Big Gun book will be nice}
+{2030}{}{Lockpicking book will be nice.}
+{2040}{}{One Cat's Paw magazine will suit me well.}
+{2050}{}{I will come later.}
+{3000}{}{My dear, it has nothing to do with slavery. It is pure business. Legion is very good in protecting our caravans and they have the lowest income tax in the entire California! As for golden dollars... Well, most of the stuff here comes from Vegas, and what comes from Vegas shall be sold for golden dollars.}
+{3010}{}{You hypocritical bastard, like any other trader. Farewell.}
+{3020}{}{Right, let's switch the topic..}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there! Come closer, I can sell some really nice books! I sell First Aid books, Small Guns books and Big Guns books! [ He lowers his voice ] And I can even sell some Cat's Paw for your wicked fantasies.}
+{2010}{}{Why do you even sell stuff here? Aren't Legion hostile slavers and criminals?}
+{2020}{}{A big Gun book will be nice}
+{2030}{}{A Small Gun book will be nice}
+{2040}{}{One Cat's Paw magazine will suit me well.}
+{2050}{}{I will come later.}
+{3000}{}{My dear, it has nothing to do with slavery. It is pure business. Legion is very good in protecting our caravans and they have the lowest income tax in the entire California!}
+{3010}{}{You hypocritical bastard, as any other trader. Farewell.}
+{3020}{}{Right, let's switch the topic..}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there! Come closer, I can sell some really nice books! I sell First Aid books, Small Guns books and Big Guns books! [ He lowers his voice ] And I can even sell some Cat's Paw for your wicked fantasies.}
+{2010}{}{Why do you even sell stuff here? Aren't Legion hostile slavers and criminals?}
+{2020}{}{A big Gun book will be nice}
+{2030}{}{A Small Gun book will be nice}
+{2040}{}{One Cat's Paw magazine will suit me well.}
+{2050}{}{I will come later.}
+{3000}{}{My dear, it has nothing to do with slavery. It is pure business. Legion is very good in protecting our caravans and they have the lowest income tax in the entire California!}
+{3010}{}{You hypocritical bastard, as any other trader. Farewell.}
+{3020}{}{Right, let's switch the topic..}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there! Come closer, I can sell some really nice books! I sell First Aid books, Small Guns books and Big Guns books! [ He lowers his voice ] And I can even sell some Cat's Paw for your wicked fantasies.}
+{2010}{}{Why do you even sell stuff here? Aren't Legion hostile slavers and criminals?}
+{2020}{}{A big Gun book will be nice}
+{2030}{}{A Small Gun book will be nice}
+{2040}{}{One Cat's Paw magazine will suit me well.}
+{2050}{}{I will come later.}
+{3000}{}{My dear, it has nothing to do with slavery. It is pure business. Legion is very good in protecting our caravans and they have the lowest income tax in the entire California!}
+{3010}{}{You hypocritical bastard, as any other trader. Farewell.}
+{3020}{}{Right, let's switch the topic..}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there! Come closer, I can sell some really nice books! I sell First Aid books, Small Guns books and Big Guns books! [ He lowers his voice ] And I can even sell some Cat's Paw for your wicked fantasies.}
+{2010}{}{Why do you even sell stuff here? Aren't Legion hostile slavers and criminals?}
+{2020}{}{A big Gun book will be nice}
+{2030}{}{A Small Gun book will be nice}
+{2040}{}{One Cat's Paw magazine will suit me well.}
+{2050}{}{I will come later.}
+{3000}{}{My dear, it has nothing to do with slavery. It is pure business. Legion is very good in protecting our caravans and they have the lowest income tax in the entire California!}
+{3010}{}{You hypocritical bastard, as any other trader. Farewell.}
+{3020}{}{Right, let's switch the topic..}
+

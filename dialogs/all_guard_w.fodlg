@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Guard}
+{200}{}{You see a female guard. You can tell she's not here to mess around.}
+{210}{}{You see a serious looking woman wielding a large weapon. She looks like she knows how to use it.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{I take my job seriously. Cause any problems, and you're dead.@@Beat it, punk.@@Beat it, loser.@@Beat it, idiot.@@Beat it, moron.@@Beat it.@@Are you serious?@@You gonna keep fucking with me?@@What's your problem?@@Your momma drop you on your head or something?@@I'm not paid enough for this shit.@@YOU might have time to play games, but I have a job to do!@@Easily amused, huh?@@Do you get off on annoying people?@@Hey! Quit it!@@I knew I should've stayed in my bunk this morning.@@What the hell?@@You tryin' to get invited to your own funeral?@@I'm about to freak out on you! Get outta my face!@@You want a piece of me?!?@@Can we just frag this one? Just this once?@@Now I gotta put up with this too, christ...@@You aren't from around here, are you?@@This is interesting and all, but very stupid.@@Keep pushing me, you'll see what happens...@@This one isn't too bright.@@Damn!@@Ugh, why does this always happen to me?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{I take my job seriously. Cause any problems, and you're dead.@@Beat it, punk.@@Beat it, loser.@@Beat it, idiot.@@Beat it, moron.@@Beat it.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{I take my job seriously. Cause any problems, and you're dead.@@Beat it, punk.@@Beat it, loser.@@Beat it, idiot.@@Beat it, moron.@@Beat it.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{I take my job seriously. Cause any problems, and you're dead.@@Beat it, punk.@@Beat it, loser.@@Beat it, idiot.@@Beat it, moron.@@Beat it.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{I take my job seriously. Cause any problems, and you're dead.@@Beat it, punk.@@Beat it, loser.@@Beat it, idiot.@@Beat it, moron.@@Beat it.}
+

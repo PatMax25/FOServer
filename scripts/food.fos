@@ -1,0 +1,61 @@
+//food.fos
+//kompresor
+//fonline3
+#include "_macros.fos"
+
+import void AffectPoison(Critter& cr, int value) from "poison";
+import void AffectRadiation(Critter& cr, int value) from "radiation";
+
+void heal_low(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_heal_low");
+
+}
+
+bool _heal_low(Item& item, Critter& crit, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+	return true;
+}
+
+void heal_high(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_heal_high");
+}
+
+bool _heal_high(Item& item, Critter& crit, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+	return true;
+}
+
+void rad(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_rad");
+}
+
+bool _rad(Item& item, Critter& crit, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+	return true;
+}
+
+
+void antidote(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_antidote");
+}
+
+bool _antidote(Item& item, Critter& crit, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+	return true;
+}
+
+void poison(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_poison");
+}
+
+bool _poison(Item& item, Critter& crit, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+	return true;
+
+
+}

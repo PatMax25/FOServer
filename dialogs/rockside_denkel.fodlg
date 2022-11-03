@@ -1,0 +1,96 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 R _script dialog@r_PlaySound 1 35 #
+5 2020 @
+3 3000 None 0 #
+4 3010 D _var p name_mem_npc_player = 0 R _item p PID_WATERBAG + 1 R _param p ST_EXPERIENCE + 50 R _var p name_mem_npc_player = 1 #
+6 3020 @
+4 4000 None 0 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Private Denkel}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? What is it?}
+{2010}{}{I am leaving Rockside. Do you have any advice for me before I go?}
+{2020}{}{Who are you?}
+{3000}{}{Ah right... Once you leave us, make sure to head south till you get to Shady Sands. At least that much is relatively safe, and then you can make your way wherever you like. I advise you to not go anywhere else, as you can get into the storm. And not many can survive it - you won't be able to for sure.}
+{3010}{}{I will remember that. Bye. [ end dialogue ]}
+{3020}{}{Yes, yes... more stupid advice. You are no use. [ end dialogue ]}
+{4000}{}{Here is some water for you. Watch yourself.}
+{5000}{}{Private Gregory Denkel. Look... I am on post and shouldn't talk with you. This area is roaming with desert scorpions sometimes, always need to keep an eye out if you don't want to get stung.}
+{5010}{}{Fine, fine. Lets switch the topic.}
+{6000}{}{Dickhead.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? What is it?}
+{2010}{}{I am leaving Rockside. Do you have any advise for me before I go?}
+{2020}{}{Who are you?}
+{3000}{}{Ah right... Once you leave us, make sure to head south till you get to Shady Sands. There you can safely scatter around. I hardly advise you to not go anywhere else, as you can get into the storm. And not many can survive it, you won't be able for sure.}
+{3010}{}{I will remember that. Bye.}
+{3020}{}{Yes, yes... another stupid advise. You are no use.}
+{4000}{}{Here is some water for. Watch yourself.}
+{5000}{}{Private Gregory Denkel. Look... I am on post and shall not talk with you. This area is roaming with desert scorpios sometimes, always need to look around if you don't want to get stinged.}
+{5010}{}{Fine, fine. Lets switch the topic.}
+{6000}{}{Dickhead.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? What is it?}
+{2010}{}{I am leaving Rockside. Do you have any advise for me before I go?}
+{2020}{}{Who are you?}
+{3000}{}{Ah right... Once you leave us, make sure to head south till you get to Shady Sands. There you can safely scatter around. I hardly advise you to not go anywhere else, as you can get into the storm. And not many can survive it, you won't be able for sure.}
+{3010}{}{I will remember that. Bye.}
+{3020}{}{Yes, yes... another stupid advise. You are no use.}
+{4000}{}{Here is some water for. Watch yourself.}
+{5000}{}{Private Gregory Denkel. Look... I am on post and shall not talk with you. This area is roaming with desert scorpios sometimes, always need to look around if you don't want to get stinged.}
+{5010}{}{Fine, fine. Lets switch the topic.}
+{6000}{}{Dickhead.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? What is it?}
+{2010}{}{I am leaving Rockside. Do you have any advise for me before I go?}
+{2020}{}{Who are you?}
+{3000}{}{Ah right... Once you leave us, make sure to head south till you get to Shady Sands. There you can safely scatter around. I hardly advise you to not go anywhere else, as you can get into the storm. And not many can survive it, you won't be able for sure.}
+{3010}{}{I will remember that. Bye.}
+{3020}{}{Yes, yes... another stupid advise. You are no use.}
+{4000}{}{Here is some water for. Watch yourself.}
+{5000}{}{Private Gregory Denkel. Look... I am on post and shall not talk with you. This area is roaming with desert scorpios sometimes, always need to look around if you don't want to get stinged.}
+{5010}{}{Fine, fine. Lets switch the topic.}
+{6000}{}{Dickhead.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? What is it?}
+{2010}{}{I am leaving Rockside. Do you have any advise for me before I go?}
+{2020}{}{Who are you?}
+{3000}{}{Ah right... Once you leave us, make sure to head south till you get to Shady Sands. There you can safely scatter around. I hardly advise you to not go anywhere else, as you can get into the storm. And not many can survive it, you won't be able for sure.}
+{3010}{}{I will remember that. Bye.}
+{3020}{}{Yes, yes... another stupid advise. You are no use.}
+{4000}{}{Here is some water for. Watch yourself.}
+{5000}{}{Private Gregory Denkel. Look... I am on post and shall not talk with you. This area is roaming with desert scorpios sometimes, always need to look around if you don't want to get stinged.}
+{5010}{}{Fine, fine. Lets switch the topic.}
+{6000}{}{Dickhead.}
+

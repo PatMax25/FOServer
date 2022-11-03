@@ -1,0 +1,77 @@
+[comment]
+
+
+[data]
+lang=engl czec pols russ span
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+3 2020 R _script dialog@r_OpenDoor 2 67 100 #
+0 2030 @
+3 3000 None 0 @
+4 4000 None 0 #
+2 4010 &
+
+[engl]
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Terminal is ready for work... ]}
+{2010}{}{[ Order J17 ]}
+{2020}{}{[ Open the outpost door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Operating... ]}
+{4000}{}{By the highest order, coming from the Council of Directors, we need to make sure that all possible ways to the Perimeter are blocked. Your dispatch is ordered to guard the old NSA outpost in San Diego that has direct access to the Perimeter. Violation of the order will lead to immediate execution. Your team will be changed in 2 weeks. This message will be sent together with 2 printed files, containing more details about your orders.}
+{4010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+{2010}{}{[ Order J17 ]}
+{2020}{}{[ Open the outpost door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Operating... ]}
+{4000}{}{By the highest order, coming from the Council of Directors, we need to make sure that all possible ways to the Perimeter are blocked. Your dispatch is ordered to guard the old NSA outpost in San Diego, that has the direct access to the Perimeter. Violation of the order will lead to immediate execution. Your team will be changed in 2 weeks. This message will be sent together with 2 printed files, containing details about your order.}
+{4010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+{2010}{}{[ Order J17 ]}
+{2020}{}{[ Open the outpost door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Operating... ]}
+{4000}{}{By the highest order, coming from the Council of Directors, we need to make sure that all possible ways to the Perimeter are blocked. Your dispatch is ordered to guard the old NSA outpost in San Diego, that has the direct access to the Perimeter. Violation of the order will lead to immediate execution. Your team will be changed in 2 weeks. This message will be sent together with 2 printed files, containing details about your order.}
+{4010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+{2010}{}{[ Order J17 ]}
+{2020}{}{[ Open the outpost door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Operating... ]}
+{4000}{}{By the highest order, coming from the Council of Directors, we need to make sure that all possible ways to the Perimeter are blocked. Your dispatch is ordered to guard the old NSA outpost in San Diego, that has the direct access to the Perimeter. Violation of the order will lead to immediate execution. Your team will be changed in 2 weeks. This message will be sent together with 2 printed files, containing details about your order.}
+{4010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+{2010}{}{[ Order J17 ]}
+{2020}{}{[ Open the outpost door ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Operating... ]}
+{4000}{}{By the highest order, coming from the Council of Directors, we need to make sure that all possible ways to the Perimeter are blocked. Your dispatch is ordered to guard the old NSA outpost in San Diego, that has the direct access to the Perimeter. Violation of the order will lead to immediate execution. Your team will be changed in 2 weeks. This message will be sent together with 2 printed files, containing details about your order.}
+{4010}{}{[ Back ]}
+

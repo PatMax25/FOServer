@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols russ span
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Black Cross Department merc}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! You are not allowed here.@@This is the property of Black Cross Department, get the heck out.@@You really need to leave.@@Don't think I won't shoot you!@@You're going to have a really bad day if you don't get outta here.@@Get away from this place, you shouldn't be here.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey! You are not allowed here. This is the property of Black Cross Department. Get the heck out.}
+

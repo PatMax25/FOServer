@@ -1,0 +1,156 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p reactor_ghoul = 2 #
+2 1020 D _var p reactor_ghoul = 0 #
+2 1030 D _var p reactor_ghoul = 1 #
+2 1040 D _var p reactor_ghoul = 3 @
+2 2000 None 0 #
+3 2010 #
+5 2020 D _var p reactor_ghoul = 0 #
+0 2030 #
+6 2040 D _var p reactor_ghoul = 2 R _param p ST_EXPERIENCE + 1700 R _item p PID_BOTTLE_CAPS + 1500 R _item p PID_BLUEPRINT_DYNAMITE + 1 R _item p PID_LOCKPICK_BOOK + 2 R _item p PID_MFC_MK2 + 5 R _item p PID_NUKA_COLA + 7 R _item p PID_NUKA_COLA_QUEST + 5 R _item p PID_PUGIO + 1 R _var p reactor_ghoul = 3 @
+3 3000 None 0 #
+4 3010 #
+65507 3020 @
+4 4000 None 0 #
+2 4010 #
+65507 4020 @
+5 5000 None 0 #
+0 5010 D _var p reactor_ghoul = 0 R _item p PID_CAR_FUEL_CELL + 1 R _script dialog@r_OpenDoor 2 48 100 R _var p reactor_ghoul = 1 #
+0 5020 @
+6 6000 None 0 #
+0 6010 #
+65507 6020 &
+
+[engl]
+{100}{}{Lucas}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Ey, I have visitors, eh? What is it?}
+{2010}{}{What is this place?}
+{2020}{}{I am looking for some work. You have anything for me?}
+{2030}{}{I will be going.}
+{2040}{}{I fucking died there! What the fuck was that?!}
+{3000}{}{Are you dum-dum or don't you see that this is the reactor? A true miracle to find one working in the wasteland.}
+{3010}{}{What do you need a reactor here for?}
+{3020}{}{[ Attack ] HOW DID YOU CALL ME?! YOU GONNA PAY FOR YOUR WORDS!}
+{4000}{}{Well, think twice, potato head. Reactor means energy and energy means electricity! The powers of this one will let us have all the wonders of technologies for the next 10 years! Just need to keep it stable...}
+{4010}{}{Alright, let's talk about other stuff.}
+{4020}{}{[ Attack ] I am tired of your bullshit! Prepare to die!}
+{5000}{}{[ He starts clicking something on his keyboard, then takes a weird detail in his hands and gives it to you. ] Yes, be a good bud and install this into the machine over there [ he points at the machine standing near the reactor core ]. I will open the door for ya.}
+{5010}{}{Fine, I will do it.}
+{5020}{}{No way, old sucker. You go there, I am out of here.}
+{6000}{}{Holy dear lord of all good! You are still alive! I actually saw you dying over there... Sorry about that, I forgot that the radiation is deadly for those who are not ghouls. Anyway, thank you for help. Here, take this and also a bit extra for your work. Sorry for your equipment, but I can't open the door now... It is too radioactive inside.}
+{6010}{}{Son of a bitch you are...}
+{6020}{}{[ Attack ] Well you will pay for this. Preapre to die, scum.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Ey, I have visitors, eh? What is it?}
+{2010}{}{What is this place?}
+{2020}{}{I am looking for some work. You have anything for me?}
+{2030}{}{I will be going.}
+{2040}{}{I fucking died there! What the fuck was that?!}
+{3000}{}{Are you dum-dum or don't you see that this is the reactor? A true miracle to find one working in the wasteland.}
+{3010}{}{What do you need reactor here for?}
+{3020}{}{[ Attack ] HOW DID YOU CALL ME?! YOU GONNA PAY FOR YOUR WORDS!}
+{4000}{}{Well, think twice, potato head. Reactor means energy and energy means electricity! The powers of this one will let us have all the wonders of technologies for the next 10 years! Just need to keep it stable...}
+{4010}{}{Alright, let's talk about other stuff.}
+{4020}{}{[ Attack ] I am tired of your bullshit! Prepare to die!}
+{5000}{}{[ He starts clicking something on his keyboard, then takes a weird detail in his hands and gives it to you. ] Yes, be a good bud and install this into the machine over there [ he points at the machine standing near the reactor core ]. I will open the door for ya.}
+{5010}{}{Fine, I will do it.}
+{5020}{}{No way, old sucker. You go there I am out of here.}
+{6000}{}{Holy dear lord of all good! You are still alive! I actually saw you dying over there... Sorry about that, I forgot that the radiation is deadly for those who are not ghouls. Anyway, thank you for help. Here, take this and also a bit extra for your work. Sorry for your equipment, but I can't open the door now... It is too radioactive inside.}
+{6010}{}{Son of a bitch you are...}
+{6020}{}{[ Attack ] Well you will pay for this. Preapre to die, scum.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Ey, I have visitors, eh? What is it?}
+{2010}{}{What is this place?}
+{2020}{}{I am looking for some work. You have anything for me?}
+{2030}{}{I will be going.}
+{2040}{}{I fucking died there! What the fuck was that?!}
+{3000}{}{Are you dum-dum or don't you see that this is the reactor? A true miracle to find one working in the wasteland.}
+{3010}{}{What do you need reactor here for?}
+{3020}{}{[ Attack ] HOW DID YOU CALL ME?! YOU GONNA PAY FOR YOUR WORDS!}
+{4000}{}{Well, think twice, potato head. Reactor means energy and energy means electricity! The powers of this one will let us have all the wonders of technologies for the next 10 years! Just need to keep it stable...}
+{4010}{}{Alright, let's talk about other stuff.}
+{4020}{}{[ Attack ] I am tired of your bullshit! Prepare to die!}
+{5000}{}{[ He starts clicking something on his keyboard, then takes a weird detail in his hands and gives it to you. ] Yes, be a good bud and install this into the machine over there [ he points at the machine standing near the reactor core ]. I will open the door for ya.}
+{5010}{}{Fine, I will do it.}
+{5020}{}{No way, old sucker. You go there I am out of here.}
+{6000}{}{Holy dear lord of all good! You are still alive! I actually saw you dying over there... Sorry about that, I forgot that the radiation is deadly for those who are not ghouls. Anyway, thank you for help. Here, take this and also a bit extra for your work. Sorry for your equipment, but I can't open the door now... It is too radioactive inside.}
+{6010}{}{Son of a bitch you are...}
+{6020}{}{[ Attack ] Well you will pay for this. Preapre to die, scum.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Ey, I have visitors, eh? What is it?}
+{2010}{}{What is this place?}
+{2020}{}{I am looking for some work. You have anything for me?}
+{2030}{}{I will be going.}
+{2040}{}{I fucking died there! What the fuck was that?!}
+{3000}{}{Are you dum-dum or don't you see that this is the reactor? A true miracle to find one working in the wasteland.}
+{3010}{}{What do you need reactor here for?}
+{3020}{}{[ Attack ] HOW DID YOU CALL ME?! YOU GONNA PAY FOR YOUR WORDS!}
+{4000}{}{Well, think twice, potato head. Reactor means energy and energy means electricity! The powers of this one will let us have all the wonders of technologies for the next 10 years! Just need to keep it stable...}
+{4010}{}{Alright, let's talk about other stuff.}
+{4020}{}{[ Attack ] I am tired of your bullshit! Prepare to die!}
+{5000}{}{[ He starts clicking something on his keyboard, then takes a weird detail in his hands and gives it to you. ] Yes, be a good bud and install this into the machine over there [ he points at the machine standing near the reactor core ]. I will open the door for ya.}
+{5010}{}{Fine, I will do it.}
+{5020}{}{No way, old sucker. You go there I am out of here.}
+{6000}{}{Holy dear lord of all good! You are still alive! I actually saw you dying over there... Sorry about that, I forgot that the radiation is deadly for those who are not ghouls. Anyway, thank you for help. Here, take this and also a bit extra for your work. Sorry for your equipment, but I can't open the door now... It is too radioactive inside.}
+{6010}{}{Son of a bitch you are...}
+{6020}{}{[ Attack ] Well you will pay for this. Preapre to die, scum.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Ey, I have visitors, eh? What is it?}
+{2010}{}{What is this place?}
+{2020}{}{I am looking for some work. You have anything for me?}
+{2030}{}{I will be going.}
+{2040}{}{I fucking died there! What the fuck was that?!}
+{3000}{}{Are you dum-dum or don't you see that this is the reactor? A true miracle to find one working in the wasteland.}
+{3010}{}{What do you need reactor here for?}
+{3020}{}{[ Attack ] HOW DID YOU CALL ME?! YOU GONNA PAY FOR YOUR WORDS!}
+{4000}{}{Well, think twice, potato head. Reactor means energy and energy means electricity! The powers of this one will let us have all the wonders of technologies for the next 10 years! Just need to keep it stable...}
+{4010}{}{Alright, let's talk about other stuff.}
+{4020}{}{[ Attack ] I am tired of your bullshit! Prepare to die!}
+{5000}{}{[ He starts clicking something on his keyboard, then takes a weird detail in his hands and gives it to you. ] Yes, be a good bud and install this into the machine over there [ he points at the machine standing near the reactor core ]. I will open the door for ya.}
+{5010}{}{Fine, I will do it.}
+{5020}{}{No way, old sucker. You go there I am out of here.}
+{6000}{}{Holy dear lord of all good! You are still alive! I actually saw you dying over there... Sorry about that, I forgot that the radiation is deadly for those who are not ghouls. Anyway, thank you for help. Here, take this and also a bit extra for your work. Sorry for your equipment, but I can't open the door now... It is too radioactive inside.}
+{6010}{}{Son of a bitch you are...}
+{6020}{}{[ Attack ] Well you will pay for this. Preapre to die, scum.}
+

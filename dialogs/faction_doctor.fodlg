@@ -1,0 +1,99 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _script dialog@d_IsToHeal 0  #
+0 2020 #
+0 2030 D _script factions_terminal@d_Terminal_IsMember 1 0 R _script factions_terminal@Payout 0  @
+3 3000 dialog@dlg_ShowHealingPrice 0 #
+4 3010 D _script dialog@d_HealingMoney 0  #
+0 3020 @
+4 4000 None 0 #
+5 4010 R _script dialog@r_DocHeal 0  R _script factions_terminal@Pay 1 500 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Doctor}
+{200}{}{You see an old, kindly looking fellow.}
+{210}{}{It's Doc Jubilee.}
+{210}{}{He's an old man with a snow-white beard and a slightly blank stare.}
+{1000}{}{error}
+{1010}{}{default}
+{2000}{}{Welcome to the faction clinic. How can I help you?}
+{2010}{}{I need a doctor.}
+{2020}{}{Nothing, bye.}
+{2030}{}{Hey doc, where is my money?}
+{3000}{}{I think I can cure what ails ya. It's gonna cost you @lex price@$ bucks.}
+{3010}{}{Well... all right. That sounds fair.}
+{3020}{}{Changed my mind. I'll be back later.}
+{4000}{}{Alright, lie down. This may take a while.}
+{4010}{}{Sure thing, Doc.}
+{5000}{}{That should do it. Good luck, youngster.}
+
+[czec]
+{100}{}{none}
+{1000}{}{error}
+{1010}{}{default}
+{2000}{}{Welcome to the Doctor Jubilee's humble clinic. How can I help you?}
+{2010}{}{I need a doctor.}
+{2020}{}{Nothing, bye.}
+{2030}{}{Hey doc, where is my money?}
+{3000}{}{I think I can cure what ails ya. It's gonna cost you @lex price@$ bucks.}
+{3010}{}{Well... all right. That sounds fair.}
+{3020}{}{Changed my mind. I'll be back later.}
+{4000}{}{Alright, lie down. This may take a while.}
+{4010}{}{Sure thing, Doc.}
+{5000}{}{That should do it. Good luck, youngster.}
+
+[pols]
+{100}{}{none}
+{1000}{}{error}
+{1010}{}{default}
+{2000}{}{Welcome to the Doctor Jubilee's humble clinic. How can I help you?}
+{2010}{}{I need a doctor.}
+{2020}{}{Nothing, bye.}
+{2030}{}{Hey doc, where is my money?}
+{3000}{}{I think I can cure what ails ya. It's gonna cost you @lex price@$ bucks.}
+{3010}{}{Well... all right. That sounds fair.}
+{3020}{}{Changed my mind. I'll be back later.}
+{4000}{}{Alright, lie down. This may take a while.}
+{4010}{}{Sure thing, Doc.}
+{5000}{}{That should do it. Good luck, youngster.}
+
+[span]
+{100}{}{none}
+{1000}{}{error}
+{1010}{}{default}
+{2000}{}{Welcome to the Doctor Jubilee's humble clinic. How can I help you?}
+{2010}{}{I need a doctor.}
+{2020}{}{Nothing, bye.}
+{2030}{}{Hey doc, where is my money?}
+{3000}{}{I think I can cure what ails ya. It's gonna cost you @lex price@$ bucks.}
+{3010}{}{Well... all right. That sounds fair.}
+{3020}{}{Changed my mind. I'll be back later.}
+{4000}{}{Alright, lie down. This may take a while.}
+{4010}{}{Sure thing, Doc.}
+{5000}{}{That should do it. Good luck, youngster.}
+
+[russ]
+{100}{}{none}
+{1000}{}{error}
+{1010}{}{default}
+{2000}{}{Welcome to the Doctor Jubilee's humble clinic. How can I help you?}
+{2010}{}{I need a doctor.}
+{2020}{}{Nothing, bye.}
+{2030}{}{Hey doc, where is my money?}
+{3000}{}{I think I can cure what ails ya. It's gonna cost you @lex price@$ bucks.}
+{3010}{}{Well... all right. That sounds fair.}
+{3020}{}{Changed my mind. I'll be back later.}
+{4000}{}{Alright, lie down. This may take a while.}
+{4010}{}{Sure thing, Doc.}
+{5000}{}{That should do it. Good luck, youngster.}
+

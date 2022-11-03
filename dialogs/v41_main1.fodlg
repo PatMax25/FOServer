@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 R _var p v41_access = 1 R _script dialog@r_OpenDoor 2 21 300 R _script dialog@r_OpenDoor 2 20 300 R _script dialog@r_OpenDoor 2 22 300 #
+4 2020 D _var p wow_glory = 1 R _var p wow_glory = 2 R _item p PID_WATER_CHIP + 1 #
+0 2030 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Access to the mainframe confirmed. Welcome. ]}
+{2010}{}{[ Grant access to the armory ]}
+{2020}{}{[ Retrieve the water chip ]}
+{2030}{}{[ Exit]}
+{3000}{}{[ Access granted ]}
+{4000}{}{Beep...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Access to the mainfrmae confirmed. Welcome. ]}
+{2010}{}{[ Grant access to the armory ]}
+{2020}{}{[ Retrive the water chip ]}
+{2030}{}{[ Exit]}
+{3000}{}{[ Access granted ]}
+{4000}{}{Beep...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Access to the mainfrmae confirmed. Welcome. ]}
+{2010}{}{[ Grant access to the armory ]}
+{2020}{}{[ Retrive the water chip ]}
+{2030}{}{[ Exit]}
+{3000}{}{[ Access granted ]}
+{4000}{}{Beep...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Access to the mainfrmae confirmed. Welcome. ]}
+{2010}{}{[ Grant access to the armory ]}
+{2020}{}{[ Retrive the water chip ]}
+{2030}{}{[ Exit]}
+{3000}{}{[ Access granted ]}
+{4000}{}{Beep...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Access to the mainfrmae confirmed. Welcome. ]}
+{2010}{}{[ Grant access to the armory ]}
+{2020}{}{[ Retrive the water chip ]}
+{2030}{}{[ Exit]}
+{3000}{}{[ Access granted ]}
+{4000}{}{Beep...}
+

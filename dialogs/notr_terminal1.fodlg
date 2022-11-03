@@ -1,0 +1,114 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+5 2020 R _var p name_mem_npc_player = 1 R _script dialog@r_OpenDoor 1 601 R _script dialog@r_OpenDoor 1 602 R _script dialog@r_OpenDoor 1 603 R _script dialog@r_PlaySound 1 27 #
+0 2030 @
+3 3000 None 0 #
+4 3010 #
+2 3020 #
+0 3030 @
+4 4000 None 0 #
+2 4010 #
+0 4020 @
+5 5000 None 0 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... DONE. CHOOSE THE OPTION. ]}
+{2010}{}{[ Scan the database ]}
+{2020}{}{[ Remove lockdown ]}
+{2030}{}{[ Exit ]}
+{3000}{}{*you check through the archives and it seems like all this time, there was an Enclave research facility under this settlement... it seems like the locals didn't know about it and the Enclave was kidnapping people for their experiments in the bunker... list of experiments includes: Deathclaw research, The New Plague research and it seems like local scientists tried to get in contact with some Space Station... however something went wrong and the station crashed on the planet...*}
+{3010}{}{[ Continue ]}
+{3020}{}{[ Back ]}
+{3030}{}{[ Exit ]}
+{4000}{}{*part of it has crashed on the settlement... because of this damage, the bunker's generators have broken down*}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ OPERATING... ]}
+{6000}{}{*bips*}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... DONE. CHOOSE THE OPTION. ]}
+{2010}{}{[ Scan the database ]}
+{2020}{}{[ Remove lockdown ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ You checked through the archives and it seems like all this time, there was an Enclave research facility under this settlement. It seems like locals didn't know about it and Enclave was kidnapping people for their experiments in the bunker. List of experiments includes: Deathclaw research, The New Plague research and it seems like local scientists tried to get in contact with some Space Station. However something went wrong and the station crashed on the planet... ]}
+{3010}{}{[ Continue ]}
+{3020}{}{[ Back ]}
+{3030}{}{[ Exit ]}
+{4000}{}{[ Part of it has crashed on the settlement. Because of it the bunkers' generators broke down. ]}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ OPERATING... ]}
+{6000}{}{*bips*}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... DONE. CHOOSE THE OPTION. ]}
+{2010}{}{[ Scan the database ]}
+{2020}{}{[ Remove lockdown ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ You checked through the archives and it seems like all this time, there was an Enclave research facility under this settlement. It seems like locals didn't know about it and Enclave was kidnapping people for their experiments in the bunker. List of experiments includes: Deathclaw research, The New Plague research and it seems like local scientists tried to get in contact with some Space Station. However something went wrong and the station crashed on the planet... ]}
+{3010}{}{[ Continue ]}
+{3020}{}{[ Back ]}
+{3030}{}{[ Exit ]}
+{4000}{}{[ Part of it has crashed on the settlement. Because of it the bunkers' generators broke down. ]}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ OPERATING... ]}
+{6000}{}{*bips*}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... DONE. CHOOSE THE OPTION. ]}
+{2010}{}{[ Scan the database ]}
+{2020}{}{[ Remove lockdown ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ You checked through the archives and it seems like all this time, there was an Enclave research facility under this settlement. It seems like locals didn't know about it and Enclave was kidnapping people for their experiments in the bunker. List of experiments includes: Deathclaw research, The New Plague research and it seems like local scientists tried to get in contact with some Space Station. However something went wrong and the station crashed on the planet... ]}
+{3010}{}{[ Continue ]}
+{3020}{}{[ Back ]}
+{3030}{}{[ Exit ]}
+{4000}{}{[ Part of it has crashed on the settlement. Because of it the bunkers' generators broke down. ]}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ OPERATING... ]}
+{6000}{}{*bips*}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ LOADING... DONE. CHOOSE THE OPTION. ]}
+{2010}{}{[ Scan the database ]}
+{2020}{}{[ Remove lockdown ]}
+{2030}{}{[ Exit ]}
+{3000}{}{[ You checked through the archives and it seems like all this time, there was an Enclave research facility under this settlement. It seems like locals didn't know about it and Enclave was kidnapping people for their experiments in the bunker. List of experiments includes: Deathclaw research, The New Plague research and it seems like local scientists tried to get in contact with some Space Station. However something went wrong and the station crashed on the planet... ]}
+{3010}{}{[ Continue ]}
+{3020}{}{[ Back ]}
+{3030}{}{[ Exit ]}
+{4000}{}{[ Part of it has crashed on the settlement. Because of it the bunkers' generators broke down. ]}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ OPERATING... ]}
+{6000}{}{*bips*}
+

@@ -1,0 +1,74 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 #
+7 3020 #
+5 3030 #
+0 3040 @
+4 4000 None 0 #
+6 4010 #
+7 4020 #
+0 4030 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+2 6010 #
+0 6020 @
+7 7000 None 0 #
+2 7010 #
+0 7020 @
+8 8000 None 0 #
+9 8010 #
+0 8020 @
+9 9000 None 0 #
+10 9010 D _item p PID_BOTTLE_CAPS } 10000 D _script dialog@d_IsLeader 0  R _script factions_player@r_ChooseShelter 0  #
+0 9020 @
+10 10000 None 0 &
+
+[engl]
+{100}{}{Alastor Doe}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Lovely day to you, dear customer. How may I assist you?}
+{2010}{}{Let me see your stock.}
+{2020}{}{Who are you?}
+{2030}{}{Just checking. See you later.}
+{3000}{}{My name is Alastor Doe. I am an independent trader. However, may I tell you that everyone in Doe's family is a trader. But my business and my stock is much better.}
+{3010}{}{Sounds like you are not in good terms with your family.}
+{3020}{}{What can you tell me about this town?}
+{3030}{}{What is the point of making "business" here?}
+{3040}{}{I see. I need to go now.}
+{4000}{}{Oh well... You don't say so. Me and my dear brothers and sisters are in good terms... Good BUSINESS terms of course.}
+{4010}{}{Tell me about yourself.}
+{4020}{}{What is your opinion about this town?}
+{4030}{}{Yeah, whatever. I am not into this. Bye.}
+{5000}{}{Well, I am the only trader here selling something more than just booze. So it is a fine place to keep the business up.}
+{5010}{}{Tell me more about yourself.}
+{5020}{}{Fine then. See you.}
+{6000}{}{Well... [ He thinks for a moment. ] I was born in Vegas in a family of traders. Ma and Pa are quite known there for trading real estate. Our family was around 5 children. Basically saying - 2 of my brothers, 2 of my sisters and me. My brothers orginised own caravan company... Something like "Stockman's association" or whatever they named themself. As for my sisters... They are now making a fine sums of caps together with some pals in Vegas. And I am here, just a simple trader selling some stuff.}
+{6010}{}{I see.I wanted to ask about something else...}
+{6020}{}{What a story... I will be going.}
+{7000}{}{Nothing much. It is just a small settlement with boring people and same boring problems. However... Problems for them - cash for me.}
+{7010}{}{Alright. One more thing...}
+{7020}{}{You are mean! Fuck this place!}
+{8000}{}{Thank you. Found it in some old shelter.}
+{8010}{}{Shelter? Well, maybe you can give me the coordinates of it?}
+{8020}{}{Whatever...}
+{9000}{}{Hmh... Alright. But that will cost you 10000 caps. And you better be a leader of some faction here.}
+{9010}{}{Here are the caps. Now tell me where is it.}
+{9020}{}{Forget about it.}
+{10000}{}{[ He shows you the location of the base somewhere on the map ]}
+

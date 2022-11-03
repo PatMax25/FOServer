@@ -1,0 +1,90 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+3 3010 D _item p PID_BOTTLE_CAPS } 200 R _item p PID_BOTTLE_CAPS - 200 R _item p PID_DICE + 1 #
+3 3020 D _item p PID_BOTTLE_CAPS } 250 R _item p PID_BOTTLE_CAPS - 250 R _item p PID_LOADED_DICE + 1 #
+3 3030 D _item p PID_BOTTLE_CAPS } 100 R _item p PID_BOTTLE_CAPS - 100 R _item p PID_CARDS + 1 #
+3 3040 D _item p PID_BOTTLE_CAPS } 150 R _item p PID_BOTTLE_CAPS - 150 R _item p PID_MARKED_DECK_OF_CARDS + 1 #
+0 3050 &
+
+[engl]
+{100}{}{Cotton Ray}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, don't pass by! I have some things that can be useful if you decide to visit one of the Vegas casinos! Dice, cards and other stuff! Don't miss your opportunity!}
+{2010}{}{What do you have?}
+{2020}{}{Not interested.}
+{3000}{}{Dice for 200 caps per one pair, cards for 100 caps. [ He starts whispering ] I also sell loaded dice for 250 caps and marked cards for 150 caps.}
+{3010}{}{I will take 1 pair of dice.}
+{3020}{}{I will take 1 pair of loaded dice.}
+{3030}{}{I will take cards.}
+{3040}{}{I will take marked cards.}
+{3050}{}{I will be going.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, don't pass by! I have some things that can be useful if you decide to visit one of Vegas casinos! Dice, cards and other stuff! Don't miss your opportunity!}
+{2010}{}{What do you have?}
+{2020}{}{Not interested.}
+{3000}{}{Dice for 200 caps per one pair, cards for 100 caps. [ He starts whispering ] I also sell loaded dice for 250 caps and marked cards for 150 caps.}
+{3010}{}{I will take 1 pair of dice.}
+{3020}{}{I will take 1 pair of loaded dice.}
+{3030}{}{I will take cards.}
+{3040}{}{I will take marked cards.}
+{3050}{}{I will be going.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, don't pass by! I have some things that can be useful if you decide to visit one of Vegas casinos! Dice, cards and other stuff! Don't miss your opportunity!}
+{2010}{}{What do you have?}
+{2020}{}{Not interested.}
+{3000}{}{Dice for 200 caps per one pair, cards for 100 caps. [ He starts whispering ] I also sell loaded dice for 250 caps and marked cards for 150 caps.}
+{3010}{}{I will take 1 pair of dice.}
+{3020}{}{I will take 1 pair of loaded dice.}
+{3030}{}{I will take cards.}
+{3040}{}{I will take marked cards.}
+{3050}{}{I will be going.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, don't pass by! I have some things that can be useful if you decide to visit one of Vegas casinos! Dice, cards and other stuff! Don't miss your opportunity!}
+{2010}{}{What do you have?}
+{2020}{}{Not interested.}
+{3000}{}{Dice for 200 caps per one pair, cards for 100 caps. [ He starts whispering ] I also sell loaded dice for 250 caps and marked cards for 150 caps.}
+{3010}{}{I will take 1 pair of dice.}
+{3020}{}{I will take 1 pair of loaded dice.}
+{3030}{}{I will take cards.}
+{3040}{}{I will take marked cards.}
+{3050}{}{I will be going.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, don't pass by! I have some things that can be useful if you decide to visit one of Vegas casinos! Dice, cards and other stuff! Don't miss your opportunity!}
+{2010}{}{What do you have?}
+{2020}{}{Not interested.}
+{3000}{}{Dice for 200 caps per one pair, cards for 100 caps. [ He starts whispering ] I also sell loaded dice for 250 caps and marked cards for 150 caps.}
+{3010}{}{I will take 1 pair of dice.}
+{3020}{}{I will take 1 pair of loaded dice.}
+{3030}{}{I will take cards.}
+{3040}{}{I will take marked cards.}
+{3050}{}{I will be going.}
+

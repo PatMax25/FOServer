@@ -1,0 +1,50 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Homeless}
+{200}{}{You see a homeless person.}
+{210}{}{You see a homeless person.}
+{1000}{}{Predialogue installations}
+{1010}{}{error}
+{2000}{}{I had everything.@@Stupid slots.@@Give me some money.@@Do you have any food?@@Learn from my mistakes.@@Its very cold during the night.@@Leave me alone.}
+{100000001}{}{ }
+{100000001}{}{ }
+{100000001}{}{ }
+{100000001}{}{ }
+{100000001}{}{ }
+{100000001}{}{ }
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{error}
+{2000}{}{I had everything.@@Stupid slots.@@Give me some money.@@Do you have any food?@@Learn from my mistakes.@@Its very cold during the night.@@Leave me alone.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{error}
+{2000}{}{I had everything.@@Stupid slots.@@Give me some money.@@Do you have any food?@@Learn from my mistakes.@@Its very cold during the night.@@Leave me alone.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{error}
+{2000}{}{I had everything.@@Stupid slots.@@Give me some money.@@Do you have any food?@@Learn from my mistakes.@@Its very cold during the night.@@Leave me alone.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{error}
+{2000}{}{I had everything.@@Stupid slots.@@Give me some money.@@Do you have any food?@@Learn from my mistakes.@@Its very cold during the night.@@Leave me alone.}
+

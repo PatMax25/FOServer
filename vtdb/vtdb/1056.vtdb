@@ -1,0 +1,14 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = HellShtorm;
+@gender = 0;
+@age = 32;
+
+@special = 8 5 5 5 5 8 5;
+@xp = 1 790 1000;
+@life = 21 73 0 0 0 0 0 0 0;
+@stats = 24 9 85685 3 0 25 10 10 3 5;
+@skills = 37 16 16 62 52 32 20 15 29 23 24 23 30 15 25 20 25 20 0;
+@traits = 552 557;
+@perks = 301;

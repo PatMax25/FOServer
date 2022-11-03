@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{Terminal}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Warning! Can't connect to network.}
+{2010}{}{Login Unavailable}
+
+[czec]
+{100}{}{Terminal}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Warning! Can't connect to network.}
+{2010}{}{Login Unavailable}
+
+[pols]
+{100}{}{Terminal}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Warning! Can't connect to network.}
+{2010}{}{Login Unavailable}
+
+[span]
+{100}{}{Terminal}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Warning! Can't connect to network.}
+{2010}{}{Login Unavailable}
+
+[russ]
+{100}{}{Terminal}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Warning! Can't connect to network.}
+{2010}{}{Login Unavailable}
+

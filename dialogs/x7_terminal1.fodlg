@@ -1,0 +1,96 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+2 2030 @
+3 3000 None 0 #
+2 3010 #
+2 3020 @
+4 4000 None 0 #
+2 4010 #
+2 4020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error. Unstable connection. ]}
+{2010}{}{[ Reseatch Note #5-L ]}
+{2020}{}{[ Research Note #94-F ]}
+{2030}{}{[ Exit ]}
+{3000}{}{Among other species, "Ominus" shows mostly passive behavior: yesterday a series of tests proved that it is the only memeber of this group which has a more calm and psychological way of hunting it's prey. Perhaps, we could try to create some sort of control with this one. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{Today, our colleagues from 51's Lab will send another cargo with DNA samples and examples of several new species. How thrilling! Unfortunately, recent experimental projects have started to fail in our objective criteria, so we have all hopes with the "Ominus" (Yet, there's no guarantee that it should succeed). Must remind group "E" to check neural bioenergy-synthesis of species O-2 and 0-3.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error. Unstable connection. ]}
+{2010}{}{[ Reseatch Note #5-L ]}
+{2020}{}{[ Research Note #94-F ]}
+{2030}{}{[ Exit ]}
+{3000}{}{Among other species, "Ominus" shows mostly passive behavior: yesterdays series of tests proved, that it is the only memeber of group, who have more "calm" way of hunting it's prey.  Perhaps, we could try to create some sort of control with this one. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{Today, our colleague from 51's Labs will send another cargo with DNA samples and exemplars of several new species. How thrilling! Unfortunatley, recent experimental projects were screwed off, so we have all hopes on the "Ominus" (Yet, there's no guarantee that it should succeed). Must remind group "E" to check neural bioenergy-synthesis of species O-2 and 0-3.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error. Unstable connection. ]}
+{2010}{}{[ Reseatch Note #5-L ]}
+{2020}{}{[ Research Note #94-F ]}
+{2030}{}{[ Exit ]}
+{3000}{}{Among other species, "Ominus" shows mostly passive behavior: yesterdays series of tests proved, that it is the only memeber of group, who have more "calm" way of hunting it's prey.  Perhaps, we could try to create some sort of control with this one. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{Today, our colleague from 51's Labs will send another cargo with DNA samples and exemplars of several new species. How thrilling! Unfortunatley, recent experimental projects were screwed off, so we have all hopes on the "Ominus" (Yet, there's no guarantee that it should succeed). Must remind group "E" to check neural bioenergy-synthesis of species O-2 and 0-3.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error. Unstable connection. ]}
+{2010}{}{[ Reseatch Note #5-L ]}
+{2020}{}{[ Research Note #94-F ]}
+{2030}{}{[ Exit ]}
+{3000}{}{Among other species, "Ominus" shows mostly passive behavior: yesterdays series of tests proved, that it is the only memeber of group, who have more "calm" way of hunting it's prey.  Perhaps, we could try to create some sort of control with this one. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{Today, our colleague from 51's Labs will send another cargo with DNA samples and exemplars of several new species. How thrilling! Unfortunatley, recent experimental projects were screwed off, so we have all hopes on the "Ominus" (Yet, there's no guarantee that it should succeed). Must remind group "E" to check neural bioenergy-synthesis of species O-2 and 0-3.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Error. Unstable connection. ]}
+{2010}{}{[ Reseatch Note #5-L ]}
+{2020}{}{[ Research Note #94-F ]}
+{2030}{}{[ Exit ]}
+{3000}{}{Among other species, "Ominus" shows mostly passive behavior: yesterdays series of tests proved, that it is the only memeber of group, who have more "calm" way of hunting it's prey.  Perhaps, we could try to create some sort of control with this one. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{Today, our colleague from 51's Labs will send another cargo with DNA samples and exemplars of several new species. How thrilling! Unfortunatley, recent experimental projects were screwed off, so we have all hopes on the "Ominus" (Yet, there's no guarantee that it should succeed). Must remind group "E" to check neural bioenergy-synthesis of species O-2 and 0-3.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+

@@ -1,0 +1,16 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = WhiteLoh;
+@gender = 0;
+@age = 21;
+
+@special = 9 2 10 1 8 8 2;
+@xp = 3 4082 6000;
+@life = 94 94 0 0 0 0 0 0 0;
+@stats = 24 9 133250 4 0 50 20 4 6 2;
+@skills = 45 20 16 76 54 32 50 15 29 20 24 20 32 24 5 4 10 40 0;
+@traits = 557 558;
+@perks = 301 304;
+@karma = 485:2;
+@kills = 260:2 261 262:2 265:2 266 277:35;

@@ -1,0 +1,529 @@
+//Personal_base.fos
+//script for player bases
+//KompreSor
+//FOnline: 3
+
+#include "_macros.fos"
+#include "MsgStr.h"
+#include "_colors.fos"
+import void MoveCars(Map& from, Map& to) from "car";
+import bool IsEncounterMap(Map@ map) from "utils";
+import bool IsCompanion(Critter&follower) from"follower";  
+import bool isCar(Item@ onItem) from "item_lock";  
+
+void map_item(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE, "_MapUse");
+}
+
+bool _MapUse(Item& item, Critter& cr, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+    if(valid(onCritter) || valid(onItem) || valid(onScenery))
+    {
+        cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_USE_NOTHING);
+        return(true);
+    }
+    Map@ map = cr.GetMap();
+
+    if(!valid(map))
+    {
+        cr.Say(SAY_NETMSG, "Invalid map.");
+        return(false);
+    }
+	if(item.Val0 == 0)
+		{
+        cr.Say(SAY_NETMSG, "map wrogly spawned");
+        return(false);
+		}
+    if(!IsEncounterMap(map))
+		{
+		cr.Say(SAY_NETMSG, "Only on encounter");
+        return(false);
+		}
+    uint location = item.Val0;  //item MUST be spawned with Val0 which should be location ID reserved 1200-1400
+	
+	
+	array<Critter@> players = {cr};
+    int id = CreateLocation(location, cr.WorldX, cr.WorldY, players);
+	Location@ loc = GetLocation(id);
+	Map@ base = loc.GetMapByIndex(0);
+	MoveCars(map,base);
+	uint16 x = 1;
+	uint16 y = 2;
+	base.GetEntireCoords(0, 0, x, y);
+	cr.TransitToMap(base.Id, x, y, cr.Dir);
+	cr.Say(SAY_NETMSG, "|-1 To manage with base use type command ~base");
+	loc.Color = COLOR_RGBA(46, 111, 146, 180);
+    loc.Update();
+	DeleteItem(item);
+    return(true);
+}
+
+void map_scenery(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_SKILL, "skill_scenery");
+	item.SetEvent(ITEM_EVENT_USE_ON_ME, "_map_use_on");
+}
+
+void map_empty(Item& item, bool firstTime)
+{
+   item.SetEvent(ITEM_EVENT_USE, "_MapEmptyUse");
+}
+
+bool _MapEmptyUse(Item& item, Critter& player, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+    if(valid(onCritter) || valid(onItem) || valid(onScenery))
+        return false;
+	bool locations = false;
+   if(item.Val0 == 0)
+		{
+		player.Say(SAY_NETMSG, "Map its empty");
+		return true;
+		}
+	player.SetKnownLoc(true, item.Val0);
+	if(item.Val1 > 0)
+		{
+		player.SetKnownLoc(true, item.Val1);
+		locations = true;
+		}
+	if(item.Val2 > 0)	
+		player.SetKnownLoc(true, item.Val2);
+	if(item.Val3 > 0)	
+		player.SetKnownLoc(true, item.Val3);
+	if(item.Val4 > 0)	
+		player.SetKnownLoc(true, item.Val4);
+	if(item.Val5 > 0)	
+		player.SetKnownLoc(true, item.Val5);
+	if(item.Val6 > 0)	
+		player.SetKnownLoc(true, item.Val6);
+	if(item.Val7 > 0)	
+		player.SetKnownLoc(true, item.Val7);
+	if(item.Val8 > 0)	
+		player.SetKnownLoc(true, item.Val8);
+	if(item.Val9 > 0)	
+		player.SetKnownLoc(true, item.Val9);
+	if(locations)
+		player.Say(SAY_NETMSG, "Locations marked in your pipboy");
+	else player.Say(SAY_NETMSG, "Location marked in your pipboy");
+    return true;
+}
+
+bool _map_use_on(Item& item, Critter& cr, Item@ usedItem)
+{
+    if(!valid(usedItem))
+        return false;
+	if(item.Val0 > 0 )
+		{
+		cr.Say(SAY_NETMSG, "Sharing mode its disabled");
+		return true;
+		}
+    uint16 itemPid = usedItem.GetProtoId();
+	if((int(itemPid) == PID_DYNAMITE))
+    {
+	DeleteItem(usedItem);
+	DeleteLocation(cr.GetMap().GetLocation().Id);
+	return true;
+	}
+	if((int(itemPid) == PID_MAP_EMPTY))
+    {
+	if(usedItem.Val0 == 0)
+		{
+		usedItem.Val0 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	if(usedItem.Val1 == 0)
+		{
+		usedItem.Val1 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	if(usedItem.Val2 == 0)
+		{
+		usedItem.Val2 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	if(usedItem.Val3 == 0)
+		{
+		usedItem.Val3 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	if(usedItem.Val4 == 0)
+		{
+		usedItem.Val4 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	if(usedItem.Val5 == 0)
+		{
+		usedItem.Val5 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	if(usedItem.Val6 == 0)
+		{
+		usedItem.Val6 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	if(usedItem.Val7 == 0)
+		{
+		usedItem.Val7 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	if(usedItem.Val8 == 0)
+		{
+		usedItem.Val8 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	if(usedItem.Val9 == 0)
+		{
+		usedItem.Val9 = cr.GetMap().GetLocation().Id;
+		cr.Say(SAY_NETMSG, "Map Set Successfull");
+		return true;
+		}
+	cr.Say(SAY_NETMSG, "No space on map anymore, use another one");
+	return true;
+	}
+	
+	return false;
+}
+
+bool skill_scenery(Item& item, Critter& player, int skill)
+{
+	if(skill == SK_SCIENCE && player.IsKnownLoc(true, player.GetMap().GetLocation().Id))
+    {
+	if(item.Val0 == 0)
+		{
+		item.Val0 = 1;
+		player.Say(SAY_NETMSG, "Sharing disabled");
+        return(true);
+		}
+	else
+		{
+		item.Val0 = 0;
+		player.Say(SAY_NETMSG, "Sharing enabled");
+        return(true);
+		}
+	}
+	if(player.IsKnownLoc(true, player.GetMap().GetLocation().Id) && item.Val0 == 0)
+		{
+		player.Say(SAY_NETMSG, "You already know this location, to disable sharing use science skill");
+        return(true);
+		
+		}
+	if(player.IsKnownLoc(true, player.GetMap().GetLocation().Id) && item.Val0 == 1)
+		{
+		player.Say(SAY_NETMSG, "You already know this location, to enable sharing use science skill");
+        return(true);
+		
+		}
+	if(!player.IsKnownLoc(true, player.GetMap().GetLocation().Id) && item.Val0 == 1)
+		{
+		player.Say(SAY_NETMSG, "location is not able to share, contact with owner");
+        return(true);
+		}
+	if(!player.IsKnownLoc(true, player.GetMap().GetLocation().Id) && item.Val0 == 0)
+		{
+		player.Say(SAY_NETMSG, "Marked in your pipboy");
+		player.SetKnownLoc(true, player.GetMap().GetLocation().Id);
+        return(true);
+		}
+    return false;
+}
+
+array<uint> tier0bases = { 1200, 1201, 1202};
+uint last0 = 2;
+array<uint> tier1bases = { 1203, 1204, 1205 };
+uint last1 = 2;
+array<uint> tier2bases = { 529, 524, 523, 520, 460, 459, 458, 246, 245, 210, 207, 205, 204, 203, 202, 75 };
+uint last2 = 15;
+array<uint> tier3bases = { 435, 436, 437, 439, 481, 521, 208, 528 };
+uint last3 = 7;
+array<uint> tier4bases = { 440, 463, 464, 467, 468, 469, 470, 471, 472, 480, 482, 518, 525 };
+uint last4 = 12;
+uint last5 = 12;
+array<uint> tier6bases = { 373, 374, 375, 383, 384, 1206 };
+uint last6 = 5;
+array<uint> tier5bases = { 440, 463, 464, 467, 468, 469, 470, 471, 472, 480, 482, 518, 525 };
+
+void r_addbasemap(Critter& player, Critter@ npc)
+{
+	addbasemap(player);
+}
+void addbasemap(Critter& player)
+{
+	Item@ it = player.AddItem(PID_MAP_TO_BASE,  1);
+	switch(Random(1,100))
+	{
+	case 1: 
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+	case 6:
+	case 7:
+	case 8:
+	case 9:
+	case 10:
+	case 11: 
+	case 12:
+	case 13:
+	case 14:
+	case 15:
+	case 16:
+	case 17:
+	case 18:
+	case 19:
+	case 20:
+	case 21: 
+	case 22:
+	case 23:
+	case 24:
+	case 25:
+	case 26:
+	case 27:
+	case 28:
+	case 29:
+	case 30:
+	it.Val0 = tier1bases[Random(0,last1)]; break;
+	case 31: 
+	case 32:
+	case 33:
+	case 34:
+	case 35:
+	case 36:
+	case 37:
+	case 38:
+	case 39:
+	case 40:
+	case 41: 
+	case 42:
+	case 43:
+	case 44:
+	case 45:
+	it.Val0 = tier2bases[Random(0,last2)]; break;
+	case 46:
+	case 47:
+	case 48:
+	case 49:
+	case 50:
+	it.Val0 = tier3bases[Random(0,last3)]; break;
+	case 51:
+	it.Val0 = tier4bases[Random(0,last4)]; break;
+	case 100:
+	if(Random(1,4)==4) 
+		it.Val0 = tier5bases[Random(0,last5)];
+	else if(Random(1,100000)==1) 
+			it.Val0 = tier6bases[Random(0,last6)];
+	else 
+	it.Val0 = tier0bases[Random(0,last0)];
+	break;
+	default:
+	it.Val0 = tier0bases[Random(0,last0)]; break;
+	}
+	it.Update();
+}
+
+void addbasemap(Item& con)
+{
+	Item@ it = con.AddItem(PID_MAP_TO_BASE,  1, 0);
+	switch(Random(1,100))
+	{
+	case 1: 
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+	case 6:
+	case 7:
+	case 8:
+	case 9:
+	case 10:
+	case 11: 
+	case 12:
+	case 13:
+	case 14:
+	case 15:
+	case 16:
+	case 17:
+	case 18:
+	case 19:
+	case 20:
+	case 21: 
+	case 22:
+	case 23:
+	case 24:
+	case 25:
+	case 26:
+	case 27:
+	case 28:
+	case 29:
+	case 30:
+	it.Val0 = tier1bases[Random(0,last1)]; break;
+	case 31: 
+	case 32:
+	case 33:
+	case 34:
+	case 35:
+	case 36:
+	case 37:
+	case 38:
+	case 39:
+	case 40:
+	case 41: 
+	case 42:
+	case 43:
+	case 44:
+	case 45:
+	it.Val0 = tier2bases[Random(0,last2)]; break;
+	case 46:
+	case 47:
+	case 48:
+	case 49:
+	case 50:
+	it.Val0 = tier3bases[Random(0,last3)]; break;
+	case 51:
+	it.Val0 = tier4bases[Random(0,last4)]; break;
+	case 100:
+	if(Random(1,4)==4) 
+		it.Val0 = tier5bases[Random(0,last4)];
+	else if(Random(1,100000)==1) 
+			it.Val0 = tier6bases[Random(0,last6)];
+	else 
+	it.Val0 = tier0bases[Random(0,last0)];
+	break;
+	default:
+	it.Val0 = tier0bases[Random(0,last0)]; break;
+	}
+	it.Update();
+}
+import void InitializeDynamicMob(Map& map) from "mob_dynamic";
+import void InitializeDynamicMob(Map& map, bool withBoss) from "mob_dynamic";
+import bool IsBase(Map@ map) from "world_common";
+import bool IsTent(Map@ map) from "world_common";
+
+void map_init(Map& map, bool firstTime)
+{
+	//map.SetEvent(MAP_EVENT_LOOP_0, "_locupdate");
+   // map.SetLoopTime(0, 1000000);
+}
+
+void updatetentsandbases(Critter& player, int fortest, int r, int)
+{
+	array<Location@> locs;
+	uint num = 0;
+	for(uint i = 0; i < 2000; i++)
+    {
+	num += GetAllLocations(i, locs);
+	}
+	for(uint i = 0; i < num; i++)
+	{
+	if(!valid(locs[i]))
+		continue;
+	array<Map@> maps;
+	locs[i].GetMaps(maps);
+		if(IsBase(maps[0]) || IsTent(maps[0]))
+		{
+		maps[0].SetEvent(MAP_EVENT_LOOP_0, "_locupdate");
+		maps[0].SetLoopTime(0, 1000000);
+		}
+	}
+}
+
+void dungeon_init_1(Map& map, bool firstTime)
+{
+	if(firstTime)
+		switch(map.GetProtoId())
+		{
+			case MAP_LABandits1:
+			case MAP_LABandits1Sewer:
+			case MAP_LABandits2: 
+			case MAP_LABandits2Sewer: 
+			case MAP_LABandits3:
+			case MAP_LABandits3Sewer:
+			InitializeDynamicMob(map); break;
+			case MAP_LABandits3Floor:
+			InitializeDynamicMob(map, true); break;
+		}
+}
+
+void _locupdate(Map& map)
+{
+	bool carinside = false;
+	bool playerinside = false;
+	bool companioninside = false;
+	Location@ loc = map.GetLocation();
+    array<Critter@> crits;
+    uint            num = map.GetCritters(0, FIND_ALL, crits);
+    for(uint i = 0; i < crits.length(); i++)
+    {
+        if(crits[i].IsPlayer())
+			playerinside = true;
+		if(IsCompanion(crits[i]))
+			companioninside = true;
+    }
+	array<Item@> items;
+    uint         n = map.GetItems(0, items);
+	for(uint i = 0; i < items.length(); i++)
+    {
+	if(isCar(items[i]))
+		carinside = true;
+	}
+	
+	if(carinside && playerinside && companioninside)
+		{
+		loc.Color = COLOR_RGBA(0, 0, 0, 180);
+		loc.Update();
+		}
+	if(!carinside && playerinside && companioninside)
+		{
+		loc.Color = COLOR_RGBA(0, 0, 255, 180);
+		loc.Update();
+		}
+	if(carinside && !playerinside && companioninside)
+		{
+		loc.Color = COLOR_RGBA(255, 128, 0, 180);
+		loc.Update();
+		}
+	if(carinside && playerinside && !companioninside)
+		{
+		loc.Color = COLOR_RGBA(153, 0, 153, 180);
+		loc.Update();
+		}
+	if(!carinside && !playerinside && companioninside)
+		{
+		loc.Color = COLOR_RGBA(255, 255, 0, 180);
+		loc.Update();
+		}
+	if(!carinside && playerinside && !companioninside)
+		{
+		loc.Color = COLOR_RGBA(255, 102, 178, 180);
+		loc.Update();
+		}
+	if(carinside && !playerinside && !companioninside)
+		{
+		loc.Color = COLOR_RGBA(46, 111, 146, 180);
+		loc.Update();
+		}
+	if(!carinside && !playerinside && !companioninside)
+		{
+		loc.Color = COLOR_RGBA(192, 192, 192, 180);
+		loc.Update();
+		}
+}
+
+
+
+//dialog
+
+bool d_know(Critter& player, Critter@ terminal)
+{
+    if(player.IsKnownLoc(true, player.GetMap().GetLocation().Id))
+		return true;
+	return false;
+}

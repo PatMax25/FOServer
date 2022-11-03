@@ -1,0 +1,8 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = infet;
+@gender = 0;
+@age = 42;
+
+@special = 6 6 10 1 6 10 1;

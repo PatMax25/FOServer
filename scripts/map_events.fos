@@ -1,0 +1,945 @@
+//
+// FOnline3
+// KompreSor
+//
+// map_events.fos
+//
+
+//#include "mapdata_h.fos"
+#include "_defines.fos"
+//
+
+#ifdef __SERVER
+//points commands
+#include "mob_dynamic.fos"
+#include "minigames.fos"
+#include "mapdata_h.fos"
+import void addbestweapon(Critter& cr) from "cheats";
+import void getMisc(Critter& cr) from "cheats";
+import void givearmor(Critter& cr, bool sneak) from "cheats";
+import void DropDrugEffects(Critter& cr, bool dropAddictions) from "drugs";
+//for dialogs
+
+bool allowbos = false;
+bool allowenclave = false;
+bool allowncr = false;
+bool allowvc = false;
+bool allowdef = false;
+bool allowunity = false;
+bool event_started = false;
+void r_tp(Critter& player, Critter@ npc, int entire)
+{
+	//if(!event_started)
+	//	return;
+	GameVar@ var=GetLocalVar(LVAR_we_gear, player.Id);
+	var = 0;
+	uint16 x, y;
+    x = y = 0;
+	Map@ map = player.GetMap();
+	map.GetEntireCoords(entire, 0, x, y);
+	player.TransitToHex(x, y, Random(0,5));
+	switch(player.Param[ST_NPC_ROLE])
+	{
+		case 204: {	Item@ armor = player.AddItem(PID_ENCLAVE_COMBAT_ARMOR,1); armor.Val0 = 14999; break; }
+		case 209: {	Item@ armor = player.AddItem(PID_BROTHERHOOD_COMBAT_ARMOR,1); armor.Val0 = 14999; break; }
+		case 207: {	Item@ armor = player.AddItem(PID_NCR_ARMOR,1); armor.Val0 = 14999; break; }
+		case 206: {	Item@ armor = player.AddItem(PID_CLOTHES_POLICE,1); armor.Val0 = 14999; break; }
+		case 208: {	Item@ armor = player.AddItem(PID_METAL_ARMOR_MK_II,1); armor.Val0 = 14999; break; }
+		case 212: {	Item@ armor = player.AddItem(PID_DESERT_COMBAT_ARMOR,1); armor.Val0 = 14999; break; }
+	}
+	player.AddScoreVal(SCORE_WE_KILLS, 0);
+	player.AddScoreVal(SCORE_WE_PLAYERS_KILLS, 0);
+	player.AddScoreVal(SCORE_WE_FF, 0);
+	player.AddScoreVal(SCORE_WE_PLAYERS_FF, 0);
+	player.AddScoreVal(SCORE_WE_DEATHS, 0);
+	player.ParamBase[WE_RANKED_GAME] = 0;
+	DropDrugEffects(player, true);
+	if(Random(0,1)==0)
+	player.AddItem(PID_COMBAT_HELMET_MK_II,1);
+	else player.AddItem(PID_METAL_HELMET_MK2,1);
+	getMisc(player);
+	if(player.Param[PE_MUTANT] > 0)
+		givearmor(player,false);
+	if(player.Param[SK_SNEAK] > 199)
+		givearmor(player,true);
+}
+
+void reno_lobby(Map& map, bool firstTime)
+{
+	array<Critter@> critters;
+    int allcrit = map.GetCritters(0, FIND_ALL | FIND_ONLY_NPC, critters);
+	for(int c = 0; c < allcrit; c++)
+         {
+		 critters[c].ParamBase[MODE_NO_STEAL] = 1;
+		 critters[c].ParamBase[MODE_UNLIMITED_AMMO] = 1;
+		 critters[c].ParamBase[MODE_NO_DROP] = 1;
+		 critters[c].ParamBase[MODE_NO_LOOT] = 1;
+		 }
+	_MapSetMode(map, MAP_MODE_NO_PVP);
+	if(firstTime)
+		{
+		_MapSetMode(map, MAP_MODE_NO_PVP);
+		for(int c = 0; c < allcrit; c++)
+         {
+		 critters[c].ParamBase[MODE_NO_STEAL] = 1;
+		 critters[c].ParamBase[MODE_UNLIMITED_AMMO] = 1;
+		 critters[c].ParamBase[MODE_NO_DROP] = 1;
+		 critters[c].ParamBase[MODE_NO_LOOT] = 1;
+		 }
+		
+		}
+		
+	
+}
+
+void preseason(Map& map, bool firstTime)
+{
+	array<Critter@> critters;
+    int allcrit = map.GetCritters(0, FIND_ALL | FIND_ONLY_NPC, critters);
+	
+		
+	//CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_war_event", map.Id, false);
+}
+void endevent()
+{
+	event_started = false;
+}
+uint e_war_event(array<uint>@ mobdata)
+{
+	Map@ map = GetMap(mobdata[0]);
+	uint teamA = 0;
+	uint teamB = 0;
+	uint Mapa = 0;
+	string teamAname = "";
+	string teamBname = "";
+	string mapaname = "";
+	allowenclave = false;
+	allowbos = false;
+	allowncr = false;
+	allowvc = false;
+	allowunity = false;
+	allowdef = false;
+	switch(Random(0,4))
+	{
+	case 0:
+	Mapa = 0;
+	mapaname = "New Reno";
+	break;
+	case 1:
+	Mapa = 1;
+	mapaname = "Salt Lake City";
+	break;
+	case 2:
+	Mapa = 2;
+	mapaname = "Vegas";
+	break;
+	case 3:
+	Mapa = 3;
+	mapaname = "Navarro";
+	break;
+	case 4:
+	Mapa = 4;
+	mapaname = "San Francisco";
+	break;
+	}
+	switch(Random(1,6))
+	{
+	case 1: teamA = 1; teamB = 2; break;
+	case 2: teamA = 1; teamB = 4; break;
+	case 3: teamA = 1; teamB = 5; break;
+	case 4: teamA = 3; teamB = 4; break;
+	case 5: teamA = 2; teamB = 5; break;
+	case 6: teamA = 4; teamB = 5; break;
+	}
+	switch(teamA)
+	{
+	case 1: teamAname = "Enclave"; break;
+	case 2: teamAname = "Brotherhood of Steel"; break;
+	case 3: teamAname = "New California Republic"; break;
+	case 4: teamAname = "Vault City"; break;
+	case 5: teamAname = "Unity"; break;
+	case 6: teamAname = "Defenders"; break;
+	}
+	switch(teamB)
+	{
+	case 1: teamBname = "Enclave"; break;
+	case 2: teamBname = "Brotherhood of Steel"; break;
+	case 3: teamBname = "New California Republic"; break;
+	case 4: teamBname = "Vault City"; break;
+	case 5: teamBname = "Unity"; break;
+	case 6: teamBname = "Defenders"; break;
+	}
+	array<Critter@> recruiter;
+	for(uint j = 0; j < map.GetCritters(134, FIND_ONLY_NPC | FIND_ALL, recruiter); j++)
+	{
+	if(recruiter[j].Param[ST_DIALOG_ID] != 10203)
+		continue;
+	switch(teamA)
+		{
+		case 1: 
+		allowenclave = true;
+		recruiter[j].ParamBase[ST_BANK1] = 1;
+		break;
+		case 2: 
+		allowbos = true;
+		recruiter[j].ParamBase[ST_BANK2] = 1;
+		break;
+		case 3: 
+		allowncr = true;
+		recruiter[j].ParamBase[ST_BANK3] = 1;
+		break;
+		case 4: 
+		allowvc = true;
+		recruiter[j].ParamBase[ST_BANK4] = 1;
+		break;
+		case 5: 
+		allowunity = true;
+		recruiter[j].ParamBase[ST_BANK5] = 1;
+		break;
+		case 6: 
+		allowdef = true;
+		recruiter[j].ParamBase[ST_BANK6] = 1;
+		break;
+		}
+	switch(teamB)
+		{
+		case 1: 
+		allowenclave = true;
+		recruiter[j].ParamBase[ST_BANK1] = 1;
+		break;
+		case 2: 
+		allowbos = true;
+		recruiter[j].ParamBase[ST_BANK2] = 1;
+		break;
+		case 3: 
+		allowncr = true;
+		recruiter[j].ParamBase[ST_BANK3] = 1;
+		break;
+		case 4: 
+		allowvc = true;
+		recruiter[j].ParamBase[ST_BANK4] = 1;
+		break;
+		case 5: 
+		allowunity = true;
+		recruiter[j].ParamBase[ST_BANK5] = 1;
+		break;
+		case 6: 
+		allowdef = true;
+		recruiter[j].ParamBase[ST_BANK6] = 1;
+		break;
+		}
+	
+	}
+	array<int> data;
+	AddBroadcastBuffer(BROADCAST_SERVER_EVENT_MSG, REAL_MINUTE(10), 0, "War Event will start in %COUNTDOWN%, " + teamAname + " vs " + teamBname +"("+mapaname+")" , data, REAL_MINUTE(10), BROADCAST_FILTER_NONE)
+	.SendToAll();
+	array<uint> filldata = { map.Id, teamA, teamB, Mapa};
+	CreateTimeEvent(AFTER(REAL_MINUTE(10)), "e_war_event_on", filldata, false);
+	return REAL_MINUTE(120);
+}
+import void createofficer(Map& map, int team, int t4, int attack, uint16 x, uint16 y) from "cheats";
+import void preseason_war(Critter& cr, uint teamA, uint teamB, uint score, Map& lobby, Map& map) from "cheats";
+uint e_war_event_on(array<uint>@ mobdata)
+{
+
+	Map@ lobby = GetMap(mobdata[0]);
+	array<Critter@> teleporters;
+	for(uint j = 0; j < lobby.GetCritters(879, FIND_ONLY_NPC | FIND_ALL, teleporters); j++)
+		if(valid(teleporters[j]))
+			DeleteNpc(teleporters[j]);
+	event_started = true;
+	uint teamA = mobdata[1];
+
+	uint teamB = mobdata[2];
+
+	uint mapa = mobdata[3];
+
+	uint locid = 415;
+	uint mapid = 2;
+	switch(mapa)
+	{
+	case 0:
+	locid = 416;
+	mapid = 2;
+	break;
+	case 1:
+	locid = 415;
+	mapid = 2;
+	break;
+	case 2:
+	locid = 418;
+	mapid = 1;
+	break;
+	case 3:
+	locid = 416;
+	mapid = 4;
+	break;
+	case 4:
+	locid = 416;
+	mapid = 3;
+	break;
+	
+	}
+	uint entire = 0;
+	uint entire2 = 0;
+	uint16 x = 1;
+	uint16 y = 2;
+	uint team = 0;
+	uint score = 500;
+	uint teamreal1 = 0;
+	uint teamreal2 = 0;
+
+	array<Critter@> players;
+	int            num = GetAllPlayers(players);
+
+	score = score*num;
+
+	uint attack = 0; //can be diffrent in maps
+	int teleportPolicy = 0;
+	uint     dialogId = 10810;
+
+	array<Critter@> nobody;
+	int id = CreateLocation(locid, 1025, 925, nobody);
+    Location@ loc = GetLocation(id);
+    Map@ map = loc.GetMapByIndex(mapid);
+	switch(teamA)
+	{
+	case 1: entire = 204; team = 1; attack = 1; teamreal1 = 5; break;
+	case 2: entire = 209; team = 2; attack = 2; teamreal1 = 6; break;
+	case 3: entire = 207; team = 3; attack = 2; teamreal1 = 7; break;
+	case 4: entire = 206; team = 4; attack = 3; teamreal1 = 8; break;
+	case 5: entire = 212; team = 6; attack = 0; teamreal1 = 12; break;
+	case 6: entire = 208; team = 5; break;
+	}
+
+	lobby.GetEntireCoords(entire, 0, x, y);
+	
+    Critter@ npc = AddNpc(lobby, 879, x, y, 3,
+                          dialogId, "", 0, 0, 0, 0, 0, false, 9999);
+	
+    SetLvar(npc, LVAR_warzone_terminal_policy, teleportPolicy);
+    SetLvar(npc, LVAR_warzone_terminal_destination, map.Id);
+	map.GetEntireCoords(entire, 0, x, y);
+    npc.ParamBase[ST_VAR1] = (((y << 16) & 0xFFFF0000) | (x & 0x0000FFFF));
+
+	createofficer(map,team,1,attack,x,y);
+	map.GetEntireCoords(entire, 1, x, y);
+	createofficer(map,team,1,attack,x,y);
+	switch(teamB)
+	{
+	case 1: entire = 204; team = 1; attack = 1; teamreal2 = 5; break;
+	case 2: entire = 209; team = 2; attack = 2; teamreal2 = 6; break;
+	case 3: entire = 207; team = 3; attack = 2; teamreal2 = 7; break;
+	case 4: entire = 206; team = 4; attack = 3; teamreal2 = 8; break;
+	case 5: entire = 212; team = 6; attack = 0; teamreal2 = 12; break;
+	case 6: entire = 208; team = 5; break;
+	}
+
+	lobby.GetEntireCoords(entire, 0, x, y);
+	
+    Critter@ npc2 = AddNpc(lobby, 879, x, y, 3,
+                          dialogId, "", 0, 0, 0, 0, 0, false, 9999);
+    SetLvar(npc2, LVAR_warzone_terminal_policy, teleportPolicy);
+    SetLvar(npc2, LVAR_warzone_terminal_destination, map.Id);
+	map.GetEntireCoords(entire, 0, x, y);
+    npc2.ParamBase[ST_VAR1] = (((y << 16) & 0xFFFF0000) | (x & 0x0000FFFF));
+	createofficer(map,team,1,attack,x,y);
+	map.GetEntireCoords(entire, 1, x, y);
+	createofficer(map,team,1,attack,x,y);
+	Critter@ warnpc = AddNpc(map, 879, 1, 2, 3,
+                          dialogId, "", 0, 0, 0, 0, 0, false, 9999);
+	CreateTimeEvent(AFTER(REAL_MINUTE(100)), "e_war_event_off", warnpc.Id, false);
+						 
+	entire = 150;					  
+	map.GetEntireCoords(entire, Random(0,map.CountEntire(150)), x, y);
+	Item@ flag1 = map.AddItem(x,y,9208,1);
+	flag1.SetScript("cheats@_flag");
+	map.GetEntireCoords(entire, Random(0,map.CountEntire(150)), x, y);
+	Item@ flag2 = map.AddItem(x,y,9208,1);
+	flag2.SetScript("cheats@_flag");
+	map.GetEntireCoords(entire, Random(0,map.CountEntire(150)), x, y);
+	Item@ flag3 = map.AddItem(x,y,9208,1);
+	flag3.SetScript("cheats@_flag");
+	preseason_war(warnpc, teamreal1, teamreal2, score, lobby, map);
+
+	return 0;
+	
+}
+import void endevent(Critter& cr, int teamwin, int reward, int exp) from "cheats";
+uint e_war_event_off(array<uint>@ mobdata)
+{
+	endevent(GetCritter(mobdata[0]), 1, 1, 2);
+	event_started = false;
+	return 0; 
+}
+
+void clearitems(Critter& cr)
+{
+	array<Item@> items;
+    int          count = cr.GetItems(-1, items);
+	for(int i = 0; i < count; i++)
+		DeleteItem(items[i]);
+}
+bool _UseSkillOnDoor(Item& item, Critter& crit, int skill)
+{
+    RunDialog(crit, 10210, item.HexX, item.HexY, false);
+    return true;
+}
+
+void _Door(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE_ON_ME, "_UseItemOnDoor");
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseSkillOnDoor");
+}
+
+bool _UseItemOnDoor(Item& item, Critter& crit, Item@ usedItem)
+{
+    return true;
+}
+
+bool s_open(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    RunDialog(player, 10211, terminal.HexX, terminal.HexY, false);
+    return true;
+}
+
+void r_tpenter(Critter& player, Critter@ npc, int entire)
+{
+	uint16 x, y;
+    x = y = 0;
+	Map@ map = player.GetMap();
+	map.GetEntireCoords(entire, 0, x, y);
+	player.TransitToHex(x, y, Random(0,5));
+}
+void dlg_todef(Critter& player, Critter@ terminal)
+{
+	if(allowdef)
+	{
+	if(player.Param[ST_LEVEL] < 24)
+		{
+		terminal.Say(SAY_NORM_ON_HEAD, "Your level its too low.");
+		return;
+		}
+	team(terminal, 5, 15, player.Id);
+	player.ParamBase[ST_NPC_ROLE] = 208;
+	clearitems(player);
+	}
+	else terminal.Say(SAY_NORM_ON_HEAD, "that team does not take part in this event.");
+}
+
+void dlg_tovc(Critter& player, Critter@ terminal)
+{
+	if(allowvc)
+	{
+	if(player.Param[ST_LEVEL] < 24)
+		{
+		terminal.Say(SAY_NORM_ON_HEAD, "Your level its too low.");
+		return;
+		}
+	team(terminal, 4, 15, player.Id);
+	player.ParamBase[ST_NPC_ROLE] = 206;
+	clearitems(player);
+	}
+	else terminal.Say(SAY_NORM_ON_HEAD, "that team does not take part in this event.");
+}
+
+void dlg_toncr(Critter& player, Critter@ terminal)
+{
+	if(allowncr)
+	{
+	if(player.Param[ST_LEVEL] < 24)
+		{
+		terminal.Say(SAY_NORM_ON_HEAD, "Your level its too low.");
+		return;
+		}
+	team(terminal, 3, 15, player.Id);
+	player.ParamBase[ST_NPC_ROLE] = 207;
+	clearitems(player);
+	}
+	else terminal.Say(SAY_NORM_ON_HEAD, "that team does not take part in this event.");
+}
+
+void dlg_tobos(Critter& player, Critter@ terminal)
+{
+	if(allowbos)
+	{
+	if(player.Param[ST_LEVEL] < 24)
+		{
+		terminal.Say(SAY_NORM_ON_HEAD, "Your level its too low.");
+		return;
+		}
+	team(terminal, 2, 15, player.Id);
+	player.ParamBase[ST_NPC_ROLE] = 209;
+	clearitems(player);
+		}
+	else terminal.Say(SAY_NORM_ON_HEAD, "that team does not take part in this event.");
+}
+
+void dlg_toenclave(Critter& player, Critter@ terminal)
+{
+	if(allowenclave)
+	{
+	if(player.Param[ST_LEVEL] < 24)
+		{
+		terminal.Say(SAY_NORM_ON_HEAD, "Your level its too low.");
+		return;
+		}
+	team(terminal, 1, 15, player.Id);
+	player.ParamBase[ST_NPC_ROLE] = 204;
+	clearitems(player);
+		}
+	else terminal.Say(SAY_NORM_ON_HEAD, "that team does not take part in this event.");
+}
+
+void dlg_tounity(Critter& player, Critter@ terminal)
+{
+	if(allowunity)
+	{
+	if(player.Param[ST_LEVEL] < 24)
+		{
+		terminal.Say(SAY_NORM_ON_HEAD, "Your level its too low.");
+		return;
+		}
+	team(terminal, 6, 15, player.Id);
+	player.ParamBase[ST_NPC_ROLE] = 212;
+	clearitems(player);
+		}
+	else terminal.Say(SAY_NORM_ON_HEAD, "that team does not take part in this event.");
+}
+
+//gm dialogs
+void dlg_adddef(Critter& player, Critter@ terminal)
+{
+	allowdef = true;
+	terminal.ParamBase[ST_BANK6] = 1;
+}
+
+void dlg_addvc(Critter& player, Critter@ terminal)
+{
+	allowvc = true;
+	terminal.ParamBase[ST_BANK4] = 1;
+}
+
+void dlg_addncr(Critter& player, Critter@ terminal)
+{
+	allowncr = true;
+	terminal.ParamBase[ST_BANK3] = 1;
+}
+
+void dlg_addbos(Critter& player, Critter@ terminal)
+{
+	allowbos = true;
+	terminal.ParamBase[ST_BANK2] = 1;
+}
+
+void dlg_addenclave(Critter& player, Critter@ terminal)
+{
+	allowenclave = true;
+	terminal.ParamBase[ST_BANK1] = 1;
+}
+
+void dlg_addunity(Critter& player, Critter@ terminal)
+{
+	allowunity = true;
+	terminal.ParamBase[ST_BANK5] = 1;
+}
+
+void dlg_disunity(Critter& player, Critter@ terminal)
+{
+	allowunity = false;
+	terminal.ParamBase[ST_BANK5] = 0;
+}
+
+void dlg_disdef(Critter& player, Critter@ terminal)
+{
+	allowdef = false;
+	terminal.ParamBase[ST_BANK6] = 0;
+}
+
+void dlg_disvc(Critter& player, Critter@ terminal)
+{
+	allowvc = false;
+	terminal.ParamBase[ST_BANK4] = 0;
+}
+
+void dlg_disncr(Critter& player, Critter@ terminal)
+{
+	allowncr = false;
+	terminal.ParamBase[ST_BANK3] = 0;
+}
+
+void dlg_disbos(Critter& player, Critter@ terminal)
+{
+	allowbos = false;
+	terminal.ParamBase[ST_BANK2] = 0;
+}
+
+void dlg_disenclave(Critter& player, Critter@ terminal)
+{
+	allowenclave = false;
+	terminal.ParamBase[ST_BANK1] = 0;
+}
+bool d_canenclave(Critter& player, Critter@ npc)
+{
+	if(!allowenclave)
+		return false;
+	if(player.Param[ST_NPC_ROLE] > 20)
+		return false;
+		
+	int teamA = 0;
+	int teamB = 0;
+	uint teamACount = 0;
+	uint teamBCount = 0;
+	bool myteam = false;
+	if(npc.Param[ST_BANK1] > 0)
+		teamA = 204;
+	if(npc.Param[ST_BANK2] > 0 && teamA == 0)
+		teamA = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA == 0)
+		teamA = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA == 0)
+		teamA = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA == 0)
+		teamA = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA == 0)
+		teamA = 208;
+	if(npc.Param[ST_BANK2] > 0 && teamA != 0)
+		teamB = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA != 0)
+		teamB = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA != 0)
+		teamB = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA != 0)
+		teamB = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA != 0)
+		teamB = 208;
+	 array<Critter@> players;
+	 int            num = GetAllPlayers(players);
+	 for(int i = 0; i < num; i++)
+	 {
+	 if(players[i].ParamBase[ST_NPC_ROLE] == teamA && players[i].IsPlayer())
+		teamACount++;
+	if(players[i].ParamBase[ST_NPC_ROLE] == teamB && players[i].IsPlayer())
+		teamBCount++;
+	 
+	 }
+	uint enemy_team = 0; 
+	uint my_team = 0; 
+	if(teamA == 204)
+		{
+		enemy_team = teamBCount;
+		my_team = teamACount;
+		}
+	if(teamB == 204)
+		{
+		enemy_team = teamA;
+		my_team = teamBCount;
+		}
+	if(my_team > enemy_team+1)
+		return false;
+    return true;
+}
+bool d_canbos(Critter& player, Critter@ npc)
+{
+	if(!allowbos)
+		return false;
+	if(player.Param[ST_NPC_ROLE] > 20)
+		return false;
+		
+	int teamA = 0;
+	int teamB = 0;
+	uint teamACount = 0;
+	uint teamBCount = 0;
+	bool myteam = false;
+	if(npc.Param[ST_BANK1] > 0)
+		teamA = 204;
+	if(npc.Param[ST_BANK2] > 0 && teamA == 0)
+		teamA = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA == 0)
+		teamA = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA == 0)
+		teamA = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA == 0)
+		teamA = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA == 0)
+		teamA = 208;
+	if(npc.Param[ST_BANK2] > 0 && teamA != 0)
+		teamB = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA != 0)
+		teamB = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA != 0)
+		teamB = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA != 0)
+		teamB = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA != 0)
+		teamB = 208;
+	 array<Critter@> players;
+	 int            num = GetAllPlayers(players);
+	 for(int i = 0; i < num; i++)
+	 {
+	 if(players[i].Param[ST_NPC_ROLE] == teamA && players[i].IsPlayer())
+		teamACount++;
+	if(players[i].Param[ST_NPC_ROLE] == teamB && players[i].IsPlayer())
+		teamBCount++;
+	 
+	 }
+	uint enemy_team = 0; 
+	uint my_team = 0; 
+	if(teamA == 209)
+		{
+		enemy_team = teamBCount;
+		my_team = teamACount;
+		}
+	if(teamB == 209)
+		{
+		enemy_team = teamA;
+		my_team = teamBCount;
+		}
+	if(my_team > enemy_team+1)
+		return false;
+    return true;
+}
+bool d_canncr(Critter& player, Critter@ npc)
+{
+	if(!allowncr)
+		return false;
+	if(player.Param[ST_NPC_ROLE] > 20)
+		return false;
+		
+	int teamA = 0;
+	int teamB = 0;
+	uint teamACount = 0;
+	uint teamBCount = 0;
+	bool myteam = false;
+	if(npc.Param[ST_BANK1] > 0)
+		teamA = 204;
+	if(npc.Param[ST_BANK2] > 0 && teamA == 0)
+		teamA = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA == 0)
+		teamA = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA == 0)
+		teamA = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA == 0)
+		teamA = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA == 0)
+		teamA = 208;
+	if(npc.Param[ST_BANK2] > 0 && teamA != 0)
+		teamB = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA != 0)
+		teamB = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA != 0)
+		teamB = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA != 0)
+		teamB = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA != 0)
+		teamB = 208;
+	 array<Critter@> players;
+	 int            num = GetAllPlayers(players);
+	 for(int i = 0; i < num; i++)
+	 {
+	 if(players[i].Param[ST_NPC_ROLE] == teamA && players[i].IsPlayer())
+		teamACount++;
+	if(players[i].Param[ST_NPC_ROLE] == teamB && players[i].IsPlayer())
+		teamBCount++;
+	 
+	 }
+	uint enemy_team = 0; 
+	uint my_team = 0; 
+	if(teamA == 207)
+		{
+		enemy_team = teamBCount;
+		my_team = teamACount;
+		}
+	if(teamB == 207)
+		{
+		enemy_team = teamA;
+		my_team = teamBCount;
+		}
+	if(my_team > enemy_team+1)
+		return false;
+    return true;
+}
+bool d_canvc(Critter& player, Critter@ npc)
+{
+	if(!allowvc)
+		return false;
+	if(player.Param[ST_NPC_ROLE] > 20)
+		return false;
+		
+	int teamA = 0;
+	int teamB = 0;
+	uint teamACount = 0;
+	uint teamBCount = 0;
+	bool myteam = false;
+	if(npc.Param[ST_BANK1] > 0)
+		teamA = 204;
+	if(npc.Param[ST_BANK2] > 0 && teamA == 0)
+		teamA = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA == 0)
+		teamA = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA == 0)
+		teamA = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA == 0)
+		teamA = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA == 0)
+		teamA = 208;
+	if(npc.Param[ST_BANK2] > 0 && teamA != 0)
+		teamB = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA != 0)
+		teamB = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA != 0)
+		teamB = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA != 0)
+		teamB = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA != 0)
+		teamB = 208;
+	 array<Critter@> players;
+	 int            num = GetAllPlayers(players);
+	 for(int i = 0; i < num; i++)
+	 {
+	 if(players[i].Param[ST_NPC_ROLE] == teamA && players[i].IsPlayer())
+		teamACount++;
+	if(players[i].Param[ST_NPC_ROLE] == teamB && players[i].IsPlayer())
+		teamBCount++;
+	 
+	 }
+	uint enemy_team = 0; 
+	uint my_team = 0; 
+	if(teamA == 206)
+		{
+		enemy_team = teamBCount;
+		my_team = teamACount;
+		}
+	if(teamB == 206)
+		{
+		enemy_team = teamA;
+		my_team = teamBCount;
+		}
+	if(my_team > enemy_team+1)
+		return false;
+    return true;
+}
+bool d_canunity(Critter& player, Critter@ npc)
+{
+	if(!allowunity)
+		return false;
+	if(player.Param[ST_NPC_ROLE] > 20)
+		return false;
+		
+	int teamA = 0;
+	int teamB = 0;
+	uint teamACount = 0;
+	uint teamBCount = 0;
+	bool myteam = false;
+	if(npc.Param[ST_BANK1] > 0)
+		teamA = 204;
+	if(npc.Param[ST_BANK2] > 0 && teamA == 0)
+		teamA = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA == 0)
+		teamA = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA == 0)
+		teamA = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA == 0)
+		teamA = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA == 0)
+		teamA = 208;
+	if(npc.Param[ST_BANK2] > 0 && teamA != 0)
+		teamB = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA != 0)
+		teamB = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA != 0)
+		teamB = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA != 0)
+		teamB = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA != 0)
+		teamB = 208;
+	 array<Critter@> players;
+	 int            num = GetAllPlayers(players);
+	 for(int i = 0; i < num; i++)
+	 {
+	 if(players[i].Param[ST_NPC_ROLE] == teamA && players[i].IsPlayer())
+		teamACount++;
+	if(players[i].Param[ST_NPC_ROLE] == teamB && players[i].IsPlayer())
+		teamBCount++;
+	 
+	 }
+	uint enemy_team = 0; 
+	uint my_team = 0; 
+	if(teamA == 212)
+		{
+		enemy_team = teamBCount;
+		my_team = teamACount;
+		}
+	if(teamB == 212)
+		{
+		enemy_team = teamA;
+		my_team = teamBCount;
+		}
+	if(my_team > enemy_team+1)
+		return false;
+    return true;
+}
+bool d_candef(Critter& player, Critter@ npc)
+{
+	if(!allowdef)
+		return false;
+	if(player.Param[ST_NPC_ROLE] > 20)
+		return false;
+		
+	int teamA = 0;
+	int teamB = 0;
+	uint teamACount = 0;
+	uint teamBCount = 0;
+	bool myteam = false;
+	if(npc.Param[ST_BANK1] > 0)
+		teamA = 204;
+	if(npc.Param[ST_BANK2] > 0 && teamA == 0)
+		teamA = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA == 0)
+		teamA = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA == 0)
+		teamA = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA == 0)
+		teamA = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA == 0)
+		teamA = 208;
+	if(npc.Param[ST_BANK2] > 0 && teamA != 0)
+		teamB = 209;
+	if(npc.Param[ST_BANK3] > 0 && teamA != 0)
+		teamB = 207;
+	if(npc.Param[ST_BANK4] > 0 && teamA != 0)
+		teamB = 206;
+	if(npc.Param[ST_BANK5] > 0 && teamA != 0)
+		teamB = 212;
+	if(npc.Param[ST_BANK6] > 0 && teamA != 0)
+		teamB = 208;
+	 array<Critter@> players;
+	 int            num = GetAllPlayers(players);
+	 for(int i = 0; i < num; i++)
+	 {
+	 if(players[i].Param[ST_NPC_ROLE] == teamA && players[i].IsPlayer())
+		teamACount++;
+	if(players[i].Param[ST_NPC_ROLE] == teamB && players[i].IsPlayer())
+		teamBCount++;
+	 
+	 }
+	uint enemy_team = 0; 
+	uint my_team = 0; 
+	if(teamA == 208)
+		{
+		enemy_team = teamBCount;
+		my_team = teamACount;
+		}
+	if(teamB == 208)
+		{
+		enemy_team = teamA;
+		my_team = teamBCount;
+		}
+	if(my_team > enemy_team+1)
+		return false;
+    return true;
+}
+# endif
+# ifdef __CLIENT
+
+# endif

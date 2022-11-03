@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 R _script dialog@r_OpenDoor 1 700 R _script dialog@r_OpenDoor 1 701 R _script dialog@r_OpenDoor 1 702 R _script dialog@r_OpenDoor 1 703 R _script dialog@r_OpenDoor 1 704 R _script dialog@r_OpenDoor 1 705 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! CRITICAL POWER ERROR! UNABLE TO LOAD MAINFRAME! ]}
+{2010}{}{[ Open doors ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Operating... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! CRITICAL POWER ERROR! UNABLE TO LOAD MAINFRAME! ]}
+{2010}{}{[ Open doors ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Operating... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! CRITICAL POWER ERROR! UNABLE TO LOAD MAINFRAME! ]}
+{2010}{}{[ Open doors ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Operating... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! CRITICAL POWER ERROR! UNABLE TO LOAD MAINFRAME! ]}
+{2010}{}{[ Open doors ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Operating... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! CRITICAL POWER ERROR! UNABLE TO LOAD MAINFRAME! ]}
+{2010}{}{[ Open doors ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Operating... ]}
+

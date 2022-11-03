@@ -1,0 +1,114 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+5 2020 #
+65506 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 #
+5 3020 #
+2 3030 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 &
+
+[engl]
+{100}{}{Gloria}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello and welcome to Van Graffs. Do you wish to buy something?}
+{2010}{}{Who are you, people?}
+{2020}{}{Who are you?}
+{2030}{}{Show me your stock. [ Barter ]}
+{2040}{}{I will be going. [ end dialogue ]}
+{3000}{}{We are Van Graffs, the major power in Reno. We sell the finest energy weapons and armors. Van Graffs trademark is well known around the wastes for its quality.}
+{3010}{}{Can you tell me more about energy weapons?}
+{3020}{}{And who are you exactly?}
+{3030}{}{Lets switch the topic.}
+{4000}{}{With pleasure. Unlike the monkeys in Gun Runners, we follow the way of technological advance. Energy weapons are our future. In general there are 3 types - laser, plasma and electro. Laser is good in its range, plasma is good in its damage and electro goes well in all situations.}
+{4010}{}{Lets talk about something else.}
+{5000}{}{Name is Gloria. That's all you need to know,}
+{5010}{}{Fine, one more thing...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello and welcome to Van Graffs. Do you wish to buy something?}
+{2010}{}{Who are you, people?}
+{2020}{}{Who are you?}
+{2030}{}{Show me your stock.}
+{2040}{}{I will be going.}
+{3000}{}{We are Van Graffs, the major power in Reno. We sell the finest energy weapons and armors. Van Graffs trademark is well known around the wastes for its quality.}
+{3010}{}{Can you tell me more about energy weapons?}
+{3020}{}{And who are you exactly?}
+{3030}{}{Lets switch the topic.}
+{4000}{}{With pleasure. Unlike the monkeys in Gun Runners, we follow the way of technological advance. Energy weapons are our future. In general there are 3 types - laser, plasma and electro. Laser is good in its range, plasma is good in its damage and electro goes well in all situations.}
+{4010}{}{Lets talk about something else.}
+{5000}{}{Name is Gloria. That's all you need to know,}
+{5010}{}{Fine, one more thing...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello and welcome to Van Graffs. Do you wish to buy something?}
+{2010}{}{Who are you, people?}
+{2020}{}{Who are you?}
+{2030}{}{Show me your stock.}
+{2040}{}{I will be going.}
+{3000}{}{We are Van Graffs, the major power in Reno. We sell the finest energy weapons and armors. Van Graffs trademark is well known around the wastes for its quality.}
+{3010}{}{Can you tell me more about energy weapons?}
+{3020}{}{And who are you exactly?}
+{3030}{}{Lets switch the topic.}
+{4000}{}{With pleasure. Unlike the monkeys in Gun Runners, we follow the way of technological advance. Energy weapons are our future. In general there are 3 types - laser, plasma and electro. Laser is good in its range, plasma is good in its damage and electro goes well in all situations.}
+{4010}{}{Lets talk about something else.}
+{5000}{}{Name is Gloria. That's all you need to know,}
+{5010}{}{Fine, one more thing...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello and welcome to Van Graffs. Do you wish to buy something?}
+{2010}{}{Who are you, people?}
+{2020}{}{Who are you?}
+{2030}{}{Show me your stock.}
+{2040}{}{I will be going.}
+{3000}{}{We are Van Graffs, the major power in Reno. We sell the finest energy weapons and armors. Van Graffs trademark is well known around the wastes for its quality.}
+{3010}{}{Can you tell me more about energy weapons?}
+{3020}{}{And who are you exactly?}
+{3030}{}{Lets switch the topic.}
+{4000}{}{With pleasure. Unlike the monkeys in Gun Runners, we follow the way of technological advance. Energy weapons are our future. In general there are 3 types - laser, plasma and electro. Laser is good in its range, plasma is good in its damage and electro goes well in all situations.}
+{4010}{}{Lets talk about something else.}
+{5000}{}{Name is Gloria. That's all you need to know,}
+{5010}{}{Fine, one more thing...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello and welcome to Van Graffs. Do you wish to buy something?}
+{2010}{}{Who are you, people?}
+{2020}{}{Who are you?}
+{2030}{}{Show me your stock.}
+{2040}{}{I will be going.}
+{3000}{}{We are Van Graffs, the major power in Reno. We sell the finest energy weapons and armors. Van Graffs trademark is well known around the wastes for its quality.}
+{3010}{}{Can you tell me more about energy weapons?}
+{3020}{}{And who are you exactly?}
+{3030}{}{Lets switch the topic.}
+{4000}{}{With pleasure. Unlike the monkeys in Gun Runners, we follow the way of technological advance. Energy weapons are our future. In general there are 3 types - laser, plasma and electro. Laser is good in its range, plasma is good in its damage and electro goes well in all situations.}
+{4010}{}{Lets talk about something else.}
+{5000}{}{Name is Gloria. That's all you need to know,}
+{5010}{}{Fine, one more thing...}
+

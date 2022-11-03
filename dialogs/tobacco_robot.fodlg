@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p tobacco_robot = 0 #
+3 1020 D _var p tobacco_robot = 1 @
+2 2000 None 0 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Mr. Handy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{*bzzzt*}
+{3000}{}{Hey there, @pname@!@@Pleasure to see you, @pname@.@@All the days work!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Loading configurations... Warning! Unable to connect to the central office. ]}
+{3000}{}{Hey there, @pname@!@@Pleasure to see you, @pname@.@@All the days work!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Loading configurations... Warning! Unable to connect to the central office. ]}
+{3000}{}{Hey there, @pname@!@@Pleasure to see you, @pname@.@@All the days work!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Loading configurations... Warning! Unable to connect to the central office. ]}
+{3000}{}{Hey there, @pname@!@@Pleasure to see you, @pname@.@@All the days work!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Loading configurations... Warning! Unable to connect to the central office. ]}
+{3000}{}{Hey there, @pname@!@@Pleasure to see you, @pname@.@@All the days work!}
+

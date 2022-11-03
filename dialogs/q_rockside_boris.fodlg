@@ -1,0 +1,205 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p q_v99_woods = 0 #
+3 1020 D _var p q_v99_woods = 1 D _item p PID_FIREWOOD } 3 #
+2 1030 D _var p q_v99_woods = 2 #
+2 1040 D _var p q_v99_woods = 3 @
+2 2000 None 0 #
+6 2010 #
+11 2020 #
+9 2030 D _var p q_rockside_boris = 0 #
+10 2040 D _var p q_rockside_boris = 2 #
+0 2050 @
+3 3000 None 0 #
+4 3010 R _var p q_v99_woods = 2 @
+4 4000 None 0 #
+0 4010 @
+6 5000 None 0 #
+7 5010 #
+8 5020 #
+0 5030 @
+7 6000 None 0 #
+8 6010 #
+9 6020 D _var p q_rockside_boris = 0 @
+8 7000 None 0 @
+9 8000 None 0 #
+0 8010 R _var p q_rockside_boris = 1 #
+0 8020 @
+10 9000 None 0 #
+0 9010 R _var p q_rockside_boris = 3 #
+0 9020 @
+11 10000 None 0 &
+
+[engl]
+{100}{}{Boris}
+{210}{}{Boris? Boris! What the hell are you doing here?}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Heyo. Howsa' going today?}
+{2010}{}{Who are you?}
+{2020}{}{Dear my! What are you?! Why are you so green?}
+{2030}{}{Have a job for me?}
+{2040}{}{I am back from Arnold. He said that you can ride with their caravan if you wish.}
+{2050}{}{I need to go. [ end dialogue ]}
+{3000}{}{Huh? Wait... Is that a pile of wood I see in your arms?}
+{3010}{}{Hey, Agnes sent me to give you this...}
+{4000}{}{Again?... Damn junkie. Please take this pile of wood back to him. I don't need it. Also, please tell him that this is the third time that he sent somebody here with the same pile. He always does it when he gets high... *sigh*}
+{4010}{}{Right... [ end dialogue ]}
+{5000}{}{Name's Boris. I was a miner in Broken Hills once.}
+{5010}{}{Broken Hills? Where is it?}
+{5020}{}{How did you turn into... ehh...}
+{5030}{}{I see. Need to go now. [ end dialogue ]}
+{6000}{}{It is far to the North. Just a small town, nothing much interesting about it. I worked there for 20 years... but I felt myself growing old, so... I decided to travel a bit. After 5 years of wandering I found myself here... and it seems like I have been living here for 5 years already... yep. Maybe... maybe it really is time for me to move on.}
+{6010}{}{How did you turn into... ehh...}
+{6020}{}{Maybe I can help you somehow...?}
+{7000}{}{...Supermutant? Well... I don't remember unfortunately. You are not the first one to ask though.}
+{8000}{}{Well... Yeah. There is a caravaner named Arnold somewhere around here. I want you to tell him that I wish to join their group and travel to Junktown.}
+{8010}{}{Will do. [ end dialogue ]}
+{8020}{}{Not for me, buddy. [ end dialogue ]}
+{9000}{}{He did? Great! Well, thank you. Look, I can't take all of my stuff with me, so I will leave some here. I hid it behind the Nuka Cola machine. It is now yours.}
+{9010}{}{Alright. Good luck with your journey. [ end dialogue ]}
+{9020}{}{Good. Bye. [ end dialogue ]}
+{10000}{}{Uh... These freshmen...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Heyo. Howsa' going today?}
+{2010}{}{Who are you?}
+{2020}{}{Dear my! What are you?! Why are you so green?}
+{2030}{}{Have a job for me?}
+{2040}{}{I am back from Arnold. He said that you can come with their caravan if you wish.}
+{2050}{}{I need to go.}
+{3000}{}{Huh? Wait... Is it a pile of wood in your arms?}
+{3010}{}{Hey, Agnes sent me to give you this...}
+{4000}{}{Again?... Damn junky. Please take this pile of wood back to him. I don't need it. And also, please tell him that this is a third time when he sends somebody here with the pile. He always does it when he gets high.}
+{4010}{}{Right...}
+{5000}{}{Name's Boris. I was a miner in Broken Hills once.}
+{5010}{}{Broken Hills? Where is it?}
+{5020}{}{How did you turn into... ehh...}
+{5030}{}{I see. Need to go now.}
+{6000}{}{It is far on North. Just a small town, nothing much interesting about it. I worked there for 20 years... but it seems like I grew old, so... I decided to travel a bit. After 5 years of wandering I found myself here... and it seems like I am living here for 5 years already. I guess... I guess it is time for me to move on.}
+{6010}{}{How did you turn into... ehh...}
+{6020}{}{Maybe I can help you somehow...?}
+{7000}{}{...Supermutant? Well... I don't remember unfortunately. You are not the first one to ask though.}
+{8000}{}{Well... Yeah. There must be a caravaner named Arnold somewhere around. I want you to tell him that I wish to join their group and travel to Junktown.}
+{8010}{}{Will do.}
+{8020}{}{Not for me, buddy.}
+{9000}{}{He did? Great! Well, thank you. Look, I can't take all of my stuff  with me, so I leave some here. I hid some of my stuff behind the Nuka Cola mashine. It is now yours.}
+{9010}{}{Alright. Good luck with your journey.}
+{9020}{}{Good. Bye.}
+{10000}{}{Uh... These freshmen...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Heyo. Howsa' going today?}
+{2010}{}{Who are you?}
+{2020}{}{Dear my! What are you?! Why are you so green?}
+{2030}{}{Have a job for me?}
+{2040}{}{I am back from Arnold. He said that you can come with their caravan if you wish.}
+{2050}{}{I need to go.}
+{3000}{}{Huh? Wait... Is it a pile of wood in your arms?}
+{3010}{}{Hey, Agnes sent me to give you this...}
+{4000}{}{Again?... Damn junky. Please take this pile of wood back to him. I don't need it. And also, please tell him that this is a third time when he sends somebody here with the pile. He always does it when he gets high.}
+{4010}{}{Right...}
+{5000}{}{Name's Boris. I was a miner in Broken Hills once.}
+{5010}{}{Broken Hills? Where is it?}
+{5020}{}{How did you turn into... ehh...}
+{5030}{}{I see. Need to go now.}
+{6000}{}{It is far on North. Just a small town, nothing much interesting about it. I worked there for 20 years... but it seems like I grew old, so... I decided to travel a bit. After 5 years of wandering I found myself here... and it seems like I am living here for 5 years already. I guess... I guess it is time for me to move on.}
+{6010}{}{How did you turn into... ehh...}
+{6020}{}{Maybe I can help you somehow...?}
+{7000}{}{...Supermutant? Well... I don't remember unfortunately. You are not the first one to ask though.}
+{8000}{}{Well... Yeah. There must be a caravaner named Arnold somewhere around. I want you to tell him that I wish to join their group and travel to Junktown.}
+{8010}{}{Will do.}
+{8020}{}{Not for me, buddy.}
+{9000}{}{He did? Great! Well, thank you. Look, I can't take all of my stuff  with me, so I leave some here. I hid some of my stuff behind the Nuka Cola mashine. It is now yours.}
+{9010}{}{Alright. Good luck with your journey.}
+{9020}{}{Good. Bye.}
+{10000}{}{Uh... These freshmen...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Heyo. Howsa' going today?}
+{2010}{}{Who are you?}
+{2020}{}{Dear my! What are you?! Why are you so green?}
+{2030}{}{Have a job for me?}
+{2040}{}{I am back from Arnold. He said that you can come with their caravan if you wish.}
+{2050}{}{I need to go.}
+{3000}{}{Huh? Wait... Is it a pile of wood in your arms?}
+{3010}{}{Hey, Agnes sent me to give you this...}
+{4000}{}{Again?... Damn junky. Please take this pile of wood back to him. I don't need it. And also, please tell him that this is a third time when he sends somebody here with the pile. He always does it when he gets high.}
+{4010}{}{Right...}
+{5000}{}{Name's Boris. I was a miner in Broken Hills once.}
+{5010}{}{Broken Hills? Where is it?}
+{5020}{}{How did you turn into... ehh...}
+{5030}{}{I see. Need to go now.}
+{6000}{}{It is far on North. Just a small town, nothing much interesting about it. I worked there for 20 years... but it seems like I grew old, so... I decided to travel a bit. After 5 years of wandering I found myself here... and it seems like I am living here for 5 years already. I guess... I guess it is time for me to move on.}
+{6010}{}{How did you turn into... ehh...}
+{6020}{}{Maybe I can help you somehow...?}
+{7000}{}{...Supermutant? Well... I don't remember unfortunately. You are not the first one to ask though.}
+{8000}{}{Well... Yeah. There must be a caravaner named Arnold somewhere around. I want you to tell him that I wish to join their group and travel to Junktown.}
+{8010}{}{Will do.}
+{8020}{}{Not for me, buddy.}
+{9000}{}{He did? Great! Well, thank you. Look, I can't take all of my stuff  with me, so I leave some here. I hid some of my stuff behind the Nuka Cola mashine. It is now yours.}
+{9010}{}{Alright. Good luck with your journey.}
+{9020}{}{Good. Bye.}
+{10000}{}{Uh... These freshmen...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Heyo. Howsa' going today?}
+{2010}{}{Who are you?}
+{2020}{}{Dear my! What are you?! Why are you so green?}
+{2030}{}{Have a job for me?}
+{2040}{}{I am back from Arnold. He said that you can come with their caravan if you wish.}
+{2050}{}{I need to go.}
+{3000}{}{Huh? Wait... Is it a pile of wood in your arms?}
+{3010}{}{Hey, Agnes sent me to give you this...}
+{4000}{}{Again?... Damn junky. Please take this pile of wood back to him. I don't need it. And also, please tell him that this is a third time when he sends somebody here with the pile. He always does it when he gets high.}
+{4010}{}{Right...}
+{5000}{}{Name's Boris. I was a miner in Broken Hills once.}
+{5010}{}{Broken Hills? Where is it?}
+{5020}{}{How did you turn into... ehh...}
+{5030}{}{I see. Need to go now.}
+{6000}{}{It is far on North. Just a small town, nothing much interesting about it. I worked there for 20 years... but it seems like I grew old, so... I decided to travel a bit. After 5 years of wandering I found myself here... and it seems like I am living here for 5 years already. I guess... I guess it is time for me to move on.}
+{6010}{}{How did you turn into... ehh...}
+{6020}{}{Maybe I can help you somehow...?}
+{7000}{}{...Supermutant? Well... I don't remember unfortunately. You are not the first one to ask though.}
+{8000}{}{Well... Yeah. There must be a caravaner named Arnold somewhere around. I want you to tell him that I wish to join their group and travel to Junktown.}
+{8010}{}{Will do.}
+{8020}{}{Not for me, buddy.}
+{9000}{}{He did? Great! Well, thank you. Look, I can't take all of my stuff  with me, so I leave some here. I hid some of my stuff behind the Nuka Cola mashine. It is now yours.}
+{9010}{}{Alright. Good luck with your journey.}
+{9020}{}{Good. Bye.}
+{10000}{}{Uh... These freshmen...}
+

@@ -1,0 +1,228 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+5 2020 #
+7 2030 #
+9 2040 D _item p PID_JET } 90 R _item p PID_KOKOWEEF_MINE_SCRIP + 1 R _item p PID_JET - 90 #
+0 2050 #
+12 2060 D _var p wow_foxlove = 1 @
+3 3000 None 0 #
+4 3010 #
+10 3020 @
+4 4000 None 0 #
+5 4010 #
+7 4020 #
+2 4030 #
+0 4040 @
+5 5000 None 0 #
+6 5010 #
+11 5020 #
+0 5030 @
+6 6000 None 0 #
+2 6010 @
+7 7000 None 0 #
+2 7010 #
+8 7020 #
+0 7030 @
+8 8000 None 0 @
+9 9000 None 0 @
+10 10000 None 0 @
+11 11000 None 0 #
+2 11010 @
+12 12000 None 0 #
+0 12010 &
+
+[engl]
+{100}{}{Jerry}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Hello. Who are you?}
+{2020}{}{Can you give me some directions around this place?}
+{2030}{}{Do you have some work for me?}
+{2040}{}{Got your Jet.}
+{2050}{}{I need to go.}
+{2060}{}{Hey. Foxlove lost his robot. Have you seen it around? It is supposed to be a Robo Eye model.}
+{3000}{}{Name's Jerry. I am a local guard captain. How about you?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{Great, so now we got it... Did you need something, @pname@?}
+{4010}{}{Tell me more about this place.}
+{4020}{}{Do you have a job for me?}
+{4030}{}{I wanted to ask you about something...}
+{4040}{}{Nah. Nothing.}
+{5000}{}{This is Wind of War, a small settlement made by remnants of Hawthorne's pre war United States army. Nothing much interesting here any more. The building you are in is used as a trading outpost. Nothing much really happens in the camp itself. To the north there is some Vault. Oh and yeah... There is Glory's garden to the east. Try to speak less with that crazy woman. She has some twitch about plants and flowers and whatever...}
+{5010}{}{A Vault?}
+{5020}{}{Trading post?}
+{5030}{}{This is all I needed to know.}
+{6000}{}{Yeah, but it is sealed. I heard that Howard - our general, has an access key to it.}
+{6010}{}{I need to ask you about something else.}
+{7000}{}{Look, it is very harsh with caravan routes here. If you supply me with lets say... big quantities of Jet, around 90 each... I can pay you with Redding bucks.}
+{7010}{}{Alright. I will keep it in mind.}
+{7020}{}{Redding bucks? What do I need them for?}
+{7030}{}{Fine. I need to go now.}
+{8000}{}{You should ask Weffer in Adytum about it. It is something about the black market... Hah... As if there are some "white" ones.}
+{9000}{}{Thank you. Here is your payment.}
+{10000}{}{Dickhead...}
+{11000}{}{You are standing here now. This is where people trade.}
+{11010}{}{Alright. One more question.}
+{12000}{}{Yeah, I've seen some small bot hovering around this building. Now sure where it went. Just check around, maybe you will find it in some room.}
+{12010}{}{I see. Thank you.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Hello. Who are you?}
+{2020}{}{Can you give me some directions around this place?}
+{2030}{}{Do you have some work for me?}
+{2040}{}{Got your Jet.}
+{2050}{}{I need to go.}
+{2060}{}{Hey. Foxlove lost his robot. Haven't you seen it around? It is supposed to be a Robo Eye model.}
+{3000}{}{Name's Jerry. I am a local guards' captain. And what about you?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{Great, so now we got it... Did you need something, @pname@?}
+{4010}{}{Tell me more about this place.}
+{4020}{}{Do you have some job for me?}
+{4030}{}{Wanted to ask you about something...}
+{4040}{}{Nah. Nothing.}
+{5000}{}{This is Wind of War. A small settlement made by remnants of Hawthorne pre war United States army. Nothing much interesting here. The building you are in is used as trading outpost. Nothing much interested in the camp itself. On north there is some Vault. Oh and yeah... There is Glory's garden on east. Try to speak less with that crazy woman. She has some twitch about plants and flowers and whatever...}
+{5010}{}{A Vault?}
+{5020}{}{Trading post?}
+{5030}{}{This is all I needed to know.}
+{6000}{}{Yeah, but it is sealed. I heard that Howards - our general, has an access key to it.}
+{6010}{}{I need to ask you about something else.}
+{7000}{}{Look, it is very harsh with caravan routs here. If you supply me with lets say... big parties of Jet, around 90 in each... I can pay you with Redding bucks.}
+{7010}{}{Alright. I will keep it in mind.}
+{7020}{}{Redding bucks? What do I need them for?}
+{7030}{}{Fine. I need to go now.}
+{8000}{}{You should ask Weffer in Adytum about it. It is something about black market... Hah... As if there are some "white" ones.}
+{9000}{}{Thank you. Here is your payment.}
+{10000}{}{Dickhead...}
+{11000}{}{You are standing here now. This is where people trade.}
+{11010}{}{Alright. One more question.}
+{12000}{}{Yeah, I've seen some small bot hoovering around this building. Now sure where it went. Just check around, maybe you will find it in some room.}
+{12010}{}{I see. Thank you.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Hello. Who are you?}
+{2020}{}{Can you give me some directions around this place?}
+{2030}{}{Do you have some work for me?}
+{2040}{}{Got your Jet.}
+{2050}{}{I need to go.}
+{2060}{}{Hey. Foxlove lost his robot. Haven't you seen it around? It is supposed to be a Robo Eye model.}
+{3000}{}{Name's Jerry. I am a local guards' captain. And what about you?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{Great, so now we got it... Did you need something, @pname@?}
+{4010}{}{Tell me more about this place.}
+{4020}{}{Do you have some job for me?}
+{4030}{}{Wanted to ask you about something...}
+{4040}{}{Nah. Nothing.}
+{5000}{}{This is Wind of War. A small settlement made by remnants of Hawthorne pre war United States army. Nothing much interesting here. The building you are in is used as trading outpost. Nothing much interested in the camp itself. On north there is some Vault. Oh and yeah... There is Glory's garden on east. Try to speak less with that crazy woman. She has some twitch about plants and flowers and whatever...}
+{5010}{}{A Vault?}
+{5020}{}{Trading post?}
+{5030}{}{This is all I needed to know.}
+{6000}{}{Yeah, but it is sealed. I heard that Howards - our general, has an access key to it.}
+{6010}{}{I need to ask you about something else.}
+{7000}{}{Look, it is very harsh with caravan routs here. If you supply me with lets say... big parties of Jet, around 90 in each... I can pay you with Redding bucks.}
+{7010}{}{Alright. I will keep it in mind.}
+{7020}{}{Redding bucks? What do I need them for?}
+{7030}{}{Fine. I need to go now.}
+{8000}{}{You should ask Weffer in Adytum about it. It is something about black market... Hah... As if there are some "white" ones.}
+{9000}{}{Thank you. Here is your payment.}
+{10000}{}{Dickhead...}
+{11000}{}{You are standing here now. This is where people trade.}
+{11010}{}{Alright. One more question.}
+{12000}{}{Yeah, I've seen some small bot hoovering around this building. Now sure where it went. Just check around, maybe you will find it in some room.}
+{12010}{}{I see. Thank you.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Hello. Who are you?}
+{2020}{}{Can you give me some directions around this place?}
+{2030}{}{Do you have some work for me?}
+{2040}{}{Got your Jet.}
+{2050}{}{I need to go.}
+{2060}{}{Hey. Foxlove lost his robot. Haven't you seen it around? It is supposed to be a Robo Eye model.}
+{3000}{}{Name's Jerry. I am a local guards' captain. And what about you?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{Great, so now we got it... Did you need something, @pname@?}
+{4010}{}{Tell me more about this place.}
+{4020}{}{Do you have some job for me?}
+{4030}{}{Wanted to ask you about something...}
+{4040}{}{Nah. Nothing.}
+{5000}{}{This is Wind of War. A small settlement made by remnants of Hawthorne pre war United States army. Nothing much interesting here. The building you are in is used as trading outpost. Nothing much interested in the camp itself. On north there is some Vault. Oh and yeah... There is Glory's garden on east. Try to speak less with that crazy woman. She has some twitch about plants and flowers and whatever...}
+{5010}{}{A Vault?}
+{5020}{}{Trading post?}
+{5030}{}{This is all I needed to know.}
+{6000}{}{Yeah, but it is sealed. I heard that Howards - our general, has an access key to it.}
+{6010}{}{I need to ask you about something else.}
+{7000}{}{Look, it is very harsh with caravan routs here. If you supply me with lets say... big parties of Jet, around 90 in each... I can pay you with Redding bucks.}
+{7010}{}{Alright. I will keep it in mind.}
+{7020}{}{Redding bucks? What do I need them for?}
+{7030}{}{Fine. I need to go now.}
+{8000}{}{You should ask Weffer in Adytum about it. It is something about black market... Hah... As if there are some "white" ones.}
+{9000}{}{Thank you. Here is your payment.}
+{10000}{}{Dickhead...}
+{11000}{}{You are standing here now. This is where people trade.}
+{11010}{}{Alright. One more question.}
+{12000}{}{Yeah, I've seen some small bot hoovering around this building. Now sure where it went. Just check around, maybe you will find it in some room.}
+{12010}{}{I see. Thank you.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there.}
+{2010}{}{Hello. Who are you?}
+{2020}{}{Can you give me some directions around this place?}
+{2030}{}{Do you have some work for me?}
+{2040}{}{Got your Jet.}
+{2050}{}{I need to go.}
+{2060}{}{Hey. Foxlove lost his robot. Haven't you seen it around? It is supposed to be a Robo Eye model.}
+{3000}{}{Name's Jerry. I am a local guards' captain. And what about you?}
+{3010}{}{Name's @pname@.}
+{3020}{}{Not your fucking business.}
+{4000}{}{Great, so now we got it... Did you need something, @pname@?}
+{4010}{}{Tell me more about this place.}
+{4020}{}{Do you have some job for me?}
+{4030}{}{Wanted to ask you about something...}
+{4040}{}{Nah. Nothing.}
+{5000}{}{This is Wind of War. A small settlement made by remnants of Hawthorne pre war United States army. Nothing much interesting here. The building you are in is used as trading outpost. Nothing much interested in the camp itself. On north there is some Vault. Oh and yeah... There is Glory's garden on east. Try to speak less with that crazy woman. She has some twitch about plants and flowers and whatever...}
+{5010}{}{A Vault?}
+{5020}{}{Trading post?}
+{5030}{}{This is all I needed to know.}
+{6000}{}{Yeah, but it is sealed. I heard that Howards - our general, has an access key to it.}
+{6010}{}{I need to ask you about something else.}
+{7000}{}{Look, it is very harsh with caravan routs here. If you supply me with lets say... big parties of Jet, around 90 in each... I can pay you with Redding bucks.}
+{7010}{}{Alright. I will keep it in mind.}
+{7020}{}{Redding bucks? What do I need them for?}
+{7030}{}{Fine. I need to go now.}
+{8000}{}{You should ask Weffer in Adytum about it. It is something about black market... Hah... As if there are some "white" ones.}
+{9000}{}{Thank you. Here is your payment.}
+{10000}{}{Dickhead...}
+{11000}{}{You are standing here now. This is where people trade.}
+{11010}{}{Alright. One more question.}
+{12000}{}{Yeah, I've seen some small bot hoovering around this building. Now sure where it went. Just check around, maybe you will find it in some room.}
+{12010}{}{I see. Thank you.}
+

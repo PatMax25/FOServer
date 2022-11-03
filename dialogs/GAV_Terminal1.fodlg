@@ -1,0 +1,121 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 #
+7 1020 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+5 3010 #
+0 3020 @
+5 4000 None 0 #
+6 4010 D _param p ST_INTELLECT } 6 #
+8 4020 @
+6 5000 None 0 @
+7 6000 None 0 @
+8 7000 None 0 #
+0 7010 &
+
+[engl]
+{100}{}{Terminal}
+{210}{}{There is a strange sign on the left side of the terminal. It says: "Please use voice commands."}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ ROBCO Terminal number 34715, Special edition for General Atomics. Please use VOICE COMMANDS. ]}
+{2010}{}{Ehm... Hello?}
+{2020}{}{[ Leave ]}
+{3000}{}{Good new and lovely day, [ CORRUPTED DATA ]! It is nice to see that you are finally awake in this new, magnificent world, that survived the atomic war! General Atomics thanks you for your [ CORRUPTED DATA ] and welcomes you to the new United States of America!  Yes, your country survived the war and now you can return back to your lawn, BBQ... and taxes! But first, let us warn you that most likely the biggest part of the country is still lying in ruins... That means that we will need to guide you through the basic Survival Course. Please step out of your room. Outside you will meet a manager who will guide you through our facility. At the entrance you will be met by local National Guard forces. Stay calm, no need to panic.}
+{3010}{}{Where am I?}
+{3020}{}{[ Leave ]}
+{4000}{}{You are now located in GAV - 04. We care about your safety!}
+{4010}{}{You say that the country survived the war and at the same time the biggest part of it lies in ruins... How does that make sense?}
+{4020}{}{Why can't I remember anything?}
+{5000}{}{Bzzt... Bzzt... System critical error... Protocole CP - 96 is in progress.... Bzzt}
+{6000}{}{Bzzt}
+{7000}{}{[ CORRUPTED DATA ]}
+{7010}{}{Excellent...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ ROBCO Terminal number 34715, Special edition for General Atomics. Please use VOICE COMMANDS. ]}
+{2010}{}{Ehm... Hello?}
+{2020}{}{[ Leave ]}
+{3000}{}{Good new and lovely day, [ CORRUPTED DATA ]! It is nice to see that you are finally awake in this new, magnificent world, that survived the atomic war! General Atomics thanks you for your [ CORRUPTED DATA ] and welcomes you to the new United States of America!  Yes, your country survived the war and now you can return back to your lawn, BBQ... and taxes! But first, let us warn you that most likely the biggest part of the country is still lying in ruins... That means that we will need to guide you through the basic Surviving Course. Please step out of your room. Outside you will meet a manager who will guide you through our facility. At the entrance you will be met by local National Guard forces. Stay calm, no need to panic.}
+{3010}{}{Where am I?}
+{3020}{}{[ Leave ]}
+{4000}{}{You are now located in GAV - 04. We care about your safety!}
+{4010}{}{You say that the country survived the war and at the same time the biggest part of it lies in ruins... How does it make sense?}
+{4020}{}{Why can't I remember anything?}
+{5000}{}{Bzzt... Bzzt... System critical error... Protocole CP - 96 is in progress.... Bzzt}
+{6000}{}{Bzzt}
+{7000}{}{[ CORRUPTED DATA ]}
+{7010}{}{Excellent...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ ROBCO Terminal number 34715, Special edition for General Atomics. Please use VOICE COMMANDS. ]}
+{2010}{}{Ehm... Hello?}
+{2020}{}{[ Leave ]}
+{3000}{}{Good new and lovely day, [ CORRUPTED DATA ]! It is nice to see that you are finally awake in this new, magnificent world, that survived the atomic war! General Atomics thanks you for your [ CORRUPTED DATA ] and welcomes you to the new United States of America!  Yes, your country survived the war and now you can return back to your lawn, BBQ... and taxes! But first, let us warn you that most likely the biggest part of the country is still lying in ruins... That means that we will need to guide you through the basic Surviving Course. Please step out of your room. Outside you will meet a manager who will guide you through our facility. At the entrance you will be met by local National Guard forces. Stay calm, no need to panic.}
+{3010}{}{Where am I?}
+{3020}{}{[ Leave ]}
+{4000}{}{You are now located in GAV - 04. We care about your safety!}
+{4010}{}{You say that the country survived the war and at the same time the biggest part of it lies in ruins... How does it make sense?}
+{4020}{}{Why can't I remember anything?}
+{5000}{}{Bzzt... Bzzt... System critical error... Protocole CP - 96 is in progress.... Bzzt}
+{6000}{}{Bzzt}
+{7000}{}{[ CORRUPTED DATA ]}
+{7010}{}{Excellent...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ ROBCO Terminal number 34715, Special edition for General Atomics. Please use VOICE COMMANDS. ]}
+{2010}{}{Ehm... Hello?}
+{2020}{}{[ Leave ]}
+{3000}{}{Good new and lovely day, [ CORRUPTED DATA ]! It is nice to see that you are finally awake in this new, magnificent world, that survived the atomic war! General Atomics thanks you for your [ CORRUPTED DATA ] and welcomes you to the new United States of America!  Yes, your country survived the war and now you can return back to your lawn, BBQ... and taxes! But first, let us warn you that most likely the biggest part of the country is still lying in ruins... That means that we will need to guide you through the basic Surviving Course. Please step out of your room. Outside you will meet a manager who will guide you through our facility. At the entrance you will be met by local National Guard forces. Stay calm, no need to panic.}
+{3010}{}{Where am I?}
+{3020}{}{[ Leave ]}
+{4000}{}{You are now located in GAV - 04. We care about your safety!}
+{4010}{}{You say that the country survived the war and at the same time the biggest part of it lies in ruins... How does it make sense?}
+{4020}{}{Why can't I remember anything?}
+{5000}{}{Bzzt... Bzzt... System critical error... Protocole CP - 96 is in progress.... Bzzt}
+{6000}{}{Bzzt}
+{7000}{}{[ CORRUPTED DATA ]}
+{7010}{}{Excellent...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ ROBCO Terminal number 34715, Special edition for General Atomics. Please use VOICE COMMANDS. ]}
+{2010}{}{Ehm... Hello?}
+{2020}{}{[ Leave ]}
+{3000}{}{Good new and lovely day, [ CORRUPTED DATA ]! It is nice to see that you are finally awake in this new, magnificent world, that survived the atomic war! General Atomics thanks you for your [ CORRUPTED DATA ] and welcomes you to the new United States of America!  Yes, your country survived the war and now you can return back to your lawn, BBQ... and taxes! But first, let us warn you that most likely the biggest part of the country is still lying in ruins... That means that we will need to guide you through the basic Surviving Course. Please step out of your room. Outside you will meet a manager who will guide you through our facility. At the entrance you will be met by local National Guard forces. Stay calm, no need to panic.}
+{3010}{}{Where am I?}
+{3020}{}{[ Leave ]}
+{4000}{}{You are now located in GAV - 04. We care about your safety!}
+{4010}{}{You say that the country survived the war and at the same time the biggest part of it lies in ruins... How does it make sense?}
+{4020}{}{Why can't I remember anything?}
+{5000}{}{Bzzt... Bzzt... System critical error... Protocole CP - 96 is in progress.... Bzzt}
+{6000}{}{Bzzt}
+{7000}{}{[ CORRUPTED DATA ]}
+{7010}{}{Excellent...}
+

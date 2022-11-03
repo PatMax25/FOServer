@@ -1,0 +1,1427 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;    
+
+uint tier3armor()
+{
+	uint pid=(98);
+	if(week_patch<4)
+	{
+		switch(Random(2,9))
+		{
+			case 2:pid=(265);break;
+			case 3:pid=(379);break;
+			case 4:pid=(25548);break;
+			case 5:pid=(380);break;
+			case 6:pid=(240);break;
+			case 7:pid=(25549);break;
+			case 8:pid=(22095);break;
+			case 9:pid=(25547);break;
+		}
+	}
+	else
+	{
+		switch(Random(1,19))
+		{
+			case 1:pid=(381);break;
+			case 2:pid=(265);break;
+			case 3:pid=(379);break;
+			case 4:pid=(25548);break;
+			case 5:pid=(380);break;
+			case 6:pid=(240);break;
+			case 7:pid=(25549);break;
+			case 8:pid=(22095);break;
+			case 9:pid=(25547);break;
+			case 10:pid=(239);break;
+			case 11:pid=(752);break;
+			case 12:pid=(778);break;
+			case 13:pid=(9654);break;
+			case 14:pid=(761);break;
+			case 15:pid=(25550);break;
+			case 16:pid=(25551);break;
+			case 17:pid=(524);break;
+			case 18:pid=(27228);break;
+			case 19:pid=(27227);break;
+		}
+	}
+	return pid;
+}
+
+uint tier3helmet()
+{
+	uint pid=(98);
+	switch(Random(1,4))
+	{
+		case 1:pid=(726);break;
+		case 2:pid=(733);break;
+		case 3:pid=(25588);break;
+		case 4:pid=(25589);break;
+	}
+	return pid;
+}
+
+uint tier3weapon()
+{
+	uint pid=(98);
+	switch(Random(1,32))
+	{
+		case 1:pid=(13);break;
+		case 2:pid=(15);break;
+		case 3:pid=(399);break;
+		case 4:pid=(115);break;
+		case 5:pid=(143);break;
+		case 6:pid=(241);break;
+		case 7:pid=(296);break;
+		case 8:pid=(268);break;
+		case 9:pid=(25547);break;
+		case 10:pid=(355);break;
+		case 11:pid=(389);break;
+		case 12:pid=(400);break;
+		case 13:pid=(401);break;
+		case 14:pid=(522);break;
+		case 15:pid=(353);break;
+		case 16:pid=(28);break;
+		case 17:pid=(25566);break;
+		case 18:pid=(25567);break;
+		case 19:pid=(407);break;
+		case 20:pid=(396);break;
+		case 21:pid=(620);break;
+		case 22:pid=(25582);break;
+		case 23:pid=(402);break;
+		case 24:pid=(406);break;
+		case 25:pid=(388);break;
+		case 26:pid=(1217);break;
+		case 27:pid=(22);break;
+		case 28:pid=(354);break;
+		case 29:pid=(387);break;
+		case 30:pid=(390);break;
+		case 31:pid=(517);break;
+		case 32:pid=(116);break;
+	} 
+	
+	return pid;
+}
+
+uint tier3alien()
+{
+	uint pid=(98);
+	switch(Random(1,8))
+	{
+		case 1:pid=(1277);break;
+		case 2:pid=(1278);break;
+		case 3:pid=(1279);break;
+		case 4:pid=(1280);break;
+		case 5:pid=(1281);break;
+		case 6:pid=(1282);break;
+		case 7:pid=(1283);break;
+		case 8:pid=(1284);break;
+	} 
+	
+	return pid;
+}
+
+uint tier3bp()
+{
+	uint pid=(98);
+	switch(Random(1,70))
+	{
+		case 1:pid=(9750);break;
+		case 2:pid=(9751);break;
+		case 3:pid=(9752);break;
+		case 4:pid=(9753);break;
+		case 5:pid=(9754);break;
+		case 6:pid=(9755);break;
+		case 7:pid=(9756);break;
+		case 8:pid=(9757);break;
+		case 9:pid=(9758);break;
+		case 10:pid=(9759);break;
+		case 11:pid=(9760);break;
+		case 12:pid=(9761);break;
+		case 13:pid=(9762);break;
+		case 14:pid=(9763);break;
+		case 15:pid=(9764);break;
+		case 16:pid=(9765);break;
+		case 17:pid=(9766);break;
+		case 18:pid=(9767);break;
+		case 19:pid=(9768);break;
+		case 20:pid=(9769);break;
+		case 21:pid=(9770);break;
+		case 22:pid=(9771);break;
+		case 23:pid=(9772);break;
+		case 24:pid=(9773);break;
+		case 25:pid=(9774);break;
+		
+		case 26:pid=(9827);break;
+		case 27:pid=(9828);break;
+		case 28:pid=(9831);break; 
+		
+		case 29:pid=(9780);break;
+		case 30:pid=(9836);break;
+		case 31:pid=(9781);break;
+		case 32:pid=(9782);break;
+		
+		case 33:pid=(9783);break;
+		case 34:pid=(9784);break;
+		case 35:pid=(9785);break;
+		case 36:pid=(9786);break;
+		case 37:pid=(9787);break;
+		
+		case 38:pid=(9848);break;
+		case 39:pid=(9849);break;
+		case 40:pid=(9857);break;
+		case 41:pid=(9853);break;
+		case 42:pid=(9854);break;
+		case 43:pid=(9855);break;
+		case 44:pid=(9856);break;
+		case 45:pid=(9858);break;
+		case 46:pid=(9859);break;
+		case 47:pid=(9860);break; 
+		
+		case 48:pid=(9790);break;
+		case 49:pid=(9791);break;
+		case 50:pid=(9792);break;
+		case 51:pid=(9793);break;
+		case 52:pid=(9794);break;
+		case 53:pid=(9795);break;
+		case 54:pid=(9796);break;
+		case 55:pid=(9797);break;
+		case 56:pid=(9798);break;
+		case 57:pid=(9799);break;
+		case 58:pid=(9832);break;
+		case 59:pid=(9833);break;
+		case 60:pid=(9834);break;
+		case 61:pid=(9835);break;
+		case 62:pid=(9837);break;
+		case 63:pid=(9838);break; 
+		
+		case 64:pid=(9840);break;
+		case 65:pid=(9841);break;
+		
+		case 66:pid=(9843);break;
+		case 67:pid=(9844);break;
+		case 68:pid=(9845);break;
+		case 69:pid=(9846);break;
+		case 70:pid=(9847);break;
+	}
+	
+	return pid;
+}
+
+uint tier3drugs()
+{
+	uint pid=(98);
+	if(week_patch<4)
+	{
+		switch(Random(1,27))
+		{
+			
+			case 1:pid=(40);break;
+			case 2:pid=(48);break;
+			case 3:pid=(49);break;
+			case 4:pid=(109);break;
+			case 5:pid=(144);break;
+			case 6:pid=(260);break; 
+			
+			case 7:pid=(106);break;
+			case 8:pid=(124);break;
+			case 9:pid=(125);break;
+			case 10:pid=(310);break;
+			case 11:pid=(311);break;
+			case 12:pid=(469);break; 
+			
+			case 13:pid=(53);break;
+			case 14:pid=(87);break;
+			case 15:pid=(110);break;
+			case 16:pid=(259);break;
+			case 17:pid=(25573);break;
+			case 18:pid=(25574);break;
+			case 19:pid=(25575);break;
+			case 20:pid=(273);break;
+			
+			case 21:pid=(25592);break;
+			case 22:pid=(25593);break;
+			case 23:pid=(25594);break;
+			case 24:pid=(25595);break;
+			case 25:pid=(25596);break;
+			case 26:pid=(25597);break;
+			case 27:pid=(541);break;
+		}
+	}
+	else
+	{
+		switch(Random(1,11))
+		{
+			
+			case 1:pid=(40);break;
+			case 2:pid=(48);break;
+			case 3:pid=(49);break;
+			case 4:pid=(109);break;
+			case 5:pid=(106);break;
+			case 6:pid=(124);break;
+			case 7:pid=(125);break;
+			case 8:pid=(310);break;
+			case 9:pid=(311);break;
+			case 10:pid=(469);break;
+			case 11:pid=(541);break;
+		}
+	}
+	return pid;
+}
+
+uint tier3ammo()
+{
+	uint pid=(98); 
+	
+	if(week_patch<4)
+	return tierlowammo();
+	switch(Random(1,20))
+	{
+		case 1:pid=(36);break;
+		case 2:pid=(363);break;
+		case 3:pid=(30);break;
+		case 4:pid=(33);break;
+		case 5:pid=(34);break;
+		case 6:pid=(575);break;
+		case 7:pid=(576);break;
+		case 8:pid=(621);break;
+		case 9:pid=(37);break;
+		case 10:pid=(25568);break;
+		case 11:pid=(25584);break;
+		case 12:pid=(382);break;
+		case 13:pid=(38);break;
+		case 14:pid=(39);break;
+		case 15:pid=(361);break;
+		case 16:pid=(362);break;
+		case 17:pid=(159);break;
+		case 18:pid=(25);break;
+		case 19:pid=(26);break;
+		case 20:pid=(25570);break;
+	}
+	
+	return pid;
+}
+
+uint tierlowammo()
+{
+	uint pid=(98); 
+	
+	switch(Random(1,13))
+	{
+		case 1:pid=(35);break;
+		case 2:pid=(360);break;
+		case 3:pid=(121);break;
+		case 4:pid=(29);break;
+		case 5:pid=(31);break;
+		case 6:pid=(357);break;
+		case 7:pid=(574);break;
+		case 8:pid=(95);break;
+		case 9:pid=(14);break;
+		case 10:pid=(32);break;
+		case 11:pid=(38);break;
+		case 12:pid=(163);break;
+		case 13:pid=(361);break;
+	}
+	
+	return pid;
+}
+
+uint tier4parts()
+{
+	uint pid=(98);
+	switch(Random(1,37))
+	{
+		case 1:pid=(25476);break;
+		case 2:pid=(25477);break;
+		case 3:pid=(25478);break;
+		case 4:pid=(25479);break;
+		case 5:pid=(25480);break;
+		case 6:pid=(25481);break;
+		case 7:pid=(25482);break;
+		case 8:pid=(25483);break;
+		case 9:pid=(25484);break;
+		case 10:pid=(25485);break;
+		case 11:pid=(25486);break;
+		case 12:pid=(25487);break;
+		case 13:pid=(25488);break;
+		case 14:pid=(22072);break;
+		case 15:pid=(22073);break;
+		case 16:pid=(22074);break;
+		case 17:pid=(22075);break;
+		case 18:pid=(22076);break;
+		case 19:pid=(22077);break;
+		case 20:pid=(22078);break;
+		case 21:pid=(22079);break;
+		case 22:pid=(22080);break;
+		case 23:pid=(22081);break;
+		case 24:pid=(22082);break;
+		case 25:pid=(22083);break;
+		case 26:pid=(22084);break;
+		case 27:pid=(22085);break;
+		case 28:pid=(22086);break;
+		case 29:pid=(22087);break;
+		case 30:pid=(22088);break;
+		case 31:pid=(22089);break;
+		case 32:pid=(22090);break;
+		case 33:pid=(22091);break;
+		case 34:pid=(22092);break;
+		case 35:pid=(22093);break;
+		case 36:pid=(22094);break;
+		case 37:pid=(25587);break;
+	}
+	
+	return pid;
+}
+
+uint tier4bp()
+{
+	uint pid=(98);
+	switch(Random(1,23))
+	{
+		case 1:pid=(9775);break;
+		case 2:pid=(9776);break;
+		case 3:pid=(9777);break;
+		case 4:pid=(9778);break;
+		case 5:pid=(9779);break;
+		case 6:pid=(9825);break;
+		case 7:pid=(9826);break;
+		case 8:pid=(9829);break;
+		case 9:pid=(9830);break;
+		case 10:pid=(9819);break;
+		case 11:pid=(9820);break;
+		case 12:pid=(9821);break;
+		case 13:pid=(9822);break;
+		case 14:pid=(9788);break;
+		case 15:pid=(9789);break;
+		case 16:pid=(9823);break;
+		case 17:pid=(9824);break;
+		case 18:pid=(9839);break;
+		case 19:pid=(9842);break;
+		case 20:pid=(9861);break;
+		case 21:pid=(9862);break;
+		case 22:pid=(9863);break;
+		case 23:pid=(9864);break;
+	}
+	return pid;
+}
+
+uint tier4item()
+{
+	uint pid=(98);
+	switch(Random(1,25))
+	{
+		case 1:pid=(721);break;
+		case 2:pid=(25600);break;
+		case 3:pid=(25598);break;
+		case 4:pid=(25599);break;
+		case 5:pid=(735);break;
+		case 6:pid=(736);break;
+		case 7:pid=(737);break;
+		case 8:pid=(391);break;
+		case 9:pid=(3);break;
+		case 10:pid=(232);break;
+		case 11:pid=(352);break;
+		case 12:pid=(348);break;
+		case 13:pid=(349);break;
+		case 14:pid=(394);break;
+		case 15:pid=(392);break;
+		case 16:pid=(395);break;
+		case 17:pid=(350);break;
+		case 18:pid=(120);break;
+		case 19:pid=(233);break;
+		case 20:pid=(397);break;
+		case 21:pid=(25452);break;
+		case 22:pid=(25445);break;
+		case 23:pid=(22120);break;
+		case 24:pid=(610);break;
+		case 25:pid=(25569);break;
+	}
+	return pid;
+}
+
+uint tier4ammo()
+{
+	uint pid=(98);
+	
+	switch(Random(3,12))
+	{
+		case 3:pid=(525);break;
+		case 4:pid=(25585);break;
+		case 5:pid=(358);break;
+		case 6:pid=(359);break;
+		case 7:pid=(850);break;
+		case 8:pid=(25586);break;
+		case 9:pid=(1271);break;
+		case 10:pid=(1270);break;
+		case 11:pid=(1272);break;
+		case 12:pid=(1273);break;
+	}
+	if(week_patch<8&&pid==(525))
+	return(25586);
+	return pid;
+}
+
+uint rareitem()
+{
+	uint pid=(98);
+	switch(Random(1,20))
+	{
+		case 1:pid=(25571);break;
+		case 2:pid=(25571);break;
+		case 3:pid=(59);break;
+		case 4:pid=(54);break;
+		case 5:pid=(27);break;
+		case 6:pid=(25571);break;
+		case 7:pid=(25444);break;
+		case 8:pid=(430);break;
+		case 9:pid=(25468);break;
+		case 10:pid=(221);break;
+		case 11:pid=(516);break;
+		case 12:pid=(20432);break;
+		case 13:pid=(55);break;
+		case 14:pid=(253);break;
+		case 15:pid=(1276);break;
+		case 16:pid=(27630);break;
+		case 17:pid=(25579);break;
+		case 18:pid=(25580);break;
+		case 19:pid=(25581);break;
+		case 20:pid=(141);break;
+	}
+	
+	return pid;
+}
+
+uint implant()
+{
+	uint pid=(98);
+	switch(Random(1,8))
+	{
+		case 1:pid=(22054);break;
+		case 2:pid=(22055);break;
+		case 3:pid=(22056);break;
+		case 4:pid=(22057);break;
+		case 5:pid=(22058);break;
+		case 6:pid=(22059);break;
+		case 7:pid=(22060);break;
+		case 8:pid=(25471);break;
+	}
+	return pid;
+}
+
+uint implant_combat()
+{
+	uint pid=(98);
+	
+	switch(Random(1,9))
+	{
+		case 1:pid=(25552);break;
+		case 2:pid=(25553);break;
+		case 3:pid=(25554);break;
+		case 4:pid=(25555);break;
+		case 5:pid=(25556);break;
+		case 6:pid=(22053);break;
+		case 7:pid=(22051);break;
+		case 8:pid=(22052);break;
+		case 9:pid=(25470);break;
+	}
+	
+	return pid;
+}
+
+uint verti_parts()
+{
+	uint pid=(98);
+	
+	switch(Random(1,5))
+	{
+		case 1:pid=(446);break;
+		case 2:pid=(479);break;
+		case 3:pid=(422);break;
+		case 4:pid=(229);break;
+		case 5:pid=(254);break;
+	}
+	
+	return pid;
+}
+
+uint currency()
+{
+	uint pid=(98);
+	
+	switch(Random(1,4))
+	{
+		case 1:pid=(1211);break;
+		case 2:pid=(1212);break;
+		case 3:pid=(1213);break;
+		case 4:pid=(1214);break;
+		
+	}
+	
+	return pid;
+}
+
+uint low_tier()
+{
+	uint pid=(98);
+	switch(Random(1,57))
+	{
+		case 1:pid=(74);break;
+		case 2:pid=(1);break;
+		case 3:pid=(2);break;
+		case 4:pid=(17);break;
+		case 5:pid=(755);break;
+		case 6:pid=(756);break;
+		case 7:pid=(757);break;
+		case 8:pid=(758);break;
+		case 9:pid=(300);break;
+		case 10:pid=(122);break;
+		case 11:pid=(8);break;
+		case 12:pid=(18);break;
+		case 13:pid=(404);break;
+		case 14:pid=(313);break;
+		case 15:pid=(398);break;
+		case 16:pid=(619);break;
+		case 17:pid=(10);break;
+		case 18:pid=(287);break;
+		case 19:pid=(299);break;
+		case 20:pid=(23);break;
+		case 21:pid=(405);break;
+		case 22:pid=(351);break;
+		case 23:pid=(403);break;
+		case 24:pid=(500);break;
+		case 25:pid=(161);break;
+		case 26:pid=(162);break;
+		case 27:pid=(261);break;
+		case 28:pid=(94);break;
+		case 29:pid=(385);break;
+		case 30:pid=(242);break;
+		case 31:pid=(9);break;
+		case 32:pid=(283);break;
+		case 33:pid=(332);break;
+		case 34:pid=(11);break;
+		case 35:pid=(16);break;
+		case 36:pid=(118);break;
+		case 37:pid=(24);break;
+		case 38:pid=(4);break;
+		case 39:pid=(236);break;
+		
+		case 40:pid=(383);break;
+		case 41:pid=(319);break;
+		case 42:pid=(7);break;
+		case 43:pid=(280);break;
+		case 44:pid=(320);break;
+		case 45:pid=(5);break;
+		case 46:pid=(20);break;
+		case 47:pid=(384);break;
+		case 48:pid=(6);break;
+		case 49:pid=(160);break;
+		case 50:pid=(292);break;
+		case 51:pid=(293);break;
+		case 52:pid=(496);break;
+		case 53:pid=(497);break;
+		case 54:pid=(235);break;
+		case 55:pid=(12);break;
+		case 56:pid=(21);break;
+		case 57:pid=(234);break;
+	}
+	
+	return pid;
+}
+
+uint books()
+{
+	uint pid=(98);
+	switch(Random(1,16))
+	{
+		case 1:pid=(73);break;
+		case 2:pid=(76);break;
+		case 3:pid=(80);break;
+		case 4:pid=(86);break;
+		case 5:pid=(102);break;
+		case 6:pid=(22050);break;
+		case 7:pid=(25557);break;
+		case 8:pid=(25558);break;
+		case 9:pid=(25559);break;
+		case 10:pid=(25560);break;
+		case 11:pid=(25561);break;
+		case 12:pid=(25562);break;
+		case 13:pid=(25563);break;
+		case 14:pid=(25564);break;
+		case 15:pid=(25565);break;
+		case 16:pid=(225);break;
+	} 
+	
+	return pid;
+}
+
+uint mats()
+{
+	uint pid=(98);
+	switch(Random(1,20))
+	{
+		case 1:pid=(9653);break;
+		case 2:pid=(9631);break;
+		case 3:pid=(9630);break;
+		case 4:pid=(9629);break;
+		case 5:pid=(9628);break;
+		
+		case 6:pid=(1804);break;
+		case 7:pid=(1803);break;
+		case 8:pid=(1802);break;
+		case 9:pid=(1801);break;
+		case 10:pid=(9919);break;
+		case 11:pid=(286);break;
+		case 12:pid=(278);break;
+		case 13:pid=((98));break;
+		case 14:pid=(416);break;
+		case 15:pid=(535);break;
+		case 16:pid=(276);break;
+		case 17:pid=(277);break;
+		case 18:pid=(1824);break;
+		case 19:pid=(486);break;
+		case 20:pid=(9627);break;
+	} 
+	
+	return pid;
+}
+
+uint misc()
+{
+	uint pid=(98);
+	switch(Random(1,118))
+	{
+		case 1:pid=(470);break;
+		case 2:pid=(9632);break;
+		case 3:pid=(1801);break;
+		case 4:pid=(9629);break;
+		case 5:pid=(1800);break;
+		case 6:pid=(1801);break;
+		case 7:pid=(1802);break;
+		case 8:pid=(1803);break;
+		case 9:pid=(1804);break;
+		case 10:pid=(1805);break;
+		case 11:pid=(1806);break;
+		case 12:pid=(1807);break;
+		case 13:pid=(1808);break;
+		case 14:pid=(1809);break;
+		case 15:pid=(1824);break;
+		case 16:pid=(9628);break;
+		case 17:pid=(9629);break;
+		case 18:pid=(9630);break;
+		case 19:pid=(9631);break;
+		case 20:pid=(9632);break;
+		case 21:pid=(9633);break;
+		case 22:pid=(9634);break;
+		case 23:pid=(9635);break;
+		case 24:pid=(9653);break;
+		case 25:pid=(9681);break;
+		case 26:pid=(9918);break;
+		case 27:pid=(9919);break;
+		case 28:pid=(9921);break;
+		
+		case 29:pid=(84);break;
+		case 30:pid=(549);break;
+		case 31:pid=(47);break;
+		case 32:pid=(408);break;
+		case 33:pid=(91);break;
+		case 34:pid=(409);break;
+		case 35:pid=(289);break;
+		case 36:pid=(297);break;
+		case 37:pid=(543);break;
+		case 38:pid=(605);break;
+		case 39:pid=(764);break;
+		case 40:pid=(765);break;
+		case 41:pid=(766);break;
+		case 42:pid=(770);break;
+		case 43:pid=(773);break;
+		case 44:pid=(775);break;
+		case 45:pid=(776);break;
+		
+		case 46:pid=(9911);break;
+		case 47:pid=(92);break;
+		case 48:pid=(127);break;
+		case 49:pid=(271);break;
+		case 50:pid=(272);break;
+		case 51:pid=(284);break;
+		case 52:pid=(285);break;
+		case 53:pid=(318);break;
+		case 54:pid=(416);break;
+		case 55:pid=(542);break;
+		case 56:pid=(532);break;
+		case 57:pid=(534);break;
+		case 58:pid=(475);break;
+		case 59:pid=(251);break;
+		case 60:pid=(429);break;
+		case 61:pid=(75);break;
+		case 62:pid=(101);break;
+		case 63:pid=(117);break;
+		case 64:pid=(126);break;
+		case 65:pid=(226);break;
+		case 66:pid=(227);break;
+		case 67:pid=(262);break;
+		case 68:pid=(295);break;
+		case 69:pid=(314);break;
+		case 70:pid=(315);break;
+		case 71:pid=(316);break;
+		case 72:pid=(317);break;
+		case 73:pid=(325);break;
+		case 74:pid=(326);break;
+		case 75:pid=(436);break;
+		case 76:pid=(437);break;
+		case 77:pid=(474);break;
+		case 78:pid=(112);break;
+		
+		case 79:pid=(27566);break;
+		case 80:pid=(27567);break;
+		case 81:pid=(27568);break;
+		case 82:pid=(27569);break;
+		case 83:pid=(27574);break;
+		case 84:pid=(27575);break;
+		case 85:pid=(27576);break;
+		case 86:pid=(27577);break;
+		case 87:pid=(27579);break;
+		case 88:pid=(27580);break;
+		case 89:pid=(27581);break;
+		case 90:pid=(27582);break;
+		case 91:pid=(27584);break;
+		case 92:pid=(27585);break;
+		case 93:pid=(27586);break;
+		case 94:pid=(27587);break;
+		case 95:pid=(27588);break;
+		case 96:pid=(27592);break;
+		case 97:pid=(27593);break;
+		case 98:pid=(27594);break;
+		case 99:pid=(27595);break;
+		case 100:pid=(27596);break;
+		case 101:pid=(27597);break;
+		case 102:pid=(27598);break;
+		case 103:pid=(27599);break;
+		case 104:pid=(27607);break;
+		case 105:pid=(27608);break;
+		case 106:pid=(27609);break;
+		case 107:pid=(27611);break;
+		case 108:pid=(27613);break;
+		case 109:pid=(27614);break;
+		case 110:pid=(27615);break;
+		case 111:pid=(27616);break;
+		case 112:pid=(27617);break;
+		case 113:pid=(27618);break;
+		case 114:pid=(27620);break;
+		case 115:pid=(119);break;
+		case 116:pid=(225);break;
+		case 117:pid=(331);break;
+		case 118:pid=(471);break;
+	}
+	
+	return pid;
+}     
+
+bool istier3armor(uint pid)
+{
+	switch(pid)
+	{
+		case(381):
+		case(265):
+		case(379):
+		case(25548):
+		case(380):
+		case(240):
+		case(25549):
+		case(22095):
+		case(25547):
+		case(239):
+		case(752):
+		case(778):
+		case(9654):
+		case(761):
+		case(25550):
+		case(25551):
+		case(524):
+		case(27228):
+		case(27227):
+		case(1243):
+		case(1244):
+		case(1245):
+		case(1246):
+		return true;
+	}
+	return false;
+}
+
+bool istier3helmet(uint pid)
+{
+	switch(pid)
+	{
+		case(726):
+		case(733):
+		case(25588):
+		case(25589):
+		return true;
+	}
+	return false;
+}
+
+bool istier3weapon(uint pid)
+{
+	switch(pid)
+	{
+		case(13):
+		case(15):
+		case(399):
+		case(115):
+		case(143):
+		case(241):
+		case(296):
+		case(268):
+		case(25547):
+		case(355):
+		case(389):
+		case(400):
+		case(401):
+		case(522):
+		case(353):
+		case(28):
+		case(25566):
+		case(25567):
+		case(407):
+		case(396):
+		case(620):
+		case(25582):
+		case(402):
+		case(406):
+		case(388):
+		case(1217):
+		case(22):
+		case(354):
+		case(387):
+		case(116):
+		case(390):
+		case(517):
+		return true;
+	} 
+	
+	return false;
+}
+
+bool istier3bp(uint pid)
+{
+	
+	switch(pid)
+	{
+		case(9750):
+		case(9751):
+		case(9752):
+		case(9753):
+		case(9754):
+		case(9755):
+		case(9756):
+		case(9757):
+		case(9758):
+		case(9759):
+		case(9760):
+		case(9761):
+		case(9762):
+		case(9763):
+		case(9764):
+		case(9765):
+		case(9766):
+		case(9767):
+		case(9768):
+		case(9769):
+		case(9770):
+		case(9771):
+		case(9772):
+		case(9773):
+		case(9774):
+		
+		case(9827):
+		case(9828):
+		case(9831): 
+		
+		case(9780):
+		case(9836):
+		case(9781):
+		case(9782):
+		
+		case(9783):
+		case(9784):
+		case(9785):
+		case(9786):
+		case(9787):
+		
+		case(9848):
+		case(9849):
+		case(9857):
+		case(9853):
+		case(9854):
+		case(9855):
+		case(9856):
+		case(9858):
+		case(9859):
+		case(9860): 
+		
+		case(9790):
+		case(9791):
+		case(9792):
+		case(9793):
+		case(9794):
+		case(9795):
+		case(9796):
+		case(9797):
+		case(9798):
+		case(9799):
+		case(9832):
+		case(9833):
+		case(9834):
+		case(9835):
+		case(9837):
+		case(9838): 
+		
+		case(9840):
+		case(9841):
+		
+		case(9843):
+		case(9844):
+		case(9845):
+		case(9846):
+		case(9847):
+		return true;
+	}
+	
+	return false;
+}
+
+bool istier3drugs(uint pid)
+{
+	switch(pid)
+	{
+		
+		case(40):
+		case(48):
+		case(49):
+		case(109):
+		case(144):
+		case(260): 
+		
+		case(106):
+		case(124):
+		case(125):
+		case(310):
+		case(311):
+		case(469): 
+		
+		case(53):
+		case(87):
+		case(110):
+		case(259):
+		case(25573):
+		case(25574):
+		case(25575):
+		case(273):
+		
+		case(25592):
+		case(25593):
+		case(25594):
+		case(25595):
+		case(25596):
+		case(25597):
+		case(541):
+		return true;
+	}
+	return false;
+}
+
+bool istier3ammo(uint pid)
+{ 
+	
+	switch(pid)
+	{
+		case(36):
+		case(363):
+		case(30):
+		case(33):
+		case(34):
+		case(575):
+		case(576):
+		case(621):
+		case(37):
+		case(25568):
+		case(25584):
+		case(382):
+		case(38):
+		case(39):
+		case(361):
+		case(362):
+		case(159):
+		case(25):
+		case(26):
+		case(25570):
+		return true;
+	}
+	
+	return false;
+}
+
+bool istierlowammo(uint pid)
+{ 
+	
+	switch(pid)
+	{
+		case(35):
+		case(360):
+		case(121):
+		case(29):
+		case(31):
+		case(357):
+		case(574):
+		case(95):
+		case(14):
+		case(32):
+		case(38):
+		case(163):
+		case(361):
+		return true;
+	}
+	
+	return false;
+}
+
+bool istier4parts(uint pid)
+{
+	switch(pid)
+	{
+		case(25476):
+		case(25477):
+		case(25478):
+		case(25479):
+		case(25480):
+		case(25481):
+		case(25482):
+		case(25483):
+		case(25484):
+		case(25485):
+		case(25486):
+		case(25487):
+		case(25488):
+		case(22072):
+		case(22073):
+		case(22074):
+		case(22075):
+		case(22076):
+		case(22077):
+		case(22078):
+		case(22079):
+		case(22080):
+		case(22081):
+		case(22082):
+		case(22083):
+		case(22084):
+		case(22085):
+		case(22086):
+		case(22087):
+		case(22088):
+		case(22089):
+		case(22090):
+		case(22091):
+		case(22092):
+		case(22093):
+		case(22094):
+		case(25587):return true;
+	}
+	
+	return false;
+}
+
+bool istier4bp(uint pid)
+{
+	switch(pid)
+	{
+		case(9775):
+		case(9776):
+		case(9777):
+		case(9778):
+		case(9779):
+		case(9825):
+		case(9826):
+		case(9829):
+		case(9830):
+		case(9819):
+		case(9820):
+		case(9821):
+		case(9822):
+		case(9788):
+		case(9789):
+		case(9823):
+		case(9824):
+		case(9839):
+		case(9842):
+		case(9861):
+		case(9862):
+		case(9863):
+		case(9864):return true;
+	}
+	return false;
+}
+
+bool istier4item(uint pid)
+{
+	switch(pid)
+	{
+		case(721):
+		case(25600):
+		case(25598):
+		case(25599):
+		case(735):
+		case(736):
+		case(737):
+		case(391):
+		case(3):
+		case(232):
+		case(352):
+		case(348):
+		case(349):
+		case(394):
+		case(392):
+		case(395):
+		case(350):
+		case(120):
+		case(233):
+		case(397):
+		case(25452):
+		case(25445):
+		case(22120):
+		case(610):
+		case(25569):return true;
+	}
+	return false;
+}
+
+bool istier4ammo(uint pid)
+{
+	
+	switch(pid)
+	{
+		case(525):
+		case(25585):
+		case(358):
+		case(359):
+		case(850):
+		case(25586):
+		case(1271):
+		case(1270):
+		case(1272):
+		case(1273):return true;
+	}
+	
+	return false;
+}
+
+bool israreitem(uint pid)
+{
+	switch(pid)
+	{
+		case(25571):
+		case(59):
+		case(54):
+		case(27):
+		case(25444):
+		case(430):
+		case(25468):
+		case(221):
+		case(516):
+		case(20432):
+		case(55):
+		case(253):
+		case(1276):
+		case(25470):
+		case(25471):return true;
+	}
+	
+	return false;
+}
+
+bool isimplant(uint pid)
+{
+	switch(pid)
+	{
+		case(22054):
+		case(22055):
+		case(22056):
+		case(22057):
+		case(22058):
+		case(22059):
+		case(22060):
+		return true;
+	}
+	return false;
+}
+
+bool isimplant_combat(uint pid)
+{ 
+	
+	switch(pid)
+	{
+		case(25552):
+		case(25553):
+		case(25554):
+		case(25555):
+		case(25556):
+		case(22053):
+		case(22051):
+		case(22052):
+		case(1216):return true;
+	}
+	
+	return false;
+}
+
+bool isverti_parts(uint pid)
+{
+	
+	switch(pid)
+	{
+		case(446):
+		case(479):
+		case(422):
+		case(229):
+		case(254):return true;
+	}
+	
+	return false;
+}
+
+bool iscurrency(uint pid)
+{
+	
+	switch(pid)
+	{
+		case(1211):
+		case(1212):
+		case(1213):
+		case(1214):
+		case(1215):
+		case(41):
+		case(9715):return true;
+	}
+	
+	return false;
+}
+
+bool islow_tier(uint pid)
+{
+	switch(pid)
+	{
+		case(74):
+		case(1):
+		case(2):
+		case(17):
+		case(755):
+		case(756):
+		case(757):
+		case(758):
+		case(300):
+		case(122):
+		case(8):
+		case(18):
+		case(404):
+		case(313):
+		case(398):
+		case(619):
+		case(10):
+		case(287):
+		case(299):
+		case(23):
+		case(405):
+		case(351):
+		case(403):
+		case(500):
+		case(161):
+		case(162):
+		case(261):
+		case(94):
+		case(385):
+		case(242):
+		case(9):
+		case(283):
+		case(332):
+		case(11):
+		case(16):
+		case(118):
+		case(24):
+		case(4):
+		case(236):
+		case(517):
+		case(383):
+		case(319):
+		case(7):
+		case(280):
+		case(320):
+		case(5):
+		case(20):
+		case(384):
+		case(6):
+		case(160):
+		case(292):
+		case(293):
+		case(496):
+		case(497):
+		case(235):
+		case(12):
+		case(21):
+		case(234):return true;
+	}
+	return false;
+}
+
+bool isHelmet(uint pid)
+{
+	switch(pid)
+	{
+		case(725):
+		case(726):
+		case(727):
+		case(728):
+		case(729):
+		case(730):
+		case(731):
+		case(732):
+		case(733):
+		case(734):
+		case(738):
+		case(739):
+		case(740):
+		case(741):
+		case(25588):
+		case(25589):return true;
+	}
+	return false;
+} 
+

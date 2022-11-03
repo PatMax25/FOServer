@@ -1,0 +1,248 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _script dialog@d_WeaponInHand 0  #
+3 1020 @
+2 2000 None 0 @
+3 3000 None 1 #
+4 3010 D _var p q_cath_entrance_paid = 1 #
+5 3020 #
+9 3030 #
+8 3040 #
+0 3050 @
+4 4000 None 0 #
+0 4010 R _script dialog@r_TeleportToMap 2 76 0 #
+0 4020 @
+5 5000 None 0 #
+6 5010 D _var p q_cath_entrance_paid = 0 #
+4 5020 D _var p q_cath_entrance_paid = 1 #
+0 5030 @
+6 6000 None 0 #
+4 6010 D _script dialog@d_havepropermoney 1 10 R _var p q_cath_entrance_paid = 1 R _script dialog@r_RemoveMoney 1 10 #
+7 6020 #
+10 6030 @
+7 7000 None 0 #
+3 7010 #
+0 7020 @
+8 8000 None 0 #
+6 8010 D _var p q_cath_entrance_paid = 0 #
+4 8020 D _var p q_cath_entrance_paid = 1 #
+3 8030 #
+0 8040 @
+9 9000 None 0 #
+3 9010 #
+0 9020 @
+10 10000 None 0 #
+11 10010 #
+11 10020 @
+11 11000 None 0 #
+0 11010 &
+
+[engl]
+{100}{}{Door Guard}
+{200}{}{You see a door guard.}
+{210}{}{She is the door guard of the cathedral.}
+{1000}{}{Initial preferences}
+{1010}{}{weapons}
+{1020}{}{---}
+{2000}{}{Please lay down your weapons. This is a peaceful place.}
+{3000}{}{How may I help you, wastelander?}
+{3010}{}{Can I go in?}
+{3020}{}{Why are the doors locked?}
+{3030}{}{What is this place?}
+{3040}{}{What are you doing here?}
+{3050}{}{Goodbye. [ end dialogue ]}
+{4000}{}{You may enter, wastelander!}
+{4010}{}{[ continue inside ]}
+{4020}{}{Later, not now. Bye. [ end dialogue ]}
+{5000}{}{Not everyone is allowed the enter our cathedral.}
+{5010}{}{Am I allowed to enter the place?}
+{5020}{}{Am I allowed to enter the place?}
+{5030}{}{Goodbye. [ end dialogue ]}
+{6000}{}{For a small obolus of 10 local Currency, you may be allowed to enter the place. }
+{6010}{}{Here are 10 Currency.}
+{6020}{}{I don't have the money.}
+{6030}{}{What's an obolus? Is that a real word or did you make it up?}
+{7000}{}{Then I cannot allow you to pass, wastelander.}
+{7010}{}{I have a question.}
+{7020}{}{Bye. [ end dialogue ]}
+{8000}{}{Simply, my position is to make sure no one comes in who shouldn't.}
+{8010}{}{Am I allowed to enter the place?}
+{8020}{}{Am I allowed to enter the place?}
+{8030}{}{I have another question.}
+{8040}{}{Goodbye. [ end dialogue ]}
+{9000}{}{This cathedral is the home of many. We are poor, but this doesn't prevents us from helping the ones that have even less. Everyone is welcome, as long as the weapons stay down.}
+{9010}{}{I have a question.}
+{9020}{}{Goodbye. [ end dialogue ]}
+{10000}{}{An obolus is a standard silver coin, or entry fee, come on, what rock have you been living under?}
+{10010}{}{Wait, silver coins? No one uses silver coins any more.}
+{10020}{}{Where the hell would I get those?}
+{11000}{}{Alright, wise guy... now you owe me a drachma. Pay up or leave.}
+{11010}{}{Odd... [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Initial preferences}
+{1010}{}{weapons}
+{1020}{}{---}
+{2000}{}{Please lay down your weapons. This is a peaceful place.}
+{3000}{}{How may I help you, wastelander?}
+{3010}{}{Can I go in?}
+{3020}{}{Why are the doors locked?}
+{3030}{}{What is this place?}
+{3040}{}{What are you doing here?}
+{3050}{}{Goodbye.}
+{4000}{}{You may enter, wastelander!}
+{4010}{}{[Continue]}
+{4020}{}{Later, not now. Bye.}
+{5000}{}{Not everyone is allowed the enter our cathedral.}
+{5010}{}{Am I allowed to enter the place?}
+{5020}{}{Am I allowed to enter the place?}
+{5030}{}{Goodbye.}
+{6000}{}{For a small obolus of 10 local Currency, you may be allowed to enter the place. }
+{6010}{}{Here are 10 Currency.}
+{6020}{}{I don't have the money.}
+{6030}{}{What's an obolus? Is that a real word or did you make it up?}
+{7000}{}{Then I cannot allow you to pass, wastelander.}
+{7010}{}{I have a question.}
+{7020}{}{Bye.}
+{8000}{}{My position here is to take care about who is allowed to enter the halls and who is not.}
+{8010}{}{Am I allowed to enter the place?}
+{8020}{}{Am I allowed to enter the place?}
+{8030}{}{I have another question.}
+{8040}{}{Goodbye.}
+{9000}{}{This cathedral is the home of many. We are poor, but this doesn't prevents us from helping the ones that have even less. Everyone is welcome, as long as the weapons stay down.}
+{9010}{}{I have a question.}
+{9020}{}{Goodbye.}
+{10000}{}{An obolus is a standard silver coin, come on, what rock have you been living under?}
+{10010}{}{Wait, silver coins? No one uses silver coins any more.}
+{10020}{}{Where the hell would I get silver coins these days?}
+{11000}{}{Alright, wise guy... now you owe me a drachma. Pay up or leave.}
+{11010}{}{Odd... [ end dialogue ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Initial preferences}
+{1010}{}{weapons}
+{1020}{}{---}
+{2000}{}{Please lay down your weapons. This is a peaceful place.}
+{3000}{}{How may I help you, wastelander?}
+{3010}{}{Can I go in?}
+{3020}{}{Why are the doors locked?}
+{3030}{}{What is this place?}
+{3040}{}{What are you doing here?}
+{3050}{}{Goodbye.}
+{4000}{}{You may enter, wastelander!}
+{4010}{}{[Continue]}
+{4020}{}{Later, not now. Bye.}
+{5000}{}{Not everyone is allowed the enter our cathedral.}
+{5010}{}{Am I allowed to enter the place?}
+{5020}{}{Am I allowed to enter the place?}
+{5030}{}{Goodbye.}
+{6000}{}{For a small obolus of 10 local Currency, you may be allowed to enter the place. }
+{6010}{}{Here are 10 Currency.}
+{6020}{}{I don't have the money.}
+{6030}{}{What's an obolus? Is that a real word or did you make it up?}
+{7000}{}{Then I cannot allow you to pass, wastelander.}
+{7010}{}{I have a question.}
+{7020}{}{Bye.}
+{8000}{}{My position here is to take care about who is allowed to enter the halls and who is not.}
+{8010}{}{Am I allowed to enter the place?}
+{8020}{}{Am I allowed to enter the place?}
+{8030}{}{I have another question.}
+{8040}{}{Goodbye.}
+{9000}{}{This cathedral is the home of many. We are poor, but this doesn't prevents us from helping the ones that have even less. Everyone is welcome, as long as the weapons stay down.}
+{9010}{}{I have a question.}
+{9020}{}{Goodbye.}
+{10000}{}{An obolus is a standard silver coin, come on, what rock have you been living under?}
+{10010}{}{Wait, silver coins? No one uses silver coins any more.}
+{10020}{}{Where the hell would I get silver coins these days?}
+{11000}{}{Alright, wise guy... now you owe me a drachma. Pay up or leave.}
+{11010}{}{Odd... [ end dialogue ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Initial preferences}
+{1010}{}{weapons}
+{1020}{}{---}
+{2000}{}{Please lay down your weapons. This is a peaceful place.}
+{3000}{}{How may I help you, wastelander?}
+{3010}{}{Can I go in?}
+{3020}{}{Why are the doors locked?}
+{3030}{}{What is this place?}
+{3040}{}{What are you doing here?}
+{3050}{}{Goodbye.}
+{4000}{}{You may enter, wastelander!}
+{4010}{}{[Continue]}
+{4020}{}{Later, not now. Bye.}
+{5000}{}{Not everyone is allowed the enter our cathedral.}
+{5010}{}{Am I allowed to enter the place?}
+{5020}{}{Am I allowed to enter the place?}
+{5030}{}{Goodbye.}
+{6000}{}{For a small obolus of 10 local Currency, you may be allowed to enter the place. }
+{6010}{}{Here are 10 Currency.}
+{6020}{}{I don't have the money.}
+{6030}{}{What's an obolus? Is that a real word or did you make it up?}
+{7000}{}{Then I cannot allow you to pass, wastelander.}
+{7010}{}{I have a question.}
+{7020}{}{Bye.}
+{8000}{}{My position here is to take care about who is allowed to enter the halls and who is not.}
+{8010}{}{Am I allowed to enter the place?}
+{8020}{}{Am I allowed to enter the place?}
+{8030}{}{I have another question.}
+{8040}{}{Goodbye.}
+{9000}{}{This cathedral is the home of many. We are poor, but this doesn't prevents us from helping the ones that have even less. Everyone is welcome, as long as the weapons stay down.}
+{9010}{}{I have a question.}
+{9020}{}{Goodbye.}
+{10000}{}{An obolus is a standard silver coin, come on, what rock have you been living under?}
+{10010}{}{Wait, silver coins? No one uses silver coins any more.}
+{10020}{}{Where the hell would I get silver coins these days?}
+{11000}{}{Alright, wise guy... now you owe me a drachma. Pay up or leave.}
+{11010}{}{Odd... [ end dialogue ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Initial preferences}
+{1010}{}{weapons}
+{1020}{}{---}
+{2000}{}{Please lay down your weapons. This is a peaceful place.}
+{3000}{}{How may I help you, wastelander?}
+{3010}{}{Can I go in?}
+{3020}{}{Why are the doors locked?}
+{3030}{}{What is this place?}
+{3040}{}{What are you doing here?}
+{3050}{}{Goodbye.}
+{4000}{}{You may enter, wastelander!}
+{4010}{}{[Continue]}
+{4020}{}{Later, not now. Bye.}
+{5000}{}{Not everyone is allowed the enter our cathedral.}
+{5010}{}{Am I allowed to enter the place?}
+{5020}{}{Am I allowed to enter the place?}
+{5030}{}{Goodbye.}
+{6000}{}{For a small obolus of 10 local Currency, you may be allowed to enter the place. }
+{6010}{}{Here are 10 Currency.}
+{6020}{}{I don't have the money.}
+{6030}{}{What's an obolus? Is that a real word or did you make it up?}
+{7000}{}{Then I cannot allow you to pass, wastelander.}
+{7010}{}{I have a question.}
+{7020}{}{Bye.}
+{8000}{}{My position here is to take care about who is allowed to enter the halls and who is not.}
+{8010}{}{Am I allowed to enter the place?}
+{8020}{}{Am I allowed to enter the place?}
+{8030}{}{I have another question.}
+{8040}{}{Goodbye.}
+{9000}{}{This cathedral is the home of many. We are poor, but this doesn't prevents us from helping the ones that have even less. Everyone is welcome, as long as the weapons stay down.}
+{9010}{}{I have a question.}
+{9020}{}{Goodbye.}
+{10000}{}{An obolus is a standard silver coin, come on, what rock have you been living under?}
+{10010}{}{Wait, silver coins? No one uses silver coins any more.}
+{10020}{}{Where the hell would I get silver coins these days?}
+{11000}{}{Alright, wise guy... now you owe me a drachma. Pay up or leave.}
+{11010}{}{Odd... [ end dialogue ]}
+

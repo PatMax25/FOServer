@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Unity Patrolman}
+{200}{}{You see a serious looking soldier from the Broken Hills militia.}
+{210}{}{This soldier looks ready for action, and well-armed.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treat our people with respect.@@We're peaceable people from Broken Hills, but we know how to fight.@@Talk to the Sheriff in Broken Hills if you have any business with us.@@We will end racism here!@@All who can speak and think are equal!@@Mutants, humans, ghouls, even talking deathclaws, all should be considered!@@We will fight for equal rights.@@Fundamental rights for all beings!@@We stand up for what is right!@@We stand up for our ideals.@@Racism is unacceptable.@@You're not one of those damned inbred racists, are you?@@Could all the racists just die off already?@@Fuck racism.@@As long as you can think, you can join the Unity!@@Count on us to stand up for independence and life itself!@@Defending the weak, killing slavers and raiders... this is the life.@@Can't wait to make it back to Broken Hills...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treat our people with respect. We're peaceable people from Broken Hills, but we know how to fight.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treat our people with respect. We're peaceable people from Broken Hills, but we know how to fight.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treat our people with respect. We're peaceable people from Broken Hills, but we know how to fight.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treat our people with respect. We're peaceable people from Broken Hills, but we know how to fight.}
+

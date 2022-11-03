@@ -1,0 +1,78 @@
+﻿[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 R _script dialog@r_PlaySound 1 58 @
+2 2000 None 0 #
+3 2010 R _script dialog@r_PlaySound 1 59 @
+3 3000 None 0 #
+4 3010 R _script dialog@r_PlaySound 1 60 R _script q_enclave@r_boss 0  #
+4 3020 R _script dialog@r_PlaySound 1 60 R _script q_enclave@r_boss 0  #
+4 3030 R _script dialog@r_PlaySound 1 60 R _script q_enclave@r_boss 0  @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Frank Horrigan}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{So what do we have here? A bunch of mutie scum trying to mess around with government forces. You won't get any farther.}
+{2010}{}{Government forces, eh? And where is your President?}
+{3000}{}{The President? Oh well, HE is not here. You just wasted your time getting in this lovely little trap of ours and you are not getting out.}
+{3010}{}{So who are you then?}
+{3020}{}{Maybe we can solve it peacefully?}
+{3030}{}{How about you and me just hitting the bar instead of fighting, eh?}
+{4000}{}{Enough chatting. You are unimportant and your little ride is over, mutie. Time to die.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{So what do we have here? A bunch of mutie scums trying to mess around government forces. This won’t last any longer.}
+{2010}{}{Government forces, eh? And where is your President?}
+{3000}{}{The President? Oh well, HE is not here. You just wasted your time getting in this lovely little trap of ours and you are not getting away.}
+{3010}{}{So who are you then?}
+{3020}{}{Maybe we can solve it peacefully?}
+{3030}{}{How about you and me just hitting the bar instead of fighting, eh?}
+{4000}{}{Enough chatting. Your ride is over mutie. Time to die.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{So what do we have here? A bunch of mutie scums trying to mess around government forces. This won’t last any longer.}
+{2010}{}{Government forces, eh? And where is your President?}
+{3000}{}{The President? Oh well, HE is not here. You just wasted your time getting in this lovely little trap of ours and you are not getting away.}
+{3010}{}{So who are you then?}
+{3020}{}{Maybe we can solve it peacefully?}
+{3030}{}{How about you and me just hitting the bar instead of fighting, eh?}
+{4000}{}{Enough chatting. Your ride is over mutie. Time to die.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{So what do we have here? A bunch of mutie scums trying to mess around government forces. This won’t last any longer.}
+{2010}{}{Government forces, eh? And where is your President?}
+{3000}{}{The President? Oh well, HE is not here. You just wasted your time getting in this lovely little trap of ours and you are not getting away.}
+{3010}{}{So who are you then?}
+{3020}{}{Maybe we can solve it peacefully?}
+{3030}{}{How about you and me just hitting the bar instead of fighting, eh?}
+{4000}{}{Enough chatting. Your ride is over mutie. Time to die.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{So what do we have here? A bunch of mutie scums trying to mess around government forces. This won’t last any longer.}
+{2010}{}{Government forces, eh? And where is your President?}
+{3000}{}{The President? Oh well, HE is not here. You just wasted your time getting in this lovely little trap of ours and you are not getting away.}
+{3010}{}{So who are you then?}
+{3020}{}{Maybe we can solve it peacefully?}
+{3030}{}{How about you and me just hitting the bar instead of fighting, eh?}
+{4000}{}{Enough chatting. Your ride is over mutie. Time to die.}
+

@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Vault City Soldier}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day.@@I am on duty.@@We can't talk now.@@Welcome in Hawthorne.@@The city is under Vault City control. Don't cause problems, and everything wil be alright.@@In case if you wonder - the city's governnment is now under Vault City jurisdiction.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day.@@I am on duty.@@We can't talk now.@@Welcome in Hawthorne.@@The city is under Vault City control. Don't cause problems, and everything wil be alright.@@In case if you wonder - the city's governor is Solo.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day.@@I am on duty.@@We can't talk now.@@Welcome in Hawthorne.@@The city is under Vault City control. Don't cause problems, and everything wil be alright.@@In case if you wonder - the city's governor is Solo.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day.@@I am on duty.@@We can't talk now.@@Welcome in Hawthorne.@@The city is under Vault City control. Don't cause problems, and everything wil be alright.@@In case if you wonder - the city's governor is Solo.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day.@@I am on duty.@@We can't talk now.@@Welcome in Hawthorne.@@The city is under Vault City control. Don't cause problems, and everything wil be alright.@@In case if you wonder - the city's governor is Solo.}
+

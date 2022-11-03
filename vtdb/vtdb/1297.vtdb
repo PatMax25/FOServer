@@ -1,0 +1,14 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Ali Robertson;
+@gender = 1;
+@age = 23;
+
+@special = 5 6 5 7 7 5 5;
+@xp = 1 0 1000;
+@life = 70 70 0 0 0 0 0 0 0;
+@stats = 15 7 87950 1 0 25 10 12 3 5;
+@skills = 25 10 10 50 40 20 26 18 20 21 15 21 28 21 35 28 25 24 0;
+@traits = 553 564;
+@perks = 301;

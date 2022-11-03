@@ -1,0 +1,240 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p ncr_citizenship = 0 #
+13 1020 D _var p ncr_citizenship = 1 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 None 0 #
+5 3010 D _var p ncr_citizenship = 0 D _param p REPUTATION_NCR } 0 #
+9 3020 D _var p ncr_citizenship = 0 D _param p REPUTATION_NCR < 0 #
+0 3030 @
+4 4000 None 0 #
+2 4010 D _var p ncr_citizenship = 0 #
+13 4020 D _var p ncr_citizenship = 1 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+11 8010 D _script dialog@d_havepropermoney 1 2000 R _var p ncr_citizenship = 1 R _script dialog@r_RemoveMoney 1 2000 #
+0 8020 @
+9 9000 None 0 #
+10 9010 #
+0 9020 @
+10 10000 None 0 #
+11 10010 D _script dialog@d_havepropermoney 1 5000 R _var p ncr_citizenship = 1 R _script dialog@r_RemoveMoney 1 5000 #
+0 10020 @
+11 11000 None 0 #
+0 11010 @
+12 12000 None 0 @
+13 13000 None 0 #
+4 13010 #
+12 13020 #
+0 13030 &
+
+[engl]
+{100}{}{Kira May}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{fff}
+{2000}{}{Good day, wastelander. How can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Tell me about NCR.}
+{2030}{}{[ Leave ]}
+{3000}{}{I am Kira May. The holder of the NCR citizenship office.}
+{3010}{}{Citizenship office? Sounds interesting... How can I become a citizen?}
+{3020}{}{Citizenship office? I'd like to become a citizen.}
+{3030}{}{I see. I better go now.}
+{4000}{}{Why? Haven't you heard about us? We are New California Republic - the most powerful organization in the California. We are the nation... If you may... We are willing to restore the old world and we are sure that democracy is our key to success.}
+{4010}{}{I see. One more thing...}
+{4020}{}{I see. One more thing...}
+{5000}{}{So you want to become a citizen? Good. [ she checks through some papers ] Well it seems like you don't have many negative reports so... First let me tell you about Basic Laws and Rights of New California Republic...}
+{5010}{}{[ yawn ]}
+{6000}{}{...and finally, you gain the right to buy a real estate on the NCR territory and the right to elect and be elected. Hey! Are you listening?}
+{6010}{}{Eh?... yeah, yeah... Sure.}
+{7000}{}{Aha... I see. Anyway, lets get to the procedure of becoming a citizen. To become a citizen you need to either have relatives here or have a special blue card pass. I guess you have None of these.}
+{7010}{}{So?}
+{8000}{}{So the only option for you is to invest in NCR economy. 2000 Currency will be enough for you to gain a citizenship.}
+{8010}{}{Sure. Here is the cash. What's next?}
+{8020}{}{I will come later.}
+{9000}{}{So you want to be a citizen... Good. [ she checks through some papers ] Oh... eeh... Your crimes have been noticed all over the wasteland. You better leave before I call guards.}
+{9010}{}{Well... Maybe we can fine some "other way"?}
+{9020}{}{Alright, alright... I am leaving.}
+{10000}{}{[ She looks around and then whispers ] 5000 Currency...}
+{10010}{}{Sure. Here you go.}
+{10020}{}{How much?! I don't have such sum. I am leaving now!}
+{11000}{}{[ She recounts the cash ] Good... Good... So now just sign up here, here and... We are done! Congratulations! Now you are a citizen.}
+{11010}{}{Amazing... I will go now, then.}
+{12000}{}{You should check the residential area. Just head south.}
+{13000}{}{Good day to you, citizen. How can I help you today?}
+{13010}{}{Tell me about NCR.}
+{13020}{}{Where can I find some real estate here?}
+{13030}{}{[ Leave ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{fff}
+{2000}{}{Good day, wastelander. How can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Tell me about NCR.}
+{2030}{}{[ Leave ]}
+{3000}{}{I am Kira May. The holder of the NCR citizenship office.}
+{3010}{}{Citizenship office? Sounds interesting... How can I become a citizen?}
+{3020}{}{Citizenship office? I'd like to become a citizen.}
+{3030}{}{I see. I better go now.}
+{4000}{}{Why? Haven't you heard about us? We are New California Republic - the most powerful organisation in the California. We are the nation... If you may... We are willing to restore the old world and we are sure that democracy is our key to success.}
+{4010}{}{I see. One more thing...}
+{4020}{}{I see. One more thing...}
+{5000}{}{So you want to become a citizen? Good. [ she checks through some papers ] Well it seems like you don't have many negative reports so... First let me tell you about Basic Laws and Rights of New California Republic...}
+{5010}{}{[ yawn ]}
+{6000}{}{...and finally, you gain the right to buy a real estate on the NCR territory and the right to elect and be elected. Hey! Are you listening?}
+{6010}{}{Eh?... yeah, yeah... Sure.}
+{7000}{}{Aha... I see. Anyway, lets get to the procedure of becoming a citizen. To become a citizen you need to either have relatives here or have a special blue card pass. I guess you have None of these.}
+{7010}{}{So?}
+{8000}{}{So the only option for you is to invest in NCR economy. 2000 Currency will be enough for you to gain a citizenship.}
+{8010}{}{Sure. Here is the cash. What's next?}
+{8020}{}{I will come later.}
+{9000}{}{So you want to be a citizen... Good. [ she checks through some papers ] Oh... eeh... Your crimes have been noticed all over the wasteland. You better leave before I call guards.}
+{9010}{}{Well... Maybe we can fine some "other way"?}
+{9020}{}{Alright, alright... I am leaving.}
+{10000}{}{[ She looks around and then whispers ] 5000 Currency...}
+{10010}{}{Sure. Here you go.}
+{10020}{}{How much?! I don't have such sum. I am leaving now!}
+{11000}{}{[ She recounts the cash ] Good... Good... So now just sign up here, here and... We are done! Congratulations! Now you are a citizen.}
+{11010}{}{Amazing... I will go now, then.}
+{12000}{}{You should check the residential area. Just head south.}
+{13000}{}{Good day to you, citizen. How can I help you today?}
+{13010}{}{Tell me about NCR.}
+{13020}{}{Where can I find some real estate here?}
+{13030}{}{[ Leave ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{fff}
+{2000}{}{Good day, wastelander. How can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Tell me about NCR.}
+{2030}{}{[ Leave ]}
+{3000}{}{I am Kira May. The holder of the NCR citizenship office.}
+{3010}{}{Citizenship office? Sounds interesting... How can I become a citizen?}
+{3020}{}{Citizenship office? I'd like to become a citizen.}
+{3030}{}{I see. I better go now.}
+{4000}{}{Why? Haven't you heard about us? We are New California Republic - the most powerful organisation in the California. We are the nation... If you may... We are willing to restore the old world and we are sure that democracy is our key to success.}
+{4010}{}{I see. One more thing...}
+{4020}{}{I see. One more thing...}
+{5000}{}{So you want to become a citizen? Good. [ she checks through some papers ] Well it seems like you don't have many negative reports so... First let me tell you about Basic Laws and Rights of New California Republic...}
+{5010}{}{[ yawn ]}
+{6000}{}{...and finally, you gain the right to buy a real estate on the NCR territory and the right to elect and be elected. Hey! Are you listening?}
+{6010}{}{Eh?... yeah, yeah... Sure.}
+{7000}{}{Aha... I see. Anyway, lets get to the procedure of becoming a citizen. To become a citizen you need to either have relatives here or have a special blue card pass. I guess you have None of these.}
+{7010}{}{So?}
+{8000}{}{So the only option for you is to invest in NCR economy. 2000 Currency will be enough for you to gain a citizenship.}
+{8010}{}{Sure. Here is the cash. What's next?}
+{8020}{}{I will come later.}
+{9000}{}{So you want to be a citizen... Good. [ she checks through some papers ] Oh... eeh... Your crimes have been noticed all over the wasteland. You better leave before I call guards.}
+{9010}{}{Well... Maybe we can fine some "other way"?}
+{9020}{}{Alright, alright... I am leaving.}
+{10000}{}{[ She looks around and then whispers ] 5000 Currency...}
+{10010}{}{Sure. Here you go.}
+{10020}{}{How much?! I don't have such sum. I am leaving now!}
+{11000}{}{[ She recounts the cash ] Good... Good... So now just sign up here, here and... We are done! Congratulations! Now you are a citizen.}
+{11010}{}{Amazing... I will go now, then.}
+{12000}{}{You should check the residential area. Just head south.}
+{13000}{}{Good day to you, citizen. How can I help you today?}
+{13010}{}{Tell me about NCR.}
+{13020}{}{Where can I find some real estate here?}
+{13030}{}{[ Leave ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{fff}
+{2000}{}{Good day, wastelander. How can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Tell me about NCR.}
+{2030}{}{[ Leave ]}
+{3000}{}{I am Kira May. The holder of the NCR citizenship office.}
+{3010}{}{Citizenship office? Sounds interesting... How can I become a citizen?}
+{3020}{}{Citizenship office? I'd like to become a citizen.}
+{3030}{}{I see. I better go now.}
+{4000}{}{Why? Haven't you heard about us? We are New California Republic - the most powerful organisation in the California. We are the nation... If you may... We are willing to restore the old world and we are sure that democracy is our key to success.}
+{4010}{}{I see. One more thing...}
+{4020}{}{I see. One more thing...}
+{5000}{}{So you want to become a citizen? Good. [ she checks through some papers ] Well it seems like you don't have many negative reports so... First let me tell you about Basic Laws and Rights of New California Republic...}
+{5010}{}{[ yawn ]}
+{6000}{}{...and finally, you gain the right to buy a real estate on the NCR territory and the right to elect and be elected. Hey! Are you listening?}
+{6010}{}{Eh?... yeah, yeah... Sure.}
+{7000}{}{Aha... I see. Anyway, lets get to the procedure of becoming a citizen. To become a citizen you need to either have relatives here or have a special blue card pass. I guess you have None of these.}
+{7010}{}{So?}
+{8000}{}{So the only option for you is to invest in NCR economy. 2000 Currency will be enough for you to gain a citizenship.}
+{8010}{}{Sure. Here is the cash. What's next?}
+{8020}{}{I will come later.}
+{9000}{}{So you want to be a citizen... Good. [ she checks through some papers ] Oh... eeh... Your crimes have been noticed all over the wasteland. You better leave before I call guards.}
+{9010}{}{Well... Maybe we can fine some "other way"?}
+{9020}{}{Alright, alright... I am leaving.}
+{10000}{}{[ She looks around and then whispers ] 5000 Currency...}
+{10010}{}{Sure. Here you go.}
+{10020}{}{How much?! I don't have such sum. I am leaving now!}
+{11000}{}{[ She recounts the cash ] Good... Good... So now just sign up here, here and... We are done! Congratulations! Now you are a citizen.}
+{11010}{}{Amazing... I will go now, then.}
+{12000}{}{You should check the residential area. Just head south.}
+{13000}{}{Good day to you, citizen. How can I help you today?}
+{13010}{}{Tell me about NCR.}
+{13020}{}{Where can I find some real estate here?}
+{13030}{}{[ Leave ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{fff}
+{2000}{}{Good day, wastelander. How can I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Tell me about NCR.}
+{2030}{}{[ Leave ]}
+{3000}{}{I am Kira May. The holder of the NCR citizenship office.}
+{3010}{}{Citizenship office? Sounds interesting... How can I become a citizen?}
+{3020}{}{Citizenship office? I'd like to become a citizen.}
+{3030}{}{I see. I better go now.}
+{4000}{}{Why? Haven't you heard about us? We are New California Republic - the most powerful organisation in the California. We are the nation... If you may... We are willing to restore the old world and we are sure that democracy is our key to success.}
+{4010}{}{I see. One more thing...}
+{4020}{}{I see. One more thing...}
+{5000}{}{So you want to become a citizen? Good. [ she checks through some papers ] Well it seems like you don't have many negative reports so... First let me tell you about Basic Laws and Rights of New California Republic...}
+{5010}{}{[ yawn ]}
+{6000}{}{...and finally, you gain the right to buy a real estate on the NCR territory and the right to elect and be elected. Hey! Are you listening?}
+{6010}{}{Eh?... yeah, yeah... Sure.}
+{7000}{}{Aha... I see. Anyway, lets get to the procedure of becoming a citizen. To become a citizen you need to either have relatives here or have a special blue card pass. I guess you have None of these.}
+{7010}{}{So?}
+{8000}{}{So the only option for you is to invest in NCR economy. 2000 Currency will be enough for you to gain a citizenship.}
+{8010}{}{Sure. Here is the cash. What's next?}
+{8020}{}{I will come later.}
+{9000}{}{So you want to be a citizen... Good. [ she checks through some papers ] Oh... eeh... Your crimes have been noticed all over the wasteland. You better leave before I call guards.}
+{9010}{}{Well... Maybe we can fine some "other way"?}
+{9020}{}{Alright, alright... I am leaving.}
+{10000}{}{[ She looks around and then whispers ] 5000 Currency...}
+{10010}{}{Sure. Here you go.}
+{10020}{}{How much?! I don't have such sum. I am leaving now!}
+{11000}{}{[ She recounts the cash ] Good... Good... So now just sign up here, here and... We are done! Congratulations! Now you are a citizen.}
+{11010}{}{Amazing... I will go now, then.}
+{12000}{}{You should check the residential area. Just head south.}
+{13000}{}{Good day to you, citizen. How can I help you today?}
+{13010}{}{Tell me about NCR.}
+{13020}{}{Where can I find some real estate here?}
+{13030}{}{[ Leave ]}
+

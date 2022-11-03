@@ -1,0 +1,171 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+50 1010 D _param p ST_INTELLECT < 4 #
+2 1020 D _script dialog@d_IsNotMember 0  #
+3 1030 D _var n name_mem_npc_player = 0 #
+7 1040 D _var n name_mem_npc_player = 1 @
+2 2000 None 0 @
+3 3000 None 0 #
+4 3010 R _var n name_mem_npc_player = 1 #
+5 3020 R _var n name_mem_npc_player = 1 #
+0 3030 @
+4 4000 None 0 #
+6 4010 #
+0 4020 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+4 6010 #
+5 6020 #
+0 6030 @
+7 7000 None 0 #
+6 7010 #
+0 7020 @
+50 8000 None 0 &
+
+[engl]
+{100}{}{Gond}
+{200}{}{It's a big super-mutant.}
+{210}{}{It's Gond, the super-mutant.}
+{210}{}{It's big, it's green, and it's no brighter looking than the rest of its kind.}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR}
+{1030}{}{NCR unknown}
+{1040}{}{NCR known}
+{2000}{}{Hey, did Elise say you could be here?@@Are you a Ranger, too?@@You ain't supposed to be here.}
+{3000}{}{Hi there. You must be one of the new rangers, I guess. Welcome to our small place. It's not much, but I hope you'll find it useful.}
+{3010}{}{What are you doing here?}
+{3020}{}{What is this place?}
+{3030}{}{I must've been mistaken, excuse me. [ end dialogue ]}
+{4000}{}{I help these fine people try to keep order out in the wastes... Used to, at least. recently I'm spending more time fixing stuff around here. Back in the workshop, you know?}
+{4010}{}{Got it. Another question...}
+{4020}{}{Thanks for that, but I have to go now. [ end dialogue ]}
+{5000}{}{This is the Ranger House. The NCR Rangers are using it for their needs, be it repairing their stuff, hoarding their ammo or using the terminal... It can be called "home", I guess. I don't have another one.}
+{5010}{}{Good to hear you feel yourself at home here. One more thing...}
+{5020}{}{Thanks for that, but I have to go now. [ end dialogue ]}
+{6000}{}{So, what did you wanna know?}
+{6010}{}{What are you doing here?}
+{6020}{}{What is this place?}
+{6030}{}{I think I'll leave you to your work now. [ end dialogue ]}
+{7000}{}{Hello again. Glad to see you in one piece.}
+{7010}{}{Gond, I had some questions for you...}
+{7020}{}{Yeah, it's not that easy to get a piece of me. See you around, Gond! [ end dialogue ]}
+{8000}{}{And they call you *normals*. Heh.@@I had a friend just like you. He didn't make it.@@I think it's not the best idea to hang around here.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR}
+{1030}{}{NCR unknown}
+{1040}{}{NCR known}
+{2000}{}{Hey, did Elise say you could be here?@@Are you a Ranger, too?@@You ain't supposed to be here.}
+{3000}{}{Hi there. You must be one of the new rangers, I guess. Welcome to our small place. It's not much, but I hope you'll find it useful.}
+{3010}{}{What are you doing here?}
+{3020}{}{What is this place?}
+{3030}{}{I must've been mistaken, excuse me.}
+{4000}{}{I help these fine people try to keep order out in the wastes... Used to, at least. recently I'm spending more time fixing stuff around here. Back in the workshop, you know?}
+{4010}{}{Got it. Another question...}
+{4020}{}{Thanks for that, but I have to go now.}
+{5000}{}{This is the Ranger House. The NCR Rangers are using it for their needs, be it repairing their stuff, hoarding their ammo or using the terminal... It can be called "home", I guess. I don't have another one.}
+{5010}{}{Good to hear you feel yourself like at home here. One more thing...}
+{5020}{}{Thanks for that, but I have to go now.}
+{6000}{}{So, what did you wanna know?}
+{6010}{}{What are you doing here?}
+{6020}{}{What is this place?}
+{6030}{}{I think I'll leave you to your work now.}
+{7000}{}{Hello again. Glad to see you in one piece.}
+{7010}{}{Gond, I had some questions for you...}
+{7020}{}{Yeah, it's not that easy to get a piece of me. See you around, Gond!}
+{8000}{}{And they call you *normals*. Heh.@@I had a friend just like you. He didn't make it.@@I think it's not the best idea to hang around here.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR}
+{1030}{}{NCR unknown}
+{1040}{}{NCR known}
+{2000}{}{Hey, did Elise say you could be here?@@Are you a Ranger, too?@@You ain't supposed to be here.}
+{3000}{}{Hi there. You must be one of the new rangers, I guess. Welcome to our small place. It's not much, but I hope you'll find it useful.}
+{3010}{}{What are you doing here?}
+{3020}{}{What is this place?}
+{3030}{}{I must've been mistaken, excuse me.}
+{4000}{}{I help these fine people try to keep order out in the wastes... Used to, at least. recently I'm spending more time fixing stuff around here. Back in the workshop, you know?}
+{4010}{}{Got it. Another question...}
+{4020}{}{Thanks for that, but I have to go now.}
+{5000}{}{This is the Ranger House. The NCR Rangers are using it for their needs, be it repairing their stuff, hoarding their ammo or using the terminal... It can be called "home", I guess. I don't have another one.}
+{5010}{}{Good to hear you feel yourself like at home here. One more thing...}
+{5020}{}{Thanks for that, but I have to go now.}
+{6000}{}{So, what did you wanna know?}
+{6010}{}{What are you doing here?}
+{6020}{}{What is this place?}
+{6030}{}{I think I'll leave you to your work now.}
+{7000}{}{Hello again. Glad to see you in one piece.}
+{7010}{}{Gond, I had some questions for you...}
+{7020}{}{Yeah, it's not that easy to get a piece of me. See you around, Gond!}
+{8000}{}{And they call you *normals*. Heh.@@I had a friend just like you. He didn't make it.@@I think it's not the best idea to hang around here.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR}
+{1030}{}{NCR unknown}
+{1040}{}{NCR known}
+{2000}{}{Hey, did Elise say you could be here?@@Are you a Ranger, too?@@You ain't supposed to be here.}
+{3000}{}{Hi there. You must be one of the new rangers, I guess. Welcome to our small place. It's not much, but I hope you'll find it useful.}
+{3010}{}{What are you doing here?}
+{3020}{}{What is this place?}
+{3030}{}{I must've been mistaken, excuse me.}
+{4000}{}{I help these fine people try to keep order out in the wastes... Used to, at least. recently I'm spending more time fixing stuff around here. Back in the workshop, you know?}
+{4010}{}{Got it. Another question...}
+{4020}{}{Thanks for that, but I have to go now.}
+{5000}{}{This is the Ranger House. The NCR Rangers are using it for their needs, be it repairing their stuff, hoarding their ammo or using the terminal... It can be called "home", I guess. I don't have another one.}
+{5010}{}{Good to hear you feel yourself like at home here. One more thing...}
+{5020}{}{Thanks for that, but I have to go now.}
+{6000}{}{So, what did you wanna know?}
+{6010}{}{What are you doing here?}
+{6020}{}{What is this place?}
+{6030}{}{I think I'll leave you to your work now.}
+{7000}{}{Hello again. Glad to see you in one piece.}
+{7010}{}{Gond, I had some questions for you...}
+{7020}{}{Yeah, it's not that easy to get a piece of me. See you around, Gond!}
+{8000}{}{And they call you *normals*. Heh.@@I had a friend just like you. He didn't make it.@@I think it's not the best idea to hang around here.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Dumb}
+{1020}{}{Not NCR}
+{1030}{}{NCR unknown}
+{1040}{}{NCR known}
+{2000}{}{Hey, did Elise say you could be here?@@Are you a Ranger, too?@@You ain't supposed to be here.}
+{3000}{}{Hi there. You must be one of the new rangers, I guess. Welcome to our small place. It's not much, but I hope you'll find it useful.}
+{3010}{}{What are you doing here?}
+{3020}{}{What is this place?}
+{3030}{}{I must've been mistaken, excuse me.}
+{4000}{}{I help these fine people try to keep order out in the wastes... Used to, at least. recently I'm spending more time fixing stuff around here. Back in the workshop, you know?}
+{4010}{}{Got it. Another question...}
+{4020}{}{Thanks for that, but I have to go now.}
+{5000}{}{This is the Ranger House. The NCR Rangers are using it for their needs, be it repairing their stuff, hoarding their ammo or using the terminal... It can be called "home", I guess. I don't have another one.}
+{5010}{}{Good to hear you feel yourself like at home here. One more thing...}
+{5020}{}{Thanks for that, but I have to go now.}
+{6000}{}{So, what did you wanna know?}
+{6010}{}{What are you doing here?}
+{6020}{}{What is this place?}
+{6030}{}{I think I'll leave you to your work now.}
+{7000}{}{Hello again. Glad to see you in one piece.}
+{7010}{}{Gond, I had some questions for you...}
+{7020}{}{Yeah, it's not that easy to get a piece of me. See you around, Gond!}
+{8000}{}{And they call you *normals*. Heh.@@I had a friend just like you. He didn't make it.@@I think it's not the best idea to hang around here.}
+

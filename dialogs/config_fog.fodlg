@@ -1,0 +1,303 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 cheats@highlight_info 0 #
+3 2010 #
+0 2020 @
+3 3000 cheats@highlight_info 0 #
+4 3010 #
+5 3020 #
+6 3030 #
+0 3040 R _script cheats@highlight_save 1 43 #
+0 3050 #
+7 3060 @
+4 4000 cheats@highlight_info 0 #
+4 4010 R _script cheats@highlight_change 3 1 10 0 #
+4 4020 R _script cheats@highlight_change 3 1 5 0 #
+4 4030 R _script cheats@highlight_change 3 1 1 0 #
+4 4040 R _script cheats@highlight_change 3 1 1 1 #
+4 4050 R _script cheats@highlight_change 3 1 5 1 #
+4 4060 R _script cheats@highlight_change 3 1 10 1 #
+3 4070 @
+5 5000 cheats@highlight_info 0 #
+5 5010 R _script cheats@highlight_change 3 2 10 0 #
+5 5020 R _script cheats@highlight_change 3 2 5 0 #
+5 5030 R _script cheats@highlight_change 3 2 1 0 #
+5 5040 R _script cheats@highlight_change 3 2 1 1 #
+5 5050 R _script cheats@highlight_change 3 2 5 1 #
+5 5060 R _script cheats@highlight_change 3 2 10 1 #
+3 5070 @
+6 6000 cheats@highlight_info 0 #
+6 6010 R _script cheats@highlight_change 3 3 10 0 #
+6 6020 R _script cheats@highlight_change 3 3 5 0 #
+6 6030 R _script cheats@highlight_change 3 3 1 0 #
+6 6040 R _script cheats@highlight_change 3 3 1 1 #
+6 6050 R _script cheats@highlight_change 3 3 5 1 #
+6 6060 R _script cheats@highlight_change 3 3 10 1 #
+3 6070 @
+7 7000 cheats@highlight_info 0 #
+7 7010 R _script cheats@highlight_change 3 4 10 0 #
+7 7020 R _script cheats@highlight_change 3 4 5 0 #
+7 7030 R _script cheats@highlight_change 3 4 1 0 #
+7 7040 R _script cheats@highlight_change 3 4 1 1 #
+7 7050 R _script cheats@highlight_change 3 4 5 1 #
+7 7060 R _script cheats@highlight_change 3 4 10 1 #
+3 7070 &
+
+[engl]
+{100}{}{Player}
+{200}{}{You see a construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{[ system initializing... ]}
+{2010}{}{[ Login ]}
+{2020}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ R: @lex r@  
+G: @lex g@  
+B: @lex b@  
+A: @lex a@  
+@lex c@ color ]}
+{3010}{}{[ Change Red ]}
+{3020}{}{[ Change Green ]}
+{3030}{}{[ Change Blue ]}
+{3040}{}{[ Save Color to Config(need Restart game) ]}
+{3050}{}{[ Close without saving changes ]}
+{3060}{}{[ Change Alpha ]}
+{4000}{}{[ Red: @lex r@  
+@lex c@ color ]}
+{4010}{}{[ +10 ]}
+{4020}{}{[ +5 ]}
+{4030}{}{[ +1 ]}
+{4040}{}{[ -1 ]}
+{4050}{}{[ -5 ]}
+{4060}{}{[ -10 ]}
+{4070}{}{[ Back ]}
+{5000}{}{[ Green: @lex g@  
+@lex c@ color ]}
+{5010}{}{[ +10 ]}
+{5020}{}{[ +5 ]}
+{5030}{}{[ +1 ]}
+{5040}{}{[ -1 ]}
+{5050}{}{[ -5 ]}
+{5060}{}{[ -10 ]}
+{5070}{}{[ Back ]}
+{6000}{}{[ Blue: @lex b@  
+@lex c@ color ]}
+{6010}{}{[ +10 ]}
+{6020}{}{[ +5 ]}
+{6030}{}{[ +1 ]}
+{6040}{}{[ -1 ]}
+{6050}{}{[ -5 ]}
+{6060}{}{[ -10 ]}
+{6070}{}{[ Back ]}
+{7000}{}{[ Alpha: @lex a@  
+@lex c@ color ]}
+{7010}{}{[ +10 ]}
+{7020}{}{[ +5 ]}
+{7030}{}{[ +1 ]}
+{7040}{}{[ -1 ]}
+{7050}{}{[ -5 ]}
+{7060}{}{[ -10 ]}
+{7070}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Change Green}
+{3030}{}{Change Blue}
+{3040}{}{Save Color to Config(need Restart game)}
+{3050}{}{Close without saving}
+{3060}{}{[ Change Alpha ]}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{+10}
+{4020}{}{+5}
+{4030}{}{+1}
+{4040}{}{-1}
+{4050}{}{-5}
+{4060}{}{-10}
+{4070}{}{back}
+{5000}{}{Choose action}
+{5010}{}{+10}
+{5020}{}{+5}
+{5030}{}{+1}
+{5040}{}{-1}
+{5050}{}{-5}
+{5060}{}{-10}
+{5070}{}{back}
+{6000}{}{Choose action}
+{6010}{}{+10}
+{6020}{}{+5}
+{6030}{}{+1}
+{6040}{}{-1}
+{6050}{}{-5}
+{6060}{}{-10}
+{6070}{}{back}
+{7000}{}{[ Alpha: @lex a@  
+@lex c@ color ]}
+{7010}{}{[ +10 ]}
+{7020}{}{[ +5 ]}
+{7030}{}{[ +1 ]}
+{7040}{}{[ -1 ]}
+{7050}{}{[ -5 ]}
+{7060}{}{[ -10 ]}
+{7070}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Change Green}
+{3030}{}{Change Blue}
+{3040}{}{Save Color to Config(need Restart game)}
+{3050}{}{Close without saving}
+{3060}{}{[ Change Alpha ]}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{+10}
+{4020}{}{+5}
+{4030}{}{+1}
+{4040}{}{-1}
+{4050}{}{-5}
+{4060}{}{-10}
+{4070}{}{back}
+{5000}{}{Choose action}
+{5010}{}{+10}
+{5020}{}{+5}
+{5030}{}{+1}
+{5040}{}{-1}
+{5050}{}{-5}
+{5060}{}{-10}
+{5070}{}{back}
+{6000}{}{Choose action}
+{6010}{}{+10}
+{6020}{}{+5}
+{6030}{}{+1}
+{6040}{}{-1}
+{6050}{}{-5}
+{6060}{}{-10}
+{6070}{}{back}
+{7000}{}{[ Alpha: @lex a@  
+@lex c@ color ]}
+{7010}{}{[ +10 ]}
+{7020}{}{[ +5 ]}
+{7030}{}{[ +1 ]}
+{7040}{}{[ -1 ]}
+{7050}{}{[ -5 ]}
+{7060}{}{[ -10 ]}
+{7070}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Change Green}
+{3030}{}{Change Blue}
+{3040}{}{Save Color to Config(need Restart game)}
+{3050}{}{Close without saving}
+{3060}{}{[ Change Alpha ]}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{+10}
+{4020}{}{+5}
+{4030}{}{+1}
+{4040}{}{-1}
+{4050}{}{-5}
+{4060}{}{-10}
+{4070}{}{back}
+{5000}{}{Choose action}
+{5010}{}{+10}
+{5020}{}{+5}
+{5030}{}{+1}
+{5040}{}{-1}
+{5050}{}{-5}
+{5060}{}{-10}
+{5070}{}{back}
+{6000}{}{Choose action}
+{6010}{}{+10}
+{6020}{}{+5}
+{6030}{}{+1}
+{6040}{}{-1}
+{6050}{}{-5}
+{6060}{}{-10}
+{6070}{}{back}
+{7000}{}{[ Alpha: @lex a@  
+@lex c@ color ]}
+{7010}{}{[ +10 ]}
+{7020}{}{[ +5 ]}
+{7030}{}{[ +1 ]}
+{7040}{}{[ -1 ]}
+{7050}{}{[ -5 ]}
+{7060}{}{[ -10 ]}
+{7070}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Change Green}
+{3030}{}{Change Blue}
+{3040}{}{Save Color to Config(need Restart game)}
+{3050}{}{Close without saving}
+{3060}{}{[ Change Alpha ]}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{+10}
+{4020}{}{+5}
+{4030}{}{+1}
+{4040}{}{-1}
+{4050}{}{-5}
+{4060}{}{-10}
+{4070}{}{back}
+{5000}{}{Choose action}
+{5010}{}{+10}
+{5020}{}{+5}
+{5030}{}{+1}
+{5040}{}{-1}
+{5050}{}{-5}
+{5060}{}{-10}
+{5070}{}{back}
+{6000}{}{Choose action}
+{6010}{}{+10}
+{6020}{}{+5}
+{6030}{}{+1}
+{6040}{}{-1}
+{6050}{}{-5}
+{6060}{}{-10}
+{6070}{}{back}
+{7000}{}{[ Alpha: @lex a@  
+@lex c@ color ]}
+{7010}{}{[ +10 ]}
+{7020}{}{[ +5 ]}
+{7030}{}{[ +1 ]}
+{7040}{}{[ -1 ]}
+{7050}{}{[ -5 ]}
+{7060}{}{[ -10 ]}
+{7070}{}{[ Back ]}
+

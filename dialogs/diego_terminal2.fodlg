@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+3 3010 #
+3 3020 #
+2 3030 #
+0 3040 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{All of them turned. I, sheriff Roger McKartny of district G12, oficially announce my job being done here. They surrounded my office and I clearly have nowhere to go. I still have my pump shotgun with me and it seems like the time for me has come. God bless us all, and let Him be merciful to my soul. Bella, darling... I am coming to you. Just wait for me there.}
+{2010}{}{[ Back ]}
+{3000}{}{[ Terminal loading... Ready to operate. ]}
+{3010}{}{[ CORRUPTED DATA ERROR ]}
+{3020}{}{[ CORRUPTED DATA ERROR ]}
+{3030}{}{[ My final note ]}
+{3040}{}{[ Leave ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{All of them turned. I, sheriff Roger McKartny of district G12, oficially announce my job being done here. They surrounded my office and I clearly have nowhere to go. I still have my pump shotgun with me and it seems like the time for me has come. God bless us all, and let Him be merciful to my soul. Bella, darling... I am coming to you. Just wait for me there.}
+{2010}{}{[ Back ]}
+{3000}{}{[ Terminal loading... Ready to operate. ]}
+{3010}{}{[ CORRUPTED DATA ERROR ]}
+{3020}{}{[ CORRUPTED DATA ERROR ]}
+{3030}{}{[ My final note ]}
+{3040}{}{[ Leave ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{All of them turned. I, sheriff Roger McKartny of district G12, oficially announce my job being done here. They surrounded my office and I clearly have nowhere to go. I still have my pump shotgun with me and it seems like the time for me has come. God bless us all, and let Him be merciful to my soul. Bella, darling... I am coming to you. Just wait for me there.}
+{2010}{}{[ Back ]}
+{3000}{}{[ Terminal loading... Ready to operate. ]}
+{3010}{}{[ CORRUPTED DATA ERROR ]}
+{3020}{}{[ CORRUPTED DATA ERROR ]}
+{3030}{}{[ My final note ]}
+{3040}{}{[ Leave ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{All of them turned. I, sheriff Roger McKartny of district G12, oficially announce my job being done here. They surrounded my office and I clearly have nowhere to go. I still have my pump shotgun with me and it seems like the time for me has come. God bless us all, and let Him be merciful to my soul. Bella, darling... I am coming to you. Just wait for me there.}
+{2010}{}{[ Back ]}
+{3000}{}{[ Terminal loading... Ready to operate. ]}
+{3010}{}{[ CORRUPTED DATA ERROR ]}
+{3020}{}{[ CORRUPTED DATA ERROR ]}
+{3030}{}{[ My final note ]}
+{3040}{}{[ Leave ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{All of them turned. I, sheriff Roger McKartny of district G12, oficially announce my job being done here. They surrounded my office and I clearly have nowhere to go. I still have my pump shotgun with me and it seems like the time for me has come. God bless us all, and let Him be merciful to my soul. Bella, darling... I am coming to you. Just wait for me there.}
+{2010}{}{[ Back ]}
+{3000}{}{[ Terminal loading... Ready to operate. ]}
+{3010}{}{[ CORRUPTED DATA ERROR ]}
+{3020}{}{[ CORRUPTED DATA ERROR ]}
+{3030}{}{[ My final note ]}
+{3040}{}{[ Leave ]}
+

@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Mobster}
+{200}{}{You see a dangerous looking mafia member.}
+{210}{}{You see a mobster, possibly from one of the smaller Reno sub-gangs.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well, well - what have we got here?@@Simple travellers, eh? Ain't no such thing. You need help with any of your valuables?@@Watch where you're walking around Reno, or you're gonna get hurt. Stay outta my way.@@You tryin' to make trouble?@@Don't give me those baby blues, I don't go for that "innocent" routine...@@You gotta excuse my boys, can't be too careful around here these days.@@Hey Boss, what do you think of this "wise guy"?@@What's the deal?@@Are we ready to make the hit?@@Did you get your percentage?@@Be glad we don't put you on ice!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well, well - what have we got here?@@Simple travellers, eh? Ain't no such thing. You need help with any of your valuables?@@Watch where you're walking around Reno, or you're gonna get hurt. Stay outta my way.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well, well - what have we got here?@@Simple travellers, eh? Ain't no such thing. You need help with any of your valuables?@@Watch where you're walking around Reno, or you're gonna get hurt. Stay outta my way.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well, well - what have we got here?@@Simple travellers, eh? Ain't no such thing. You need help with any of your valuables?@@Watch where you're walking around Reno, or you're gonna get hurt. Stay outta my way.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well, well - what have we got here?@@Simple travellers, eh? Ain't no such thing. You need help with any of your valuables?@@Watch where you're walking around Reno, or you're gonna get hurt. Stay outta my way.}
+

@@ -1,0 +1,873 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+47 1010 D _var p q_vc_train_doc > 0 D _var p q_vc_train_doc < 6 #
+85 1020 D _param p ST_CHARISMA > 99 #
+6 1030 D _script dialog@d_HpVeryLow 0  #
+5 1040 D _script dialog@d_HpLow 0  #
+4 1050 D _script dialog@d_HpAverage 0  #
+3 1060 D _script dialog@d_HpHigh 0  #
+50 1070 D _param p ST_INTELLECT < 4 #
+2 1080 @
+2 2000 None 0 #
+7 2010 D _script dialog@d_IsToHeal 0  #
+11 2020 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+11 2030 D _var n name_mem_npc_player = 1 #
+65506 2040 #
+0 2050 @
+3 3000 None 0 #
+2 3010 D _param p ST_INTELLECT > 3 #
+50 3020 D _param p ST_INTELLECT < 4 @
+4 4000 None 0 #
+2 4010 D _param p ST_INTELLECT > 3 #
+50 4020 D _param p ST_INTELLECT < 4 @
+5 5000 None 0 #
+2 5010 D _param p ST_INTELLECT > 3 #
+50 5020 D _param p ST_INTELLECT < 4 @
+6 6000 None 0 #
+2 6010 D _param p ST_INTELLECT > 3 #
+50 6020 D _param p ST_INTELLECT < 4 @
+7 7000 dialog@dlg_ShowHealingPrice 0 #
+8 7010 D _script dialog@d_HealingMoney 0  #
+10 7020 #
+0 7030 @
+8 8000 None 0 #
+9 8010 R _script dialog@r_DocHeal 0  @
+9 9000 None 0 #
+20 9010 D _param p ST_INTELLECT > 3 #
+52 9020 D _param p ST_INTELLECT < 4 @
+10 10000 None 0 #
+65505 10010 #
+0 10020 @
+11 11000 None 0 #
+12 11010 #
+40 11020 D _var p q_vc_train_doc = 0 #
+20 11030 #
+0 11040 @
+12 12000 None 0 #
+20 12010 #
+0 12020 @
+20 13000 None 0 #
+2 13010 D _script dialog@d_IsToHeal 0  #
+11 13020 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+11 13030 D _var n name_mem_npc_player = 1 #
+65506 13040 #
+30 13050 #
+0 13060 @
+30 14000 None 0 #
+31 14010 D _script dialog@d_havepropermoney 1 999 R _item p PID_FIRST_AID_KIT + 1 R _script dialog@r_RemoveMoney 1 1000 #
+31 14020 D _script dialog@d_havepropermoney 1 1999 R _item p PID_FIELD_MEDIC_KIT + 1 R _script dialog@r_RemoveMoney 1 2000 #
+0 14030 @
+31 15000 None 0 #
+0 15010 @
+50 16000 None 0 #
+51 16010 D _script dialog@d_IsToHeal 0  #
+0 16020 @
+51 17000 dialog@dlg_ShowHealingPrice 0 #
+8 17010 D _script dialog@d_HealingMoney 0  #
+0 17020 @
+52 18000 None 0 #
+0 18010 @
+40 19000 None 0 #
+41 19010 #
+41 19020 #
+0 19030 @
+41 20000 None 0 #
+42 20010 #
+42 20020 #
+42 20030 @
+42 21000 None 0 #
+43 21010 #
+0 21020 @
+43 22000 None 0 #
+44 22010 #
+44 22020 #
+0 22030 @
+44 23000 None 0 #
+45 23010 #
+46 23020 @
+45 24000 None 0 #
+48 24010 R _var p q_vc_train_doc = 1 R _script dialog@r_ShowLocation 1 355 @
+46 25000 None 0 @
+47 26000 None 0 #
+0 26010 #
+60 26020 D _var p q_vc_train4 = 4 #
+61 26030 D _var p q_vc_train3 = 4 #
+62 26040 D _var p q_vc_train2 = 4 #
+63 26050 D _var p q_vc_train1 = 4 #
+68 26060 D _var p q_vc_train1 = 5 D _var p q_vc_train2 = 5 D _var p q_vc_train3 = 5 D _var p q_vc_train4 = 5 #
+2 26070 @
+48 27000 None 0 #
+0 27010 @
+60 28000 None 0 #
+64 28010 R _var p q_vc_train4 = 5 R _param p ST_EXPERIENCE + 500 #
+0 28020 @
+61 29000 None 0 #
+65 29010 R _var p q_vc_train3 = 5 R _param p ST_EXPERIENCE + 500 #
+0 29020 @
+62 30000 None 0 #
+66 30010 R _var p q_vc_train2 = 5 R _param p ST_EXPERIENCE + 500 #
+0 30020 @
+63 31000 None 0 #
+67 31010 R _var p q_vc_train1 = 5 R _param p ST_EXPERIENCE + 500 #
+0 31020 @
+64 32000 None 0 #
+47 32010 #
+68 32020 D _var p q_vc_train1 = 5 D _var p q_vc_train2 = 5 D _var p q_vc_train3 = 5 D _var p q_vc_train4 = 5 @
+65 33000 None 0 #
+47 33010 #
+68 33020 D _var p q_vc_train1 = 5 D _var p q_vc_train2 = 5 D _var p q_vc_train3 = 5 D _var p q_vc_train4 = 5 @
+66 34000 None 0 #
+47 34010 #
+68 34020 D _var p q_vc_train1 = 5 D _var p q_vc_train2 = 5 D _var p q_vc_train3 = 5 D _var p q_vc_train4 = 5 @
+67 35000 None 0 #
+47 35010 #
+68 35020 D _var p q_vc_train1 = 5 D _var p q_vc_train2 = 5 D _var p q_vc_train3 = 5 D _var p q_vc_train4 = 5 @
+68 36000 None 0 #
+69 36010 D _script dialog@d_IsNotMemberOf 1 FACTION_VAULT_CITY #
+72 36020 D _script dialog@d_IsMemberOf 1 FACTION_VAULT_CITY #
+0 36030 @
+69 37000 None 0 #
+0 37010 R _script dialog@r_AddMoney 1 900 R _var p q_vc_train_doc = 6 R _param p ST_EXPERIENCE + 1750 #
+70 37020 D _param p SK_BARTER > 90 R _script dialog@r_AddMoney 1 1400 R _var p q_vc_train_doc = 6 R _param p ST_EXPERIENCE + 2400 #
+71 37030 D _param p SK_BARTER < 91 R _script dialog@r_AddMoney 1 900 R _var p q_vc_train_doc = 6 R _param p ST_EXPERIENCE + 1750 #
+2 37040 R _script dialog@r_AddMoney 1 900 R _var p q_vc_train_doc = 6 R _param p ST_EXPERIENCE + 1750 @
+70 38000 None 0 #
+0 38010 #
+2 38020 @
+71 39000 None 0 #
+0 39010 #
+2 39020 @
+72 40000 None 0 #
+0 40010 R _script dialog@r_AddMoney 1 900 R _item p PID_STIMPAK + 5 R _var p q_vc_train_doc = 6 R _param p ST_EXPERIENCE + 1800 #
+2 40020 R _script dialog@r_AddMoney 1 900 R _item p PID_STIMPAK + 5 R _var p q_vc_train_doc = 6 R _param p ST_EXPERIENCE + 1800 &
+
+[engl]
+{100}{}{Doctor}
+{200}{}{You see a scruffy-looking man in a dirty brown shirt. His arms are covered with a bright red rash, which he scratches frequently.}
+{210}{}{You see "Doctor" Andrew.}
+{210}{}{You see a dirty man wearing brown shorts. His hands are covered with the red rash, he scratches them from time to time.}
+{1000}{}{Predialogue installations}
+{1010}{}{train quest active}
+{1020}{}{ugly}
+{1030}{}{up to 1/4 HP}
+{1040}{}{up to 2/4 HP}
+{1050}{}{up to 3/4 HP}
+{1060}{}{up to 4/4 HP}
+{1070}{}{Full HP dumb}
+{1080}{}{Full HP normal}
+{2000}{}{You here to get patched up?}
+{2010}{}{Yeah, I could use some medical attention.}
+{2020}{}{What is this place?}
+{2030}{}{Uh, what is this place again?}
+{2040}{}{Could I buy some medical supplies?}
+{2050}{}{No, I'm fine. Just stopping by.}
+{3000}{}{Looks like you've seen some fighting, friend.}
+{3010}{}{[Continue]}
+{3020}{}{[Continue]}
+{4000}{}{Whoa...looks like you've seen some serious action, friend.}
+{4010}{}{[Continue]}
+{4020}{}{[Continue]}
+{5000}{}{Whoa...looks like you've been in some heavy fighting, friend.}
+{5010}{}{[Continue]}
+{5020}{}{[Continue]}
+{6000}{}{Holy...! You're bleeding all over the floor!}
+{6010}{}{[Continue]}
+{6020}{}{[Continue]}
+{7000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{7010}{}{Well... all right. That sounds fair.}
+{7020}{}{That's pretty steep. How about a discount?}
+{7030}{}{No, thanks. Maybe some other time.}
+{8000}{}{Remember, no guarantees with the ol' Doctor in the back room, of course... Let's get to it, then. I'll just hook you up to the ol' Doctor here... slip your arms into the slots there, and I'll tighten the braces and secure the clamps...}
+{8010}{}{[Wait]}
+{9000}{}{All right! Knew the ol' Doctor wouldn't let me down.}
+{9010}{}{I feel much better, thanks.}
+{9020}{}{Me wanna ride agin! Agin!}
+{10000}{}{Hell, no! The last time I gave someone a discount, that idiot brought a pack of his friends with him! There was a ghoul, a mutant... damn freaks, there was a deathclaw too! Forget it. So, you wanna get patched or what?}
+{10010}{}{Yeah, right.}
+{10020}{}{No, thanks. Maybe some other time.}
+{11000}{}{This here's the common body shop for Vault City. Me an' the ol' Doctor in the back patch up whoever needs some attention.}
+{11010}{}{"Ol' Doctor?"}
+{11020}{}{Do you have any job for me?}
+{11030}{}{I see. Say, I had some other questions for you...}
+{11040}{}{Hmmm. Maybe I'll be back when I need your services.}
+{12000}{}{Yeah, the "Auto-Doctor" in the back room there. It's a loaner from the city. It can be a little ornery sometimes, but mostly it does its job. Mostly.}
+{12010}{}{Forget it then. I needed something else...}
+{12020}{}{Whatever. I'm leaving.}
+{13000}{}{Yes... was there something else I could help you with?}
+{13010}{}{I could use some medical attention.}
+{13020}{}{What is this place?}
+{13030}{}{Uh, what is this place again?}
+{13040}{}{Could I buy some medical supplies?}
+{13050}{}{Do you sell First Aid or Field Medic Kits?}
+{13060}{}{Nothing, thanks. Goodbye.}
+{14000}{}{Got some right here, but it'll cost you... $1000 for the First Aid Kit, and $2000 for the Field Medic. You up to it or what?}
+{14010}{}{I'll take the First Aid Kit. [Give $1000]}
+{14020}{}{Let me have one of these Field Medic Kits, doc. [Give $2000]}
+{14030}{}{That's a bit too expensive for my current budget, maybe I'll come back later.}
+{15000}{}{Pleasure doing business with ya, goodbye.}
+{15010}{}{Goodbye.}
+{16000}{}{You here to get patched up?}
+{16010}{}{Patssshh.}
+{16020}{}{Nup.}
+{17000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{17010}{}{Patshhh? Patshh! Take moneee, fixx leaks.}
+{17020}{}{Bye-bye.}
+{18000}{}{Uh, well now, that might not be the safest thing for you, friend. Seems like you already took a few trips in the ol' Doctor from the way you talk.}
+{18010}{}{Okee... Buyhye.}
+{19000}{}{Uh, depends. There might be something. I need some help with some... research work.}
+{19010}{}{Research work?}
+{19020}{}{Go on, tell me more.}
+{19030}{}{ZZZZZzzzzz. That sounds boring. Bye.}
+{20000}{}{Did you heard about the newly opened train stations all over the area?}
+{20010}{}{No, tell me more.}
+{20020}{}{Only half-assed information. Tell me more.}
+{20030}{}{Yes, I've heard about it.}
+{21000}{}{The NCR is working very hard on fixing the old rail lines. You know, a train is way faster than a brahmin caravan and also much more secure. I've heard that there now several more or less public train stations opened. }
+{21010}{}{What do you want me to do?}
+{21020}{}{Interesting-- Not. Bye...}
+{22000}{}{I am very much interested about how or if some diseases are spreading because of the newly opened train stations.}
+{22010}{}{So what should I do?}
+{22020}{}{You want me to get ill or what?}
+{22030}{}{Bio-shit is uncool. I am out of this. Bye.}
+{23000}{}{You look like someone who gets around a lot. So your job would be to go to everyone of the new train stations and ask around between the people. Ask them how they feel or if they have been ill recently and so on. It's simple, see?}
+{23010}{}{Indeed, it's simple. I will do it.}
+{23020}{}{Yes, it's simple. But also boring. Bye...}
+{24000}{}{Very good. I will pay you when you are done. Come back as soon as possible and tell me everything you could find out.}
+{24010}{}{Where should I start?}
+{25000}{}{A shame. Then I have to wait for someone else.}
+{26000}{}{You! Could you find out somethin already?}
+{26010}{}{Not yet. I will come back later.}
+{26020}{}{About the Vault City train station...}
+{26030}{}{About the NCR train station...}
+{26040}{}{About the Boneyard train station...}
+{26050}{}{About the San Francisco train station...}
+{26060}{}{I've visited all available train stations.}
+{26070}{}{Actually, I have something else...}
+{27000}{}{I know that the Vault City station is a bit to the south west of the town. I guess it would be a good place to start your research.}
+{27010}{}{I will. See ya.}
+{28000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{28010}{}{Everything looks okay there. Nobody talked about any issues.}
+{28020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{29000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{29010}{}{As far as I could see, all are fine. One or two people don't look that strong, but I think it's more the daily desert sand...}
+{29020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{30000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{30010}{}{Some people are reporting headaches and other issues. Not many, but it's not like there is nothing going on.}
+{30020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{31000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{31010}{}{The people I've talked to reported that either they or other people are seriously ill. Feels like a pandemic is going on down there.}
+{31020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{32000}{}{That's what I thought. The supply and general accommodation in this area is pretty much improved, compared to other regions. Thank you for informing me about this. }
+{32010}{}{About the other train stations...}
+{32020}{}{I've visited all available train stations.}
+{33000}{}{As far as my information goes, the NCR is well developed in medical provisions. So this might be not unnatural. Thank you for checking this out for me. }
+{33010}{}{About the other train stations...}
+{33020}{}{I've visited all available train stations.}
+{34000}{}{This doesn't sound very good, but is understandable. We have to take care that no disease will start from there. It could bring many problems over all train stations and the surrounding area.}
+{34010}{}{About the other train stations...}
+{34020}{}{I've visited all available train stations.}
+{35000}{}{Oh my! For sure, this is horrible news. It's very important to do something else about this. Good that you've informed me about this.}
+{35010}{}{About the other train stations...}
+{35020}{}{I've visited all available train stations.}
+{36000}{}{Your information have been very useful for me. I will write a report and send it to the council. We have to take care that diseases will not spread. This will only make more problems and it isn't as if we don't have already enough of those, hah!}
+{36010}{}{Very good. What about my reward now?}
+{36020}{}{Very good. What about my reward now?}
+{36030}{}{That's what I am doing. You don't have to give me anything, it's what I am doing... See you.}
+{37000}{}{You have helped me a lot, I can't thank you more. I can give you 300 Currency. Hope it will help you in the outside. }
+{37010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{37020}{}{300 Currency? Isn't it a bit low for what I have done?}
+{37030}{}{300 Currency? Isn't it a bit low for what I have done?}
+{37040}{}{Thanks. Before I leave, I have something else that I want to ask.}
+{38000}{}{You are right. How could I just... Here, I give you 100 Currency more. I can't thank you enough for what you have done for me and Vault City.}
+{38010}{}{No problem. I am busy with something else now. Bye.}
+{38020}{}{Thanks. Before I leave, I have something else I want to ask.}
+{39000}{}{I am sorry, but I can't give you any more.}
+{39010}{}{Oh well then... Guess I should go.}
+{39020}{}{Thanks... Not. Before I leave, I have something else I want to ask about.}
+{40000}{}{You have helped me a lot, I can't thank you more. I can give you 400 Currency and a few Stimpaks. Hope it will help you in the outside world. }
+{40010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{40020}{}{Thanks. Before I leave, I have something else that I want to ask.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{train quest active}
+{1020}{}{ugly}
+{1030}{}{up to 1/4 HP}
+{1040}{}{up to 2/4 HP}
+{1050}{}{up to 3/4 HP}
+{1060}{}{up to 4/4 HP}
+{1070}{}{Full HP dumb}
+{1080}{}{Full HP normal}
+{2000}{}{You here to get patched up?}
+{2010}{}{Yeah, I could use some medical attention.}
+{2020}{}{What is this place?}
+{2030}{}{Uh, what is this place again?}
+{2040}{}{Could I buy some medical supplies?}
+{2050}{}{No, I'm fine. Just stopping by.}
+{3000}{}{Looks like you've seen some fighting, friend.}
+{3010}{}{[Continue]}
+{3020}{}{[Continue]}
+{4000}{}{Whoa...looks like you've seen some serious action, friend.}
+{4010}{}{[Continue]}
+{4020}{}{[Continue]}
+{5000}{}{Whoa...looks like you've been in some heavy fighting, friend.}
+{5010}{}{[Continue]}
+{5020}{}{[Continue]}
+{6000}{}{Holy...! You're bleeding all over the floor!}
+{6010}{}{[Continue]}
+{6020}{}{[Continue]}
+{7000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{7010}{}{Well... all right. That sounds fair.}
+{7020}{}{That's pretty steep. How about a discount?}
+{7030}{}{No, thanks. Maybe some other time.}
+{8000}{}{Remember, no guarantees with the ol' Doctor in the back room, of course... Let's get to it, then. I'll just hook you up to the ol' Doctor here... slip your arms into the slots there, and I'll tighten the braces and secure the clamps...}
+{8010}{}{[Wait]}
+{9000}{}{All right! Knew the ol' Doctor wouldn't let me down.}
+{9010}{}{I feel much better, thanks.}
+{9020}{}{Me wanna ride agin! Agin!}
+{10000}{}{Hell, no! The last time I gave someone a discount, that idiot brought a pack of his friends with him! There was a ghoul, a mutant... damn freaks, there was a deathclaw too! Forget it. So, you wanna get patched or what?}
+{10010}{}{Yeah, right.}
+{10020}{}{No, thanks. Maybe some other time.}
+{11000}{}{This here's the common body shop for Vault City. Me an' the ol' Doctor in the back patch up whoever needs some attention.}
+{11010}{}{"Ol' Doctor?"}
+{11020}{}{Do you have any job for me?}
+{11030}{}{I see. Say, I had some other questions for you...}
+{11040}{}{Hmmm. Maybe I'll be back when I need your services.}
+{12000}{}{Yeah, the "Auto-Doctor" in the back room there. It's a loaner from the city. It can be a little ornery sometimes, but mostly it does its job. Mostly.}
+{12010}{}{Forget it then. I needed something else...}
+{12020}{}{Whatever. I'm leaving.}
+{13000}{}{Yes... was there something else I could help you with?}
+{13010}{}{I could use some medical attention.}
+{13020}{}{What is this place?}
+{13030}{}{Uh, what is this place again?}
+{13040}{}{Could I buy some medical supplies?}
+{13050}{}{Do you sell First Aid or Field Medic Kits?}
+{13060}{}{Nothing, thanks. Goodbye.}
+{14000}{}{Got some right here, but it'll cost you... $1000 for the First Aid Kit, and $2000 for the Field Medic. You up to it or what?}
+{14010}{}{I'll take the First Aid Kit. [Give $1000]}
+{14020}{}{Let me have one of these Field Medic Kits, doc. [Give $2000]}
+{14030}{}{That's a bit too expensive for my current budget, maybe I'll come back later.}
+{15000}{}{Pleasure doing business with ya, goodbye.}
+{15010}{}{Goodbye.}
+{16000}{}{You here to get patched up?}
+{16010}{}{Patssshh.}
+{16020}{}{Nup.}
+{17000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{17010}{}{Patshhh? Patshh! Take moneee, fixx leaks.}
+{17020}{}{Bye-bye.}
+{18000}{}{Uh, well now, that might not be the safest thing for you, friend. Seems like you already took a few trips in the ol' Doctor from the way you talk.}
+{18010}{}{Okee... Buyhye.}
+{19000}{}{Uh, depends. There might be something. I need some help with some... research work.}
+{19010}{}{Research work?}
+{19020}{}{Go on, tell me more.}
+{19030}{}{ZZZZZzzzzz. That sounds boring. Bye.}
+{20000}{}{Did you heard about the newly opened train stations all over the area?}
+{20010}{}{No, tell me more.}
+{20020}{}{Only half-arsed informations. Tell me more.}
+{20030}{}{Yes, I've heard about it.}
+{21000}{}{The NCR is working very hard on fixing the old rail lines. You know, a train is way faster than a brahmin caravan and also much more secure. I've heard that there now several more or less public train stations opened. }
+{21010}{}{What do you want me to do?}
+{21020}{}{Interesting-- Not. Bye...}
+{22000}{}{I am very much interested about how or if some diseases are spreading because of the newly opened train stations.}
+{22010}{}{So what should I do?}
+{22020}{}{You want me to get ill or what?}
+{22030}{}{Bio-shit is uncool. I am out of this. Bye.}
+{23000}{}{You look like someone who get's around a lot. So your job would be to go to everyone of the new train stations and ask around between the people. Ask them how they feel or if they have been ill in the last time and so on and so on. It's simple, see?}
+{23010}{}{Indeed, it's simple. I will do it.}
+{23020}{}{Yes, it's simple. But also boring. Bye...}
+{24000}{}{Very good. I will pay you when you are done. Come back as soon as possible and tell me everything you could find out.}
+{24010}{}{Where should I start?}
+{25000}{}{A shame. Then I have to wait for someone else.}
+{26000}{}{You! Could you find out somethin already?}
+{26010}{}{Not yet. I will come back later.}
+{26020}{}{About the Vault City train station...}
+{26030}{}{About the NCR train station...}
+{26040}{}{About the Boneyard train station...}
+{26050}{}{About the San Francisco train station...}
+{26060}{}{I've visited all available train stations.}
+{26070}{}{Actually, I have something else...}
+{27000}{}{I know that the Vault City station is a bit in the south west of the town. I guess it would be a good place to start your research.}
+{27010}{}{I will. See ya.}
+{28000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{28010}{}{Everything looks okay there. Nobody talked about any issues.}
+{28020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{29000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{29010}{}{As far as I could see, all are fine. One or two people don't look that strong, but I think it's more the daily desert sand...}
+{29020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{30000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{30010}{}{Some people are reporting headachs and other issues. Not many, but it's not like there is nothing going on.}
+{30020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{31000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{31010}{}{The people I've talked to reported that either they or other people are seriously ill. Feels like a pandemia is going on down there.}
+{31020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{32000}{}{That's what I thought. The supply and general accommodation in this area is pretty much improved, compared to other regions. Thank you for informing me about this. }
+{32010}{}{About the other train stations...}
+{32020}{}{I've visited all available train stations.}
+{33000}{}{As far as my information goes, the NCR is as well good developed in medical provision. So this might be not unnatural. Thank you for checking this out for me. }
+{33010}{}{About the other train stations...}
+{33020}{}{I've visited all available train stations.}
+{34000}{}{This doesn't sound very good, but is understandable. We have to take care that no disease will start from there. It could bring many problems over all train stations and the surrounding area.}
+{34010}{}{About the other train stations...}
+{34020}{}{I've visited all available train stations.}
+{35000}{}{Oh my! This for sure are horrible news. It's very important to do some further steps in this. Good that you've informed me about this.}
+{35010}{}{About the other train stations...}
+{35020}{}{I've visited all available train stations.}
+{36000}{}{Your information have been very useful for me. I will write a report and send it to the council. We have to take care that diseases will not spread too wide. This will only make more problems and it isn't as if we don't have already enough of it, hah!}
+{36010}{}{Very good. What about my reward now?}
+{36020}{}{Very good. What about my reward now?}
+{36030}{}{That's what I am doing. You don't have to give me anything, it's what I am doing... See you.}
+{37000}{}{You have helped me a lot, I can't thank you more. I can give you 300 Currency. Hope it will help you in the outside. }
+{37010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{37020}{}{300 Currency? Isn't it a bit less for what I have done?}
+{37030}{}{300 Currency? Isn't it a bit less for what I have done?}
+{37040}{}{Thanks. Before I leave, I have something else that I want to ask.}
+{38000}{}{You are right. How could I just... Here, I give you 100 Currency more. I can't thank you enough for what you have done for me and Vault City.}
+{38010}{}{No problem. I am busy with something else now. Bye.}
+{38020}{}{Thanks. Before I leave, I have something else I want to ask.}
+{39000}{}{I am sorry, but I can't give you any more.}
+{39010}{}{Oh well then... Guess I should go.}
+{39020}{}{Thanks... Not. Before I leave, I have something else I want to ask about.}
+{40000}{}{You have helped me a lot, I can't thank you more. I can give you 400 Currency and a few Stimpaks. Hope it will help you in the outside. }
+{40010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{40020}{}{Thanks. Before I leave, I have something else that I want to ask.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{train quest active}
+{1020}{}{ugly}
+{1030}{}{up to 1/4 HP}
+{1040}{}{up to 2/4 HP}
+{1050}{}{up to 3/4 HP}
+{1060}{}{up to 4/4 HP}
+{1070}{}{Full HP dumb}
+{1080}{}{Full HP normal}
+{2000}{}{You here to get patched up?}
+{2010}{}{Yeah, I could use some medical attention.}
+{2020}{}{What is this place?}
+{2030}{}{Uh, what is this place again?}
+{2040}{}{Could I buy some medical supplies?}
+{2050}{}{No, I'm fine. Just stopping by.}
+{3000}{}{Looks like you've seen some fighting, friend.}
+{3010}{}{[Continue]}
+{3020}{}{[Continue]}
+{4000}{}{Whoa...looks like you've seen some serious action, friend.}
+{4010}{}{[Continue]}
+{4020}{}{[Continue]}
+{5000}{}{Whoa...looks like you've been in some heavy fighting, friend.}
+{5010}{}{[Continue]}
+{5020}{}{[Continue]}
+{6000}{}{Holy...! You're bleeding all over the floor!}
+{6010}{}{[Continue]}
+{6020}{}{[Continue]}
+{7000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{7010}{}{Well... all right. That sounds fair.}
+{7020}{}{That's pretty steep. How about a discount?}
+{7030}{}{No, thanks. Maybe some other time.}
+{8000}{}{Remember, no guarantees with the ol' Doctor in the back room, of course... Let's get to it, then. I'll just hook you up to the ol' Doctor here... slip your arms into the slots there, and I'll tighten the braces and secure the clamps...}
+{8010}{}{[Wait]}
+{9000}{}{All right! Knew the ol' Doctor wouldn't let me down.}
+{9010}{}{I feel much better, thanks.}
+{9020}{}{Me wanna ride agin! Agin!}
+{10000}{}{Hell, no! The last time I gave someone a discount, that idiot brought a pack of his friends with him! There was a ghoul, a mutant... damn freaks, there was a deathclaw too! Forget it. So, you wanna get patched or what?}
+{10010}{}{Yeah, right.}
+{10020}{}{No, thanks. Maybe some other time.}
+{11000}{}{This here's the common body shop for Vault City. Me an' the ol' Doctor in the back patch up whoever needs some attention.}
+{11010}{}{"Ol' Doctor?"}
+{11020}{}{Do you have any job for me?}
+{11030}{}{I see. Say, I had some other questions for you...}
+{11040}{}{Hmmm. Maybe I'll be back when I need your services.}
+{12000}{}{Yeah, the "Auto-Doctor" in the back room there. It's a loaner from the city. It can be a little ornery sometimes, but mostly it does its job. Mostly.}
+{12010}{}{Forget it then. I needed something else...}
+{12020}{}{Whatever. I'm leaving.}
+{13000}{}{Yes... was there something else I could help you with?}
+{13010}{}{I could use some medical attention.}
+{13020}{}{What is this place?}
+{13030}{}{Uh, what is this place again?}
+{13040}{}{Could I buy some medical supplies?}
+{13050}{}{Do you sell First Aid or Field Medic Kits?}
+{13060}{}{Nothing, thanks. Goodbye.}
+{14000}{}{Got some right here, but it'll cost you... $1000 for the First Aid Kit, and $2000 for the Field Medic. You up to it or what?}
+{14010}{}{I'll take the First Aid Kit. [Give $1000]}
+{14020}{}{Let me have one of these Field Medic Kits, doc. [Give $2000]}
+{14030}{}{That's a bit too expensive for my current budget, maybe I'll come back later.}
+{15000}{}{Pleasure doing business with ya, goodbye.}
+{15010}{}{Goodbye.}
+{16000}{}{You here to get patched up?}
+{16010}{}{Patssshh.}
+{16020}{}{Nup.}
+{17000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{17010}{}{Patshhh? Patshh! Take moneee, fixx leaks.}
+{17020}{}{Bye-bye.}
+{18000}{}{Uh, well now, that might not be the safest thing for you, friend. Seems like you already took a few trips in the ol' Doctor from the way you talk.}
+{18010}{}{Okee... Buyhye.}
+{19000}{}{Uh, depends. There might be something. I need some help with some... research work.}
+{19010}{}{Research work?}
+{19020}{}{Go on, tell me more.}
+{19030}{}{ZZZZZzzzzz. That sounds boring. Bye.}
+{20000}{}{Did you heard about the newly opened train stations all over the area?}
+{20010}{}{No, tell me more.}
+{20020}{}{Only half-arsed informations. Tell me more.}
+{20030}{}{Yes, I've heard about it.}
+{21000}{}{The NCR is working very hard on fixing the old rail lines. You know, a train is way faster than a brahmin caravan and also much more secure. I've heard that there now several more or less public train stations opened. }
+{21010}{}{What do you want me to do?}
+{21020}{}{Interesting-- Not. Bye...}
+{22000}{}{I am very much interested about how or if some diseases are spreading because of the newly opened train stations.}
+{22010}{}{So what should I do?}
+{22020}{}{You want me to get ill or what?}
+{22030}{}{Bio-shit is uncool. I am out of this. Bye.}
+{23000}{}{You look like someone who get's around a lot. So your job would be to go to everyone of the new train stations and ask around between the people. Ask them how they feel or if they have been ill in the last time and so on and so on. It's simple, see?}
+{23010}{}{Indeed, it's simple. I will do it.}
+{23020}{}{Yes, it's simple. But also boring. Bye...}
+{24000}{}{Very good. I will pay you when you are done. Come back as soon as possible and tell me everything you could find out.}
+{24010}{}{Where should I start?}
+{25000}{}{A shame. Then I have to wait for someone else.}
+{26000}{}{You! Could you find out somethin already?}
+{26010}{}{Not yet. I will come back later.}
+{26020}{}{About the Vault City train station...}
+{26030}{}{About the NCR train station...}
+{26040}{}{About the Boneyard train station...}
+{26050}{}{About the San Francisco train station...}
+{26060}{}{I've visited all available train stations.}
+{26070}{}{Actually, I have something else...}
+{27000}{}{I know that the Vault City station is a bit in the south west of the town. I guess it would be a good place to start your research.}
+{27010}{}{I will. See ya.}
+{28000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{28010}{}{Everything looks okay there. Nobody talked about any issues.}
+{28020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{29000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{29010}{}{As far as I could see, all are fine. One or two people don't look that strong, but I think it's more the daily desert sand...}
+{29020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{30000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{30010}{}{Some people are reporting headachs and other issues. Not many, but it's not like there is nothing going on.}
+{30020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{31000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{31010}{}{The people I've talked to reported that either they or other people are seriously ill. Feels like a pandemia is going on down there.}
+{31020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{32000}{}{That's what I thought. The supply and general accommodation in this area is pretty much improved, compared to other regions. Thank you for informing me about this. }
+{32010}{}{About the other train stations...}
+{32020}{}{I've visited all available train stations.}
+{33000}{}{As far as my information goes, the NCR is as well good developed in medical provision. So this might be not unnatural. Thank you for checking this out for me. }
+{33010}{}{About the other train stations...}
+{33020}{}{I've visited all available train stations.}
+{34000}{}{This doesn't sound very good, but is understandable. We have to take care that no disease will start from there. It could bring many problems over all train stations and the surrounding area.}
+{34010}{}{About the other train stations...}
+{34020}{}{I've visited all available train stations.}
+{35000}{}{Oh my! This for sure are horrible news. It's very important to do some further steps in this. Good that you've informed me about this.}
+{35010}{}{About the other train stations...}
+{35020}{}{I've visited all available train stations.}
+{36000}{}{Your information have been very useful for me. I will write a report and send it to the council. We have to take care that diseases will not spread too wide. This will only make more problems and it isn't as if we don't have already enough of it, hah!}
+{36010}{}{Very good. What about my reward now?}
+{36020}{}{Very good. What about my reward now?}
+{36030}{}{That's what I am doing. You don't have to give me anything, it's what I am doing... See you.}
+{37000}{}{You have helped me a lot, I can't thank you more. I can give you 300 Currency. Hope it will help you in the outside. }
+{37010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{37020}{}{300 Currency? Isn't it a bit less for what I have done?}
+{37030}{}{300 Currency? Isn't it a bit less for what I have done?}
+{37040}{}{Thanks. Before I leave, I have something else that I want to ask.}
+{38000}{}{You are right. How could I just... Here, I give you 100 Currency more. I can't thank you enough for what you have done for me and Vault City.}
+{38010}{}{No problem. I am busy with something else now. Bye.}
+{38020}{}{Thanks. Before I leave, I have something else I want to ask.}
+{39000}{}{I am sorry, but I can't give you any more.}
+{39010}{}{Oh well then... Guess I should go.}
+{39020}{}{Thanks... Not. Before I leave, I have something else I want to ask about.}
+{40000}{}{You have helped me a lot, I can't thank you more. I can give you 400 Currency and a few Stimpaks. Hope it will help you in the outside. }
+{40010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{40020}{}{Thanks. Before I leave, I have something else that I want to ask.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{train quest active}
+{1020}{}{ugly}
+{1030}{}{up to 1/4 HP}
+{1040}{}{up to 2/4 HP}
+{1050}{}{up to 3/4 HP}
+{1060}{}{up to 4/4 HP}
+{1070}{}{Full HP dumb}
+{1080}{}{Full HP normal}
+{2000}{}{You here to get patched up?}
+{2010}{}{Yeah, I could use some medical attention.}
+{2020}{}{What is this place?}
+{2030}{}{Uh, what is this place again?}
+{2040}{}{Could I buy some medical supplies?}
+{2050}{}{No, I'm fine. Just stopping by.}
+{3000}{}{Looks like you've seen some fighting, friend.}
+{3010}{}{[Continue]}
+{3020}{}{[Continue]}
+{4000}{}{Whoa...looks like you've seen some serious action, friend.}
+{4010}{}{[Continue]}
+{4020}{}{[Continue]}
+{5000}{}{Whoa...looks like you've been in some heavy fighting, friend.}
+{5010}{}{[Continue]}
+{5020}{}{[Continue]}
+{6000}{}{Holy...! You're bleeding all over the floor!}
+{6010}{}{[Continue]}
+{6020}{}{[Continue]}
+{7000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{7010}{}{Well... all right. That sounds fair.}
+{7020}{}{That's pretty steep. How about a discount?}
+{7030}{}{No, thanks. Maybe some other time.}
+{8000}{}{Remember, no guarantees with the ol' Doctor in the back room, of course... Let's get to it, then. I'll just hook you up to the ol' Doctor here... slip your arms into the slots there, and I'll tighten the braces and secure the clamps...}
+{8010}{}{[Wait]}
+{9000}{}{All right! Knew the ol' Doctor wouldn't let me down.}
+{9010}{}{I feel much better, thanks.}
+{9020}{}{Me wanna ride agin! Agin!}
+{10000}{}{Hell, no! The last time I gave someone a discount, that idiot brought a pack of his friends with him! There was a ghoul, a mutant... damn freaks, there was a deathclaw too! Forget it. So, you wanna get patched or what?}
+{10010}{}{Yeah, right.}
+{10020}{}{No, thanks. Maybe some other time.}
+{11000}{}{This here's the common body shop for Vault City. Me an' the ol' Doctor in the back patch up whoever needs some attention.}
+{11010}{}{"Ol' Doctor?"}
+{11020}{}{Do you have any job for me?}
+{11030}{}{I see. Say, I had some other questions for you...}
+{11040}{}{Hmmm. Maybe I'll be back when I need your services.}
+{12000}{}{Yeah, the "Auto-Doctor" in the back room there. It's a loaner from the city. It can be a little ornery sometimes, but mostly it does its job. Mostly.}
+{12010}{}{Forget it then. I needed something else...}
+{12020}{}{Whatever. I'm leaving.}
+{13000}{}{Yes... was there something else I could help you with?}
+{13010}{}{I could use some medical attention.}
+{13020}{}{What is this place?}
+{13030}{}{Uh, what is this place again?}
+{13040}{}{Could I buy some medical supplies?}
+{13050}{}{Do you sell First Aid or Field Medic Kits?}
+{13060}{}{Nothing, thanks. Goodbye.}
+{14000}{}{Got some right here, but it'll cost you... $1000 for the First Aid Kit, and $2000 for the Field Medic. You up to it or what?}
+{14010}{}{I'll take the First Aid Kit. [Give $1000]}
+{14020}{}{Let me have one of these Field Medic Kits, doc. [Give $2000]}
+{14030}{}{That's a bit too expensive for my current budget, maybe I'll come back later.}
+{15000}{}{Pleasure doing business with ya, goodbye.}
+{15010}{}{Goodbye.}
+{16000}{}{You here to get patched up?}
+{16010}{}{Patssshh.}
+{16020}{}{Nup.}
+{17000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{17010}{}{Patshhh? Patshh! Take moneee, fixx leaks.}
+{17020}{}{Bye-bye.}
+{18000}{}{Uh, well now, that might not be the safest thing for you, friend. Seems like you already took a few trips in the ol' Doctor from the way you talk.}
+{18010}{}{Okee... Buyhye.}
+{19000}{}{Uh, depends. There might be something. I need some help with some... research work.}
+{19010}{}{Research work?}
+{19020}{}{Go on, tell me more.}
+{19030}{}{ZZZZZzzzzz. That sounds boring. Bye.}
+{20000}{}{Did you heard about the newly opened train stations all over the area?}
+{20010}{}{No, tell me more.}
+{20020}{}{Only half-arsed informations. Tell me more.}
+{20030}{}{Yes, I've heard about it.}
+{21000}{}{The NCR is working very hard on fixing the old rail lines. You know, a train is way faster than a brahmin caravan and also much more secure. I've heard that there now several more or less public train stations opened. }
+{21010}{}{What do you want me to do?}
+{21020}{}{Interesting-- Not. Bye...}
+{22000}{}{I am very much interested about how or if some diseases are spreading because of the newly opened train stations.}
+{22010}{}{So what should I do?}
+{22020}{}{You want me to get ill or what?}
+{22030}{}{Bio-shit is uncool. I am out of this. Bye.}
+{23000}{}{You look like someone who get's around a lot. So your job would be to go to everyone of the new train stations and ask around between the people. Ask them how they feel or if they have been ill in the last time and so on and so on. It's simple, see?}
+{23010}{}{Indeed, it's simple. I will do it.}
+{23020}{}{Yes, it's simple. But also boring. Bye...}
+{24000}{}{Very good. I will pay you when you are done. Come back as soon as possible and tell me everything you could find out.}
+{24010}{}{Where should I start?}
+{25000}{}{A shame. Then I have to wait for someone else.}
+{26000}{}{You! Could you find out somethin already?}
+{26010}{}{Not yet. I will come back later.}
+{26020}{}{About the Vault City train station...}
+{26030}{}{About the NCR train station...}
+{26040}{}{About the Boneyard train station...}
+{26050}{}{About the San Francisco train station...}
+{26060}{}{I've visited all available train stations.}
+{26070}{}{Actually, I have something else...}
+{27000}{}{I know that the Vault City station is a bit in the south west of the town. I guess it would be a good place to start your research.}
+{27010}{}{I will. See ya.}
+{28000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{28010}{}{Everything looks okay there. Nobody talked about any issues.}
+{28020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{29000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{29010}{}{As far as I could see, all are fine. One or two people don't look that strong, but I think it's more the daily desert sand...}
+{29020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{30000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{30010}{}{Some people are reporting headachs and other issues. Not many, but it's not like there is nothing going on.}
+{30020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{31000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{31010}{}{The people I've talked to reported that either they or other people are seriously ill. Feels like a pandemia is going on down there.}
+{31020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{32000}{}{That's what I thought. The supply and general accommodation in this area is pretty much improved, compared to other regions. Thank you for informing me about this. }
+{32010}{}{About the other train stations...}
+{32020}{}{I've visited all available train stations.}
+{33000}{}{As far as my information goes, the NCR is as well good developed in medical provision. So this might be not unnatural. Thank you for checking this out for me. }
+{33010}{}{About the other train stations...}
+{33020}{}{I've visited all available train stations.}
+{34000}{}{This doesn't sound very good, but is understandable. We have to take care that no disease will start from there. It could bring many problems over all train stations and the surrounding area.}
+{34010}{}{About the other train stations...}
+{34020}{}{I've visited all available train stations.}
+{35000}{}{Oh my! This for sure are horrible news. It's very important to do some further steps in this. Good that you've informed me about this.}
+{35010}{}{About the other train stations...}
+{35020}{}{I've visited all available train stations.}
+{36000}{}{Your information have been very useful for me. I will write a report and send it to the council. We have to take care that diseases will not spread too wide. This will only make more problems and it isn't as if we don't have already enough of it, hah!}
+{36010}{}{Very good. What about my reward now?}
+{36020}{}{Very good. What about my reward now?}
+{36030}{}{That's what I am doing. You don't have to give me anything, it's what I am doing... See you.}
+{37000}{}{You have helped me a lot, I can't thank you more. I can give you 300 Currency. Hope it will help you in the outside. }
+{37010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{37020}{}{300 Currency? Isn't it a bit less for what I have done?}
+{37030}{}{300 Currency? Isn't it a bit less for what I have done?}
+{37040}{}{Thanks. Before I leave, I have something else that I want to ask.}
+{38000}{}{You are right. How could I just... Here, I give you 100 Currency more. I can't thank you enough for what you have done for me and Vault City.}
+{38010}{}{No problem. I am busy with something else now. Bye.}
+{38020}{}{Thanks. Before I leave, I have something else I want to ask.}
+{39000}{}{I am sorry, but I can't give you any more.}
+{39010}{}{Oh well then... Guess I should go.}
+{39020}{}{Thanks... Not. Before I leave, I have something else I want to ask about.}
+{40000}{}{You have helped me a lot, I can't thank you more. I can give you 400 Currency and a few Stimpaks. Hope it will help you in the outside. }
+{40010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{40020}{}{Thanks. Before I leave, I have something else that I want to ask.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{train quest active}
+{1020}{}{ugly}
+{1030}{}{up to 1/4 HP}
+{1040}{}{up to 2/4 HP}
+{1050}{}{up to 3/4 HP}
+{1060}{}{up to 4/4 HP}
+{1070}{}{Full HP dumb}
+{1080}{}{Full HP normal}
+{2000}{}{You here to get patched up?}
+{2010}{}{Yeah, I could use some medical attention.}
+{2020}{}{What is this place?}
+{2030}{}{Uh, what is this place again?}
+{2040}{}{Could I buy some medical supplies?}
+{2050}{}{No, I'm fine. Just stopping by.}
+{3000}{}{Looks like you've seen some fighting, friend.}
+{3010}{}{[Continue]}
+{3020}{}{[Continue]}
+{4000}{}{Whoa...looks like you've seen some serious action, friend.}
+{4010}{}{[Continue]}
+{4020}{}{[Continue]}
+{5000}{}{Whoa...looks like you've been in some heavy fighting, friend.}
+{5010}{}{[Continue]}
+{5020}{}{[Continue]}
+{6000}{}{Holy...! You're bleeding all over the floor!}
+{6010}{}{[Continue]}
+{6020}{}{[Continue]}
+{7000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{7010}{}{Well... all right. That sounds fair.}
+{7020}{}{That's pretty steep. How about a discount?}
+{7030}{}{No, thanks. Maybe some other time.}
+{8000}{}{Remember, no guarantees with the ol' Doctor in the back room, of course... Let's get to it, then. I'll just hook you up to the ol' Doctor here... slip your arms into the slots there, and I'll tighten the braces and secure the clamps...}
+{8010}{}{[Wait]}
+{9000}{}{All right! Knew the ol' Doctor wouldn't let me down.}
+{9010}{}{I feel much better, thanks.}
+{9020}{}{Me wanna ride agin! Agin!}
+{10000}{}{Hell, no! The last time I gave someone a discount, that idiot brought a pack of his friends with him! There was a ghoul, a mutant... damn freaks, there was a deathclaw too! Forget it. So, you wanna get patched or what?}
+{10010}{}{Yeah, right.}
+{10020}{}{No, thanks. Maybe some other time.}
+{11000}{}{This here's the common body shop for Vault City. Me an' the ol' Doctor in the back patch up whoever needs some attention.}
+{11010}{}{"Ol' Doctor?"}
+{11020}{}{Do you have any job for me?}
+{11030}{}{I see. Say, I had some other questions for you...}
+{11040}{}{Hmmm. Maybe I'll be back when I need your services.}
+{12000}{}{Yeah, the "Auto-Doctor" in the back room there. It's a loaner from the city. It can be a little ornery sometimes, but mostly it does its job. Mostly.}
+{12010}{}{Forget it then. I needed something else...}
+{12020}{}{Whatever. I'm leaving.}
+{13000}{}{Yes... was there something else I could help you with?}
+{13010}{}{I could use some medical attention.}
+{13020}{}{What is this place?}
+{13030}{}{Uh, what is this place again?}
+{13040}{}{Could I buy some medical supplies?}
+{13050}{}{Do you sell First Aid or Field Medic Kits?}
+{13060}{}{Nothing, thanks. Goodbye.}
+{14000}{}{Got some right here, but it'll cost you... $1000 for the First Aid Kit, and $2000 for the Field Medic. You up to it or what?}
+{14010}{}{I'll take the First Aid Kit. [Give $1000]}
+{14020}{}{Let me have one of these Field Medic Kits, doc. [Give $2000]}
+{14030}{}{That's a bit too expensive for my current budget, maybe I'll come back later.}
+{15000}{}{Pleasure doing business with ya, goodbye.}
+{15010}{}{Goodbye.}
+{16000}{}{You here to get patched up?}
+{16010}{}{Patssshh.}
+{16020}{}{Nup.}
+{17000}{}{All right...from the looks of it, it's gonna cost you @lex price@$ bucks. You got the cash, then you're good to go.}
+{17010}{}{Patshhh? Patshh! Take moneee, fixx leaks.}
+{17020}{}{Bye-bye.}
+{18000}{}{Uh, well now, that might not be the safest thing for you, friend. Seems like you already took a few trips in the ol' Doctor from the way you talk.}
+{18010}{}{Okee... Buyhye.}
+{19000}{}{Uh, depends. There might be something. I need some help with some... research work.}
+{19010}{}{Research work?}
+{19020}{}{Go on, tell me more.}
+{19030}{}{ZZZZZzzzzz. That sounds boring. Bye.}
+{20000}{}{Did you heard about the newly opened train stations all over the area?}
+{20010}{}{No, tell me more.}
+{20020}{}{Only half-arsed informations. Tell me more.}
+{20030}{}{Yes, I've heard about it.}
+{21000}{}{The NCR is working very hard on fixing the old rail lines. You know, a train is way faster than a brahmin caravan and also much more secure. I've heard that there now several more or less public train stations opened. }
+{21010}{}{What do you want me to do?}
+{21020}{}{Interesting-- Not. Bye...}
+{22000}{}{I am very much interested about how or if some diseases are spreading because of the newly opened train stations.}
+{22010}{}{So what should I do?}
+{22020}{}{You want me to get ill or what?}
+{22030}{}{Bio-shit is uncool. I am out of this. Bye.}
+{23000}{}{You look like someone who get's around a lot. So your job would be to go to everyone of the new train stations and ask around between the people. Ask them how they feel or if they have been ill in the last time and so on and so on. It's simple, see?}
+{23010}{}{Indeed, it's simple. I will do it.}
+{23020}{}{Yes, it's simple. But also boring. Bye...}
+{24000}{}{Very good. I will pay you when you are done. Come back as soon as possible and tell me everything you could find out.}
+{24010}{}{Where should I start?}
+{25000}{}{A shame. Then I have to wait for someone else.}
+{26000}{}{You! Could you find out somethin already?}
+{26010}{}{Not yet. I will come back later.}
+{26020}{}{About the Vault City train station...}
+{26030}{}{About the NCR train station...}
+{26040}{}{About the Boneyard train station...}
+{26050}{}{About the San Francisco train station...}
+{26060}{}{I've visited all available train stations.}
+{26070}{}{Actually, I have something else...}
+{27000}{}{I know that the Vault City station is a bit in the south west of the town. I guess it would be a good place to start your research.}
+{27010}{}{I will. See ya.}
+{28000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{28010}{}{Everything looks okay there. Nobody talked about any issues.}
+{28020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{29000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{29010}{}{As far as I could see, all are fine. One or two people don't look that strong, but I think it's more the daily desert sand...}
+{29020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{30000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{30010}{}{Some people are reporting headachs and other issues. Not many, but it's not like there is nothing going on.}
+{30020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{31000}{}{Yes, I am listening.@@What do you want to tell me?@@Yes, report.}
+{31010}{}{The people I've talked to reported that either they or other people are seriously ill. Feels like a pandemia is going on down there.}
+{31020}{}{Nevermind. Have to go...@@Nevermind. I was wrong... Bye.@@Ah, nothing. Bye.}
+{32000}{}{That's what I thought. The supply and general accommodation in this area is pretty much improved, compared to other regions. Thank you for informing me about this. }
+{32010}{}{About the other train stations...}
+{32020}{}{I've visited all available train stations.}
+{33000}{}{As far as my information goes, the NCR is as well good developed in medical provision. So this might be not unnatural. Thank you for checking this out for me. }
+{33010}{}{About the other train stations...}
+{33020}{}{I've visited all available train stations.}
+{34000}{}{This doesn't sound very good, but is understandable. We have to take care that no disease will start from there. It could bring many problems over all train stations and the surrounding area.}
+{34010}{}{About the other train stations...}
+{34020}{}{I've visited all available train stations.}
+{35000}{}{Oh my! This for sure are horrible news. It's very important to do some further steps in this. Good that you've informed me about this.}
+{35010}{}{About the other train stations...}
+{35020}{}{I've visited all available train stations.}
+{36000}{}{Your information have been very useful for me. I will write a report and send it to the council. We have to take care that diseases will not spread too wide. This will only make more problems and it isn't as if we don't have already enough of it, hah!}
+{36010}{}{Very good. What about my reward now?}
+{36020}{}{Very good. What about my reward now?}
+{36030}{}{That's what I am doing. You don't have to give me anything, it's what I am doing... See you.}
+{37000}{}{You have helped me a lot, I can't thank you more. I can give you 300 Currency. Hope it will help you in the outside. }
+{37010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{37020}{}{300 Currency? Isn't it a bit less for what I have done?}
+{37030}{}{300 Currency? Isn't it a bit less for what I have done?}
+{37040}{}{Thanks. Before I leave, I have something else that I want to ask.}
+{38000}{}{You are right. How could I just... Here, I give you 100 Currency more. I can't thank you enough for what you have done for me and Vault City.}
+{38010}{}{No problem. I am busy with something else now. Bye.}
+{38020}{}{Thanks. Before I leave, I have something else I want to ask.}
+{39000}{}{I am sorry, but I can't give you any more.}
+{39010}{}{Oh well then... Guess I should go.}
+{39020}{}{Thanks... Not. Before I leave, I have something else I want to ask about.}
+{40000}{}{You have helped me a lot, I can't thank you more. I can give you 400 Currency and a few Stimpaks. Hope it will help you in the outside. }
+{40010}{}{Thank you. It was interesting to work for a real doctor. But I have to go now, checking out other issues.}
+{40020}{}{Thanks. Before I leave, I have something else that I want to ask.}
+

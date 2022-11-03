@@ -1,0 +1,108 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 #
+0 4020 #
+6 4030 D _script dialog@d_havepropermoney 1 900000 R _script dialog@r_RemoveMoney 1 900000 R _script dialog@r_OpenDoor 2 33 245 @
+5 5000 None 0 #
+4 5010 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Hello! It is Supercomputer Max 3000 speaking. May I help you? ]}
+{2010}{}{I need you to open this damn door!}
+{2020}{}{No bye.}
+{3000}{}{[ Just insert your keycard! ]}
+{3010}{}{A keycard? I have no keycard!}
+{4000}{}{[ Well then you will need to pay 900000 Currency if you wish to enter. ]}
+{4010}{}{How many Currency?!}
+{4020}{}{Wha?! No you better go fuck yourself then.}
+{4030}{}{Here's the Currency. Now open up!}
+{5000}{}{[ This is the price that was set by Mr. Salvatore for his "stupid men" in case they lose their keycards again. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ You have 4 minutes. ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Hello! It is Supercomputer Max 3000 speaking. May I help you? ]}
+{2010}{}{I need you to open this damn door!}
+{2020}{}{No bye.}
+{3000}{}{[ Just insert your keycard! ]}
+{3010}{}{A keycard? I have no keycard!}
+{4000}{}{[ Well then you will need to pay 900000 Currency if you wish to enter. ]}
+{4010}{}{How many Currency?!}
+{4020}{}{Wha?! No you better go fuck yourself then.}
+{4030}{}{Here are Currency. Now open up!}
+{5000}{}{[ This is the price that was set by Mr. Salvatore for his "stupid men" in case if they lose their keycards again. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ You have 4 minutes. ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Hello! It is Supercomputer Max 3000 speaking. May I help you? ]}
+{2010}{}{I need you to open this damn door!}
+{2020}{}{No bye.}
+{3000}{}{[ Just insert your keycard! ]}
+{3010}{}{A keycard? I have no keycard!}
+{4000}{}{[ Well then you will need to pay 900000 Currency if you wish to enter. ]}
+{4010}{}{How many Currency?!}
+{4020}{}{Wha?! No you better go fuck yourself then.}
+{4030}{}{Here are Currency. Now open up!}
+{5000}{}{[ This is the price that was set by Mr. Salvatore for his "stupid men" in case if they lose their keycards again. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ You have 4 minutes. ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Hello! It is Supercomputer Max 3000 speaking. May I help you? ]}
+{2010}{}{I need you to open this damn door!}
+{2020}{}{No bye.}
+{3000}{}{[ Just insert your keycard! ]}
+{3010}{}{A keycard? I have no keycard!}
+{4000}{}{[ Well then you will need to pay 900000 Currency if you wish to enter. ]}
+{4010}{}{How many Currency?!}
+{4020}{}{Wha?! No you better go fuck yourself then.}
+{4030}{}{Here are Currency. Now open up!}
+{5000}{}{[ This is the price that was set by Mr. Salvatore for his "stupid men" in case if they lose their keycards again. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ You have 4 minutes. ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Hello! It is Supercomputer Max 3000 speaking. May I help you? ]}
+{2010}{}{I need you to open this damn door!}
+{2020}{}{No bye.}
+{3000}{}{[ Just insert your keycard! ]}
+{3010}{}{A keycard? I have no keycard!}
+{4000}{}{[ Well then you will need to pay 900000 Currency if you wish to enter. ]}
+{4010}{}{How many Currency?!}
+{4020}{}{Wha?! No you better go fuck yourself then.}
+{4030}{}{Here are Currency. Now open up!}
+{5000}{}{[ This is the price that was set by Mr. Salvatore for his "stupid men" in case if they lose their keycards again. ]}
+{5010}{}{[ Back ]}
+{6000}{}{[ You have 4 minutes. ]}
+

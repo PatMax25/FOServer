@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{NCR soldier}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{It's pretty hot today.@@Stay away from the northern sides of the city.@@Move along.@@I am busy.@@Maybe later...@@Yeah?@@Stay alert, CLA spies are everywhere.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{It's pretty hot today.@@Stay away from the northern sides of the city.@@Move along.@@I am busy.@@Maybe later...@@Yeah?@@Stay alert, CLA spies are everywhere.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{It's pretty hot today.@@Stay away from the northern sides of the city.@@Move along.@@I am busy.@@Maybe later...@@Yeah?@@Stay alert, CLA spies are everywhere.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{It's pretty hot today.@@Stay away from the northern sides of the city.@@Move along.@@I am busy.@@Maybe later...@@Yeah?@@Stay alert, CLA spies are everywhere.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{It's pretty hot today.@@Stay away from the northern sides of the city.@@Move along.@@I am busy.@@Maybe later...@@Yeah?@@Stay alert, CLA spies are everywhere.}
+

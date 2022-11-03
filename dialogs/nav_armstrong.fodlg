@@ -1,0 +1,164 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var n name_mem_npc_player = 0 #
+3 1020 D _var n name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 R _var n name_mem_npc_player = 1 #
+0 2020 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 R _var n acquaintance = 1 #
+7 4020 #
+0 4030 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 #
+4 6010 #
+0 6020 @
+7 7000 None 0 #
+4 7010 #
+65507 7020 #
+0 7030 &
+
+[engl]
+{100}{}{Armstrong}
+{200}{}{You see a technician.}
+{210}{}{You see a man in a military uniform. Judging by the tools he's using you think he is more of a technician than a soldier.}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello there. Name's Armstrong, haven't seen ya around here before.}
+{2010}{}{Yeah, I'm getting familiar with the people here. Say, I had a few questions for you, if you don't mind.}
+{2020}{}{I think I'm in the wrong place. [ end dialogue ]}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin, sorry to disturb you. [ end dialogue ]}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{What's that strange-looking piece of machinery over there?}
+{4030}{}{Ah, nothing. Sorry. [ end dialogue ]}
+{5000}{}{I'm fixin' stuff, whaddya think? Armors mostly, but they send me all kinda junk over here.}
+{5010}{}{Why are you working in this hangar?}
+{5020}{}{Okay, I think I'll leave you to your work then. [ end dialogue ]}
+{6000}{}{What the hell do you think? We're short on room and resources, that's why. I was ordered to use the tools and accessories of this hangar, and it's fine by me -- as long as nobody bothers me.}
+{6010}{}{Okay, let me ask you something else then.}
+{6020}{}{I'm surely not one of those, bye! [ end dialogue ]}
+{7000}{}{What, the vertibird? Don't tell me you've never seen one o' those!? @sex@|Man||Woman|, what stinking sinkhole are you from?}
+{7010}{}{Vertibird, you say... Good, another question.}
+{7020}{}{Stinking sinkhole? Instead of describing it, I think I'm gonna make one on your forehead right now... [ Attack ]}
+{7030}{}{Rrr-ight. I'm outta here. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello there. Name's Armstrong, haven't seen ya around here before.}
+{2010}{}{Yeah, I'm getting familiar with the people here. Say, I had a few questions for you, if you don't mind.}
+{2020}{}{I think I'm in the wrong place.}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin, sorry to disturb you.}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{What's that strange-looking piece of machinery over there?}
+{4030}{}{Ah, nothing. Sorry.}
+{5000}{}{I'm fixin' stuff, whaddya think? Armors mostly, but they send me all kinda junk over here.}
+{5010}{}{Why are you working in this hangar?}
+{5020}{}{Okay, I think I'll leave you to your work then.}
+{6000}{}{What the hell do you think? We're short on room and resources, that's why. I was ordered to use the tools and accessories of this hangar, and it's fine by me -- as long as nobody bothers me.}
+{6010}{}{Okay, let me ask you something else then.}
+{6020}{}{I'm surely not one of those, bye!}
+{7000}{}{What, the vertibird? Don't tell me you've never seen one o' those!? @sex@|Man||Woman|, what stinking sinkhole are you from?}
+{7010}{}{Vertibird, you say... Good, another question.}
+{7020}{}{Stinking sinkhole? Instead of describing it, I think I'm gonna make one on your forehead right now...}
+{7030}{}{Rrr-ight. I'm outta here.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello there. Name's Armstrong, haven't seen ya around here before.}
+{2010}{}{Yeah, I'm getting familiar with the people here. Say, I had a few questions for you, if you don't mind.}
+{2020}{}{I think I'm in the wrong place.}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin, sorry to disturb you.}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{What's that strange-looking piece of machinery over there?}
+{4030}{}{Ah, nothing. Sorry.}
+{5000}{}{I'm fixin' stuff, whaddya think? Armors mostly, but they send me all kinda junk over here.}
+{5010}{}{Why are you working in this hangar?}
+{5020}{}{Okay, I think I'll leave you to your work then.}
+{6000}{}{What the hell do you think? We're short on room and resources, that's why. I was ordered to use the tools and accessories of this hangar, and it's fine by me -- as long as nobody bothers me.}
+{6010}{}{Okay, let me ask you something else then.}
+{6020}{}{I'm surely not one of those, bye!}
+{7000}{}{What, the vertibird? Don't tell me you've never seen one o' those!? @sex@|Man||Woman|, what stinking sinkhole are you from?}
+{7010}{}{Vertibird, you say... Good, another question.}
+{7020}{}{Stinking sinkhole? Instead of describing it, I think I'm gonna make one on your forehead right now...}
+{7030}{}{Rrr-ight. I'm outta here.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello there. Name's Armstrong, haven't seen ya around here before.}
+{2010}{}{Yeah, I'm getting familiar with the people here. Say, I had a few questions for you, if you don't mind.}
+{2020}{}{I think I'm in the wrong place.}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin, sorry to disturb you.}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{What's that strange-looking piece of machinery over there?}
+{4030}{}{Ah, nothing. Sorry.}
+{5000}{}{I'm fixin' stuff, whaddya think? Armors mostly, but they send me all kinda junk over here.}
+{5010}{}{Why are you working in this hangar?}
+{5020}{}{Okay, I think I'll leave you to your work then.}
+{6000}{}{What the hell do you think? We're short on room and resources, that's why. I was ordered to use the tools and accessories of this hangar, and it's fine by me -- as long as nobody bothers me.}
+{6010}{}{Okay, let me ask you something else then.}
+{6020}{}{I'm surely not one of those, bye!}
+{7000}{}{What, the vertibird? Don't tell me you've never seen one o' those!? @sex@|Man||Woman|, what stinking sinkhole are you from?}
+{7010}{}{Vertibird, you say... Good, another question.}
+{7020}{}{Stinking sinkhole? Instead of describing it, I think I'm gonna make one on your forehead right now...}
+{7030}{}{Rrr-ight. I'm outta here.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello there. Name's Armstrong, haven't seen ya around here before.}
+{2010}{}{Yeah, I'm getting familiar with the people here. Say, I had a few questions for you, if you don't mind.}
+{2020}{}{I think I'm in the wrong place.}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin, sorry to disturb you.}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{What's that strange-looking piece of machinery over there?}
+{4030}{}{Ah, nothing. Sorry.}
+{5000}{}{I'm fixin' stuff, whaddya think? Armors mostly, but they send me all kinda junk over here.}
+{5010}{}{Why are you working in this hangar?}
+{5020}{}{Okay, I think I'll leave you to your work then.}
+{6000}{}{What the hell do you think? We're short on room and resources, that's why. I was ordered to use the tools and accessories of this hangar, and it's fine by me -- as long as nobody bothers me.}
+{6010}{}{Okay, let me ask you something else then.}
+{6020}{}{I'm surely not one of those, bye!}
+{7000}{}{What, the vertibird? Don't tell me you've never seen one o' those!? @sex@|Man||Woman|, what stinking sinkhole are you from?}
+{7010}{}{Vertibird, you say... Good, another question.}
+{7020}{}{Stinking sinkhole? Instead of describing it, I think I'm gonna make one on your forehead right now...}
+{7030}{}{Rrr-ight. I'm outta here.}
+

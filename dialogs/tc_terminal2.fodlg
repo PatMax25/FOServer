@@ -1,0 +1,96 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 None 0 #
+2 3010 #
+0 3020 @
+4 4000 None 0 #
+2 4010 #
+0 4020 &
+
+[engl]
+{100}{}{Terminal}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ Hey, guess what. ]}
+{2020}{}{[ Do they even come out? ]}
+{2030}{}{[ Exit ]}
+{3000}{}{So this is what they call the deadliest virus? Who fucked up in Colorado and brought it here? I really like West Tek, these guys are doing their best to destroy humanity as fast as possible. Did you hear the news about Talluride? The town was bombed to shit with napalm. I know they won't say it on TV, but West Tek intentionally caused Limit 115 to break out and infect people in Colorado. Now they are covering it up and making it all confidential.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{These guys scare me. They are always silent and seem to never get out of their laboratories. I've been watching for a while... I don't know if they ever eat or go to the bathroom. I am also not sure that they are working on a vaccine, to be honest.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ Hey, guess what. ]}
+{2020}{}{[ Do they even come out? ]}
+{2030}{}{[ Exit ]}
+{3000}{}{So this is what they call the deadliest virus? Fucked up in Colorado and brought it here. I really like West Tek, these guys are doing their best to destroy humanity as fast as possible. Did you hear news about Talluride? The town was bombed to shit with napalm. I know they won't say it on TV, but West Tek was dumb enough to cause Limit 115 to infect people in Colorado, so they are same dumb in hiding information.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{These guys scare me. They are always silent and seems to never get out of their laboratories. I am not sure that they are working on vaccine, to be honest.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ Hey, guess what. ]}
+{2020}{}{[ Do they even come out? ]}
+{2030}{}{[ Exit ]}
+{3000}{}{So this is what they call the deadliest virus? Fucked up in Colorado and brought it here. I really like West Tek, these guys are doing their best to destroy humanity as fast as possible. Did you hear news about Talluride? The town was bombed to shit with napalm. I know they won't say it on TV, but West Tek was dumb enough to cause Limit 115 to infect people in Colorado, so they are same dumb in hiding information.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{These guys scare me. They are always silent and seems to never get out of their laboratories. I am not sure that they are working on vaccine, to be honest.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ Hey, guess what. ]}
+{2020}{}{[ Do they even come out? ]}
+{2030}{}{[ Exit ]}
+{3000}{}{So this is what they call the deadliest virus? Fucked up in Colorado and brought it here. I really like West Tek, these guys are doing their best to destroy humanity as fast as possible. Did you hear news about Talluride? The town was bombed to shit with napalm. I know they won't say it on TV, but West Tek was dumb enough to cause Limit 115 to infect people in Colorado, so they are same dumb in hiding information.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{These guys scare me. They are always silent and seems to never get out of their laboratories. I am not sure that they are working on vaccine, to be honest.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ Hey, guess what. ]}
+{2020}{}{[ Do they even come out? ]}
+{2030}{}{[ Exit ]}
+{3000}{}{So this is what they call the deadliest virus? Fucked up in Colorado and brought it here. I really like West Tek, these guys are doing their best to destroy humanity as fast as possible. Did you hear news about Talluride? The town was bombed to shit with napalm. I know they won't say it on TV, but West Tek was dumb enough to cause Limit 115 to infect people in Colorado, so they are same dumb in hiding information.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{These guys scare me. They are always silent and seems to never get out of their laboratories. I am not sure that they are working on vaccine, to be honest.}
+{4010}{}{[ Back ]}
+{4020}{}{[ Exit ]}
+

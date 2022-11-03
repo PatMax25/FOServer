@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 #
+0 2020 R _script dialog@r_OpenDoor 2 71 500 #
+0 2030 R _script dialog@r_ToDead 1 Anim2DeadExplode &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You can clearly see that one key on this piano is marked with blood. However, there is also one marked with something green. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Press bloody key ]}
+{2030}{}{[ Press green key ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You can clearly see that one key on this piano is marked with blood. However, there is also one marked with something green. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Press bloody key ]}
+{2030}{}{[ Press green key ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You can clearly see that one key on this piano is marked with blood. However, there is also one marked with something green. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Press bloody key ]}
+{2030}{}{[ Press green key ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You can clearly see that one key on this piano is marked with blood. However, there is also one marked with something green. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Press bloody key ]}
+{2030}{}{[ Press green key ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You can clearly see that one key on this piano is marked with blood. However, there is also one marked with something green. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Press bloody key ]}
+{2030}{}{[ Press green key ]}
+

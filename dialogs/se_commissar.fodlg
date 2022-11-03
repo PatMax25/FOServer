@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 R _script dialog@r_PlaySound 1 57 R _var p name_mem_npc_player = 1 #
+65507 2020 #
+5 2030 D _item p PID_MINERALS_NEW } 25 R _item p PID_MINERALS_NEW - 25 R _item p PID_COMMANDER_CAP + 1 R _item p PID_WEIRD_VINYL + 1 #
+0 2040 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 D _item p PID_MINERALS_NEW } 25 R _item p PID_MINERALS_NEW - 25 R _item p PID_WEIRD_VINYL + 1 R _item p PID_COMMANDER_CAP + 1 #
+0 4020 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{Commissar Pavel}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, hello there comrade! How about sharing some ore with us so we can build MCV?}
+{2010}{}{But I have no ore...}
+{2020}{}{Fuck you! I am an Alliance spy, prepare to die! [ Attack ]}
+{2030}{}{Here, I have some ore for you, comrade.}
+{2040}{}{I will be going. [ end dialogue ]}
+{3000}{}{No ore? Well, then collect some for us.There must be some outside of the base walls.}
+{4000}{}{Hello again, comrade!}
+{4010}{}{I have some ore for you.}
+{4020}{}{Yeah, yeah... I will come later. [ end dialogue ]}
+{5000}{}{And thank you a lot, comrade! Here, take this as a small reward from our side. Victory shall be ours!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, hello there comrade! How about sharing some ore with us so we can build MCV?}
+{2010}{}{But I have no ore...}
+{2020}{}{Fuck you! I am an Alliance spy, prepare to die!}
+{2030}{}{Here, I have some ore for you, comrade.}
+{2040}{}{I will be going.}
+{3000}{}{No ore? Well, then collect some for us.There must be some outside of the base walls.}
+{4000}{}{Hello again, comrade!}
+{4010}{}{I have some ore for you.}
+{4020}{}{Yeah, yeah... I will come later.}
+{5000}{}{And thank you a lot, comrade! Here, take this as a small reward from our side. Victory shall be ours!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, hello there comrade! How about sharing some ore with us so we can build MCV?}
+{2010}{}{But I have no ore...}
+{2020}{}{Fuck you! I am an Alliance spy, prepare to die!}
+{2030}{}{Here, I have some ore for you, comrade.}
+{2040}{}{I will be going.}
+{3000}{}{No ore? Well, then collect some for us.There must be some outside of the base walls.}
+{4000}{}{Hello again, comrade!}
+{4010}{}{I have some ore for you.}
+{4020}{}{Yeah, yeah... I will come later.}
+{5000}{}{And thank you a lot, comrade! Here, take this as a small reward from our side. Victory shall be ours!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, hello there comrade! How about sharing some ore with us so we can build MCV?}
+{2010}{}{But I have no ore...}
+{2020}{}{Fuck you! I am an Alliance spy, prepare to die!}
+{2030}{}{Here, I have some ore for you, comrade.}
+{2040}{}{I will be going.}
+{3000}{}{No ore? Well, then collect some for us.There must be some outside of the base walls.}
+{4000}{}{Hello again, comrade!}
+{4010}{}{I have some ore for you.}
+{4020}{}{Yeah, yeah... I will come later.}
+{5000}{}{And thank you a lot, comrade! Here, take this as a small reward from our side. Victory shall be ours!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Ah, hello there comrade! How about sharing some ore with us so we can build MCV?}
+{2010}{}{But I have no ore...}
+{2020}{}{Fuck you! I am an Alliance spy, prepare to die!}
+{2030}{}{Here, I have some ore for you, comrade.}
+{2040}{}{I will be going.}
+{3000}{}{No ore? Well, then collect some for us.There must be some outside of the base walls.}
+{4000}{}{Hello again, comrade!}
+{4010}{}{I have some ore for you.}
+{4020}{}{Yeah, yeah... I will come later.}
+{5000}{}{And thank you a lot, comrade! Here, take this as a small reward from our side. Victory shall be ours!}
+

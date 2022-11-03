@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Soviet dog}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Woof, woof@@Woof, comrade.@@Woof?@@Woof woof, comrade!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Woof, woof@@Woof, comrade.@@Woof?@@Woof woof, comrade!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Woof, woof@@Woof, comrade.@@Woof?@@Woof woof, comrade!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Woof, woof@@Woof, comrade.@@Woof?@@Woof woof, comrade!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Woof, woof@@Woof, comrade.@@Woof?@@Woof woof, comrade!}
+

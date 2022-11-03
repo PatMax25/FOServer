@@ -1,0 +1,222 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 #
+6 1020 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 #
+7 3020 @
+4 4000 None 0 #
+0 4010 #
+5 4020 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_BROTHERHOOD_COMBAT_ARMOR + 1 R _item p PID_BROTHERHOOD_HELMET + 1 #
+5 4030 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_MICRO_FUSION_CELL + 500 R _item p PID_SMALL_ENERGY_CELL - 300 #
+5 4040 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_SUPER_STIMPAK + 30 R _item p PID_STIMPAK + 20 #
+5 4050 D _item p PID_TANKER_FOB } 2 R _item p PID_TANKER_FOB - 2 R _item p PID_MINE + 3 R _item p PID_PLASTIC_EXPLOSIVES + 1 #
+5 4060 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_MOTION_SENSOR + 1 #
+5 4070 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_PLASMA_SMG + 1 R _item p PID_PLASMA_RIFLE + 1 R _item p PID_MICRO_FUSION_CELL + 50 #
+5 4080 D _item p PID_TANKER_FOB } 2 R _item p PID_TESLA_ARMOR + 1 R _item p PID_TESLA_HELMET + 1 R _item p PID_YK32_PULSE_PISTOL + 1 R _item p PID_TANKER_FOB - 2 R _item p PID_SMALL_ENERGY_CELL + 50 R _item p PID_SUPER_STIMPAK + 3 #
+5 4090 D _item p PID_TANKER_FOB } 5 R _item p PID_TANKER_FOB - 5 R _item p PID_VAULT_TEC_KEY + 1 #
+5 4100 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_AVENGER_MINIGUN + 1 R _item p PID_5MM_AP + 1000 #
+5 4110 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_SNIPER_RIFLE + 1 R _item p PID_223_FMJ + 150 #
+5 4120 D _item p PID_TANKER_FOB } 5 R _item p PID_HK_G11 + 1 R _item p PID_TANKER_FOB - 5 #
+5 4130 D _item p PID_TANKER_FOB } 5 R _item p PID_TANKER_FOB - 5 R _item p PID_VAULT_TEC_KEY + 1 #
+5 4140 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_V13_KEY + 1 #
+5 4150 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_HOWITZER_SHELL + 1 #
+5 4160 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_4_7MM_CASELESS + 100 @
+5 5000 None 0 @
+6 6000 None 0 #
+0 6010 D _item p PID_BOS_MONEY } 12500 R _item p PID_BOS_MONEY - 12500 R _item p PID_FINGER_LOCK + 1 #
+0 6020 @
+7 7000 None 0 #
+0 7010 &
+
+[engl]
+{100}{}{Quartermaster}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Do you have anything special?}
+{2000}{}{What is it, brother?@@Do you need something today?@@Do you have any tokens to exchange?@@Are you in need of some equipment?@@Did someone send you here?@@Do you need some equipment?@@Need some gear?@@Have you earned any tokens?@@Have any tokens for me?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by. [ end dialogue ]}
+{3000}{}{I am the quartermaster, silly, the one who gives out and stores the Brotherhood's equipment. Have you been out earning reward tokens?}
+{3010}{}{Fine. I wish to get some equipment.}
+{3020}{}{Reward tokens? What are those?}
+{4000}{}{You have reward tokens? Fine. Sign the forms here and here...}
+{4010}{}{On the second thought, I will show up later. [ end dialogue ]}
+{4020}{}{[ Brotherhood Combat Armor Set - 1 token ]}
+{4030}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4040}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4050}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4060}{}{[ 1 Motion sensor - 1 token ]}
+{4070}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4080}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4090}{}{[ Vault Tec Key - 5 tokens ]}
+{4100}{}{[  Avenger minigun + 1000 5mm ammo - 1 token ]}
+{4110}{}{[  Sniper rifle + 150 .223 ammo - 1 token ]}
+{4120}{}{[  G11 - 5 tokens  ]}
+{4130}{}{[ Vault Tec key - 5 tokens ]}
+{4140}{}{[ Vault 13 key - 1 token ]}
+{4150}{}{[ Howitzer shell - 1 token ]}
+{4160}{}{[ 100 4.7 ammo - 1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{I can sell you some Finger locks for 12500 modules.}
+{6010}{}{I will take one. [ end dialogue ]}
+{6020}{}{Nah, not interested. [ end dialogue ]}
+{7000}{}{When you perform major services for the Brotherhood in operations, sometimes you will receive special reward tokens. I am authorized to give out special gear in exchange for these, or you can get an official requisition form from the higher ups instead...}
+{7010}{}{Sounds cool! I'll come back if I find any, thanks. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Do you have anything special?}
+{2000}{}{What is it brother?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by.}
+{3000}{}{I am the quartermaster. The one who gives and stores the equipment.}
+{3010}{}{Fine. I wish to get some equipment.}
+{3020}{}{Reward tokens? What are those?}
+{4000}{}{Fine. Sign up here and here...}
+{4010}{}{On the second thought, I will show up later.}
+{4020}{}{[ Brotherhood Combat Armor Set - 1 token ]}
+{4030}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4040}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4050}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4060}{}{[ 1 Motion sensor - 1 token ]}
+{4070}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4080}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4090}{}{[ Vault Tec Key - 5 tokens ]}
+{4100}{}{[  Avenger minigun + 1000 5mm ammo - 1 token ]}
+{4110}{}{[  Sniper rifle + 150 .223 ammo - 1 token ]}
+{4120}{}{[  G11 - 5 tokens  ]}
+{4130}{}{[ Vault Tec key - 5 tokens ]}
+{4140}{}{[ Vault 13 key - 1 token ]}
+{4150}{}{[ Howitzer shell - 1 token ]}
+{4160}{}{[ 100 4.7 ammo - 1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{Can sell you some Finger locks for 12500 modules.}
+{6010}{}{I will take one.}
+{6020}{}{Nah, not interested.}
+{7000}{}{When you perform major services for your faction in operations, sometimes you will receive special reward tokens. I am authorized to give out special gear in exchange for these, or you can get an official requisition form from the higher ups instead...}
+{7010}{}{Sounds cool! I'll come back if I find any, thanks. [ end dialogue ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Do you have anything special?}
+{2000}{}{What is it brother?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by.}
+{3000}{}{I am the quartermaster. The one who gives and stores the equipment.}
+{3010}{}{Fine. I wish to get some equipment.}
+{3020}{}{Reward tokens? What are those?}
+{4000}{}{Fine. Sign up here and here...}
+{4010}{}{On the second thought, I will show up later.}
+{4020}{}{[ Brotherhood Combat Armor Set - 1 token ]}
+{4030}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4040}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4050}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4060}{}{[ 1 Motion sensor - 1 token ]}
+{4070}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4080}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4090}{}{[ Vault Tec Key - 5 tokens ]}
+{4100}{}{[  Avenger minigun + 1000 5mm ammo - 1 token ]}
+{4110}{}{[  Sniper rifle + 150 .223 ammo - 1 token ]}
+{4120}{}{[  G11 - 5 tokens  ]}
+{4130}{}{[ Vault Tec key - 5 tokens ]}
+{4140}{}{[ Vault 13 key - 1 token ]}
+{4150}{}{[ Howitzer shell - 1 token ]}
+{4160}{}{[ 100 4.7 ammo - 1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{Can sell you some Finger locks for 12500 modules.}
+{6010}{}{I will take one.}
+{6020}{}{Nah, not interested.}
+{7000}{}{When you perform major services for your faction in operations, sometimes you will receive special reward tokens. I am authorized to give out special gear in exchange for these, or you can get an official requisition form from the higher ups instead...}
+{7010}{}{Sounds cool! I'll come back if I find any, thanks. [ end dialogue ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Do you have anything special?}
+{2000}{}{What is it brother?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by.}
+{3000}{}{I am the quartermaster. The one who gives and stores the equipment.}
+{3010}{}{Fine. I wish to get some equipment.}
+{3020}{}{Reward tokens? What are those?}
+{4000}{}{Fine. Sign up here and here...}
+{4010}{}{On the second thought, I will show up later.}
+{4020}{}{[ Brotherhood Combat Armor Set - 1 token ]}
+{4030}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4040}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4050}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4060}{}{[ 1 Motion sensor - 1 token ]}
+{4070}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4080}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4090}{}{[ Vault Tec Key - 5 tokens ]}
+{4100}{}{[  Avenger minigun + 1000 5mm ammo - 1 token ]}
+{4110}{}{[  Sniper rifle + 150 .223 ammo - 1 token ]}
+{4120}{}{[  G11 - 5 tokens  ]}
+{4130}{}{[ Vault Tec key - 5 tokens ]}
+{4140}{}{[ Vault 13 key - 1 token ]}
+{4150}{}{[ Howitzer shell - 1 token ]}
+{4160}{}{[ 100 4.7 ammo - 1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{Can sell you some Finger locks for 12500 modules.}
+{6010}{}{I will take one.}
+{6020}{}{Nah, not interested.}
+{7000}{}{When you perform major services for your faction in operations, sometimes you will receive special reward tokens. I am authorized to give out special gear in exchange for these, or you can get an official requisition form from the higher ups instead...}
+{7010}{}{Sounds cool! I'll come back if I find any, thanks. [ end dialogue ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Do you have anything special?}
+{2000}{}{What is it brother?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by.}
+{3000}{}{I am the quartermaster. The one who gives and stores the equipment.}
+{3010}{}{Fine. I wish to get some equipment.}
+{3020}{}{Reward tokens? What are those?}
+{4000}{}{Fine. Sign up here and here...}
+{4010}{}{On the second thought, I will show up later.}
+{4020}{}{[ Brotherhood Combat Armor Set - 1 token ]}
+{4030}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4040}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4050}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4060}{}{[ 1 Motion sensor - 1 token ]}
+{4070}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4080}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4090}{}{[ Vault Tec Key - 5 tokens ]}
+{4100}{}{[  Avenger minigun + 1000 5mm ammo - 1 token ]}
+{4110}{}{[  Sniper rifle + 150 .223 ammo - 1 token ]}
+{4120}{}{[  G11 - 5 tokens  ]}
+{4130}{}{[ Vault Tec key - 5 tokens ]}
+{4140}{}{[ Vault 13 key - 1 token ]}
+{4150}{}{[ Howitzer shell - 1 token ]}
+{4160}{}{[ 100 4.7 ammo - 1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{Can sell you some Finger locks for 12500 modules.}
+{6010}{}{I will take one.}
+{6020}{}{Nah, not interested.}
+{7000}{}{When you perform major services for your faction in operations, sometimes you will receive special reward tokens. I am authorized to give out special gear in exchange for these, or you can get an official requisition form from the higher ups instead...}
+{7010}{}{Sounds cool! I'll come back if I find any, thanks. [ end dialogue ]}
+

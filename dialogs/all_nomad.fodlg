@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Nomad}
+{200}{}{A nomad.}
+{210}{}{You're not sure where they're from, or where they are going. They probably don't know either.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello, you look new around here. You should talk to the chief.@@I don't think it is as hot today as it was yesterday, but that's not saying much.@@So, what's life like in the city?@@It's fucking hot out here!@@Travel much?@@I've almost worn out my shoes again...@@Maybe I should settle down... ha!@@The universe will provide!@@Heard any good music lately?@@Know any good camping spots?@@Got any drugs?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello, you look new around here.::You should talk to the chief.@@I don't think it is as hot today as it was yesterday.@@So what's life like in the city?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello, you look new around here.::You should talk to the chief.@@I don't think it is as hot today as it was yesterday.@@So what's life like in the city?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello, you look new around here.::You should talk to the chief.@@I don't think it is as hot today as it was yesterday.@@So what's life like in the city?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello, you look new around here.::You should talk to the chief.@@I don't think it is as hot today as it was yesterday.@@So what's life like in the city?}
+

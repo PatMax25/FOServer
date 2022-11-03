@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p q_adytum_nick = 1 #
+0 2020 @
+3 3000 None 0 #
+4 3010 D _var p q_adytum_nick = 1 D _script dialog@d_havepropermoney 1 1700 R _var p q_adytum_nick = 2 R _script dialog@r_RemoveMoney 1 1700 #
+0 3020 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Jeremy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{I have been sent here by Nick. His car needs to be repaired.}
+{2020}{}{Nothing.}
+{3000}{}{Nick? He did't pay me for my last service. I don't even want to HEAR anything about his car until the moment when I see 1700 Currency in my pocket.}
+{3010}{}{Here is the Currency. Is it ok now?}
+{3020}{}{I will come later.}
+{4000}{}{Good... tell him he can come by.}
+
+[czec]
+{100}{}{Jeremy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{I have been sent here by Nick. His car needs to be repaired.}
+{2020}{}{Nothing.}
+{3000}{}{Nick? He did't pay me for my last service. I don't even want to HEAR anything about his car until the moment when I see 1700 Currency in my pocket.}
+{3010}{}{Here is the Currency. Is it ok now?}
+{3020}{}{I will come later.}
+{4000}{}{Good... tell him he can come by.}
+
+[pols]
+{100}{}{Jeremy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{I have been sent here by Nick. His car needs to be repaired.}
+{2020}{}{Nothing.}
+{3000}{}{Nick? He did't pay me for my last service. I don't even want to HEAR anything about his car until the moment when I see 1700 Currency in my pocket.}
+{3010}{}{Here is the Currency. Is it ok now?}
+{3020}{}{I will come later.}
+{4000}{}{Good... tell him he can come by.}
+
+[span]
+{100}{}{Jeremy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{I have been sent here by Nick. His car needs to be repaired.}
+{2020}{}{Nothing.}
+{3000}{}{Nick? He did't pay me for my last service. I don't even want to HEAR anything about his car until the moment when I see 1700 Currency in my pocket.}
+{3010}{}{Here is the Currency. Is it ok now?}
+{3020}{}{I will come later.}
+{4000}{}{Good... tell him he can come by.}
+
+[russ]
+{100}{}{Jeremy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello? Do you need something?}
+{2010}{}{I have been sent here by Nick. His car needs to be repaired.}
+{2020}{}{Nothing.}
+{3000}{}{Nick? He did't pay me for my last service. I don't even want to HEAR anything about his car until the moment when I see 1700 Currency in my pocket.}
+{3010}{}{Here is the Currency. Is it ok now?}
+{3020}{}{I will come later.}
+{4000}{}{Good... tell him he can come by.}
+

@@ -1,0 +1,1137 @@
+# Created: 08.11.2007 03:40 Cvet
+# Updated: 29.10.2008 23:18 Cvet
+
+{1}{}{Holodisk byl načten úspěšně.}
+{2}{}{Chyba čtení holodisku.}
+{3}{}{Data jsou již v tvém Pip-Boyi.}
+{4}{}{Nedostatek paměti, uvolněte místo.}
+{5}{}{Úspěšně vymazáno.}
+{6}{}{Záznam se nepodařilo odstranit.}
+{7}{}{Holodisk byl přepsán.}
+{8}{}{Holodisk chráněn proti zápisu}
+
+#
+# Format:
+# Name - Number * 10
+# Text - Number * 10 + 1
+
+#
+# Fallout 1 Holodisks
+#
+
+# 1
+#
+{10}{}{Záznamový soubor FEV Experimentu}
+{11}{}{Datum zápisu: 21. březen, 2075
+Major Barnett přikázal zahájit experimenty s kmenem panimunitního viru č. 10-011, který byl pojmenován FEV (Forced Evolutionary Virus). Spíše než na jeho hlavní efekt replikační stability, má být hlavní zájem soustředěn na vedlejší účinky virové struktury. Major věří, že nová struktura je dalším logickým krokem vývoje buněk savců. Experimenty s jednobuněčnými organismy mají skvělé výsledky. Zatímco jejich základní metabolické procesy zůstávají prakticky beze změn, jejich odolnost vůči infekcím a radiaci předčí všechny naše dřívější předpoklady. Dodatek: na chloroplasty se jeví virus bez účinku. Další experimentování s rostlinnými buňkami bylo z příkazu majora Barnetta zastaveno.
+
+Datum zápisu: 9. květen, 2075
+Infikovali jsme FEV několik různých druhů ploštěnek. Během několika hodin zvětšil hmyz svou velikost o 28% a populace stala rezistentní vůči 39 druhům virové nákazy. Všechny vzorky si své nově nabyté vlastnosti podržely i v dalších generacích a nová struktura DNK plně přešla do jejich genové výbavy. Zkoumané subjekty se ovšem reprodukují pouze asexuálně. Experimenty s dalšími druhy hmyzu nebylo možno provést. Major Barnett je nechal až do odvolání pozastavit.
+
+Datum zápisu: 30. červen, 2075
+Několik chovů bílých laboratorních myší bylo plně infikováno virem FEV. Opět bylo už po několika hodinách zaznamenáno zvětšení tělesné velikosti a po 9-ti dnech se tato hodnota stabilizovala na vzrůstu 31% oproti kontrolní skupině. Pitva prokázala největší míru nárůstu
+u příčně pruhované svalové tkáně a určitých vnitřních, orgánů, především pak u jater, srdce a ledvin. Rovněž se k našemu překvapení ukázalo, že infikované myši byly schopny nalézt správnou cestu bludištěm v méně než polovičním čase oproti kontrolní skupině. Tyto signály
+bude ovšem třeba potvrdit ještě dalšími testy.
+
+Datum zápisu: 9. listopad, 2075
+Infikovali jsme FEV 218 laboratorních králíků. Polovině testovaných subjektů byly implantovány elektrody za účelem monitorování EEG aktivity před a po infikování viru. Zvýšení elektrické aktivity mozku bylo v průměru zaznamenáno 3.2 sekund po aplikaci viru. Opět bylo pozorováno typické zvětšení svalové hmoty. Nicméně byla rovněž zaznamenána zvýšená agresivita speciálně mezi samci) testovací skupiny. Rozbor přírůstku mozkové tkáně způsobeného FEV, ukázal na zvýšené množství dendritických spojení a to zvláště u limbického systému a ve frontálním cortexu.
+
+Datum zápisu: 12. leden, 2076
+Se šarží 11-011 jsme dosáhli zlepšení účinnosti mitotického cyklu o 43%. Infikovali jsme touto novou odrůdou viru 53 mývalů. V přídavku k už očekávanému zvětšení ělesné hmotnosti, prokázaly reakční testy i zvýšení inteligence a manuální zručnosti a to o 19 bodů dle Schuler-Kappova indexu. Naneštěstí několik testovacích subjektů uprchlo z poškozené klece a muselo být odchyceno a usmrceno. Major Barnett nařídil likvidaci všech zbývajících objektů. Nicméně při konečném sčítání nám chyběly dva páry.
+
+Datum zápisu: 13. květen, 2076
+Zabudovali jsme do struktury FEV několik nových genových sekvencí dodaných poradním týmem majora Barnetta. S dávkou 11-101a jsme potom infikovali 23 psů z čistokrevných i míšených plemen, všechny středního vzrůstu. Zvětšení tělesné velikosti bylo doprovázeno i zvýšenou agresivitou, bez signifikantních známek nárůstu inteligence. V dalších pokusech plánujeme zkřížit 92 různých párů s využitím 11-011. Všechny subjekty byly po 14-ti týdnech pozorování zlikvidovány.
+
+Datum zápisu: 4. říjen, 2076
+Dokončili jsme křížení. 15 šimpanzů bylo infikováno šarží 11-111. Bezprecedentní nárůst imunity i vzrůstu. Pokusy vyvolat u testovaných subjektů zhoubné nádorové bujení pomocí radiologických a chemických činidel, byly neúspěšné. Prudký nárůst agresivity zvířat vedl k jejich vzájemné izolaci. Dva subjekty byli postiženi prudkými epileptickými záchvaty a zemřeli. Všechny zbývající byli poté zlikvidovány.
+
+Datum zápisu: 7. leden, 2077
+Major Barnett přikázal převést veškerý výzkum FEV na vojenskou základnu Mariposa. Plánuje v projektu pokračovat experimentováním na dobrovolnících z řad armády. Jsem důrazně proti tomu a žádám, aby bylo zaprotokolováno, že ani já ani můj tým nedoporučujeme testování na lidských subjektech.}
+
+
+# 2
+#
+{20}{}{Bezpečností záznam}
+{21}{}{Bezpečností override Gamma Omicron Delta.}
+
+# 3
+#
+{30}{}{Prastarý disk Bratrstva}
+{31}{}{Kapitán Maxson měl pravdu. Tohle místo je smrt. Tenhle záznam pořizuji proto, že kdybychom nedokázali dojít nazpátek, doufám, že jednou někdo objeví, co se s námi stalo.
+
+Po 20-ti dnech pekla jsme dorazili do výzkumné základny West Tech. Pak se ukázalo, že cesta byla ta lehčí část. Úroveň radiace začala stoupat hned jak jsme zdálky uviděli ten gigantický kráter. Prohlédli jsme naše zásoby a spočítali si, že v brnění a s antiradiačními prostředky,které máme k dispozici, bychom se mohli odvážit krátkého průzkumu. Vím, že je to riziko, ale technologie, kterou tu můžeme získat, je dostatečnou odměnou.
+
+Sešplhali jsme kráterem do prvního patra a všechno se zdálo běžet podle plánu. Energetické systémy komplexu byly odpojené, takže jsme ani nemuseli přemosťovat bezpečnostní čidla. Aspoň jsme si to mysleli. V prvním patře nebylo nic cenného, proto jsme šli dál.
+
+Na druhém patře to vypadalo stejně.
+
+Jakmile Jensen vkročil do třetího patra začalo peklo. Bezpečnostní senzory byly spáleny a vyřazeny pouze na prvních dvou podlažích, ne však na třetím. Jensen byl rozsekán na kousky dřív, než stačil zjistit co se děje. Ještě nikdy jsme neviděli zbraně, které by tak lehce pronikaly Energo brněním. Muži okolo mě padali jako mouchy, aniž měli sebemenší šanci vystřelit. Pokoušel jsem se tým přeskupit, ale do prvního patra se spolu mnou dokázali dostat jen Soto a Camarillo.
+
+Fakt, že cítím Sotovo spálené maso v místech, kde bylo jeho brnění proraženo, znamená že moje vlastní Energo brnění už není nadále vzduchotěsné. Takže polykám mnohem víc radiace, než jsem původně plánoval. Z mojí hydrauliky se alarmujícím tempem ztrácí kapalina. Musím
+se z tohohle prokletého místa dostat dostatečně daleko dřív, než moje brnění definitivně odejde.
+
+Camarillo vypadá fyzicky celkem v pořádku, ale víc než  hodinu byl mimo a mumlal něco o džehenně. Ten bastard si vzal všechny naše zbývající antiradiační prostředky. 
+
+Zbyli jsme jen Soto a já.  Když nedostaneme ty antiradianty, nedojdeme odtud moc daleko.  Pokusím se najít Camarilla dřív než už bude pozdě.
+
+Seržant. D. Allen, armáda Spojených Států.}
+
+# 4
+#
+{40}{}{Alpha Experiment Disk}
+{41}{}{Projekt prototypu Panimunitního Viru
+
+S úmyslem vyrovnat momentální převahu bakteriologického a virového výzkumu Čínské vlády, vytvořili jsme fragment viru sestávající z kyseliny ribonukleové (RNK)  uzavřené v pouzdře z proteinových lipidů. Tento fragment obsahuje speciálně vytvořenou sekvenci ozářených aminokyselin (RAK), která je schopna připojení k nespecifikovaným vazbám kyseliny deoxyribonukleové (DNK) a urychlit tak nereplikační mitózu buněk. Výsledná hostitelská buňka je poté ponechána se čtyřspirálovou strukturou DNK.
+
+Prvotní testy jsou slibné. Virus lehce proniká buněčnou membránou a připojuje se přímo k hostitelské DNK v jádře. Mitóza buněčné struktury začíná téměř okamžitě. Cytokinezi je zabráněno důslednou kontrolou dispozic kinetochorických vláken během procesu anafáze. Celý mitotický cyklus je ukončen přibližně po 2 hodinách, ačkoli fenotypická úprava nové struktury 
+zabere dny až týdny.
+
+K přídavku k velmi efektivní odolnosti proti bakteriálnímu a virovému napadení se čtyřšroubovicová struktura jeví i téměř dokonale imunní vůči chybám indukovaným v procesu 
+dělení a to právě díky multiplicitě základní sekvence. Tkáň vystavená pronikavé radiaci nevykazovala v základních sekvencích žádné mutace. Rovněž mechanismy ribozómů syntetizující protein jsou neporušeny.
+
+Více než 80% vzorků obsahovalo čtyřšroubovicovou DNK. Největší citlivost na virus vykazuje svalová a kostní tkáň, rovněž spolu se sekrečními buňkami. Nejméně ovlivnitelné jsou senzorické a neurální buňky. Kupodivu byla mitóza vyvolána i u normálně nedělitelných
+nervových a nesomatických buněk. K přesnějšímu určení vlivů na tyto buňky bude potřeba provést ještě další experimenty.}
+
+# 5
+#
+{50}{}{Disk experimentu Delta}
+{51}{}{Ministerstvo obrany pokládalo za nezbytné prozkoumat hlouběji účinky vlnové technologie na živé organismy. Jako základ pro naši studii jsme pojali světlo a zvuk. Manipulací s amplitudou světelných vln a postupným zvyšováním frekvence sme byli schopni vyrobit prototypy laserů, umožňující proříznout až několik stop oceli. Naneštěstí není pro tento úkol ještě plně vyvinut zdroj potřebné energie. Pro tento výzkum hodláme vyčlenít několik vědců.}
+
+
+# 6
+#
+{60}{}{Vree Experiment Disk}
+{61}{}{Počáteční pozorování
+
+Tohle je opravdu podivuhodné. Několik našich Rytířů nalezlo při průzkumné expedici neobvyklého tvora. Tento tvor se zdá být humanoidního typu a velice pravděpodobně je odnoží lidského rodu. Nicméně v celkové struktuře je daleko více rozdílů než u normálních lidí.
+
+Podle předběžného vyšetření se ukazuje, že buněčná struktura tvora je příbuzná lidské. Dříve než provedu hlubší rozbor a vyvodím z něj závěry, chci změřit pár základních statistických údajů subjektu.
+
+Statistická data Subjektu A:
+Výška:   3.2 metrů
+Váha:    363.21 kg
+Pohlaví: Neurčitelné
+Barva pokožky: Pod umělým osvětlením převažuje šedá s lehkými odstíny zelené. Nelze ovšem vyloučit, že je to zaviněno rozkladem nebo působením povětrnostních vlivů.Pokožka je extrémně tuhá a odolává i řezu skalpelem.
+Tkáňový rozbor (v % hmotnosti):
+Svalstvo:            77.41% 
+Kosti:               10.23%
+Tuk:                 12.36%
+Celkový objem tkání: 69.34%
+Buněčná struktura:
+Kultura vykazuje vyšší řád buněčného dělení. Mitóza probíhá až o 15% rychleji než
+normální lidské populace. Struktura buněk je nicméně velice podobná lidské.
+Genetický rozbor vykazuje vysoký stupeň korelace mezi subjektem a druhem Homo Sapiens. Jako nejpravděpodobnější hypotéza se jeví mutace zbytkovými radiačními a biochemickými činidly z dob války. Šroubovice DNK se jeví naprosto kompletní. Všechny narušené geny i geny indisponující k dědičným chorobám byly ze systému odstraněny. Rovněž prameny RNK vykazují známky manipulace za účelem navýšení transmise signálů.
+
+Prvotní hypotéza
+
+S přihlédnutím k zvýšenému množství neurálních transmiterů a synaptických přijímačů předpokládám, že subjekt musel mít značně rychlejší reflexy a ostřejší smysly než lidé. Vycházejíc ze zprávy Rytířů o oblasti, ve které byl subjekt nalezena a která je suchá, neplodná, radioaktivní a s vysokou koncentrací, chemických sloučenin, je udivující, že subjekt dokázal přežít tak dlouho. Určuji pravděpodobnou příčinu smrti.
+
+Výsledky z testů provedených na Subjektu A:
+
+Vizuální pozorování:
+Černý spálený prach poblíž místa vniku nabízí hypotézu zásahu kulkou.
+11.2 cm dlouhá tržná rána na lýtku pravé nohy vypadá, že byla způsobena zuby. Provedu testy na nakažení vzteklinou.
+Kůže je působením povětrnostních vlivů suchá a šupinatá.
+
+Výsledky testu:
+Úroveň ozáření: 12 rad.
+Test vztekliny:  bez nálezu
+Hydrochlorický plyn: bez nálezu
+Úroveň chlorinu: 60.07%
+Obsah síry: .02%
+Phase Shifting Virus:  bez nálezu
+Gamma Cyclotronic Virus: bez nálezu
+Forced Evolutionary Virus II: vícenásobné předávkování
+
+Hypotézy
+
+Ze svého pozorování vyvozuji, že testovaný subjekt byl zabit v boji s nejméně dvěma lidmi a třemi zvířaty velikosti běžného psa. Co je ale skutečně udivující, je rozloha virové Infekce v subjektu. Četla jsem kdysi, že někteří předváleční vědci prováděli s podobným virem experimenty. Všechny záznamy o výzkumu byly ale zničeny.
+
+Výzkum tohoto viru údajně vedl k mnoha velice zajímavým objevům. Předávkování tímto virem mělo za následek podivuhodné mutace. K nim lze počítat i změnu svalové a kostní struktury. Především pak byly všechny indisponující geny, které lidská buňka obsahuje odstraněny a promíchány takovým způsobem, aby bylo dosaženo té nejlepší možné kombinace. Zatímco
+proces, kterým to probíhá, zůstává neznámý, velice známé jsou jeho vedlejší efekty. Tím nejvážnějším je sterilita. Testované subjekty byly neschopné další reprodukce ať už s mutanty nebo původními lidmi. Dalším vedlejším efektem je změna pigmentace epidermu. Délka života se prodlužuje o 10%.Intelekt je snížen v průměru o 30%.
+
+Závěry
+
+Vycházejíc z těchto informací, lze snadno extrapolovat, že lidská rasa je schopna tyto mutanty jednoduše přežít. Nicméně samotný fakt tak supervysoké koncentrace viru v těle mutanta mě vede k závěru,že musí existovat místo, které je produkuje. Ale jak a kde by to mohlo být, to si netroufám odhadovat.}
+
+
+# 7
+#
+{70}{}{Kodex Bratrstva}
+{71}{}{Maxsonovy Dějiny 
+
+Můj otec byl členem vládní ochranky na tajné vojenské bázi v poušti jižní Kalifornie. Byl to typický vojenský policista, nejvíc si pamatuji jeho sílu.  Když nastal čas revoluce respektoval jsem jeho přesvědčení. Zůstal vzadu, aby pomohl slabým a zraněným, včetně vědců. Svěřil mne i moji matku do rukou svého nejlepšího přítele a přikázal nám odejít do pouště spolu s ostatními rebely.
+
+Nás pár odešlo do pustiny. Jediná věc, na kterou jsem byl schopen myslet byla, že už svého otce nikdy neuvidím. On věděl, že zůstat vzadu, znamená smrt. A přesto zůstal. Zůstal věrný vlajce a odznaku, které nosil.
+
+Idiot jeden.
+
+Zemřel kvůli slabosti jiných. Tohle už se nikdy nesm nikomu z nás stát. Staneme se nezávislými. Budeme strážci vědomostí a tradic. My konec civilizace přežijeme. Převezmeme odpovědnost za naše činy a budeme se umět vypořádat i s činy těch ostatních.
+
+A toto odkazuji tobě Maxsone, můj synu. Bratrstvo Oceli je jen jméno. My jsme bratrstvo. Na rozdíl od mého otce my budeme stát bok po boku s těmi, kdo sdílejí naše přesvědčení a naši víru. My jsme Ocel. Jsme tvrdí. A byli jsme vybroušeni do ostré čepele.
+
+Vždy si pamatujte na oheň, ve kterém jsme byli vykováni. Nikdy nezapomeňte. Motto z minulosti a naše heslo dneška.
+
+# 8
+#
+{80}{}{Přepis radiokomunikace mutantů}
+{81}{}{Poslaná zpráva: Základno, tady tým Sběračů číslo dva, jak mě slyšíte? Přepínám.
+
+Přijatá zpráva: Slyšíme vás hlasitě a čistě, podejte hlášení. Přepínám.
+
+Poslaná zpráva: Ukořistili jsme čtyři muže, dvě ženy a zboží z jejich karavany. Nejsou nijak zvlášť kontaminováni. Vyřiďte poručíkovi, že je posíláme napřed, měli by být schopni proces přežít. Počkáme tu několik dní a zkusíme najít a zajmout další karavanu. Přepínám.
+
+Přijatá zpráva: Rozumím.  Měli jste při akci nějaké ztráty? Přepínám.
+
+Poslaná zpráva: Negativní. Další čistá práce. Základno, vyřiďte prosím týmu jedna, že jsme zaznamenali stejný problém jako oni. Jeden z našich pátračů se nevrátil ze své patroly. Několik dalších pátračů ohlásilo, že minulou noc zahlédlo poblíž našeho tábora něco velkého a velmi rychlého. Chystám se to osobně prozkoumat zítra ráno v 06.00 hodin. Přepínám.
+
+Přijatá zpráva: Rozumím. Budeme čekat na vaše hlášení. Pokud to bude možné, pokuste se to chytit. Vůdce by to velmi potěšilo. Konec.}
+
+
+# 9
+#
+{90}{}{Prázná páska}
+{91}{}{}
+
+#{90}{}{Sofiina páska}
+#{91}{}{Exodus z té prokleté základny byl časem zkoušky pro muže i jejich rodiny. Zatímco okolo nebyl téměř žádný radioaktivní spad s nímž by se museli potýkat, byli obklopeni spadem lidskosti. Potulné bandy psychotických lupičů se neustále pokoušeli napadat tuto vznešenou skupinu.
+
+Skupina sama nebyla v nebezpečí, díky tomu, že měli oblečeno posvátné Brnění Moci. Členové jejich rodin ale takové štěstí neměli. A jakmile ta okolní chátra zjistila, jak snadným jsou cílem, začala na neozbrojené civilisty střílet z bezpečné vzdálenosti.
+
+Pro každého člena Exodu znamenala cesta ještě mnoho bolestných ztrát. Na své cestě byli mnohokrát napadeni. Rovněž dva z našich bratrů položili své životy v poušti.
+
+Konečně naši praotcové dorazili do bezpečí bunkru. Kapitán Maxson, náš velký Osvoboditel ho
+vyhlásil naším novým domovem a tak se také stalo.
+
+Během času se stal tento bunkr naším domovem, naším chrámem a naší spásou před terorem vnějšího světa. Začali jsme naši pevnost budovat a utvářet v něco slavného, v krásu, kterou tento o technologii oloupený svět dosud neviděl.
+
+Ale stále ještě mezi námi byli takoví, kdo toužili mít ještě víc. Tyto nepokojné duše požadovali, abychom se vypravili na jihovýchod, pátrat po dokonalejší technologii, která tam měla být uložena.
+
+Kapitán Maxson tyto prudké mladíky varoval, že výzkumná základna byla téměř určitě zničena, ale oni nechtěli naslouchat jeho slovům. Oblékli si posvátnou zbroj a odešli hledat svůj Svatý Grál. Předtím však pyšně mluvili o našem Osvoboditeli a zpochybňovali jeho odvahu!
+
+A nikdy jsme již o těch mužích neslyšeli.}
+
+# 10
+#
+{100}{}{Maxsonův záznam}
+{101}{}{Po náhlé smrti plukovníka Roberta Spindela jsem se stal velícím důstojníkem základny. Z mého příkazu bylo veškeré osazenstvo bezpečnostního týmu základny přemístěno do vládního bunkru ve Ztracených Horách.
+
+Tento pokyn zahrnuje rovněž rodiny důstojníků a dobrovolníky.
+
+Do doby než bude řádným zástupcem Ministerstva Obrany nařízeno jinak, zůstává tento příkaz v platnosti.
+
+Pokyn 1: Veškerý vojenský personál i jejich rodiny vyklidí bázi k 25. říjnu 2077 do 08.00 hod. Všichni, na které se vztahuje tento příkaz se přemístí do základny ve Ztracených Horách. Dezerce nebude tolerována.
+
+Pokyn 2: Všem civilním zaměstnancům se až do obdržení dalších pokynů z jejich velitelství}
+nařizuje zůstat na základně.
+
+Pokyn 3: Vybavení pokládané za nezbytné k přežití vojenského personálu základny, mu bude ze skladů neprodleně vydáno. Důstojníkům bude za tímto účelem vystaveno speciální povolení.
+
+Pokyn 4: Protože se jedná o válečnou operaci, vztahují se s okamžitou platností na veškerý vojenský i civilní personál báze vojenská nařízení a zákony.
+
+Pokyn 5: Do doby, než bude zřízeno trvalé a autorizované spojení s Ministerstvem Obrany, budou tato nařízení precedentní i pro všechny budoucí rozkazy.
+
+Kapitán Maxson
+24. říjen 2077}
+
+# 11
+#
+{110}{}{Audio Deník Richarda Greye}
+{111}{}{0000 - 0004
+Umírám. Tohle musím dopsat dřív, než mě ta bolest definitivně zlomí. 
+
+0005 - 0020
+Nemůžu uvěřit, že se mi nakonec podařilo vyškrábat se ven z té nádrže. Ten sliz mi fyzicky nijak neublížil, ale málem jsem se v něm utopil. Ani nevím, co se stalo s Haroldem. Stál hned vedle, když mě ten jeřáb srazil do nádrže. Musel být zabit, jinak by se mi určitě pokusil pomoci. Francine je mrtvý, zabil ho jeden z těch robotů.
+
+0021 - 0027
+Ani nevím, kolik času už prošlo. Podařilo se mi hacknout se do počítače, vypnout roboty a spustit tohle nahrávání, ale teď mám pocit, jako by moje vědomí chvílemi odplouvalo pryč. V mé hlavě už je jenom bolest...
+
+
+0028 - 0043
+Ten zelený sliz, do kterého jsem spadl, je právě ten hledaný zdroj všech těch mutací okolo. Moje kůže hnisá odlupuje se. Na jiných místech zase vytváří puchýře a z nich začíná vytékat nějaká zelená hlenovitá substance. Ale jsou dny, kdy se bolest dá i vydržet.
+ 
+
+0044 - 0057
+Už dokážu zase ujít i několik metrů... Teď se mi zdá nepochopitelné, že jsem se dokázal vyškrábat celou tu cestu od nádrží až sem. Kupodivu se už ale cítím silnější i  když mám stále ještě bolesti. A taky se mi zdá, jako by se všechno kolem mně zmenšovalo.
+
+
+0058 - 0096
+Myslím, že jsem dnes snědl jednu z těch mutovaných věcí, co tu okolo cupitají. Dříve, než jsem si stačil uvědomit co se děje, vymrštilo se z mého břicha nějaké chapadlo a chytilo toho ubohého tvorečka. A v okamžiku, kdy vtáhlo toho hlodavce do mých střev, pocítil jsem dotek jeho myšlenek. Aspoň myslím. Je taky docela pravděpodobné, že se ze mně pomalu stává šílenec a nejsem už schopen rozlišovat, co je skutečnost a co halucinace. A možná, že ve skutečnosti právě teď umírám v té nádrži a všechno tohle je jen má představa.
+
+
+0097 - 0111
+Všechno mi každým dnem připadá jasnější a zřetelnější. Ten toxin opravdu zdokonalil mojí mysl. Cítím, že i těm nejsložitějším filosofickým otázkám dokážu porozumět přímo a jednoduše. Je mi, jako by něco odlouplo všechny vrstvy a závoje z mého mozku. Co by se asi stalo, kdybych ponořil jedno z těch zvířat do nádrže na trochu delší dobu? Mohlo by tak získat vědomí?
+
+
+0112 - 0134
+S těmi zvířaty se dějí ty nejpodivuhodnější věci. Stávají se chytřejšími a mnohem víc se zajímají o své okolí. A jednou jsem ponořil najednou psa a krysu a oni se SPOJILI dohromady. Nejsou to už dva oddělení tvorové, ale je to i víc než jenom jeden. Možná, že tohle je budoucnost - spojit různé tvory dohromady do jedné jediné, harmonické jednoty. Teď už nejím vytvářená zvířata jen pro výživu, teď se stávám nástrojem skrz který bude dosažena jednota tvorstva. Jsem už mnohem víc než jen pouhý člověk.
+ 
+0135 - 0139
+Nastává čas přivést ostatní tvory ke slávě a míru, které nám přinese Jednota.
+
+0140 - 0153
+Konečně do mého domova zabloudila jedna ztracená duše. Byl jsem tak překvapený, že jsem ho zkonzumoval ještě před ponořením a to byla chyba, kterou už nesmím znovu udělat. Jeho mysl byla tak primitivní, že ji mé pročištěné poznávací schopnosti odmítly.
+
+0154 - 0172
+Abych byl vhodnější pro úkol, který jsem si vytknul, začal jsem měnit sám sebe vstřikováním malých dávek viru do různých částí mého těla. Ten sliz v nádržích je totiž virus vytvořený lidmi a nazvaný Forced Evolutionary Virus. Tuhle informaci jsem získal pomocí mé nově vypěstované neurolinky do počítače základny.
+
+0173 - 0198
+Těch pár poutníků, kteří sem našli cestu pro mě znamenalo velké zklamání. Vypadá to, že nemutují správným způsobem. To nejlepší, co jsem byl schopen vytvořit, je pár velkých tupých mutantů. Většina z nich si nepamatuje vůbec nic z doby, než jsem je povolal do naší úžasné Jednoty. Používám je jen jako potravu. Z jejich myslí nezískávám nic.
+
+0199 - 0236
+Oh velký stvořiteli!! Konečně se mi podařilo pocítit radost z dokonalého splynutí s další duší! Ale tenhle nebyl jako ti druzí, jeho stupeň ozáření byl velmi nízký. Věřím, že právě tohle je ten faktor, který jsme celou tu dobu přehlíželi. Vypadá to, že konverze je mnohem úspěšnější v případě, že subjekt předtím utrpěl méně poškození radiací. Ještě nikdy jsem nepocítil takovou slast, jako když jsem přijímal jeho mysl do své vlastní.
+
+0237 - 0281
+Začínáme vytvářet armádu, která svůj smysl zasvětí sjednocení té podivuhodné rozmanitosti života. Vytrénovali jsme je tak, aby byli schopni pokračovat v naší práci zde, zatímco my vyhledáme více obydlenou oblast, abychom do sebe mohli přijmout její obyvatele. Začínáme pociťovat nedostatek vhodných těl. Musíme najít místo s velkým zdrojem vědomostí a stálým přísunem biomasy.
+ 
+0282 - 0303
+Přestali jsme se zvětšovat do doby než toto naše nové unifikační centrum najdeme. Až dorazíme na ono místo, {budeme pokračovat v jídle a růstu, dokud nepřineseme mír a jednotu celému světu.}
+
+# 12
+#
+{120}{}{Deník kapitána Maxsona}
+{121}{}{• 10. říjen, 2077
+Já, Roger Maxson, kapitán, číslo 072389 jsme začal psát tento záznam proto, že to s žádným z nás nevypadá příliš růžově a já chci aby se budoucí lidé mohli dozvědět, co se tu doopravdy stalo. Všechno to peklo začalo, když jsme konečně objevili, co tu ti bastardi v bílých pláštích provádějí. Plukovník se zamknul ve své kanceláři a vypadá to, že se naprosto psychicky zhroutil. Moji muži volají po krvi. Hledají u mě odpovědi na své otázky, ale já sám nevím, co mám dělat. Někdo by měl něco udělat, dřív, než se tohle místo změní v krvavou lázeň.
+ 
+• 12. říjen 2077
+Pokaždé, když dostaneme zprávu shora, všechno se tu přiostří. Válka se vyvíjí velmi špatným směrem a tohle místo se vším tím chaosem okolo, je na nejlepší cestě k úplné vzpouře. Dnes jsem zabránil rvačce jednoho z mých mužů s vědcem a požádal vědce, aby nám vyložili, co je účelem jejich výzkumu.
+
+• 13. říjen 2077
+Dnes jsem zabil člověka. Vyslechl jsem šéfa vědců Andersona a on mi popsal naprosto detailně jejich nelidské experimenty. Říkal, že dostal rozkazy přímo ze sídla vlády, ale já tomu nevěřím. Začal křičet něco o tom jak jen poslouchá rozkazy a o vojenském duchu a já ho zastřelil. Říkám si, že jsem to udělal proto, abych zabránil úplné vzpouře, ale sám sobě nevěřím.
+
+• 15. říjen 2077
+Znovu jsem zkoušel promluvit přes dveře s plukovníkem, ale vypadá to, že definitivně ztratil kontakt s realitou. Spolu s několika muži jsme vyrazili dveře právě včas abychom viděli jeho hlavu vybuchnout. Ještě předtím než zmáčkl spoušť řekl, že toho všeho velmi lituje.
+
+• 18. říjen 2077
+Vypadá to, že zabitím pana Velkého Teoretika jsem si vytvořil pozici vůdce. Muži mě teď poslouchají na slovo. Výslechy vědců končí standardně jejich popravou. Nejdéle zapírala šéfová projektu, ale konečný výsledek byl ten samý jako u ostatních. Její argumenty o rozkazech shora byly nedostačující. Začínám z toho všeho mít opravdu špatný pocit a bojím se jak to nakonec skončí. Už nedokážu nadále lhát sám sobě o svých důvodech k popravám vědců.
+
+• 20. říjen 2077
+Dnes jsem konečně odvysílal report na velitelství. Pořád nechápu, proč sem ještě nikoho neposlali, aby tu zjistil co se stalo, že jsme přestali odpovídat na jejich vysílání. Ale už na tom nezáleží. No dobře, tak teď tedy přijdou. Oznámil jsem jim naše vystoupení z unie. Dějiny si pamatují Jeffersona Davise. Co budou říkat historici o mně?
+
+• 22. říjen 2077
+Co se to tam sakra děje? Oznámili jsme naší úplnou dezerci z armády a že nebudeme nadále přijímat rozkazy vlády a co se stalo? Nic. Tohle se mi nechce líbit.
+
+• 23. říjen 2077
+Pořád nemůžu uvěřit, že to ti bastardi nakonec udělali. Ať se všichni smaží v pekle. Nechali odpálit nukleární rakety. Von Felden se z nás právě snažil vypáčit, co se tu opravdu stalo, když jsme s ním najednou kompletně ztratili spojení. Cítím v kostech, že výzkumná základna byla těžce zasažena. Nevím proč říkejte si tomu pro mě a za mě "tušení". Je nepochopitelné že na nás dosud žádný útok nesměřoval. Ale jsem si jistý, že svůj omyl už nebude mít Čína příležitost napravit. Naštěstí jsme už včera přestěhovali naše rodiny z okolních domků na základnu. Pořád ještě nevíme jestli spad zasáhl i naši oblast.
+
+• 25. říjen 2077
+Seržant Platner se nabídl k dobrovolnému výletu na povrch, aby mohl provést měření atmosféry. Zatím to vypadá, že se radiace až o tolik nezvýšila. Protože měl oblečené svoje Energo brnění, nehrozilo mu akutní nebezpečí ozáření. Ale pokud by byl zasažen, musel bych ho nechat vyhostit. Na základně totiž není žádné odpovídající dekontaminační zařízení.
+
+• 26. říjen 2077
+Přesvědčil jsem svoje muže, že bychom měli důstojně pohřbít vědce. Ani nevím proč... možná jsem tím chtěl ulehčit svému svědomí. Konečně jsem začal věřit jejich historkám, teď když už je poslední z nich po smrti. Můj bože, co se to ze mně stalo?
+
+• 27. říjen 2077
+Dnes opouštíme tohle bohem zatracené místo. Vedu tenhle exodus do starého vládního bunkru ve Ztracených Horách. Ponechávám tu tenhle záznam pohřbený a odevzdávám ho i s celým tímhle místem jeho osudu. Kdo ví, možná ho jednoho dne někdo najde.....}
+
+# 13
+#
+{130}{}{Historie výzkumu FEV}
+{131}{}{2073
+Jak se s rozvojem jejich biologických zbraní postupně zvyšovala i agresivita Číny, cítila vláda Spojených Států nutnost protiopatření. Z tohoto důvodu byl 15-tého září 2073 oficiálně zahájen projekt Pan-Imunitního Viru (PIV).
+
+2075
+Stále zřetelněji se ukazuje, že nejlepší způsob jak bojovat s nově vytvářenými biologickými zbraněni je prostřednictvím modifikované DNK, tak aby tato už nebyla nadále citlivá vůči standardním virovým infekcím.
+
+2076
+Velice brzy po zahájení projektu PIV se objevují nepředvídané vedlejší efekty. Testy na zvířecích subjektech naznačují abnormální rychlost růstu svalové i kostní tkáně, spojené se zvýšením mozkové aktivity. Vláda Spojených Států obdržela kompletní zprávu o těchto objevech a v zájmu národní bezpečnosti se poté rozhodla přemístit výzkumný tým na lépe chráněné a střežené místo. Projekt dostal nejvyšší prioritu a byl přejmenován na projekt FEV (Forced Evolutionary Virus).
+
+2077
+Projekt FEV se blíží úspěšnému zakončení. Testy na laboratorních zvířatech jsou téměř 100%-ně úspěšné. Velikost i hustota svalových vláken se v průměru zvyšují o 60%. Hodnota měřitelné inteligence se zvyšuje o 200%. I když je teoreticky popsán, efekt na lidské subjekty  zůstává dosud neznámý. Protože si vláda přeje pokračovat v dalším testování, je vybudováno velké výzkumné zařízení v lokaci Mariposa v centrální Kalifornii. V této nové základně se pokračuje v testování FEV viru na dobrovolnících z řad armády.}
+
+# 14
+#
+{140}{}{Specifikace Energozbroje}
+{141}{}{Model T-51b Aktivní Pěchotní Brnění (zkráceně Energo zbroj) je zkonstruován s využitím nejmodernějších aktivních i pasivních ochranných prvků a to pro civilní i vojenské použití. Micro-fúzní reaktor TX-28 generuje 60.000 Wattů pro napájení hydraulických systémů zabudovaných přímo do konstrukce obleku. Povrch obleku T-51b je vyroben z nejmodernějších, velice lehkých polylaminátových kompozitů a je schopen absorbovat více než 2.500 Joulů kinetické energie na čtvereční centimetr. Napařovaný plášť ze stříbra o tloušťce 10 mikronů je schopen odrazit laserové a radiační emise aniž by přitom byl poškozen vnitřní kompozitový povrch.}
+
+# 15
+#
+{150}{}{Osobní záznamy West Tech}
+{151}{}{Robert Anderson
+Výzkumník-Asistent
+Bezpečnostní prověření: Modrá
+Umístění: Vojenská báze Mariposa
+
+Nick Davis
+Ředitel divize NBC základny West Tech
+Bezpečnostní prověření: Modrá
+Umístění: Výzkumná báze West Tech
+
+John Isaac
+Výzkumník-Asistent
+Bezpečnostní prověření: Červená
+Umístění: Výzkumná základna West Tech
+
+Steve Remco
+Výzkumník-Asistent
+Bezpečnostní prověření: Modrá
+Umístění: Vojenská báze Mariposa
+
+Charles Rignhold
+Vedoucí výzkumu Laserových zbraní
+Bezpečnostní prověření: Modrá
+Umístění: Výzkumná základna West Tech
+
+Michele Santose
+Technik-laborant
+Bezpečnostní prověření: Červená
+Umístění: Výzkumná základna West Tech
+
+Thomas Zvelebil
+Pokusný FEV objekt č. 0018298
+Podléhá občasným záchvatům zuřivosti.
+Umístění: Nejmenovaný časopis
+
+Leon VonFelden
+Vedoucí výzkumu FEV
+Bezpečnostní prověření: Modrá
+Umístění: Vojenská báze Mariposa
+
+# 16
+#
+{160}{}{Lokace Vaultů v34.129 revize C (Západ USA)}
+{161}{}{Ahoj a vítej v nejčerstvější edici propagační brožury společnosti Vault Tec. pro oblast USA-západ.  Doufáme, že se ti naše brožurka zalíbí a pamatuj, že Vault není jen pro horních deset tisíc, ale skutečně pro každého.
+
+Vault 12
+Přímo pod rozsáhlou metropolí Bakersfield, leží technologicky pozoruhodný Vault 12.  Byl vybudován s ohledem na maximální pohodlí jeho budoucích obyvatel. Vaultu 12 bylo uděleno ocenění "Vault Roku" za jeho zvláštní pozornost k neustálé pohotovosti. Pohřben hluboko pod zemí poskytne svým obyvatelům bezprecedentní ochranu. Stejně jako ostatní Vaulty, byl i Vault 12 vybaven nejmodernějším systémem čištění a dekontaminace vody. Tento systém je schopen přefiltrovat veškerý odpad v kanálech Bakersfieldu a může tak dodávat až 15,000 galonů čisté, osvěžující pitné vody denně.
+
+Vault 13
+Položen v překrásném hornatém terénu severozápadně od Vaultu 12, nabízí tento Vault svým obyvatelům nekonečné množství čisté vody.  Pověsti o tom, že vodní plochy této oblasti mohou být v případě nukleární války lehce kontaminovány byly prošetřeny Úřadem pro Vodu a Energii a shledány naprosto bezpředmětné. A pro případ, že by voda v oblasti byla opravdu zamořena (jakkoliv je to nepravděpodobné) byl Vault 13 vybaven vládou atestovaným systémem čištění a dekontaminace vody. Protože je tento systém schopen pracovat bez poruch více než 250,000 hodin, nemají se jeho budoucí obyvatelé čeho obávat.
+
+Vault 15
+Přímo na východ od Vaultu 13 leží Vault 15. Konstrukce a výstavba tohoto Vaultu proběhla extrémně hladce a rychle. Zvláštní úsilí bylo věnováno posílení zdí na třetím podlaží, k zajištění bezpečí všech jeho budoucích obyvatel proti všem událostem, které by mohly nastat a to i včetně rozsáhlého zemětřesení. Neboť i v takovém případě dokážou řídící počítače Vaultu pokračovat ve své činnosti. Současné metody konstrukce nově stavěných Vaultů vedly i k mnoha velmi pozoruhodným vylepšením provedeným na tomto skutečně imponujícím Vaultu.
+
+# 17
+#
+{170}{}{Vysílání Regulatorů}
+{171}{}{Monitorované vysílání Regulátorů: 
+
+Poslaná zpráva: Patrola Regulátor 1 základně. Jak mě slyšíte? Přepínám.
+
+Přijatá zpráva: Tady báze Regulátorů. Na příjmu velitel Caleb. Podejte hlášení. Přepínám.
+
+Poslaná zpráva: Pane, ano pane! Tady Regulátor druhé třídy Cravotta. Zase jsme chytili toho Zimmermanova kluka, jak se pokouší dostat do Adytum, pane. Jaké jsou příkazy? Přepínám.
+
+Přijatá zpráva: Do prdele! Už zase! No dobře, tentokrát už je to definitivně naposled. Zlikvidujte ho a chci, aby to vypadalo jako, kdyby to udělali Blades. Jasný? Přepínám.
+
+Poslaná zpráva: Pane? Uh... rozuměl jsem správně, pane? Myslíte, zabít ho? Přepínám.
+
+Přijatá zpráva: : Přesně tak, Regulátore. A chci to pořádně krvavý. Naražte ho na kůl venku před strážním stanovištěm - oh, a taky mu vyřízněte jazyk, aby nemohl křičet, {zatímco se budeme pokoušet "zachránit" tu jeho nešťastnou prdel. Jasný?
+
+Poslaná zpráva: Provedu, pane. Konec.
+
+Konec přenosu.}
+
+#
+# Fallout 2 Holodisks
+#
+
+# 18
+#
+{180}{}{Vault 13 Holodisk}
+{181}{}{VAULT 13 HOLO by Ziggy
+
+Na tomto holodisku je uložena lokace Vaultu 13. Jeho poloha byla zaznamenána do tvé mapy.}
+
+# 19
+#
+{190}{}{Military Base Outside}
+{191}{}{Pro: Centrální Velitelství
+
+Náš vědecký tým dokončil zkoumání vzorků získaných ze základny - byly potvrzeny jako na 99% čisté. Počítejte, že vzorek brzy dorazí. Jak jsme očekávali, dělnická populace při vystavení čisté směsi silně zmutovala. Jsou hlášeny těžké, ale přijatelné ztráty. Nařídil jsem evakuaci základny. Jakmile odtamtud bude pryč poslední z nich, odpálíme vchod do základny a zavřeme tam ty bastardy.
+
+Plukovník Sanders}
+
+# 20
+#
+{200}{}{Military Base Level 1}
+{201}{}{Toto je kapitán Pickard, hlásící se z kontrolního bodu 1. Spojení s kontrolními body 2 a 3 bylo ztraceno. Můžeme očekávat jen to nejhorší. Nestvůry šplhají z důlních šachet. Selhaly všechny způsoby, jak je zastavit. Pokusíme se je udržet v této pozici, jak nejdéle to bude možné.}
+
+# 21
+#
+{210}{}{Military Base Level 2}
+{211}{}{Kontrolní bod 3 je pod útokem. Pro jistotu jsme vypnuli důlní výtahy, ale já je slyším, jak lezou šachtami. A kruci! Z nižších pater lezou...! Obří, hnusná, zelená monstra! O to tady musí jít. Nějaký druh supervojáka! Když to do nich napálíme, ze šachet vylezou další dva a ti, které jsme už zastřelili, vstanou a jdou pořád se na nás! Potřebujeme posi_}
+
+# 22
+#
+{220}{}{Military Base Level 3}
+{221}{}{Seržant Bracks, hlášení z kontrolního bodu 3. Všechno je v pořádku, stejně tak jako včera a den předtím. Nevím, proč nás sem poslali strážit tyto sešlé horníky. Jsou tak slabí a vyzáblí, že už pomalu neuzvednou krumpáč. Tak jako tak, před chvílí tudy prošli vědátoři s nějakým druhem vzorku. Zdáli se jím být dost nadšení. Nevíte, jestli našli, co hledali? Možná, že už se z tohoto opuštěného konečně místa dostaneme. Dostávám z toho husí kůži.
+
+Moment - ze šachet se sune další náklad. Můj bože...! Bože, co jsou zač? Obkličují nás! Pošlete pomoc!! Opakuji, tady je kontrolní bod 3, pošlete někoho na pom_}
+
+# 23
+#
+{230}{}{Military Base Level 4}
+{231}{}{Vykopávky probíhají podle plánu. Soudě podle návrhů staré základny bychom měli brzy dosáhnout káďové oblasti. Ve vzorcích půdy i ovzduší, které jsme sejmuli, je přítomna vysoká hladina viru FEV. Naše kombinézy ten virus naštěstí odfiltrují. Členům Enklávy povězte, že velice brzy budou mít čistý vzorek tohoto mutagenu.
+
+Navíc si začínám všímat jistých změn v hornících. Projevují známky zvýšené síly a výdrže a jemnou změnu ve zbarvení pokožky - očividný projev mutace virem FEV. Muži začínají být nervózní, když si všímají těchto změn. Zvýšil jsem počet stráží, protože se bojím že pokud dělníci zmutují kompletně, budou v přesile Osobně doufám, že když jako pracovní sílu využijeme místní Obyvatele, plná mutace nenastane, dokud nebudou přímo vnořeni do čistého zdroje nebo vystaveni dlouhodobému působení viru. Po celém regionu byly zjištěny nepatrné dávky viru. Testy na subjektech žijících v této oblasti ukázaly, že si vůči němu vypěstovali jistou odolnost. Přesto je tu ale možnost případného nebezpečí, protože s vystavením takové úrovni viru FEV jsme nikdy nepočítali. Navrhuji, abychom vchod do této základny nechali zničit co nejdříve poté, co obdržíme čistý vzorek. Tím uvězníme zmutované horníky a předejdeme nebezpečí získání viru někým po našem odchodu.}
+
+# 24
+#
+{240}{}{Sierra Depot Exp. Log}
+{241}{}{Armádní sklad Sierra - V & V
+Hostující lékař - Dr. H. Lector
+Osobní záznam
+
+28. června 2077
+Dnes na mě kluci z biologického zahráli skvělý vtípek Jeden z těch malých uličníků zvýšil nastavení na mém automatizovaném extraktoru orgánů Vault-Tec. Páni, to jsem byl ale překvapený, když vojín Callow odešel z operační místnosti bez tračníku! Dobré bylo, že už byl po smrti, jinak bych měl problémy. Přeprogramoval jsem tedy ten přístroj tak, aby vyjímal pouze mozky, takže se to už nikdy nestane.  Za tohle je dostanu.
+ 
+29. června 2077
+Odstranil jsem játra vojínu Callowovi a uvařil je. Pak jsem je poslal dolů klukům do biologického spolu s fazolemi a lahodnou čínou. Mysleli si, že to bylo zvláštní poděkování za dobře odvedenou práci. Já to prostě miluju.
+
+30. června 2077
+Testoval jsem na jednom z mých pacientů chemický koktejl Buffoutu a Psycha smíchaný s některými speciálními zlepšováky, se kterými jsem si hrál. Výsledky byly velice slibné, ne-li delikátní. Subjekt začal být velice násilný a pokusil se uprchnout z místnosti. Naštěstí - ti noví bezpečnostní roboti byli na místě a zastavili ho. Měl bych zavolat údržbu, ať ty dveře vymění.
+
+1. července 2077
+Můj oblíbený pokusný objekt zemřel. Stravoval jsem ho vyváženou dietou Mentantů smíchaných s mými speciálními zlepšováky. Během pár týdnů se mu IQ zvýšilo z 39 na 200. Jsem smutný, protože to byl jeden z mála lidí, se kterým jsem si mohl opravdu popovídat. Bude mi moc chybět.
+
+5. července 2077
+Myslíme si, že ten nový kybernetický mozek je konečně připraven. Musíme provést ještě nějaké testy, ale vypadá to slibně.
+
+6. července 2077
+Oddělení robotiky není rádo, že jejich precizní počítač byl upraven pro spuštění bezpečnosti během evakuace. Také nemůžu říci, že bych byl šťastný, protože Skynet byl neocenitelný při výrobě nového kybernetického mozku.
+
+9. července 2077
+Evakuace byla posunuta, mizerné načasování. Už nám toho moc nezbývá k zahájení instalace toho nového kybernetického mozku. Říkají, že evakuace je dočasná, takže budu ve svém výzkumu pokračovat, až se vrátím. Toto je asi na nějaký čas můj poslední záznam, budu snažit co nejvíce zkoncentrovat na můj výzkum.}
+
+# 25
+#
+{250}{}{Sierra Depot Medical Log}
+{251}{}{5. červenec 2077
+Armádní depo Sierra - Ošetřovna
+Hostující lékař - Dr. Solomon
+Subjekt - desátník Dixon
+Nehodové hlášení # 8332-523D
+
+Subjekt se pokoušel nastražit útočnou minu ve skladišti jako součást evakuační obrany Armádního depa Sierra. Mina vybuchla předčasně a způsobila desátníku Dixonovi a generálu Cliftonovi četná poranění. Desátník Dixon utrpěl mnoho tržných ran na rukou, hrudi a obličeji. Pravá ruka na tom byla nejhůře, nepodařilo se nám nalézt její zbývající část. Vážná vpichová poranění na hrudi a obličeji vyžadovala k nápravě rozsáhlou chirurgickou operaci. Celkem bylo vyňato 32 fragmentů miny. Pravé oko bylo poškozeno natolik, že jej bylo nutné chirurgicky odstranit. Je zde ale ještě naděje, že pokud poškozené, ale stále ještě živoucí oko umístíme do Biomed roztoku, samo se zregeneruje. Doufejme, že jej budeme moci později opětovně implantovat. Experimentální Biomed roztok se dá velice výhodně využít ke stimulaci živých buněk, je ale velice nešťastné testovat tento nový objev za tak nepříjemných okolností.}
+
+# 26
+#
+{260}{}{Sierra Depot Evac. Notice}
+{261}{}{9. června 2077
+Přednostní vydání
+Všeobecné hlášení
+
+Oznámení všemu personálu. Evakuace Armádního skladu Sierra byla přesunuta o jeden týden. Do té doby musí být dokončena instalace bezpečnostích a obranných systémů. Všechen personál se musí hlásit u vedoucích jednotlivých sekcí kvůli změněným rozkazům. Během této doby bude bezpečnost striktně zesílena. Identifikační odznaky musejí být vždy nošeny.
+
+Z rozkazu generála Cliftona}
+
+# 27
+# Sierra Base Mission Statement
+{270}{}{Sierra Depot GNN Transcript}
+{271}{}{Armádní depo Sierra
+Vyjádření k misi 1942 - 1991
+Skladiště a údržba obranného materiálu. V případě možné invaze musí Armádní depo Sierra zapůjčit pomoc do sousedních bází a zajistit dodávky žádaného materiálu a vybavení.
+
+Armádní depo Sierra 
+Vyjádření k misi 1992 - 2050
+Zodpovědnost za likvidaci nadbytečné prošlé či poškozené munice nebo techniky zastaralé pro vojenské účely. O tyto úkoly se stará Průmyslové operační středisko(POS) ve spolupráci s Agenturou n {ochranu prostředí (ANOP), zajištující lepší a ekologičtější cestu likvidace vojenského materiálu.
+
+Armádní depo Sierra
+Vyjádření k misi 2050 - 2076
+TAJNÉ
+Vyžaduje 5 stupeň utajení
+Základna je neustále doplňována nejnovějšími technologiemi a je používána jako tajné středisko pro výzkum a testování robotiky, biologických a konvenčních zbraní.
+
+Armádní depo Sierra
+Vyjádření k misi 2077
+Díky nedostatku cvičeného personálu bude Armádní sklad Sierra modifikován na plně automatickou obrannou základnu. Všechen personál bude přesunut do okolních základen a nebo do první linie.}
+
+# 28
+# Sierra Base GNN Transscript
+{280}{}{Sierra Mission Statement}
+{281}{}{Galaxy News Network
+Přepis vysílání z 11. ledna 2073
+Zprávy dne na GNN. Díky finančnímu zázemí bude USA jako první spravovat příděl posledních světových zásob ropy. Tato situace potrvá do té doby, dokud budou zásoby nebo dokud se nenajde způsob, jak se dostat k ložiskům ropy ukrytým tisíce metrů pod hladinou Pacifického oceánu. Se světovou zásobou ropy blízko k nule bude národ, který první přijde na způsob těžby, velmi dobře zajištěný. My na GNN jsme hrdí, že můžeme ohlásit, že USA jsou první, kdo má projekt na těžbu, a v závislosti na to prohlašuje tyto zásoby za majetek Spojených států. Směle do toho Ameriko!
+
+Čína to prohlašuje za nechutnou kachnu vydanou třetí mocností. Čínský prezident Xin na to reagoval okamžitým prohlášením, že projekt jejich těžebních věží byl dokončen měsíce před uveřejněním projektu USA, avšak čínské plošiny doprovází neustálý řetězec nešťastných událostí činících celý projekt neuskutečnitelným. Prezident Xin také poznamenal, že je na 100% přesvědčen, že za všemi těmi sabotážemi na jejich plošiny má prsty USA a požaduje přešetření před mezinárodním soudním dvorem.
+
+Další zprávy, mezi obyčejnými lidmi se projevují nepokoje v souvislosti s nárůstem cen paliv. Zatím nikdy v minulosti se ceny nepohybovali tak vysoko a všechny dosavadní rekordy už byly dávno překonány.
+
+Z domova, zimní teploty dosáhly velmi nízkých teplot. Ve středu USA kolem -3C° až -5° a na obou pobřežích -10°. Oblečte se dnes teple!
+
+Galaxy News Network
+Přepis vysílání z 24. června 2074
+
+Jednání mezi Spojenými státy a ostatními světovými mocnostmi došla dramatického konce, když se prezident rozhodl už žádné diskuse o ropě neorganizovat. Po prudké debatě se vyřítil ze zasedací místnosti a prohlásil, že poslední známý ropný zdroj bude využíván výhradně Spojenými státy a ty nebudou v žádném případě ropu prodávat cizím státům či s nimi obchodovat.
+
+Hrozby OSN padají na "neúrodnou" půdu.
+
+Veškerý světový průmysl se po totálním vyčerpání zásob ropy zastaví. Bohužel s tím nejde nic dělat. Jenom vývoz v USA se zvýší 20*, a to i přes sankce Spojených národů. Vypadá to, že ekonomika Spojených států je v současné době na svém největším stupni od Reaganovy vlády.
+
+Galaxy News Network
+Přepis vysílání ze 14. února 2075
+
+
+Dnes se změnila historie Kanady. Veřejným hlasováním jejich občanů se stala dalším státem USA. Prezident na to reagoval, že "Kanada je jedním ze světových největších zdrojů hokejových hráčů" a bude přivítána jako přídavek k USA. Bylo ale zjištěno, že Kanada obdrží celých 10% světových zásob ropy kontrolovaných pouze Spojenými státy, tak jako tak dojde k snížení daní o 50% a k dodržování amerických zákonů.
+
+Ze sportu, Little Rock Saints a Anaheim Jets změřily své síly při závěrečném utkání Super Bowlu. Byla to opravdu pěkná podívaná. J. Montana IV zachránil tým krásným únikem od 5 yardové čáry, kde se mu potom podařilo dát vítězný touchdown v opravdu poslední vteřině hry. Konečné skóre je tedy 95 - 90. Anaheim Jets vyhráli Super Bowl CXII
+
+Galaxy News Network
+Přepis vysílání z 15. února 2075
+
+Jako omračující důkaz solidarity byl prezident jednomyslně obviněn Sněmovnou reprezentantů a Kongresem z vlastizrady. Obě komory poznamenaly, že se prezident nemůže povyšovat nad zákona a měl by lépe kontrolovat, co říká. Obě strany mu okamžitě znemožnily dělat cokoli s nedávným připojením Kanady.
+
+Galaxy News Network
+Přepis vysílání z 30. března 2076
+
+Dnes prezident nařídil Pacifické flotile chránit hlubokomořskou těžební plošinu Poseidon umístěnou v tajné lokaci v Pacifiku. Ubezpečil všechny koncerny, že se nejedná o pouhé cvičení a že čínská flotila je "nebezpečně blízko naším strategickým zásobám ropy." Čínská vláda popřela jakékoli nepřátelské úmysly.
+
+Podle nedávného hlasování diváků GNN si 54% myslí, že prezident používá svojí diversní taktiku, aby obrátil veřejné mínění od nedávných prezidentských nemanželských a stále se opakujících aférek. Naše výzkumy také prokázaly, že 70% ani vlastně nezajímají, hlavně že prezident dobře řídí stát. Velký počet (60%) také říká, že si ve svých aférkách může dál pokračovat, když to pomůže hladkému chodu republiky.
+
+Galaxy News Network
+Přepis vysílání z 10. října 2077
+
+VÁLKA! Národy si vyhlásily válku, když Čína napadla přes Aljašku Spojené státy! Jako na protest proti nedávným tahanicím s ropou se rozhodla rada OSN tento akt násilí ignorovat. Prezident Spojených států VÁS volá do zbraně, abyste pomohli bránit naši zem proti těm, kdo jí chtějí ublížit. JSTE vyzváni, abyste došli do svých náborových středisek a připojili se k ozbrojeným silám. Strýček Sam VÁS potřebuje! Za právo a za svobodu!
+
+Galaxy News Network
+Přepis vysílání z 22. října 2077
+
+Díky statečným duším našich ozbrojených sil a našim nejnovějším typům silových obrněných bojových obleků zatlačily naše jednotky čínské utlačovatele zpět. Značně ochuzené o palivo, naše jednotky zahnaly nepřítele zpět do jejich rýžových měst.}
+
+# 29
+# Elron Bible
+{290}{}{Učení Hubologů}
+{291}{}{Vítejte!
+Vítejte na holodisku Hubologů! Na těchto elektronických stránkách naleznete stručný popis naší víry včetně dříve potlačovaného učení Hubu. Tento holodisk není zamýšlen jako reprezentace posledního slova k hubologii - chápejte jej jako modlitební knížku a nás jako vaše duchovní strážce.}
+
+HLAVNÍ NABÍDKA
+Historie
+Filozofie
+Malý slovníček pojmů
+Bibliografie Středu
+
+HISTORIE
+Byli jsme založeni ještě před Velkou povodní stvořitelem a vizionářem velkého příslibu, mužem jménem Dick Hubbel. To on spatřil selhání lékařství své doby, selhání náboženství a selhání vlády. Byl si vědom, že svět potřebuje něco nového...že svět potřebuje hubologii. Inspirován hudbou věků a svou osobní zkušeností s mimozemskými jevy snažil se ze všech sil ukázat nám 
+
+Nazývali jsme jej Středem, protože právě kvůli němu chápeme naše umístění v Kole - on je naším prostředkem a my jsme jeho paprsky. Obíháme okolo jeho vznešených pravd a učení.}
+
+Po zveřejnění nespočtu publikací, knih a žurnálů začal Střed šířit slova hubologie - a okamžitě se tím stal terčem pomlouvačů a očerňovatelů. Nazývali jeho práci "pseudovědou" a "nebezpečnou fanatičností, která může jedině zranit své přívržence". Navzdory mnoha prokázaným pozorování mimozemských plavidel po celé Zemi trvali na svém a pokračovali v hanobení Středových slov. Víme, že byli jednoduše zaslepení a hloupí, ale měli moc; pracovali ve vládách a ve společnostech a mnoha vlivných institucích, aby zabránili největším novinám všech dob dostat se k obyvatelům Země.
+
+Hubologie byla po jistou dobu řízena z podsvětí a koordinovala odtud své síly proti útokům těch, kteří záviděli její jednoduchost a snadnost využití i pro běžného člověka. Když se nakonec Hubologové té doby postavili na odpor, {udělali to stejným způsobem jako těch málo, co stáli proti nim - pronikli do organizací, které usilovaly o jejich zničení a vytvořili "televizní" pořady za účelem odhalení lží, kterými vláda krmila lidi.
+
+To zapříčinilo sotva patrnou prudkou reakci vůči našemu náboženství. Obyčejný člověk našel důvod, proč o hubologii pochybovat, protože popírala učení médií a my museli vést prohraný boj proti těm, kdo nás nazývali potřeštěnci. Po tuto dobu veliký Střed se smutkem zmizel.
+
+Zpevněni vědomím, že Hub došel jednoty s Nebeským otcem a teď pomáhá obrátit kosmické kolo naším směrem a dosahuje stavů vyššího vědomí, zůstali jsme přesvědčeni, že naše cesta byla tou správnou cestou. Postupně jsme získávali přívržence, mnoho z nichž jednoduše chtělo věřit, že někde tam venku je místo mnohem lepší než tento svět. Nabízeli jsme důkazy života na jiných planetách, filozofii, která nám umožní pochopit smysl a řád vesmíru. Po věky k nám přicházeli lidé zaujatí pravostí našich myšlenek. A fakt, že jsme přežili Velkou potopu nezranění, nás utvrzuje v tom, že Velké kolo se točí pro naše pravdy!
+
+
+FILOZOFIE
+Hubologie oplývá jednoduchou filozofií sestavenou z nejproslulejších náboženských a filozofických myšlenek na Předpotopní Zemi - věříme, že život, vesmír a všechno vůbec může být symbolizováno otáčejícím se kolem. Vnější ráf kola zahrnuje ty, kteří nerozumí našim pravdám, kteří nerozumí pravdě. Nazýváme je "masem ráfu", protože Kolo se přes ně otáčí a drtí je a oni nedoceňují a neváží si jeho chodu. 
+ 
+Ti, kteří praktikují hubologii, jsou Hvězdicemi Kola. Snaží se porozumět jeho pohybu a co nevíce mu usnadnit jeho otáčení. Ti, kteří se podílejí na ovládání samotného kola, jsou nazýváni Středy - a pokud dobře víme, bylo jenom velice málo Středů, osvícených to jedinců, kteří usilovali o zlepšení osudů svých pozemských přátel. Na zakladatele Středologie poukazujeme jako na TEN Střed, protože právě ta jeho učení byla nejkvalitnější.
+
+Prakticky naše náboženství jednoduše aplikuje vědecké techniky vyvinuté Středem a zdokonalené jeho přívrženci k tomu, abychom očistili zkažené neurodyny, jež tvoří disharmonii a nesouměrnost kola. Toto nám umožňuje očistit sebe sama a připravit se na sebepoznání. Pouze a jenom skrze sebepoznání můžeme uspět a jen skrze sebepoznání můžeme porozumět naší pozici ve vesmíru a na Velkém kole. To díky sebepoznávání zjišťujeme, zdali jsme dostatečně důstojní přistoupiti k ohnivým prstenům, které nás potkají na planetě Quetzel.
+
+Považujeme se za náboženství zkombinované s tou nejvyspělejší vědeckou technikou - říkáme tomu vědecká spiritualita… a v co doufáme je, že i vy tomu tak budete zanedlouho říkat!
+
+Toto je příběh našeho stvoření:
+Před dávnými eóny žili všichni v míru a vzájemné harmonii. Tělo, mysl a duch byli ve všech stvořeních spojeni a z existující technologie jednoho jímala závrať. Byl to čas míru, tvořivosti a souososti. Potom ale nastaly Temné dny.
+
+Thrakazog Jeskyňář započal učit o dualismu těla a mysli a rozdělení ducha. Nastala válka. Duše a těla byla během Velké války zničena a jejich ostatky se rozptýlily po celém vesmíru. Velké kolo už už se oddělit ode své existenční nápravy, jeho hvězdice se ve vyježděných kolejích, které stvořil Thrakazog, zlomily. Musel vzniknout nový život.
+
+A také že vzniknul - na planetě Terra, stejně jako i na mnoha dalších planetách ve celém vesmíru. (My se zaměřujeme převážně na život, který vzniknul na Teřře, neboť pokud věříme, že se nám a naším hvězdným bratrům ještě jednou podaří zhojit zlomené hvězdice Kola, musíme se nejdříve soustředit na to, abychom my sami byli užitečnými hvězdicemi.) Tento nový život byl znečištěn částmi duší mrtvých, což vedlo k nenávisti a nepochopení a na celém povrchu Terry řádily boje, nesváry a války až do onoho dne, kdy jeden vizionář došel k myšlence, že jediným způsobem, jak nastolit mír, porozumění a osvícenství, je očistit tyto části duše od rysů lidského ducha. Oním vizionářem byl Střed. Jeho očišťování pokračuje dodnes.
+
+MALÝ SLOVNÍČEK
+SHS/Souosý Hledatel Středu: Úrovně osvícenství jsou měřenypodle očištění vašich neurodynů, očištění od vaší základní negativní energie vašeho masa a podle její přeměny v mentální energii pozitivní. Jakmile dosáhnete dostatečně vysoké úrovně zetanové energie, můžete odcestovat na planetu Quetzel, anebo vyčkat v naději, že během vašeho života dojde k Povznesení.
+
+Souosost: Když se neurodyn znečistí a poté udržuje hledatelovu Zeta hladinu na nízké úrovni, tak spuštěním Zeta skenu na afektovaném neurodynu "zosíme" ony úrovně do univerzálního Kola, očisťujíce jej tak od kazů. Tak nebo tak, příliš mnoho souososti v jednu chvíli zraňuje ducha.
+
+Osvícenství: Osvícenství je stav dosažený po PHS-9, kdy hledatel získal už tolik zkušeností, že se stává vnitřní součástí Velkého kola a ponechává za sebou svoji pozemskou existenci. Někteří z Osvícených zůstanou na Teřře, aby nás dovedli zbytek nás do stavu milosti, aby nám ukázali, jak se dostat za Kolo našich vlastních životů. 
+
+Velké kolo: To mluví o opakující se povaze vesmíru místa, času a prostoru. Všechno je součástí Velkého kola. Je tu někdo, kdo může převzít kontrolu nad Kolem - nebo snad jen oni jednoduše rozumí směru a cestě kterou určuje - a můžeme je nazývat božstvem, proroky a visionáři. Jsou to ti, kdo mistr Velkého kola opravdu osvítil.
+
+Neurodyn: Neurodyny jsou duchovní zastávky. Starodávná náboženství je nazývala "čakry". Mohou být znečištěny kousky duše a negativní energií vycházející z utlačovatelů.
+
+Utlačovatelé: Utlačovatelé jsou ti jedinci, kteří oplývají takovým množstvím negativní energie a znečištěných kousků duše, že mohou zcela vyčerpat hledatele osvícenství v jejich blízkosti. Je třeba se jim vyhýbat - mnoho z nich je natolik poskvrněno, že neuznávají hodnotu skrytou v dobrém očištění a ze všech sil se snaží odklonit kurz Velkého Kola.
+
+Quetzel: Planeta, na kterou nás dovede Hvězdný otec, jakmile se staneme Optimalizovanými. Tam se setkáme s našimi hvězdnými bratry a spojíme se s nimi na jejich ohnivých kolech na obloze.
+
+Ráfové maso: Základní osoba, ten, kdo prozatím nebyl zosen, aby očistil své neurodyny.
+
+Hvězdný otec: Někteří by Hvězdného otce nazvali "bohem". My ale upřednostňujeme o Hvězdném otci smýšlet, jakožto o jedinečné síle, ze které čerpáme svoji sílu a kterou na oplátku živíme energií svou - opět jde o cyklický vztah, koloběh.
+
+Povznesení: Čas, kdy nás Nebeský otec volá na planetu Quetzel, kde se setkáme se svými mimozemskými bratry a přiblížíme se středu Velkého kola. Ti, kdož projevili velkou snahu porozumět a přijmout velká slova Středu, a nezáleží teď na jejich SHS úrovních, budou pozváni do nebes na Quetzel, aby se připojili k Hvězdnému otci.
+
+Zeta sken: Jiný výraz pro "souosost". Zeta sken napomáhá očistit vaše neurodyny a vašeho ducha. Skládá se z přístroje, který vaší pokožkou vede masivní dávky elektřiny - tato elektřina byla přesně na volt pečlivě zformována do množství, které je potřebné k odstranění negativní energie z neurodynu. Podstoupením Zeta skenu je váš kurz lehce napraven, aby se více shodoval s pohybem Velkého kola.
+
+BIBLIOGRAFIE
+Knihy Středu
+(Jsou zde vyobrazeny desítky a stovky knih, včetně slavných titulů jako: Vědecká spiritualita, Bojiště Quetzel, Hvězdný otec nad námi, Kolekce nákupních seznamů, Jak úspěšně žalovat své nepřátele, Jak vytvořit kult a Budoucnost.)}
+
+# 30
+#
+{300}{}{POZNÁMKY NÁVRHÁŘE MĚSTA VAULT CITY}
+{301}{}{POZNÁMKY NÁVRHÁŘE MĚSTA VAULT CITY
+
+Město Vault City prošlo mnoha podobami. Bylo navrhováno Leonardem Boyarskym, Jasonem Andersonem, Feargem Urquhartem a Chrisem Avellonem. Scott Everts vytvořil mapy těmi šťastnými muži, kteří tohoto architektonického Frankensteina naskriptovali, byli Rob Hertenstein III a Dan Spitzley. A na závěr - Eric Pribley málem přišel o život, když tuto monstróznost celou testoval.
+
+Chris by rád poděkoval těmto lidem, kteří mu během tvorby Falloutu 2 pomohli: Rob, Scotty a Dan (ovšemže), Eileen Suhová, Sára Smartová, Emily Yanceová, Thuy Dang (tomu jsem nikdy za nic neděkoval), Chris Wright a Tim Winkle.
+
+Scotty by rád poděkoval těmto lidem: Donu a Aileen Evertsovým a Avisi Andremu. A velký dík Billu Bridgesovi za všechny ty skvělé Fading Suns knížky!
+
+Dan by rád poděkoval těmto lidem: Split Enzové za vynikající melodie, Jamesi Cameronovi za Pravdivé lži, Josefu Vyskočilovi za jeho bombastické exploze, restauraci Chong's na Triangle Square za to, že mě živili, Carlosi Kotkinovi za to, že to konečně vypustil (někdy v těchto dnech by se měla pouštět premiéra jeho prvního filmu), Joe Landovi za jeho skvělé novely, Červenému trpaslíkovi za srandu a nakonec - jako ostatně vždycky - mámě a tátovi za to, že tu se mnou byli.
+
+Rob Hertenstein by rád poděkoval těmto lidem: Becky Warnerová (pořád mě drží od problémů), Billie Ryderová (za to, že mě během tohoto projektu držela při smyslech), Little Ryder (který se pravděpodobně narodil ve stejný čas jako hra), a Nicole Romanové (za to že tu byla).
+
+Eric Pribish by rád poděkoval následujícím lidem: Tommy Hoodovi, Jr., Joe Isipovi a Julio Matovi za to, že mě nenechali padnout, když jsem byl na dně. Mým starým přátelům Bradu a Davovi Carnesovým za ochrannou (ruku). A konečně, asi nejdůležitější osobě, mému milujícímu děvčeti Rhondě Laufferové za to, že rozuměla všem těm dlouhým nocím a víkendům, kdy mě práce odvedla pryč a že tu byla vždy, když jsem se vrátil domů.
+
+Jako oplátku za zničení Enclavy by Chris, Scotty, Rob, Dan, a Eric rádi doporučili využít příležitosti podívat se na počítačový terminál v levém horním rohu tohoto podlaží a použít ho.
+
+Gratulujeme vám, zachránili jste svět. A ještě jednou díky za zahrání Falloutu 2.}
+
+# 31
+#
+{310}{}{Vault City Travel Log}
+{311}{}{VAULT CITY - SEVERNÍ KALIFORNIE (CESTOVNÍ ZÁZNAM)
+
+VAROVÁNÍ: Jestliže občané Vault City uznají za nezbytné opustit město, neměli by zapomenout si s sebou vzít i věc z tohoto seznamu:
+
+1. Zásobu zabalených Vault City-kondenzo potravin. Nikdy nejezte jakékoli jídlo nabídnuté Venkousedlíkem nebo vstřebáte bakterie či radioaktivní částečky do svého trávicího systému!
+
+2. Geigerův počítač, kterým můžete neustále monitorovat radioaktivitu v okolí vaší cesty!
+
+3. A konečně 2 povinné stimpacky. Jakékoli nevinné říznutí či škrábnutí může dostat do Vašeho těla nebezpečné látky!
+
+REDDING: Malé hornické město umístěné na západ od Vault City. Redding mění zlatou rudu za lékařské vybavení z Vault City. Všichni Obyvatelé Vault City musí být obrněni notnou dávkou odvahy a trpělivosti, když vstupují do Reddingu, horníci v jejich provincie neuznávají žádnou autoritu.
+
+POPULACE: Žádné známé hodnoty, ale myslíme, že je to něco kolem stovky obyvatel.
+VLÁDA: Starosta a městská rada.
+MÍRA RADIOAKTIVNÍHO ZAMOŘENÍ: Žádné známé hodnoty.
+ÚROVEŇ MUTACE: Neznámá, očekává se nízká.
+
+NEW RENO: Město jihozápadně od Vault City. Mění zlato za lékařské vybavení z Vault City. Reno utrpělo malé konstrukční poškození během války (třebaže plenění a škody na majetku poškodilo jejich nářadí) a mnoho ulic a budov zůstalo nedotčeno. Varování! Není zde žádná vláda ani soudní systém. Hazard, prostituce a používání tvrdých drog jsou zde na denním pořádku. Obyvatelé Vault City jsou varováni před jakoukoli návštěvou New Rena, ať to stojí, co to stojí!
+POPULACE: Žádné známé hodnoty, ale myslíme, že to může být několik tisíc..."lidí."
+VLÁDA: New Reno existuje jako kriminálně-anarchistický stát. V našich záznamech je několik "zločineckých rodin", které řídí město podle svého.
+MÍRA RADIOAKTIVNÍHO ZAMOŘENÍ: Žádné známé hodnoty.
+ÚROVEŇ MUTACE: Neznámá, očekává se nízká.
+
+NEW CALIFORNIAN REPUBLIC: Teritorium NCK je alokováno trochu dále na jih od Vault City. Mění technické vybavení, zlato a různé nadbytky technického vybavení za lékařskou technologii Vault City. NKR vyvíjí úsilí, aby vstřebalo Vault City jako svojí pohraniční kolonii, proto nabádáme Obyvatele Vault City k extrémní opatrnosti při cestách do NCR.
+
+POPULACE: Jsou prováděna sčítání lidu, bohužel nemáme přístup k požadovaným hodnotám. Podle našich domněnek má NCR něco kolem desítek tisíc obyvatel.
+VLÁDA: Prezident a Kongres.
+MÍRA RADIOAKTIVNÍHO ZAMOŘENÍ: Žádné známé hodnoty.
+ÚROVEŇ MUTACE: Různí se území od území.
+
+BROKEN HILLS: Malé hornické město na jih od Vault City zabývající se těžbou uranové rudy. Ruda se mění za lékařské vybavení z Vault City, hlavně za RadX a RadAway. Lidé zde věří, že můžou žít dohromady s mutanty a ghouly v jednom městě. Díky přírodní povaze Obyvatel a hlavně jejich vysokému stupni ozáření doporučujeme Obyvatelům Vault City vyhýbat se Broken Hill za každou cenu!
+
+POPULACE: Žádné známé hodnoty, ale myslíme, že je to něco kolem stovky obyvatel.
+VLÁDA: Říká se, že jako starosta tu slouží MUTANT! Bohužel je to velmi nešťastné řešení, jelikož jako {většina mutantů určitě postrádá zdravý rozum. Jestli JE tato pověst pravda, je to další důvod nechat být Broken Hills napokoji.
+MÍRA RADIOAKTIVNÍHO ZAMOŘENÍ: Žádné známé hodnoty. Myslíme si ale, že je vysoká.
+ÚROVEŇ MUTACE: Pravděpodobně vysoká. V Broken Hills se dají najít různé variace zmutovanosti.
+
+VAULT CITY: Toto utopické město netrpí kriminalitou a ani dalšími sociálními nemocemi, kterými trpí většina měst v Severní Kalifornii. Existuje nezávisle od svého vynoření z Vaultu 8 a jeho hlavním artiklem (na kterém stojí jeho ekonomie) je vývoz lékařského vybavení do dalších lokalit v Severní Kalifornii Všichni Obyvatelé chtějí ve Vault City zůstat, dokud to bude jen možné.
+
+POPULACE: Podle posledního sčítání lidu 103 obyvatel.
+VLÁDA: První Občan a Rada.
+MÍRA RADIOAKTIVNÍHO ZAMOŘENÍ: Soubor vymazán,
+chybí následující údaje: [-$Gecko-/-$Kontaminace podzemní vody-]
+ÚROVEŇ MUTACE: Soubor vymazán,
+{chybí následující údaje: [-$Porodnost %-]}
+
+# 32
+#
+{320}{}{NCR Spy Holodisk}
+{321}{}{INFORMAČNÍ DISK NEW CALIFORNIAN REPUBLIC Č.5
+
+Na tomto disku se nachází zajímavé informace o NCR -  totální měsíční produkce, zápisy karavan, rozpis bezpečnostních služeb, slyšení Kongresu, tajná hlášení z rady, diplomatická korespondence z New Rena, Reddingu a Vault City, dokonce několik týdnů začátku jmenování prezidentky Tandi Není zde nic o Vaultu 13 nebo o GECKu. Všechna hlášení jsou adresována Darionovi a podepsána "F-".}
+
+# 33
+#
+{330}{}{NCR History Holodisk}
+{331}{}{INFORMAČNÍ DISK NEW CALIFORNIAN REPUBLIC Č. 1
+
+Jsme tady! Proč se k nám nepřidat?
+
+Leží před námi neuvěřitelná budoucnost - a s Novou Kalifornskou republikou může být vaše!
+
+
+Vy ale chcete vědět, co to přesně je, že ano?
+
+JAK VELKÁ JE NKR?
+NCR byla založena před osmdesáti lety a nyní se skládá ze států Shady, Los Angeles, Maxson, Hub a Dayglow. Pocta mít v NCR svůj domov se dostala přes 700,000 Obyvatel.
+
+ZA ČÍM NCR STOJÍ?
+New Californian Republic chce přinést mír, bezpečnost a právo všem lidem žijícím na našem skvělém západě. Naše výborné policejní složky neustále hlídají a okamžitě zavřou jakéhokoli nájezdníka, kanibala, otrokáře a nerovnoprávné mutanty v celé zemi. Naše silná armáda výborně hlídá a chrání naše hranice proti venkovním narušitelům. K zajištění práva a svobody mají všichni občané přístup k našim soudním dvorům a mají právo volit svoje vybrané mandáty, kteří se posadí do Kongresové haly Podle slov naší prezidentky Tandi "Bezpeční lidé jsou silní lidé."
+
+KDO ZDE VLÁDNE?
+NCR má možná jiný styl vlády, než na který jste zvyklý. Nejsou tu žádní samozvanci, městští šéfové, králové nebo diktátoři. Naši vůdcové jsou voleni ve volbách! Tak to je - každý stát má právo vyslat svoje reprezentanty do Kongresové haly. Tito reprezentanti zvolí prezidenta a víceprezidenta do čela vlády a je jsou to oni, kdo řídí veškerá prezidentská rozhodnutí. Už po dlouhých deset období je naší prezidentkou Tandi. Volená jednomyslně kongresem, který respektuje její vědomosti a prozíravost.
+
+ZNÍ TO SKVĚLE! JAK SE K NCR PŘIPOJÍM?
+Každý zákonamilný a pokojný člověk, bytost či mutant je hodný stát se občanem NCR. Abyste se stali občanem, všechno, co musíte udělat, je přijít do NCR a předvést Váš požadavek na přistěhování. Po výcviku občana a přijetí Vaší žádosti, budete povýšen do Svého nového stavu jako PO (Prozatímní Občan). Odsud už je jen malý krůček k plnému občanství!
+
+Samozřejmě, NCR není pro každého - otrokáři, nereformovaní mutanti, známí Nájezdníci a další nekalé živly nebudou přijmuti!                        }
+
+A CO JÁ KDYŽ SE CHCE PŘIPOJIT MOJE MĚSTO?
+V závislosti na umístění Vašeho města, NCR bude akceptovat žádosti od obyvatel, měst, základen, městských států, dokonce i menších království k připojení k NCR. Ve chvíli, kdy bude žádost přijata, NCR potvrdí váš územní status. Kdokoli bude potřebovat pomoc policie nebo armády, má na ní plné právo a jakákoli zločinecká nebo nerovnoprávná skupina, by se měla smířit s vaším plným statusem v NCR. Jak je to jednoduché!
+
+Tak pamatujte - JSME TU, TAK PROČ SE K NÁM NEPŘIDAT?
+
+Připraveno odborným poradcem Nové Kalifornie
+
+NKRAP Pub. #A7-7893b
+Tato stránka byla záměrně zanechána prázdná.}
+
+# 34
+#
+{340}{}{Westinův Holodisk}
+{341}{}{První občanko Lynette
+
+Kurýr doručil disk, který jsi mi poslala. Měla jsi samozřejmě pravdu. Informace se ukázala býti velmi užitečnou na dalším zasedání rady. S tím, co jsi mi poslala, jsem si jistý, že můžu bránit a mařit všechny další pokusy k vytvoření aliance NCR/New Reno.
+
+Mohu tě jenom ujistit, že jestli se všechno povede tak, jak očekávám, nebudou tady už další zásahy nebo provokace od NCR na žádnou aféru ve Vault City. Já sám respektuji vaší samostatnost a nesouhlasím s žádným sabotérem, který chce poškodit naše nevinné sousedy a jejich svobodu.
+
+Tvůj přítel a spojenec, Roger Westin}
+
+# 35
+# State of the Nation
+{350}{}{State of the Nation}
+{351}{}{Věc: Stát národů
+Od: Prezident Dick Richardson
+Pro: Lidem tohoto Velkého národa
+Zpráva: Oslovení států Unie
+
+Drazí Američané, byl jsem poctěn stát se pastýřem, který chce vzít všechny Američany zpět na pevninu, aby zde vrátili Spojené státy původním obyvatelům. My budeme první generací oproštěnou od mutantské hrozby po prvních sto letech.
+
+Bylo to velmi dlouhé čekání a práce, která toto učinila možným, byla náročná. To, co vypadalo jako nemožný sen, se díky statečnosti a neúnavnému úsilí našeho nejlepšího hlavního člena Chemických jednotek, Doktora Charlese Curlinga, stalo skutečností. Hodina našeho konečného vítězství se blíží.
+
+Statečnost, neoblomnost, ble, ble, ble. Doufám, že se tohle vystřihne?
+
+--Vlastní poznámky--
+1)  Pohovořit trochu o Curlingově projektu.
+2)  Říct všem, jak jsou skvělí, atd., oni jsou
+Tády dááády dá
+
+Ujistit se o svém znovuzvolení.
+
+Pamatuj: NEOBJÍMAT zástupce cestou dolů z pódia.
+
+Důležité: Tohle neříkat. Budeme schopni kdykoli usmrtit jakéhokoli mutanta, pokud se Curlingův výzkum nemýlil.}
+
+# 36
+# Word List
+{360}{}{Word List}
+{361}{}{Věc: Zásoba slov
+Od: víceprezident Daniel Bird
+Komu: Mně
+Téma: Moje zásoba slov
+
+Obtížná slova:}
+--------------------
+Brambora
+Rajče
+Psycho
+Kalifornie
+Být připraven
+Ukecanost
+Neartikulovanost
+Obratnost
+
+Zaměnitelná slova:
+----------------------
+Brambor
+Rajský
+Sucho
+Kalifornije
+Jít připraven
+Ukydanost
+Plavosel -udělat to novým národním maskotem (je to nějaká americká potvora?)}
+
+# 37
+# The Project
+{370}{}{The Project}
+{371}{}{Věc: Projekty, Popis stavu}
+Od: Podplukovník, Dr. Charles Curling, Chemické jednotky U.S.
+To: Vládě
+Téma: Projekt je blízko k plnému spuštění.
+
+Je mou poctou a radostí vám sdělit že jsme v konečné fázi operace Projekt. Po náročných rocích práce jsme zjistili, jak izolovat většinu toxických elementů ve viru F.E.V. K výzkumu nám dopomohly i některé informace, které jsme získali z opuštěné vojenské základny na planinách. Tyto znalosti nás vedly až k současnosti.
+
+Zjistili jsme že virus F.E.V. nebyl stvořen jako nástroj pro výrobu supervojáků. Ale hlavně, a na tom trvám, byl stvořen jako silně virulentní toxin Až později byl virus F.E.V. přetvořen k výrobě supervojáků.
+
+Po podrobném přezkoumání našich výzkumů a s neocenitelnou pomocí nahrávek, získaných ve vojenské základně, jsme schopni vypustit naší zcela novou verzi viru F.E.V. (F.E.V. Curling-13) do vzdálených oblastí naší země.
+
+Konečné testy prováděné na potomcích lidí z Vaultu, obyvatelích "Arroya", nám dokázaly možnost přežití nula procent. Většina subjektů zemřela po v první hodině vypuštění, a to s .0001% aerosolového roztoku. Jako protiklad, objekty přivezené z Vaultu 13 mají tendenci zvládnout krvácení a křeče v první hodině od rozprášení. V tomto případě úmrtí průměrně nastávají až kolem 14,5 hodiny od infikace.
+
+V obou případech jsou toxické hodnoty F.E.V. dostatečné k rychlému očištění všech dostupných (vyjma Enklávy) lokalit. Současná dostupná měření viru F.E.V. Curling-13 ukazují 95% pravděpodobnost s .00007% průměrnou impregnací. Podle propočtů Chemických jednotek je to velmi uspokojivá úroveň k úspěšnému dokončení Projektu, věříme, že má cenu počkat, dokud nenashromáždíme dostatek toxinu F.E.V., abychom dosáhli naší .0001% impregnace a 99.5% smrtící úspěšnosti našeho viru.
+
+Současná produkce viru F.E.V. Curling-13 ukazuje, že jsme schopni dostát svého cíle. Vypadá to na 625,000 litrů do šesti týdnů.
+
+Gratuluji, dámy a pánové, dlouhá léta naší tvrdé práce se blíží ke konci.
+
+Bůh žehnej Americe.}
+
+# 38
+# Power Plant Operations
+{380}{}{Power Plant Operations}
+{381}{}{Věc: Komise pro atomovou energii, Popis stavu
+Od: Tom Murray, předseda Komise pro jadernou energii}
+Pro: Kabinet
+Téma: Nebezpečí selhání hlavního počítače pro všechny stupně reaktoru.
+
+POZNÁMKA KE KABINETU: Už mě otravuje neustále přetřásat tuto záležitost, ale nemohu pořád dokola zdůrazňovat důležitost zlepšení našich kontrolních systémů pro atomovou elektrárnu. Tady je má oficiální zpráva. Myslím, že až si jí přečtete, porozumíte, proč potřebujeme mít nový záložní systém.
+
+--Tom
+Reaktorový regulátor atomové energie
+------------------------------------------
+Nový uranový nukleární reaktor Vault-Tec už přestal dávno pracovat výkonně. S vynaložením velkého úsilí se nám povedlo udržet počítačové systémy zajišťující regulaci chladící teploty jádra.  Přišli jsme sice o hodně funkcí, ale stále jsme schopni chodu s minimální obsluhou.
+
+Nové synchronické multi-procesory, které jsme zabudovali do tří procesorové základní desky jsou schopné zajistit chladící víceproces. Přijímají studenou mořskou vodu a odčerpávají postradatelnou teplotu a znečištění ze všech reakcí a regulace neutronového rozkladu uranu. Bez počítačových systémů může reaktor vypadnout z rovnováhy téměř okamžitě, kvůli řetězové reakci bombardování uranových isotopů. Za dvě hodin nebo i míň to může mít za následek nukleární výbuch v síle 100 kilotun.
+
+Většina hlavních částí reaktoru je umístěna pod vodou, pod stanicí. Toto postavení dovoluje, že díky přírodní teplotě oceánu se udrží jádro chladné. Mořská voda z hloubky 500 metrů je pumpována do chladící komory. Většina studené mořské vody je odvedena do části, kde je jádro a kontrolní tyče. Tady cirkuluje skrz jádro a ohřívá se v důsledku nukleárních reakcí. Voda dosáhne bodu varu a všechna vzniklá pára se používá k chodu turbínového generátoru, který vytváří veškerou elektrickou energii. Pára se kondenzuje a vrací se do filtrovací nádrže. Čistší voda se vrací zpět {do přípravné nádrže, připravena začít znovu celý cyklus.
+
+Veškerá ozářená voda a rozmanité toxické materiály jsou odčerpány pryč ze stanice skrz odpadovou trubici, ukončenou jednu míli na jih. Hlášení od našich předsunutých hlídek dokazují, že naše výtoky proudí dolů na pobřeží jižní Kalifornie a Mexika, kde způsobují rozsáhlé ekologické poškození. Hodně pláží je nyní nasyceno toxickým odpadem a vysoce ozářeným mořským životem. Naštěstí toto nemá žádný vliv na nás.
+
+V každém případě, jestli se náš reaktor vypne, máme nějaké záložní baterie, které mohou být po určitou dobu používány pro chod Enklávy, dokud nebude obnovena normální dodávka. Nicméně, toto opatření nezahrnuje vedlejší a vysokoenergické záležitosti jako třeba silové pole. Také se zavřou (bezpečnostní opatření) jisté vodotěsné dveře, vedoucí skrze základnu, které se zavírají při poklesu energie jako ochrana před záplavou. To zamezí pohyb po většině naší stanice. Bude možný pouze pohyb v horních patrech, ale pouze přes určité průlezy.
+
+Hlavní problém je v tom, že jestliže bude centrální počítač vypnut nebo zničen, nebo se naneštěstí stanou oba případy, reaktor se dostane do kritických hodnot a roztaví se do dvou hodin. Potřebujeme nainstalovat nějaký druh lidského podpůrného záložního systému.
+
+Vím, že si o mně můžete myslet, že jsem panikář, když po Vás žádám tyto opatření proti nepředvídané události, ale i tak se vyplatí být vždy připraven.
+
+Mezi tím se jděte přesvědčit, jestli někdo náhodou nevyhodil do vzduchu náš hlavní počítač (ha, ha).
+
+
+
+Váš Tom Murray, předseda Komise pro atomovou energii}
+
+#
+# Fallout Tactics Holodisk
+#
+
+# 39
+#
+{390}{}{Lathamův deník}
+{391}{}{Lathamův deník, záznam 10.1.4.
+Naše vzducholoď se zřítila severně od tábora obývaného supermutanty. Myslíme si, že jsou to zbytky Vůdcovy armády. V některých archivech je zmínka o tom, že někteří z těchto supermutantů mohou být přátelští. Proto jsem navrhl, aby jsme si připravili zrcátka a korále, možná se budou hodit.
+
+Než jsme však mohli učinit nějaký vstřícný krok, byli jsme přepadeni hlídkujícími strážemi. Svázali nás a odvlekli do tábora. Polovina z nás byla zabita při dopadu vzducholodě a méně než polovina z této poloviny, jen tak tak přežila velmi kruté zacházení naším mutantím hostitelem. Velitel tohoto tábora si říká Gammorin.
+
+Dozvěděli jsme se, že máme být, pro pobavení Gammorina, brutálně znásilněni a poté rozčtvrceni jejich místním bavičem. Všimnul jsem si, že se to některým mutantům moc nelíbí a zdálo se mi, že jsou ze způsobů svého velitele viditelně nešťastní. Ve skutečnosti jsem zjistil, že nejsou tak divocí, jak jsem si původně myslel. A daleko více, než nějaké krvavé orgie, je potěší obyčejné loutkové divadlo.
+
+Vyzval jsem Gammorina k souboji beze zbraní, a on souhlasil. Jeho domýšlivost byla tak velká, že vůbec nepočítal s tím, že bych mu mohl jen trochu ublížit. V mé mysli byla jen jedna jediná myšlenka. Když zemřít, tak v boji. 
+
+Lathamův deník, záznam 0.0.1.
+Jsem vzhůru.
+Abych řekl pravdu, tak si toho z boje moc nevybavuji. Sečná rána na mé hlavě, spolu s mnohonásobnými frakturami, dávají jakýsi obraz, jak to asi proběhlo. Nicméně, od doby kdy jsem poslal Gammorina pod kytky, ke mně mutanti vzhlížejí s obdivem a považují mne za svého nového vůdce. Co se dá dělat, tak já to tedy vezmu. Ve psaní budu pokračovat později. Mám takový pocit, že můj mozek při boji utrpěl menší poškození. Raději se pokusím odpočívat do doby, až se má mysl zjasní.
+
+Lathamův deník, záznam 0.5.8.
+Supermutanti jsou sice prostoduší, ale dobří. Mnozí je považují za hlupáky a mají pravdu, opravdu jsou velice tupí, ale jejich oddanost je větší než u většiny lidí.
+
+Dnes se u nás objevil nějaký obchodník s jídlem, prý ho, tam kde žil, vydírali, tak se rozhodl cestovat. Nabídl se, že zajistí pravidelnou dodávku jídla. Souhlasil jsem. Bob říkal, že nám bude zajišťovat jen ty nejlepší speciality.
+
+Začal jsem organizovat tyto mutanty s pomocí hrstky přeživších kolegů. Za čas se mi navrátila fyzická síla, ale pozoruji, že se se mnou v poslední době něco děje. Stále častěji mám záchvaty zlosti a přepadají mne strašlivé deprese. Ale ze všeho nejhorší jsou halucinace. Nedovedu si to vysvětlit, co se to se mnou děje? 
+
+Lathamův deník, záznam 1.4.5.
+
+Dnešní den je naplněn absolutní hrůzou a beznadějí.
+
+Jen jeden z mých mutantích vojáků se vrátil z průzkumné cesty. Strašné. Bylo to deset výborných vojáků. Ten poslední, chudák, se dopotácel do tábora, zhroutil se na zem bez jediného slova. Zemřel mi v náručí, když jsem se mu snažil zastavit krvácející ránu na hlavě.
+
+Dříve než jsem mu mohl zavřít oči, objevilo se to, co způsobilo celou tu zkázu! Kovové smrtící stroje vstoupily do tábora, nepovšimnuty mými hlídkami! Nikdy před tím jsem neviděl taková stvoření, byly nezadržitelní. Do tohoto okamžiku jsem nepoznal, co je to strach! Byla to ohromná síla. Jen to, že nás bylo tolik, nám dalo šanci zničit ty tři strašlivé stroje, které rozsévaly smrt mezi mými muži.
+
+Naše ztráty byly ohromující.
+
+Lathamův deník, záznam 1.8.2.
+
+Odpočíváme. Lidé a mutanti sedí nebo se válejí vyčerpáním po zemi, mají svěšené hlavy, snaží se popadnout dech. Jak dlouho jsme ustupovali? Dvacet mil? Možná čtyřicet!
+
+Až bude mezi námi a tou... tou Hrozbou ze západu dostatečná vzdálenost, pak se můžeme seskupit a připravit se na protiůtok! 
+ 
+Lathamův deník, záznam 2.3.4.
+
+Necítím se dobře. Dnes ráno jsem si myslel, že na nás zaůtočil deathclaw. Byl jsem příliš daleko od svého SMG, mlátil jsem kolem sebe nožem, sekal jsem tu bestii přímo do chřtánu. Když jsem začal vidět jasněji, uviděl jsem Nathanovy oči. Byl v nich údiv. Hrdlo měl rozsekáno strašlivým zbůsobem, jeho horká krev mi stékala po rukou. Hrůzou jsem omdlel... Jak se můžu zbláznit, když je lidstvo v tak hrozném nebezpečí?
+
+Musím si udržet svůj zdravý rozum. Musím.
+
+
+Lathamův deník, záznam 2.4.2.
+
+Má hlídka dnes narazila na nepřátele. Zvuk střelby a explozí, mne přinutil, abych se rozběhl po schodech nahoru podívat se co se děje. Když jsem chvíli pozoroval co se vlastně děje, přeběhl mi mráz po zádech.
+
+Moji mutanti se střetli s hlídkou Bratrstva. Poprvé v mém životě jsem během boje nebyl ničeho schopen.
+
+Sledoval jsem, nezvykle klidný, jak vojáci Bratrstva kosí mé nové druhy.
+
+Moji mutantí společníci, kteří mi byli oddáni celým svým životem, teď srdnatě bojovali s mými dřívějšími druhy z Bratrstva oceli. Pozvedl jsem zbraň a ...
+
+Když už bylo po všem a viděl jsem jak odnášejí těla vojáků Bratrstva, pochopil jsem. Konečně jsem pochopil. Už vím jaký je můj cíl, a co je nejdůležitější, už vím kdo jsem.
+
+Jsem Gammorin, zapřísáhlý nepřítel Hrozby ze západu.}
+
+# 40
+#
+{400}{}{Canyon City terminals}
+{401}{}{Terminal Alpha
+(statická elektřina slábne) ...zde je Lewis - Vědec č. 3
+
+Věci jsou čím dál horší. Měli bychom proto vylepšit náš poplašný systém. Naše pomyslné finance jsou již sice skoro vyčerpány, ale za naše životy jistě stojí.
+
+Šedesát tři procent z původní populace Vaultu 0 již nežije, hlavní počítač je zničen a zbývajících patnáct procent se musí postarat samo o sebe.
+
+Ještě větší ránou je, že poplaný systém pomalu, ale jistě odchází. Horší už to být nemůže!
+
+Kdyby tak alespoň žili Vědec č. 1 Napstarsky nebo č. 2 Jones. Mohli by alespoň opravit hlavní počítač, a kdoví, mohli by taky zachránit celý Vault 0. Vím, co si můžu dovolit já, ale... (statická elektřina pohlcuje zvuk).
+.
+Terminal Beta
+Vypadá to nadmíru dobře. Dokázali jsme, že oprava počítače a celého Vaultu 0 nebude stát původních 24 miliard dolarů, ale pouze 2,3 miliardy. Může se začít s opravami.
+
+Tohle bylo učiněno na základně toho, že další nukleární válka se již s největší pravděpodobností konat nebude, takže protiatomové opevnění nemusíme nijak financovat. Dále druhý, starší Vault nebude potřebovat ani zdaleka tolik oprav, kolik jsme předpokládali.
+
+Dál je ještě faktem, že je využíván hlavně pro záložní systémy, takže nepotřebuje tolik péče jako náš, novější.
+
+Všechno musí být uskutečněno nejpozději někdy v březnu. Dále musíme mít na paměti ještě to, že by jsme měli opravit všechny místnosti, které jsou dosud nevyužívané, totiž několik restaurací s rozlohou 10 000 čtverečních stop, sedum kuřáckých salónků s klavírem a máme tu dokonce dvě úschovny pro různé druhy vzácných zvířat, které budou vystaneny v naší vlastní zoo.
+
+Všechno je to sice proveditelné, ale bude to vyžadovat 2,3 miliardy dolarů, které můžeme získat tak, že... *klik*
+
+...které můžeme získat tak, že... *klik*
+...které můžeme získat tak, že... *klik*
+
+Terminal Gamma
+... dobrá otázka Dr. Jonesi. Jsem šťastný, že s vámi můžu mluvit i když jste teď vlastně... ehm, promiňte mi ten výraz - počítač.
+
+K věci - je tady jedna příjemná věc na vylepšení našeho poplašného systému. Naše testy dokazují, že jsme schopni udržet věškerou vytvrořenou umělou inteligenci v oxygenatením tanku.
+
+Většina věcí je sice zatím otestována na hlodavcích, ale domníváme se, že lidská mysl bude ve většině případů reagovat stejně. Tuto inteligenci dokážeme ve správném roztoku udržovat prakticky libovolně dlouho. Tato inteligence bude moci výborně ulehčovat a vylepšovat práci našeho alarmu, a mnoha jiných věci jako třeba životní podpora, vytváření jidla, ovládání robotů, a již zmíněná defenzíva Vaultu 0.
+
+Bude taky pomáhat v primárních funkcích Vaultu, samozřejmě. Například obnovování teritorií kolem dokola zničených radiací. Když je spraví, zreguluje teplotu, intenzitu radiace a vzdušných jedů, Vault-0 bude moci konečně zapojit svůj Evakulační Plán, který dovolí našim obyvatelům vyjít na povrch a založit město.
+
+Vybereme několik nejlepších charakterů s umělou inteligencí, zapojíme je do práce, a až naberou zkušenosti, tak... (hlas zaniká ve statické elektřině).
+
+Terminal Epsilon
+(CHRRRRR).... Naše společnost Nuka-Advatax nabízí revoluční technologii pro vaše zabezpečující elektrické generátory. Naše generátory mohou zajistit tak převratnou ampérovou třídu, která veškerou konkurenci zcela odvaří. Spolu s naší magneticky rezistentní diagonální indukční cívkou spolehlivě zajistí, že už se nikdy nebudete muset starat o vyrovnávání energetických ztrát.
+
+Ale to, co dělá náš výrobek revolučním je námi patentovaná "bezproblémová" sebediagnostika a opravárenská technologie. Naši "doktoři" hmyzí velikosti okamžitě do minuty opraví kterýkoliv poškozený generátor. Na náš systém poskytujeme šestiměsíční záruku a šest klávesových zkratek "Mr.Handy". Pro náš čtyřiadvacetihodinový servis je budete potřebovat. Naše číslo je..... (CHRRRR)}
+
+# 41
+#
+{410}{}{General's holodisk to wife Maria}
+{411}{}{Moje nejdražší Marie,
+
+Ačkoliv je to pro mne těžké ti to napsat, musím to udělat. Čas je krátký a moje budoucnost je nejistá. *těžce dýchá* Byl jsem zajat a teď jsem vězněn skupinou Supermutantů. Nevěřím, že bych se odsud mohl někdy dostat.
+
+Ale času je málo a já raději budu psát důležitější věci.
+
+Miluji tě Marie. Miluji tě od první chvíle co jsem tě spatřil. Už je to padesát let, co jsme spolu a já tě miluji pořád stejně. Vidím pořád ten tvůj úsměv, ty tvoje oči naplněné hlubokou láskou, tvá ňadra, sice už povadlá, ale pro mne stále tak nádherná, krásně se lesknoucí v měsíčním světle. *pot mu stéká po zádech* Nikdy na ty chvíle s tebou nezapomenu.
+
+Ty a já, my dva toho máme hodně společného. Nikdy bych neměl takovou odvahu v boji, nebýt tebe a tvé lásky ke mně.
+
+Pro tebe, všechno co jsem dělal, jsem dělal jen a jen pro tebe. Nechtěl jsem nic více, než opět nastolit pořádek v tomto chaotickém světě. Aby jsme, ty i já, mohli žít svobodný a bezpečný život. Aby se svět zbavil strachu a těch bezbožných mutantů.
+
+Obávám se, že už budu muset končit.
+
+Ještě jsem neztratil naději, má lásko, že tě někdy uvidím. Budu se bít s osudem a nakonec se zase k tobě vrátím. Slibuji. Nachystej mi uzenáče, na snídani jsem zpátky.
+
+S láskou, Simon Barnaky}
+
+#
+# FOnline Holodisks
+#
+
+# 42
+#
+{420}{}{PIPBoy 2000}
+{421}{}{Vítej ve svém zařízení PIPBoy 2000!
+
+Pro snazší nahrávání informací, Vault-Tec vybral RobCo Industries RobCo PIPBoy 2000 a RobCo FIXBoy 2000 za osobní informační procesory pro své občany. RobCo PIPBoy  2000 (dále jen PIP Boy),je užitečné zařízení, které můžete nosit na svém zápěstí. Je malé a to i s přihlédnutím k dnešním standardům a přesto dokáže pro Vás uložit nezměrné množství informací.
+
+== Funkce Status ==
+Stikněte toto tlačítko k zobrazení aktuálního statusu kteréhokoli dobrodružství nebo aktivního úkolu. Dobrodružství budou seřazena dle lokací. Úkoly, které jsou aktivní a stále nedokončené  budou zobrazeny zeleně. DOkončené úkoly budou přeškrtnuty. Kdykoli dostanete nový úkol,  bude zde zobrazen.
+
+== Function Automapa ==
+Stiskněte toto tlačítko ke zobrazení seznamu lokací, které jste navštívili. Vyberte lokaci k zobrazení automapy dané lokace. Váš PIPBoy automaticky ukládá mapy všech míst, která jste navštívíli. Máte-li jakékolidotazy k místu, které jste navštívili, využijte funkci automapy.
+
+== Function Archív ==
+PIPBoy má také videorekordér. Všechny nahrávky jsou automaticky ukládány k jejich pozdějšímu přehrávání. Vyberte kteroukoli z dříve zobrazených nahrávek pro její opětovné zobrazení.
+
+== Function Zavřít ==
+Vypne PIPBoy a navrátí vás do pustiny.
+}
+
+# 43
+#
+{430}{}{Urgentní:Skeeter}
+{431}{}{Skeeteře,
+
+útoky jsou čím dál horší. Vím, že máš problémy s těmi elitářskými kretény z VC, ale nemáme se na koho obrátit. Ztrácíme víc a víc lidi každý den.
+
+Zaprvé jsou tu mutanti. Nechápu odkud přichází, ale máme velké problémy je zastavit.
+
+Pak jsou tady nájezdníci. S tím, jak často útočí, se divím, že ještě nejsme po smrti. Možná nás nechávají naživu, aby mohli s nájezdy pokračovat a dál nás okrádat.
+
+Co už ale překračuje veškeré hranice je nárust náhodných vražd. Stává se příliš často, že nějaký kretén přijde s nějakou automatickou zbraní, obvykle kulometem. Začnou střílet bez varování, bezcílně a bez jakéhokoli motivu. Je to ta nejstrašnější věc, jakou můžeš vidět. Kdo se zdá být dalším poutníkem se změní v armádu jednoho muže.
+
+Lidi v Broken Hills se o nás nezajímají,  dokud mají svůj uran. Armáda NCR nám “slíbila” pomoc, ale zatím s tím nic neudělali.
+
+Potřebujeme, abys nám poslal všechno a všechny, které můžeš postrádat.
+
+Elmer}
+
+# 44
+#
+{440}{}{Zpráva pro Elmera}
+{441}{}{Elmere,
+
+naše problémy se od těch tvých příliš neliší. VC nám dýchá na krk každý den. Jenom čekám, kdy se rozhodnou sem vpadnout a všechny nás pobít. To, že na nás útočí pravidelně Khanové, taky moc nepomáhá. Přesto, zdá se, že opravdu pomoc potřebujete. Nemůžu nic zaručit, ale víš moc dobře, že udělám vše, co je v mých silách. Uvidím, jestli se mi podaří přimět Harolda k rekvizici nějakých zbraní a s trochou štěstí si budeme moci dovolit poslat vám pár chlapů pro stráž.
+
+Skeeter}
+
+# 45
+#
+{450}{}{Deník}
+{451}{}{17. červen 2098 ráno
+
+Konečně! Jsme venku, venku z toho prokletého podzemního vězení, 5 znás. Doktor Collins a plukovník Johnson zůstali uvnitř. Netuším, jak tam můžou vydržet, po tolika letech. Johnson  měl pravdu, je tu vysoká radiace, vzali jsme si nějaké Rad-x a Rad away. Myslím si..., doufám, že nás to ochrání. A i kdyby ne tak …. se tam nevrátím, nepůjdu zprátky do toho prokletého bunkru.
+
+Vzali jsme si nějaké jídlo a filtry pro pročitění vody. Teď se pokusíme dostat se do nejbližšího města a najít nějaké přeživší.
+
+17. červen 2098 večer
+Kruci, vypadly mi nějaké vlasy a cítím se trochu zle, jako všichni kolem. Ale je to OK, věděli jsme, že to přijde, ale Steven je na tom zle, začal panikařit, když mu začaly vlasy vypadávat. Doufám, že bude v pořádku. Jsme asi 15 mil od bunkru, přespíme tady a ráno bychom chtěli dorazit do města.
+
+18. červen 2098 ráno
+Tohle je vážně špatné. Kurva, cítím se opravdu zle… 5x jsem zvracel, moje hlava… bolí mě, ale nějak divně. Steven se vypařil, nejspíš zdrhnul zprátky do bunkru. Tohle byl špatný nápad, proč jsme neposlechli Johnsona. Umřeme tady…….. Ne, ne.. Musím se dostat zpátky do bunkru, Frank to napraví, musím se dostat zpět.}
+
+# 46
+#
+{460}{}{Příkaz}
+{461}{}{12. října 2077
+První rozkazy. Musíme připravit bunkr na možný příchod vojáků. S válkou nastane konec světa opravdu brzy.
+
+15. říjen 2077
+Dostali jsme rozkaz k plné pohotovosti, je tu zmatek, ani nevím, kdo má dorazit, nebo jestli má někdo dorazit.
+
+20. říjen 2077
+Tohle je ono, rozkaz k evakuaci povrchu a uzavření ochranných dveří. Ksakru, válka může začít každým okamžikem, doufám…… doufám, že má rodina je v bezpečí v jednom z těch Vaultů.
+
+23. říjen 2077
+Padají bomby, komunikace je matoucí, totální chaos. Nikdo neví, kdo s tím začal… Bomby vybuchují každou minutu. My hážeme bomby na komunisty, komunisti je hážou na nás. Jsem ve spojení se svým přítelem v silu Ares, říká, že použili všechno co mají na strategické cíle v Číně.
+Doprdele s tímhle bordelem
+
+25. říjen 2077
+Je ticho. Každou hodinu od první exploze; s každým výbuchem některé kanály ztichly. Je to pár hodin, co jsem ztratil spojení s poslední vojenskou základnou. Válka skončila. Co teď? Spolu se mnou se tady dole ukrývá dalších 12 lidí.}
+
+# 47
+#
+{470}{}{Andrew Johnson}
+{471}{}{Frank . . . . .  Frank zemřel před pár dny. Nevím  jak, jestli snědl nějaké prášky nebo… Nevím. Bylo mu 67. Ani jsem nespálil jeho tělo, ale nechal ho jen tak ležet v posteli. Zůstal…. jsem sám. Sám v tomhle zatraceném podzemním vězení.
+
+Tehle.. ..bunkr byl postavený, aby ochránil 200 lidí, je směšné, že nedokázal ochránit ani 13 před sebou samými. Já...já…. ani nevím, jestli moje rodina přežila válku,...... Moje žena Anna, můj syn …. Tommy, … byl…. bylo by mu příští měsíc 35. Můžu jenom doufat, že žije pokojně v nějakém Vaultu. Co teď, nemůžu tady zůstat, nemůžu tohle místo vystát. Je jen jedna cesta z toho pryč, miluju tě Anno….. Je to na tobě, mistře M29
+
+Plukovník Andrew Johnson.}
+# 48
+#
+{480}{}{ }
+{481}{}{ }
+
+# 49
+#
+{490}{}{ }
+{491}{}{ }
+
+# 50
+#
+{500}{}{ }
+{501}{}{ }
+
+# 99999
+# ѕоследний корректный номер, после него текст беретс¤ из базы данных записей игроков.
+# ’олодиск дл¤ записей игроков.
+{999990}{}{Holodisk}
+{999991}{}{[Neobsahuje žádné informace]}

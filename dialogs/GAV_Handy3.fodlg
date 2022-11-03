@@ -1,0 +1,150 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 R _script dialog@r_PlaySound 1 12 @
+2 2000 None 0 #
+3 2010 R _script dialog@r_PlaySound 1 13 #
+3 2020 R _script dialog@r_PlaySound 1 13 @
+3 3000 None 0 #
+4 3010 R _script dialog@r_PlaySound 1 14 #
+0 3020 @
+4 4000 None 0 #
+5 4010 R _script dialog@r_PlaySound 1 15 #
+5 4020 R _script dialog@r_PlaySound 1 15 #
+0 4030 @
+5 5000 None 0 #
+6 5010 R _script dialog@r_PlaySound 1 16 #
+6 5020 R _script dialog@r_PlaySound 1 16 #
+0 5030 @
+6 6000 None 0 #
+7 6010 R _script dialog@r_PlaySound 1 17 #
+7 6020 R _script dialog@r_PlaySound 1 17 #
+7 6030 R _script dialog@r_PlaySound 1 17 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Mr. Brave}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well just look at you... you call this battle readiness? DO YOU UNDERSTAND THAT YOU MUST BE ALWAYS READY FOR SELF DEFENSE?}
+{2010}{}{Excuse me...}
+{2020}{}{How dare...}
+{3000}{}{Red commie spies are everywhere! And they just can't wait for the moment when they will CUT YOUR THROAT OFF AND MAKE SUSHI OUT OF YOUR GUTS! Every American patriot needs to be able to fight!}
+{3010}{}{Actually...}
+{3020}{}{[ Leave ]}
+{4000}{}{Shut your stinking mouth, maggot! I am the one who YOU must listen to here! First of all - your Pip Interface has battle options included. To get into battle mode - just press A on your keyboard. Your cursor will change and you will be able to attack anybody. But don't do it here, shithead!}
+{4010}{}{Yes, sir.}
+{4020}{}{What the...}
+{4030}{}{[ Leave ]}
+{5000}{}{Your interface also shows you your Health Points. Make sure they are always high if you don't want your ass placed in a coffin before its due. Your Interface is SO great, that it even shows whether you managed to break your pants somewhere or get poisoned or caught a huge dose of radiation!}
+{5010}{}{Alright...}
+{5020}{}{Sure.}
+{5030}{}{[ Leave ]}
+{6000}{}{Finally, you can easily maintain your weapons and armor via your Inventory by pressing I. You can also switch weapons by pressing B, and you can switch modes - Single, Aimed Shot, or Burst by pressing N, and you can even easily reload them by pressing R instead. DO YOU UNDERSTAND THAT, MAGGOT?}
+{6010}{}{Yes, sir!}
+{6020}{}{Call the manager for me!}
+{6030}{}{Fucking...}
+{7000}{}{Great! The lesson is over... NEXT ONE!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well you just look at this... And you call it a fine battle readiness? DO YOU UNDERSTAND THAT YOU MUST BE ALWAYS READY FOR SELF DEFENSE?}
+{2010}{}{Excuse me...}
+{2020}{}{How dare...}
+{3000}{}{Red commie spies are everywhere! And they can't wait for the moment when they will CUT YOUR THROAT OFF AND MAKE SUSHI OUT OF YOUR GUTS! So every American patriot should be able to fight!}
+{3010}{}{Actually...}
+{3020}{}{[ Leave ]}
+{4000}{}{Shut your stinky mouth, maggot! I am the one who you MUST listen to here, you shitass! So first of all - your Pip Interface has battle options included. To get into the battle mode - just press A. Your cursor will change and you will be able to attack anybody. But don't do it here... maggot...}
+{4010}{}{Yes, sir.}
+{4020}{}{What the...}
+{4030}{}{[ Leave ]}
+{5000}{}{Your interface also shows you your Health Points. Watch them to be always high if you don't want your ass to be placed in the coffin beforetime. Also your Interface is SO great, that even shows either you managed to break your pants somewhere or get poisoned or caught a huge dose of radiation!}
+{5010}{}{Alright...}
+{5020}{}{Sure.}
+{5030}{}{[ Leave ]}
+{6000}{}{Finally you can easily maintain your weapons via your Interface. You can switch weapon modes - Single, Burst or whatever else, and you can even easily reload them via pressing R. DO YOU UNDERSTAND THAT, MAGGOT?}
+{6010}{}{Yes, sir!}
+{6020}{}{Call the manager for me!}
+{6030}{}{Fucking...}
+{7000}{}{Great! The lesson is over... NEXT ONE!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well you just look at this... And you call it a fine battle readiness? DO YOU UNDERSTAND THAT YOU MUST BE ALWAYS READY FOR SELF DEFENSE?}
+{2010}{}{Excuse me...}
+{2020}{}{How dare...}
+{3000}{}{Red commie spies are everywhere! And they can't wait for the moment when they will CUT YOUR THROAT OFF AND MAKE SUSHI OUT OF YOUR GUTS! So every American patriot should be able to fight!}
+{3010}{}{Actually...}
+{3020}{}{[ Leave ]}
+{4000}{}{Shut your stinky mouth, maggot! I am the one who you MUST listen to here, you shitass! So first of all - your Pip Interface has battle options included. To get into the battle mode - just press A. Your cursor will change and you will be able to attack anybody. But don't do it here... maggot...}
+{4010}{}{Yes, sir.}
+{4020}{}{What the...}
+{4030}{}{[ Leave ]}
+{5000}{}{Your interface also shows you your Health Points. Watch them to be always high if you don't want your ass to be placed in the coffin beforetime. Also your Interface is SO great, that even shows either you managed to break your pants somewhere or get poisoned or caught a huge dose of radiation!}
+{5010}{}{Alright...}
+{5020}{}{Sure.}
+{5030}{}{[ Leave ]}
+{6000}{}{Finally you can easily maintain your weapons via your Interface. You can switch weapon modes - Single, Burst or whatever else, and you can even easily reload them via pressing R. DO YOU UNDERSTAND THAT, MAGGOT?}
+{6010}{}{Yes, sir!}
+{6020}{}{Call the manager for me!}
+{6030}{}{Fucking...}
+{7000}{}{Great! The lesson is over... NEXT ONE!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well you just look at this... And you call it a fine battle readiness? DO YOU UNDERSTAND THAT YOU MUST BE ALWAYS READY FOR SELF DEFENSE?}
+{2010}{}{Excuse me...}
+{2020}{}{How dare...}
+{3000}{}{Red commie spies are everywhere! And they can't wait for the moment when they will CUT YOUR THROAT OFF AND MAKE SUSHI OUT OF YOUR GUTS! So every American patriot should be able to fight!}
+{3010}{}{Actually...}
+{3020}{}{[ Leave ]}
+{4000}{}{Shut your stinky mouth, maggot! I am the one who you MUST listen to here, you shitass! So first of all - your Pip Interface has battle options included. To get into the battle mode - just press A. Your cursor will change and you will be able to attack anybody. But don't do it here... maggot...}
+{4010}{}{Yes, sir.}
+{4020}{}{What the...}
+{4030}{}{[ Leave ]}
+{5000}{}{Your interface also shows you your Health Points. Watch them to be always high if you don't want your ass to be placed in the coffin beforetime. Also your Interface is SO great, that even shows either you managed to break your pants somewhere or get poisoned or caught a huge dose of radiation!}
+{5010}{}{Alright...}
+{5020}{}{Sure.}
+{5030}{}{[ Leave ]}
+{6000}{}{Finally you can easily maintain your weapons via your Interface. You can switch weapon modes - Single, Burst or whatever else, and you can even easily reload them via pressing R. DO YOU UNDERSTAND THAT, MAGGOT?}
+{6010}{}{Yes, sir!}
+{6020}{}{Call the manager for me!}
+{6030}{}{Fucking...}
+{7000}{}{Great! The lesson is over... NEXT ONE!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Well you just look at this... And you call it a fine battle readiness? DO YOU UNDERSTAND THAT YOU MUST BE ALWAYS READY FOR SELF DEFENSE?}
+{2010}{}{Excuse me...}
+{2020}{}{How dare...}
+{3000}{}{Red commie spies are everywhere! And they can't wait for the moment when they will CUT YOUR THROAT OFF AND MAKE SUSHI OUT OF YOUR GUTS! So every American patriot should be able to fight!}
+{3010}{}{Actually...}
+{3020}{}{[ Leave ]}
+{4000}{}{Shut your stinky mouth, maggot! I am the one who you MUST listen to here, you shitass! So first of all - your Pip Interface has battle options included. To get into the battle mode - just press A. Your cursor will change and you will be able to attack anybody. But don't do it here... maggot...}
+{4010}{}{Yes, sir.}
+{4020}{}{What the...}
+{4030}{}{[ Leave ]}
+{5000}{}{Your interface also shows you your Health Points. Watch them to be always high if you don't want your ass to be placed in the coffin beforetime. Also your Interface is SO great, that even shows either you managed to break your pants somewhere or get poisoned or caught a huge dose of radiation!}
+{5010}{}{Alright...}
+{5020}{}{Sure.}
+{5030}{}{[ Leave ]}
+{6000}{}{Finally you can easily maintain your weapons via your Interface. You can switch weapon modes - Single, Burst or whatever else, and you can even easily reload them via pressing R. DO YOU UNDERSTAND THAT, MAGGOT?}
+{6010}{}{Yes, sir!}
+{6020}{}{Call the manager for me!}
+{6030}{}{Fucking...}
+{7000}{}{Great! The lesson is over... NEXT ONE!}
+

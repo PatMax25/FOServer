@@ -1,0 +1,67 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script perks@can_class 1 140 R _param p PE_SNIPER + 1 &
+
+[engl]
+{100}{}{Sniper}
+{210}{}{Here you are... Meet the Sniper}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{...}
+{2010}{}{Hey... This is a cool looking rifle you have. Mind telling me some hints about using it?}
+{3000}{}{Bloody wankers... Listen here, mate. If you have enough experience then you will surely get my hints. But if not, then you are just a useless bushman.}
+{3010}{}{Whatever...}
+{3020}{}{I think I am good. Now... Show me what you can do with it.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+

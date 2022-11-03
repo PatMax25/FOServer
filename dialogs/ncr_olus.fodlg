@@ -1,0 +1,101 @@
+[comment]
+
+
+[data]
+lang=engl czec pols russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p ncr_benjamin = 1 #
+0 2020 #
+4 2030 D _param p ST_TEAM_ID = 2 @
+3 3000 None 0 #
+6 3010 D _param p SK_SCIENCE } 60 D _var p ncr_benjamin = 1 R _var p ncr_benjamin = 2 R _param p ST_EXPERIENCE + 400 R _item p PID_PRINTER + 1 #
+7 3020 D _param p SK_SCIENCE < 60 D _var p ncr_benjamin = 1 #
+0 3030 @
+4 4000 None 0 #
+5 4010 D _var p ncr_benjamin = 1 R _var p ncr_benjamin = 2 R _item p PID_PRINTER + 1 #
+0 4020 @
+5 5000 None 0 @
+6 6000 None 0 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Scribe Olus}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you need?}
+{2010}{}{I heard you have printer chips. May I take one from you?}
+{2020}{}{Nothing, just passing by.}
+{2030}{}{I am knight @pname@. Coming from the Brotherhood as well.}
+{3000}{}{We don't give away technologies to everyone around.}
+{3010}{}{[ Science 60 ] Oh come on! I can see plenty of them in the box behind you. People in Shady Sands already use this technology on a daily basis. What is the point of storing it? Furthermore, I know that you have even more advanced computers, and you don't even need these chips.}
+{3020}{}{[ Science 60 ] Oh come on! I can see plenty of them in the box behind you. People in Shady Sands already use this technology on a daily basis. What is the point of storing it? Furthermore, I know that you have even better computers, and you don't even need these chips.}
+{3030}{}{Alright, fuck you too.}
+{4000}{}{Ah... Greetings, brother. Sorry, didn't recognize you. What is it you wanted?}
+{4010}{}{May I take 1 printer chip from ya?}
+{4020}{}{Nothing, just came to say hi.}
+{5000}{}{Sure, here you are. I have plenty of them.}
+{6000}{}{Alright... Maybe there is something in your words. Here is the chip.}
+{7000}{}{And what is this suppose to mean? Get out of here, you won't get the chip.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you need?}
+{2010}{}{I heard you have printer chips. May I take one from you?}
+{2020}{}{Nothing, just passing by.}
+{2030}{}{I am knight @pname@. Coming from the Brotherhood as well.}
+{3000}{}{We don't give away technologies to everyone around.}
+{3010}{}{[ Science 60 ] Oh come on! I can see plenty of them in the box behind you. People in Shady Sands already use this technology in the daily basis. What is the point of storing it? Furthermore, I know exactly that having such computers, you don't even need these chips.}
+{3020}{}{[ Science 60 ] Oh come on! I can see plenty of them in the box behind you. People in Shady Sands already use this technology in the daily basis. What is the point of storing it? Furthermore, I know exactly that having such computers, you don't even need these chips.}
+{3030}{}{Alright, fuck you too.}
+{4000}{}{Ah... Greetings, brother. Sorry, didn't recognize you. What is it you wanted?}
+{4010}{}{May I take 1 printer chip from ya?}
+{4020}{}{Nothing, just came to say hi.}
+{5000}{}{Sure, here you are. I have plenty of them.}
+{6000}{}{Alright... Maybe there is something in your words. Here is the chip.}
+{7000}{}{And what is this suppose to mean? Get out of here, you won't get the chip.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you need?}
+{2010}{}{I heard you have printer chips. May I take one from you?}
+{2020}{}{Nothing, just passing by.}
+{2030}{}{I am knight @pname@. Coming from the Brotherhood as well.}
+{3000}{}{We don't give away technologies to everyone around.}
+{3010}{}{[ Science 60 ] Oh come on! I can see plenty of them in the box behind you. People in Shady Sands already use this technology in the daily basis. What is the point of storing it? Furthermore, I know exactly that having such computers, you don't even need these chips.}
+{3020}{}{[ Science 60 ] Oh come on! I can see plenty of them in the box behind you. People in Shady Sands already use this technology in the daily basis. What is the point of storing it? Furthermore, I know exactly that having such computers, you don't even need these chips.}
+{3030}{}{Alright, fuck you too.}
+{4000}{}{Ah... Greetings, brother. Sorry, didn't recognize you. What is it you wanted?}
+{4010}{}{May I take 1 printer chip from ya?}
+{4020}{}{Nothing, just came to say hi.}
+{5000}{}{Sure, here you are. I have plenty of them.}
+{6000}{}{Alright... Maybe there is something in your words. Here is the chip.}
+{7000}{}{And what is this suppose to mean? Get out of here, you won't get the chip.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you need?}
+{2010}{}{I heard you have printer chips. May I take one from you?}
+{2020}{}{Nothing, just passing by.}
+{2030}{}{I am knight @pname@. Coming from the Brotherhood as well.}
+{3000}{}{We don't give away technologies to everyone around.}
+{3010}{}{[ Science 60 ] Oh come on! I can see plenty of them in the box behind you. People in Shady Sands already use this technology in the daily basis. What is the point of storing it? Furthermore, I know exactly that having such computers, you don't even need these chips.}
+{3020}{}{[ Science 60 ] Oh come on! I can see plenty of them in the box behind you. People in Shady Sands already use this technology in the daily basis. What is the point of storing it? Furthermore, I know exactly that having such computers, you don't even need these chips.}
+{3030}{}{Alright, fuck you too.}
+{4000}{}{Ah... Greetings, brother. Sorry, didn't recognize you. What is it you wanted?}
+{4010}{}{May I take 1 printer chip from ya?}
+{4020}{}{Nothing, just came to say hi.}
+{5000}{}{Sure, here you are. I have plenty of them.}
+{6000}{}{Alright... Maybe there is something in your words. Here is the chip.}
+{7000}{}{And what is this suppose to mean? Get out of here, you won't get the chip.}
+

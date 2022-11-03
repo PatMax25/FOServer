@@ -1,0 +1,88 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _item p PID_V15_KEYCARD < 1 #
+9 1020 D _item p PID_V15_KEYCARD } 1 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 #
+65507 2040 #
+8 2050 #
+12 2060 D _item p PID_NUKA_COLA_QUEST } 140 R _item p PID_NUKA_COLA_QUEST - 140 R _item p PID_FOOLS_GOLD + 1 R _param p ST_EXPERIENCE + 2000 @
+3 3000 None 0 #
+4 3010 #
+4 3020 @
+4 4000 None 0 #
+5 4010 #
+0 4020 @
+5 5000 None 0 #
+6 5010 #
+7 5020 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+2 7010 #
+0 7020 @
+8 8000 None 0 #
+0 8010 #
+0 8020 #
+65507 8030 @
+9 9000 None 0 #
+10 9010 #
+11 9020 R _script dialog@r_OpenDoor 2 45 20 #
+0 9030 @
+10 10000 None 0 #
+9 10010 @
+11 11000 None 0 @
+12 12000 None 0 #
+13 12010 @
+13 13000 None 0 &
+
+[engl]
+{100}{}{Adam Green}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Good day to you, may I help you, outsider?}
+{2010}{}{Who are you?}
+{2020}{}{What is this place?}
+{2030}{}{No, I am just passing by.}
+{2040}{}{Get your caps here, fucker!}
+{2050}{}{Do you have a job for me?}
+{2060}{}{Here are your Nukas.}
+{3000}{}{My name is Adam Green. I am here to answer all your questions about the Vault.}
+{3010}{}{The Vault?}
+{3020}{}{Another Vault? What is this Vault's number?}
+{4000}{}{This is Vault 32, The Heaven among the concrete Hell we call Los Angeles. Unfortunately or not, the access to this Heaven can be given only to the chosen ones - Overseers.}
+{4010}{}{The Overseers you say...}
+{4020}{}{That's enough. I am leaving now.}
+{5000}{}{Yes, exactly. Every 2 or 3 weeks we choose ourself a new Overseer. He must be the best one of his kind - should be smart, strong and generally a legendary figure. So, in order to pick one we organise the Vault 32 Massacre games every 2 or 3 weeks. Everyone can take part.}
+{5010}{}{Let me guess... Another survival game huh?}
+{5020}{}{Tell me more about Sacramento.}
+{6000}{}{Right you are. Everyone who wants to take part goes to Sacramento - the true Hell on Earth. There, all these people will have to fight for their victory. The last man standing will become our Overseer.}
+{6010}{}{May I ask for detailed information about Sacramento?}
+{7000}{}{Nothing much I can tell you about this town.The road there is long and dangerous and the city itself is ruined to ashes. We keep our Massacre traditions since 2079, when, after the death of the First Overseer, a group of our brave men fought each other in Sacramento.}
+{7010}{}{I see. One more thing...}
+{7020}{}{That's all I needed to know.}
+{8000}{}{Hmh, look... It is pretty hot out here. If you bring me some Special Edition Nuka Cola, I would be very pleased. [ He points at sack near him ] I have some Gold we got from the old bank reserves here. I am sure Gold can go nicely for you. Can gladly give you 1 Golden nugget for every 140 Cola bottles.}
+{8010}{}{Fine, I will keep it noted.}
+{8020}{}{Pff, no way, you idiot.}
+{8030}{}{Oh you better give em all to me now!}
+{9000}{}{Overseer @pname@. It is nice to see you. May I help you somehow?}
+{9010}{}{Can you naviagte me around this place?}
+{9020}{}{Open the Gate, please.}
+{9030}{}{Nothing.}
+{10000}{}{Sure thing, sir. First of all - always keep your keycard in your inventory, that's how we can scan your identity. Behind these gates just head towards the central building. There you will find your way inside the Vault. Please don't go anywhere else, our security bots are set on "kill-everyone" mode.}
+{10010}{}{Alright. One more thing.}
+{11000}{}{Here you go, Overseer. Don't forget to close it after you.}
+{12000}{}{Thank you, kindly. Here is your gold nugget,}
+{12010}{}{The fuck?! It is fake! Give me a normal one, you shithead!}
+{13000}{}{I have no idea what you are saying. [ smirks ]}
+

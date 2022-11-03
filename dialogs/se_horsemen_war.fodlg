@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{War}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Peace was actually right...@@We really need some Peace here. Where the hell is that guy anyway?@@Yeah, yeah... I am late for the party...@@I was supposed to start the War, but just look! Damn humans made it all by 'emselves!@@I AM a harsh guy of course, but... excuse me... Nuclear War?! That's way over my head.@@Yeah, yeah... Look around, I am not needed here.@@Hey Death, can you pass me some Cola?@@Look at conquest! He is cheating!@@Poor Death, imagine all the paper work...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Peace was actually right...@@We really need some Peace here. Where the hell is that guy anyway?@@Yeah, yeah... I am all late for the party.@@I was supposed to start the War, but just look! Damn humans made all by emselves!@@I AM a harsh guy of course, but... excuse me... Nuclear War?! That's way over my head.@@Yeah, yeah... Look around, I am not needed here.@@Hey Death, may you pass me some Cola?@@Look at conquest! He is cheating!@@Poor Death, imagine all the paper work...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Peace was actually right...@@We really need some Peace here. Where the hell is that guy anyway?@@Yeah, yeah... I am all late for the party.@@I was supposed to start the War, but just look! Damn humans made all by emselves!@@I AM a harsh guy of course, but... excuse me... Nuclear War?! That's way over my head.@@Yeah, yeah... Look around, I am not needed here.@@Hey Death, may you pass me some Cola?@@Look at conquest! He is cheating!@@Poor Death, imagine all the paper work...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Peace was actually right...@@We really need some Peace here. Where the hell is that guy anyway?@@Yeah, yeah... I am all late for the party.@@I was supposed to start the War, but just look! Damn humans made all by emselves!@@I AM a harsh guy of course, but... excuse me... Nuclear War?! That's way over my head.@@Yeah, yeah... Look around, I am not needed here.@@Hey Death, may you pass me some Cola?@@Look at conquest! He is cheating!@@Poor Death, imagine all the paper work...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Peace was actually right...@@We really need some Peace here. Where the hell is that guy anyway?@@Yeah, yeah... I am all late for the party.@@I was supposed to start the War, but just look! Damn humans made all by emselves!@@I AM a harsh guy of course, but... excuse me... Nuclear War?! That's way over my head.@@Yeah, yeah... Look around, I am not needed here.@@Hey Death, may you pass me some Cola?@@Look at conquest! He is cheating!@@Poor Death, imagine all the paper work...}
+

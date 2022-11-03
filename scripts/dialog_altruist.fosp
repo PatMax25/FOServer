@@ -1,0 +1,138 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;  
+
+import void DropDrugEffects(Critter&cr)from"drugs";
+import bool SupportPerkCheck(Critter&cr,uint perk)from"perks";
+import void PerkUp(Critter&cr,uint perk,int fromlevel)from"perks";
+
+void init_altruist(Critter&altruist,bool firstTime)
+{
+	
+	altruist.ParamBase[(5)]=10;
+	altruist.ParamBase[(6)]=10;
+	altruist.ParamBase[(14)]=95;
+	altruist.ParamBase[(8)]=1000; 
+	
+	altruist.ParamBase[(200)]=300;
+	altruist.ParamBase[(201)]=300;
+	altruist.ParamBase[(202)]=300;
+	altruist.ParamBase[(203)]=300;
+	
+	altruist.ParamBase[(207)]=300;
+	altruist.ParamBase[(206)]=300;
+	
+	altruist.ParamBase[(23)]=95;
+	altruist.ParamBase[(24)]=95;
+	altruist.ParamBase[(25)]=95;
+	altruist.ParamBase[(26)]=95;
+	altruist.ParamBase[(27)]=95;
+	altruist.ParamBase[(29)]=95;
+	
+	altruist.ParamBase[(511)]=1;
+	altruist.ParamBase[(523)]=1;
+	altruist.ParamBase[(532)]=1;
+	altruist.ParamBase[(522)]=1;
+	altruist.ParamBase[(512)]=1;  
+	
+	CreateTimeEvent(((__FullSecond)+(((2)*__TimeMultiplier))),"e_ChangeReplication",altruist.Id,false);
+}
+
+uint e_ChangeReplication(array<uint>@values)
+{
+	Critter@altruist=GetCritter(values[0]);
+	if(!(@altruist!=null))return 0;
+	
+	altruist.ParamBase[(84)]=15;
+	
+	return 0;
+}
+
+bool d_CanTakePerk(Critter&cr,Critter@npc,int val)
+{
+	return SupportPerkCheck(cr,val);
+}
+
+void r_GivePerk(Critter&cr,Critter@npc,int val)
+{
+	if(SupportPerkCheck(cr,val))
+	cr.ParamBase[val]+=1;
+}
+
+void r_Give(Critter&player,Critter@npc,int val)
+{
+	switch(val)
+	{
+		case 0:
+		{
+			int level=player.Param[(77)];
+			if(level>149&&player.GetAccess()==(0))
+			{
+				player.Say((2),"Wait, it can't be that good.");
+				return;
+			}
+			level++;
+			int exp=level*(level-1)*500;
+			player.ParamBase[(76)]+=(exp-player.ParamBase[(76)]);
+			return;
+		}
+		case 1:
+		{
+			int level=player.Param[(77)];
+			if(level>147&&player.GetAccess()==(0))
+			{
+				player.Say((2),"No, wait.");
+				return;
+			}
+			level+=3;
+			int exp=level*(level-1)*500;
+			player.ParamBase[(76)]+=(exp-player.ParamBase[(76)]);
+			return;
+		}
+		case 2:
+		player.AddItem(41,100000);
+		break;
+		case 3:
+		{
+			for(uint i=0;i<((__ReputationEnd)-(__ReputationBegin)+1);i++)
+			if(player.Reputation[i]!=0)
+			player.ReputationBase[i]=0;
+			if(player.Param[(488)]!=0)player.ParamBase[(488)]=0;
+			if(player.Param[(485)]!=0)player.ParamBase[(485)]=0;
+			break;
+		}
+		case 4:
+		DropDrugEffects(player);
+		break;
+		default:
+	}
+}

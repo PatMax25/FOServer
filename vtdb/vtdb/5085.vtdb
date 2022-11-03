@@ -1,0 +1,8 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = YaPoncheek;
+@gender = 0;
+@age = 20;
+
+@perks = 301;

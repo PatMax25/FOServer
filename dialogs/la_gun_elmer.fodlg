@@ -1,0 +1,171 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+7 1010 D _param p ST_CHARISMA > 99 #
+20 1020 D _param p ST_INTELLECT < 4 #
+2 1030 D _var n name_mem_npc_player = 0 #
+4 1040 D _var n name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 R _var n name_mem_npc_player = 1 #
+0 3020 @
+4 4000 None 0 #
+5 4010 #
+6 4020 D _var n acquaintance = 0 R _var n acquaintance = 1 #
+0 4030 @
+5 5000 None 0 #
+65505 5010 #
+6 5020 D _var n acquaintance = 0 R _var n acquaintance = 1 #
+0 5030 @
+6 6000 None 0 #
+0 6010 @
+20 7000 None 0 @
+7 8000 None 0 &
+
+[engl]
+{100}{}{Elmer}
+{200}{}{You see a person in combat armor.}
+{210}{}{You see Elmer.}
+{210}{}{You see a squat man wearing squalid clothing. He has a toothpick in his mouth and is covered in grease. His fingernails are dirty.}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{Dumb}
+{1030}{}{Unknown}
+{1040}{}{Known}
+{2000}{}{Hey, easy! Watch your step, we've got some advanced pieces of technology around here.}
+{2010}{}{Who are you?}
+{2020}{}{What is this place?}
+{2030}{}{Nothing. Bye. [ end dialogue ]}
+{3000}{}{I'm Elmer and this is the Gunnrunner's base. Who are you?}
+{3010}{}{I am @pname@. Can I ask you a few questions, Elmer?}
+{3020}{}{Nobody. [ end dialogue ]}
+{4000}{}{Yes, what do you need?}
+{4010}{}{Can you tell me more about this place?}
+{4020}{}{What are you doing here?}
+{4030}{}{Bye. [ end dialogue ]}
+{5000}{}{You better talk to someone else about that, I'm really not into that kind of stuff.}
+{5010}{}{Good, let me ask you something else then.}
+{5020}{}{And into what kind of stuff are you?}
+{5030}{}{Got it, I'll talk to him then. Bye! [ end dialogue ]}
+{6000}{}{I'm a production technician. One can say I'm overseeing the gun production here. We don't produce much, but we do have some really hi-tech equipment, I'm proud to say. Energy weapons and cells, you know?}
+{6010}{}{I see. Well, gotta go now, bye! [ end dialogue ]}
+{7000}{}{Just stay away.@@Nothing for you around here.@@Get lost, I'm busy.}
+{8000}{}{Who let the freak in here?@@Boys, we got a uh... something on our hands.@@Sheeee-it.@@*spits*}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{Dumb}
+{1030}{}{Unknown}
+{1040}{}{Known}
+{2000}{}{Hey, easy! Watch your step, we've got some advanced pieces of technology around here.}
+{2010}{}{Who are you?}
+{2020}{}{What is this place?}
+{2030}{}{Nothing. Bye.}
+{3000}{}{I'm Elmer and this is the Gunnrunners base. And who are you?}
+{3010}{}{I am @pname@. Can I ask you a few questions, Elmer?}
+{3020}{}{Nobody. [Leave]}
+{4000}{}{Yes, what do you need?}
+{4010}{}{Can you tell me more about this place?}
+{4020}{}{What are you doing here?}
+{4030}{}{Bye.}
+{5000}{}{You better talk to someone else about that, I'm really not into that kind of stuff.}
+{5010}{}{Good, let me ask you something else then.}
+{5020}{}{And into what kind of stuff are you?}
+{5030}{}{Got it, I'll talk to him then. Bye!}
+{6000}{}{I'm a production technician. One can say I'm overseeing the gun production here. We don't produce much, but we do have some really hi-tech equipment, I'm proud to say. Energy weapons and cells, you know?}
+{6010}{}{I see. Well, gotta go now, bye!}
+{7000}{}{Just stay away.@@Nothing for you around here.@@Get lost, I'm busy.}
+{8000}{}{Who let the freak in here?@@Boys, we got a uh... something on our hands.@@Sheeee-it.@@::spits::}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{Dumb}
+{1030}{}{Unknown}
+{1040}{}{Known}
+{2000}{}{Hey, easy! Watch your step, we've got some advanced pieces of technology around here.}
+{2010}{}{Who are you?}
+{2020}{}{What is this place?}
+{2030}{}{Nothing. Bye.}
+{3000}{}{I'm Elmer and this is the Gunnrunners base. And who are you?}
+{3010}{}{I am @pname@. Can I ask you a few questions, Elmer?}
+{3020}{}{Nobody. [Leave]}
+{4000}{}{Yes, what do you need?}
+{4010}{}{Can you tell me more about this place?}
+{4020}{}{What are you doing here?}
+{4030}{}{Bye.}
+{5000}{}{You better talk to someone else about that, I'm really not into that kind of stuff.}
+{5010}{}{Good, let me ask you something else then.}
+{5020}{}{And into what kind of stuff are you?}
+{5030}{}{Got it, I'll talk to him then. Bye!}
+{6000}{}{I'm a production technician. One can say I'm overseeing the gun production here. We don't produce much, but we do have some really hi-tech equipment, I'm proud to say. Energy weapons and cells, you know?}
+{6010}{}{I see. Well, gotta go now, bye!}
+{7000}{}{Just stay away.@@Nothing for you around here.@@Get lost, I'm busy.}
+{8000}{}{Who let the freak in here?@@Boys, we got a uh... something on our hands.@@Sheeee-it.@@::spits::}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{Dumb}
+{1030}{}{Unknown}
+{1040}{}{Known}
+{2000}{}{Hey, easy! Watch your step, we've got some advanced pieces of technology around here.}
+{2010}{}{Who are you?}
+{2020}{}{What is this place?}
+{2030}{}{Nothing. Bye.}
+{3000}{}{I'm Elmer and this is the Gunnrunners base. And who are you?}
+{3010}{}{I am @pname@. Can I ask you a few questions, Elmer?}
+{3020}{}{Nobody. [Leave]}
+{4000}{}{Yes, what do you need?}
+{4010}{}{Can you tell me more about this place?}
+{4020}{}{What are you doing here?}
+{4030}{}{Bye.}
+{5000}{}{You better talk to someone else about that, I'm really not into that kind of stuff.}
+{5010}{}{Good, let me ask you something else then.}
+{5020}{}{And into what kind of stuff are you?}
+{5030}{}{Got it, I'll talk to him then. Bye!}
+{6000}{}{I'm a production technician. One can say I'm overseeing the gun production here. We don't produce much, but we do have some really hi-tech equipment, I'm proud to say. Energy weapons and cells, you know?}
+{6010}{}{I see. Well, gotta go now, bye!}
+{7000}{}{Just stay away.@@Nothing for you around here.@@Get lost, I'm busy.}
+{8000}{}{Who let the freak in here?@@Boys, we got a uh... something on our hands.@@Sheeee-it.@@::spits::}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ugly}
+{1020}{}{Dumb}
+{1030}{}{Unknown}
+{1040}{}{Known}
+{2000}{}{Hey, easy! Watch your step, we've got some advanced pieces of technology around here.}
+{2010}{}{Who are you?}
+{2020}{}{What is this place?}
+{2030}{}{Nothing. Bye.}
+{3000}{}{I'm Elmer and this is the Gunnrunners base. And who are you?}
+{3010}{}{I am @pname@. Can I ask you a few questions, Elmer?}
+{3020}{}{Nobody. [Leave]}
+{4000}{}{Yes, what do you need?}
+{4010}{}{Can you tell me more about this place?}
+{4020}{}{What are you doing here?}
+{4030}{}{Bye.}
+{5000}{}{You better talk to someone else about that, I'm really not into that kind of stuff.}
+{5010}{}{Good, let me ask you something else then.}
+{5020}{}{And into what kind of stuff are you?}
+{5030}{}{Got it, I'll talk to him then. Bye!}
+{6000}{}{I'm a production technician. One can say I'm overseeing the gun production here. We don't produce much, but we do have some really hi-tech equipment, I'm proud to say. Energy weapons and cells, you know?}
+{6010}{}{I see. Well, gotta go now, bye!}
+{7000}{}{Just stay away.@@Nothing for you around here.@@Get lost, I'm busy.}
+{8000}{}{Who let the freak in here?@@Boys, we got a uh... something on our hands.@@Sheeee-it.@@::spits::}
+

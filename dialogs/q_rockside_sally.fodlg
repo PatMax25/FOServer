@@ -1,0 +1,198 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+8 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 R _var p name_mem_npc_player = 1 #
+0 2020 R _var p name_mem_npc_player = 1 #
+0 2030 R _var p name_mem_npc_player = 1 @
+3 3000 None 0 #
+4 3010 #
+4 3020 #
+0 3030 @
+4 4000 None 0 #
+8 4010 @
+5 5000 None 0 #
+8 5010 @
+6 6000 None 0 #
+0 6010 R _var p q_rockside_sally = 1 #
+0 6020 R _var p q_rockside_sally = 1 @
+7 7000 None 0 @
+8 8000 None 0 #
+5 8010 #
+7 8020 D _var p q_v99_doc_hypodermics = 1 R _var p q_v99_doc_hypodermics = 2 R _item p PID_HYPODERMIC_NEEDLE + 5 #
+6 8030 D _var p q_rockside_sally = 0 #
+9 8040 D _var p q_rockside_sally = 1 D _item p PID_10MM_JHP } 10 R _item p PID_10MM_PISTOL + 1 R _var p q_rockside_sally = 2 R _param p ST_EXPERIENCE + 100 #
+0 8050 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+0 10010 &
+
+[engl]
+{100}{}{Sally}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{ }
+{2000}{}{Oh hi! You must be new here. I am Sally.}
+{2010}{}{Hey there... Sally... What do you do around here?}
+{2020}{}{Bye. [ end dialogue ]}
+{2030}{}{Oh dear! Somebody help! We have a crazy overenergetic woman here! [ end dialogue ]}
+{3000}{}{Oh, me? I am Courier 3 from Mojave, passing through this lovely settlement to continue my way futher West till I reach the ocean...}
+{3010}{}{Courier? So you are something like... A delivery guy... girl... right?}
+{3020}{}{Courier? So you are the one who delivers stuff, right?}
+{3030}{}{Who even cares... bye! [ end dialogue ]}
+{4000}{}{Well... Yeah, yeah. You could say so. We are just delivering goods, heh. }
+{4010}{}{I see...}
+{5000}{}{Nothing interesting there lately. NCR wants to annex everything, Slavers want to get more slaves for sale... At least that was recent news as of the 6th... I highly advise you to visit Vegas. This city will make your blood pump, trust my words.}
+{5010}{}{I see...}
+{6000}{}{Hmh... Well, I really want to give you a Gauss pistol, but in exchange I want you to buy and bring me some 10mm ammo from Watcher. 20 bullets will be enough. You can find Watcher in the building near Gas Station.}
+{6010}{}{Sure I will be right back! [ end dialogue ]}
+{6020}{}{Alright, I will do it. [ end dialogue ]}
+{7000}{}{Hypodermics? Sure. Here they are.}
+{8000}{}{So... Anything you need?}
+{8010}{}{So what is going on in the Mojave nowadays?}
+{8020}{}{I am from Redwolf. He asks for hypodermics.}
+{8030}{}{Can I help you with something?}
+{8040}{}{I got you some 10mm ammo. Now... where is my Gauss Pistol?}
+{8050}{}{See you. [ end dialogue ]}
+{9000}{}{Thank you. Here is your reward. *she gives you a 10mm pistol*}
+{9010}{}{What the hell? You promised me a Gauss Pistol!}
+{10000}{}{Haha! Did you expect me to give you a real Gauss Pistol? Nah, here is some advice  for you instead - don't trust anyone. You can keep the ammo you bought. It will serve you better.}
+{10010}{}{... [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{ }
+{2000}{}{Oh hi! You must be new here. I am Sally.}
+{2010}{}{Hey there... Sally... What are you actually?}
+{2020}{}{Bye.}
+{2030}{}{Oh dear! Somebody help! We have a crazy overenergetic woman here!}
+{3000}{}{Oh I am a Courier 3 from Mojave. Passing through this lovely settlement to continue my way futher West till I reach the ocean.}
+{3010}{}{Courier? So your are something like... A delivery guy... girl... right?}
+{3020}{}{Courier? So you are the one who deliver stuff, right?}
+{3030}{}{Who even cares... bye,}
+{4000}{}{Well... Yeah, yeah. You can say so. We are just delivering goods, heh. }
+{4010}{}{I see...}
+{5000}{}{Nothing interesting there lately. NCR wants to annex everything, Slavers want to get more slaves for sale... At least those were recent news from 6th... Though I highly advice you to visit Vegas. This city will make your blood pumb, trust my words.}
+{5010}{}{I see...}
+{6000}{}{Hmh... Well, I really want to give you a Gauss pistol, but in exchange I want you to buy and bring me some 10mm ammo from Watcher. 20 bullets will be enough. You can find Watcher in the building near Gas Station.}
+{6010}{}{Sure I will be right back!}
+{6020}{}{Alright, I will do it.}
+{7000}{}{Hyperdermics? Sure. Here they are.}
+{8000}{}{So... Anything you need?}
+{8010}{}{So what is going on in Mojave nowadays?}
+{8020}{}{I am from Redwolf. He asks for hyperdermics.}
+{8030}{}{Can I help you with something?}
+{8040}{}{I got some 10mm ammo. Now... where is my Gauss Pistol?}
+{8050}{}{See you.}
+{9000}{}{Thank you. Here is your reward. [ She gives you a 10mm pistol ]}
+{9010}{}{What a hell? You promised me a Gauss Pistol!}
+{10000}{}{Haha! Did you expect me to give you a real Gauss Pistol? Nah, here is an advice  for you - don't trust anyone. You can keep the ammo you bought. It will server you better.}
+{10010}{}{...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{ }
+{2000}{}{Oh hi! You must be new here. I am Sally.}
+{2010}{}{Hey there... Sally... What are you actually?}
+{2020}{}{Bye.}
+{2030}{}{Oh dear! Somebody help! We have a crazy overenergetic woman here!}
+{3000}{}{Oh I am a Courier 3 from Mojave. Passing through this lovely settlement to continue my way futher West till I reach the ocean.}
+{3010}{}{Courier? So your are something like... A delivery guy... girl... right?}
+{3020}{}{Courier? So you are the one who deliver stuff, right?}
+{3030}{}{Who even cares... bye,}
+{4000}{}{Well... Yeah, yeah. You can say so. We are just delivering goods, heh. }
+{4010}{}{I see...}
+{5000}{}{Nothing interesting there lately. NCR wants to annex everything, Slavers want to get more slaves for sale... At least those were recent news from 6th... Though I highly advice you to visit Vegas. This city will make your blood pumb, trust my words.}
+{5010}{}{I see...}
+{6000}{}{Hmh... Well, I really want to give you a Gauss pistol, but in exchange I want you to buy and bring me some 10mm ammo from Watcher. 20 bullets will be enough. You can find Watcher in the building near Gas Station.}
+{6010}{}{Sure I will be right back!}
+{6020}{}{Alright, I will do it.}
+{7000}{}{Hyperdermics? Sure. Here they are.}
+{8000}{}{So... Anything you need?}
+{8010}{}{So what is going on in Mojave nowadays?}
+{8020}{}{I am from Redwolf. He asks for hyperdermics.}
+{8030}{}{Can I help you with something?}
+{8040}{}{I got some 10mm ammo. Now... where is my Gauss Pistol?}
+{8050}{}{See you.}
+{9000}{}{Thank you. Here is your reward. [ She gives you a 10mm pistol ]}
+{9010}{}{What a hell? You promised me a Gauss Pistol!}
+{10000}{}{Haha! Did you expect me to give you a real Gauss Pistol? Nah, here is an advice  for you - don't trust anyone. You can keep the ammo you bought. It will server you better.}
+{10010}{}{...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{ }
+{2000}{}{Oh hi! You must be new here. I am Sally.}
+{2010}{}{Hey there... Sally... What are you actually?}
+{2020}{}{Bye.}
+{2030}{}{Oh dear! Somebody help! We have a crazy overenergetic woman here!}
+{3000}{}{Oh I am a Courier 3 from Mojave. Passing through this lovely settlement to continue my way futher West till I reach the ocean.}
+{3010}{}{Courier? So your are something like... A delivery guy... girl... right?}
+{3020}{}{Courier? So you are the one who deliver stuff, right?}
+{3030}{}{Who even cares... bye,}
+{4000}{}{Well... Yeah, yeah. You can say so. We are just delivering goods, heh. }
+{4010}{}{I see...}
+{5000}{}{Nothing interesting there lately. NCR wants to annex everything, Slavers want to get more slaves for sale... At least those were recent news from 6th... Though I highly advice you to visit Vegas. This city will make your blood pumb, trust my words.}
+{5010}{}{I see...}
+{6000}{}{Hmh... Well, I really want to give you a Gauss pistol, but in exchange I want you to buy and bring me some 10mm ammo from Watcher. 20 bullets will be enough. You can find Watcher in the building near Gas Station.}
+{6010}{}{Sure I will be right back!}
+{6020}{}{Alright, I will do it.}
+{7000}{}{Hyperdermics? Sure. Here they are.}
+{8000}{}{So... Anything you need?}
+{8010}{}{So what is going on in Mojave nowadays?}
+{8020}{}{I am from Redwolf. He asks for hyperdermics.}
+{8030}{}{Can I help you with something?}
+{8040}{}{I got some 10mm ammo. Now... where is my Gauss Pistol?}
+{8050}{}{See you.}
+{9000}{}{Thank you. Here is your reward. [ She gives you a 10mm pistol ]}
+{9010}{}{What a hell? You promised me a Gauss Pistol!}
+{10000}{}{Haha! Did you expect me to give you a real Gauss Pistol? Nah, here is an advice  for you - don't trust anyone. You can keep the ammo you bought. It will server you better.}
+{10010}{}{...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{ }
+{2000}{}{Oh hi! You must be new here. I am Sally.}
+{2010}{}{Hey there... Sally... What are you actually?}
+{2020}{}{Bye.}
+{2030}{}{Oh dear! Somebody help! We have a crazy overenergetic woman here!}
+{3000}{}{Oh I am a Courier 3 from Mojave. Passing through this lovely settlement to continue my way futher West till I reach the ocean.}
+{3010}{}{Courier? So your are something like... A delivery guy... girl... right?}
+{3020}{}{Courier? So you are the one who deliver stuff, right?}
+{3030}{}{Who even cares... bye,}
+{4000}{}{Well... Yeah, yeah. You can say so. We are just delivering goods, heh. }
+{4010}{}{I see...}
+{5000}{}{Nothing interesting there lately. NCR wants to annex everything, Slavers want to get more slaves for sale... At least those were recent news from 6th... Though I highly advice you to visit Vegas. This city will make your blood pumb, trust my words.}
+{5010}{}{I see...}
+{6000}{}{Hmh... Well, I really want to give you a Gauss pistol, but in exchange I want you to buy and bring me some 10mm ammo from Watcher. 20 bullets will be enough. You can find Watcher in the building near Gas Station.}
+{6010}{}{Sure I will be right back!}
+{6020}{}{Alright, I will do it.}
+{7000}{}{Hyperdermics? Sure. Here they are.}
+{8000}{}{So... Anything you need?}
+{8010}{}{So what is going on in Mojave nowadays?}
+{8020}{}{I am from Redwolf. He asks for hyperdermics.}
+{8030}{}{Can I help you with something?}
+{8040}{}{I got some 10mm ammo. Now... where is my Gauss Pistol?}
+{8050}{}{See you.}
+{9000}{}{Thank you. Here is your reward. [ She gives you a 10mm pistol ]}
+{9010}{}{What a hell? You promised me a Gauss Pistol!}
+{10000}{}{Haha! Did you expect me to give you a real Gauss Pistol? Nah, here is an advice  for you - don't trust anyone. You can keep the ammo you bought. It will server you better.}
+{10010}{}{...}
+

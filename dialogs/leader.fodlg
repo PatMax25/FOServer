@@ -1,0 +1,75 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+0 2010 R _param p ST_LEADER_PRE = 1 #
+0 2020 R _param p ST_LEADER_PRE = 2 #
+0 2030 R _param p ST_LEADER_PRE = 3 #
+0 2040 R _param p ST_LEADER_PRE = 4 #
+0 2050 R _param p ST_LEADER_PRE = 5 &
+
+[engl]
+{100}{}{Player}
+{200}{}{You see a construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{Choose Bonus}
+{2010}{}{1. +AG, PE}
+{2020}{}{2. +DR, DT}
+{2030}{}{3. +LK, INT}
+{2040}{}{4. +HP, EN}
+{2050}{}{5. +Melee DMG, ST}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{Choose Bonus}
+{2010}{}{1. +AP, PE}
+{2020}{}{2. +DR, DT}
+{2030}{}{3. +Crit Chance/Power, Luck}
+{2040}{}{4. +HP, Healing Rate and EN}
+{2050}{}{5. +Melee DMG, ST}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{Choose Bonus}
+{2010}{}{1. +AP, PE}
+{2020}{}{2. +DR, DT}
+{2030}{}{3. +Crit Chance/Power, Luck}
+{2040}{}{4. +HP, Healing Rate and EN}
+{2050}{}{5. +Melee DMG, ST}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{Choose Bonus}
+{2010}{}{1. +AP, PE}
+{2020}{}{2. +DR, DT}
+{2030}{}{3. +Crit Chance/Power, Luck}
+{2040}{}{4. +HP, Healing Rate and EN}
+{2050}{}{5. +Melee DMG, ST}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{Choose Bonus}
+{2010}{}{1. +AP, PE}
+{2020}{}{2. +DR, DT}
+{2030}{}{3. +Crit Chance/Power, Luck}
+{2040}{}{4. +HP, Healing Rate and EN}
+{2050}{}{5. +Melee DMG, ST}
+

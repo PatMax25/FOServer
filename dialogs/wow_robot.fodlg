@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p wow_foxlove = 1 R _var p wow_foxlove = 2 #
+0 2020 @
+3 3000 None 0 #
+0 3010 #
+0 3020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see the Robo Eye Bot lying on the ground ]}
+{2010}{}{[ Carefully inspect the robot ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ It seems to be totally wrecked. Even its microchips seem to be chewed... Probably by rats. Bad. ]}
+{3010}{}{[ Leave ]}
+{3020}{}{Somebody is gonna be disappointed...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see the Robo Eye Bot lying on the ground ]}
+{2010}{}{[ Carefully inspect the robot ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ It seems to be totally wrecked off. Its microships seems to be chewed... Probably by rats ]}
+{3010}{}{[ Leave ]}
+{3020}{}{Somebody is gonna get dissapointed...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see the Robo Eye Bot lying on the ground ]}
+{2010}{}{[ Carefully inspect the robot ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ It seems to be totally wrecked off. Its microships seems to be chewed... Probably by rats ]}
+{3010}{}{[ Leave ]}
+{3020}{}{Somebody is gonna get dissapointed...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see the Robo Eye Bot lying on the ground ]}
+{2010}{}{[ Carefully inspect the robot ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ It seems to be totally wrecked off. Its microships seems to be chewed... Probably by rats ]}
+{3010}{}{[ Leave ]}
+{3020}{}{Somebody is gonna get dissapointed...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ You see the Robo Eye Bot lying on the ground ]}
+{2010}{}{[ Carefully inspect the robot ]}
+{2020}{}{[ Leave ]}
+{3000}{}{[ It seems to be totally wrecked off. Its microships seems to be chewed... Probably by rats ]}
+{3010}{}{[ Leave ]}
+{3020}{}{Somebody is gonna get dissapointed...}
+

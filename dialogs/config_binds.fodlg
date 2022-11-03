@@ -1,0 +1,1293 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+0 2020 @
+3 3000 None 0 #
+3 3010 D _script cheats@is_bind_key 1 1 R _script cheats@bind_key 2 1 1 #
+3 3020 D _script cheats@is_bind_key_not 1 1 R _script cheats@bind_key 2 1 2 #
+3 3030 D _script cheats@is_bind_key 1 2 R _script cheats@bind_key 2 2 1 #
+3 3040 D _script cheats@is_bind_key_not 1 2 R _script cheats@bind_key 2 2 2 #
+3 3050 D _script cheats@is_bind_key 1 3 R _script cheats@bind_key 2 3 1 #
+3 3060 D _script cheats@is_bind_key_not 1 3 R _script cheats@bind_key 2 3 2 #
+8 3070 #
+65505 3080 @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+7 4030 #
+0 4040 @
+5 5000 None 0 #
+3 5010 R _script cheats@select_action 1 14 #
+3 5020 R _script cheats@select_action 1 17 #
+3 5030 R _script cheats@select_action 1 16 #
+3 5040 R _script cheats@select_action 1 19 #
+3 5050 R _script cheats@select_action 1 15 #
+3 5060 R _script cheats@select_action 1 18 #
+3 5070 R _script cheats@select_action 1 20 #
+3 5080 R _script cheats@select_action 1 22 #
+65505 5090 @
+6 6000 None 0 #
+18 6010 R _script cheats@select_action 1 33 #
+18 6020 R _script cheats@select_action 1 34 #
+18 6030 R _script cheats@select_action 1 35 #
+18 6040 R _script cheats@select_action 1 36 #
+18 6050 R _script cheats@select_action 1 37 #
+18 6060 R _script cheats@select_action 1 38 #
+18 6070 R _script cheats@select_action 1 39 #
+18 6080 R _script cheats@select_action 1 40 #
+18 6090 R _script cheats@select_action 1 41 #
+18 6100 R _script cheats@select_action 1 42 @
+7 7000 None 0 #
+3 7010 R _script cheats@select_action 1 21 #
+3 7020 R _script cheats@select_action 1 23 #
+3 7030 R _script cheats@select_action 1 24 #
+3 7040 R _script cheats@select_action 1 25 #
+3 7050 R _script cheats@select_action 1 26 #
+3 7060 R _script cheats@select_action 1 27 #
+3 7070 R _script cheats@select_action 1 28 #
+3 7080 R _script cheats@select_action 1 29 #
+3 7090 R _script cheats@select_action 1 30 #
+3 7100 R _script cheats@select_action 1 31 #
+3 7110 R _script cheats@select_action 1 32 #
+65505 7120 @
+8 8000 None 0 #
+9 8010 #
+10 8020 #
+11 8030 #
+12 8040 #
+13 8050 #
+14 8060 #
+15 8070 #
+16 8080 #
+65505 8090 @
+9 9000 None 0 #
+17 9010 R _script cheats@bind_key 2 0 0 #
+17 9020 R _script cheats@bind_key 2 1 0 #
+17 9030 R _script cheats@bind_key 2 2 0 #
+17 9040 R _script cheats@bind_key 2 3 0 #
+17 9050 R _script cheats@bind_key 2 4 0 #
+17 9060 R _script cheats@bind_key 2 5 0 #
+17 9070 R _script cheats@bind_key 2 6 0 #
+17 9080 R _script cheats@bind_key 2 7 0 #
+17 9090 R _script cheats@bind_key 2 8 0 #
+17 9100 R _script cheats@bind_key 2 9 0 #
+65505 9110 @
+10 10000 None 0 #
+17 10010 R _script cheats@bind_key 2 10 0 #
+17 10020 R _script cheats@bind_key 2 11 0 #
+17 10030 R _script cheats@bind_key 2 12 0 #
+17 10040 R _script cheats@bind_key 2 13 0 #
+17 10050 R _script cheats@bind_key 2 14 0 #
+17 10060 R _script cheats@bind_key 2 15 0 #
+17 10070 R _script cheats@bind_key 2 16 0 #
+17 10080 R _script cheats@bind_key 2 17 0 #
+17 10090 R _script cheats@bind_key 2 18 0 #
+17 10100 R _script cheats@bind_key 2 19 0 #
+65505 10110 @
+11 11000 None 0 #
+17 11010 R _script cheats@bind_key 2 20 0 #
+17 11020 R _script cheats@bind_key 2 21 0 #
+17 11030 R _script cheats@bind_key 2 22 0 #
+17 11040 R _script cheats@bind_key 2 23 0 #
+17 11050 R _script cheats@bind_key 2 24 0 #
+17 11060 R _script cheats@bind_key 2 25 0 #
+17 11070 R _script cheats@bind_key 2 26 0 #
+17 11080 R _script cheats@bind_key 2 27 0 #
+17 11090 R _script cheats@bind_key 2 28 0 #
+17 11100 R _script cheats@bind_key 2 29 0 #
+65505 11110 @
+12 12000 None 0 #
+17 12010 R _script cheats@bind_key 2 30 0 #
+17 12020 R _script cheats@bind_key 2 31 0 #
+17 12030 R _script cheats@bind_key 2 32 0 #
+17 12040 R _script cheats@bind_key 2 33 0 #
+17 12050 R _script cheats@bind_key 2 34 0 #
+65505 12060 @
+13 13000 None 0 #
+17 13010 R _script cheats@bind_key 2 35 0 #
+17 13020 R _script cheats@bind_key 2 36 0 #
+17 13030 R _script cheats@bind_key 2 37 0 #
+17 13040 R _script cheats@bind_key 2 38 0 #
+17 13050 R _script cheats@bind_key 2 39 0 #
+17 13060 R _script cheats@bind_key 2 40 0 #
+17 13070 R _script cheats@bind_key 2 41 0 #
+65505 13080 @
+14 14000 None 0 #
+17 14010 R _script cheats@bind_key 2 42 0 #
+17 14020 R _script cheats@bind_key 2 43 0 #
+17 14030 R _script cheats@bind_key 2 44 0 #
+17 14040 R _script cheats@bind_key 2 45 0 #
+17 14050 R _script cheats@bind_key 2 46 0 #
+17 14060 R _script cheats@bind_key 2 47 0 #
+17 14070 R _script cheats@bind_key 2 48 0 #
+65505 14080 @
+15 15000 None 0 #
+17 15010 R _script cheats@bind_key 2 49 0 #
+17 15020 R _script cheats@bind_key 2 50 0 #
+17 15030 R _script cheats@bind_key 2 51 0 #
+17 15040 R _script cheats@bind_key 2 52 0 #
+17 15050 R _script cheats@bind_key 2 53 0 #
+17 15060 R _script cheats@bind_key 2 54 0 #
+17 15070 R _script cheats@bind_key 2 55 0 #
+17 15080 R _script cheats@bind_key 2 56 0 #
+17 15090 R _script cheats@bind_key 2 56 0 #
+17 15100 R _script cheats@bind_key 2 57 0 #
+65505 15110 @
+16 16000 None 0 #
+17 16010 R _script cheats@bind_key 2 58 0 #
+17 16020 R _script cheats@bind_key 2 59 0 #
+17 16030 R _script cheats@bind_key 2 60 0 #
+17 16040 R _script cheats@bind_key 2 61 0 #
+17 16050 R _script cheats@bind_key 2 62 0 #
+17 16060 R _script cheats@bind_key 2 63 0 #
+17 16070 R _script cheats@bind_key 2 64 0 #
+17 16080 R _script cheats@bind_key 2 65 0 #
+17 16090 R _script cheats@bind_key 2 66 0 #
+65505 16100 @
+17 17000 None 0 #
+2 17010 R _script cheats@bind_save 0  #
+8 17020 #
+4 17030 #
+0 17040 @
+18 18000 None 0 #
+19 18010 #
+20 18020 #
+21 18030 #
+22 18040 #
+23 18050 #
+3 18060 #
+18 18070 R _script cheats@reset_item 0  #
+65505 18080 @
+19 19000 None 0 #
+18 19010 D _script cheats@is_select_item 1 40 R _script cheats@select_item 1 40 #
+18 19020 D _script cheats@is_select_item 1 144 R _script cheats@select_item 1 144 #
+18 19030 D _script cheats@is_select_item 1 9655 R _script cheats@select_item 1 9655 #
+18 19040 D _script cheats@is_select_item 1 525 R _script cheats@select_item 1 525 #
+18 19050 D _script cheats@is_select_item 1 49 R _script cheats@select_item 1 49 #
+18 19060 D _script cheats@is_select_item 1 48 R _script cheats@select_item 1 48 #
+18 19070 D _script cheats@is_select_item 1 25592 R _script cheats@select_item 1 25592 #
+18 19080 D _script cheats@is_select_item 1 71 R _script cheats@select_item 1 71 #
+18 19090 D _script cheats@is_select_item 1 260 R _script cheats@select_item 1 260 #
+65505 19100 @
+20 20000 None 0 #
+18 20010 D _script cheats@is_select_item 1 47 R _script cheats@select_item 1 47 #
+18 20020 D _script cheats@is_select_item 1 408 R _script cheats@select_item 1 408 #
+18 20030 D _script cheats@is_select_item 1 91 R _script cheats@select_item 1 91 #
+18 20040 D _script cheats@is_select_item 1 409 R _script cheats@select_item 1 409 #
+18 20050 D _script cheats@is_select_item 1 75 R _script cheats@select_item 1 75 #
+18 20060 D _script cheats@is_select_item 1 308 R _script cheats@select_item 1 308 #
+18 20070 D _script cheats@is_select_item 1 59 R _script cheats@select_item 1 59 #
+18 20080 D _script cheats@is_select_item 1 54 R _script cheats@select_item 1 54 #
+18 20090 D _script cheats@is_select_item 1 222 R _script cheats@select_item 1 222 #
+65505 20100 @
+21 21000 None 0 #
+18 21010 D _script cheats@is_select_item 1 25573 R _script cheats@select_item 1 25573 #
+18 21020 D _script cheats@is_select_item 1 87 R _script cheats@select_item 1 87 #
+18 21030 D _script cheats@is_select_item 1 541 R _script cheats@select_item 1 541 #
+18 21040 D _script cheats@is_select_item 1 273 R _script cheats@select_item 1 273 #
+18 21050 D _script cheats@is_select_item 1 259 R _script cheats@select_item 1 259 #
+18 21060 D _script cheats@is_select_item 1 53 R _script cheats@select_item 1 53 #
+18 21070 D _script cheats@is_select_item 1 25574 R _script cheats@select_item 1 25574 #
+18 21080 D _script cheats@is_select_item 1 110 R _script cheats@select_item 1 110 #
+18 21090 D _script cheats@is_select_item 1 109 R _script cheats@select_item 1 109 #
+18 21100 D _script cheats@is_select_item 1 25575 R _script cheats@select_item 1 25575 #
+65505 21110 @
+22 22000 None 0 #
+18 22010 D _script cheats@is_select_item 1 124 R _script cheats@select_item 1 124 #
+18 22020 D _script cheats@is_select_item 1 125 R _script cheats@select_item 1 125 #
+18 22030 D _script cheats@is_select_item 1 106 R _script cheats@select_item 1 106 #
+18 22040 D _script cheats@is_select_item 1 311 R _script cheats@select_item 1 311 #
+18 22050 D _script cheats@is_select_item 1 469 R _script cheats@select_item 1 469 #
+18 22060 D _script cheats@is_select_item 1 310 R _script cheats@select_item 1 310 #
+65505 22070 @
+23 23000 None 0 #
+18 23010 D _script cheats@is_select_item 1 25592 R _script cheats@select_item 1 25592 #
+18 23020 D _script cheats@is_select_item 1 25595 R _script cheats@select_item 1 25595 #
+18 23030 D _script cheats@is_select_item 1 25596 R _script cheats@select_item 1 25596 #
+18 23040 D _script cheats@is_select_item 1 25597 R _script cheats@select_item 1 25597 #
+18 23050 D _script cheats@is_select_item 1 25593 R _script cheats@select_item 1 25593 #
+18 23060 D _script cheats@is_select_item 1 25594 R _script cheats@select_item 1 25594 #
+65505 23070 &
+
+[engl]
+{100}{}{Player}
+{200}{}{You see a construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{[ system initializing... ]}
+{2010}{}{[ Login ]}
+{2020}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ Set Hotkey ]}
+{3010}{}{[ Toggle Ctrl ]}
+{3020}{}{[ Untoggle Ctrl ]}
+{3030}{}{[ Toggle Alt ]}
+{3040}{}{[ Untoggle Alt ]}
+{3050}{}{[ Toggle Shift ]}
+{3060}{}{[ Untoggle Shift ]}
+{3070}{}{[ Set Key ]}
+{3080}{}{[ Back ]}
+{4000}{}{[ Select Action Category ]}
+{4010}{}{[ Aims ]}
+{4020}{}{[ Items ]}
+{4030}{}{[ Misc ]}
+{4040}{}{[ Exit ] [ end dialogue ]}
+{5000}{}{[ Select Aim Action ]}
+{5010}{}{[ Disable Aim ]}
+{5020}{}{[ Eyes ]}
+{5030}{}{[ Torso ]}
+{5040}{}{[ Right Arm ]}
+{5050}{}{[ Left Arm ]}
+{5060}{}{[ Groin ]}
+{5070}{}{[ Right Leg ]}
+{5080}{}{[ Left Leg ]}
+{5090}{}{[ Back ]}
+{6000}{}{[ Select Action ]}
+{6010}{}{[ Slot 0 ]}
+{6020}{}{[ Slot 1 ]}
+{6030}{}{[ Slot 2 ]}
+{6040}{}{[ Slot 3 ]}
+{6050}{}{[ Slot 4 ]}
+{6060}{}{[ Slot 5 ]}
+{6070}{}{[ Slot 6 ]}
+{6080}{}{[ Slot 7 ]}
+{6090}{}{[ Slot 8 ]}
+{6100}{}{[ Slot 9 ]}
+{7000}{}{[ Select Action ]}
+{7010}{}{[ Reload ]}
+{7020}{}{[ Use Super Stimpak on other target ]}
+{7030}{}{[ Use First Aid on Self ]}
+{7040}{}{[ Use Doctor on Self ]}
+{7050}{}{[ Decraft everything on hex ]}
+{7060}{}{[ Stop Move ]}
+{7070}{}{[ Discharge Armor ]}
+{7080}{}{[ Toggle Motion Sensor Range ]}
+{7090}{}{[ Toggle Fog ]}
+{7100}{}{[ Toggle Roofs ]}
+{7110}{}{[ Toggle Walls ]}
+{7120}{}{[ Back ]}
+{8000}{}{[ Select Key Category (Remember to Toggle CTRL/ALT/SHIFT first, if you need them to bind hotkey please go back to previous menu) ]}
+{8010}{}{[ 0-9 ]}
+{8020}{}{[ A-J ]}
+{8030}{}{[ K-U ]}
+{8040}{}{[ V-Z ]}
+{8050}{}{[ Punctuation marks ]}
+{8060}{}{[ Special Keys ]}
+{8070}{}{[ Numpad ]}
+{8080}{}{[ Numpad Special and Arrow Keys ]}
+{8090}{}{[ Back ]}
+{9000}{}{[ Select Key ]}
+{9010}{}{[ 0 ]}
+{9020}{}{[ 1 ]}
+{9030}{}{[ 2 ]}
+{9040}{}{[ 3 ]}
+{9050}{}{[ 4 ]}
+{9060}{}{[ 5 ]}
+{9070}{}{[ 6 ]}
+{9080}{}{[ 7 ]}
+{9090}{}{[ 8 ]}
+{9100}{}{[ 9 ]}
+{9110}{}{[ Back ]}
+{10000}{}{[ Select Key ]}
+{10010}{}{[ A ]}
+{10020}{}{[ B ]}
+{10030}{}{[ C ]}
+{10040}{}{[ D ]}
+{10050}{}{[ E ]}
+{10060}{}{[ F ]}
+{10070}{}{[ G ]}
+{10080}{}{[ H ]}
+{10090}{}{[ I ]}
+{10100}{}{[ J ]}
+{10110}{}{[ Back ]}
+{11000}{}{[ Select Key ]}
+{11010}{}{[ K ]}
+{11020}{}{[ L ]}
+{11030}{}{[ M ]}
+{11040}{}{[ N ]}
+{11050}{}{[ O ]}
+{11060}{}{[ P ]}
+{11070}{}{[ R ]}
+{11080}{}{[ S ]}
+{11090}{}{[ T ]}
+{11100}{}{[ U ]}
+{11110}{}{[ Back ]}
+{12000}{}{[ Select Key ]}
+{12010}{}{[ V ]}
+{12020}{}{[ W ]}
+{12030}{}{[ X ]}
+{12040}{}{[ Y ]}
+{12050}{}{[ Z ]}
+{12060}{}{[ Back ]}
+{13000}{}{[ Select Key ]}
+{13010}{}{[ [ ]}
+{13020}{}{[ ] ]}
+{13030}{}{[ ; ]}
+{13040}{}{[ ' ]}
+{13050}{}{[ , ]}
+{13060}{}{[ . ]}
+{13070}{}{[ / ]}
+{13080}{}{[ Back ]}
+{14000}{}{[ Select Key ]}
+{14010}{}{[ Tab ]}
+{14020}{}{[ Insert ]}
+{14030}{}{[ Delete ]}
+{14040}{}{[ Home ]}
+{14050}{}{[ End ]}
+{14060}{}{[ Page Up ]}
+{14070}{}{[ Page Down ]}
+{14080}{}{[ Back ]}
+{15000}{}{[ Select Key ]}
+{15010}{}{[ Num 0 ]}
+{15020}{}{[ Num 1 ]}
+{15030}{}{[ Num 2 ]}
+{15040}{}{[ Num 3 ]}
+{15050}{}{[ Num 4 ]}
+{15060}{}{[ Num 5 ]}
+{15070}{}{[ Num 6 ]}
+{15080}{}{[ Num 7 ]}
+{15090}{}{[ Num 8 ]}
+{15100}{}{[ Num 9 ]}
+{15110}{}{[ Back ]}
+{16000}{}{[ Select Key ]}
+{16010}{}{[ Num . ]}
+{16020}{}{[ Num / ]}
+{16030}{}{[ Num * ]}
+{16040}{}{[ Num - ]}
+{16050}{}{[ Num + ]}
+{16060}{}{[ Up Arrow ]}
+{16070}{}{[ Down Arrow ]}
+{16080}{}{[ Left Arrow ]}
+{16090}{}{[ Right Arrow ]}
+{16100}{}{[ Back ]}
+{17000}{}{[ Confirm Hotkey ]}
+{17010}{}{[ Set HotKey ]}
+{17020}{}{[ Change Key ]}
+{17030}{}{[ Change Action ]}
+{17040}{}{[ Exit ] [ end dialogue ]}
+{18000}{}{[ Select Item Category ]}
+{18010}{}{[ Healing ]}
+{18020}{}{[ Tools ]}
+{18030}{}{[ Drugs Main ]}
+{18040}{}{[ Drugs Drinks ]}
+{18050}{}{[ Cannibal Drugs ]}
+{18060}{}{[ Done ]}
+{18070}{}{[ Reset Items ]}
+{18080}{}{[ Back ]}
+{19000}{}{[ Select Item ]}
+{19010}{}{[ Stimpak ]}
+{19020}{}{[ Super Stimpak ]}
+{19030}{}{[ Weak Healing Powder ]}
+{19040}{}{[ Hypo ]}
+{19050}{}{[ Antidote ]}
+{19060}{}{[ RadAway ]}
+{19070}{}{[ Bloodpack ]}
+{19080}{}{[ Fruit ]}
+{19090}{}{[ Drug Antidote ]}
+{19100}{}{[ Back ]}
+{20000}{}{[ Select Item ]}
+{20010}{}{[ First Aid Kit ]}
+{20020}{}{[ Field Medic First Aid Kit ]}
+{20030}{}{[ Doctor's Bag ]}
+{20040}{}{[ Paramedic's Bag ]}
+{20050}{}{[ Tool ]}
+{20060}{}{[ Super Tool Kit ]}
+{20070}{}{[ Motion Sensor ]}
+{20080}{}{[ Stealth Boy ]}
+{20090}{}{[ Detonator ]}
+{20100}{}{[ Back ]}
+{21000}{}{[ Select Item ]}
+{21010}{}{[ After Burner Gum ]}
+{21020}{}{[ Buffout ]}
+{21030}{}{[ Cigarettes ]}
+{21040}{}{[ Healing Powder ]}
+{21050}{}{[ Jet ]}
+{21060}{}{[ Mentats ]}
+{21070}{}{[ Mutie ]}
+{21080}{}{[ Psycho ]}
+{21090}{}{[ Rad-X ]}
+{21100}{}{[ Voodoo ]}
+{21110}{}{[ Back ]}
+{22000}{}{[ Select Item ]}
+{22010}{}{[ Beer ]}
+{22020}{}{[ Booze ]}
+{22030}{}{[ Nuka-Cola ]}
+{22040}{}{[ Roentgen Rum ]}
+{22050}{}{[ Rot Gut ]}
+{22060}{}{[ Gamma Gulp Beer ]}
+{22070}{}{[ Back ]}
+{23000}{}{[ Select Item ]}
+{23010}{}{[ Bloodpack ]}
+{23020}{}{[ Brain ]}
+{23030}{}{[ Ear ]}
+{23040}{}{[ Eye ]}
+{23050}{}{[ Heart ]}
+{23060}{}{[ Liver ]}
+{23070}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Untoggle Ctrl}
+{3030}{}{Toggle Alt}
+{3040}{}{Untoggle Alt}
+{3050}{}{Toggle Shift}
+{3060}{}{Untoggle Shift}
+{3070}{}{Set Key}
+{3080}{}{Back}
+{4000}{}{Dialog text}
+{4010}{}{Aims}
+{4020}{}{Items}
+{4030}{}{Misc}
+{4040}{}{Exit}
+{5000}{}{Select Action}
+{5010}{}{Disable Aim}
+{5020}{}{Eyes}
+{5030}{}{Torso}
+{5040}{}{Right Arm}
+{5050}{}{Left Arm}
+{5060}{}{Groin}
+{5070}{}{Right Leg}
+{5080}{}{Left Leg}
+{5090}{}{Back}
+{6000}{}{Select Action}
+{6010}{}{Slot 0}
+{6020}{}{Slot 1}
+{6030}{}{Slot 2}
+{6040}{}{Slot 3}
+{6050}{}{Slot 4}
+{6060}{}{Slot 5}
+{6070}{}{Slot 6}
+{6080}{}{Slot 7}
+{6090}{}{Slot 8}
+{6100}{}{Slot 9}
+{7000}{}{Select Action}
+{7010}{}{Reload}
+{7020}{}{Use Super Stimpak on other target}
+{7030}{}{Use First Aid on yourself}
+{7040}{}{Use Doctor on yourself}
+{7050}{}{Decraft everything on hex}
+{7060}{}{Stop Move}
+{7070}{}{Discharge Armor}
+{7080}{}{Toggle Montion Sensor Range}
+{7090}{}{Toggle Fog}
+{7100}{}{Toggle Roofs}
+{7110}{}{Toggle Walls}
+{7120}{}{Back}
+{8000}{}{Select Key Category}
+{8010}{}{0-9}
+{8020}{}{A-J}
+{8030}{}{K-U}
+{8040}{}{V-Z}
+{8050}{}{Punctuation marks}
+{8060}{}{Special Keys}
+{8070}{}{Numpad}
+{8080}{}{Numpad Special and Arrows}
+{8090}{}{Back}
+{9000}{}{Select Key}
+{9010}{}{0}
+{9020}{}{1}
+{9030}{}{2}
+{9040}{}{3}
+{9050}{}{4}
+{9060}{}{5}
+{9070}{}{6}
+{9080}{}{7}
+{9090}{}{8}
+{9100}{}{9}
+{9110}{}{Back}
+{10000}{}{Select Key}
+{10010}{}{A}
+{10020}{}{B}
+{10030}{}{C}
+{10040}{}{D}
+{10050}{}{E}
+{10060}{}{F}
+{10070}{}{G}
+{10080}{}{H}
+{10090}{}{I}
+{10100}{}{J}
+{10110}{}{Back}
+{11000}{}{Select Key}
+{11010}{}{K}
+{11020}{}{L}
+{11030}{}{M}
+{11040}{}{N}
+{11050}{}{O}
+{11060}{}{P}
+{11070}{}{R}
+{11080}{}{S}
+{11090}{}{T}
+{11100}{}{U}
+{11110}{}{Back}
+{12000}{}{Select Key}
+{12010}{}{V}
+{12020}{}{W}
+{12030}{}{X}
+{12040}{}{Y}
+{12050}{}{X}
+{12060}{}{Back}
+{13000}{}{Select Key}
+{13010}{}{[}
+{13020}{}{]}
+{13030}{}{;}
+{13040}{}{'}
+{13050}{}{,}
+{13060}{}{.}
+{13070}{}{/}
+{13080}{}{Back}
+{14000}{}{Select Key}
+{14010}{}{Tab}
+{14020}{}{Insert}
+{14030}{}{Delete}
+{14040}{}{Home}
+{14050}{}{End}
+{14060}{}{Page Up}
+{14070}{}{Page Down}
+{14080}{}{Back}
+{15000}{}{Select Key}
+{15010}{}{Num 0}
+{15020}{}{Num 1}
+{15030}{}{Num 2}
+{15040}{}{Num 3}
+{15050}{}{Num 4}
+{15060}{}{Num 5}
+{15070}{}{Num 6}
+{15080}{}{Num 7}
+{15090}{}{Num 8}
+{15100}{}{Num 9}
+{15110}{}{Back}
+{16000}{}{Select Key}
+{16010}{}{Num .}
+{16020}{}{Num /}
+{16030}{}{Num *}
+{16040}{}{Num -}
+{16050}{}{Num +}
+{16060}{}{Up}
+{16070}{}{Down}
+{16080}{}{Left}
+{16090}{}{Right}
+{16100}{}{Back}
+{17000}{}{Confirm Hotkey}
+{17010}{}{Set HotKey}
+{17020}{}{Change Key}
+{17030}{}{Change Action}
+{17040}{}{Exit}
+{18000}{}{Select Item Category}
+{18010}{}{Healing}
+{18020}{}{Tools}
+{18030}{}{Drugs Main}
+{18040}{}{Drugs Drinks}
+{18050}{}{Drugs Canibal}
+{18060}{}{Done}
+{18070}{}{Reset Items}
+{18080}{}{Back}
+{19000}{}{Select Item}
+{19010}{}{Stimpak}
+{19020}{}{Super Stimpak}
+{19030}{}{Weak Healing Powder}
+{19040}{}{Hypo}
+{19050}{}{Antidote}
+{19060}{}{RadAway}
+{19070}{}{Bloodpack}
+{19080}{}{Fruit}
+{19090}{}{Drug Antidote}
+{19100}{}{Back}
+{20000}{}{Select Item}
+{20010}{}{First Aid Kit}
+{20020}{}{Field First Aid Kit}
+{20030}{}{Doctor Bag}
+{20040}{}{Paramedic Bag}
+{20050}{}{Tool}
+{20060}{}{Super Tool Kit}
+{20070}{}{Montion Sensor}
+{20080}{}{Stealth Boy}
+{20090}{}{Detonator}
+{20100}{}{Back}
+{21000}{}{Select Item}
+{21010}{}{After Burner Gum}
+{21020}{}{Buffout}
+{21030}{}{Cigarettes}
+{21040}{}{Healing Powder}
+{21050}{}{Jet}
+{21060}{}{Mentats}
+{21070}{}{Mutie}
+{21080}{}{Psycho}
+{21090}{}{Rad-X}
+{21100}{}{Voodoo}
+{21110}{}{Back}
+{22000}{}{Select Item}
+{22010}{}{Beer}
+{22020}{}{Booze}
+{22030}{}{Nuka-Cola}
+{22040}{}{Roentgen Rum}
+{22050}{}{Rot Gut}
+{22060}{}{Gamma Gulp Beer}
+{22070}{}{Back}
+{23000}{}{Select Item}
+{23010}{}{Bloodpack}
+{23020}{}{Brain}
+{23030}{}{Ear}
+{23040}{}{Eye}
+{23050}{}{Heart}
+{23060}{}{Liver}
+{23070}{}{Back}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Untoggle Ctrl}
+{3030}{}{Toggle Alt}
+{3040}{}{Untoggle Alt}
+{3050}{}{Toggle Shift}
+{3060}{}{Untoggle Shift}
+{3070}{}{Set Key}
+{3080}{}{Back}
+{4000}{}{Dialog text}
+{4010}{}{Aims}
+{4020}{}{Items}
+{4030}{}{Misc}
+{4040}{}{Exit}
+{5000}{}{Select Action}
+{5010}{}{Disable Aim}
+{5020}{}{Eyes}
+{5030}{}{Torso}
+{5040}{}{Right Arm}
+{5050}{}{Left Arm}
+{5060}{}{Groin}
+{5070}{}{Right Leg}
+{5080}{}{Left Leg}
+{5090}{}{Back}
+{6000}{}{Select Action}
+{6010}{}{Slot 0}
+{6020}{}{Slot 1}
+{6030}{}{Slot 2}
+{6040}{}{Slot 3}
+{6050}{}{Slot 4}
+{6060}{}{Slot 5}
+{6070}{}{Slot 6}
+{6080}{}{Slot 7}
+{6090}{}{Slot 8}
+{6100}{}{Slot 9}
+{7000}{}{Select Action}
+{7010}{}{Reload}
+{7020}{}{Use Super Stimpak on other target}
+{7030}{}{Use First Aid on yourself}
+{7040}{}{Use Doctor on yourself}
+{7050}{}{Decraft everything on hex}
+{7060}{}{Stop Move}
+{7070}{}{Discharge Armor}
+{7080}{}{Toggle Montion Sensor Range}
+{7090}{}{Toggle Fog}
+{7100}{}{Toggle Roofs}
+{7110}{}{Toggle Walls}
+{7120}{}{Back}
+{8000}{}{Select Key Category}
+{8010}{}{0-9}
+{8020}{}{A-J}
+{8030}{}{K-U}
+{8040}{}{V-Z}
+{8050}{}{Punctuation marks}
+{8060}{}{Special Keys}
+{8070}{}{Numpad}
+{8080}{}{Numpad Special and Arrows}
+{8090}{}{Back}
+{9000}{}{Select Key}
+{9010}{}{0}
+{9020}{}{1}
+{9030}{}{2}
+{9040}{}{3}
+{9050}{}{4}
+{9060}{}{5}
+{9070}{}{6}
+{9080}{}{7}
+{9090}{}{8}
+{9100}{}{9}
+{9110}{}{Back}
+{10000}{}{Select Key}
+{10010}{}{A}
+{10020}{}{B}
+{10030}{}{C}
+{10040}{}{D}
+{10050}{}{E}
+{10060}{}{F}
+{10070}{}{G}
+{10080}{}{H}
+{10090}{}{I}
+{10100}{}{J}
+{10110}{}{Back}
+{11000}{}{Select Key}
+{11010}{}{K}
+{11020}{}{L}
+{11030}{}{M}
+{11040}{}{N}
+{11050}{}{O}
+{11060}{}{P}
+{11070}{}{R}
+{11080}{}{S}
+{11090}{}{T}
+{11100}{}{U}
+{11110}{}{Back}
+{12000}{}{Select Key}
+{12010}{}{V}
+{12020}{}{W}
+{12030}{}{X}
+{12040}{}{Y}
+{12050}{}{X}
+{12060}{}{Back}
+{13000}{}{Select Key}
+{13010}{}{[}
+{13020}{}{]}
+{13030}{}{;}
+{13040}{}{'}
+{13050}{}{,}
+{13060}{}{.}
+{13070}{}{/}
+{13080}{}{Back}
+{14000}{}{Select Key}
+{14010}{}{Tab}
+{14020}{}{Insert}
+{14030}{}{Delete}
+{14040}{}{Home}
+{14050}{}{End}
+{14060}{}{Page Up}
+{14070}{}{Page Down}
+{14080}{}{Back}
+{15000}{}{Select Key}
+{15010}{}{Num 0}
+{15020}{}{Num 1}
+{15030}{}{Num 2}
+{15040}{}{Num 3}
+{15050}{}{Num 4}
+{15060}{}{Num 5}
+{15070}{}{Num 6}
+{15080}{}{Num 7}
+{15090}{}{Num 8}
+{15100}{}{Num 9}
+{15110}{}{Back}
+{16000}{}{Select Key}
+{16010}{}{Num .}
+{16020}{}{Num /}
+{16030}{}{Num *}
+{16040}{}{Num -}
+{16050}{}{Num +}
+{16060}{}{Up}
+{16070}{}{Down}
+{16080}{}{Left}
+{16090}{}{Right}
+{16100}{}{Back}
+{17000}{}{Confirm Hotkey}
+{17010}{}{Set HotKey}
+{17020}{}{Change Key}
+{17030}{}{Change Action}
+{17040}{}{Exit}
+{18000}{}{Select Item Category}
+{18010}{}{Healing}
+{18020}{}{Tools}
+{18030}{}{Drugs Main}
+{18040}{}{Drugs Drinks}
+{18050}{}{Drugs Canibal}
+{18060}{}{Done}
+{18070}{}{Reset Items}
+{18080}{}{Back}
+{19000}{}{Select Item}
+{19010}{}{Stimpak}
+{19020}{}{Super Stimpak}
+{19030}{}{Weak Healing Powder}
+{19040}{}{Hypo}
+{19050}{}{Antidote}
+{19060}{}{RadAway}
+{19070}{}{Bloodpack}
+{19080}{}{Fruit}
+{19090}{}{Drug Antidote}
+{19100}{}{Back}
+{20000}{}{Select Item}
+{20010}{}{First Aid Kit}
+{20020}{}{Field First Aid Kit}
+{20030}{}{Doctor Bag}
+{20040}{}{Paramedic Bag}
+{20050}{}{Tool}
+{20060}{}{Super Tool Kit}
+{20070}{}{Montion Sensor}
+{20080}{}{Stealth Boy}
+{20090}{}{Detonator}
+{20100}{}{Back}
+{21000}{}{Select Item}
+{21010}{}{After Burner Gum}
+{21020}{}{Buffout}
+{21030}{}{Cigarettes}
+{21040}{}{Healing Powder}
+{21050}{}{Jet}
+{21060}{}{Mentats}
+{21070}{}{Mutie}
+{21080}{}{Psycho}
+{21090}{}{Rad-X}
+{21100}{}{Voodoo}
+{21110}{}{Back}
+{22000}{}{Select Item}
+{22010}{}{Beer}
+{22020}{}{Booze}
+{22030}{}{Nuka-Cola}
+{22040}{}{Roentgen Rum}
+{22050}{}{Rot Gut}
+{22060}{}{Gamma Gulp Beer}
+{22070}{}{Back}
+{23000}{}{Select Item}
+{23010}{}{Bloodpack}
+{23020}{}{Brain}
+{23030}{}{Ear}
+{23040}{}{Eye}
+{23050}{}{Heart}
+{23060}{}{Liver}
+{23070}{}{Back}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Untoggle Ctrl}
+{3030}{}{Toggle Alt}
+{3040}{}{Untoggle Alt}
+{3050}{}{Toggle Shift}
+{3060}{}{Untoggle Shift}
+{3070}{}{Set Key}
+{3080}{}{Back}
+{4000}{}{Dialog text}
+{4010}{}{Aims}
+{4020}{}{Items}
+{4030}{}{Misc}
+{4040}{}{Exit}
+{5000}{}{Select Action}
+{5010}{}{Disable Aim}
+{5020}{}{Eyes}
+{5030}{}{Torso}
+{5040}{}{Right Arm}
+{5050}{}{Left Arm}
+{5060}{}{Groin}
+{5070}{}{Right Leg}
+{5080}{}{Left Leg}
+{5090}{}{Back}
+{6000}{}{Select Action}
+{6010}{}{Slot 0}
+{6020}{}{Slot 1}
+{6030}{}{Slot 2}
+{6040}{}{Slot 3}
+{6050}{}{Slot 4}
+{6060}{}{Slot 5}
+{6070}{}{Slot 6}
+{6080}{}{Slot 7}
+{6090}{}{Slot 8}
+{6100}{}{Slot 9}
+{7000}{}{Select Action}
+{7010}{}{Reload}
+{7020}{}{Use Super Stimpak on other target}
+{7030}{}{Use First Aid on yourself}
+{7040}{}{Use Doctor on yourself}
+{7050}{}{Decraft everything on hex}
+{7060}{}{Stop Move}
+{7070}{}{Discharge Armor}
+{7080}{}{Toggle Montion Sensor Range}
+{7090}{}{Toggle Fog}
+{7100}{}{Toggle Roofs}
+{7110}{}{Toggle Walls}
+{7120}{}{Back}
+{8000}{}{Select Key Category}
+{8010}{}{0-9}
+{8020}{}{A-J}
+{8030}{}{K-U}
+{8040}{}{V-Z}
+{8050}{}{Punctuation marks}
+{8060}{}{Special Keys}
+{8070}{}{Numpad}
+{8080}{}{Numpad Special and Arrows}
+{8090}{}{Back}
+{9000}{}{Select Key}
+{9010}{}{0}
+{9020}{}{1}
+{9030}{}{2}
+{9040}{}{3}
+{9050}{}{4}
+{9060}{}{5}
+{9070}{}{6}
+{9080}{}{7}
+{9090}{}{8}
+{9100}{}{9}
+{9110}{}{Back}
+{10000}{}{Select Key}
+{10010}{}{A}
+{10020}{}{B}
+{10030}{}{C}
+{10040}{}{D}
+{10050}{}{E}
+{10060}{}{F}
+{10070}{}{G}
+{10080}{}{H}
+{10090}{}{I}
+{10100}{}{J}
+{10110}{}{Back}
+{11000}{}{Select Key}
+{11010}{}{K}
+{11020}{}{L}
+{11030}{}{M}
+{11040}{}{N}
+{11050}{}{O}
+{11060}{}{P}
+{11070}{}{R}
+{11080}{}{S}
+{11090}{}{T}
+{11100}{}{U}
+{11110}{}{Back}
+{12000}{}{Select Key}
+{12010}{}{V}
+{12020}{}{W}
+{12030}{}{X}
+{12040}{}{Y}
+{12050}{}{X}
+{12060}{}{Back}
+{13000}{}{Select Key}
+{13010}{}{[}
+{13020}{}{]}
+{13030}{}{;}
+{13040}{}{'}
+{13050}{}{,}
+{13060}{}{.}
+{13070}{}{/}
+{13080}{}{Back}
+{14000}{}{Select Key}
+{14010}{}{Tab}
+{14020}{}{Insert}
+{14030}{}{Delete}
+{14040}{}{Home}
+{14050}{}{End}
+{14060}{}{Page Up}
+{14070}{}{Page Down}
+{14080}{}{Back}
+{15000}{}{Select Key}
+{15010}{}{Num 0}
+{15020}{}{Num 1}
+{15030}{}{Num 2}
+{15040}{}{Num 3}
+{15050}{}{Num 4}
+{15060}{}{Num 5}
+{15070}{}{Num 6}
+{15080}{}{Num 7}
+{15090}{}{Num 8}
+{15100}{}{Num 9}
+{15110}{}{Back}
+{16000}{}{Select Key}
+{16010}{}{Num .}
+{16020}{}{Num /}
+{16030}{}{Num *}
+{16040}{}{Num -}
+{16050}{}{Num +}
+{16060}{}{Up}
+{16070}{}{Down}
+{16080}{}{Left}
+{16090}{}{Right}
+{16100}{}{Back}
+{17000}{}{Confirm Hotkey}
+{17010}{}{Set HotKey}
+{17020}{}{Change Key}
+{17030}{}{Change Action}
+{17040}{}{Exit}
+{18000}{}{Select Item Category}
+{18010}{}{Healing}
+{18020}{}{Tools}
+{18030}{}{Drugs Main}
+{18040}{}{Drugs Drinks}
+{18050}{}{Drugs Canibal}
+{18060}{}{Done}
+{18070}{}{Reset Items}
+{18080}{}{Back}
+{19000}{}{Select Item}
+{19010}{}{Stimpak}
+{19020}{}{Super Stimpak}
+{19030}{}{Weak Healing Powder}
+{19040}{}{Hypo}
+{19050}{}{Antidote}
+{19060}{}{RadAway}
+{19070}{}{Bloodpack}
+{19080}{}{Fruit}
+{19090}{}{Drug Antidote}
+{19100}{}{Back}
+{20000}{}{Select Item}
+{20010}{}{First Aid Kit}
+{20020}{}{Field First Aid Kit}
+{20030}{}{Doctor Bag}
+{20040}{}{Paramedic Bag}
+{20050}{}{Tool}
+{20060}{}{Super Tool Kit}
+{20070}{}{Montion Sensor}
+{20080}{}{Stealth Boy}
+{20090}{}{Detonator}
+{20100}{}{Back}
+{21000}{}{Select Item}
+{21010}{}{After Burner Gum}
+{21020}{}{Buffout}
+{21030}{}{Cigarettes}
+{21040}{}{Healing Powder}
+{21050}{}{Jet}
+{21060}{}{Mentats}
+{21070}{}{Mutie}
+{21080}{}{Psycho}
+{21090}{}{Rad-X}
+{21100}{}{Voodoo}
+{21110}{}{Back}
+{22000}{}{Select Item}
+{22010}{}{Beer}
+{22020}{}{Booze}
+{22030}{}{Nuka-Cola}
+{22040}{}{Roentgen Rum}
+{22050}{}{Rot Gut}
+{22060}{}{Gamma Gulp Beer}
+{22070}{}{Back}
+{23000}{}{Select Item}
+{23010}{}{Bloodpack}
+{23020}{}{Brain}
+{23030}{}{Ear}
+{23040}{}{Eye}
+{23050}{}{Heart}
+{23060}{}{Liver}
+{23070}{}{Back}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Untoggle Ctrl}
+{3030}{}{Toggle Alt}
+{3040}{}{Untoggle Alt}
+{3050}{}{Toggle Shift}
+{3060}{}{Untoggle Shift}
+{3070}{}{Set Key}
+{3080}{}{Back}
+{4000}{}{Dialog text}
+{4010}{}{Aims}
+{4020}{}{Items}
+{4030}{}{Misc}
+{4040}{}{Exit}
+{5000}{}{Select Action}
+{5010}{}{Disable Aim}
+{5020}{}{Eyes}
+{5030}{}{Torso}
+{5040}{}{Right Arm}
+{5050}{}{Left Arm}
+{5060}{}{Groin}
+{5070}{}{Right Leg}
+{5080}{}{Left Leg}
+{5090}{}{Back}
+{6000}{}{Select Action}
+{6010}{}{Slot 0}
+{6020}{}{Slot 1}
+{6030}{}{Slot 2}
+{6040}{}{Slot 3}
+{6050}{}{Slot 4}
+{6060}{}{Slot 5}
+{6070}{}{Slot 6}
+{6080}{}{Slot 7}
+{6090}{}{Slot 8}
+{6100}{}{Slot 9}
+{7000}{}{Select Action}
+{7010}{}{Reload}
+{7020}{}{Use Super Stimpak on other target}
+{7030}{}{Use First Aid on yourself}
+{7040}{}{Use Doctor on yourself}
+{7050}{}{Decraft everything on hex}
+{7060}{}{Stop Move}
+{7070}{}{Discharge Armor}
+{7080}{}{Toggle Montion Sensor Range}
+{7090}{}{Toggle Fog}
+{7100}{}{Toggle Roofs}
+{7110}{}{Toggle Walls}
+{7120}{}{Back}
+{8000}{}{Select Key Category}
+{8010}{}{0-9}
+{8020}{}{A-J}
+{8030}{}{K-U}
+{8040}{}{V-Z}
+{8050}{}{Punctuation marks}
+{8060}{}{Special Keys}
+{8070}{}{Numpad}
+{8080}{}{Numpad Special and Arrows}
+{8090}{}{Back}
+{9000}{}{Select Key}
+{9010}{}{0}
+{9020}{}{1}
+{9030}{}{2}
+{9040}{}{3}
+{9050}{}{4}
+{9060}{}{5}
+{9070}{}{6}
+{9080}{}{7}
+{9090}{}{8}
+{9100}{}{9}
+{9110}{}{Back}
+{10000}{}{Select Key}
+{10010}{}{A}
+{10020}{}{B}
+{10030}{}{C}
+{10040}{}{D}
+{10050}{}{E}
+{10060}{}{F}
+{10070}{}{G}
+{10080}{}{H}
+{10090}{}{I}
+{10100}{}{J}
+{10110}{}{Back}
+{11000}{}{Select Key}
+{11010}{}{K}
+{11020}{}{L}
+{11030}{}{M}
+{11040}{}{N}
+{11050}{}{O}
+{11060}{}{P}
+{11070}{}{R}
+{11080}{}{S}
+{11090}{}{T}
+{11100}{}{U}
+{11110}{}{Back}
+{12000}{}{Select Key}
+{12010}{}{V}
+{12020}{}{W}
+{12030}{}{X}
+{12040}{}{Y}
+{12050}{}{X}
+{12060}{}{Back}
+{13000}{}{Select Key}
+{13010}{}{[}
+{13020}{}{]}
+{13030}{}{;}
+{13040}{}{'}
+{13050}{}{,}
+{13060}{}{.}
+{13070}{}{/}
+{13080}{}{Back}
+{14000}{}{Select Key}
+{14010}{}{Tab}
+{14020}{}{Insert}
+{14030}{}{Delete}
+{14040}{}{Home}
+{14050}{}{End}
+{14060}{}{Page Up}
+{14070}{}{Page Down}
+{14080}{}{Back}
+{15000}{}{Select Key}
+{15010}{}{Num 0}
+{15020}{}{Num 1}
+{15030}{}{Num 2}
+{15040}{}{Num 3}
+{15050}{}{Num 4}
+{15060}{}{Num 5}
+{15070}{}{Num 6}
+{15080}{}{Num 7}
+{15090}{}{Num 8}
+{15100}{}{Num 9}
+{15110}{}{Back}
+{16000}{}{Select Key}
+{16010}{}{Num .}
+{16020}{}{Num /}
+{16030}{}{Num *}
+{16040}{}{Num -}
+{16050}{}{Num +}
+{16060}{}{Up}
+{16070}{}{Down}
+{16080}{}{Left}
+{16090}{}{Right}
+{16100}{}{Back}
+{17000}{}{Confirm Hotkey}
+{17010}{}{Set HotKey}
+{17020}{}{Change Key}
+{17030}{}{Change Action}
+{17040}{}{Exit}
+{18000}{}{Select Item Category}
+{18010}{}{Healing}
+{18020}{}{Tools}
+{18030}{}{Drugs Main}
+{18040}{}{Drugs Drinks}
+{18050}{}{Drugs Canibal}
+{18060}{}{Done}
+{18070}{}{Reset Items}
+{18080}{}{Back}
+{19000}{}{Select Item}
+{19010}{}{Stimpak}
+{19020}{}{Super Stimpak}
+{19030}{}{Weak Healing Powder}
+{19040}{}{Hypo}
+{19050}{}{Antidote}
+{19060}{}{RadAway}
+{19070}{}{Bloodpack}
+{19080}{}{Fruit}
+{19090}{}{Drug Antidote}
+{19100}{}{Back}
+{20000}{}{Select Item}
+{20010}{}{First Aid Kit}
+{20020}{}{Field First Aid Kit}
+{20030}{}{Doctor Bag}
+{20040}{}{Paramedic Bag}
+{20050}{}{Tool}
+{20060}{}{Super Tool Kit}
+{20070}{}{Montion Sensor}
+{20080}{}{Stealth Boy}
+{20090}{}{Detonator}
+{20100}{}{Back}
+{21000}{}{Select Item}
+{21010}{}{After Burner Gum}
+{21020}{}{Buffout}
+{21030}{}{Cigarettes}
+{21040}{}{Healing Powder}
+{21050}{}{Jet}
+{21060}{}{Mentats}
+{21070}{}{Mutie}
+{21080}{}{Psycho}
+{21090}{}{Rad-X}
+{21100}{}{Voodoo}
+{21110}{}{Back}
+{22000}{}{Select Item}
+{22010}{}{Beer}
+{22020}{}{Booze}
+{22030}{}{Nuka-Cola}
+{22040}{}{Roentgen Rum}
+{22050}{}{Rot Gut}
+{22060}{}{Gamma Gulp Beer}
+{22070}{}{Back}
+{23000}{}{Select Item}
+{23010}{}{Bloodpack}
+{23020}{}{Brain}
+{23030}{}{Ear}
+{23040}{}{Eye}
+{23050}{}{Heart}
+{23060}{}{Liver}
+{23070}{}{Back}
+

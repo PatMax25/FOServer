@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Bounty Hunter}
+{200}{}{You see a bounty hunter.}
+{210}{}{You see a bounty hunter.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Your life ends here!@@So, you're the one marked for death.@@You're worth a pretty penny!@@I am going to bring you back in a body bag!@@Die, scum!@@They'll pay nicely for you!@@I'm bringing you in dead or alive!@@You messed with the wrong folks!@@Time for the fun part!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You are going to die.@@So, you're the one marked for death.@@You should learn better manners.@@I am going to bring you back in a body bag.@@Die, you scum!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You are going to die.@@So, you're the one marked for death.@@You should learn better manners.@@I am going to bring you back in a body bag.@@Die, you scum!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You are going to die.@@So, you're the one marked for death.@@You should learn better manners.@@I am going to bring you back in a body bag.@@Die, you scum!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You are going to die.@@So, you're the one marked for death.@@You should learn better manners.@@I am going to bring you back in a body bag.@@Die, you scum!}
+

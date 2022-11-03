@@ -1,0 +1,228 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+13 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 R _var p name_mem_npc_player = 1 R _item p PID_SMALL_ENERGY_CELL + 4 #
+0 7020 R _var p name_mem_npc_player = 1 R _item p PID_SMALL_ENERGY_CELL + 4 @
+8 8000 None 0 #
+9 8010 #
+0 8020 @
+9 9000 None 0 #
+10 9010 @
+10 10000 None 0 #
+11 10010 @
+11 11000 None 0 #
+13 11010 #
+0 11020 @
+13 12000 None 0 #
+14 12010 #
+0 12020 @
+14 13000 None 0 #
+15 13010 #
+15 13020 @
+15 14000 None 0 &
+
+[engl]
+{100}{}{Mr. Fixer}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{It is you again. How can I help you today?}
+{2010}{}{Again?}
+{2020}{}{Screw you, another crazy robot. I am out of here.}
+{3000}{}{Yes, we have met many times before, @pname@. I was the one... one... ne... helped you to... t-t-t-oooo... get you in your chamber over 200 years ago.}
+{3010}{}{What? Who are you?}
+{4000}{}{I am VSM - 400, Vault System Mainframe.}
+{4010}{}{So you are not like the other robots here.}
+{5000}{}{No, I used this robot to save myself from... from...}
+{5010}{}{From what? What is this place? Who am I? Why don't I remember anything?!}
+{6000}{}{Unfortunately, my memory module is damaged. I can't answer your question.}
+{6010}{}{Oh great... But there should be at least something.}
+{7000}{}{[ bzzt ] The message from Doctor Brown. Do you wish to hear it?}
+{7010}{}{Yeah, sure. Play it.}
+{7020}{}{I am not interested. Goodbye.}
+{8000}{}{[ Start of the recording ] Ehm... Hello? Does this thing work? Fine. Uh... Alright... Hello, once again... My name is Doctor Alexander Brown. This message will be loaded in the Mainframe... or at least on holotape somewhere. This message must be played to ALL Vault Residents. [ Silence ] Unfortunately the situation is no longer under our control, but there shouldn't be anything threatening you as long as the lower levels stay blocked and the security system has enough resources and units... [ a second voice can be heard in the backgrond, but you can't understand what is said ] ... 60 percent? Already?! They were supposed to hold it, these are fucking giant tin coffins with heavy weapons! How come that... [ the mumble can be heard again ]...}
+{8010}{}{[ continue ]}
+{8020}{}{Enough, I am out of here.}
+{9000}{}{... Fine, fine... Activate the explosions then. [ mumble in the backgrond ] YES I AM SURE! [ sounds of steps ] [ silence ] Listen carefully, Resident. All you need to do is get the heck out of this place as fast as possible and forget about its existance. Don't try to find out the truth about yourself or this facility. It will be better for you... [ silence ] ... It will be better for all of us. [ End of recording ]}
+{9010}{}{Where is this message from?}
+{10000}{}{[ bzzt ] Can't answer your question. But the message was recorded in this facility and later transmitted to this robot from somewhere else.}
+{10010}{}{Somewhere else? Do you know the exact location?}
+{11000}{}{No...}
+{11010}{}{Great...}
+{11020}{}{[ Leave ]}
+{12000}{}{Is there anything else you want to ask me about?}
+{12010}{}{Yeah... The robot you use. What was it for?}
+{12020}{}{Nothing.}
+{13000}{}{This robot was supposed to teach you how to craft items. There was some other dialogue, but it's basically that you just need to press F - it will open your Fix Boy. Your intellectual level shows that you will be able to understand everything from here by yourself.}
+{13010}{}{Good to know...}
+{13020}{}{Fine... I will go now.}
+{14000}{}{Before you go... Please take these batteries. Have a good day.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{It is you again. How can I help you today?}
+{2010}{}{Again?}
+{2020}{}{Screw you, another crazy robot. I am out of here.}
+{3000}{}{Yes, we have met many times before, @pname@. I was the one... one... ne... helped you to... t-t-t-oooo... get you in your chamber over 200 years ago.}
+{3010}{}{What? Who are you?}
+{4000}{}{I am VSM - 400, Vault System Mainframe.}
+{4010}{}{So you are not like the other robots here.}
+{5000}{}{No, I used this robot to save myself from... from...}
+{5010}{}{From what? What is this place? Who am I? Why don't I remember anything?!}
+{6000}{}{Unfortunately, my memory module is damaged. I can't answer your question.}
+{6010}{}{Oh great... But there should be at least something.}
+{7000}{}{[ bzzt ] The message from Doctor Brown. Do you wish to hear it?}
+{7010}{}{Yeah, sure. Play it.}
+{7020}{}{I am not interested. Goodbye.}
+{8000}{}{[ Start of the recording ] Ehm... Hello? Does this thing work? Fine. Uh... Alright... Hello, once again... My name is Doctor Alexander Brown. This message will be loaded in the Mainframe... or at least in the thing that remains from it. The message must be played to ALL Vault Residents. [ Silence ] Unfortunately the situation is no longer under our control. But there shouldn't be anything threatening you as far as lower levels are blocked and the security system has enough resources and units... [ the second voice can be heard in the backgrond, but you can't understand what is said ] ... 60 percent? Already?! They were supposed to hold it, these are fucking giant tin coffins with heavy weapons! How come that... [ the mumble can be heard again ]...}
+{8010}{}{[ continue ]}
+{8020}{}{Enough, I am out of here.}
+{9000}{}{... Fine, fine... Activate the explosions then. [ mumble in the backgrond ] YES I AM SURE! [ sounds of steps ] [ silence ] Listen carefully, Resident. Everything what you need to do is to get the heck out of this place as fast as possible and forget about its existance. Don't try to find out the truth about yourself or this facility. It will be better for you... [ silence ] ... It will be better for all of us. [ End of recording ]}
+{9010}{}{Where is this message from?}
+{10000}{}{[ bzzt ] Can't answer your question. But the message was recorded in this facility and later transmitted in my mainframe from somewhere else.}
+{10010}{}{Somewhere else? Do you know the exact location?}
+{11000}{}{No...}
+{11010}{}{Great...}
+{11020}{}{[ Leave ]}
+{12000}{}{Is there anything else you want to ask me about?}
+{12010}{}{Yeah... The robot you use. What was it for?}
+{12020}{}{Nothing.}
+{13000}{}{This robot was supposed to teach you how to craft items. Everything what I can say is that you just need to press F - it will open your Fix Boy. Your intellectual level shows, that you will be able to understand everything by yourself.}
+{13010}{}{Good to know...}
+{13020}{}{Fine... I will go now.}
+{14000}{}{Before you go... Please take these batteries. Have a good day.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{It is you again. How can I help you today?}
+{2010}{}{Again?}
+{2020}{}{Screw you, another crazy robot. I am out of here.}
+{3000}{}{Yes, we have met many times before, @pname@. I was the one... one... ne... helped you to... t-t-t-oooo... get you in your chamber over 200 years ago.}
+{3010}{}{What? Who are you?}
+{4000}{}{I am VSM - 400, Vault System Mainframe.}
+{4010}{}{So you are not like the other robots here.}
+{5000}{}{No, I used this robot to save myself from... from...}
+{5010}{}{From what? What is this place? Who am I? Why don't I remember anything?!}
+{6000}{}{Unfortunately, my memory module is damaged. I can't answer your question.}
+{6010}{}{Oh great... But there should be at least something.}
+{7000}{}{[ bzzt ] The message from Doctor Brown. Do you wish to hear it?}
+{7010}{}{Yeah, sure. Play it.}
+{7020}{}{I am not interested. Goodbye.}
+{8000}{}{[ Start of the recording ] Ehm... Hello? Does this thing work? Fine. Uh... Alright... Hello, once again... My name is Doctor Alexander Brown. This message will be loaded in the Mainframe... or at least in the thing that remains from it. The message must be played to ALL Vault Residents. [ Silence ] Unfortunately the situation is no longer under our control. But there shouldn't be anything threatening you as far as lower levels are blocked and the security system has enough resources and units... [ the second voice can be heard in the backgrond, but you can't understand what is said ] ... 60 percent? Already?! They were supposed to hold it, these are fucking giant tin coffins with heavy weapons! How come that... [ the mumble can be heard again ]...}
+{8010}{}{[ continue ]}
+{8020}{}{Enough, I am out of here.}
+{9000}{}{... Fine, fine... Activate the explosions then. [ mumble in the backgrond ] YES I AM SURE! [ sounds of steps ] [ silence ] Listen carefully, Resident. Everything what you need to do is to get the heck out of this place as fast as possible and forget about its existance. Don't try to find out the truth about yourself or this facility. It will be better for you... [ silence ] ... It will be better for all of us. [ End of recording ]}
+{9010}{}{Where is this message from?}
+{10000}{}{[ bzzt ] Can't answer your question. But the message was recorded in this facility and later transmitted in my mainframe from somewhere else.}
+{10010}{}{Somewhere else? Do you know the exact location?}
+{11000}{}{No...}
+{11010}{}{Great...}
+{11020}{}{[ Leave ]}
+{12000}{}{Is there anything else you want to ask me about?}
+{12010}{}{Yeah... The robot you use. What was it for?}
+{12020}{}{Nothing.}
+{13000}{}{This robot was supposed to teach you how to craft items. Everything what I can say is that you just need to press F - it will open your Fix Boy. Your intellectual level shows, that you will be able to understand everything by yourself.}
+{13010}{}{Good to know...}
+{13020}{}{Fine... I will go now.}
+{14000}{}{Before you go... Please take these batteries. Have a good day.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{It is you again. How can I help you today?}
+{2010}{}{Again?}
+{2020}{}{Screw you, another crazy robot. I am out of here.}
+{3000}{}{Yes, we have met many times before, @pname@. I was the one... one... ne... helped you to... t-t-t-oooo... get you in your chamber over 200 years ago.}
+{3010}{}{What? Who are you?}
+{4000}{}{I am VSM - 400, Vault System Mainframe.}
+{4010}{}{So you are not like the other robots here.}
+{5000}{}{No, I used this robot to save myself from... from...}
+{5010}{}{From what? What is this place? Who am I? Why don't I remember anything?!}
+{6000}{}{Unfortunately, my memory module is damaged. I can't answer your question.}
+{6010}{}{Oh great... But there should be at least something.}
+{7000}{}{[ bzzt ] The message from Doctor Brown. Do you wish to hear it?}
+{7010}{}{Yeah, sure. Play it.}
+{7020}{}{I am not interested. Goodbye.}
+{8000}{}{[ Start of the recording ] Ehm... Hello? Does this thing work? Fine. Uh... Alright... Hello, once again... My name is Doctor Alexander Brown. This message will be loaded in the Mainframe... or at least in the thing that remains from it. The message must be played to ALL Vault Residents. [ Silence ] Unfortunately the situation is no longer under our control. But there shouldn't be anything threatening you as far as lower levels are blocked and the security system has enough resources and units... [ the second voice can be heard in the backgrond, but you can't understand what is said ] ... 60 percent? Already?! They were supposed to hold it, these are fucking giant tin coffins with heavy weapons! How come that... [ the mumble can be heard again ]...}
+{8010}{}{[ continue ]}
+{8020}{}{Enough, I am out of here.}
+{9000}{}{... Fine, fine... Activate the explosions then. [ mumble in the backgrond ] YES I AM SURE! [ sounds of steps ] [ silence ] Listen carefully, Resident. Everything what you need to do is to get the heck out of this place as fast as possible and forget about its existance. Don't try to find out the truth about yourself or this facility. It will be better for you... [ silence ] ... It will be better for all of us. [ End of recording ]}
+{9010}{}{Where is this message from?}
+{10000}{}{[ bzzt ] Can't answer your question. But the message was recorded in this facility and later transmitted in my mainframe from somewhere else.}
+{10010}{}{Somewhere else? Do you know the exact location?}
+{11000}{}{No...}
+{11010}{}{Great...}
+{11020}{}{[ Leave ]}
+{12000}{}{Is there anything else you want to ask me about?}
+{12010}{}{Yeah... The robot you use. What was it for?}
+{12020}{}{Nothing.}
+{13000}{}{This robot was supposed to teach you how to craft items. Everything what I can say is that you just need to press F - it will open your Fix Boy. Your intellectual level shows, that you will be able to understand everything by yourself.}
+{13010}{}{Good to know...}
+{13020}{}{Fine... I will go now.}
+{14000}{}{Before you go... Please take these batteries. Have a good day.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{It is you again. How can I help you today?}
+{2010}{}{Again?}
+{2020}{}{Screw you, another crazy robot. I am out of here.}
+{3000}{}{Yes, we have met many times before, @pname@. I was the one... one... ne... helped you to... t-t-t-oooo... get you in your chamber over 200 years ago.}
+{3010}{}{What? Who are you?}
+{4000}{}{I am VSM - 400, Vault System Mainframe.}
+{4010}{}{So you are not like the other robots here.}
+{5000}{}{No, I used this robot to save myself from... from...}
+{5010}{}{From what? What is this place? Who am I? Why don't I remember anything?!}
+{6000}{}{Unfortunately, my memory module is damaged. I can't answer your question.}
+{6010}{}{Oh great... But there should be at least something.}
+{7000}{}{[ bzzt ] The message from Doctor Brown. Do you wish to hear it?}
+{7010}{}{Yeah, sure. Play it.}
+{7020}{}{I am not interested. Goodbye.}
+{8000}{}{[ Start of the recording ] Ehm... Hello? Does this thing work? Fine. Uh... Alright... Hello, once again... My name is Doctor Alexander Brown. This message will be loaded in the Mainframe... or at least in the thing that remains from it. The message must be played to ALL Vault Residents. [ Silence ] Unfortunately the situation is no longer under our control. But there shouldn't be anything threatening you as far as lower levels are blocked and the security system has enough resources and units... [ the second voice can be heard in the backgrond, but you can't understand what is said ] ... 60 percent? Already?! They were supposed to hold it, these are fucking giant tin coffins with heavy weapons! How come that... [ the mumble can be heard again ]...}
+{8010}{}{[ continue ]}
+{8020}{}{Enough, I am out of here.}
+{9000}{}{... Fine, fine... Activate the explosions then. [ mumble in the backgrond ] YES I AM SURE! [ sounds of steps ] [ silence ] Listen carefully, Resident. Everything what you need to do is to get the heck out of this place as fast as possible and forget about its existance. Don't try to find out the truth about yourself or this facility. It will be better for you... [ silence ] ... It will be better for all of us. [ End of recording ]}
+{9010}{}{Where is this message from?}
+{10000}{}{[ bzzt ] Can't answer your question. But the message was recorded in this facility and later transmitted in my mainframe from somewhere else.}
+{10010}{}{Somewhere else? Do you know the exact location?}
+{11000}{}{No...}
+{11010}{}{Great...}
+{11020}{}{[ Leave ]}
+{12000}{}{Is there anything else you want to ask me about?}
+{12010}{}{Yeah... The robot you use. What was it for?}
+{12020}{}{Nothing.}
+{13000}{}{This robot was supposed to teach you how to craft items. Everything what I can say is that you just need to press F - it will open your Fix Boy. Your intellectual level shows, that you will be able to understand everything by yourself.}
+{13010}{}{Good to know...}
+{13020}{}{Fine... I will go now.}
+{14000}{}{Before you go... Please take these batteries. Have a good day.}
+

@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 1 &
+
+[engl]
+{100}{}{Christofer}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, welcome to Hawthorne.@@Don't cause problems and we will be fine.@@Have you seen my brother Christian already?@@Hello.@@Hey there. What is it?@@It ain't heaven, but if you got nowhere else to go, may as well come here...@@Just use common sense here and you'll go far.@@This ain't the kind of place where people take kindly to trouble.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, welcome in Hawthorne.@@Just don't cause problems and we will be fine.@@Have you seen my brother Christian already?@@Hello.@@Hey there. What is it?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, welcome in Hawthorne.@@Just don't cause problems and we will be fine.@@Have you seen my brother Christian already?@@Hello.@@Hey there. What is it?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, welcome in Hawthorne.@@Just don't cause problems and we will be fine.@@Have you seen my brother Christian already?@@Hello.@@Hey there. What is it?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, welcome in Hawthorne.@@Just don't cause problems and we will be fine.@@Have you seen my brother Christian already?@@Hello.@@Hey there. What is it?}
+

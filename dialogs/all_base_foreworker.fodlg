@@ -1,0 +1,542 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+20 2010 #
+30 2020 D _script dialog@d_NotMemberOfAnyFaction 0  D _script factions_player@d_HasNotRequiredFollowers 1 2 #
+6 2030 D _script factions_player@d_HasRequiredFollowers 1 2 D _script dialog@d_NotMemberOfAnyFaction 0  #
+6 2040 D _script dialog@d_IsLeader 0  #
+0 2050 @
+3 3000 factions_player@dlg_EnterNameOfFaction 0 #
+0 3010 @
+4 4000 None 0 #
+8 4010 R _script factions_player@r_SiteDepot 1 10000 #
+8 4020 R _script factions_player@r_SiteScrapheap 1 10000 #
+8 4030 R _script factions_player@r_SiteOutpost 1 10000 #
+8 4040 R _script factions_player@r_SiteCamp 1 10000 #
+0 4050 #
+8 4060 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePat01 1 1 #
+8 4070 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePat02 1 1 #
+8 4080 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePat03 1 1 #
+8 4090 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePat04 1 1 #
+8 4100 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePat05 1 1 #
+8 4110 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_Sitefakevault 1 1 #
+8 4120 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SiteSkytower 1 1 #
+8 4130 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt1 1 1 #
+8 4140 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePat06 1 1 #
+8 4150 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_sitePat08 1 1 #
+8 4160 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_sitePat09 1 1 @
+5 5000 None 0 #
+3 5010 #
+0 5020 @
+6 6000 None 0 #
+15 6010 #
+7 6020 @
+7 7000 None 0 #
+0 7010 #
+0 7020 @
+8 8000 None 0 #
+0 8010 @
+9 9000 None 0 #
+3 9010 #
+0 9020 @
+10 10000 None 0 #
+2 10010 #
+0 10020 @
+11 11000 None 0 #
+0 11010 @
+12 12000 None 0 #
+0 12010 @
+15 13000 None 0 #
+3 13010 D _script dialog@d_havepropermoney 1 9999 D _script dialog@d_NotMemberOfAnyFaction 0  #
+40 13020 D _script dialog@d_havepropermoney 1 9999 D _script dialog@d_IsMemberOfSomeFaction 0  #
+7 13030 @
+30 14000 None 0 #
+0 14010 #
+0 14020 @
+20 15000 None 0 #
+2 15010 #
+0 15020 @
+40 16000 None 0 #
+4 16010 #
+41 16020 #
+8 16030 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt2 1 1 #
+8 16040 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt3 1 1 #
+8 16050 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt4 1 1 #
+8 16060 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt5 1 1 #
+8 16070 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt6 1 1 #
+8 16080 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt7 1 1 #
+8 16090 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt8 1 1 #
+8 16100 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt9 1 1 #
+8 16110 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt10 1 1 #
+8 16120 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt11 1 1 #
+8 16130 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt12 1 1 #
+8 16140 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_SitePatt14 1 1 @
+41 17000 None 0 #
+8 17010 R _script factions_player@r_SiteParking 1 10000 #
+8 17020 R _script factions_player@r_SiteStorage 1 10000 #
+8 17030 R _script factions_player@r_SiteNuka 1 10000 #
+8 17040 D _param p ST_SEQUENCE > 99999 R _script factions_player@r_SiteFarm 1 2000000 #
+8 17050 D _param p ST_SEQUENCE > 99999 R _script factions_player@r_SiteRancho 1 2000000 #
+8 17060 D _param p ST_NPC_ROLE = 203 R _script factions_player@r_sitePat07 1 1 #
+8 17070 R _script factions_player@r_sitebasement 1 10000 #
+8 17080 R _script factions_player@r_sitechurch 1 10000 #
+8 17090 R _script factions_player@r_sitecabin 1 10000 #
+8 17100 R _script factions_player@r_sitelib 1 10000 &
+
+[engl]
+{100}{}{Construction Foreworker}
+{200}{}{You see the construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{What can I do for you?}
+{2010}{}{Who are you and what are you doing here?}
+{2020}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2030}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2040}{}{I need to hire skilled people to help us on a construction site. Is there anyone available?}
+{2050}{}{Nothing. I need to go.}
+{3000}{}{What is it you people are calling yourselves? [Make sure that everyone in your group is following you right now, otherwise they won't count as members.]}
+{3010}{}{Nevermind.}
+{4000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{4010}{}{We're gonna build a depot.}
+{4020}{}{We've got lots of junk gathered, we'll pile it up and create big scrapheap.}
+{4030}{}{We need to fend ourselves off the dangers of this wasteland. It's gonna be an outpost.}
+{4040}{}{See, we're just a bunch of trappers. This is gonna be our camp.}
+{4050}{}{Nevermind}
+{4060}{}{pat01}
+{4070}{}{pat02}
+{4080}{}{pat03}
+{4090}{}{pat04}
+{4100}{}{pat05}
+{4110}{}{FakeVault}
+{4120}{}{Sky Tower}
+{4130}{}{t4 pat01}
+{4140}{}{pat06}
+{4150}{}{pat08 casino}
+{4160}{}{pat09 jail}
+{5000}{}{Never heard of you guys. Sorry. Don't think I can help you. Nothing personal.}
+{5010}{}{Ooops, I think I mispoke, let me repeat myself...}
+{5020}{}{I'm wasting my time here.}
+{6000}{}{Of course, but the thing is we require money up front. Sorry, troubled times you understand.}
+{6010}{}{How much?}
+{6020}{}{Screw you, I changed my mind.}
+{7000}{}{Heh, your loss.}
+{7010}{}{I guess...}
+{7020}{}{I'll be back.}
+{8000}{}{OK, we're done here. Take one of my workers to the site, farewell.}
+{8010}{}{We're on our way.}
+{9000}{}{There's already a group of people going around calling themselves that. You'd better pick something different, buddy.}
+{9010}{}{Alright, how about...}
+{9020}{}{Nevermind.}
+{10000}{}{Hmm, there is something wrong with my brain. Do you want try again?}
+{10010}{}{Ok, I will tell you again, maybe you will understand this time.}
+{10020}{}{Nevermind}
+{11000}{}{Sorry, so many damn groups have come to me, I don't know of any more places. Sorry. Try finding one that's already out there.}
+{11010}{}{Okay...}
+{12000}{}{And where is the money? Get out!}
+{12010}{}{Shit!}
+{13000}{}{10.000 Currency. That does not include resource cost, we do not provide these.}
+{13010}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13020}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13030}{}{That's too much for me. Screw it.}
+{14000}{}{A group of travellers? But you are alone, I don't see anyone else. }
+{14010}{}{No, they are right there! [You point with your finger at some random people in the bar. They look at you awkwardly and you slowly leave the building.]}
+{14020}{}{Huh, they are away now. I'll see where they are and come back.}
+{15000}{}{What am I doing here? Well, I am the local construction foreworker. I check out what needs to be built, what needs to be repaired and - most importantly - I'll calculate what it will cost to get things done. }
+{15010}{}{Awesome! You look like a person I need...}
+{15020}{}{Great, have to go...}
+{16000}{}{Classic base or something fresh?}
+{16010}{}{Classic}
+{16020}{}{Fresh ones}
+{16030}{}{pat t4 02}
+{16040}{}{pat t4 03}
+{16050}{}{pat t4 04}
+{16060}{}{pat t4 05}
+{16070}{}{pat t4 06}
+{16080}{}{pat t4 07}
+{16090}{}{pat t4 08}
+{16100}{}{pat t4 09}
+{16110}{}{pat t4 10}
+{16120}{}{pat t4 11}
+{16130}{}{pat t4 12}
+{16140}{}{pat t4 14}
+{17000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{17010}{}{We're gonna build simple car parking}
+{17020}{}{We're gonna build a storage complex}
+{17030}{}{We are fans of Nuka Cola, an Outpost with their logo is our dream}
+{17040}{}{We want settle a Farm[cost 2 million]}
+{17050}{}{We want settle a Ranch[cost 2 million]}
+{17060}{}{kompresor's base}
+{17070}{}{We're gonna repair an old basement}
+{17080}{}{Locals needs some faith let's build a Church}
+{17090}{}{We're looking for something quiet like a cabin with some forest, you know?}
+{17100}{}{Let's build a Library}
+
+[czec]
+{100}{}{Construction Foreworker}
+{200}{}{You see the construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{What can I do for you?}
+{2010}{}{Who are you and what are you doing here?}
+{2020}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2030}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2040}{}{I need to hire skilled people to help us on a construction site. Is there anyone available?}
+{2050}{}{Nothing. I need to go.}
+{3000}{}{What is it you people are calling yourselves? [Make sure that everyone in your group is following you right now, otherwise they won't count as members.]}
+{3010}{}{Nevermind.}
+{4000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{4010}{}{We're gonna build a depot.}
+{4020}{}{We've got lots of junk gathered, we'll pile it up and create big scrapheap.}
+{4030}{}{We need to fend ourselves off the dangers of this wasteland. It's gonna be an outpost.}
+{4040}{}{See, we're just a bunch of trappers. This is gonna be our camp.}
+{4050}{}{Nevermind}
+{4060}{}{pat01}
+{4070}{}{pat02}
+{4080}{}{pat03}
+{4090}{}{pat04}
+{4100}{}{pat05}
+{4110}{}{FakeVault}
+{4120}{}{Sky Tower}
+{4130}{}{t4 pat01}
+{4140}{}{pat06}
+{4150}{}{pat08 casino}
+{4160}{}{pat09 jail}
+{5000}{}{Never heard of you guys. Sorry. Don't think I can help you. Nothing personal.}
+{5010}{}{Ooops, I think I mispoke, let me repeat myself...}
+{5020}{}{I'm wasting my time here.}
+{6000}{}{Of course, but the thing is we require money up front. Sorry, troubled times you understand.}
+{6010}{}{How much?}
+{6020}{}{Screw you, I changed my mind.}
+{7000}{}{Heh, your loss.}
+{7010}{}{I guess...}
+{7020}{}{I'll be back.}
+{8000}{}{OK, we're done here. Take one of my workers to the site, farewell.}
+{8010}{}{We're on our way.}
+{9000}{}{There's already a group of people going around calling themselves that. You'd better pick something different, buddy.}
+{9010}{}{Alright, how about...}
+{9020}{}{Nevermind.}
+{10000}{}{Hmm, there is something wrong with my brain. Do you want try again?}
+{10010}{}{Ok, I will tell you again, maybe you will understand this time.}
+{10020}{}{Nevermind}
+{11000}{}{Sorry, so many damn groups have come to me, I don't know of any more places. Sorry. Try finding one that's already out there.}
+{11010}{}{Okay...}
+{12000}{}{And where is the money? Get out!}
+{12010}{}{Shit!}
+{13000}{}{10.000 Currency. That does not include resource cost, we do not provide these.}
+{13010}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13020}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13030}{}{That's too much for me. Screw it.}
+{14000}{}{A group of travellers? But you are alone, I don't see anyone else. }
+{14010}{}{No, they are right there! [You point with your finger at some random people in the bar. They look at you awkwardly and you slowly leave the building.]}
+{14020}{}{Huh, they are away now. I'll see where they are and come back.}
+{15000}{}{What am I doing here? Well, I am the local construction foreworker. I check out what needs to be built, what needs to be repaired and - most importantly - I'll calculate what it will cost to get things done. }
+{15010}{}{Awesome! You look like a person I need...}
+{15020}{}{Great, have to go...}
+{16000}{}{Classic base or something fresh?}
+{16010}{}{Classic}
+{16020}{}{Fresh ones}
+{16030}{}{pat t4 02}
+{16040}{}{pat t4 03}
+{16050}{}{pat t4 04}
+{16060}{}{pat t4 05}
+{16070}{}{pat t4 06}
+{16080}{}{pat t4 07}
+{16090}{}{pat t4 08}
+{16100}{}{pat t4 09}
+{16110}{}{pat t4 10}
+{16120}{}{pat t4 11}
+{16130}{}{pat t4 12}
+{16140}{}{pat t4 14}
+{17000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{17010}{}{We're gonna build simple car parking}
+{17020}{}{We're gonna build a storage complex}
+{17030}{}{We are fans of Nuka Cola, an Outpost with their logo is our dream}
+{17040}{}{We want settle a Farm[cost 2 million]}
+{17050}{}{We want settle a Ranch[cost 2 million]}
+{17060}{}{kompresor's base}
+{17070}{}{We're gonna repair an old basement}
+{17080}{}{Locals needs some faith let's build a Church}
+{17090}{}{We're looking for something quiet like a cabin with some forest, you know?}
+{17100}{}{Let's build a Library}
+
+[pols]
+{100}{}{Construction Foreworker}
+{200}{}{You see the construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{What can I do for you?}
+{2010}{}{Who are you and what are you doing here?}
+{2020}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2030}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2040}{}{I need to hire skilled people to help us on a construction site. Is there anyone available?}
+{2050}{}{Nothing. I need to go.}
+{3000}{}{What is it you people are calling yourselves? [Make sure that everyone in your group is following you right now, otherwise they won't count as members.]}
+{3010}{}{Nevermind.}
+{4000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{4010}{}{We're gonna build a depot.}
+{4020}{}{We've got lots of junk gathered, we'll pile it up and create big scrapheap.}
+{4030}{}{We need to fend ourselves off the dangers of this wasteland. It's gonna be an outpost.}
+{4040}{}{See, we're just a bunch of trappers. This is gonna be our camp.}
+{4050}{}{Nevermind}
+{4060}{}{pat01}
+{4070}{}{pat02}
+{4080}{}{pat03}
+{4090}{}{pat04}
+{4100}{}{pat05}
+{4110}{}{FakeVault}
+{4120}{}{Sky Tower}
+{4130}{}{t4 pat01}
+{4140}{}{pat06}
+{4150}{}{pat08 casino}
+{4160}{}{pat09 jail}
+{5000}{}{Never heard of you guys. Sorry. Don't think I can help you. Nothing personal.}
+{5010}{}{Ooops, I think I mispoke, let me repeat myself...}
+{5020}{}{I'm wasting my time here.}
+{6000}{}{Of course, but the thing is we require money up front. Sorry, troubled times you understand.}
+{6010}{}{How much?}
+{6020}{}{Screw you, I changed my mind.}
+{7000}{}{Heh, your loss.}
+{7010}{}{I guess...}
+{7020}{}{I'll be back.}
+{8000}{}{OK, we're done here. Take one of my workers to the site, farewell.}
+{8010}{}{We're on our way.}
+{9000}{}{There's already a group of people going around calling themselves that. You'd better pick something different, buddy.}
+{9010}{}{Alright, how about...}
+{9020}{}{Nevermind.}
+{10000}{}{Hmm, there is something wrong with my brain. Do you want try again?}
+{10010}{}{Ok, I will tell you again, maybe you will understand this time.}
+{10020}{}{Nevermind}
+{11000}{}{Sorry, so many damn groups have come to me, I don't know of any more places. Sorry. Try finding one that's already out there.}
+{11010}{}{Okay...}
+{12000}{}{And where is the money? Get out!}
+{12010}{}{Shit!}
+{13000}{}{10.000 Currency. That does not include resource cost, we do not provide these.}
+{13010}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13020}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13030}{}{That's too much for me. Screw it.}
+{14000}{}{A group of travellers? But you are alone, I don't see anyone else. }
+{14010}{}{No, they are right there! [You point with your finger at some random people in the bar. They look at you awkwardly and you slowly leave the building.]}
+{14020}{}{Huh, they are away now. I'll see where they are and come back.}
+{15000}{}{What am I doing here? Well, I am the local construction foreworker. I check out what needs to be built, what needs to be repaired and - most importantly - I'll calculate what it will cost to get things done. }
+{15010}{}{Awesome! You look like a person I need...}
+{15020}{}{Great, have to go...}
+{16000}{}{Classic base or something fresh?}
+{16010}{}{Classic}
+{16020}{}{Fresh ones}
+{16030}{}{pat t4 02}
+{16040}{}{pat t4 03}
+{16050}{}{pat t4 04}
+{16060}{}{pat t4 05}
+{16070}{}{pat t4 06}
+{16080}{}{pat t4 07}
+{16090}{}{pat t4 08}
+{16100}{}{pat t4 09}
+{16110}{}{pat t4 10}
+{16120}{}{pat t4 11}
+{16130}{}{pat t4 12}
+{16140}{}{pat t4 14}
+{17000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{17010}{}{We're gonna build simple car parking}
+{17020}{}{We're gonna build a storage complex}
+{17030}{}{We are fans of Nuka Cola, an Outpost with their logo is our dream}
+{17040}{}{We want settle a Farm[cost 2 million]}
+{17050}{}{We want settle a Ranch[cost 2 million]}
+{17060}{}{kompresor's base}
+{17070}{}{We're gonna repair an old basement}
+{17080}{}{Locals needs some faith let's build a Church}
+{17090}{}{We're looking for something quiet like a cabin with some forest, you know?}
+{17100}{}{Let's build a Library}
+
+[span]
+{100}{}{Construction Foreworker}
+{200}{}{You see the construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{What can I do for you?}
+{2010}{}{Who are you and what are you doing here?}
+{2020}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2030}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2040}{}{I need to hire skilled people to help us on a construction site. Is there anyone available?}
+{2050}{}{Nothing. I need to go.}
+{3000}{}{What is it you people are calling yourselves? [Make sure that everyone in your group is following you right now, otherwise they won't count as members.]}
+{3010}{}{Nevermind.}
+{4000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{4010}{}{We're gonna build a depot.}
+{4020}{}{We've got lots of junk gathered, we'll pile it up and create big scrapheap.}
+{4030}{}{We need to fend ourselves off the dangers of this wasteland. It's gonna be an outpost.}
+{4040}{}{See, we're just a bunch of trappers. This is gonna be our camp.}
+{4050}{}{Nevermind}
+{4060}{}{pat01}
+{4070}{}{pat02}
+{4080}{}{pat03}
+{4090}{}{pat04}
+{4100}{}{pat05}
+{4110}{}{FakeVault}
+{4120}{}{Sky Tower}
+{4130}{}{t4 pat01}
+{4140}{}{pat06}
+{4150}{}{pat08 casino}
+{4160}{}{pat09 jail}
+{5000}{}{Never heard of you guys. Sorry. Don't think I can help you. Nothing personal.}
+{5010}{}{Ooops, I think I mispoke, let me repeat myself...}
+{5020}{}{I'm wasting my time here.}
+{6000}{}{Of course, but the thing is we require money up front. Sorry, troubled times you understand.}
+{6010}{}{How much?}
+{6020}{}{Screw you, I changed my mind.}
+{7000}{}{Heh, your loss.}
+{7010}{}{I guess...}
+{7020}{}{I'll be back.}
+{8000}{}{OK, we're done here. Take one of my workers to the site, farewell.}
+{8010}{}{We're on our way.}
+{9000}{}{There's already a group of people going around calling themselves that. You'd better pick something different, buddy.}
+{9010}{}{Alright, how about...}
+{9020}{}{Nevermind.}
+{10000}{}{Hmm, there is something wrong with my brain. Do you want try again?}
+{10010}{}{Ok, I will tell you again, maybe you will understand this time.}
+{10020}{}{Nevermind}
+{11000}{}{Sorry, so many damn groups have come to me, I don't know of any more places. Sorry. Try finding one that's already out there.}
+{11010}{}{Okay...}
+{12000}{}{And where is the money? Get out!}
+{12010}{}{Shit!}
+{13000}{}{10.000 Currency. That does not include resource cost, we do not provide these.}
+{13010}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13020}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13030}{}{That's too much for me. Screw it.}
+{14000}{}{A group of travellers? But you are alone, I don't see anyone else. }
+{14010}{}{No, they are right there! [You point with your finger at some random people in the bar. They look at you awkwardly and you slowly leave the building.]}
+{14020}{}{Huh, they are away now. I'll see where they are and come back.}
+{15000}{}{What am I doing here? Well, I am the local construction foreworker. I check out what needs to be built, what needs to be repaired and - most importantly - I'll calculate what it will cost to get things done. }
+{15010}{}{Awesome! You look like a person I need...}
+{15020}{}{Great, have to go...}
+{16000}{}{Classic base or something fresh?}
+{16010}{}{Classic}
+{16020}{}{Fresh ones}
+{16030}{}{pat t4 02}
+{16040}{}{pat t4 03}
+{16050}{}{pat t4 04}
+{16060}{}{pat t4 05}
+{16070}{}{pat t4 06}
+{16080}{}{pat t4 07}
+{16090}{}{pat t4 08}
+{16100}{}{pat t4 09}
+{16110}{}{pat t4 10}
+{16120}{}{pat t4 11}
+{16130}{}{pat t4 12}
+{16140}{}{pat t4 14}
+{17000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{17010}{}{We're gonna build simple car parking}
+{17020}{}{We're gonna build a storage complex}
+{17030}{}{We are fans of Nuka Cola, an Outpost with their logo is our dream}
+{17040}{}{We want settle a Farm[cost 2 million]}
+{17050}{}{We want settle a Ranch[cost 2 million]}
+{17060}{}{kompresor's base}
+{17070}{}{We're gonna repair an old basement}
+{17080}{}{Locals needs some faith let's build a Church}
+{17090}{}{We're looking for something quiet like a cabin with some forest, you know?}
+{17100}{}{Let's build a Library}
+
+[russ]
+{100}{}{Construction Foreworker}
+{200}{}{You see the construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{What can I do for you?}
+{2010}{}{Who are you and what are you doing here?}
+{2020}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2030}{}{Me and my fellow travellers would like to finally settle down and build our own humble abode, but we obviously aren't skilled engineers. Can we hire some brigade?}
+{2040}{}{I need to hire skilled people to help us on a construction site. Is there anyone available?}
+{2050}{}{Nothing. I need to go.}
+{3000}{}{What is it you people are calling yourselves? [Make sure that everyone in your group is following you right now, otherwise they won't count as members.]}
+{3010}{}{Nevermind.}
+{4000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{4010}{}{We're gonna build a depot.}
+{4020}{}{We've got lots of junk gathered, we'll pile it up and create big scrapheap.}
+{4030}{}{We need to fend ourselves off the dangers of this wasteland. It's gonna be an outpost.}
+{4040}{}{See, we're just a bunch of trappers. This is gonna be our camp.}
+{4050}{}{Nevermind}
+{4060}{}{pat01}
+{4070}{}{pat02}
+{4080}{}{pat03}
+{4090}{}{pat04}
+{4100}{}{pat05}
+{4110}{}{FakeVault}
+{4120}{}{Sky Tower}
+{4130}{}{t4 pat01}
+{4140}{}{pat06}
+{4150}{}{pat08 casino}
+{4160}{}{pat09 jail}
+{5000}{}{Never heard of you guys. Sorry. Don't think I can help you. Nothing personal.}
+{5010}{}{Ooops, I think I mispoke, let me repeat myself...}
+{5020}{}{I'm wasting my time here.}
+{6000}{}{Of course, but the thing is we require money up front. Sorry, troubled times you understand.}
+{6010}{}{How much?}
+{6020}{}{Screw you, I changed my mind.}
+{7000}{}{Heh, your loss.}
+{7010}{}{I guess...}
+{7020}{}{I'll be back.}
+{8000}{}{OK, we're done here. Take one of my workers to the site, farewell.}
+{8010}{}{We're on our way.}
+{9000}{}{There's already a group of people going around calling themselves that. You'd better pick something different, buddy.}
+{9010}{}{Alright, how about...}
+{9020}{}{Nevermind.}
+{10000}{}{Hmm, there is something wrong with my brain. Do you want try again?}
+{10010}{}{Ok, I will tell you again, maybe you will understand this time.}
+{10020}{}{Nevermind}
+{11000}{}{Sorry, so many damn groups have come to me, I don't know of any more places. Sorry. Try finding one that's already out there.}
+{11010}{}{Okay...}
+{12000}{}{And where is the money? Get out!}
+{12010}{}{Shit!}
+{13000}{}{10.000 Currency. That does not include resource cost, we do not provide these.}
+{13010}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13020}{}{Okay. Here, take the 10.000 Currency and show me the way. I hope it's worth it.}
+{13030}{}{That's too much for me. Screw it.}
+{14000}{}{A group of travellers? But you are alone, I don't see anyone else. }
+{14010}{}{No, they are right there! [You point with your finger at some random people in the bar. They look at you awkwardly and you slowly leave the building.]}
+{14020}{}{Huh, they are away now. I'll see where they are and come back.}
+{15000}{}{What am I doing here? Well, I am the local construction foreworker. I check out what needs to be built, what needs to be repaired and - most importantly - I'll calculate what it will cost to get things done. }
+{15010}{}{Awesome! You look like a person I need...}
+{15020}{}{Great, have to go...}
+{16000}{}{Classic base or something fresh?}
+{16010}{}{Classic}
+{16020}{}{Fresh ones}
+{16030}{}{pat t4 02}
+{16040}{}{pat t4 03}
+{16050}{}{pat t4 04}
+{16060}{}{pat t4 05}
+{16070}{}{pat t4 06}
+{16080}{}{pat t4 07}
+{16090}{}{pat t4 08}
+{16100}{}{pat t4 09}
+{16110}{}{pat t4 10}
+{16120}{}{pat t4 11}
+{16130}{}{pat t4 12}
+{16140}{}{pat t4 14}
+{17000}{}{Good, let me just write it down...ok. Here, take one of my men to your place, we're gonna prepare the site as soon as possible. Remind me... what plans have you chosen?}
+{17010}{}{We're gonna build simple car parking}
+{17020}{}{We're gonna build a storage complex}
+{17030}{}{We are fans of Nuka Cola, an Outpost with their logo is our dream}
+{17040}{}{We want settle a Farm[cost 2 million]}
+{17050}{}{We want settle a Ranch[cost 2 million]}
+{17060}{}{kompresor's base}
+{17070}{}{We're gonna repair an old basement}
+{17080}{}{Locals needs some faith let's build a Church}
+{17090}{}{We're looking for something quiet like a cabin with some forest, you know?}
+{17100}{}{Let's build a Library}

@@ -1,0 +1,360 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 #
+4 2030 D _var p q_klamath_felix = 1 D _item p PID_BLUE_PASS_KEY } 1 #
+19 2040 D _var p q_klamath_felix = 3 D _item p PID_BLUE_PASS_KEY } 1 R _var p q_klamath_felix = 4 R _param p ST_EXPERIENCE + 450 R _item p PID_BLUE_PASS_KEY - 1 @
+3 3000 None 0 #
+2 3010 #
+2 3020 @
+4 4000 None 0 #
+5 4010 #
+0 4020 @
+5 5000 None 0 #
+0 5010 #
+6 5020 @
+6 6000 None 0 #
+7 6010 #
+0 6020 @
+7 7000 None 0 #
+0 7010 #
+8 7020 @
+8 8000 None 0 #
+0 8010 #
+9 8020 @
+9 9000 None 0 #
+10 9010 #
+0 9020 @
+10 10000 None 0 #
+0 10010 #
+11 10020 @
+11 11000 None 0 #
+0 11010 #
+12 11020 @
+12 12000 None 0 #
+13 12010 #
+0 12020 @
+13 13000 None 0 #
+14 13010 #
+0 13020 @
+14 14000 None 0 #
+0 14010 #
+15 14020 @
+15 15000 None 0 #
+16 15010 #
+0 15020 @
+16 16000 None 0 #
+17 16010 #
+0 16020 @
+17 17000 None 0 #
+0 17010 #
+18 17020 R _var p q_klamath_felix = 2 @
+18 18000 None 0 #
+0 18010 @
+19 19000 None 0 #
+0 19010 &
+
+[engl]
+{100}{}{Terminal}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ From: Ayon ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Download data ]}
+{2040}{}{[ Continue downloading. ]}
+{3000}{}{Hey there. Did you hear the news? They say that something pretty disastrous is going on in Colorado, so they had to evacute West Tek HQ. I heard that they plan to deliver all remaining projects and staff here. My guess is it's just another toxic leak, damn West Tek can't do shit for proper protection systems. Anyway... Do you think we will face reductions this year?}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ CONNECTING TO THE SERVER... ]}
+{4010}{}{[ Wait ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ CONNECTING TO THE SERVER.... ]}
+{5010}{}{[ Exit ]}
+{5020}{}{[ Wait ]}
+{6000}{}{[ CONNECTING TO THE SERVER..... ]}
+{6010}{}{[ Wait ]}
+{6020}{}{[ Exit ]}
+{7000}{}{[ CONNECTION ESTABLISHED... DOWNLOADING. ]}
+{7010}{}{[ Exit ]}
+{7020}{}{[ Wait ]}
+{8000}{}{[ DOWNLOADING 1% ]}
+{8010}{}{[ Exit ]}
+{8020}{}{[ Wait ]}
+{9000}{}{[ DOWNLOADING 7% ]}
+{9010}{}{[ Wait ]}
+{9020}{}{[ Exit ]}
+{10000}{}{[ DOWNLOADING 18% ]}
+{10010}{}{[ Exit ]}
+{10020}{}{[ Wait ]}
+{11000}{}{[ DOWNLOADING 26% ]}
+{11010}{}{[ Exit ]}
+{11020}{}{[ Wait ]}
+{12000}{}{[ DOWNLOADING 44% ]}
+{12010}{}{[ Wait ]}
+{12020}{}{[ Exit ]}
+{13000}{}{[ DOWNLOADING 57% ]}
+{13010}{}{[ Wait ]}
+{13020}{}{[ Exit ]}
+{14000}{}{[ DOWNLOADING 68% ]}
+{14010}{}{[ Exit ]}
+{14020}{}{[ Wait ]}
+{15000}{}{[ DOWNLOADING 87% ]}
+{15010}{}{[ Wait ]}
+{15020}{}{[ Exit ]}
+{16000}{}{[ DOWNLOADING 91% ]}
+{16010}{}{[ Wait ]}
+{16020}{}{[ Exit ]}
+{17000}{}{[ DOWNLOADING 99% ]}
+{17010}{}{[ Exit ]}
+{17020}{}{[ Wait ]}
+{18000}{}{[ WARNING! ERROR! GENERATOR IS OVERHEATED. SHUTING DOWN.... WARNING! RESTARTING OF THE GENERATOR REQUIRED! ]}
+{18010}{}{For fuck sake!}
+{19000}{}{[ DOWNLOADING FINISHED. ]}
+{19010}{}{Finally...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ From: Ayon ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Download data ]}
+{2040}{}{[ Continue downloading. ]}
+{3000}{}{Hey there. Did you hear recent news? They say that something pretty disasterouse going on in Colorado, so they had to evacute West Tek HQ. I heard that they plan to deliver all remaining projects and staff here. Guess just another toxic leak, damn West Tek can't see shit in proper protection systems. Anyway... Do you think we will face reductions this year?}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ CONNECTING TO THE SERVER... ]}
+{4010}{}{[ Wait ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ CONNECTING TO THE SERVER.... ]}
+{5010}{}{[ Exit ]}
+{5020}{}{[ Wait ]}
+{6000}{}{[ CONNECTING TO THE SERVER..... ]}
+{6010}{}{[ Wait ]}
+{6020}{}{[ Exit ]}
+{7000}{}{[ CONNECTION ESTABLISHED... DOWNLOADING. ]}
+{7010}{}{[ Exit ]}
+{7020}{}{[ Wait ]}
+{8000}{}{[ DOWNLOADING 1% ]}
+{8010}{}{[ Exit ]}
+{8020}{}{[ Wait ]}
+{9000}{}{[ DOWNLOADING 7% ]}
+{9010}{}{[ Wait ]}
+{9020}{}{[ Exit ]}
+{10000}{}{[ DOWNLOADING 18% ]}
+{10010}{}{[ Exit ]}
+{10020}{}{[ Wait ]}
+{11000}{}{[ DOWNLOADING 26% ]}
+{11010}{}{[ Exit ]}
+{11020}{}{[ Wait ]}
+{12000}{}{[ DOWNLOADING 44% ]}
+{12010}{}{[ Wait ]}
+{12020}{}{[ Exit ]}
+{13000}{}{[ DOWNLOADING 57% ]}
+{13010}{}{[ Wait ]}
+{13020}{}{[ Exit ]}
+{14000}{}{[ DOWNLOADING 68% ]}
+{14010}{}{[ Exit ]}
+{14020}{}{[ Wait ]}
+{15000}{}{[ DOWNLOADING 87% ]}
+{15010}{}{[ Wait ]}
+{15020}{}{[ Exit ]}
+{16000}{}{[ DOWNLOADING 91% ]}
+{16010}{}{[ Wait ]}
+{16020}{}{[ Exit ]}
+{17000}{}{[ DOWNLOADING 99% ]}
+{17010}{}{[ Exit ]}
+{17020}{}{[ Wait ]}
+{18000}{}{[ WARNING! ERROR! GENERATOR IS OVERHEATED. SHUTING DOWN.... WARNING! RESTARTING OF THE GENERATOR REQUIRED! ]}
+{18010}{}{For fuck sake!}
+{19000}{}{[ DOWNLOADING FINISHED. ]}
+{19010}{}{Finally...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ From: Ayon ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Download data ]}
+{2040}{}{[ Continue downloading. ]}
+{3000}{}{Hey there. Did you hear recent news? They say that something pretty disasterouse going on in Colorado, so they had to evacute West Tek HQ. I heard that they plan to deliver all remaining projects and staff here. Guess just another toxic leak, damn West Tek can't see shit in proper protection systems. Anyway... Do you think we will face reductions this year?}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ CONNECTING TO THE SERVER... ]}
+{4010}{}{[ Wait ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ CONNECTING TO THE SERVER.... ]}
+{5010}{}{[ Exit ]}
+{5020}{}{[ Wait ]}
+{6000}{}{[ CONNECTING TO THE SERVER..... ]}
+{6010}{}{[ Wait ]}
+{6020}{}{[ Exit ]}
+{7000}{}{[ CONNECTION ESTABLISHED... DOWNLOADING. ]}
+{7010}{}{[ Exit ]}
+{7020}{}{[ Wait ]}
+{8000}{}{[ DOWNLOADING 1% ]}
+{8010}{}{[ Exit ]}
+{8020}{}{[ Wait ]}
+{9000}{}{[ DOWNLOADING 7% ]}
+{9010}{}{[ Wait ]}
+{9020}{}{[ Exit ]}
+{10000}{}{[ DOWNLOADING 18% ]}
+{10010}{}{[ Exit ]}
+{10020}{}{[ Wait ]}
+{11000}{}{[ DOWNLOADING 26% ]}
+{11010}{}{[ Exit ]}
+{11020}{}{[ Wait ]}
+{12000}{}{[ DOWNLOADING 44% ]}
+{12010}{}{[ Wait ]}
+{12020}{}{[ Exit ]}
+{13000}{}{[ DOWNLOADING 57% ]}
+{13010}{}{[ Wait ]}
+{13020}{}{[ Exit ]}
+{14000}{}{[ DOWNLOADING 68% ]}
+{14010}{}{[ Exit ]}
+{14020}{}{[ Wait ]}
+{15000}{}{[ DOWNLOADING 87% ]}
+{15010}{}{[ Wait ]}
+{15020}{}{[ Exit ]}
+{16000}{}{[ DOWNLOADING 91% ]}
+{16010}{}{[ Wait ]}
+{16020}{}{[ Exit ]}
+{17000}{}{[ DOWNLOADING 99% ]}
+{17010}{}{[ Exit ]}
+{17020}{}{[ Wait ]}
+{18000}{}{[ WARNING! ERROR! GENERATOR IS OVERHEATED. SHUTING DOWN.... WARNING! RESTARTING OF THE GENERATOR REQUIRED! ]}
+{18010}{}{For fuck sake!}
+{19000}{}{[ DOWNLOADING FINISHED. ]}
+{19010}{}{Finally...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ From: Ayon ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Download data ]}
+{2040}{}{[ Continue downloading. ]}
+{3000}{}{Hey there. Did you hear recent news? They say that something pretty disasterouse going on in Colorado, so they had to evacute West Tek HQ. I heard that they plan to deliver all remaining projects and staff here. Guess just another toxic leak, damn West Tek can't see shit in proper protection systems. Anyway... Do you think we will face reductions this year?}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ CONNECTING TO THE SERVER... ]}
+{4010}{}{[ Wait ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ CONNECTING TO THE SERVER.... ]}
+{5010}{}{[ Exit ]}
+{5020}{}{[ Wait ]}
+{6000}{}{[ CONNECTING TO THE SERVER..... ]}
+{6010}{}{[ Wait ]}
+{6020}{}{[ Exit ]}
+{7000}{}{[ CONNECTION ESTABLISHED... DOWNLOADING. ]}
+{7010}{}{[ Exit ]}
+{7020}{}{[ Wait ]}
+{8000}{}{[ DOWNLOADING 1% ]}
+{8010}{}{[ Exit ]}
+{8020}{}{[ Wait ]}
+{9000}{}{[ DOWNLOADING 7% ]}
+{9010}{}{[ Wait ]}
+{9020}{}{[ Exit ]}
+{10000}{}{[ DOWNLOADING 18% ]}
+{10010}{}{[ Exit ]}
+{10020}{}{[ Wait ]}
+{11000}{}{[ DOWNLOADING 26% ]}
+{11010}{}{[ Exit ]}
+{11020}{}{[ Wait ]}
+{12000}{}{[ DOWNLOADING 44% ]}
+{12010}{}{[ Wait ]}
+{12020}{}{[ Exit ]}
+{13000}{}{[ DOWNLOADING 57% ]}
+{13010}{}{[ Wait ]}
+{13020}{}{[ Exit ]}
+{14000}{}{[ DOWNLOADING 68% ]}
+{14010}{}{[ Exit ]}
+{14020}{}{[ Wait ]}
+{15000}{}{[ DOWNLOADING 87% ]}
+{15010}{}{[ Wait ]}
+{15020}{}{[ Exit ]}
+{16000}{}{[ DOWNLOADING 91% ]}
+{16010}{}{[ Wait ]}
+{16020}{}{[ Exit ]}
+{17000}{}{[ DOWNLOADING 99% ]}
+{17010}{}{[ Exit ]}
+{17020}{}{[ Wait ]}
+{18000}{}{[ WARNING! ERROR! GENERATOR IS OVERHEATED. SHUTING DOWN.... WARNING! RESTARTING OF THE GENERATOR REQUIRED! ]}
+{18010}{}{For fuck sake!}
+{19000}{}{[ DOWNLOADING FINISHED. ]}
+{19010}{}{Finally...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ TalChem HQ. Welcome. ]}
+{2010}{}{[ From: Ayon ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Download data ]}
+{2040}{}{[ Continue downloading. ]}
+{3000}{}{Hey there. Did you hear recent news? They say that something pretty disasterouse going on in Colorado, so they had to evacute West Tek HQ. I heard that they plan to deliver all remaining projects and staff here. Guess just another toxic leak, damn West Tek can't see shit in proper protection systems. Anyway... Do you think we will face reductions this year?}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ CONNECTING TO THE SERVER... ]}
+{4010}{}{[ Wait ]}
+{4020}{}{[ Exit ]}
+{5000}{}{[ CONNECTING TO THE SERVER.... ]}
+{5010}{}{[ Exit ]}
+{5020}{}{[ Wait ]}
+{6000}{}{[ CONNECTING TO THE SERVER..... ]}
+{6010}{}{[ Wait ]}
+{6020}{}{[ Exit ]}
+{7000}{}{[ CONNECTION ESTABLISHED... DOWNLOADING. ]}
+{7010}{}{[ Exit ]}
+{7020}{}{[ Wait ]}
+{8000}{}{[ DOWNLOADING 1% ]}
+{8010}{}{[ Exit ]}
+{8020}{}{[ Wait ]}
+{9000}{}{[ DOWNLOADING 7% ]}
+{9010}{}{[ Wait ]}
+{9020}{}{[ Exit ]}
+{10000}{}{[ DOWNLOADING 18% ]}
+{10010}{}{[ Exit ]}
+{10020}{}{[ Wait ]}
+{11000}{}{[ DOWNLOADING 26% ]}
+{11010}{}{[ Exit ]}
+{11020}{}{[ Wait ]}
+{12000}{}{[ DOWNLOADING 44% ]}
+{12010}{}{[ Wait ]}
+{12020}{}{[ Exit ]}
+{13000}{}{[ DOWNLOADING 57% ]}
+{13010}{}{[ Wait ]}
+{13020}{}{[ Exit ]}
+{14000}{}{[ DOWNLOADING 68% ]}
+{14010}{}{[ Exit ]}
+{14020}{}{[ Wait ]}
+{15000}{}{[ DOWNLOADING 87% ]}
+{15010}{}{[ Wait ]}
+{15020}{}{[ Exit ]}
+{16000}{}{[ DOWNLOADING 91% ]}
+{16010}{}{[ Wait ]}
+{16020}{}{[ Exit ]}
+{17000}{}{[ DOWNLOADING 99% ]}
+{17010}{}{[ Exit ]}
+{17020}{}{[ Wait ]}
+{18000}{}{[ WARNING! ERROR! GENERATOR IS OVERHEATED. SHUTING DOWN.... WARNING! RESTARTING OF THE GENERATOR REQUIRED! ]}
+{18010}{}{For fuck sake!}
+{19000}{}{[ DOWNLOADING FINISHED. ]}
+{19010}{}{Finally...}
+

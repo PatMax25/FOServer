@@ -1,0 +1,45 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Ranger}
+{200}{}{You see a well-armed NCR Ranger.}
+{210}{}{This NCR Ranger is an impressive sight in uniform, clearly one of the NCR's elite troops.}
+{210}{}{He has a clean, well-polished weapon and is wearing some kind of badge on his chest.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We're looking for slaver patrols. Seen any, stranger?@@Greetings stranger. Sure hope you're not a slaver - for your own sake.@@Nice meeting you, stranger. Don't mind us and there won't be any trouble.@@We're the NCR Rangers - we make the world a better place. Just thought you'd like to know.@@We're Rangers. Killing slavers is our business.@@I don't see any slaver tattoo on your forehead, so you're fine by me.@@You can trust that NCR and the Rangers are making the wasteland safer for everyone!@@Let's keep moving, boys, this one looks clean.@@No reason to stop here Rangers, this one's ok. Let's move out.@@We Rangers aren't afraid of anything, you know.@@Next time we go out to hunt slavers, I'm not bringing extra handcuffs.@@In theory we're supposed to take prisoners, but I just shoot slavers on sight!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We're looking for slaver patrols. Seen any, stranger?@@Greetings stranger.  Sure hope you're not a slaver - for your own sake.@@Nice meeting you, stranger.  Don't mind us and there won't be any trouble.@@We're the NCR Rangers - we make the world a better place. Just thought you'd like to know.@@We're Rangers. Killing slavers is our business.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We're looking for slaver patrols. Seen any, stranger?@@Greetings stranger.  Sure hope you're not a slaver - for your own sake.@@Nice meeting you, stranger.  Don't mind us and there won't be any trouble.@@We're the NCR Rangers - we make the world a better place. Just thought you'd like to know.@@We're Rangers. Killing slavers is our business.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We're looking for slaver patrols. Seen any, stranger?@@Greetings stranger.  Sure hope you're not a slaver - for your own sake.@@Nice meeting you, stranger.  Don't mind us and there won't be any trouble.@@We're the NCR Rangers - we make the world a better place. Just thought you'd like to know.@@We're Rangers. Killing slavers is our business.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We're looking for slaver patrols. Seen any, stranger?@@Greetings stranger.  Sure hope you're not a slaver - for your own sake.@@Nice meeting you, stranger.  Don't mind us and there won't be any trouble.@@We're the NCR Rangers - we make the world a better place. Just thought you'd like to know.@@We're Rangers. Killing slavers is our business.}
+

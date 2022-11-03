@@ -1,0 +1,112 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 #
+4 2030 #
+5 2040 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+0 4010 @
+5 5000 None 0 #
+2 5010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Welcome to Talchem California Headquarters}
+{2010}{}{About Talchem}
+{2020}{}{exit}
+{2030}{}{Products}
+{2040}{}{[ To Alex, Delete after reading ]}
+{3000}{}{Talchem is one of the greatest Chemical and Pharmaceutical corporations in the US. The quality of our goods and services confirms fact that our long-time customers inculde among others Vault-Tec Industries, Poseidon Energy and MGL. Our perfect goods and services are also used by many smaller subjects such as many US hospitals, pharmacies, and hundreds of companies worldwide.}
+{3010}{}{exit}
+{4000}{}{Talchem offers high quality chemicals, partially processed pharmaceutical products, and actual medications. All our products undergo strict quality control, to ensure customer satisfaction.
+Talchem also offers services such as transport and storage of chemicals and safe liquidation of hazardous materials.
+}
+{4010}{}{exit}
+{5000}{}{Hey, Alex. I need you to fill outanother form for me. That guy from Vault Tek came again, he talked with the boss about some cooperation between West Tek and Vault Tec. Yes, you got me right. It is that weirdo... How they call him? Alastor? Anyway, I need you to file for number 34. As usual. Don't be mad, it is not my idea to call those nerds from VT.}
+{5010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Welcome to Talchem California Headquarters}
+{2010}{}{About Talchem}
+{2020}{}{exit}
+{2030}{}{Products}
+{2040}{}{[ To Alex, Delete after reading ]}
+{3000}{}{Talchem is one of the greatest Chemical and Pharmaceutical corporations in US. Quality of our goods and services confirms fact that our long-time customers inculdes  among others Vault-Tec Industries, Poseidon Energy and MGL. Our perfect goods and services are also used by many smaller subjects sch as myny US hospitals and pharmacies and hundreds of companies.}
+{3010}{}{exit}
+{4000}{}{Talchem offers high quallity chemicals, pharmaceutical  semifinished product, and medications. All our products undergoes strict control, to ensure custommer satisfaction.
+Talchem also offers services, such as transport and  storage of chemicals and safe liquidation of hazardous materials.
+}
+{4010}{}{exit}
+{5000}{}{Hey, Alex. I need you to fill another form for me. That guy from Vault Tek came again, he talked with the boss about cooperation of West Tek and Vault Tec. Yes, you got me right. It is that weirdo... How they call him? Alastor? Anyway, need you to fill the for number 34. As usual. Don't be mad, it is not my idea to call those nerds from VT.}
+{5010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Welcome to Talchem California Headquarters}
+{2010}{}{About Talchem}
+{2020}{}{exit}
+{2030}{}{Products}
+{2040}{}{[ To Alex, Delete after reading ]}
+{3000}{}{Talchem is one of the greatest Chemical and Pharmaceutical corporations in US. Quality of our goods and services confirms fact that our long-time customers inculdes  among others Vault-Tec Industries, Poseidon Energy and MGL. Our perfect goods and services are also used by many smaller subjects sch as myny US hospitals and pharmacies and hundreds of companies.}
+{3010}{}{exit}
+{4000}{}{Talchem offers high quallity chemicals, pharmaceutical  semifinished product, and medications. All our products undergoes strict control, to ensure custommer satisfaction.
+Talchem also offers services, such as transport and  storage of chemicals and safe liquidation of hazardous materials.
+}
+{4010}{}{exit}
+{5000}{}{Hey, Alex. I need you to fill another form for me. That guy from Vault Tek came again, he talked with the boss about cooperation of West Tek and Vault Tec. Yes, you got me right. It is that weirdo... How they call him? Alastor? Anyway, need you to fill the for number 34. As usual. Don't be mad, it is not my idea to call those nerds from VT.}
+{5010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Welcome to Talchem California Headquarters}
+{2010}{}{About Talchem}
+{2020}{}{exit}
+{2030}{}{Products}
+{2040}{}{[ To Alex, Delete after reading ]}
+{3000}{}{Talchem is one of the greatest Chemical and Pharmaceutical corporations in US. Quality of our goods and services confirms fact that our long-time customers inculdes  among others Vault-Tec Industries, Poseidon Energy and MGL. Our perfect goods and services are also used by many smaller subjects sch as myny US hospitals and pharmacies and hundreds of companies.}
+{3010}{}{exit}
+{4000}{}{Talchem offers high quallity chemicals, pharmaceutical  semifinished product, and medications. All our products undergoes strict control, to ensure custommer satisfaction.
+Talchem also offers services, such as transport and  storage of chemicals and safe liquidation of hazardous materials.
+}
+{4010}{}{exit}
+{5000}{}{Hey, Alex. I need you to fill another form for me. That guy from Vault Tek came again, he talked with the boss about cooperation of West Tek and Vault Tec. Yes, you got me right. It is that weirdo... How they call him? Alastor? Anyway, need you to fill the for number 34. As usual. Don't be mad, it is not my idea to call those nerds from VT.}
+{5010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{Welcome to Talchem California Headquarters}
+{2010}{}{About Talchem}
+{2020}{}{exit}
+{2030}{}{Products}
+{2040}{}{[ To Alex, Delete after reading ]}
+{3000}{}{Talchem is one of the greatest Chemical and Pharmaceutical corporations in US. Quality of our goods and services confirms fact that our long-time customers inculdes  among others Vault-Tec Industries, Poseidon Energy and MGL. Our perfect goods and services are also used by many smaller subjects sch as myny US hospitals and pharmacies and hundreds of companies.}
+{3010}{}{exit}
+{4000}{}{Talchem offers high quallity chemicals, pharmaceutical  semifinished product, and medications. All our products undergoes strict control, to ensure custommer satisfaction.
+Talchem also offers services, such as transport and  storage of chemicals and safe liquidation of hazardous materials.
+}
+{4010}{}{exit}
+{5000}{}{Hey, Alex. I need you to fill another form for me. That guy from Vault Tek came again, he talked with the boss about cooperation of West Tek and Vault Tec. Yes, you got me right. It is that weirdo... How they call him? Alastor? Anyway, need you to fill the for number 34. As usual. Don't be mad, it is not my idea to call those nerds from VT.}
+{5010}{}{[ Back ]}
+

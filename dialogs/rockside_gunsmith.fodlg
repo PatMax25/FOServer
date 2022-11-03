@@ -1,0 +1,144 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 @
+3 3000 None 0 #
+4 3010 #
+2 3020 @
+4 4000 None 0 #
+5 4010 #
+6 4020 @
+5 5000 None 0 #
+7 5010 D _item p PID_10MM_PISTOL } 1 D _item p PID_9MM_MAUSER } 1 R _item p PID_10MM_PISTOL - 1 R _item p PID_9MM_MAUSER - 1 R _item p PID_SHOTGUN + 1 #
+2 5020 @
+6 6000 None 0 #
+7 6010 D _script dialog@d_havepropermoney 1 3 R _script dialog@r_RemoveMoney 1 3 R _item p PID_SHOTGUN_SHELLS + 1 #
+7 6020 D _script dialog@d_havepropermoney 1 15 R _script dialog@r_RemoveMoney 1 15 R _item p PID_SHOTGUN_SHELLS + 5 #
+7 6030 D _script dialog@d_havepropermoney 1 30 R _script dialog@r_RemoveMoney 1 30 R _item p PID_SHOTGUN_SHELLS + 10 #
+7 6040 D _script dialog@d_havepropermoney 1 60 R _script dialog@r_RemoveMoney 1 60 R _item p PID_SHOTGUN_SHELLS + 20 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Gortel}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello. Any way I can help you?}
+{2010}{}{Who are you?}
+{2020}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3000}{}{My name is Gortel, and there is my brother Brax. We are local "blacksmiths" if you may. In fact we make and fix guns.}
+{3010}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3020}{}{I wanted to ask something else.}
+{4000}{}{Indeed. Are you interested in something?}
+{4010}{}{Can you guys make a better weapon for me?}
+{4020}{}{Do you guys sell shotgun shells?}
+{5000}{}{Hmh... Well if you bring me one 10mm pistol and one 9mm pistol I can give you a shotgun. How does that sound?}
+{5010}{}{Here are the pistols. Now... where's my shotgun?}
+{5020}{}{Hmh... Maybe later.}
+{6000}{}{Sure, I can sell you shotgun shells. 3 Currency per one.}
+{6010}{}{I will take 1.}
+{6020}{}{I will take 5.}
+{6030}{}{I will take 10.}
+{6040}{}{I will take 20.}
+{7000}{}{Here you go.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello. Anyway I can help you?}
+{2010}{}{Who are you?}
+{2020}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3000}{}{My name is Gortel, and there is my brother Brax. We are local "blacksmiths" if you may, in fact, just making and fixing guns.}
+{3010}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3020}{}{I wanted to ask something else.}
+{4000}{}{Indeed. Are you interested in something?}
+{4010}{}{Can you guys make a better weapon for me?}
+{4020}{}{Do you guys sell shotgun shells?}
+{5000}{}{Hmh... Well if you bring me 10mm and 9mm pistols I can give you a shotgun. How does it sound?}
+{5010}{}{Here are these pistols. Now... I am waiting for my shotgun.}
+{5020}{}{Hmh... Maybe later.}
+{6000}{}{Sure, I can sell you shotgun shells. 3 Currency per one.}
+{6010}{}{I will take 1.}
+{6020}{}{I will take 5.}
+{6030}{}{I will take 10.}
+{6040}{}{I will take 20.}
+{7000}{}{Here you go.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello. Anyway I can help you?}
+{2010}{}{Who are you?}
+{2020}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3000}{}{My name is Gortel, and there is my brother Brax. We are local "blacksmiths" if you may, in fact, just making and fixing guns.}
+{3010}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3020}{}{I wanted to ask something else.}
+{4000}{}{Indeed. Are you interested in something?}
+{4010}{}{Can you guys make a better weapon for me?}
+{4020}{}{Do you guys sell shotgun shells?}
+{5000}{}{Hmh... Well if you bring me 10mm and 9mm pistols I can give you a shotgun. How does it sound?}
+{5010}{}{Here are these pistols. Now... I am waiting for my shotgun.}
+{5020}{}{Hmh... Maybe later.}
+{6000}{}{Sure, I can sell you shotgun shells. 3 Currency per one.}
+{6010}{}{I will take 1.}
+{6020}{}{I will take 5.}
+{6030}{}{I will take 10.}
+{6040}{}{I will take 20.}
+{7000}{}{Here you go.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello. Anyway I can help you?}
+{2010}{}{Who are you?}
+{2020}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3000}{}{My name is Gortel, and there is my brother Brax. We are local "blacksmiths" if you may, in fact, just making and fixing guns.}
+{3010}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3020}{}{I wanted to ask something else.}
+{4000}{}{Indeed. Are you interested in something?}
+{4010}{}{Can you guys make a better weapon for me?}
+{4020}{}{Do you guys sell shotgun shells?}
+{5000}{}{Hmh... Well if you bring me 10mm and 9mm pistols I can give you a shotgun. How does it sound?}
+{5010}{}{Here are these pistols. Now... I am waiting for my shotgun.}
+{5020}{}{Hmh... Maybe later.}
+{6000}{}{Sure, I can sell you shotgun shells. 3 Currency per one.}
+{6010}{}{I will take 1.}
+{6020}{}{I will take 5.}
+{6030}{}{I will take 10.}
+{6040}{}{I will take 20.}
+{7000}{}{Here you go.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello. Anyway I can help you?}
+{2010}{}{Who are you?}
+{2020}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3000}{}{My name is Gortel, and there is my brother Brax. We are local "blacksmiths" if you may, in fact, just making and fixing guns.}
+{3010}{}{I saw a "Gun" sign outdoors. Do you guys sell weapons?}
+{3020}{}{I wanted to ask something else.}
+{4000}{}{Indeed. Are you interested in something?}
+{4010}{}{Can you guys make a better weapon for me?}
+{4020}{}{Do you guys sell shotgun shells?}
+{5000}{}{Hmh... Well if you bring me 10mm and 9mm pistols I can give you a shotgun. How does it sound?}
+{5010}{}{Here are these pistols. Now... I am waiting for my shotgun.}
+{5020}{}{Hmh... Maybe later.}
+{6000}{}{Sure, I can sell you shotgun shells. 3 Currency per one.}
+{6010}{}{I will take 1.}
+{6020}{}{I will take 5.}
+{6030}{}{I will take 10.}
+{6040}{}{I will take 20.}
+{7000}{}{Here you go.}
+

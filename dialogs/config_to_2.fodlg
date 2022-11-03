@@ -1,0 +1,99 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 cheats@highlight_info 0 #
+3 2010 #
+0 2020 @
+3 3000 cheats@highlight_info 0 #
+3 3010 R _script cheats@timeout_font 1 5 #
+3 3020 R _script cheats@timeout_font 1 4 #
+3 3030 R _script cheats@timeout_font 1 6 #
+3 3040 R _script cheats@timeout_font 1 7 #
+3 3050 R _script cheats@timeout_font 1 8 #
+0 3060 &
+
+[engl]
+{100}{}{Player}
+{200}{}{You see a construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{[ system initializing... ]}
+{2010}{}{[ Login ]}
+{2020}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ Font: @lex r@  ]}
+{3010}{}{[ Set to Fallout ]}
+{3020}{}{[ Set to Special ]}
+{3030}{}{[ Set to Thin ]}
+{3040}{}{[ Set to Fat ]}
+{3050}{}{[ Set to Big ]}
+{3060}{}{[ Exit ] [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Change Green}
+{3030}{}{Set to Thin}
+{3040}{}{Set to Fat}
+{3050}{}{Set to Big}
+{3060}{}{Close}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Change Green}
+{3030}{}{Set to Thin}
+{3040}{}{Set to Fat}
+{3050}{}{Set to Big}
+{3060}{}{Close}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Change Green}
+{3030}{}{Set to Thin}
+{3040}{}{Set to Fat}
+{3050}{}{Set to Big}
+{3060}{}{Close}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Change Red}
+{3020}{}{Change Green}
+{3030}{}{Set to Thin}
+{3040}{}{Set to Fat}
+{3050}{}{Set to Big}
+{3060}{}{Close}
+

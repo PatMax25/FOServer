@@ -1,0 +1,156 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+6 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 D _param p ST_CHARISMA { 6 #
+7 2020 D _param p ST_CHARISMA > 6 #
+0 2030 @
+3 3000 None 0 #
+65507 3010 R _var p name_mem_npc_player = 1 #
+4 3020 @
+4 4000 None 0 #
+0 4010 R _var p name_mem_npc_player = 1 R _var p seth_betsy = 1 #
+0 4020 R _var p name_mem_npc_player = 1 @
+5 5000 None 0 @
+6 6000 None 0 #
+5 6010 D _var p seth_betsy = 1 D _item p PID_DAISIES } 1 R _var p seth_betsy = 2 R _param p ST_CHARISMA + 1 R _item p PID_DAISIES - 1 #
+8 6020 #
+0 6030 @
+7 7000 None 0 @
+8 8000 None 0 #
+6 8010 #
+0 8020 &
+
+[engl]
+{100}{}{Betsy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{bnn}
+{2000}{}{Hello... Oh wait... What is wrong with your image?}
+{2010}{}{What do you mean?}
+{2020}{}{Ha! You must be blind. I look damn sexcellent, babe.}
+{2030}{}{I don't care. See you.}
+{3000}{}{I mean, you look awful. Luckily for you I can give you few tips how to look a little bit better.}
+{3010}{}{Oh, but first let me fix YOUR fucking "image".}
+{3020}{}{Will you show me?}
+{4000}{}{I can show you... But in return I want something from you. Recently I saw a pot with wonderful yellow flowers when I was in Shady Sands. Bring me one and we can make a deal.}
+{4010}{}{Alright. I will be back soon.}
+{4020}{}{I am not interested in this. See you.}
+{5000}{}{Aw thank you! Don't they look awesome? Alright, as I promised. Here is the way to fix you up...}
+{6000}{}{Hello again.}
+{6010}{}{[ Charisma +1 ] Hey. I have flowers for you.}
+{6020}{}{Tell me about yourself.}
+{6030}{}{Just wanted to say hi. See you.}
+{7000}{}{Ah, pff... Go fuck yourself then.}
+{8000}{}{Name's Betsy. I live together with my family here. We are farmers, growing crops, selling crops, eating crops... Yeah, I know it is boring. I wish I could once travel somewhere.}
+{8010}{}{I see. I wanted to ask something else.}
+{8020}{}{I see. Need to go now.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{bnn}
+{2000}{}{Hello... Oh wait... What is wrong with your image?}
+{2010}{}{What do you mean?}
+{2020}{}{Ha! You must be blind. I like damn sexcellent, babe.}
+{2030}{}{I don't care. See you.}
+{3000}{}{I mean, you look awful. Luckily for you I can give you few tips how to look a little bit better.}
+{3010}{}{Oh, but first let me fix YOUR fucking "image".}
+{3020}{}{Will you show me?}
+{4000}{}{I can show you... But in retrun I want something from you. Recently I saw a pot with wonderful yellow flowers when I was in Shady. Bring me one and we can make a deal.}
+{4010}{}{Alright. I will be back soon.}
+{4020}{}{I am not interested in this. See you.}
+{5000}{}{Aw thank you! Don't they look awesome? Alright, as I promised. Here is the way how to fix you up...}
+{6000}{}{Hello again.}
+{6010}{}{[ Charisma +1 ] Hey. I have flowers for you.}
+{6020}{}{Tell me about yourself.}
+{6030}{}{Just wanted to say hi. See you.}
+{7000}{}{Ah, pff... Go fuck yourself then.}
+{8000}{}{Name's Betsy. I live together with my family here. We are farmers, growing crops, selling crops, eating crops... Yeah, I know it is boring. I wish I could once travel somewhere.}
+{8010}{}{I see. I wanted to ask something else.}
+{8020}{}{I see. Need to go now.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{bnn}
+{2000}{}{Hello... Oh wait... What is wrong with your image?}
+{2010}{}{What do you mean?}
+{2020}{}{Ha! You must be blind. I like damn sexcellent, babe.}
+{2030}{}{I don't care. See you.}
+{3000}{}{I mean, you look awful. Luckily for you I can give you few tips how to look a little bit better.}
+{3010}{}{Oh, but first let me fix YOUR fucking "image".}
+{3020}{}{Will you show me?}
+{4000}{}{I can show you... But in retrun I want something from you. Recently I saw a pot with wonderful yellow flowers when I was in Shady. Bring me one and we can make a deal.}
+{4010}{}{Alright. I will be back soon.}
+{4020}{}{I am not interested in this. See you.}
+{5000}{}{Aw thank you! Don't they look awesome? Alright, as I promised. Here is the way how to fix you up...}
+{6000}{}{Hello again.}
+{6010}{}{[ Charisma +1 ] Hey. I have flowers for you.}
+{6020}{}{Tell me about yourself.}
+{6030}{}{Just wanted to say hi. See you.}
+{7000}{}{Ah, pff... Go fuck yourself then.}
+{8000}{}{Name's Betsy. I live together with my family here. We are farmers, growing crops, selling crops, eating crops... Yeah, I know it is boring. I wish I could once travel somewhere.}
+{8010}{}{I see. I wanted to ask something else.}
+{8020}{}{I see. Need to go now.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{bnn}
+{2000}{}{Hello... Oh wait... What is wrong with your image?}
+{2010}{}{What do you mean?}
+{2020}{}{Ha! You must be blind. I like damn sexcellent, babe.}
+{2030}{}{I don't care. See you.}
+{3000}{}{I mean, you look awful. Luckily for you I can give you few tips how to look a little bit better.}
+{3010}{}{Oh, but first let me fix YOUR fucking "image".}
+{3020}{}{Will you show me?}
+{4000}{}{I can show you... But in retrun I want something from you. Recently I saw a pot with wonderful yellow flowers when I was in Shady. Bring me one and we can make a deal.}
+{4010}{}{Alright. I will be back soon.}
+{4020}{}{I am not interested in this. See you.}
+{5000}{}{Aw thank you! Don't they look awesome? Alright, as I promised. Here is the way how to fix you up...}
+{6000}{}{Hello again.}
+{6010}{}{[ Charisma +1 ] Hey. I have flowers for you.}
+{6020}{}{Tell me about yourself.}
+{6030}{}{Just wanted to say hi. See you.}
+{7000}{}{Ah, pff... Go fuck yourself then.}
+{8000}{}{Name's Betsy. I live together with my family here. We are farmers, growing crops, selling crops, eating crops... Yeah, I know it is boring. I wish I could once travel somewhere.}
+{8010}{}{I see. I wanted to ask something else.}
+{8020}{}{I see. Need to go now.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{bnn}
+{2000}{}{Hello... Oh wait... What is wrong with your image?}
+{2010}{}{What do you mean?}
+{2020}{}{Ha! You must be blind. I like damn sexcellent, babe.}
+{2030}{}{I don't care. See you.}
+{3000}{}{I mean, you look awful. Luckily for you I can give you few tips how to look a little bit better.}
+{3010}{}{Oh, but first let me fix YOUR fucking "image".}
+{3020}{}{Will you show me?}
+{4000}{}{I can show you... But in retrun I want something from you. Recently I saw a pot with wonderful yellow flowers when I was in Shady. Bring me one and we can make a deal.}
+{4010}{}{Alright. I will be back soon.}
+{4020}{}{I am not interested in this. See you.}
+{5000}{}{Aw thank you! Don't they look awesome? Alright, as I promised. Here is the way how to fix you up...}
+{6000}{}{Hello again.}
+{6010}{}{[ Charisma +1 ] Hey. I have flowers for you.}
+{6020}{}{Tell me about yourself.}
+{6030}{}{Just wanted to say hi. See you.}
+{7000}{}{Ah, pff... Go fuck yourself then.}
+{8000}{}{Name's Betsy. I live together with my family here. We are farmers, growing crops, selling crops, eating crops... Yeah, I know it is boring. I wish I could once travel somewhere.}
+{8010}{}{I see. I wanted to ask something else.}
+{8020}{}{I see. Need to go now.}
+

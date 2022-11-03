@@ -1,0 +1,32 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _item p PID_DOLLAR } 1 D _var p citizenship = 1 #
+4 1020 D _item p PID_DOLLAR = 0 D _var p citizenship = 1 #
+5 1030 D _var p citizenship = 0 D _item p PID_DOLLAR } 1 #
+5 1040 D _var p citizenship = 0 D _item p PID_DOLLAR = 0 @
+2 2000 None 0 #
+65506 2010 #
+0 2020 @
+4 3000 None 0 @
+5 4000 None 0 &
+
+[engl]
+{100}{}{Gaz}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{I see. Let me ask you about something else.}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{2000}{}{Yo, welcome to Crazy Guns. I am Gaz and oh man... I have some great weapons for you.}
+{2010}{}{Show me what you got.}
+{2020}{}{Later maybe.}
+{3000}{}{Hey buddy, sorry, but I trade only for golden dollars.}
+{4000}{}{I trade only with citizens of Vegas.}
+

@@ -1,0 +1,114 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+0 2020 @
+4 3000 None 0 #
+0 3010 #
+4 3020 D _item p PID_BOTTLE_CAPS } 500 R _item p PID_BOTTLE_CAPS - 500 R _item p PID_RED_CONDOM + 10 #
+4 3030 D _item p PID_BOTTLE_CAPS } 500 R _item p PID_BOTTLE_CAPS - 500 R _item p PID_BLUE_CONDOM + 10 #
+4 3040 D _item p PID_BOTTLE_CAPS } 100 R _item p PID_BOTTLE_CAPS - 100 R _item p PID_BALL_GAG + 1 #
+4 3050 D _item p PID_BOTTLE_CAPS } 1000 R _item p PID_BOTTLE_CAPS - 1000 R _item p PID_BLOW_UP_DOLL + 1 #
+7 3060 @
+7 4000 None 0 #
+4 4010 #
+0 4020 &
+
+[engl]
+{100}{}{Golden Globe trader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello there, sweetie. Do you search for some "special" goods? Golden Globe surely has some.}
+{2010}{}{What do you sell?}
+{2020}{}{Later.}
+{3000}{}{A pack of 10 red or blue condoms for 500 caps each, ball gags for 100 caps, dolls for 1000 caps each.}
+{3010}{}{Nothing else for now.}
+{3020}{}{I will take red condoms.}
+{3030}{}{I will take blue condoms.}
+{3040}{}{Ball Gag is what I really need now,}
+{3050}{}{I would really love a doll.}
+{3060}{}{Uh... Who even buys these?}
+{4000}{}{My dear, people have their needs, you should know that. And only we can supply them with all the materials important for their business.}
+{4010}{}{I see... So what is your stock again?}
+{4020}{}{Fuck this, I don't need it.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{What do you sell?}
+{2020}{}{Later.}
+{3000}{}{I sell 10 wood for 100 caps. 10 metal parts for 250 caps. 10 microchips for 370 caps and special supetool kits for 10500 caps each!}
+{3010}{}{Nothing else for now.}
+{3020}{}{I will take wood.}
+{3030}{}{I will take blue condoms.}
+{3040}{}{Ball Gag is what I really need now,}
+{3050}{}{I would really love a doll.}
+{3060}{}{Uh... Who even buys these?}
+{4000}{}{My dear, people have their needs, if you didn't know that. And only we can supply them with all the material important for their business.}
+{4010}{}{I see... So what is your stock again?}
+{4020}{}{Fuck this, I don't need it.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{What do you sell?}
+{2020}{}{Later.}
+{3000}{}{I sell 10 wood for 100 caps. 10 metal parts for 250 caps. 10 microchips for 370 caps and special supetool kits for 10500 caps each!}
+{3010}{}{Nothing else for now.}
+{3020}{}{I will take wood.}
+{3030}{}{I will take blue condoms.}
+{3040}{}{Ball Gag is what I really need now,}
+{3050}{}{I would really love a doll.}
+{3060}{}{Uh... Who even buys these?}
+{4000}{}{My dear, people have their needs, if you didn't know that. And only we can supply them with all the material important for their business.}
+{4010}{}{I see... So what is your stock again?}
+{4020}{}{Fuck this, I don't need it.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{What do you sell?}
+{2020}{}{Later.}
+{3000}{}{I sell 10 wood for 100 caps. 10 metal parts for 250 caps. 10 microchips for 370 caps and special supetool kits for 10500 caps each!}
+{3010}{}{Nothing else for now.}
+{3020}{}{I will take wood.}
+{3030}{}{I will take blue condoms.}
+{3040}{}{Ball Gag is what I really need now,}
+{3050}{}{I would really love a doll.}
+{3060}{}{Uh... Who even buys these?}
+{4000}{}{My dear, people have their needs, if you didn't know that. And only we can supply them with all the material important for their business.}
+{4010}{}{I see... So what is your stock again?}
+{4020}{}{Fuck this, I don't need it.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{What do you sell?}
+{2020}{}{Later.}
+{3000}{}{I sell 10 wood for 100 caps. 10 metal parts for 250 caps. 10 microchips for 370 caps and special supetool kits for 10500 caps each!}
+{3010}{}{Nothing else for now.}
+{3020}{}{I will take wood.}
+{3030}{}{I will take blue condoms.}
+{3040}{}{Ball Gag is what I really need now,}
+{3050}{}{I would really love a doll.}
+{3060}{}{Uh... Who even buys these?}
+{4000}{}{My dear, people have their needs, if you didn't know that. And only we can supply them with all the material important for their business.}
+{4010}{}{I see... So what is your stock again?}
+{4020}{}{Fuck this, I don't need it.}
+

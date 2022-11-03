@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 &
+
+[engl]
+{100}{}{Civil}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Monsters started to attack us more frequently.@@Hello?@@Can I help you?@@You must be new here.@@I suggest you speak with our Doctor, he can explain everything to you.@@This place becomes more and more strange...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Monsters started to attack us more frequently.@@Hello?@@Can I help you?@@You must be new here.@@I suggest you to speak with Doctor, he can explain you everything.@@This place becomes more and more strange...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Monsters started to attack us more frequently.@@Hello?@@Can I help you?@@You must be new here.@@I suggest you to speak with Doctor, he can explain you everything.@@This place becomes more and more strange...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Monsters started to attack us more frequently.@@Hello?@@Can I help you?@@You must be new here.@@I suggest you to speak with Doctor, he can explain you everything.@@This place becomes more and more strange...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Monsters started to attack us more frequently.@@Hello?@@Can I help you?@@You must be new here.@@I suggest you to speak with Doctor, he can explain you everything.@@This place becomes more and more strange...}
+

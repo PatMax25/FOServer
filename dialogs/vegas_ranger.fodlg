@@ -1,0 +1,18 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Desert Ranger}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I am on duty.@@Desert Ranger reporting.@@Stay cool.@@I am watching you.@@We stand on guard for the law.@@What do you need?@@I am busy.@@Not now.}
+

@@ -1,0 +1,127 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+6 2020 D _var p q_rockside_scorpio1 = 1 R _var p q_rockside_scorpio1 = 2 R _item p PID_CATS_PAW + 1 #
+7 2030 #
+0 2040 @
+3 3000 None 0 #
+4 3010 #
+7 3020 #
+0 3030 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 @
+6 6000 None 0 #
+0 6010 @
+7 7000 None 0 &
+
+[engl]
+{100}{}{Bishop}
+{210}{}{He looks like a priest.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*the man holds a bottle of beer in his right hand* Ay! Hell - o dere, child. How can I help you? *he gulps some beer*}
+{2010}{}{Who are you?}
+{2020}{}{Hey, I am from Joseph. He asks about books.}
+{2030}{}{Great... A fucking drunk. [ end dialogue ]}
+{2040}{}{I better go. [ end dialogue ]}
+{3000}{}{Oh I am a priest. Once I was... yeah... 'Till i decided to follow the way of sin. *he smirks* Alcohol, child, girls... Isn't it lovely? Name's Bishop...}
+{3010}{}{A priest? Where are you from?}
+{3020}{}{The proper name for you is Drunktard.}
+{3030}{}{Fine. I need to go. [ end dialogue ]}
+{4000}{}{Ah from one old Cathedral not far from San Francisco... Boring place, trust me. My brothers and... Sis... Sisters think that charity will save this world. HA! What I say... fuck it. Got me?}
+{4010}{}{Yeah... [ end dialogue ]}
+{5000}{}{Erh... Who are you again?}
+{6000}{}{Eh? Joseph? Yeah... Shee is a nice little girl... I eh... *gulps some beer* here are some books for her... }
+{6010}{}{Cat's Paw? The heck... [ end dialogue ]}
+{7000}{}{Wha? Well I tell ya, you piece of shit I will beat the shit out of you... Eh... Who are you by the way?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ The man holds a local of beer in his right hand. ] Ay! Hell - o dere, child. How can I help you? [ gulps some beer ]}
+{2010}{}{Who are you?}
+{2020}{}{Hey, I am from Joseph. He asks about books.}
+{2030}{}{Great... A fucking drunk.}
+{2040}{}{I better go.}
+{3000}{}{Oh I am a priest. Once I was... yeah... Till i decided to follow the way of sin [ smirks ]. Alcohol, child, girls... Isn't it lovely? Name's Bishop...}
+{3010}{}{A priest? Where are you from?}
+{3020}{}{The proper name for you is Drunktard.}
+{3030}{}{Fine. I need to go.}
+{4000}{}{Ah from one old Cathedral not far from San Francisco... Boring place, trust me. My brothers and... Sis... Sisters think that charity will save this world. HA! What I say... fuck it. Got me?}
+{4010}{}{Yeah...}
+{5000}{}{Erh... Who are you again?}
+{6000}{}{Eh? Joseph? Yeah... Shee is a nice little girl... I eh... [ gulps some beer ] here are some books for her... }
+{6010}{}{Cat's Paw? The heck...}
+{7000}{}{Wha? Well I tell ya, you piece of shit I will beat the whole shit out of you... Eh... Who are you by the way?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ The man holds a local of beer in his right hand. ] Ay! Hell - o dere, child. How can I help you? [ gulps some beer ]}
+{2010}{}{Who are you?}
+{2020}{}{Hey, I am from Joseph. He asks about books.}
+{2030}{}{Great... A fucking drunk.}
+{2040}{}{I better go.}
+{3000}{}{Oh I am a priest. Once I was... yeah... Till i decided to follow the way of sin [ smirks ]. Alcohol, child, girls... Isn't it lovely? Name's Bishop...}
+{3010}{}{A priest? Where are you from?}
+{3020}{}{The proper name for you is Drunktard.}
+{3030}{}{Fine. I need to go.}
+{4000}{}{Ah from one old Cathedral not far from San Francisco... Boring place, trust me. My brothers and... Sis... Sisters think that charity will save this world. HA! What I say... fuck it. Got me?}
+{4010}{}{Yeah...}
+{5000}{}{Erh... Who are you again?}
+{6000}{}{Eh? Joseph? Yeah... Shee is a nice little girl... I eh... [ gulps some beer ] here are some books for her... }
+{6010}{}{Cat's Paw? The heck...}
+{7000}{}{Wha? Well I tell ya, you piece of shit I will beat the whole shit out of you... Eh... Who are you by the way?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ The man holds a local of beer in his right hand. ] Ay! Hell - o dere, child. How can I help you? [ gulps some beer ]}
+{2010}{}{Who are you?}
+{2020}{}{Hey, I am from Joseph. He asks about books.}
+{2030}{}{Great... A fucking drunk.}
+{2040}{}{I better go.}
+{3000}{}{Oh I am a priest. Once I was... yeah... Till i decided to follow the way of sin [ smirks ]. Alcohol, child, girls... Isn't it lovely? Name's Bishop...}
+{3010}{}{A priest? Where are you from?}
+{3020}{}{The proper name for you is Drunktard.}
+{3030}{}{Fine. I need to go.}
+{4000}{}{Ah from one old Cathedral not far from San Francisco... Boring place, trust me. My brothers and... Sis... Sisters think that charity will save this world. HA! What I say... fuck it. Got me?}
+{4010}{}{Yeah...}
+{5000}{}{Erh... Who are you again?}
+{6000}{}{Eh? Joseph? Yeah... Shee is a nice little girl... I eh... [ gulps some beer ] here are some books for her... }
+{6010}{}{Cat's Paw? The heck...}
+{7000}{}{Wha? Well I tell ya, you piece of shit I will beat the whole shit out of you... Eh... Who are you by the way?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ The man holds a local of beer in his right hand. ] Ay! Hell - o dere, child. How can I help you? [ gulps some beer ]}
+{2010}{}{Who are you?}
+{2020}{}{Hey, I am from Joseph. He asks about books.}
+{2030}{}{Great... A fucking drunk.}
+{2040}{}{I better go.}
+{3000}{}{Oh I am a priest. Once I was... yeah... Till i decided to follow the way of sin [ smirks ]. Alcohol, child, girls... Isn't it lovely? Name's Bishop...}
+{3010}{}{A priest? Where are you from?}
+{3020}{}{The proper name for you is Drunktard.}
+{3030}{}{Fine. I need to go.}
+{4000}{}{Ah from one old Cathedral not far from San Francisco... Boring place, trust me. My brothers and... Sis... Sisters think that charity will save this world. HA! What I say... fuck it. Got me?}
+{4010}{}{Yeah...}
+{5000}{}{Erh... Who are you again?}
+{6000}{}{Eh? Joseph? Yeah... Shee is a nice little girl... I eh... [ gulps some beer ] here are some books for her... }
+{6010}{}{Cat's Paw? The heck...}
+{7000}{}{Wha? Well I tell ya, you piece of shit I will beat the whole shit out of you... Eh... Who are you by the way?}
+

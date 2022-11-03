@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _item p PID_V15_KEYCARD < 1 #
+3 1020 D _item p PID_V15_KEYCARD } 1 @
+2 2000 None 0 #
+65507 2010 #
+65507 2020 #
+65507 2030 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Vault 32 Guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Who the heck are you?! I don't remember you around.}
+{2010}{}{I am just walking around. [ Attack ]}
+{2020}{}{I am... eeh... Well... [ Attack ]}
+{2030}{}{Shut up! You are already dead, fucker. [ Attack ]}
+{3000}{}{Greetings, Overseer.@@My pleasure, Overseer.@@Good day, Overseer @pname@.}
+{4000}{}{ALARM! INTRUDERS IN THE VAULT!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Who the heck are you?! I don't remember you around.}
+{2010}{}{I am just walking around.}
+{2020}{}{I am... eeh... Well...}
+{2030}{}{Shut up! You are already dead, fucker.}
+{3000}{}{Greetings, Overseer.@@My pleasure, Overseer.@@Good day, Overseer @pname@.}
+{4000}{}{ALARM! INTRUDERS IN THE VAULT!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Who the heck are you?! I don't remember you around.}
+{2010}{}{I am just walking around.}
+{2020}{}{I am... eeh... Well...}
+{2030}{}{Shut up! You are already dead, fucker.}
+{3000}{}{Greetings, Overseer.@@My pleasure, Overseer.@@Good day, Overseer @pname@.}
+{4000}{}{ALARM! INTRUDERS IN THE VAULT!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Who the heck are you?! I don't remember you around.}
+{2010}{}{I am just walking around.}
+{2020}{}{I am... eeh... Well...}
+{2030}{}{Shut up! You are already dead, fucker.}
+{3000}{}{Greetings, Overseer.@@My pleasure, Overseer.@@Good day, Overseer @pname@.}
+{4000}{}{ALARM! INTRUDERS IN THE VAULT!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Who the heck are you?! I don't remember you around.}
+{2010}{}{I am just walking around.}
+{2020}{}{I am... eeh... Well...}
+{2030}{}{Shut up! You are already dead, fucker.}
+{3000}{}{Greetings, Overseer.@@My pleasure, Overseer.@@Good day, Overseer @pname@.}
+{4000}{}{ALARM! INTRUDERS IN THE VAULT!}
+

@@ -1,0 +1,356 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p we_gear ! 5 #
+4 1020 D _var p we_gear = 1 @
+2 2000 None 0 #
+5 2010 D _param p ST_NPC_ROLE = 204 D _var p we_gear ! 1 #
+0 2020 #
+4 2030 D _var p we_gear = 1 @
+4 3000 None 0 #
+0 3010 R _script map_events@r_tp 1 204 R _var p we_gear = 0 #
+0 3020 @
+3 4000 None 0 #
+0 4010 @
+5 5000 None 0 #
+6 5010 R _var p we_gear = 0 #
+7 5020 R _var p we_gear = 0 #
+8 5030 R _var p we_gear = 0 #
+9 5040 R _var p we_gear = 0 #
+10 5050 R _var p we_gear = 0 @
+6 6000 None 0 #
+4 6010 R _script cheats@giveweapon 1 1 R _var p we_gear = 1 #
+4 6020 R _script cheats@giveweapon 1 2 R _var p we_gear = 1 #
+4 6030 R _script cheats@giveweapon 1 3 R _var p we_gear = 1 #
+4 6040 R _script cheats@giveweapon 1 4 R _var p we_gear = 1 #
+4 6050 R _script cheats@giveweapon 1 5 R _var p we_gear = 1 #
+4 6060 R _script cheats@giveweapon 1 6 R _var p we_gear = 1 #
+4 6070 R _script cheats@giveweapon 1 7 R _var p we_gear = 1 #
+4 6080 R _script cheats@giveweapon 1 8 R _var p we_gear = 1 #
+4 6090 R _script cheats@giveweapon 1 9 R _var p we_gear = 1 @
+7 7000 None 0 #
+4 7010 R _script cheats@giveweapon 1 10 R _var p we_gear = 1 #
+4 7020 R _script cheats@giveweapon 1 11 R _var p we_gear = 1 #
+4 7030 R _script cheats@giveweapon 1 12 R _var p we_gear = 1 #
+4 7040 R _script cheats@giveweapon 1 13 R _var p we_gear = 1 #
+4 7050 R _script cheats@giveweapon 1 14 R _var p we_gear = 1 @
+8 8000 None 0 #
+4 8010 R _script cheats@giveweapon 1 15 R _var p we_gear = 1 #
+4 8020 R _script cheats@giveweapon 1 16 R _var p we_gear = 1 #
+4 8030 R _script cheats@giveweapon 1 17 R _var p we_gear = 1 #
+4 8040 R _script cheats@giveweapon 1 18 R _var p we_gear = 1 #
+4 8050 R _script cheats@giveweapon 1 19 R _var p we_gear = 1 #
+4 8060 R _script cheats@giveweapon 1 20 R _var p we_gear = 1 #
+4 8070 R _script cheats@giveweapon 1 21 R _var p we_gear = 1 #
+4 8080 R _script cheats@giveweapon 1 22 R _var p we_gear = 1 #
+4 8090 R _script cheats@giveweapon 1 23 R _var p we_gear = 1 @
+9 9000 None 0 #
+4 9010 R _script cheats@giveweapon 1 24 R _var p we_gear = 1 #
+4 9020 R _script cheats@giveweapon 1 25 R _var p we_gear = 1 #
+4 9030 R _script cheats@giveweapon 1 26 R _var p we_gear = 1 #
+4 9040 R _script cheats@giveweapon 1 27 R _var p we_gear = 1 #
+4 9050 R _script cheats@giveweapon 1 28 R _var p we_gear = 1 @
+10 10000 None 0 #
+4 10010 R _script cheats@giveweapon 1 29 R _var p we_gear = 1 #
+4 10020 R _script cheats@giveweapon 1 30 R _var p we_gear = 1 #
+4 10030 R _script cheats@giveweapon 1 31 R _var p we_gear = 1 #
+4 10040 R _script cheats@giveweapon 1 32 R _var p we_gear = 1 #
+4 10050 R _script cheats@giveweapon 1 33 R _var p we_gear = 1 #
+4 10060 R _script cheats@giveweapon 1 34 R _var p we_gear = 1 &
+
+[engl]
+{100}{}{Enclave Officer}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{What is it, you wasteland shit?}
+{2010}{}{I want join to join the battle}
+{2020}{}{Uh, nothing.}
+{3000}{}{Fine. Our men need backup, so you better fight with all your power for your nation. Here is your ammunition, you better not loose it. Do you understand that, private? Are you ready for the battle?}
+{3010}{}{Yes, sir!}
+{3020}{}{Ehm... Later.}
+{4000}{}{WHAT?! YOU ARE NOT ON THE LIST! DID YOU THINK YOU COULD FOOL ME?}
+{4010}{}{I better go...}
+{5000}{}{Choose your weapon}
+{5010}{}{Small Guns}
+{5020}{}{Big Guns}
+{5030}{}{Energy Weapons}
+{5040}{}{Throwing}
+{5050}{}{Melee}
+{6000}{}{Here is list of Weapons}
+{6010}{}{223 pistol}
+{6020}{}{Needler Pistol}
+{6030}{}{Sniper Rifle}
+{6040}{}{XL70E3}
+{6050}{}{Grenade Launcher}
+{6060}{}{HK Caws}
+{6070}{}{Pancor Jackhammer}
+{6080}{}{HK P90}
+{6090}{}{M16}
+{7000}{}{Here is list of Weapons}
+{7010}{}{Incinerator}
+{7020}{}{Rocket Launcher}
+{7030}{}{Avenger Minigun}
+{7040}{}{Light Support Weapon}
+{7050}{}{M60}
+{8000}{}{Here is list of Weapons}
+{8010}{}{Magneto Laser Pistol}
+{8020}{}{Solar Scorcher}
+{8030}{}{Laser Rifle}
+{8040}{}{Gatling Laser}
+{8050}{}{Plasma Pistol}
+{8060}{}{Plasma Rifle}
+{8070}{}{Plasma SMG}
+{8080}{}{Pulse Pistol}
+{8090}{}{ELECTRO Rocket Launcher}
+{9000}{}{Here is list of Weapons}
+{9010}{}{Molotovs}
+{9020}{}{Frags}
+{9030}{}{Plasma Grenade}
+{9040}{}{Shock Grenade}
+{9050}{}{Throwing Knife}
+{10000}{}{Here is list of Weapons}
+{10010}{}{Wakizashi Blade}
+{10020}{}{Super Sledge}
+{10030}{}{Ripper}
+{10040}{}{Super Cattle Prod}
+{10050}{}{Laser Spears}
+{10060}{}{Mega Power Fist}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{What is it, you, wasteland shit?}
+{2010}{}{I want join to join the battle}
+{2020}{}{Uh, nothing.}
+{3000}{}{Fine. Our men need a backup, so you better fight with whole your power for your nation. Here is your ammunition, you better not loose it. Do you understand that, private? Are you ready for the battle?}
+{3010}{}{Yes, sir!}
+{3020}{}{Ehm... Later.}
+{4000}{}{WHAT?! YOU ARE NOT IN THE LIST! DID YOU THINK YOU COULD FOOL ME?}
+{4010}{}{I better go...}
+{5000}{}{Choose your weapon}
+{5010}{}{Small Guns}
+{5020}{}{Big Guns}
+{5030}{}{Energy Weapons}
+{5040}{}{Throwing}
+{5050}{}{Melee}
+{6000}{}{Here is list of Weapons}
+{6010}{}{223 pistol}
+{6020}{}{Needler Pistol}
+{6030}{}{Sniper Rifle}
+{6040}{}{XL70E3}
+{6050}{}{Grenade Launcher}
+{6060}{}{HK Caws}
+{6070}{}{Pancor Jackhammer}
+{6080}{}{HK P90}
+{6090}{}{M16}
+{7000}{}{Here is list of Weapons}
+{7010}{}{Incinerator}
+{7020}{}{Rocket Launcher}
+{7030}{}{Avenger Minigun}
+{7040}{}{Light Support Weapon}
+{7050}{}{M60}
+{8000}{}{Here is list of Weapons}
+{8010}{}{Magneto Laser Pistol}
+{8020}{}{Solar Scorcher}
+{8030}{}{Laser Rifle}
+{8040}{}{Gatling Laser}
+{8050}{}{Plasma Pistol}
+{8060}{}{Plasma Rifle}
+{8070}{}{Plasma SMG}
+{8080}{}{Pulse Pistol}
+{8090}{}{ELECTRO Rocket Launcher}
+{9000}{}{Here is list of Weapons}
+{9010}{}{Molotovs}
+{9020}{}{Frags}
+{9030}{}{Plasma Grenade}
+{9040}{}{Shock Grenade}
+{9050}{}{Throwing Knife}
+{10000}{}{Here is list of Weapons}
+{10010}{}{Wakizashi Blade}
+{10020}{}{Super Sledge}
+{10030}{}{Ripper}
+{10040}{}{Super Cattle Prod}
+{10050}{}{Laser Spears}
+{10060}{}{Mega Power Fist}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{What is it, you, wasteland shit?}
+{2010}{}{I want join to join the battle}
+{2020}{}{Uh, nothing.}
+{3000}{}{Fine. Our men need a backup, so you better fight with whole your power for your nation. Here is your ammunition, you better not loose it. Do you understand that, private? Are you ready for the battle?}
+{3010}{}{Yes, sir!}
+{3020}{}{Ehm... Later.}
+{4000}{}{WHAT?! YOU ARE NOT IN THE LIST! DID YOU THINK YOU COULD FOOL ME?}
+{4010}{}{I better go...}
+{5000}{}{Choose your weapon}
+{5010}{}{Small Guns}
+{5020}{}{Big Guns}
+{5030}{}{Energy Weapons}
+{5040}{}{Throwing}
+{5050}{}{Melee}
+{6000}{}{Here is list of Weapons}
+{6010}{}{223 pistol}
+{6020}{}{Needler Pistol}
+{6030}{}{Sniper Rifle}
+{6040}{}{XL70E3}
+{6050}{}{Grenade Launcher}
+{6060}{}{HK Caws}
+{6070}{}{Pancor Jackhammer}
+{6080}{}{HK P90}
+{6090}{}{M16}
+{7000}{}{Here is list of Weapons}
+{7010}{}{Incinerator}
+{7020}{}{Rocket Launcher}
+{7030}{}{Avenger Minigun}
+{7040}{}{Light Support Weapon}
+{7050}{}{M60}
+{8000}{}{Here is list of Weapons}
+{8010}{}{Magneto Laser Pistol}
+{8020}{}{Solar Scorcher}
+{8030}{}{Laser Rifle}
+{8040}{}{Gatling Laser}
+{8050}{}{Plasma Pistol}
+{8060}{}{Plasma Rifle}
+{8070}{}{Plasma SMG}
+{8080}{}{Pulse Pistol}
+{8090}{}{ELECTRO Rocket Launcher}
+{9000}{}{Here is list of Weapons}
+{9010}{}{Molotovs}
+{9020}{}{Frags}
+{9030}{}{Plasma Grenade}
+{9040}{}{Shock Grenade}
+{9050}{}{Throwing Knife}
+{10000}{}{Here is list of Weapons}
+{10010}{}{Wakizashi Blade}
+{10020}{}{Super Sledge}
+{10030}{}{Ripper}
+{10040}{}{Super Cattle Prod}
+{10050}{}{Laser Spears}
+{10060}{}{Mega Power Fist}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{What is it, you, wasteland shit?}
+{2010}{}{I want join to join the battle}
+{2020}{}{Uh, nothing.}
+{3000}{}{Fine. Our men need a backup, so you better fight with whole your power for your nation. Here is your ammunition, you better not loose it. Do you understand that, private? Are you ready for the battle?}
+{3010}{}{Yes, sir!}
+{3020}{}{Ehm... Later.}
+{4000}{}{WHAT?! YOU ARE NOT IN THE LIST! DID YOU THINK YOU COULD FOOL ME?}
+{4010}{}{I better go...}
+{5000}{}{Choose your weapon}
+{5010}{}{Small Guns}
+{5020}{}{Big Guns}
+{5030}{}{Energy Weapons}
+{5040}{}{Throwing}
+{5050}{}{Melee}
+{6000}{}{Here is list of Weapons}
+{6010}{}{223 pistol}
+{6020}{}{Needler Pistol}
+{6030}{}{Sniper Rifle}
+{6040}{}{XL70E3}
+{6050}{}{Grenade Launcher}
+{6060}{}{HK Caws}
+{6070}{}{Pancor Jackhammer}
+{6080}{}{HK P90}
+{6090}{}{M16}
+{7000}{}{Here is list of Weapons}
+{7010}{}{Incinerator}
+{7020}{}{Rocket Launcher}
+{7030}{}{Avenger Minigun}
+{7040}{}{Light Support Weapon}
+{7050}{}{M60}
+{8000}{}{Here is list of Weapons}
+{8010}{}{Magneto Laser Pistol}
+{8020}{}{Solar Scorcher}
+{8030}{}{Laser Rifle}
+{8040}{}{Gatling Laser}
+{8050}{}{Plasma Pistol}
+{8060}{}{Plasma Rifle}
+{8070}{}{Plasma SMG}
+{8080}{}{Pulse Pistol}
+{8090}{}{ELECTRO Rocket Launcher}
+{9000}{}{Here is list of Weapons}
+{9010}{}{Molotovs}
+{9020}{}{Frags}
+{9030}{}{Plasma Grenade}
+{9040}{}{Shock Grenade}
+{9050}{}{Throwing Knife}
+{10000}{}{Here is list of Weapons}
+{10010}{}{Wakizashi Blade}
+{10020}{}{Super Sledge}
+{10030}{}{Ripper}
+{10040}{}{Super Cattle Prod}
+{10050}{}{Laser Spears}
+{10060}{}{Mega Power Fist}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{What is it, you, wasteland shit?}
+{2010}{}{I want join to join the battle}
+{2020}{}{Uh, nothing.}
+{3000}{}{Fine. Our men need a backup, so you better fight with whole your power for your nation. Here is your ammunition, you better not loose it. Do you understand that, private? Are you ready for the battle?}
+{3010}{}{Yes, sir!}
+{3020}{}{Ehm... Later.}
+{4000}{}{WHAT?! YOU ARE NOT IN THE LIST! DID YOU THINK YOU COULD FOOL ME?}
+{4010}{}{I better go...}
+{5000}{}{Choose your weapon}
+{5010}{}{Small Guns}
+{5020}{}{Big Guns}
+{5030}{}{Energy Weapons}
+{5040}{}{Throwing}
+{5050}{}{Melee}
+{6000}{}{Here is list of Weapons}
+{6010}{}{223 pistol}
+{6020}{}{Needler Pistol}
+{6030}{}{Sniper Rifle}
+{6040}{}{XL70E3}
+{6050}{}{Grenade Launcher}
+{6060}{}{HK Caws}
+{6070}{}{Pancor Jackhammer}
+{6080}{}{HK P90}
+{6090}{}{M16}
+{7000}{}{Here is list of Weapons}
+{7010}{}{Incinerator}
+{7020}{}{Rocket Launcher}
+{7030}{}{Avenger Minigun}
+{7040}{}{Light Support Weapon}
+{7050}{}{M60}
+{8000}{}{Here is list of Weapons}
+{8010}{}{Magneto Laser Pistol}
+{8020}{}{Solar Scorcher}
+{8030}{}{Laser Rifle}
+{8040}{}{Gatling Laser}
+{8050}{}{Plasma Pistol}
+{8060}{}{Plasma Rifle}
+{8070}{}{Plasma SMG}
+{8080}{}{Pulse Pistol}
+{8090}{}{ELECTRO Rocket Launcher}
+{9000}{}{Here is list of Weapons}
+{9010}{}{Molotovs}
+{9020}{}{Frags}
+{9030}{}{Plasma Grenade}
+{9040}{}{Shock Grenade}
+{9050}{}{Throwing Knife}
+{10000}{}{Here is list of Weapons}
+{10010}{}{Wakizashi Blade}
+{10020}{}{Super Sledge}
+{10030}{}{Ripper}
+{10040}{}{Super Cattle Prod}
+{10050}{}{Laser Spears}
+{10060}{}{Mega Power Fist}
+

@@ -1,0 +1,16 @@
+//
+// FOnline: Aftertimes
+//
+// map_stfarm.fos
+//
+// worldremaker
+
+import void InitializeDynamicMob(Map& map) from "mob_dynamic";
+
+void map_init(Map& map, bool firstTime)
+{
+    //Dynamic mobs
+	if(firstTime) InitializeDynamicMob(map);
+	//map.SetEvent(MAP_EVENT_CRITTER_DEAD, "_DeadCritter");
+}
+

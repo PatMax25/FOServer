@@ -1,0 +1,14 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Raven87;
+@gender = 0;
+@age = 32;
+
+@special = 1 8 7 1 5 10 8;
+@xp = 2 1450 3000;
+@life = 74 74 0 0 0 0 0 0 0;
+@stats = 30 10 42650 1 0 35 14 16 14 8;
+@skills = 45 20 20 52 42 40 26 18 35 28 30 28 20 15 5 4 40 24 20;
+@traits = 550 558;
+@perks = 301;

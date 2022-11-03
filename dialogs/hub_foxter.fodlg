@@ -1,0 +1,180 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 #
+6 2040 #
+8 2050 #
+0 2060 @
+3 3000 None 0 #
+2 3010 #
+0 3020 #
+7 3030 @
+4 4000 None 0 #
+8 4010 #
+6 4020 #
+0 4030 #
+0 4040 @
+5 5000 None 0 #
+2 5010 #
+0 5020 @
+6 6000 None 0 #
+2 6010 #
+0 6020 @
+7 7000 None 0 @
+8 8000 None 0 &
+
+[engl]
+{100}{}{Captain Foxter}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, wastelander. Do you need anything?}
+{2010}{}{Who are you?}
+{2020}{}{What is this city?}
+{2030}{}{Where can I find a nearby General Atomics office?}
+{2040}{}{What are the rules of the city?}
+{2050}{}{Can you tell me more about the city?}
+{2060}{}{Nothing. See ya later.}
+{3000}{}{I am the Gate Guard Captain Foxter. In other words - the one who will kick your ass out of the city in case if you decide to do something stupid.}
+{3010}{}{I see... There is something else I wanted to ask.}
+{3020}{}{I see, bye.}
+{3030}{}{Pff... Just another bloody fuzz. Some things never change.}
+{4000}{}{[ He stares at you surprisingly ] This city? Where are you from, kid? Everyone all across the Wasteland knows that this is Hub - the biggest trading city. Here you can buy anything and when I say anything I mean ANY-THING. Got me, wastelander?}
+{4010}{}{Can you tell me more about the city?}
+{4020}{}{What about city rules?}
+{4030}{}{Oh I am sorry... from the looks of it, I thought the name of this place must be Trashville.}
+{4040}{}{Thanks. Bye.}
+{5000}{}{General.. What? I know only about the General Store down the street.}
+{5010}{}{Great... There is something else I want to ask you about.}
+{5020}{}{Awesome... bye.}
+{6000}{}{Rules are simple - don't be hostile, don't steal and behave. This is not hard to remember, isn't it?}
+{6010}{}{I see. One more thing....}
+{6020}{}{Got it. Bye.}
+{7000}{}{Get out of my sight, prick!}
+{8000}{}{Do I look like I have time to guide you around? Walk around, ask some other people... I am on duty.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, wastelander. Do you need anything?}
+{2010}{}{Who are you?}
+{2020}{}{What is this city?}
+{2030}{}{Where can I find a nearby General Atomics office?}
+{2040}{}{What are the rules of the city?}
+{2050}{}{Can you tell me more about the city?}
+{2060}{}{Nothing. See ya later.}
+{3000}{}{I am the Gate Guard Captain Foxter. In other words - the one who will kick your ass out of the city in case if you decide to do something stupid.}
+{3010}{}{I see... There is something else I wanted to ask.}
+{3020}{}{I see, bye.}
+{3030}{}{Pff... Just another bloody fuzz. Some things never change.}
+{4000}{}{[ He stares at you surprisingly ] This city? Where are you from, kid? Everyone all across the Wasteland knows that this is Hub - the biggest trading city. Here you can buy anything and when I say anything I mean ANY-THING. Got me, wastelander?}
+{4010}{}{Can you tell me more about the city?}
+{4020}{}{What about city rules?}
+{4030}{}{Oh I am sorry... I eventually though the name of this place is Trashville.}
+{4040}{}{Thanks. Bye.}
+{5000}{}{General.. What? I know only about the General Store down the street.}
+{5010}{}{Great... There is something else I want to ask you about.}
+{5020}{}{Awesome... bye.}
+{6000}{}{Rules are simple - don't be hostile, don't steal and behave. This is not hard to remember, isn't it?}
+{6010}{}{I see. One more thing....}
+{6020}{}{Got it. Bye.}
+{7000}{}{Get out of my sight, prick!}
+{8000}{}{Do I look like I have time to guide you around? Walk around, ask some other people... I am on duty.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, wastelander. Do you need anything?}
+{2010}{}{Who are you?}
+{2020}{}{What is this city?}
+{2030}{}{Where can I find a nearby General Atomics office?}
+{2040}{}{What are the rules of the city?}
+{2050}{}{Can you tell me more about the city?}
+{2060}{}{Nothing. See ya later.}
+{3000}{}{I am the Gate Guard Captain Foxter. In other words - the one who will kick your ass out of the city in case if you decide to do something stupid.}
+{3010}{}{I see... There is something else I wanted to ask.}
+{3020}{}{I see, bye.}
+{3030}{}{Pff... Just another bloody fuzz. Some things never change.}
+{4000}{}{[ He stares at you surprisingly ] This city? Where are you from, kid? Everyone all across the Wasteland knows that this is Hub - the biggest trading city. Here you can buy anything and when I say anything I mean ANY-THING. Got me, wastelander?}
+{4010}{}{Can you tell me more about the city?}
+{4020}{}{What about city rules?}
+{4030}{}{Oh I am sorry... I eventually though the name of this place is Trashville.}
+{4040}{}{Thanks. Bye.}
+{5000}{}{General.. What? I know only about the General Store down the street.}
+{5010}{}{Great... There is something else I want to ask you about.}
+{5020}{}{Awesome... bye.}
+{6000}{}{Rules are simple - don't be hostile, don't steal and behave. This is not hard to remember, isn't it?}
+{6010}{}{I see. One more thing....}
+{6020}{}{Got it. Bye.}
+{7000}{}{Get out of my sight, prick!}
+{8000}{}{Do I look like I have time to guide you around? Walk around, ask some other people... I am on duty.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, wastelander. Do you need anything?}
+{2010}{}{Who are you?}
+{2020}{}{What is this city?}
+{2030}{}{Where can I find a nearby General Atomics office?}
+{2040}{}{What are the rules of the city?}
+{2050}{}{Can you tell me more about the city?}
+{2060}{}{Nothing. See ya later.}
+{3000}{}{I am the Gate Guard Captain Foxter. In other words - the one who will kick your ass out of the city in case if you decide to do something stupid.}
+{3010}{}{I see... There is something else I wanted to ask.}
+{3020}{}{I see, bye.}
+{3030}{}{Pff... Just another bloody fuzz. Some things never change.}
+{4000}{}{[ He stares at you surprisingly ] This city? Where are you from, kid? Everyone all across the Wasteland knows that this is Hub - the biggest trading city. Here you can buy anything and when I say anything I mean ANY-THING. Got me, wastelander?}
+{4010}{}{Can you tell me more about the city?}
+{4020}{}{What about city rules?}
+{4030}{}{Oh I am sorry... I eventually though the name of this place is Trashville.}
+{4040}{}{Thanks. Bye.}
+{5000}{}{General.. What? I know only about the General Store down the street.}
+{5010}{}{Great... There is something else I want to ask you about.}
+{5020}{}{Awesome... bye.}
+{6000}{}{Rules are simple - don't be hostile, don't steal and behave. This is not hard to remember, isn't it?}
+{6010}{}{I see. One more thing....}
+{6020}{}{Got it. Bye.}
+{7000}{}{Get out of my sight, prick!}
+{8000}{}{Do I look like I have time to guide you around? Walk around, ask some other people... I am on duty.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, wastelander. Do you need anything?}
+{2010}{}{Who are you?}
+{2020}{}{What is this city?}
+{2030}{}{Where can I find a nearby General Atomics office?}
+{2040}{}{What are the rules of the city?}
+{2050}{}{Can you tell me more about the city?}
+{2060}{}{Nothing. See ya later.}
+{3000}{}{I am the Gate Guard Captain Foxter. In other words - the one who will kick your ass out of the city in case if you decide to do something stupid.}
+{3010}{}{I see... There is something else I wanted to ask.}
+{3020}{}{I see, bye.}
+{3030}{}{Pff... Just another bloody fuzz. Some things never change.}
+{4000}{}{[ He stares at you surprisingly ] This city? Where are you from, kid? Everyone all across the Wasteland knows that this is Hub - the biggest trading city. Here you can buy anything and when I say anything I mean ANY-THING. Got me, wastelander?}
+{4010}{}{Can you tell me more about the city?}
+{4020}{}{What about city rules?}
+{4030}{}{Oh I am sorry... I eventually though the name of this place is Trashville.}
+{4040}{}{Thanks. Bye.}
+{5000}{}{General.. What? I know only about the General Store down the street.}
+{5010}{}{Great... There is something else I want to ask you about.}
+{5020}{}{Awesome... bye.}
+{6000}{}{Rules are simple - don't be hostile, don't steal and behave. This is not hard to remember, isn't it?}
+{6010}{}{I see. One more thing....}
+{6020}{}{Got it. Bye.}
+{7000}{}{Get out of my sight, prick!}
+{8000}{}{Do I look like I have time to guide you around? Walk around, ask some other people... I am on duty.}
+

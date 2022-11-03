@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Let the God... Let... Don't SEE this... PLACE! ]}
+{2010}{}{[ NOTIFICATION ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ WARNING! Radioactive activity detected in surrounding area. All civils should evcuate immediately or find a safe place... underground... in catacombs... Yes... Come... To the ctacombs ]}
+{3010}{}{[ back? ]}
+{4000}{}{...Help us.... Free us....}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Let the God... Let... Don't SEE this... PLACE! ]}
+{2010}{}{[ NOTIFICATION ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ WARNING! Radioactive activity detected in surrounding area. All civils should evcuate immediately or find a safe place... underground... in catacombs... Yes... Come... To the ctacombs ]}
+{3010}{}{[ back? ]}
+{4000}{}{...Help us.... Free us....}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Let the God... Let... Don't SEE this... PLACE! ]}
+{2010}{}{[ NOTIFICATION ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ WARNING! Radioactive activity detected in surrounding area. All civils should evcuate immediately or find a safe place... underground... in catacombs... Yes... Come... To the ctacombs ]}
+{3010}{}{[ back? ]}
+{4000}{}{...Help us.... Free us....}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Let the God... Let... Don't SEE this... PLACE! ]}
+{2010}{}{[ NOTIFICATION ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ WARNING! Radioactive activity detected in surrounding area. All civils should evcuate immediately or find a safe place... underground... in catacombs... Yes... Come... To the ctacombs ]}
+{3010}{}{[ back? ]}
+{4000}{}{...Help us.... Free us....}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Let the God... Let... Don't SEE this... PLACE! ]}
+{2010}{}{[ NOTIFICATION ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ WARNING! Radioactive activity detected in surrounding area. All civils should evcuate immediately or find a safe place... underground... in catacombs... Yes... Come... To the ctacombs ]}
+{3010}{}{[ back? ]}
+{4000}{}{...Help us.... Free us....}
+

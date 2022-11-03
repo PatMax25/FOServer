@@ -1,0 +1,105 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 #
+4 2030 @
+3 3000 None 0 #
+2 3010 #
+0 3020 @
+4 4000 None 0 #
+2 4010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #39 ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Hey Doc ]}
+{3000}{}{Test-Subject: "Plasma-Gat" #2
+Test-Target: Power Armor Model 345
+
+By increasing power levels in the heating system, we achieved great improvement of melting potential: front plate of the test model "345" was melted completely through in three points out of four.  Next time, we should try to stabilize energy flow in order to prevent self-ignition. The test-subject was not recoverable.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Doc, I need info about the Vault Tec representatives. Ask those pricks over at NSA to give you a report if necessary. I am interested in a specific guy, his name is Alastor Grey. This strange "ally" of West Tek and Vault Tec is suspicious. I want to be sure that 01 knows about it. ]}
+{4010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #39 ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Hey Doc ]}
+{3000}{}{Test-Subject: "Plasma-Gat" #2
+Test-Target: Power Armor Model 345
+
+By increasing power level in heating system, we achieved great improvement of melting potential: front plate of the test model "345" was melted through in three points out of four.  Next time, we should try to stabilize energy flow in order to prevent self-melting.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Doc, I need info about Vault Tec representatives. Ask those pricks in NSA to give you a report if needed. I am interested in 1 specific guy. His name is Alastor Grey. I guess you also noticed that this strange "ally" of West Tek and Vault Tec is suspicious. I want to be sure that 01 knows about it. ]}
+{4010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #39 ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Hey Doc ]}
+{3000}{}{Test-Subject: "Plasma-Gat" #2
+Test-Target: Power Armor Model 345
+
+By increasing power level in heating system, we achieved great improvement of melting potential: front plate of the test model "345" was melted through in three points out of four.  Next time, we should try to stabilize energy flow in order to prevent self-melting.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Doc, I need info about Vault Tec representatives. Ask those pricks in NSA to give you a report if needed. I am interested in 1 specific guy. His name is Alastor Grey. I guess you also noticed that this strange "ally" of West Tek and Vault Tec is suspicious. I want to be sure that 01 knows about it. ]}
+{4010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #39 ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Hey Doc ]}
+{3000}{}{Test-Subject: "Plasma-Gat" #2
+Test-Target: Power Armor Model 345
+
+By increasing power level in heating system, we achieved great improvement of melting potential: front plate of the test model "345" was melted through in three points out of four.  Next time, we should try to stabilize energy flow in order to prevent self-melting.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Doc, I need info about Vault Tec representatives. Ask those pricks in NSA to give you a report if needed. I am interested in 1 specific guy. His name is Alastor Grey. I guess you also noticed that this strange "ally" of West Tek and Vault Tec is suspicious. I want to be sure that 01 knows about it. ]}
+{4010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{2000}{}{[ Error. Low power. ]}
+{2010}{}{[ Weapon Test #39 ]}
+{2020}{}{[ Exit ]}
+{2030}{}{[ Hey Doc ]}
+{3000}{}{Test-Subject: "Plasma-Gat" #2
+Test-Target: Power Armor Model 345
+
+By increasing power level in heating system, we achieved great improvement of melting potential: front plate of the test model "345" was melted through in three points out of four.  Next time, we should try to stabilize energy flow in order to prevent self-melting.}
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Doc, I need info about Vault Tec representatives. Ask those pricks in NSA to give you a report if needed. I am interested in 1 specific guy. His name is Alastor Grey. I guess you also noticed that this strange "ally" of West Tek and Vault Tec is suspicious. I want to be sure that 01 knows about it. ]}
+{4010}{}{[ Back ]}
+

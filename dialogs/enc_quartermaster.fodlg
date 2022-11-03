@@ -1,0 +1,216 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 #
+6 2040 #
+7 2050 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+0 4010 #
+5 4020 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_ENCLAVE_COMBAT_ARMOR + 1 R _item p PID_ENCLAVE_COMBAT_HELMET + 1 #
+5 4030 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_ENCLAVE_COMBAT_HELMET_MK2 + 1 #
+5 4040 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_MICRO_FUSION_CELL + 500 R _item p PID_SMALL_ENERGY_CELL - 300 #
+5 4050 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_SUPER_STIMPAK + 30 R _item p PID_STIMPAK + 20 #
+5 4060 D _item p PID_TANKER_FOB } 2 R _item p PID_TANKER_FOB - 2 R _item p PID_MINE + 3 R _item p PID_PLASTIC_EXPLOSIVES + 1 #
+5 4070 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_MOTION_SENSOR + 2 #
+5 4080 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_PLASMA_SMG + 1 R _item p PID_PLASMA_RIFLE + 1 R _item p PID_MICRO_FUSION_CELL + 50 #
+5 4090 D _item p PID_TANKER_FOB } 2 R _item p PID_TESLA_ARMOR + 1 R _item p PID_TESLA_HELMET + 1 R _item p PID_YK32_PULSE_PISTOL + 1 R _item p PID_TANKER_FOB - 2 R _item p PID_SMALL_ENERGY_CELL + 50 R _item p PID_SUPER_STIMPAK + 3 #
+5 4100 D _item p PID_TANKER_FOB } 5 R _item p PID_TANKER_FOB - 5 R _item p PID_HK_G11 + 1 #
+5 4110 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_V13_KEY + 1 #
+5 4120 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_HOWITZER_SHELL + 1 #
+5 4130 D _item p PID_TANKER_FOB } 1 R _item p PID_TANKER_FOB - 1 R _item p PID_4_7MM_CASELESS + 100 @
+5 5000 None 0 @
+6 6000 None 0 #
+0 6010 #
+6 6020 D _item p PID_ENCLAVE_COMBAT_ARMOR } 1 D _item p PID_METAL_PARTS } 20 D _item p PID_ELECTRONIC_PARTS } 20 D _item p PID_ENCLAVE_MONEY } 1000 R _item p PID_DEFENDER + 1 R _item p PID_ENCLAVE_MONEY - 1000 R _item p PID_ENCLAVE_COMBAT_ARMOR - 1 R _item p PID_METAL_PARTS - 20 R _item p PID_ELECTRONIC_PARTS - 20 @
+7 7000 None 0 #
+0 7010 D _item p PID_ENCLAVE_MONEY } 100 R _item p PID_ENCLAVE_MONEY - 100 R _item p PID_OFFICER_HAT + 1 #
+0 7020 D _item p PID_ENCLAVE_MONEY } 12500 R _item p PID_ENCLAVE_MONEY - 12500 R _item p PID_FINGER_LOCK + 1 #
+0 7030 &
+
+[engl]
+{100}{}{Quartermaster}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it soldier?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by.}
+{2040}{}{I am here for a Defender armor.}
+{2050}{}{Do you have anything special?}
+{3000}{}{Quartermaster. The one who can supply you with government property for your tokens, which you get for completing tasks.}
+{3010}{}{Fine. I wish to get some equipment.}
+{4000}{}{Fill out the form first...}
+{4010}{}{On second thought, I will show up later.}
+{4020}{}{[ Enclave Combat Armor Set - 1 token ]}
+{4030}{}{[ Enclave Combat Helmet MK2 - 1 token ]}
+{4040}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4050}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4060}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4070}{}{[ 2 Motion sensors - 1 token ]}
+{4080}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4090}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4100}{}{[ G11 - 5 tokens ]}
+{4110}{}{[ Vault 13 key - 1 token ]}
+{4120}{}{[ Howitzer Shell -1 token ]}
+{4130}{}{[ 100 4.7 ammo -1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{I need an Enclave Combat armor, 20 metal parts, 20 electronic parts and 1000 dollars from you for this armor.}
+{6010}{}{I will come later.}
+{6020}{}{Here you go, one set of Defender-God-bless-America, please.}
+{7000}{}{Well I have some spare Officer's caps. I can give you one for 100 Enclave bucks. And I can sell you an electronic lock for your car for 12500 dollars.}
+{7010}{}{I will take one.}
+{7020}{}{I will take electronic lock.}
+{7030}{}{Nah, not interested.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it soldier?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by.}
+{2040}{}{I am here for a Defender armor.}
+{2050}{}{Do you have anything special?}
+{3000}{}{Quartermaster. The one who can supply with some government property for your tokens, which you get for completing tasks.}
+{3010}{}{Fine. I wish to get some equipment.}
+{4000}{}{Fill the form first...}
+{4010}{}{On the second thought, I will show up later.}
+{4020}{}{[ Enclave Combat Armor Set - 1 token ]}
+{4030}{}{[ Enclave Combat Helmet MK2 - 1 token ]}
+{4040}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4050}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4060}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4070}{}{[ 2 Motion sensors - 1 token ]}
+{4080}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4090}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4100}{}{[ G11 - 5 tokens ]}
+{4110}{}{[ Vault 13 key - 1 token ]}
+{4120}{}{[ Howitzer Shell -1 token ]}
+{4130}{}{[ 100 4.7 ammo -1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{I need an Enclave Combat armor, 20 metal parts, 20 electronic parts and 1000 dollars from you for this armor.}
+{6010}{}{I will come later.}
+{6020}{}{Here you go, one set of Defender-God-bless-America, please.}
+{7000}{}{Well U have some spare Officer's caps. Can give you one for 100 Enclave bucks.}
+{7010}{}{I will take one.}
+{7020}{}{I will take electronic lock.}
+{7030}{}{Nah, not interested.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it soldier?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by.}
+{2040}{}{I am here for a Defender armor.}
+{2050}{}{Do you have anything special?}
+{3000}{}{Quartermaster. The one who can supply with some government property for your tokens, which you get for completing tasks.}
+{3010}{}{Fine. I wish to get some equipment.}
+{4000}{}{Fill the form first...}
+{4010}{}{On the second thought, I will show up later.}
+{4020}{}{[ Enclave Combat Armor Set - 1 token ]}
+{4030}{}{[ Enclave Combat Helmet MK2 - 1 token ]}
+{4040}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4050}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4060}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4070}{}{[ 2 Motion sensors - 1 token ]}
+{4080}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4090}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4100}{}{[ G11 - 5 tokens ]}
+{4110}{}{[ Vault 13 key - 1 token ]}
+{4120}{}{[ Howitzer Shell -1 token ]}
+{4130}{}{[ 100 4.7 ammo -1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{I need an Enclave Combat armor, 20 metal parts, 20 electronic parts and 1000 dollars from you for this armor.}
+{6010}{}{I will come later.}
+{6020}{}{Here you go, one set of Defender-God-bless-America, please.}
+{7000}{}{Well U have some spare Officer's caps. Can give you one for 100 Enclave bucks.}
+{7010}{}{I will take one.}
+{7020}{}{I will take electronic lock.}
+{7030}{}{Nah, not interested.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it soldier?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by.}
+{2040}{}{I am here for a Defender armor.}
+{2050}{}{Do you have anything special?}
+{3000}{}{Quartermaster. The one who can supply with some government property for your tokens, which you get for completing tasks.}
+{3010}{}{Fine. I wish to get some equipment.}
+{4000}{}{Fill the form first...}
+{4010}{}{On the second thought, I will show up later.}
+{4020}{}{[ Enclave Combat Armor Set - 1 token ]}
+{4030}{}{[ Enclave Combat Helmet MK2 - 1 token ]}
+{4040}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4050}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4060}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4070}{}{[ 2 Motion sensors - 1 token ]}
+{4080}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4090}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4100}{}{[ G11 - 5 tokens ]}
+{4110}{}{[ Vault 13 key - 1 token ]}
+{4120}{}{[ Howitzer Shell -1 token ]}
+{4130}{}{[ 100 4.7 ammo -1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{I need an Enclave Combat armor, 20 metal parts, 20 electronic parts and 1000 dollars from you for this armor.}
+{6010}{}{I will come later.}
+{6020}{}{Here you go, one set of Defender-God-bless-America, please.}
+{7000}{}{Well U have some spare Officer's caps. Can give you one for 100 Enclave bucks.}
+{7010}{}{I will take one.}
+{7020}{}{I will take electronic lock.}
+{7030}{}{Nah, not interested.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What is it soldier?}
+{2010}{}{Who are you?}
+{2020}{}{I wish to get some equipment.}
+{2030}{}{Nothing. Just passing by.}
+{2040}{}{I am here for a Defender armor.}
+{2050}{}{Do you have anything special?}
+{3000}{}{Quartermaster. The one who can supply with some government property for your tokens, which you get for completing tasks.}
+{3010}{}{Fine. I wish to get some equipment.}
+{4000}{}{Fill the form first...}
+{4010}{}{On the second thought, I will show up later.}
+{4020}{}{[ Enclave Combat Armor Set - 1 token ]}
+{4030}{}{[ Enclave Combat Helmet MK2 - 1 token ]}
+{4040}{}{[ 500 MFC + 300 SBC - 1 token ]}
+{4050}{}{[ 30 Super Stimpaks + 20 Stimpaks - 1 token ]}
+{4060}{}{[ 3 mines + 1 plastic explosives - 2 tokens ]}
+{4070}{}{[ 2 Motion sensors - 1 token ]}
+{4080}{}{[ Plasma SMG + 50 MFC + Plasma Rifle - 1 token ]}
+{4090}{}{[ Tesla Armor + Tesla Helmet + YK32 Pistol + 50 SBC + 3 Super Stimpaks - 2 tokens ]}
+{4100}{}{[ G11 - 5 tokens ]}
+{4110}{}{[ Vault 13 key - 1 token ]}
+{4120}{}{[ Howitzer Shell -1 token ]}
+{4130}{}{[ 100 4.7 ammo -1 token ]}
+{5000}{}{Here you go.}
+{6000}{}{I need an Enclave Combat armor, 20 metal parts, 20 electronic parts and 1000 dollars from you for this armor.}
+{6010}{}{I will come later.}
+{6020}{}{Here you go, one set of Defender-God-bless-America, please.}
+{7000}{}{Well U have some spare Officer's caps. Can give you one for 100 Enclave bucks.}
+{7010}{}{I will take one.}
+{7020}{}{I will take electronic lock.}
+{7030}{}{Nah, not interested.}
+

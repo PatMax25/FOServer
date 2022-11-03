@@ -1,0 +1,171 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// map_cathedral.fos
+//
+
+#include "_macros.fos"
+#include "_maps.fos"
+#include "elevators_h.fos"
+#include "factions_h.fos"
+#include "mapdata_h.fos"
+#include "messages_h.fos"
+
+
+
+//
+// Initialize map, and indicates this map belong to Unity
+//
+
+//
+// Map Data:
+// 0 - faction id (Unity)
+//
+import void InitializeDynamicMob(Map& map) from "mob_dynamic";
+import bool LockerOpen(Item& item) from "lockers";
+import void SetWeapon(Critter& mob, uint8 weaponforgroup) from "mob_dynamic";
+import void SetParatersToMob(Critter& mob, Map& map, bool MobIsBoss) from "mob_dynamic";
+// elevator 1-2-3
+CElevator Elevator(ELEVATOR_MASTER_123);
+// elevator 3-4
+CElevator BombElevator(ELEVATOR_MASTER_34);
+
+bool ElevatorsAdded = false;
+
+void map_init(Map& map, bool firstTime)
+{
+   // if(firstTime)
+   // {
+        // this map belongs to that faction
+   //     map.SetData(MAP_DATA_FACTION, FACTION_UNITY);
+   // }
+	
+	//if(firstTime) InitializeDynamicMob(map);
+    // to add only one for all floors
+    if(!ElevatorsAdded)
+    {
+        // add elevators
+        AddElevator(Elevator);
+        AddElevator(BombElevator);
+        ElevatorsAdded = true;
+    }
+
+    // parse elevators floors (only for vault levels)
+    uint16 x = 0, y = 0;
+    switch(map.GetProtoId())
+    {
+    case MAP_Cathedral_CellarLevel1:
+    case MAP_Cathedral_CellarLevel2:
+        if(map.GetEntireCoords(1, 0, x, y))
+            Elevator.AddFloor(map.Id, 1);
+        break;
+    case MAP_Cathedral_CellarLevel3:
+        if(map.GetEntireCoords(1, 0, x, y))
+            Elevator.AddFloor(map.Id, 1);
+    case MAP_Cathedral_CellarLevel4:
+        if(map.GetEntireCoords(2, 0, x, y))
+            BombElevator.AddFloor(map.Id, 2);
+        break;
+    default:
+    }
+}
+
+// ===============================
+// Elevator triggers
+// ===============================
+void t_Elevator(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    HandleElevator(Elevator, critter, entered);
+}
+void t_ElevatorBomb(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    HandleElevator(BombElevator, critter, entered);
+}
+
+void t_EnterCave(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+{
+    if(!critter.IsPlayer() || !entered)
+        return;
+
+    critter.SendMessage(MSG_CATH_PLAYER_ENTER_CAVE, 0, MESSAGE_TO_VISIBLE_ME);
+}
+
+// ===============================
+// Outside doors are locked
+// ===============================
+void _Door(Item& item, bool firstTime)
+{
+
+}
+
+bool _UseItemOnDoor(Item& item, Critter& crit, Item@ usedItem)
+{
+    crit.Say(SAY_NETMSG, "The heavy wooden door is locked from the inside.");
+    return true;
+}
+
+bool _UseSkillOnDoor(Item& item, Critter& crit, int skill)
+{
+    crit.Say(SAY_NETMSG, "The heavy wooden door is locked from the inside.");
+    if(skill == -1)
+    {
+        // crit.ParamBase[ST_VAR9]=item.Val0;
+        // RunDialog(crit, ARENA_DOOR_DIALOG, item.HexX, item.HexY, false);
+    }
+    return true;
+}
+
+void overseer(Critter& overseer, bool firstTime)
+{
+	overseer.SetEvent(CRITTER_EVENT_ATTACKED, "mob_dynamic@_Alert");
+	overseer.SetEvent(CRITTER_EVENT_IDLE, "mob_dynamic@_DontMove");
+	overseer.SetEvent(CRITTER_EVENT_DEAD, "_OverSeerIsDead");
+	if(firstTime)
+	{
+		//Generate S.P.E.C.I.A.L.
+
+		
+		overseer.ParamBase[ST_LEVEL] = 20;
+		overseer.ParamBase[ST_KILL_EXPERIENCE] = 50000;
+		overseer.ParamBase[ST_MAX_LIFE] = 3000;
+		overseer.ParamBase[ST_CURRENT_HP] = 3000;
+	}
+	
+	_CritSetMode(overseer, MODE_NO_STEAL);
+    _CritSetMode(overseer, MODE_NO_DROP);
+    _CritSetMode(overseer, MODE_NO_LOOT);
+	_CritSetMode(overseer, MODE_UNLIMITED_AMMO);
+	_CritSetMode(overseer, MODE_NO_TALK);
+    _CritSetMode(overseer, MODE_NO_BARTER);
+	_CritUnsetMode(overseer, MODE_NO_LOOSE_LIMBS);
+    // overseer.SetEvent(CRITTER_EVENT_SHOW_CRITTER, "_MobShowCritterAggr");
+    // overseer.SetEvent(CRITTER_EVENT_HIDE_CRITTER, "_MobHideCritter");
+    // overseer.SetEvent(CRITTER_EVENT_ATTACKED, "_MobAttacked");
+    _CritSetExtMode(overseer, MODE_EXT_MOB);
+}
+
+void _OverSeerIsDead(Critter& overseer, Critter@ killer)
+{
+	//remove forcefield
+	Map@ map = overseer.GetMap();
+	uint16 hexX = 0;
+    uint16 hexY = 0;
+	map.GetEntireCoords(255, 0, hexX, hexY);
+	Item@  door = map.GetDoor(hexX, hexY);
+	door.LockerOpen();
+	
+	
+	//and clear enemystack
+	overseer.ClearEnemyStack();
+}
+
+
+void Exit(Critter& player, Scenery& trigger, bool entered, uint8 Dir)
+{
+	//player.Say(SAY_NORM_ON_HEAD, "I forgot Server starting tommorow.");
+	Map@   map = player.GetMap();
+		if(player.IsLife() && entered)	
+			player.TransitToMap(61, 0, false);
+		
+}

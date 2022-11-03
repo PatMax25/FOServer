@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 &
+
+[engl]
+{100}{}{Scientist}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, yes... Put your report somewhere around here.@@Yeah?@@What is it?@@Damn calculating machine is broken again!@@Seen my folders anywhere around?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, yes... Put your report somewhere around here.@@Yeah?@@What is it?@@Damn calculating machine is broken again!@@Seen my folders anywhere around?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, yes... Put your report somewhere around here.@@Yeah?@@What is it?@@Damn calculating machine is broken again!@@Seen my folders anywhere around?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, yes... Put your report somewhere around here.@@Yeah?@@What is it?@@Damn calculating machine is broken again!@@Seen my folders anywhere around?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes, yes... Put your report somewhere around here.@@Yeah?@@What is it?@@Damn calculating machine is broken again!@@Seen my folders anywhere around?}
+

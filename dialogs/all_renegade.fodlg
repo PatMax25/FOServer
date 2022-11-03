@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Renegade}
+{200}{}{You see a Renegade.}
+{210}{}{This person is clearly looking for another target to kill. How pleasant!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Time to die!@@Kill them all!@@Hah, killing others is so funny.@@Die you son of a bitch...@@Damn, I love this job!@@Feel the pain!@@Take it!@@End this freak!@@This'll be over quick.@@I'm going to take my time with you...@@Make it snappy, I don't have all day.@@This looks entertaining!@@I'm having fun today!@@You've got no chance, shithead!@@Don't let them escape!@@No chances!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Time to die!@@Kill them all!@@Hah, killing others is so funny.@@Die you son of a b...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Time to die!@@Kill them all!@@Hah, killing others is so funny.@@Die you son of a b...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Time to die!@@Kill them all!@@Hah, killing others is so funny.@@Die you son of a b...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Time to die!@@Kill them all!@@Hah, killing others is so funny.@@Die you son of a b...}
+

@@ -1,0 +1,43 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Guard}
+{200}{}{You see cathedral Guard.}
+{1000}{}{Initial preferences}
+{1010}{}{---}
+{2000}{}{Visit the Cathedral.@@We're here to Prevent and Survey. Move along.@@We'll be keeping an eye on you.@@Praise, follower.@@You'd better keep your weapons holstered, stranger.@@Yeah yeah, don't pull that "innocent" routine with me.@@I've seen your kind before, I don't trust ya'.@@You look suspicious, if you ask me.@@Better get out of my face, before I decide to search you...@@Quit poking me.@@I'm gonna get upset if this continues much longer.@@Ugh, another "dumb".@@Look, I'm busy.@@Leave me alone.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Initial preferences}
+{1010}{}{---}
+{2000}{}{Visit the Cathedral.@@We're here to Prevent and Survey. Move along.@@We'll be keeping an eye on you.@@Praise, follower.@@You'd better keep your weapons holstered, stranger.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Initial preferences}
+{1010}{}{---}
+{2000}{}{Visit the Cathedral.@@We're here to Prevent and Survey. Move along.@@We'll be keeping an eye on you.@@Praise, follower.@@You'd better keep your weapons holstered, stranger.}
+
+[span]
+{100}{}{none}
+{1000}{}{Initial preferences}
+{1010}{}{---}
+{2000}{}{Visit the Cathedral.@@We're here to Prevent and Survey. Move along.@@We'll be keeping an eye on you.@@Praise, follower.@@You'd better keep your weapons holstered, stranger.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Initial preferences}
+{1010}{}{---}
+{2000}{}{Visit the Cathedral.@@We're here to Prevent and Survey. Move along.@@We'll be keeping an eye on you.@@Praise, follower.@@You'd better keep your weapons holstered, stranger.}
+

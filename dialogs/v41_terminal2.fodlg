@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 #
+3 2020 R _script dialog@r_OpenDoor 2 11 900 R _script dialog@r_OpenDoor 2 12 900 R _script dialog@r_OpenDoor 2 13 900 R _script dialog@r_OpenDoor 2 14 900 R _script dialog@r_PlaySound 1 28 R _script dialog@r_ChangeLightGroupParam 3 3 1 55 R _script dialog@r_OpenDoor 2 16 900 R _script dialog@r_OpenDoor 2 17 900 R _script dialog@r_OpenDoor 2 18 900 R _script dialog@r_CloseDoor 1 15 #
+4 2030 #
+0 2040 @
+3 3000 None 0 @
+4 4000 None 0 #
+2 4010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading... Please input command ]}
+{2010}{}{[ Leave ]}
+{2020}{}{[ Override the lockdown protocol ]}
+{2030}{}{[ I hope you've made it ]}
+{2040}{}{[ Exit ]}
+{3000}{}{[ Operating... Lockdown removed for 15 minutes ]}
+{4000}{}{[ Charley, if you managed to make it through, then you must be the luckiest person alive. However the door out is sealed closed. Returning back to the supercomputer won't do us any good. You must be aware about the hell happening there. I found the Overseer. He is dead, it seems like his own tactics went against him. By the time you get here, you may see it for youself. Old moron died from his own guard chiefs. Good thing he had his override card with him. It is our ticket out of this place. ]}
+{4010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading... Please insert the command ]}
+{2010}{}{[ Leave ]}
+{2020}{}{[ Override the lockdown protocole ]}
+{2030}{}{[ I hope you've made it ]}
+{2040}{}{[ Exit ]}
+{3000}{}{[ Operating... Lockdown removed for 15 minutes ]}
+{4000}{}{[ Chraley. If you managed to make it through, then you must be the luckiest person ever alive. However the door out is sealed closed. Returning back to the supercomputer won't do us any good. You must be aware about the hell happening there. I found the Overseer. He is dead, it seems like his own tactics went against him. By the time you get here, you may see it by youself. Old moron died from his own guard chiefs. Good thing is that he had his override card with his. It is our ticket out of this place. ]}
+{4010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading... Please insert the command ]}
+{2010}{}{[ Leave ]}
+{2020}{}{[ Override the lockdown protocole ]}
+{2030}{}{[ I hope you've made it ]}
+{2040}{}{[ Exit ]}
+{3000}{}{[ Operating... Lockdown removed for 15 minutes ]}
+{4000}{}{[ Chraley. If you managed to make it through, then you must be the luckiest person ever alive. However the door out is sealed closed. Returning back to the supercomputer won't do us any good. You must be aware about the hell happening there. I found the Overseer. He is dead, it seems like his own tactics went against him. By the time you get here, you may see it by youself. Old moron died from his own guard chiefs. Good thing is that he had his override card with his. It is our ticket out of this place. ]}
+{4010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading... Please insert the command ]}
+{2010}{}{[ Leave ]}
+{2020}{}{[ Override the lockdown protocole ]}
+{2030}{}{[ I hope you've made it ]}
+{2040}{}{[ Exit ]}
+{3000}{}{[ Operating... Lockdown removed for 15 minutes ]}
+{4000}{}{[ Chraley. If you managed to make it through, then you must be the luckiest person ever alive. However the door out is sealed closed. Returning back to the supercomputer won't do us any good. You must be aware about the hell happening there. I found the Overseer. He is dead, it seems like his own tactics went against him. By the time you get here, you may see it by youself. Old moron died from his own guard chiefs. Good thing is that he had his override card with his. It is our ticket out of this place. ]}
+{4010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{...}
+{2000}{}{[ Loading... Please insert the command ]}
+{2010}{}{[ Leave ]}
+{2020}{}{[ Override the lockdown protocole ]}
+{2030}{}{[ I hope you've made it ]}
+{2040}{}{[ Exit ]}
+{3000}{}{[ Operating... Lockdown removed for 15 minutes ]}
+{4000}{}{[ Chraley. If you managed to make it through, then you must be the luckiest person ever alive. However the door out is sealed closed. Returning back to the supercomputer won't do us any good. You must be aware about the hell happening there. I found the Overseer. He is dead, it seems like his own tactics went against him. By the time you get here, you may see it by youself. Old moron died from his own guard chiefs. Good thing is that he had his override card with his. It is our ticket out of this place. ]}
+{4010}{}{[ Back ]}
+

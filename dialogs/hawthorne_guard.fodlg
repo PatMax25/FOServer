@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Hello.@@I am watching you.@@Don't try anything stupid.@@Greetings.@@Can I help you?@@What is it?@@Watch it - I frag the ones I don't like.@@Might just shoot you and let God sort it out...@@Don't mess with me.@@Having fun?@@Get out of my face.@@Don't even think about it.@@Ugh, I need a new job.@@When do we get paid again?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Hello.@@I am watching you.@@Don't try anything stupid.@@Greetings.@@Can I help you?@@What is it?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Hello.@@I am watching you.@@Don't try anything stupid.@@Greetings.@@Can I help you?@@What is it?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Hello.@@I am watching you.@@Don't try anything stupid.@@Greetings.@@Can I help you?@@What is it?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yeah?@@Hello.@@I am watching you.@@Don't try anything stupid.@@Greetings.@@Can I help you?@@What is it?}
+

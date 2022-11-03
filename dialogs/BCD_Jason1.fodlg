@@ -1,0 +1,80 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 0 #
+22 1010 D _param p ST_INTELLECT < 2 #
+2 1020 D _var n name_mem_npc_player = 0 #
+2 1030 D _var n name_mem_npc_player > 0 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 #
+4 3020 #
+6 3030 @
+4 4000 None 0 #
+7 4010 #
+7 4020 #
+5 4030 #
+5 4040 @
+5 5000 None 0 #
+8 5010 #
+7 5020 #
+7 5030 @
+6 6000 None 0 #
+4 6010 #
+0 6020 @
+7 7000 None 0 #
+5 7010 #
+0 7020 @
+8 8000 None 0 #
+9 8010 #
+9 8020 #
+7 8030 @
+9 9000 None 0 #
+0 9010 @
+22 10000 None 0 #
+0 10010 &
+
+[engl]
+{100}{}{Jason}
+{200}{}{You see Jason.}
+{210}{}{You see Jason. Client Manager.}
+{1000}{}{Predialogue installations}
+{1010}{}{dumb}
+{1020}{}{- Does not know Player}
+{1030}{}{- Knows Player}
+{2000}{}{*as you walk down the stairs into this basement, the air is hazy and half-full of fresh cigar smoke... you can hear a voice from down the hall* ...I'm tired of playing games with you small fries! Next time one of your boys comes by and doesn't deliver me my cut, you're gonna be in for a world of trouble! *you see a charismatic man perhaps in his early thirties wearing a suit, he is smoking a cigar as he hangs up the radio angrily*}
+{2010}{}{[ enter the room, too late to back out now ]}
+{3000}{}{*he looks up at you as you enter, and immediately his expression changes to a friendly smile* Ah yes, @pname@, glad to see you! My name's Jason, and I'm the boss of BCD, at least around these parts anyway. Sit down, @pname@.}
+{3010}{}{Yes, thank you. [ take a seat ] I'm here looking for a job.}
+{3020}{}{Wait, how do you know who I am? [ take a seat ]}
+{3030}{}{Let's cut the chatter. Tell me the deal. [ remain standing ]}
+{4000}{}{*he ashes his cigar in the ashtray on the table* Yes, we know you quite well actually. Sometimes you have been quite annoying, but don't worry, I won't tell anyone about... oh, nevermind. Now, let's get to the important part. Do you want to do things my way? If you're in, you get your cut of the action, but if want to be out - unfortunately you're gonna be ALL the way out... *he makes a throat-slitting motion across his neck to make things clear*}
+{4010}{}{You say you know me? Have you been watching me? Do you know who I am?!?}
+{4020}{}{How do I know I can trust you? This whole thing sounds pretty shady.}
+{4030}{}{Okay, Boss! You pay the percentage and I'll make the hits. *you crack your knuckles*}
+{4040}{}{Let me guess. You want me to... go somewhere and talk to someone, or... wait... maybe kill something?}
+{5000}{}{Well, it isn't quite that simple. *he gives you a serious look* First, I need you to prove yourself. I know it sucks, but it is an important job, and it's simple. If you can do this, I'll know you can be trusted. Look closely, and you might even learn something. Interested?}
+{5010}{}{Well, what do I have to do?}
+{5020}{}{I'm not into any of this "proving myself" crap. Can't you just tell me what you really need?}
+{5030}{}{Yeah, this is way too serious, I want to leave.}
+{6000}{}{You know, I thought you'd say that, but here's the thing. I don't want just "anybody" working for me, you know? I have plenty of regular guards. I need someone... special, who can get things done, but I need to be able to trust you. Do you want to hear about it, or not?}
+{6010}{}{Alright, count me in. [ take a seat ]}
+{6020}{}{I'm sorry, this doesn't sound like something I want to do right now. Maybe I'll be back. [ end dialogue ]}
+{7000}{}{Listen, @pname@, this is bigger than you, and I'm just doing my job. Don't waste my time. If you don't understand and want to leave, fine. Come back when you're ready to be more serious about your work. I'm trying to include you.}
+{7010}{}{Alright, I changed my mind, maybe I am interested. There was some kind of job for me to do, right?}
+{7020}{}{Thanks, yeah, I just want to get out of here for now. [ end dialogue ]}
+{8000}{}{I want you to deliver this letter from me to agents of three specific factions, the Enclave, the Brotherhood of Steel, and Vault City. It doesn't matter which agent you go to first, just make sure to get all three. Can you do this for me?}
+{8010}{}{Hey, this sounds easy! What could possibly go wrong?}
+{8020}{}{Hey, sure. Is there anything else I should know?}
+{8030}{}{I don't want to do this, sorry. It sounds pretty boring honestly.}
+{9000}{}{It shouldn't be too complicated, just find the Enclave, Vault City, and Brotherhood outposts and deliver the letters to the Agents. Return to me when you are done.}
+{9010}{}{Sounds good! See you soon. [ end dialogue ]}
+{10000}{}{*you can tell from the look on his face, he isn't happy to see you* Hey, who let this idiot in here? Fellas, get this moron out!}
+{10010}{}{Ugh, sorry! I'm leaving! [ end dialogue ]}
+

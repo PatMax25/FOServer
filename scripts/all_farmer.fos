@@ -1,0 +1,141 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// all_farmer.fos
+//
+
+// This is the script for "farmers" or "homesteaders", faction base helpers recruitable in encounters.
+#include "_dialogs.fos"
+#include "_macros.fos"
+#include "_vars.fos"
+#include "factions_h.fos"
+#include "groups_h.fos"
+#include "npc_roles_h.fos"
+#include "npc_common_h.fos"
+#include "factions_bases_h.fos"
+
+string@[] Names =
+{
+    "Adam", "Angus", "Bowen", "Christian", "Christopher", "Dermot", "Donald", "Esmond", "Forrest",
+    "George", "John", "Keith", "Leonard", "Luke", "Marvin", "Peter", "Samuel", "Simon",
+    "Tobias", "Vernon", "Wayne", "Winston"
+};
+
+string@[] Surnames =
+{
+    " Smith", " Jones", " Williams", " Taylor", " Brown", " Evans", " Wilson",
+    " Thomas", " Johnson", " Roberts", " Walker", " Windsted"
+};
+
+void critter_init(Critter& npc, bool firstTime)
+{
+    npc.SetScript(null);
+    if(Random(0, 3) > 0)
+        return;
+    npc.ParamBase[ST_VAR0] = Random(0, Names.length() - 1);
+    npc.ParamBase[ST_VAR1] = Random(0, Surnames.length() - 1);
+    npc.ParamBase[ST_DIALOG_ID] = DIALOG_all_farmer;
+}
+
+bool d_FactionHasNoFarmer(Critter& player, Critter@ npc)
+{
+    array<IFactionBase@> bases;
+
+    for(uint i = 0, n = GetFactionBases(player.Param[ST_TEAM_ID], bases); i < n; i++)
+    {
+        uint locid = bases[i].LocationId;
+        if(locid == 0)
+            continue;
+        Location@ loc = GetLocation(locid);
+        if(!valid(loc))
+            continue;
+        Map@ map = loc.GetMapByIndex(0);
+        if(map.GetNpcCount(ROLE_FACTION_FARMER, FIND_ONLY_NPC | FIND_ALL) == 0)
+            return true;
+    }
+    return false;
+}
+
+void r_Hire(Critter& player, Critter@ npc)
+{
+    if(player.Param[ST_TEAM_ID] < 0)
+        return;                                 // hehe
+    npc.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+    npc.SetScript(null);
+    ClearEvents(npc);
+    npc.ParamBase[ST_FACTION_MODE] = FACTION_MODE_PASSIVE;
+    npc.ParamBase[ST_FACTION_RANK] = 1;
+    npc.ParamBase[MODE_NO_HOME] = 1;
+    npc.ParamBase[ST_NPC_ROLE] = ROLE_FACTION_FARMER;
+    npc.ParamBase[ST_REPLICATION_TIME] = REPLICATION_DELETE;
+    CreateTimeEvent(AFTER(REAL_SECOND(8)), "e_Hire", npc.Id, false);
+    ClearEnemyStack(npc);
+    DropDeleteEvent(npc);
+}
+
+
+void dlg_ShowFactionAndName(Critter& player, Critter@ npc, string@ text)   // via dialog
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+
+    string fname;
+
+    text += "$faction" + fname;
+    text += "$name" + Names[npc.Param[ST_VAR0]] + Surnames[npc.Param[ST_VAR1]];
+	//SetLexem(npc, "$money", propermoney(npc));
+	string money;
+	string prefix;
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 1: money = "Dollars";
+	case 2: money =  "Chips";
+	case 3: money =  "Scrips";
+	case 4: money =  "Pounds";
+	case 5: money =  "Rings";
+	default: money =  "Caps";
+	}
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 1: prefix = "Enclave ";
+	case 2: prefix =  "Memory ";
+	case 3: prefix =  "NCR ";
+	case 4: prefix =  "Vault City ";
+	case 5: prefix =  "Pull ";
+	default: prefix = "Bottle ";
+	}
+	text += ("$prefix" + prefix);
+	text += ("$money" + money);
+}
+
+uint e_Hire(array<uint>@ values)
+{
+    // Log("hiring...");
+    Critter@ npc = GetCritter(values[0]);
+    if(!valid(npc))
+        return 0;
+    // Log("npc taken...");
+    GameVar@ var = GetLocalVar(LVAR_faction_farmer, npc.Id);
+    var = 3;
+
+    array<IFactionBase@> bases;
+
+    for(uint i = 0, n = GetFactionBases(npc.Param[ST_TEAM_ID], bases); i < n; i++)
+    {
+        uint locid = bases[i].LocationId;
+        if(locid == 0)
+            continue;
+        Location@ loc = GetLocation(locid);
+        if(!valid(loc))
+            continue;
+        Map@ map = loc.GetMapByIndex(0);
+        if(map.GetNpcCount(ROLE_FACTION_FARMER, FIND_ONLY_NPC | FIND_ALL) == 0)
+        {
+            npc.TransitToMap(map.Id, 0);
+            return 0;
+        }
+    }
+
+    return 0;
+}

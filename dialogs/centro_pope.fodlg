@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Speaker}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Tower is our symbol! Tower is our strength! We are here only because Tower brought us here! Tower protected us from the horrors of the city!@@We shall respect the Tower and it's might! Only together we will be able to rebuild the world we once knew!@@Yes, it might be hard nowadays! Yes, it might seem hopeless, but never forget that the only way to achive our dream is to struggle and fight with our difficulties!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Tower is our symbol! Tower is our strength! We are here only because Tower brought us here! Tower protected us from the horrors of the city!@@We shall respect the Tower and it's might! Only together we will be able to rebuilt the world we once knew!@@Yes, it might be hard nowadays! Yes, it might seem hopless, but never forget that the only way to achive our dream is to struggle and fight with our difficulties!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Tower is our symbol! Tower is our strength! We are here only because Tower brought us here! Tower protected us from the horrors of the city!@@We shall respect the Tower and it's might! Only together we will be able to rebuilt the world we once knew!@@Yes, it might be hard nowadays! Yes, it might seem hopless, but never forget that the only way to achive our dream is to struggle and fight with our difficulties!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Tower is our symbol! Tower is our strength! We are here only because Tower brought us here! Tower protected us from the horrors of the city!@@We shall respect the Tower and it's might! Only together we will be able to rebuilt the world we once knew!@@Yes, it might be hard nowadays! Yes, it might seem hopless, but never forget that the only way to achive our dream is to struggle and fight with our difficulties!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Tower is our symbol! Tower is our strength! We are here only because Tower brought us here! Tower protected us from the horrors of the city!@@We shall respect the Tower and it's might! Only together we will be able to rebuilt the world we once knew!@@Yes, it might be hard nowadays! Yes, it might seem hopless, but never forget that the only way to achive our dream is to struggle and fight with our difficulties!}
+

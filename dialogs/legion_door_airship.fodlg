@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _param p ST_TEAM_ID = 117 R _script dialog@r_OpenDoor 2 78 10 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Door guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not so fast. Only Legion members can get to the Airship.}
+{2010}{}{I am a trustworthy member of the Legion, let me in.}
+{2020}{}{Fine, I am leaving.}
+{3000}{}{Come in, don't forget to close the door behind you.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not so fast. Only Legion members can get to the Airship.}
+{2010}{}{I am a trustful Legion, let me in.}
+{2020}{}{Fine, I am leaving.}
+{3000}{}{Come in, don't forget to close the door behind you.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not so fast. Only Legion members can get to the Airship.}
+{2010}{}{I am a trustful Legion, let me in.}
+{2020}{}{Fine, I am leaving.}
+{3000}{}{Come in, don't forget to close the door behind you.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not so fast. Only Legion members can get to the Airship.}
+{2010}{}{I am a trustful Legion, let me in.}
+{2020}{}{Fine, I am leaving.}
+{3000}{}{Come in, don't forget to close the door behind you.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not so fast. Only Legion members can get to the Airship.}
+{2010}{}{I am a trustful Legion, let me in.}
+{2020}{}{Fine, I am leaving.}
+{3000}{}{Come in, don't forget to close the door behind you.}
+

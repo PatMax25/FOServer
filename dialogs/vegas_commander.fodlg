@@ -1,0 +1,272 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 #
+7 2030 D _var p mayor_citizenship = 0 #
+4 2040 D _var p christine = 1 #
+6 2050 D _var p christine = 2 D _item p PID_BRIEFCASE } 1 R _var p christine = 4 R _item p PID_BRIEFCASE - 1 R _item p PID_DOLLAR + 10 R _param p ST_EXPERIENCE + 1000 R _param p ST_KARMA - 15 #
+9 2060 D _var p mayor_citizenship = 3 R _var p mayor_citizenship = 4 R _param p ST_KARMA + 20 R _param p ST_EXPERIENCE + 3000 R _item p PID_DOLLAR + 5 #
+12 2070 D _var p mayor_citizenship = 4 D _var p citizenship = 0 @
+3 3000 None 0 #
+7 3010 D _var p mayor_citizenship = 0 #
+10 3020 #
+0 3030 @
+4 4000 None 0 #
+5 4010 #
+2 4020 @
+5 5000 None 0 #
+2 5010 #
+65507 5020 @
+6 6000 None 0 @
+7 7000 None 0 #
+8 7010 #
+0 7020 @
+8 8000 None 0 #
+0 8010 D _var p mayor_citizenship = 0 R _var p mayor_citizenship = 1 #
+0 8020 @
+9 9000 None 0 #
+11 9010 #
+0 9020 @
+10 10000 None 0 @
+11 11000 None 0 @
+12 12000 None 0 #
+0 12010 #
+14 12020 D _var p citizenship = 0 D _item p PID_DOLLAR } 60 R _var p citizenship = 1 R _item p PID_DOLLAR - 60 R _script dialog@r_location_quest 4 475 2041 1585 0 #
+13 12030 D _var p christine = 4 D _var p citizenship = 0 #
+0 12040 @
+13 13000 None 0 #
+14 13010 D _var p citizenship = 0 D _item p PID_DOLLAR } 50 R _var p citizenship = 1 R _item p PID_DOLLAR - 50 R _script dialog@r_location_quest 4 475 2041 1585 0 #
+0 13020 @
+14 14000 None 0 &
+
+[engl]
+{100}{}{Mayor}
+{200}{}{You see a mayor of Vegas.}
+{210}{}{You can see that he is clearly occupied.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Nah, nothing.}
+{2030}{}{I want to become a citizen of Vegas.}
+{2040}{}{I noticed a woman named Christine near the city gates. Do you know her?}
+{2050}{}{I found your wife's briefcase. Here it is.}
+{2060}{}{I found your CEO. Here's what happened... [ Tell him everything ]}
+{2070}{}{So... Can we discuss my citizenship now?}
+{3000}{}{I am the mayor of this city. Name's Christian Doe.}
+{3010}{}{I want to become a citizen of Vegas.}
+{3020}{}{Why did you restrict the access to the Strip?}
+{3030}{}{Good, I shall go now.}
+{4000}{}{Of course. She is my wife. My... ex wife. She decided to cheat on me, so I kicked her out of the city.}
+{4010}{}{She asked me to get a brieface to her.}
+{4020}{}{Let me ask you about something else.}
+{5000}{}{Well, once you find the briefcase - just bring it to me, I can pay you more than she can.}
+{5010}{}{Will keep it in mind.}
+{5020}{}{To you? I better bring you death!}
+{6000}{}{Wonderful, it seems like this is the money she has stolen from me. Thank you for your assistance.}
+{7000}{}{You were not born in Vegas, the only way for you to get involved in the procedure is to do something valuable for the city.}
+{7010}{}{So what shall I do?}
+{7020}{}{Ah fuck this. I hate these formalities. Bye.}
+{8000}{}{Well, you can help me with something. My CEO is missing. If you find him, we can discuss your citizenship. His house is near the Hard Rock Cafe, you can start searching for him from there.}
+{8010}{}{I will see what I can do.}
+{8020}{}{Nah, not for me.}
+{9000}{}{Really? Well, that's disappointing, but thank you anyway.}
+{9010}{}{And that's it? You are really emotionless.}
+{9020}{}{See you.}
+{10000}{}{I shall not discuss city policy with you.}
+{11000}{}{I heard worse. In my business staying cool minded is crusial.}
+{12000}{}{Alright, you see... In order to become a citizen you need to invest some sum of money to our city. To be exact - 100 golden dollars. But as you helped me with some things here, for you it will be 60 golden dollars. You will get free access to the Strip, many other interesting abilities and even your own residence outside of the city.}
+{12010}{}{Fuck that! I have no money for this.}
+{12020}{}{Here is the money. Can I finally get my citizenship?}
+{12030}{}{I also helped you with your wife. Remember?}
+{12040}{}{Maybe later.}
+{13000}{}{True... Alright - 50 golden dollars and I give you the citizenship.}
+{13010}{}{Here are the money. Can I finally get my citizenship?}
+{13020}{}{Later...}
+{14000}{}{Sign up here and... My congratulations, @pname@. You are now a citizen of you Vegas.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Nah, nothing.}
+{2030}{}{I want to become a citizen of Vegas.}
+{2040}{}{I noticed a woman named Christine near the city gates. Do you know her?}
+{2050}{}{I found your wife's briefcase. Here it is.}
+{2060}{}{I found your CEO. Here what happened... [ Tell him everything ]}
+{2070}{}{So... Can we discuss my citizenship now?}
+{3000}{}{I am the mayor of this city. Name's Christian Doe.}
+{3010}{}{I want to become a citizen of Vegas.}
+{3020}{}{Why did you restricted the access to Strip?}
+{3030}{}{Good, I shall go now.}
+{4000}{}{Of course. She is my wife. My... ex wife. She decided to cheat on me, so I pushed her out of the city.}
+{4010}{}{She asked me to get some brieface to her.}
+{4020}{}{Let me ask you about something else.}
+{5000}{}{Well, once you find the briefcase - just bring it to me, I can pay you more than she can.}
+{5010}{}{Will keep it in mind.}
+{5020}{}{To you? I better bring you death!}
+{6000}{}{Wonderful, it seems like these are the money she has stolen from me. Thank you for your assitance.}
+{7000}{}{You were not born in Vegas, the only way for you to get involved in the procedure is to do something valuable for the city.}
+{7010}{}{So what shall I do?}
+{7020}{}{Ah fuck this. I hate these formalities. Bye.}
+{8000}{}{Well, you can help me with something. My CEO is missing. If you find him, we can discuss your citienship. His house is near the Hard Rock Cafe, you shall start searching for him from there,}
+{8010}{}{I will see what I can do.}
+{8020}{}{Nah, not for me.}
+{9000}{}{Really? Well, that's disappointing, but thank you anyway.}
+{9010}{}{And that's it? You are really emotionless.}
+{9020}{}{See you.}
+{10000}{}{I shall not discuss city policy with you.}
+{11000}{}{I heard worse. In my business staying cool minded is crusial.}
+{12000}{}{Alright, you see... In order to become a citizen you need to invest some sum of money to our city. To be exact - 100 golden dollars. But as you helped me with some things here, for you it will be 60 golden dollars. You will get a free access to Strip, many other interesting abilities and even your own residence outside of the city.}
+{12010}{}{Fuck that! I have no money for this.}
+{12020}{}{Here are the money. Can I finally get my citizenship?}
+{12030}{}{I also helped you with your wife. Remember?}
+{12040}{}{Maybe later.}
+{13000}{}{True... Alright - 50 golden dollars and I give you the citizenship.}
+{13010}{}{Here are the money. Can I finally get my citizenship?}
+{13020}{}{Later...}
+{14000}{}{Sign up here and... My congratulations, @pname@. You are now a citizen of you Vegas.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Nah, nothing.}
+{2030}{}{I want to become a citizen of Vegas.}
+{2040}{}{I noticed a woman named Christine near the city gates. Do you know her?}
+{2050}{}{I found your wife's briefcase. Here it is.}
+{2060}{}{I found your CEO. Here what happened... [ Tell him everything ]}
+{2070}{}{So... Can we discuss my citizenship now?}
+{3000}{}{I am the mayor of this city. Name's Christian Doe.}
+{3010}{}{I want to become a citizen of Vegas.}
+{3020}{}{Why did you restricted the access to Strip?}
+{3030}{}{Good, I shall go now.}
+{4000}{}{Of course. She is my wife. My... ex wife. She decided to cheat on me, so I pushed her out of the city.}
+{4010}{}{She asked me to get some brieface to her.}
+{4020}{}{Let me ask you about something else.}
+{5000}{}{Well, once you find the briefcase - just bring it to me, I can pay you more than she can.}
+{5010}{}{Will keep it in mind.}
+{5020}{}{To you? I better bring you death!}
+{6000}{}{Wonderful, it seems like these are the money she has stolen from me. Thank you for your assitance.}
+{7000}{}{You were not born in Vegas, the only way for you to get involved in the procedure is to do something valuable for the city.}
+{7010}{}{So what shall I do?}
+{7020}{}{Ah fuck this. I hate these formalities. Bye.}
+{8000}{}{Well, you can help me with something. My CEO is missing. If you find him, we can discuss your citienship. His house is near the Hard Rock Cafe, you shall start searching for him from there,}
+{8010}{}{I will see what I can do.}
+{8020}{}{Nah, not for me.}
+{9000}{}{Really? Well, that's disappointing, but thank you anyway.}
+{9010}{}{And that's it? You are really emotionless.}
+{9020}{}{See you.}
+{10000}{}{I shall not discuss city policy with you.}
+{11000}{}{I heard worse. In my business staying cool minded is crusial.}
+{12000}{}{Alright, you see... In order to become a citizen you need to invest some sum of money to our city. To be exact - 100 golden dollars. But as you helped me with some things here, for you it will be 60 golden dollars. You will get a free access to Strip, many other interesting abilities and even your own residence outside of the city.}
+{12010}{}{Fuck that! I have no money for this.}
+{12020}{}{Here are the money. Can I finally get my citizenship?}
+{12030}{}{I also helped you with your wife. Remember?}
+{12040}{}{Maybe later.}
+{13000}{}{True... Alright - 50 golden dollars and I give you the citizenship.}
+{13010}{}{Here are the money. Can I finally get my citizenship?}
+{13020}{}{Later...}
+{14000}{}{Sign up here and... My congratulations, @pname@. You are now a citizen of you Vegas.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Nah, nothing.}
+{2030}{}{I want to become a citizen of Vegas.}
+{2040}{}{I noticed a woman named Christine near the city gates. Do you know her?}
+{2050}{}{I found your wife's briefcase. Here it is.}
+{2060}{}{I found your CEO. Here what happened... [ Tell him everything ]}
+{2070}{}{So... Can we discuss my citizenship now?}
+{3000}{}{I am the mayor of this city. Name's Christian Doe.}
+{3010}{}{I want to become a citizen of Vegas.}
+{3020}{}{Why did you restricted the access to Strip?}
+{3030}{}{Good, I shall go now.}
+{4000}{}{Of course. She is my wife. My... ex wife. She decided to cheat on me, so I pushed her out of the city.}
+{4010}{}{She asked me to get some brieface to her.}
+{4020}{}{Let me ask you about something else.}
+{5000}{}{Well, once you find the briefcase - just bring it to me, I can pay you more than she can.}
+{5010}{}{Will keep it in mind.}
+{5020}{}{To you? I better bring you death!}
+{6000}{}{Wonderful, it seems like these are the money she has stolen from me. Thank you for your assitance.}
+{7000}{}{You were not born in Vegas, the only way for you to get involved in the procedure is to do something valuable for the city.}
+{7010}{}{So what shall I do?}
+{7020}{}{Ah fuck this. I hate these formalities. Bye.}
+{8000}{}{Well, you can help me with something. My CEO is missing. If you find him, we can discuss your citienship. His house is near the Hard Rock Cafe, you shall start searching for him from there,}
+{8010}{}{I will see what I can do.}
+{8020}{}{Nah, not for me.}
+{9000}{}{Really? Well, that's disappointing, but thank you anyway.}
+{9010}{}{And that's it? You are really emotionless.}
+{9020}{}{See you.}
+{10000}{}{I shall not discuss city policy with you.}
+{11000}{}{I heard worse. In my business staying cool minded is crusial.}
+{12000}{}{Alright, you see... In order to become a citizen you need to invest some sum of money to our city. To be exact - 100 golden dollars. But as you helped me with some things here, for you it will be 60 golden dollars. You will get a free access to Strip, many other interesting abilities and even your own residence outside of the city.}
+{12010}{}{Fuck that! I have no money for this.}
+{12020}{}{Here are the money. Can I finally get my citizenship?}
+{12030}{}{I also helped you with your wife. Remember?}
+{12040}{}{Maybe later.}
+{13000}{}{True... Alright - 50 golden dollars and I give you the citizenship.}
+{13010}{}{Here are the money. Can I finally get my citizenship?}
+{13020}{}{Later...}
+{14000}{}{Sign up here and... My congratulations, @pname@. You are now a citizen of you Vegas.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{May I help you?}
+{2010}{}{Who are you?}
+{2020}{}{Nah, nothing.}
+{2030}{}{I want to become a citizen of Vegas.}
+{2040}{}{I noticed a woman named Christine near the city gates. Do you know her?}
+{2050}{}{I found your wife's briefcase. Here it is.}
+{2060}{}{I found your CEO. Here what happened... [ Tell him everything ]}
+{2070}{}{So... Can we discuss my citizenship now?}
+{3000}{}{I am the mayor of this city. Name's Christian Doe.}
+{3010}{}{I want to become a citizen of Vegas.}
+{3020}{}{Why did you restricted the access to Strip?}
+{3030}{}{Good, I shall go now.}
+{4000}{}{Of course. She is my wife. My... ex wife. She decided to cheat on me, so I pushed her out of the city.}
+{4010}{}{She asked me to get some brieface to her.}
+{4020}{}{Let me ask you about something else.}
+{5000}{}{Well, once you find the briefcase - just bring it to me, I can pay you more than she can.}
+{5010}{}{Will keep it in mind.}
+{5020}{}{To you? I better bring you death!}
+{6000}{}{Wonderful, it seems like these are the money she has stolen from me. Thank you for your assitance.}
+{7000}{}{You were not born in Vegas, the only way for you to get involved in the procedure is to do something valuable for the city.}
+{7010}{}{So what shall I do?}
+{7020}{}{Ah fuck this. I hate these formalities. Bye.}
+{8000}{}{Well, you can help me with something. My CEO is missing. If you find him, we can discuss your citienship. His house is near the Hard Rock Cafe, you shall start searching for him from there,}
+{8010}{}{I will see what I can do.}
+{8020}{}{Nah, not for me.}
+{9000}{}{Really? Well, that's disappointing, but thank you anyway.}
+{9010}{}{And that's it? You are really emotionless.}
+{9020}{}{See you.}
+{10000}{}{I shall not discuss city policy with you.}
+{11000}{}{I heard worse. In my business staying cool minded is crusial.}
+{12000}{}{Alright, you see... In order to become a citizen you need to invest some sum of money to our city. To be exact - 100 golden dollars. But as you helped me with some things here, for you it will be 60 golden dollars. You will get a free access to Strip, many other interesting abilities and even your own residence outside of the city.}
+{12010}{}{Fuck that! I have no money for this.}
+{12020}{}{Here are the money. Can I finally get my citizenship?}
+{12030}{}{I also helped you with your wife. Remember?}
+{12040}{}{Maybe later.}
+{13000}{}{True... Alright - 50 golden dollars and I give you the citizenship.}
+{13010}{}{Here are the money. Can I finally get my citizenship?}
+{13020}{}{Later...}
+{14000}{}{Sign up here and... My congratulations, @pname@. You are now a citizen of you Vegas.}
+

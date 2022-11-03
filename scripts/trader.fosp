@@ -1,0 +1,2968 @@
+             
+
+import uint tier3armor()from"item_pools";
+import uint tier3helmet()from"item_pools";
+import uint tier3weapon()from"item_pools";
+import uint tier3alien()from"item_pools";
+import uint tier3bp()from"item_pools";
+import uint tier3drugs()from"item_pools";
+import uint tier3ammo()from"item_pools";
+import uint tierlowammo()from"item_pools";
+import uint tier4parts()from"item_pools";
+import uint tier4bp()from"item_pools";
+import uint tier4item()from"item_pools";
+import uint tier4ammo()from"item_pools";
+import uint rareitem()from"item_pools";
+import uint implant()from"item_pools";
+import uint implant_combat()from"item_pools";
+import uint verti_parts()from"item_pools";
+import uint currency()from"item_pools";
+import uint low_tier()from"item_pools";
+import uint books()from"item_pools";
+import uint mats()from"item_pools";
+import uint misc()from"item_pools";
+import void addbasemap(Critter&player)from"personal_base";
+import void addbasemap(Item&con)from"personal_base";
+
+import bool istier3armor(uint pid)from"item_pools";
+import bool istier3helmet(uint pid)from"item_pools";
+import bool istier3weapon(uint pid)from"item_pools";
+import bool istier3bp(uint pid)from"item_pools";
+import bool istier3drugs(uint pid)from"item_pools";
+import bool istier3ammo(uint pid)from"item_pools";
+import bool istierlowammo(uint pid)from"item_pools";
+import bool istier4parts(uint pid)from"item_pools";
+import bool istier4bp(uint pid)from"item_pools";
+import bool istier4item(uint pid)from"item_pools";
+import bool istier4ammo(uint pid)from"item_pools";
+import bool israreitem(uint pid)from"item_pools";
+import bool isimplant(uint pid)from"item_pools";
+import bool isimplant_combat(uint pid)from"item_pools";
+import bool isverti_parts(uint pid)from"item_pools";
+import bool iscurrency(uint pid)from"item_pools";
+import bool islow_tier(uint pid)from"item_pools";
+import bool isHelmet(uint pid)from"item_pools";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;                                                                                                                                                                                                                                                                                                                                                                                             
+
+import void InitLogs()from"logging";
+import void FLog(uint logindex,string&text)from"logging";
+import void ILog(string&section,string&text)from"logging";
+import void GMLog(Critter&cr,string&text)from"logging";
+import void CloseLogs()from"logging";
+import uint AddLog(string&filename)from"logging";
+import uint AddLog(string&filename,uint index)from"logging";                                                         
+
+import void WLog(string&type,string&message)from"debug";
+import void WLog(string&type,string&message,int level)from"debug";
+import void InitDebug()from"debug";          
+
+import void InitEconomy()from"economy";
+import void SendLevelThresholds(Critter&)from"economy"; 
+
+import bool BankAccountExists(uint bankid,uint account)from"economy";
+import bool BankAccountRemoveMoney(uint bankid,uint account,uint amount)from"economy";
+import bool BankHasAccess(uint bankid,uint account,uint playerid)from"economy";
+import int BankGetAccountBalance(uint bankid,uint account)from"economy";
+import int BankGetAccountID(uint bankid,uint playerid)from"economy";
+import uint BankAddAccess(uint bankid,uint account,uint playerid)from"economy";
+import uint BankCreateAccount(uint bankid,uint playerid)from"economy";
+import uint BankDepositMoney(uint bankid,uint playerid,uint account,int amount)from"economy";
+import uint BankGetAccessCount(uint bankid,uint account)from"economy";
+import uint BankGetAccountOwner(uint bankid,uint account)from"economy";
+import uint BankGetAccountType(uint bankid,uint account)from"economy";
+import uint BankGetCreditRating(uint bankid,uint account)from"economy";
+import uint BankGetLoan(uint bankid,uint account)from"economy";
+import uint BankRemoveAccess(uint bankid,uint account,uint playerid)from"economy";
+import uint BankSetAccountType(uint bankid,uint account,uint accounttype)from"economy";
+import uint BankSetCreditRating(uint bankid,uint account,uint rating)from"economy";
+import uint BankSetLoan(uint bankid,uint account,uint loan)from"economy";
+import uint BankTakeLoan(uint bankid,uint account,uint amount)from"economy";
+import uint BankTransferMoney(uint bankid,uint fromaccount,uint toaccount,uint amount)from"economy";
+import uint BankWithdrawMoney(uint bankid,uint playerid,uint account,int amount)from"economy"; 
+
+import bool BanksTransferFromCritter(Critter&critter,uint amount,uint type,bool virtual)from"economy";
+import bool BanksTransferToCritter(Critter&critter,uint amount,uint type,bool virtual)from"economy";
+import uint BanksGetTotalMoney()from"economy";
+import void BanksAddMoney(uint amount)from"economy";
+import void BanksRemoveMoney(uint amount)from"economy"; 
+
+import bool BankAddMoney(uint bankid,uint amount)from"economy";
+import bool BankRemoveMoney(uint bankid,uint amount)from"economy";
+import bool BankSetMoney(uint bankid,uint amount)from"economy";
+import uint BankGetLoanInterest(uint bankid)from"economy";
+import uint BankGetNumberOfAccounts(uint bankid)from"economy";
+import float BankGetSaveInterest(uint bankid)from"economy";
+import uint BankGetTotalMoney(uint bankid)from"economy";
+import uint BankGetTotalBalance(uint bankid)from"economy";
+import float BankGetReserveRatio(uint bankid)from"economy";
+import uint BankSetLoanInterest(uint bankid,uint interest)from"economy";
+import uint BankSetSaveInterest(uint bankid,float interest)from"economy";
+import bool BankTransferFromCritter(uint bankId,Critter&critter,uint amount,uint type,bool virtual)from"economy";
+
+import void SaveBankData()from"economy";   
+
+import int GetItemSellModifier(Critter&player,Critter&trader)from"economy";
+import int GetItemBuyModifier(Critter&player,Critter&trader)from"economy";
+import uint GetItemCost(Item&item,Critter&cr,Critter&trader,bool sell)from"economy";
+import uint GetItemCostPlain(Item&item,Critter&cr,Critter&trader)from"economy";
+
+import array<int>GetTraderLevels(Critter@npc)from"economy";
+import uint GetTraderLevel(Critter@npc,uint type)from"economy";
+
+import uint ItemLevel(Item&item)from"economy";
+import uint ItemLevel(uint pid)from"economy";
+import uint TraderCapacity(Critter@npc)from"economy";
+import uint TraderCapacity(Critter@npc,uint type,uint level)from"economy";
+import uint TraderMoneyCapacity(Critter@npc)from"economy";
+import uint TradingItemType(Item&item)from"economy";
+import uint TradingItemType(uint pid)from"economy";                                                                                                          
+
+const string@FD_Bank_Result2String(uint res)
+{
+	if(res==(1))
+	return"FD_BANK_RESULT_SUCCESS";
+	else if(res==(2))
+	return"FD_BANK_RESULT_UNKNOWN";
+	else if(res==(3))
+	return"FD_BANK_RESULT_TOO_MANY_ACCOUNTS";
+	else if(res==(4))
+	return"FD_BANK_RESULT_ALREADY_HAS_ACCOUNT";
+	else if(res==(5))
+	return"FD_BANK_RESULT_NOT_ENOUGH_MONEY";
+	else if(res==(6))
+	return"FD_BANK_RESULT_BANK_FULL";
+	else if(res==(7))
+	return"FD_BANK_RESULT_BANK_EMPTY";
+	else if(res==(8))
+	return"FD_BANK_RESULT_DATA_ERROR";
+	else if(res==(9))
+	return"FD_BANK_RESULT_INVALID_PLAYER";
+	else if(res==(10))
+	return"FD_BANK_RESULT_NO_ACCOUNT";
+	else
+	return"FD_Result: Unknown error code";
+}                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+import Location@GetLocationOf(Critter&critter)from"utils";
+import string GetLocationName(uint locId)from"utils";
+import string GetLocationName(Location@loc)from"utils";
+import bool ReadPids(array<int>&out pids,bool removeinvalid)from"utils";
+import void ReadDefines(string@fileName,dictionary&items,array<string>@defines)from"utils";
+import bool ParseDefine(const string&in line,string&out spid,int&out id)from"utils";
+import int SkipWhitespaces(const string&in str,int start)from"utils";
+import int SkipNonWhitespaces(const string&in str,int start)from"utils";
+import bool IsParameterTag(string&str)from"utils";
+import string GetParameterString(array<string@>@arr,string&parameter)from"utils";
+import int GetIndexOfString(array<string@>@arr,string&str)from"utils";
+import string GetConcatenatedString(array<string@>@arr,uint startindex,int stopindex)from"utils";
+import string GetConditionOfCritter(Critter@cr)from"utils";
+import string GetExtConditionOfCritter(Critter@cr)from"utils";
+import uint GetAllOnlinePlayers(array<Critter@>&out players)from"utils";
+import uint GetAuthenticatedPlayers(array<Critter@>&out players)from"utils";
+import uint GetAuthenticatedPlayers(array<Critter@>&out players,bool ignorePriviledges)from"utils";
+import uint GetNumberOfPlayersOnline()from"utils";
+import void SetTurnBasedAvailability(Location@loc)from"utils";
+import bool IsGuarded(Map@map)from"utils";
+import bool IsPublic(Map@map)from"utils";
+import bool IsEncounterMap(Map@map)from"utils";
+import bool IsTown(Map@map)from"utils";
+import bool IsDungeon(Map@map)from"utils";
+import bool IsBaseControl(Map@map)from"utils";
+
+import uint GetMapType(Map@map)from"utils";
+import void LockDoor(uint x,uint y,Map@map,uint complexity,uint lockid)from"utils";
+import void UnlockDoor(uint x,uint y,Map@map)from"utils";
+import void ClearContainer(Item@container)from"utils";
+import void MoveItemsCritterToCont(Critter&crFrom,Item&contTo,uint specid)from"utils";
+import string GetCritterInfo(Critter&cr)from"utils";
+import bool AddExpTeam(Critter&critter,int xp)from"utils";
+import void ClearEnemyStack(Critter&critter)from"utils";
+import void ClearEnemyStacksOnMap(Map@map)from"utils";
+import bool IsCurrentEnemy(Critter&cr,uint targetId)from"utils";
+import string@GetSafePlayerName(uint id)from"utils";
+import string GetSafePlayerName(uint id,string&onSuccess,string&onError)from"utils";
+import IDateTime@GetCurrentDateTime()from"utils";
+import string GetCurrentDateTimeString()from"utils";
+import string GetCurrentDateTimeString(bool date,bool time)from"utils";
+import Critter@GetMostSkilled(array<Critter@>@group,int skill)from"utils";
+import string GetAuthString(Critter&player)from"utils";
+import string GetAuthString(int accesslevel)from"utils";
+import bool CanRequestHelp(Critter&player)from"utils";
+import void SetRequestedHelp(Critter&player)from"utils";
+import void SetRequestedHelp(Critter&player,int minutes)from"utils";
+import Critter@GetOnlineGM()from"utils";
+import void Preprocess(Critter&player,string&commandString)from"utils";
+import bool IsHumanoid(Critter@cr)from"utils";
+import uint GetGroupIndex(Critter&cr)from"utils";
+import uint GetGroupIndex(int st)from"utils";
+import void SetGroupIndex(Critter&cr,uint val)from"utils";
+import uint GetGroupRank(Critter&cr)from"utils";
+import void SetGroupRank(Critter&cr,uint val)from"utils";
+import uint GetGroupMode(Critter&cr)from"utils";
+import void SetGroupMode(Critter&cr,uint val)from"utils";
+import void SetGroupInfo(Critter&cr,uint faction,uint rank,uint mode)from"utils";
+import void SetGroupInfoPack(Critter&cr,uint packInfo)from"utils";
+import void ClearEvents(Critter&cr)from"utils";
+
+import int GetGvar(uint gvar)from"utils";
+import void SetGvar(uint gvar,uint value)from"utils";
+import int GetLLvar(Location&location,uint llvar)from"utils";
+import int GetLLvar(uint locationId,uint llvar)from"utils";
+import void SetLLvar(Location&location,uint llvar,uint value)from"utils";
+import int GetLMvar(Map&map,uint llvar)from"utils";
+import int GetLMvar(uint mapId,uint llvar)from"utils";
+import void SetLMvar(Map&map,uint llvar,uint value)from"utils";
+import int GetLIvar(Item&item,uint llvar)from"utils";
+import int GetLIvar(uint itemId,uint llvar)from"utils";
+import void SetLIvar(Item&item,uint llvar,uint value)from"utils";
+import int GetLvar(Critter&critter,uint lvar)from"utils";
+import int GetLvar(uint id,uint lvar)from"utils";
+import void SetLvar(Critter&critter,uint lvar,uint value)from"utils";
+import void SetLvar(uint id,uint lvar,uint value)from"utils";
+import int GetUvar(uint uvar,uint key,uint index)from"utils";
+import void SetUvar(uint uvar,uint key,uint index,uint value)from"utils";
+
+import uint GetContainerValue(Item@container)from"utils";
+import uint BaseItemValue(uint pid,bool ammo)from"utils";
+import uint BaseItemValue(uint pid,uint broken,uint det,bool ammo)from"utils";
+import uint BaseItemValue(Item@item)from"utils";
+import uint BaseItemValue(Item@item,uint proc)from"utils";
+import uint BaseSingleItemValue(Item@item)from"utils";
+import uint BaseSingleItemValue(Item@item,uint proc)from"utils";
+
+import void SetBloodType(Critter@cr)from"utils";
+import string GetBloodType(Critter@cr)from"utils";
+import string GetBloodRandom()from"utils";
+
+import void LogCommandUsage(Critter&player,string&commandString)from"utils";
+import void DropTimeouts(Critter&cr)from"utils";
+
+import bool HasItem(Critter@cr,uint pid)from"utils";
+import bool HasSomeWeapon(Critter@cr)from"utils";
+import uint GetBestWeaponSkill(Critter@cr)from"utils";
+import void GiveBag(uint bag,Critter@cr)from"utils";
+import void SetQuestGarbager(uint time,uint playerid,uint locid,uint var,uint val)from"utils";
+import Critter@AddNpc(Map@map,uint16 pid,uint16 x,uint16 y,uint8 dir,uint dialogId,string&script,uint aiPack,uint bagId,uint teamId,bool isMob,uint level)from"utils";
+import Critter@AddNpc(Map@map,uint16 pid,uint16 x,uint16 y,uint8 dir,uint dialogId,string&script,uint aiPack,uint bagId,uint teamId,uint factionRank,uint factionMode,bool isMob,uint level)from"utils";
+import Critter@AddNpc(Map@map,uint16 pid,uint16 x,uint16 y,uint8 dir,array<int>params,uint dialogId,string&script,uint aiPack,uint bagId,uint teamId,bool isMob,uint level)from"utils";
+import Critter@AddNpc(Map@map,uint16 pid,uint16 x,uint16 y,uint8 dir,array<int>params,uint dialogId,string&script,uint aiPack,uint bagId,uint teamId,uint factionRank,uint factionMode,bool isMob,uint level)from"utils";
+import void AddScore(Critter@cr,uint score,uint points)from"utils";
+
+import bool ReloadWeapon(Critter&cr)from"utils";
+import Item@GetRadio(Critter&cr)from"utils";
+import Item@GetRepairTool(Critter&cr)from"utils";
+import Item@GetEquippedItem(Critter&cr,uint Pid)from"utils";
+import Item@GetEquippedItem(Critter&cr,array<uint>&Pids)from"utils";
+import Item@GetEquippedItemByType(Critter&cr,uint ItemType)from"utils"; 
+
+import bool SkillRoll(Critter@cr,int skill,int bonus)from"utils";
+import int SkillCheck(Critter&cr,int skill,int skillused,Item@item,int bonus)from"utils";
+import string SkillName(uint8 skill)from"utils";
+import void ChangeCrTypeSafe(Critter&cr,uint8 crType)from"utils";
+
+import bool Pickable(Item@item)from"utils";
+
+import void TransferItemsToContOnMap(Critter&cr,Map@map,int entid,int contpid,int itemtypes)from"utils";
+import void TransferItemsFromContOnMap(Critter&cr,Map@map,int entid,int contpid)from"utils";
+
+import string IpToString(uint ip)from"utils";
+
+import void VerboseAction(Critter&cr,string&text)from"utils";
+import void VerboseAction(Critter&cr,Critter&target,string&text)from"utils";
+import void VerboseExperience(Critter&cr,int xpDiff,int levelDiff)from"utils";
+
+import void SetChosenActions(Critter&cr,array<int>&actions)from"utils";
+
+import void HexLine(uint16 x0,uint16 y0,uint16 x1,uint16 y1,array<uint16>@xList,array<uint16>@yList)from"utils";
+import void HexCircle(uint16 x0,uint16 y0,uint16 radius,array<uint16>@xList,array<uint16>@yList)from"utils";
+
+import void StartPersonalDataCleanup()from"utils";
+
+import bool IsPersonalData(Location&location,string&name)from"utils";
+import bool GetPersonalData(Location&location,string&name,array<uint8>&value)from"utils";
+import uint GetPersonalData(Location&location,array<string>&names,array<array<uint8>>&values)from"utils";
+import bool SetPersonalData(Location&location,string&name,array<uint8>&value)from"utils";
+import bool UnsetPersonalData(Location&location,string&name)from"utils";
+
+import bool IsPersonalData(Map&map,string&name)from"utils";
+import bool GetPersonalData(Map&map,string&name,array<uint8>&value)from"utils";
+import uint GetPersonalData(Map&map,array<string>&names,array<array<uint8>>&values)from"utils";
+import bool SetPersonalData(Map&map,string&name,array<uint8>&value)from"utils";
+import bool UnsetPersonalData(Map&map,string&name)from"utils";
+
+import bool IsPersonalData(Critter&critter,string&name)from"utils";
+import bool GetPersonalData(Critter&critter,string&name,array<uint8>&value)from"utils";
+import uint GetPersonalData(Critter&critter,array<string>&names,array<array<uint8>>&values)from"utils";
+import bool SetPersonalData(Critter&critter,string&name,array<uint8>&value)from"utils";
+import bool UnsetPersonalData(Critter&critter,string&name)from"utils";
+
+import bool IsPersonalData(Item&item,string&name)from"utils";
+import bool GetPersonalData(Item&item,string&name,array<uint8>&value)from"utils";
+import uint GetPersonalData(Item&item,array<string>&names,array<array<uint8>>&values)from"utils";
+import bool SetPersonalData(Item&item,string&name,array<uint8>&value)from"utils";
+import bool UnsetPersonalData(Item&item,string&name)from"utils";
+
+import bool FindPreferredGridApprox(Map&map,uint16&hx,uint16&hy)from"utils";           
+
+import bool StrToInt(string@s,uint64&inout val)from"strtoint";
+import bool StrToInt(string@s,uint&inout val)from"strtoint";
+import bool StrToInt(string@s,uint16&inout val)from"strtoint";
+import bool StrToInt(string@s,uint8&inout val)from"strtoint";
+import bool StrToInt(string@s,int64&inout val)from"strtoint";
+import bool StrToInt(string@s,int16&inout val)from"strtoint";
+import bool StrToInt(string@s,int8&inout val)from"strtoint";    
+
+import int FindInArray(array<int>&arr,int value)from"utils";
+import int FindInArray(array<uint>&arr,uint value)from"utils";
+import int FindInArray(array<uint16>&arr,uint16 value)from"utils";
+import int FindInArray(array<uint8>&arr,uint8 value)from"utils";
+import bool FindInArray(array<int>&arr,int id,int&index)from"utils";
+import bool FindInArray(array<uint>&arr,uint id,int&index)from"utils";
+import bool FindInArray(array<uint8>&arr,uint8 id,int&index)from"utils";
+import int FindInArray(array<string>&arr,string&value)from"utils";
+import int FindInArray(array<string@>@arr,string&value)from"utils";
+import bool Present(int what,array<int>&where)from"utils";
+import bool Present(uint what,array<uint>&where)from"utils";
+import bool Present(uint16 what,array<uint16>&where)from"utils";
+import bool Present(string&what,array<string>&where)from"utils";
+import bool Present(string&what,array<string@>@where)from"utils";
+
+import uint CreateLocationForGroup(Critter&player,uint16 pid,uint16 worldX,uint16 worldY,array<Critter@>&)from"utils";
+import bool FindFirstFreeHex(Map@map,uint16&x,uint16&y,uint8 dir,uint16 maxSteps)from"utils";
+import bool FindNearestFreeHex(Map&map,uint16&x,uint16&y,uint radius)from"utils";
+
+import bool GetItemCoordinates(Item&item,uint&mapID,uint16&x,uint16&y)from"utils";
+import bool ItemOnHex(uint16 pid,Map@map,uint16 x,uint16 y)from"utils";
+
+import void PrintCallstack()from"utils";
+import void PrintCallstack(int level)from"utils";
+
+import bool LocationHasCritters(Location&loc,uint findType)from"utils";
+import uint LocationGetCritters(Location&loc,uint findType,array<Critter@>@critters)from"utils";
+import uint LocationGetPlayersAndFollowers(Location&loc,uint findType,array<Critter@>@critters)from"utils";
+import uint MapGetPlayersAndFollowers(Map&map,uint findType,array<Critter@>@critters)from"utils";
+import uint CritterGetPlayersAndFollowers(Critter&critter,bool lookOnMe,uint findType,array<Critter@>@critters)from"utils";
+import bool LocationHasItems(Location&loc,uint16 protoId)from"utils";
+import uint LocationGetItems(Location&loc,uint16 protoId,array<Item@>@items)from"utils";
+import void LocationDeleteItems(Location&loc,uint16 protoId)from"utils";
+
+import bool IsDisposableEncounter(Location@loc)from"utils";
+
+import bool IsT4Item(Item&item)from"utils";
+import bool IsT3Item(Item&item)from"utils";
+import uint16 AddT3Item()from"utils";
+import uint16 AddT4Item()from"utils";
+import uint16 AddImplant()from"utils";
+import uint16 AddT4BP()from"utils";
+import uint16 AddRareAmmo()from"utils";
+import uint16 AddTypicalAmmo()from"utils";
+
+import void SetDeterioration(Item&item)from"utils";  
+
+shared class CPosition
+{
+	uint x;
+	uint y;
+	uint dir;
+};
+
+shared interface IRect
+{
+	bool IsWithin(Critter&cr);
+};
+
+shared class Rect:IRect
+{
+	uint x1;
+	uint y1;
+	uint x2;
+	uint y2;
+	
+	Rect(uint x1,uint y1,uint x2,uint y2)
+	{
+		this.x1=x1;
+		this.y1=y1;
+		this.x2=x2;
+		this.y2=y2;
+	}
+	
+	bool IsWithin(Critter&cr)
+	{
+		return((cr.HexX>=this.x1&&cr.HexX<=this.x2)&&(cr.HexY>=this.y1&&cr.HexY<=this.y2));
+	}
+};
+
+shared interface IDateTime
+{
+	uint16 get_Year();
+	uint16 get_Month();
+	uint16 get_DayOfWeek();
+	uint16 get_Day();
+	uint16 get_Hour();
+	uint16 get_Minute();
+	uint16 get_Second();
+	uint16 get_Milliseconds();
+	string@ToString();
+};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+shared interface IBroadcastBuffer
+{
+	string GetString();
+	
+	void SetType(int type);
+	int GetType();
+	void SetTime(int time);
+	int GetTime();
+	void SetSetup(int setup);
+	int GetSetup();
+	void SetMessage(string message);
+	void AppendMessage(string message);
+	string GetMessage();
+	void SetData(array<int>data);
+	
+	void SetStart(int time);
+	void ResetStart();
+	
+	void SetLifetime(int lifetime);
+	
+	void SetFilters(int filters);
+	void SetFilter(int filter);
+	void SetFilter(int filter,int data);
+	void UnsetFilter(int filter);
+	bool Filter(int filter);
+	bool CheckFilters(Critter@player);
+	
+	bool Send(Critter@player);
+	uint SendToAll();
+	
+	void SetGM(int id);
+	void UnsetGM();
+	
+	void ToDelete();
+};  
+
+import void UpdateBroadcast()from"broadcast";
+
+import IBroadcastBuffer@AddBroadcastBuffer(int type,int time,int setup,string&message,array<int>&data,int lifetime,int flags)from"broadcast";
+import void DumpBroadcastBuffer(Critter@player)from"broadcast";
+import uint FindBroadcastBufferByType(int type,array<IBroadcastBuffer@>&buf)from"broadcast";
+import uint FindBroadcastBufferByGM(int id,array<IBroadcastBuffer@>&buf)from"broadcast"; 
+
+import IBroadcastBuffer@Broadcast_Message(string&message,int time,int filters,bool send)from"broadcast";
+import IBroadcastBuffer@Broadcast_Message(string&message,int time,int filters)from"broadcast";
+import IBroadcastBuffer@Broadcast_Message(string&message,int&time)from"broadcast";
+import IBroadcastBuffer@Broadcast_Message(string&message,bool send)from"broadcast";
+import IBroadcastBuffer@Broadcast_Message(string&message)from"broadcast"; 
+
+import void Broadcast_TownControl_Set(string&message,int location,int time,int faction)from"broadcast";
+import void Broadcast_TownControl_Set(int location,int time,int faction,Critter&player)from"broadcast";
+import void Broadcast_TownControl_Stop(int location)from"broadcast"; 
+
+import IBroadcastBuffer@Broadcast_Influence(int location,int time,string&message)from"broadcast"; 
+
+import uint Broadcast_RequestHelp(Critter@player,string&message)from"broadcast";
+import void Broadcast_CheckRequestHelpBuffer(Critter@gm)from"broadcast";
+import void Broadcast_DumpRequestHelpBuffer(Critter@gm)from"broadcast"; 
+
+import void baseControl(string msg,int mapId,uint time)from"broadcast";
+import void baseControlRadio(string msg,uint time,int mapId,uint factionId)from"broadcast"; 
+
+import void ServerEventMSG(uint time,string msg)from"broadcast"; 
+
+import IBroadcastBuffer@GetEventCountDownBuffer(int location,int type)from"broadcast";
+import void ServerEventCNTSet(string message,uint location,uint type,uint time)from"broadcast";
+import void ServerEventCNTSet(uint location,uint type,uint time)from"broadcast";
+import void ServerEventCNTStop(uint location,uint type)from"broadcast";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+import void InjectValue(uint x,uint y,uint amount,uint from)from"worldmap";
+import void _weapon_perk(Item&item,bool firstTime)from"item_level";
+import void _armor_perk(Item&item,bool firstTime)from"item_level";
+
+void AddSpecialBonus(Item@it)
+{
+	it.Val0=Random(100000,6000000);
+	it.Update();
+	
+	if(it.GetType()==(3))
+	{
+		_weapon_perk(it,false);
+	}
+	if(it.GetType()==(1))
+	{
+		_armor_perk(it,false);
+	}
+} 
+
+bool _OnBarter(Critter&cr,Critter&player,bool attach,uint barterCount)
+{
+	if(!attach)
+	return false;                                                            
+	
+	{;};
+	{;};
+	
+	{;};
+	player.RunClientScript("_BarterInit",GetItemBuyModifier(player,cr),GetItemSellModifier(player,cr),0,"",null);
+	player.RunClientScript("_BarterTraderLevels",0,0,0,"",GetTraderLevels(cr));
+	return true;
+}                               
+
+uint e_Update(array<uint>@values)
+{
+	
+	Critter@npc=GetCritter(values[0]);
+	if(!(@npc!=null))
+	return 0;
+	
+	AddItems(npc);
+	return(((Random(55,75))*__TimeMultiplier*60));
+}                                                                       
+
+import void SetTraderLevels(Critter@npc,array<uint>&levels)from"economy";
+void banker(Critter&npc,bool firstTime)
+{
+	npc.ParamBase[(511)]=1;
+	npc.ParamBase[(532)]=1;
+	npc.ParamBase[(523)]=1;
+	npc.ParamBase[(512)]=0;
+	npc.ParamBase[(541)]=0;
+	npc.ParamBase[(139)]=7;
+	npc.ParamBase[(521)]=1;
+	npc.ParamBase[(215)]=9999;
+	CreateTimeEvent(((__FullSecond)+(((1)*__TimeMultiplier))),"e_fill",npc.Id,false);
+	
+}
+
+uint e_fill(array<uint>@values)
+{
+	Critter@cr=GetCritter(values[0]);
+	cr.ParamBase[(139)]=7;
+	cr.ParamBase[(521)]=1;
+	uint ec=0;
+	uint bc=0;
+	uint nc=0;
+	uint vc=0;
+	uint mc=0;
+	uint eco=5;
+	uint bco=5;
+	uint nco=5;
+	uint vco=5;
+	uint mco=5;
+	
+	array<Item@>eitems;
+	uint e=0;
+	e=GetAllItems((1212),eitems);
+	for(uint i=0;i<e;i++)
+	{
+		ec+=eitems[i].GetCount();
+	}
+	array<Item@>bitems;
+	uint b=0;
+	b=GetAllItems((1211),bitems);
+	for(uint i=0;i<b;i++)
+	{
+		bc+=bitems[i].GetCount();
+	}
+	array<Item@>nitems;
+	uint n=0;
+	n=GetAllItems((1214),nitems);
+	for(uint i=0;i<n;i++)
+	{
+		nc+=nitems[i].GetCount();
+	}
+	array<Item@>vitems;
+	uint v=0;
+	v=GetAllItems((1213),vitems);
+	for(uint i=0;i<v;i++)
+	{
+		vc+=vitems[i].GetCount();
+	}
+	array<Item@>mitems;
+	uint m=0;
+	m=GetAllItems((1215),mitems);
+	for(uint i=0;i<m;i++)
+	{
+		mc+=mitems[i].GetCount();
+	}
+	if(ec<bc){eco+=5;bco+=1;}
+	if(ec>bc){eco+=1;bco+=5;}
+	if(ec==bc){eco+=3;bco+=3;}
+	if(ec<nc){eco+=5;nco+=1;}
+	if(ec>nc){eco+=1;nco+=5;}
+	if(ec==nc){eco+=3;nco+=3;}
+	if(ec<vc){eco+=5;vco+=1;}
+	if(ec>vc){eco+=1;vco+=5;}
+	if(ec==vc){eco+=3;vco+=3;}
+	if(ec<mc){eco+=5;mco+=1;}
+	if(ec>mc){eco+=1;mco+=5;}
+	if(ec==mc){eco+=3;mco+=3;}
+	if(bc<nc){bco+=5;nco+=1;}
+	if(bc>nc){bco+=1;nco+=5;}
+	if(bc==nc){bco+=3;nco+=3;}
+	if(bc<vc){bco+=5;vco+=1;}
+	if(bc>vc){bco+=1;vco+=5;}
+	if(bc==vc){bco+=3;vco+=3;}
+	if(bc<mc){bco+=5;mco+=1;}
+	if(bc>mc){bco+=1;mco+=5;}
+	if(bc==mc){bco+=3;mco+=3;}
+	if(nc<vc){nco+=5;vco+=1;}
+	if(nc>vc){nco+=1;vco+=5;}
+	if(nc==vc){nco+=3;vco+=3;}
+	if(nc<mc){nco+=5;mco+=1;}
+	if(nc>mc){nco+=1;mco+=5;}
+	if(nc==mc){nco+=3;mco+=3;}
+	if(mc<vc){mco+=5;vco+=1;}
+	if(mc>vc){mco+=1;vco+=5;}
+	if(mc==vc){mco+=3;vco+=3;}
+	cr.ParamBase[(124)]=1;
+	cr.ParamBase[(125)]=eco;
+	cr.ParamBase[(126)]=bco;
+	cr.ParamBase[(127)]=nco;
+	cr.ParamBase[(128)]=vco;
+	cr.ParamBase[(129)]=mco;
+	
+	array<Item@>items;
+	int count=cr.GetItems((0),items);
+	if(count>0)
+	{
+		DeleteItems(items);
+	}
+	cr.AddItem((41),100000);
+	cr.AddItem((1212),30000);
+	cr.AddItem((1211),30000);
+	cr.AddItem((1214),30000);
+	cr.AddItem((1213),30000);
+	
+	return((60)*__TimeMultiplier*60);
+}
+void _DenFlick(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,0,1,1,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=65;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _DenFrank(Critter&npc,bool firstTime)
+{
+	uint[]levels=
+	{
+		0,0,0,0,0,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=50;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _DenMom(Critter&npc,bool firstTime)
+{
+	uint[]levels={0,0,0,0,0,1,1,0,0};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=60;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _DenRebecca(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,1,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=50;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _DenTubby(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,1,0,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=80;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _KlamathBuckner(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,0,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=40;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _ModocGrishem(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,1,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=60;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _ModocJo(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,1,0,0,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+	npc.ParamBase[(521)]=1;
+}
+
+void _ModocBalthas(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,1,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=70;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _ModocMook(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,1,0,0,0,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=75;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _VCAmenities(Critter&npc,bool firstTime)
+{
+	uint[]levels=
+	{
+		0,0,0,0,1,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _VCSubAmenitiesA(Critter&npc,bool firstTime)
+{
+	uint[]levels=
+	{
+		1,0,0,0,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=120;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _VCSubAmenitiesB(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,1,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=140;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _VCHappyHarry(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,1,0,0,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=90;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _VCMacRae(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,1,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=70;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _VCDoctorAndrew(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,0,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=70;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _GeckoSkeeter(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,1,0,1,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=70;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _GeckoPercy(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=50;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _GeckoWooz(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,0,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=80;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _ReddingAscorti(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,1,0,0,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=105;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _ReddingDocJohnson(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=70;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _BrokenDocHolliday(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=70;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _BrokenLiz(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,0,1,0,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=70;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _BrokenPhil(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=50;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _BrokenBill(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,1,0,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=110;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _BrokenJacob(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=80;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _RenoJules(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=65;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _RenoEldridge(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,0,0,0,0,0,1,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=300;
+	
+	npc.ParamBase[(139)]=8;
+	DefaultTraderInit(npc,firstTime);
+	array<uint>filldata={npc.Id};
+	CreateTimeEvent(((__FullSecond)+(((Random(45,60))*__TimeMultiplier*60))),"e_addkey",filldata,false);
+}
+
+void _RenoRenesco(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,1,1,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=300;
+	npc.ParamBase[(139)]=8;
+	DefaultTraderInit(npc,firstTime);
+	array<uint>filldata={npc.Id};
+	CreateTimeEvent(((__FullSecond)+(((Random(45,60))*__TimeMultiplier*60))),"e_addkey",filldata,false);
+} 
+
+void _TreasureBar(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,1,1,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=300;
+	DefaultTraderInit(npc,firstTime);
+	array<uint>filldata={npc.Id};
+	CreateTimeEvent(((__FullSecond)+(((Random(20,60))*__TimeMultiplier*60))),"e_addmap",filldata,false);
+}
+
+uint e_addkey(array<uint>@mobdata)
+{
+	
+	Critter@cr=GetCritter(mobdata[0]);
+	Item@key=cr.GetItem((25572),1);
+	
+	cr.AddItem((25572),1);
+	ServerEventCNTSet("New Reno Vault-Tec Key provided",cr.Id,(21),((Random(3,10))*__TimeMultiplier));
+	array<uint>filldata={cr.Id};
+	return((Random(45,60))*__TimeMultiplier*60);
+}
+
+uint e_addmap(array<uint>@mobdata)
+{
+	
+	Critter@cr=GetCritter(mobdata[0]);
+	
+	switch(Random(1,200))
+	{
+		case 1:cr.AddItem((25471),1);break;
+		default:cr.AddItem((25468),1);cr.AddItem((25469),1);break;
+	}
+	
+	array<uint>filldata={cr.Id};
+	return((Random(20,60))*__TimeMultiplier*60);
+}
+void _RenoBartender(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=50;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _NCRBuster(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,1,0,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=125;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _NCRDusty(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,1,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=65;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _NCRMiria(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,1,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=65;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _NCRShaNine(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,1,0,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=90;
+	DefaultTraderInit(npc,firstTime);
+} 
+
+void _SFChiang(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,1,0,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=160;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _SFDrFung(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _SFJenny(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,1,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=125;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _SFKarl(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,1,0,1,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=140;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _SFSlim(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,1,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=70;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Killian(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,0,0,1,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=110;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Mitch(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,2,0,2,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Beth(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,1,0,1,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=120;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Stapleton(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,0,0,0,1,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=150;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Jacob(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,1,1,1,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=145;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _CathShop(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,1,0,0,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=140;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Gunsmith(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,1,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=130;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Gunrunner(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,1,1,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=170;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Taylor(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,0,1,0,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=60;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _KhansArt(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,0,0,1,0,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=110;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _KhansAugustus(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=60;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _GasStationGordon(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels={0,0,0,0,1,1,1,0,0};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=80;
+	DefaultTraderInit(npc,firstTime);
+} 
+
+void _Tibbett(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,1,1,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _VegasTony(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _VegasWoody(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Kwok(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,0,0,0,1,1,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Quok(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,1,1,0,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _JovialJoe(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _Pharmacist(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,0,0,1,1,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _LiquidJoe(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,1,1,1,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _CptFernandez(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		1,1,0,0,1,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=100;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void _VanGraf(Critter&npc,bool firstTime)
+{
+	
+	uint[]levels=
+	{
+		0,0,1,0,0,0,0,0,0
+	};
+	SetTraderLevels(npc,levels);
+	npc.ParamBase[(215)]=30;
+	DefaultTraderInit(npc,firstTime);
+}
+
+void DefaultTraderInit(Critter&npc,bool firstTime)
+{
+	npc.ParamBase[(511)]=1;
+	npc.ParamBase[(532)]=1;
+	npc.ParamBase[(523)]=1;
+	npc.ParamBase[(512)]=0;
+	(npc.ParamBase[(534)]=npc.Param[(534)]|((0x00000010)));
+	
+	npc.SetEvent((38),"_OnBarter");
+	
+	npc.SetBagRefreshTime(uint(-1));
+	int bag_bug=npc.GetBagRefreshTime();
+	
+	array<uint>eventdata={npc.Id,0,0}; 
+	
+	if(firstTime)
+	{
+		AddStarterItems(npc);
+	}
+	
+	CreateTimeEvent((__FullSecond)+(((Random(55,75))*__TimeMultiplier*60)),"e_Update",npc.Id,false);
+	
+	Map@map=npc.GetMap();
+	
+	if(firstTime)
+	if(!map.GetLocation().IsEncounter())
+	CreateTimeEvent(((__FullSecond)+(((Random(600,25400))*__TimeMultiplier*60))),"e_SpecialItemEvent",eventdata,true);
+	
+} 
+
+uint Addpropermoney(Critter@npc)
+{
+	if(!(@npc!=null))
+	return 0;
+	switch(npc.Param[(139)])
+	{
+		case 0:return(41);
+		case 1:return(1212);
+		case 2:return(1211);
+		case 3:return(1214);
+		case 4:return(1213);
+		case 5:return(1215);
+	}
+	return(41);
+	
+}
+void AddStarterItems(Critter@npc){AddItems(npc);} 
+
+void AddItems(Critter@npc)
+{ 
+	
+	array<Item@>itemss;
+	int count=npc.GetItems((0),itemss);
+	uint items_count=Random(20,40);
+	uint pid=(98);
+	uint pidu=(98);
+	npc.Animate(0,(28),null,true,true);
+	DeleteItems(itemss);
+	
+	if(!IsGuarded(npc.GetMap()))
+	{
+		Item@it=npc.AddItem(Addpropermoney(npc),Random(5000,14000));
+		items_count+=Random(1,20);
+	}
+	else
+	{
+		Item@it=npc.AddItem(Addpropermoney(npc),Random(2500,7500));
+	}
+	
+	for(uint i=0;i<=items_count;i++)
+	{
+		if(Random(1,200)==1)
+		{
+			npc.AddItem(rareitem(),1);
+			continue;
+		}
+		switch(Random(1,8))
+		{
+			case 1:pid=tier3armor();break;
+			case 2:pid=tier3helmet();break;
+			case 3:pid=tier3weapon();break;
+			case 4:pid=misc();break;
+			case 5:pidu=tier3drugs();break;
+			default:pid=low_tier();break;
+		}
+		switch(Random(1,12))
+		{
+			case 1:pidu=tier3bp();break;
+			case 2:pidu=mats();break;
+			case 3:pidu=tier3ammo();break;
+			case 5:pidu=books();break;
+			default:pidu=tierlowammo();break;
+			
+		}
+		npc.AddItem(pid,1);
+		npc.AddItem(pidu,Random(3,20));
+	}
+	
+}
+uint trader_events=0;
+uint e_SpecialItemEvent(array<uint>@values)
+{
+	trader_events+=1;
+	if(values.length()==1)
+	{
+		values.resize(3);
+		values[1]=0;
+		values[2]=0;
+	}
+	
+	bool GMCreated=(values[1]==0?false:true);
+	uint location=0,type=(27),baseprice,item,podniesienieceny,timeleft=((Random(10,15))*__TimeMultiplier*60);
+	uint8 itemkind=Random(1,9),ilosc=1,stackable=0;
+	string itemname="something special",locationname,npctrader="Someone",bonustype=" ";
+	Critter@trader=GetCritter(values[0]);
+	if(!(@trader!=null))
+	return 0;
+	
+	if(!GMCreated)
+	{
+		switch(itemkind)
+		{
+			case 1:
+			case 2:
+			case 3:
+			switch(Random(1,47))
+			{
+				case 1:item=(241);itemname="Weapon";break;
+				case 2:item=(388);itemname="Weapon";break;
+				case 3:item=(353);itemname="Weapon";break;
+				case 4:item=(268);itemname="Weapon";break;
+				case 5:item=(354);itemname="Weapon";break;
+				case 6:item=(296);itemname="Weapon";break;
+				case 7:item=(400);itemname="Weapon";break;
+				case 8:item=(13);itemname="Weapon";break;
+				case 9:item=(389);itemname="Weapon";break;
+				case 10:item=(355);itemname="Weapon";break;
+				case 11:item=(387);itemname="Weapon";break;
+				case 12:item=(402);itemname="Weapon";break;
+				case 13:item=(390);itemname="Weapon";break;
+				case 14:item=(401);itemname="Weapon";break;
+				case 15:item=(28);itemname="Weapon";break;
+				case 16:item=(406);itemname="Weapon";break;
+				case 17:item=(15);itemname="Weapon";break;
+				case 18:item=(25582);itemname="Weapon";break;
+				case 19:item=(396);itemname="Weapon";break;
+				case 20:item=(1217);itemname="Weapon";break;
+				case 21:item=(517);itemname="Weapon";break;
+				case 22:item=(522);itemname="Weapon";break;
+				case 23:item=(115);itemname="Weapon";break;
+				case 24:item=(399);itemname="Weapon";break;
+				case 25:item=(116);itemname="Weapon";break;
+				case 26:item=(407);itemname="Weapon";break;
+				case 27:item=(25566);itemname="Weapon";break;
+				case 28:item=(25567);itemname="Weapon";break;
+				case 29:item=(379);itemname="Armor";break;
+				case 30:item=(265);itemname="Armor";break;
+				case 31:item=(25548);itemname="Armor";break;
+				case 32:item=(380);itemname="Armor";break;
+				case 33:item=(22095);itemname="Armor";break;
+				case 34:item=(25549);itemname="Armor";break;
+				case 35:item=(25547);itemname="Armor";break;
+				case 36:item=(240);itemname="Armor";break;
+				case 37:item=(381);itemname="Armor";break;
+				case 38:item=(239);itemname="Armor";break;
+				case 39:item=(761);itemname="Armor";break;
+				case 40:item=(9654);itemname="Armor";break;
+				case 41:item=(752);itemname="Armor";break;
+				case 42:item=(25550);itemname="Armor";break;
+				case 43:item=(25551);itemname="Armor";break;
+				case 44:item=(778);itemname="Armor";break;
+				case 45:item=(27228);itemname="Armor";break;
+				case 46:item=(27227);itemname="Armor";break;
+				case 47:item=(524);itemname="Armor";break;
+			}
+			break;
+			case 4:
+			switch(Random(1,14))
+			{
+				case 1:item=(25476);itemname="Rare Part";break;
+				case 2:item=(25477);itemname="Rare Part";break;
+				case 3:item=(25478);itemname="Rare Part";break;
+				case 4:item=(25479);itemname="Rare Part";break;
+				case 5:item=(25480);itemname="Rare Part";break;
+				case 6:item=(25481);itemname="Rare Part";break;
+				case 7:item=(25482);itemname="Rare Part";break;
+				case 8:item=(25483);itemname="Rare Part";break;
+				case 9:item=(25484);itemname="Rare Part";break;
+				case 10:item=(25485);itemname="Rare Part";break;
+				case 11:item=(25486);itemname="Rare Part";break;
+				case 12:item=(25487);itemname="Rare Part";break;
+				case 13:item=(25488);itemname="Rare Part";break;
+				case 14:item=(22072);itemname="Rare Part";break;
+			}
+			break;
+			case 5:
+			{
+				switch(Random(1,5))
+				{
+					case 1:item=(25586);itemname="Rare Ammo";break;
+					case 2:item=(25585);itemname="Rare Ammo";break;
+					case 3:item=(850);itemname="Rare Ammo";break;
+					case 4:item=(358);itemname="Rare Ammo";break;
+					case 5:item=(359);itemname="Rare Ammo";break;
+				}
+			}
+			break;
+			case 6:
+			switch(Random(1,22))
+			{
+				case 1:item=(22073);itemname="Rare Part";break;
+				case 2:item=(22074);itemname="Rare Part";break;
+				case 3:item=(22075);itemname="Rare Part";break;
+				case 4:item=(22076);itemname="Rare Part";break;
+				case 5:item=(22077);itemname="Rare Part";break;
+				case 6:item=(22079);itemname="Rare Part";break;
+				case 7:item=(352);itemname="something special";break;
+				case 8:item=(22080);itemname="Rare Part";break;
+				case 9:item=(22081);itemname="Rare Part";break;
+				case 10:item=(22082);itemname="Rare Part";break;
+				case 11:item=(22083);itemname="Rare Part";break;
+				case 12:item=(22084);itemname="Rare Part";break;
+				case 13:item=(22085);itemname="Rare Part";break;
+				case 14:item=(22086);itemname="Rare Part";break;
+				case 15:item=(22087);itemname="Rare Part";break;
+				case 16:item=(22088);itemname="Rare Part";break;
+				case 17:item=(22089);itemname="Rare Part";break;
+				case 18:item=(22090);itemname="Rare Part";break;
+				case 19:item=(22091);itemname="something special";break;
+				case 20:item=(22092);itemname="Rare Part";break;
+				case 21:item=(22093);itemname="Rare Part";break;
+				case 22:item=(22094);itemname="Rare Part";break;
+			}
+			break;
+			case 7:
+			switch(Random(1,1000))
+			{
+				case 10:item=(25552);itemname="Implant";break;
+				case 11:item=(25553);itemname="Implant";break;
+				case 12:item=(25554);itemname="Implant";break;
+				case 13:item=(25555);itemname="Implant";break;
+				case 14:item=(25556);itemname="Implant";break;
+				case 15:item=(22053);itemname="Implant";break;
+				case 16:item=(22051);itemname="Implant";break;
+				case 17:item=(22052);itemname="Implant";break;
+				case 18:item=(25470);itemname="something special";break;
+				default:item=(25572);itemname="Vault-Tec Key";break;
+			}
+			break;
+			case 8:
+			switch(Random(1,100))
+			{
+				case 1:item=(9842);itemname="Blueprint";break;
+				case 2:item=(9775);itemname="Blueprint";break;
+				case 3:item=(9776);itemname="Blueprint";break;
+				case 4:item=(9777);itemname="Blueprint";break;
+				case 5:item=(9778);itemname="Blueprint";break;
+				case 6:item=(9779);itemname="Blueprint";break;
+				case 7:item=(9825);itemname="Blueprint";break;
+				case 8:item=(9826);itemname="Blueprint";break;
+				
+				case 11:item=(9829);itemname="Blueprint";break;
+				case 12:item=(9830);itemname="Blueprint";break;
+				
+				case 15:item=(9819);itemname="Blueprint";break;
+				case 16:item=(9820);itemname="Blueprint";break;
+				case 17:item=(9821);itemname="Blueprint";break;
+				case 18:item=(9822);itemname="Blueprint";break;
+				case 24:item=(9788);itemname="Blueprint";break;
+				case 25:item=(9789);itemname="Blueprint";break;
+				case 26:item=(9823);itemname="Blueprint";break;
+				case 27:item=(9824);itemname="Blueprint";break;
+				case 28:item=(9798);itemname="Blueprint";break;
+				case 29:item=(9799);itemname="Blueprint";break;
+				case 30:item=(9832);itemname="Blueprint";break;
+				case 31:item=(9834);itemname="Blueprint";break;
+				case 32:item=(9835);itemname="Blueprint";break;
+				case 34:item=(9839);itemname="Blueprint";break;
+				default:item=(25572);itemname="Vault-Tec Key";break;
+			}
+			break;
+			case 9:
+			switch(Random(1,50))
+			{
+				case 4:item=(22054);itemname="Implant";break;
+				case 5:item=(22055);itemname="Implant";break;
+				case 6:item=(22056);itemname="Implant";break;
+				case 7:item=(22057);itemname="Implant";break;
+				case 8:item=(22058);itemname="Implant";break;
+				case 9:item=(22059);itemname="Implant";break;
+				case 10:item=(22060);itemname="Implant";break;
+				case 11:item=(25468);itemname="map";break;
+				case 12:item=(25469);itemname="map";break;
+				case 13:item=(25471);itemname="map";break;
+				default:item=(25572);itemname="Vault-Tec Key";break;
+			}
+			break;
+			default:return((Random(120,600))*__TimeMultiplier*60);
+		}
+	}
+	else
+	{
+		item=values[2];
+		itemname="something special";
+	}
+	
+	Map@map=trader.GetMap();
+	Location@otherLocation=map.GetLocation();
+	location=otherLocation.GetProtoId();
+	
+	switch(map.GetProtoId())
+	{
+		case(6):
+		locationname="Den";
+		location=(1);
+		
+		switch(trader.Param[(104)])
+		{
+			case(114):
+			npctrader="Flick";
+			type=(21);
+			break;
+			case(107):
+			npctrader="Mom";
+			type=(22);
+			break;
+			case(115):
+			npctrader="Rebecca";
+			type=(23);
+			break;
+			case(119):
+			npctrader="Tubby";
+			type=(24);
+			break;
+			case(120):
+			npctrader="Frank";
+			type=(25);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(9):
+		locationname="Klamath";
+		location=(2);
+		
+		switch(trader.Param[(104)])
+		{
+			case(209):
+			npctrader="Maida Buckner";
+			type=(21);
+			break;
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(18):
+		locationname="Modoc";
+		location=(3);
+		
+		switch(trader.Param[(104)])
+		{
+			case(307):
+			npctrader="Grisham";
+			type=(21);
+			break;
+			case(301):
+			npctrader="Jo";
+			type=(22);
+			break;
+			case(303):
+			npctrader="Balthas";
+			type=(23);
+			break;
+			case(300):
+			npctrader="Mook";
+			type=(24);
+			break;
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(16):
+		locationname="Vault City";
+		location=(4);
+		
+		switch(trader.Param[(104)])
+		{
+			case(429):
+			npctrader="McRae";
+			type=(21);
+			break;
+			case(425):
+			npctrader="Harry";
+			type=(22);
+			break;
+			case(409):
+			npctrader="Doctor Andrew";
+			type=(23);
+			break;
+			case(437):
+			npctrader="Randal";
+			type=(24);
+			break;
+			case(416):
+			npctrader="Darrow";
+			type=(25);
+			break;
+			case(420):
+			npctrader="Holden";
+			type=(26);
+			break;
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(31):
+		locationname="Gecko";
+		location=(5);
+		
+		switch(trader.Param[(104)])
+		{
+			case(516):
+			npctrader="Wooz";
+			type=(21);
+			break;
+			case(513):
+			npctrader="Percy";
+			type=(22);
+			break;
+			case(515):
+			npctrader="Skeeter";
+			type=(23);
+			break;
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(62):
+		locationname="Redding";
+		location=(13);
+		
+		switch(trader.Param[(104)])
+		{
+			case(1305):
+			npctrader="Ascorti";
+			type=(21);
+			break;
+			case(1300):
+			npctrader="Doc Johnson";
+			type=(22);
+			break;
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(683):
+		locationname="Wind of War";
+		location=(392);
+		switch(trader.Param[(104)])
+		{
+			case(1305):
+			npctrader="Ascorti";
+			type=(21);
+			break;
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		case(569):
+		locationname="Fort Seth";
+		location=(392);
+		switch(trader.Param[(104)])
+		{
+			case(1305):
+			npctrader="Ascorti";
+			type=(21);
+			break;
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		case(776):
+		locationname="Treasure Hunters Club";
+		location=(392);
+		switch(trader.Param[(104)])
+		{
+			case(1305):
+			npctrader="Ascorti";
+			type=(21);
+			break;
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		case(115):
+		locationname="Broken Hills";
+		location=(6);
+		
+		switch(trader.Param[(104)])
+		{
+			case(621):
+			npctrader="Liz";
+			type=(21);
+			break;
+			case(630):
+			npctrader="Bill";
+			type=(22);
+			break;
+			case(631):
+			npctrader="Phil";
+			type=(23);
+			break;
+			case(620):
+			npctrader="Jacob";
+			type=(24);
+			break;
+			case(609):
+			npctrader="Doc Holliday";
+			type=(25);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(54):
+		case(55):
+		case(56):
+		case(265):
+		case(266):
+		locationname="New Reno";
+		location=(7);
+		
+		switch(trader.Param[(104)])
+		{
+			case(744):
+			npctrader="Jules";
+			type=(21);
+			break;
+			case(702):
+			npctrader="Some bartender";
+			type=(22);
+			break;
+			case(741):
+			npctrader="Eldridge";
+			type=(23);
+			break;
+			case(760):
+			npctrader="Renesco";
+			type=(24);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(45):
+		locationname="NCR";
+		location=(10);
+		
+		switch(trader.Param[(104)])
+		{
+			case(1048):
+			npctrader="Seymour";
+			type=(21);
+			break;
+			case(1002):
+			npctrader="Buster";
+			type=(22);
+			break;
+			case(1004):
+			npctrader="Mira";
+			type=(23);
+			break;
+			case(1024):
+			npctrader="Dusty";
+			type=(24);
+			break;
+			case(1026):
+			npctrader="Doc Jubilee";
+			type=(25);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(135):
+		case(137):
+		locationname="San Francisco";
+		location=(14);
+		
+		switch(trader.Param[(104)])
+		{
+			case(1405):
+			npctrader="Fung";
+			type=(21);
+			break;
+			case(1403):
+			npctrader="Chou";
+			type=(22);
+			break;
+			case(1416):
+			npctrader="Cal";
+			type=(23);
+			break;
+			case(1415):
+			npctrader="Jenna";
+			type=(24);
+			break;
+			case(1413):
+			npctrader="Slim";
+			type=(25);
+			break;
+			case(1402):
+			npctrader="Ma Da Chiang";
+			type=(26);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(70):
+		locationname="Junktown";
+		location=(17);
+		
+		switch(trader.Param[(104)])
+		{
+			case(1703):
+			npctrader="Jeremiah";
+			type=(21);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(221):
+		case(222):
+		locationname="Hub";
+		location=(25);
+		
+		switch(trader.Param[(104)])
+		{
+			case(2511):
+			npctrader="Mitch";
+			type=(21);
+			break;
+			case(2510):
+			npctrader="Beth";
+			type=(22);
+			break;
+			case(2509):
+			npctrader="Jacob";
+			type=(23);
+			break;
+			case(2519):
+			npctrader="Mrs. Stapleton";
+			type=(24);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(141):
+		locationname="Necropolis";
+		location=(24);
+		
+		switch(trader.Param[(104)])
+		{
+			case(1110):
+			npctrader="Shopkeeper";
+			type=(21);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(553):
+		locationname="Boneyard Train Station";
+		location=(353);
+		
+		switch(trader.Param[(104)])
+		{
+			case(9446):
+			npctrader="Taylor";
+			type=(21);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(280):
+		locationname="Adytum";
+		location=(26);
+		
+		switch(trader.Param[(104)])
+		{
+			case(9455):
+			npctrader="Jargo";
+			type=(21);
+			break;
+			
+			case(9441):
+			npctrader="Ralph";
+			type=(22);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;                  
+		
+		case(112):
+		
+		locationname="Khans's Base";
+		location=(27);
+		
+		switch(trader.Param[(104)])
+		{
+			case(2721):
+			npctrader="Augustus";
+			type=(21);
+			break;
+			
+			case(2719):
+			npctrader="Art";
+			type=(22);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(566):
+		locationname="Gordnon's Gas Station";
+		location=(364);
+		
+		switch(trader.Param[(104)])
+		{
+			case(10700):
+			npctrader="Gordon";
+			type=(21);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(599):
+		case(908):
+		case(600):
+		case(601):
+		case(602):
+		case(603):
+		case(604):
+		case(605):
+		locationname="Las Vegas";
+		location=(94);
+		switch(trader.Param[(104)])
+		{
+			case(8849):
+			npctrader="Paul";
+			type=(21);
+			break;
+			
+			case(8850):
+			npctrader="Tony";
+			type=(22);
+			break;
+			
+			case(8851):
+			npctrader="Woody";
+			type=(23);
+			break;
+			
+			case(702):
+			npctrader="Some bartender";
+			type=(24);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(606):
+		locationname="Salt Lake City";
+		location=(95);
+		switch(trader.Param[(104)])
+		{
+			case(8900):
+			npctrader="Roger";
+			type=(21);
+			break;
+			
+			case(8901):
+			npctrader="Steven";
+			type=(22);
+			break;
+			
+			case(8902):
+			npctrader="Joe";
+			type=(23);
+			break;
+			
+			case(8904):
+			npctrader="Pharmacist";
+			type=(24);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		case(664):
+		locationname="Social Accommodation of Hawthorne Military Base";
+		location=(99);
+		switch(trader.Param[(104)])
+		{
+			case(9000):
+			npctrader="Joe";
+			type=(21);
+			break;
+			
+			case(9001):
+			npctrader="Fernandez";
+			type=(22);
+			break;
+			
+			default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+		}
+		break;
+		
+		default:
+		locationname="somewhere";
+		npctrader="Some Trader";
+		type=(21);
+		break;
+	}    
+	
+	Item@it=trader.AddItem(item,ilosc);
+	((it.Flags)=(it.Flags)|((0x00000200)));
+	string lvl="";
+	if(!it.IsStackable())
+	AddSpecialBonus(it);
+	if(it.Val1==3)
+	lvl=" Level 4 ";
+	if(it.Val1==4)
+	lvl=" Level 4 ";
+	if(it.Val1==5)
+	lvl=" Level 5 ";
+	baseprice=it.GetCost();
+	podniesienieceny=it.GetCost();  
+	
+	if(it.IsStackable())
+	{
+		if(it.GetType()==(4))
+		{
+			ilosc=Random(10,100);
+			trader.AddItem(item,ilosc-1);
+			bonustype=" "+ilosc+" pcs of ";
+		}
+		stackable=1;
+	} 
+	
+	int oldbarter=trader.Param[(215)];
+	array<uint>eventdata={trader.Id,item,ilosc,location,type,it.Id,stackable,values[1],oldbarter};
+	CreateTimeEvent(((__FullSecond)+(timeleft)),"e_SpecialItemEventErase",eventdata,true);
+	CreateTimeEvent(((__FullSecond)+(((1)*__TimeMultiplier))),"e_SpecialItemSold",eventdata,false);
+	
+	if(trader.IsNpc())
+	trader.ParamBase[(84)]=((1)*60);
+	trader.ParamBase[(124)]=1;
+	
+	if(GMCreated)
+	ServerEventCNTSet((trader.IsPlayer()?trader.Name:npctrader)+" in "+(GetLocationName(trader.GetMap().GetLocation().Id))+" has"+bonustype+itemname+lvl+" for sale. %COUNTDOWN% left.",location,type,timeleft);
+	else
+	ServerEventCNTSet(npctrader+" in "+locationname+" has"+bonustype+itemname+" for sale. Time left %COUNTDOWN%.",location,type,timeleft);
+	
+	if(GMCreated)return 0;
+	else return((Random(1000,15000))*__TimeMultiplier*60);
+}
+
+uint e_SpecialItemEventErase(array<uint>@values)
+{
+	trader_events-=1;
+	Critter@trader=GetCritter(values[0]);
+	if(!(@trader!=null))
+	return 0;
+	uint item=values[1],ilosc=values[2],location=values[3],type=values[4],liczitemy;
+	uint8 stackable=values[6];
+	trader.ParamBase[(124)]=0;
+	if(stackable==1)
+	{
+		
+		liczitemy=trader.CountItem(item);
+		trader.DeleteItem(item,liczitemy);
+		if(liczitemy!=0)
+		{
+			ServerEventMSG((30),"No offers.");
+			if(trader.IsNpc())
+			trader.ParamBase[(84)]=((10)*60);
+		}
+	}
+	
+	else if(stackable==0)
+	{
+		Item@it=GetItem(values[5]);
+		if(!(@it!=null))
+		return 0;
+		
+		array<Item@>items;
+		uint itemCount=trader.GetItems((0),items);
+		
+		for(uint i=0;i<itemCount;i++)
+		if(items[i].Id==it.Id)
+		{
+			DeleteItem(it);
+			ServerEventMSG((30),"No offers.");
+			if(trader.IsNpc())
+			trader.ParamBase[(84)]=((10)*60);
+		}
+		
+		itemCount=trader.GetItems((1),items);
+		for(uint i=0;i<itemCount;i++)
+		if(items[i].Id==it.Id)
+		{
+			DeleteItem(it);
+			ServerEventMSG((30),"No offers.");
+			if(trader.IsNpc())
+			trader.ParamBase[(84)]=((10)*60);
+		}
+	}
+	
+	return 0;
+}
+
+uint e_SpecialItemSold(array<uint>@values)
+{
+	trader_events-=1;
+	bool sold=false;
+	bool GMCreated=(values[7]==0?false:true);
+	
+	Critter@trader=GetCritter(values[0]);
+	if(!(@trader!=null))
+	return 0;
+	trader.ParamBase[(215)]=values[8];
+	Item@it=GetItem(values[5]);
+	if(!(@it!=null))
+	return 0;
+	
+	uint item=values[1],location=values[3],type=values[4];
+	uint8 stackable=values[6];
+	
+	if(stackable==1)
+	if(trader.CountItem(item)==0&&(@it!=null))
+	{
+		sold=true;
+	}
+	
+	if(stackable==0&&(@it!=null))
+	{
+		array<Item@>items;
+		uint itemCount=trader.GetItems((0),items);
+		sold=true;
+		for(uint i=0;i<itemCount;i++)
+		if(items[i].Id==it.Id)
+		sold=false;
+		itemCount=trader.GetItems((1),items);
+		for(uint i=0;i<itemCount;i++)
+		if(items[i].Id==it.Id)
+		sold=false;
+	}
+	
+	if(sold)
+	{
+		string locationname,npctrader="This someone";
+		
+		Map@map=trader.GetMap();
+		(it.Flags=((it.Flags)&(~((0x00000200)))));
+		
+		switch(map.GetProtoId())
+		{
+			case(6):
+			locationname="Den";
+			location=(1);
+			
+			switch(trader.Param[(104)])
+			{
+				case(114):
+				npctrader="Flick";
+				type=(21);
+				break;
+				case(107):
+				npctrader="Mom";
+				type=(22);
+				break;
+				case(115):
+				npctrader="Rebecca";
+				type=(23);
+				break;
+				case(119):
+				npctrader="Tubby";
+				type=(24);
+				break;
+				case(120):
+				npctrader="Frank";
+				type=(25);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(9):
+			locationname="Klamath";
+			location=(2);
+			
+			switch(trader.Param[(104)])
+			{
+				case(209):
+				npctrader="Maida Buckner";
+				type=(21);
+				break;
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(18):
+			locationname="Modoc";
+			location=(3);
+			
+			switch(trader.Param[(104)])
+			{
+				case(307):
+				npctrader="Grisham";
+				type=(21);
+				break;
+				case(301):
+				npctrader="Jo";
+				type=(22);
+				break;
+				case(303):
+				npctrader="Balthas";
+				type=(23);
+				break;
+				case(300):
+				npctrader="Mook";
+				type=(24);
+				break;
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(16):
+			locationname="Vault City";
+			location=(4);
+			
+			switch(trader.Param[(104)])
+			{
+				case(429):
+				npctrader="McRae";
+				type=(21);
+				break;
+				case(425):
+				npctrader="Harry";
+				type=(22);
+				break;
+				case(409):
+				npctrader="Doctor Andrew";
+				type=(23);
+				break;
+				case(437):
+				npctrader="Randal";
+				type=(24);
+				break;
+				case(416):
+				npctrader="Darrow";
+				type=(25);
+				break;
+				case(420):
+				npctrader="Holden";
+				type=(26);
+				break;
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(31):
+			locationname="Gecko";
+			location=(5);
+			
+			switch(trader.Param[(104)])
+			{
+				case(516):
+				npctrader="Wooz";
+				type=(21);
+				break;
+				case(513):
+				npctrader="Percy";
+				type=(22);
+				break;
+				case(515):
+				npctrader="Skeeter";
+				type=(23);
+				break;
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(62):
+			locationname="Redding";
+			location=(13);
+			
+			switch(trader.Param[(104)])
+			{
+				case(1305):
+				npctrader="Ascorti";
+				type=(21);
+				break;
+				case(1300):
+				npctrader="Doc Johnson";
+				type=(22);
+				break;
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(115):
+			locationname="Broken Hills";
+			location=(6);
+			
+			switch(trader.Param[(104)])
+			{
+				case(621):
+				npctrader="Liz";
+				type=(21);
+				break;
+				case(630):
+				npctrader="Bill";
+				type=(22);
+				break;
+				case(631):
+				npctrader="Phil";
+				type=(23);
+				break;
+				case(620):
+				npctrader="Jacob";
+				type=(24);
+				break;
+				case(609):
+				npctrader="Doc Holliday";
+				type=(25);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(54):
+			case(55):
+			case(56):
+			case(265):
+			case(266):
+			locationname="New Reno";
+			location=(7);
+			
+			switch(trader.Param[(104)])
+			{
+				case(744):
+				npctrader="Flick";
+				type=(21);
+				break;
+				case(702):
+				npctrader="Some bartender";
+				type=(22);
+				break;
+				case(741):
+				npctrader="Eldridge";
+				type=(23);
+				break;
+				case(760):
+				npctrader="Renesco";
+				type=(24);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(45):
+			locationname="NCR";
+			location=(10);
+			
+			switch(trader.Param[(104)])
+			{
+				case(1048):
+				npctrader="Seymour";
+				type=(21);
+				break;
+				case(1002):
+				npctrader="Buster";
+				type=(22);
+				break;
+				case(1004):
+				npctrader="Mira";
+				type=(23);
+				break;
+				case(1024):
+				npctrader="Dusty";
+				type=(24);
+				break;
+				case(1026):
+				npctrader="Doc Jubilee";
+				type=(25);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(135):
+			case(137):
+			locationname="San Francisco";
+			location=(14);
+			
+			switch(trader.Param[(104)])
+			{
+				case(1405):
+				npctrader="Fung";
+				type=(21);
+				break;
+				case(1403):
+				npctrader="Chou";
+				type=(22);
+				break;
+				case(1416):
+				npctrader="Cal";
+				type=(23);
+				break;
+				case(1415):
+				npctrader="Jenna";
+				type=(24);
+				break;
+				case(1413):
+				npctrader="Slim";
+				type=(25);
+				break;
+				case(1402):
+				npctrader="Ma Da Chiang";
+				type=(26);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(70):
+			locationname="Junktown";
+			location=(17);
+			
+			switch(trader.Param[(104)])
+			{
+				case(1703):
+				npctrader="Jeremiah";
+				type=(21);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(221):
+			case(222):
+			locationname="Hub";
+			location=(25);
+			
+			switch(trader.Param[(104)])
+			{
+				case(2511):
+				npctrader="Mitch";
+				type=(21);
+				break;
+				case(2510):
+				npctrader="Beth";
+				type=(22);
+				break;
+				case(2509):
+				npctrader="Jacob";
+				type=(23);
+				break;
+				case(2519):
+				npctrader="Mrs. Stapleton";
+				type=(24);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(142):
+			locationname="Necropolis";
+			location=(24);
+			
+			switch(trader.Param[(104)])
+			{
+				case(1110):
+				npctrader="Shopkeeper";
+				type=(21);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(553):
+			locationname="Boneyard Train Station";
+			location=(353);
+			
+			switch(trader.Param[(104)])
+			{
+				case(9446):
+				npctrader="Taylor";
+				type=(21);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(280):
+			locationname="Adytum";
+			location=(26);
+			
+			switch(trader.Param[(104)])
+			{
+				case(9455):
+				npctrader="Jargo";
+				type=(21);
+				break;
+				
+				case(9441):
+				npctrader="Ralph";
+				type=(22);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;               
+			
+			case(112):
+			
+			locationname="Khans's Base";
+			location=(27);
+			
+			switch(trader.Param[(104)])
+			{
+				case(2721):
+				npctrader="Augustus";
+				type=(21);
+				break;
+				case(2719):
+				npctrader="Art";
+				type=(22);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(566):
+			locationname="Gordnon's Gas Station";
+			location=(364);
+			
+			switch(trader.Param[(104)])
+			{
+				case(10700):
+				npctrader="Gordon";
+				type=(21);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(599):
+			locationname="Las Vegas";
+			location=(94);
+			switch(trader.Param[(104)])
+			{
+				case(8849):
+				npctrader="Paul";
+				type=(21);
+				break;
+				
+				case(8850):
+				npctrader="Tony";
+				type=(22);
+				break;
+				
+				case(8851):
+				npctrader="Woody";
+				type=(23);
+				break;
+				
+				case(702):
+				npctrader="Some bartender";
+				type=(24);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(606):
+			locationname="Salt Lake City";
+			location=(95);
+			switch(trader.Param[(104)])
+			{
+				case(8900):
+				npctrader="Roger";
+				type=(21);
+				break;
+				
+				case(8901):
+				npctrader="Steven";
+				type=(22);
+				break;
+				
+				case(8902):
+				npctrader="Joe";
+				type=(23);
+				break;
+				
+				case(8904):
+				npctrader="Pharmacist";
+				type=(24);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			case(664):
+			locationname="Social Accommodation of Hawthorne Military Base";
+			location=(99);
+			switch(trader.Param[(104)])
+			{
+				case(9000):
+				npctrader="Joe";
+				type=(21);
+				break;
+				
+				case(9001):
+				npctrader="Fernandez";
+				type=(22);
+				break;
+				
+				default:if(!GMCreated)npctrader="Some Trader";type=(21);break;
+			}
+			break;
+			
+			default:
+			locationname="";
+			if(!GMCreated)npctrader="That someone: ";
+			break;
+		}
+		
+		ServerEventCNTStop(location,type);
+		if(trader.IsNpc())
+		trader.ParamBase[(84)]=((10)*60);
+		if(GMCreated)
+		ServerEventMSG((30),(trader.IsPlayer()?trader.Name:npctrader)+" has sold item.");
+		else
+		ServerEventMSG((30),npctrader+" has sold item.");
+		return 0;
+	}
+	
+	return((1)*__TimeMultiplier);
+}
+
+bool IsStackItemFromEvent(uint16 pid)
+{
+	return(pid==(359)||pid==(358)||pid==(850)||pid==(25585)||pid==(25586));
+}                          
+
+uint[][]sg1={{(143),1},{(268),1},{(241),1},{(353),1},{(296),1},{(354),1},
+	{(621),10},{(620),1},{(619),1},{(36),250},{(95),50},{(574),20},{(575),20},{(576),20},{(30),50},{(25566),1}};
+
+uint[][]sg2={{(22),1},{(23),1},{(9),1},{(242),1},{(95),30},{(574),20},{(576),10},{(575),20},{(35),250},{(33),100},{(621),10},{(620),1},{(619),1},{(34),100}};
+uint[][]sg3={{(143),1},{(268),1},{(241),1},{(353),1},{(296),1},{(354),1},
+	{(621),10},{(620),1},{(619),1},{(36),250},{(95),50},{(574),20},{(575),20},{(576),20},{(30),50},{(25566),1}};
+
+uint[][]bg1={{(36),250},{(708),10},{(37),8},{(35),250},{(34),100},
+	{(12),1},{(355),1},{(389),1}};
+uint[][]bg2={{(36),250},{(708),10},{(37),8},{(35),250},{(34),100},
+	{(12),1},{(355),1},{(389),1}};
+uint[][]bg3={};
+
+uint[][]en1={{(15),1},{(116),1},{(24),1},{(235),1},{(39),150},{(26),5},{(52),1},{(59),1},{(28),1},{(396),1},{(25567),1},{(25570),6},{(25568),6},{(25583),6},{(25582),1},{(25584),6}};
+uint[][]en2={{(15),1},{(116),1},{(24),1},{(235),1},{(39),150},{(26),5},{(52),1},{(59),1},{(28),1},{(396),1},{(25567),1},{(25570),6},{(25568),6},{(25583),6},{(25582),1}};
+uint[][]en3={};
+
+uint[][]arm1={{(240),1},{(380),1},{(381),1},{(265),1},{(379),1},{(25548),1},{(25549),1},{(22095),1},{(25547),1},{(239),1},{(752),1},{(778),1},{(9654),1},{(761),1},{(25550),1},{(25551),1},{(524),1},{(726),1},{(733),1},{(25588),1},{(25589),1}};
+uint[][]arm2={{(240),1},{(380),1},{(381),1},{(265),1},{(379),1},{(25548),1},{(25549),1},{(22095),1},{(25547),1},{(239),1},{(752),1},{(778),1},{(9654),1},{(761),1},{(25550),1},{(25551),1},{(524),1},{(726),1},{(733),1},{(25588),1},{(25589),1}};
+uint[][]arm3={};
+
+uint[][]drug1={{(87),1},{(53),1},{(110),1},{(48),1},{(109),1},{(259),1},{(259),1},{(25573),1},{(25574),1},{(25575),1},{(125),1},{(310),1},{(311),1},{(469),1},{(273),1},{(25592),4}};
+uint[][]drug2={};
+uint[][]drug3={};
+
+uint[][]med1={{(40),1},{(144),1},{(273),1},{(49),1},{(260),1},{(361),10},{(362),10},{(388),1}};
+uint[][]med2={};
+uint[][]med3={};
+
+uint[][]misc1={{(4),5},{(7),1},{(45),5},{(6),1},{(127),1},{(276),1},{(277),1},{(1803),1},
+	{(543),1},{(609),1},{(84),1},{(549),1},{(58),1},{(542),1}};
+uint[][]misc2={{(115),1},{(276),1},{(277),1},{(1803),1},{(25),5}};
+uint[][]misc3={};
+
+uint[][]books1={{(225),1},{(228),1},{(237),1},{(22050),1},{(80),1},{(86),1},{(102),1},{(73),1},{(76),1},{(25557),1},{(25558),1},{(25559),1},{(25560),1},{(25561),1},{(25562),1},{(25563),1},{(25564),1},{(25565),1}};
+uint[][]books2={};
+uint[][]books3={};
+
+uint[][]craft1={};
+uint[][]craft2={};
+uint[][]craft3={};
+
+uint[][]@[]lists={sg1,sg2,sg3,bg1,bg2,bg3,en1,en2,en3,arm1,arm2,arm3,drug1,drug2,drug3,med1,med2,med3,misc1,misc2,misc3,books1,books2,books3,craft1,craft2,craft3};

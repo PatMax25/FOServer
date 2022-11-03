@@ -1,0 +1,131 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 D _param p SK_BARTER < 100 #
+4 2020 D _param p SK_SPEECH < 85 #
+3 2030 D _param p SK_SPEECH } 85 #
+3 2040 D _param p SK_BARTER } 100 #
+5 2050 D _item p PID_BOTTLE_CAPS } 1000 R _item p PID_BOTTLE_CAPS - 1000 R _script dialog@r_OpenDoor 2 49 15 #
+0 2060 #
+65507 2070 #
+6 2080 @
+3 3000 None 0 #
+5 3010 D _item p PID_BOTTLE_CAPS } 500 R _item p PID_BOTTLE_CAPS - 500 R _script dialog@r_OpenDoor 2 49 15 #
+0 3020 @
+4 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 #
+2 6010 &
+
+[engl]
+{100}{}{Door guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, hold your horses. This mine belongs to San Francisco and that means that this facility is private. If you wish to get in and get some resources for yourself, you must pay the entrance fee of 1000 caps.}
+{2010}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2020}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get something for my family. How about a small discount?}
+{2030}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get something for my family. How about a small discount?}
+{2040}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2050}{}{Here are the money.}
+{2060}{}{Alright, I will come later.}
+{2070}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2080}{}{Bottle caps? It's very rare to see anyone taking them as a payment. Why don't you use some local currency?}
+{3000}{}{Alright. 500 caps then and you are good to go.}
+{3010}{}{Here are the caps.}
+{3020}{}{I will maybe come later...}
+{4000}{}{Get the heck out of here. I don't make business with traders.}
+{5000}{}{Get in. Once you are leaving, talk with a guard on the other side. If you come together with followers, then leave through the mine itself.}
+{6000}{}{You see, there are not so many places where you can mine peacefully in the Wasteland nowadays... And many people are wandering around our facilities and they are coming from everywhere. North, South... Even from Sonora! So we try to use caps as a universal payment instead of currencies.}
+{6010}{}{Fine, let's switch the topic.}
+
+[czec]
+{100}{}{Door guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, hold your horses for a while. This mine belongs to San Francisco and this means that this facility is private. If you wish to get in and get some resources for yourself , then pay the entrance fee of 1000 caps.}
+{2010}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2020}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get at least something for my family. How about a small discount?}
+{2030}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get at least something for my family. How about a small discount?}
+{2040}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2050}{}{Here are the money.}
+{2060}{}{Alright, I will come later.}
+{2070}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2080}{}{Bottle caps? It's very rare to see anyone taking them as a payment. Why don't you use some local currency?}
+{3000}{}{Alright. 500 caps then and you are good to go.}
+{3010}{}{Here are the caps.}
+{3020}{}{I will maybe come later...}
+{4000}{}{Get the heck out of here. I don't make business with traders.}
+{5000}{}{Get in. Once you are leaving, talk with a guard on the other side. If you come together with followers, then leave through the mine itself.}
+{6000}{}{You see, there are not so many places where you can mine peacefully in the Wasteland nowadays... And many people are wandering around our facilities and they are coming from everywhere. North, South... Even from Sonora! So we try to use caps as a universal payment instead of currencies.}
+{6010}{}{Fine, let's switch the topic.}
+
+[pols]
+{100}{}{Door guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, hold your horses for a while. This mine belongs to San Francisco and this means that this facility is private. If you wish to get in and get some resources for yourself , then pay the entrance fee of 1000 caps.}
+{2010}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2020}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get at least something for my family. How about a small discount?}
+{2030}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get at least something for my family. How about a small discount?}
+{2040}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2050}{}{Here are the money.}
+{2060}{}{Alright, I will come later.}
+{2070}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2080}{}{Bottle caps? It's very rare to see anyone taking them as a payment. Why don't you use some local currency?}
+{3000}{}{Alright. 500 caps then and you are good to go.}
+{3010}{}{Here are the caps.}
+{3020}{}{I will maybe come later...}
+{4000}{}{Get the heck out of here. I don't make business with traders.}
+{5000}{}{Get in. Once you are leaving, talk with a guard on the other side. If you come together with followers, then leave through the mine itself.}
+{6000}{}{You see, there are not so many places where you can mine peacefully in the Wasteland nowadays... And many people are wandering around our facilities and they are coming from everywhere. North, South... Even from Sonora! So we try to use caps as a universal payment instead of currencies.}
+{6010}{}{Fine, let's switch the topic.}
+
+[span]
+{100}{}{Door guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, hold your horses for a while. This mine belongs to San Francisco and this means that this facility is private. If you wish to get in and get some resources for yourself , then pay the entrance fee of 1000 caps.}
+{2010}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2020}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get at least something for my family. How about a small discount?}
+{2030}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get at least something for my family. How about a small discount?}
+{2040}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2050}{}{Here are the money.}
+{2060}{}{Alright, I will come later.}
+{2070}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2080}{}{Bottle caps? It's very rare to see anyone taking them as a payment. Why don't you use some local currency?}
+{3000}{}{Alright. 500 caps then and you are good to go.}
+{3010}{}{Here are the caps.}
+{3020}{}{I will maybe come later...}
+{4000}{}{Get the heck out of here. I don't make business with traders.}
+{5000}{}{Get in. Once you are leaving, talk with a guard on the other side. If you come together with followers, then leave through the mine itself.}
+{6000}{}{You see, there are not so many places where you can mine peacefully in the Wasteland nowadays... And many people are wandering around our facilities and they are coming from everywhere. North, South... Even from Sonora! So we try to use caps as a universal payment instead of currencies.}
+{6010}{}{Fine, let's switch the topic.}
+
+[russ]
+{100}{}{Door guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey, hold your horses for a while. This mine belongs to San Francisco and this means that this facility is private. If you wish to get in and get some resources for yourself , then pay the entrance fee of 1000 caps.}
+{2010}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2020}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get at least something for my family. How about a small discount?}
+{2030}{}{[ Speech 85 ] Oh please, mr. guardsman. I am just a simple worker trying to get at least something for my family. How about a small discount?}
+{2040}{}{[ Barter 100 ] 1000 caps?! Be merciful, buddy. What are these prices? Lower it at least a bit and I will gladly become your constant visitor.}
+{2050}{}{Here are the money.}
+{2060}{}{Alright, I will come later.}
+{2070}{}{You either let me in, fucktard, or I smash your head over this fence!}
+{2080}{}{Bottle caps? It's very rare to see anyone taking them as a payment. Why don't you use some local currency?}
+{3000}{}{Alright. 500 caps then and you are good to go.}
+{3010}{}{Here are the caps.}
+{3020}{}{I will maybe come later...}
+{4000}{}{Get the heck out of here. I don't make business with traders.}
+{5000}{}{Get in. Once you are leaving, talk with a guard on the other side. If you come together with followers, then leave through the mine itself.}
+{6000}{}{You see, there are not so many places where you can mine peacefully in the Wasteland nowadays... And many people are wandering around our facilities and they are coming from everywhere. North, South... Even from Sonora! So we try to use caps as a universal payment instead of currencies.}
+{6010}{}{Fine, let's switch the topic.}

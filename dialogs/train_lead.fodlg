@@ -1,0 +1,67 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script perks@can_class 1 65 R _param p PE_LEADER + 1 &
+
+[engl]
+{100}{}{Le Mark}
+{210}{}{Here you are... Meet the soldier.}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Listen here, men! We are the elite of the elite. The best of the best. Our course is always right and we shall be... [ He notices you ] You are ruining my speech! What do you need?}
+{2010}{}{That's some nice motivational speech for soldiers. Mind giving me few leader master classes?}
+{3000}{}{Are you sure? This requires some proper experience and discipline!}
+{3010}{}{Well, you are right. I will come later.}
+{3020}{}{Yeah, I am good.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience and expierience!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience and expierience!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience and expierience!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience and expierience!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+

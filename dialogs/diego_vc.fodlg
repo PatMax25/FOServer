@@ -1,0 +1,222 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+5 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+3 2020 #
+3 2030 @
+3 3000 None 0 #
+4 3010 #
+4 3020 #
+4 3030 @
+4 4000 None 0 #
+5 4010 R _var p name_mem_npc_player = 1 @
+5 5000 None 0 #
+7 5010 #
+6 5020 #
+8 5030 D _var p diego_vc = 0 #
+9 5040 D _var p diego_vc = 1 D _item p PID_BADGE } 4 R _item p PID_BADGE - 4 R _param p ST_EXPERIENCE + 3500 R _item p PID_40MM_GRENADE + 10 R _item p PID_223_FMJ + 100 R _item p PID_VC_MONEY + 1000 R _item p PID_VITAMIND + 5 R _item p PID_SALT + 5 R _item p PID_RADAWAY + 5 R _item p PID_BROKEN_DESTRUCTOR + 1 #
+0 5050 @
+6 6000 None 0 #
+7 6010 #
+5 6020 @
+7 7000 None 0 #
+6 7010 #
+5 7020 @
+8 8000 None 0 #
+0 8010 R _var p diego_vc = 1 #
+0 8020 @
+9 9000 None 0 #
+0 9010 #
+10 9020 @
+10 10000 None 0 #
+0 10010 &
+
+[engl]
+{100}{}{Captain Rork}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{What a... Jeez, I nearly shot you! You are not one of these freaking ghouls, are ya? Good... Who are you?}
+{2010}{}{Name's @pname@.}
+{2020}{}{Whoa! Easier, I am @pname@. Just a wastelander.}
+{2030}{}{[ Attack ] My name doesn't matter. What matters is a fucking bullet that will soon meet your head.}
+{3000}{}{What are you even doing in this city? Don't you know it is nearly fully overrun by ghouls and other mutated shit?}
+{3010}{}{Just wandering around. I am an adventurer in my heart, always eager to see new places.}
+{3020}{}{It's obvious. I am here to find something valuable.}
+{3030}{}{I actually thought they had a brothel here...}
+{4000}{}{I see.}
+{4010}{}{So, how about to discuss few things?}
+{5000}{}{What is it, @pname@?}
+{5010}{}{What are you, people?}
+{5020}{}{What are you doing here?}
+{5030}{}{Is there anything I can help you with?}
+{5040}{}{I got all the badges. Here they are.}
+{5050}{}{I need to go.}
+{6000}{}{We were sent by Vault City here. Our mission was to scout San Diego... You see... This city used to be separated from the entire wasteland by the radioactive storm and not so long ago it finally settled down. I sometimes really think it would have been better to remain under the storm. Saw the hell in the city outskirts? I tell you it is getting even worse once you get closer to the center of it. Thousands of ghouls and heck knows what else... One way or another... I lost half of my squad here and we are surely not going anywhere else in this shithole.}
+{6010}{}{And you are...?}
+{6020}{}{Let's switch the topic.}
+{7000}{}{Name's Captain Rork. And these fine gentlemen are Sergeant Fox and Sergeant Davis. Others... didn't make it unfortunately.}
+{7010}{}{How did you end up here?}
+{7020}{}{Alright, one more thing...}
+{8000}{}{We are planning to leave the city and get to our HQ. Nothing we can do in our numbers anyway. But before we go, I would really love to get the badges of our fallen scouts. If you wish to help and happen to scatter around the city, then please find the bodies of our fallen soldiers and get their badges. I don't really wish to leave my people forgotten here. There must be 4 of them around the city... Find them please.}
+{8010}{}{Very well. I will do it.}
+{8020}{}{I am not risking my life for your dead friends. Heck no, I am out of here.}
+{9000}{}{Thank you, this really means a lot. These guys were not supposed to die out here... Fucking city. Here, take this. Now we can finally leave.}
+{9010}{}{No problem. Stay safe.}
+{9020}{}{What is this thing you gave me?}
+{10000}{}{"Destructor". Used to be my personal weapon, but I broke it in one of the battles with the ghouls here. It still can be fixed though. I heard the Gunrunners specialize in such things.}
+{10010}{}{I see. Farewell then.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{What a... Jeez, I nearly shot you! You are not one of these freaking ghouls, are ya? Good... Who are you?}
+{2010}{}{Name's @pname@.}
+{2020}{}{Whoa! Easier, I am @pname@. Just a wastelander.}
+{2030}{}{[ Attack ] My name doesn't matter. What matters is a fucking bullet that will soon meet your head.}
+{3000}{}{What are you even doing in this city? Don't you know it is nearly fully overrun by ghouls an other mutated shit?}
+{3010}{}{Just wandering around. I am an adventurer in my heart, always eager to see new places.}
+{3020}{}{It's obvious. I am here to find something valuable.}
+{3030}{}{I actually thought they had a brothel here...}
+{4000}{}{I see.}
+{4010}{}{So, how about to discuss few things?}
+{5000}{}{What is it, @pname@?}
+{5010}{}{What are you, people?}
+{5020}{}{What are you doing here?}
+{5030}{}{Is there anything I can help you with?}
+{5040}{}{I got all the badges. Here they are.}
+{5050}{}{I need to go.}
+{6000}{}{We were sent by Vault City here. Our mission was to scout San Diego... You see... This city used to be separated from the entire wasteland by the radioactive storm and not so long ago it finally settled down. I sometimes really think it would better remain under the storm. Saw the hell in the city outskirts? I tell you it is getting even worse once you get closer to the center of it. Thausands of ghouls and heck knows what else... One way or another... I lost half of my squad here and we are surely not going anywhere else in this shithole.}
+{6010}{}{And you are...?}
+{6020}{}{Let's switch the topic.}
+{7000}{}{Name's Captain Rork. And these fine gentlemen are Sergeant Fox and Sergeant Davis. Others... didn't make it unfortunately.}
+{7010}{}{How did you end up here?}
+{7020}{}{Alright, one more thing...}
+{8000}{}{We are planning to leave the city and get to our HQ. Nothing we can do in our numbers anyway. But before we go, I would really love to get badges of our fallen scouts. If you wish to help and happen to scatter around the city, then please find bodies of our fallen soldiers and get their badges. I don't really wish to leave my people forgotten here. There must be 4 of them around the city... Find them please.}
+{8010}{}{Very well. I will do it.}
+{8020}{}{I am not risking my life for your dead friends. Heck no, I am out of here.}
+{9000}{}{Thank you, this really means a lot. These guys were not supposed to die here... Fucking city. Here, take this. Now we can finally leave.}
+{9010}{}{No problem. Stay safe.}
+{9020}{}{What is this thing you gave me?}
+{10000}{}{"Destructor". Used to be my personal weapon, but I got it broken in one of the battles with ghouls here. It still can be fixed though. I heard Gunrunners specialize in such things.}
+{10010}{}{I see. Farewell then.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{What a... Jeez, I nearly shot you! You are not one of these freaking ghouls, are ya? Good... Who are you?}
+{2010}{}{Name's @pname@.}
+{2020}{}{Whoa! Easier, I am @pname@. Just a wastelander.}
+{2030}{}{[ Attack ] My name doesn't matter. What matters is a fucking bullet that will soon meet your head.}
+{3000}{}{What are you even doing in this city? Don't you know it is nearly fully overrun by ghouls an other mutated shit?}
+{3010}{}{Just wandering around. I am an adventurer in my heart, always eager to see new places.}
+{3020}{}{It's obvious. I am here to find something valuable.}
+{3030}{}{I actually thought they had a brothel here...}
+{4000}{}{I see.}
+{4010}{}{So, how about to discuss few things?}
+{5000}{}{What is it, @pname@?}
+{5010}{}{What are you, people?}
+{5020}{}{What are you doing here?}
+{5030}{}{Is there anything I can help you with?}
+{5040}{}{I got all the badges. Here they are.}
+{5050}{}{I need to go.}
+{6000}{}{We were sent by Vault City here. Our mission was to scout San Diego... You see... This city used to be separated from the entire wasteland by the radioactive storm and not so long ago it finally settled down. I sometimes really think it would better remain under the storm. Saw the hell in the city outskirts? I tell you it is getting even worse once you get closer to the center of it. Thausands of ghouls and heck knows what else... One way or another... I lost half of my squad here and we are surely not going anywhere else in this shithole.}
+{6010}{}{And you are...?}
+{6020}{}{Let's switch the topic.}
+{7000}{}{Name's Captain Rork. And these fine gentlemen are Sergeant Fox and Sergeant Davis. Others... didn't make it unfortunately.}
+{7010}{}{How did you end up here?}
+{7020}{}{Alright, one more thing...}
+{8000}{}{We are planning to leave the city and get to our HQ. Nothing we can do in our numbers anyway. But before we go, I would really love to get badges of our fallen scouts. If you wish to help and happen to scatter around the city, then please find bodies of our fallen soldiers and get their badges. I don't really wish to leave my people forgotten here. There must be 4 of them around the city... Find them please.}
+{8010}{}{Very well. I will do it.}
+{8020}{}{I am not risking my life for your dead friends. Heck no, I am out of here.}
+{9000}{}{Thank you, this really means a lot. These guys were not supposed to die here... Fucking city. Here, take this. Now we can finally leave.}
+{9010}{}{No problem. Stay safe.}
+{9020}{}{What is this thing you gave me?}
+{10000}{}{"Destructor". Used to be my personal weapon, but I got it broken in one of the battles with ghouls here. It still can be fixed though. I heard Gunrunners specialize in such things.}
+{10010}{}{I see. Farewell then.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{What a... Jeez, I nearly shot you! You are not one of these freaking ghouls, are ya? Good... Who are you?}
+{2010}{}{Name's @pname@.}
+{2020}{}{Whoa! Easier, I am @pname@. Just a wastelander.}
+{2030}{}{[ Attack ] My name doesn't matter. What matters is a fucking bullet that will soon meet your head.}
+{3000}{}{What are you even doing in this city? Don't you know it is nearly fully overrun by ghouls an other mutated shit?}
+{3010}{}{Just wandering around. I am an adventurer in my heart, always eager to see new places.}
+{3020}{}{It's obvious. I am here to find something valuable.}
+{3030}{}{I actually thought they had a brothel here...}
+{4000}{}{I see.}
+{4010}{}{So, how about to discuss few things?}
+{5000}{}{What is it, @pname@?}
+{5010}{}{What are you, people?}
+{5020}{}{What are you doing here?}
+{5030}{}{Is there anything I can help you with?}
+{5040}{}{I got all the badges. Here they are.}
+{5050}{}{I need to go.}
+{6000}{}{We were sent by Vault City here. Our mission was to scout San Diego... You see... This city used to be separated from the entire wasteland by the radioactive storm and not so long ago it finally settled down. I sometimes really think it would better remain under the storm. Saw the hell in the city outskirts? I tell you it is getting even worse once you get closer to the center of it. Thausands of ghouls and heck knows what else... One way or another... I lost half of my squad here and we are surely not going anywhere else in this shithole.}
+{6010}{}{And you are...?}
+{6020}{}{Let's switch the topic.}
+{7000}{}{Name's Captain Rork. And these fine gentlemen are Sergeant Fox and Sergeant Davis. Others... didn't make it unfortunately.}
+{7010}{}{How did you end up here?}
+{7020}{}{Alright, one more thing...}
+{8000}{}{We are planning to leave the city and get to our HQ. Nothing we can do in our numbers anyway. But before we go, I would really love to get badges of our fallen scouts. If you wish to help and happen to scatter around the city, then please find bodies of our fallen soldiers and get their badges. I don't really wish to leave my people forgotten here. There must be 4 of them around the city... Find them please.}
+{8010}{}{Very well. I will do it.}
+{8020}{}{I am not risking my life for your dead friends. Heck no, I am out of here.}
+{9000}{}{Thank you, this really means a lot. These guys were not supposed to die here... Fucking city. Here, take this. Now we can finally leave.}
+{9010}{}{No problem. Stay safe.}
+{9020}{}{What is this thing you gave me?}
+{10000}{}{"Destructor". Used to be my personal weapon, but I got it broken in one of the battles with ghouls here. It still can be fixed though. I heard Gunrunners specialize in such things.}
+{10010}{}{I see. Farewell then.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{What a... Jeez, I nearly shot you! You are not one of these freaking ghouls, are ya? Good... Who are you?}
+{2010}{}{Name's @pname@.}
+{2020}{}{Whoa! Easier, I am @pname@. Just a wastelander.}
+{2030}{}{[ Attack ] My name doesn't matter. What matters is a fucking bullet that will soon meet your head.}
+{3000}{}{What are you even doing in this city? Don't you know it is nearly fully overrun by ghouls an other mutated shit?}
+{3010}{}{Just wandering around. I am an adventurer in my heart, always eager to see new places.}
+{3020}{}{It's obvious. I am here to find something valuable.}
+{3030}{}{I actually thought they had a brothel here...}
+{4000}{}{I see.}
+{4010}{}{So, how about to discuss few things?}
+{5000}{}{What is it, @pname@?}
+{5010}{}{What are you, people?}
+{5020}{}{What are you doing here?}
+{5030}{}{Is there anything I can help you with?}
+{5040}{}{I got all the badges. Here they are.}
+{5050}{}{I need to go.}
+{6000}{}{We were sent by Vault City here. Our mission was to scout San Diego... You see... This city used to be separated from the entire wasteland by the radioactive storm and not so long ago it finally settled down. I sometimes really think it would better remain under the storm. Saw the hell in the city outskirts? I tell you it is getting even worse once you get closer to the center of it. Thausands of ghouls and heck knows what else... One way or another... I lost half of my squad here and we are surely not going anywhere else in this shithole.}
+{6010}{}{And you are...?}
+{6020}{}{Let's switch the topic.}
+{7000}{}{Name's Captain Rork. And these fine gentlemen are Sergeant Fox and Sergeant Davis. Others... didn't make it unfortunately.}
+{7010}{}{How did you end up here?}
+{7020}{}{Alright, one more thing...}
+{8000}{}{We are planning to leave the city and get to our HQ. Nothing we can do in our numbers anyway. But before we go, I would really love to get badges of our fallen scouts. If you wish to help and happen to scatter around the city, then please find bodies of our fallen soldiers and get their badges. I don't really wish to leave my people forgotten here. There must be 4 of them around the city... Find them please.}
+{8010}{}{Very well. I will do it.}
+{8020}{}{I am not risking my life for your dead friends. Heck no, I am out of here.}
+{9000}{}{Thank you, this really means a lot. These guys were not supposed to die here... Fucking city. Here, take this. Now we can finally leave.}
+{9010}{}{No problem. Stay safe.}
+{9020}{}{What is this thing you gave me?}
+{10000}{}{"Destructor". Used to be my personal weapon, but I got it broken in one of the battles with ghouls here. It still can be fixed though. I heard Gunrunners specialize in such things.}
+{10010}{}{I see. Farewell then.}
+

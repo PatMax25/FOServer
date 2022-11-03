@@ -1,0 +1,10 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = VuDatKid;
+@gender = 0;
+@age = 47;
+
+@xp = 10 45080 55000;
+@life = 93 93 0 0 0 0 0 0 0;
+@skills = 100 34 46 62 46 44 46 40 35 37 42 31 50 78 60 40 20 41 0;

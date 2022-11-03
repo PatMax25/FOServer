@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Vault Handy}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay frosty!@@Good day, resident.@@Have a nice day in Vault 32.@@It is so nice to see you again, resident.@@Vault Tec is here to protect you, stay safe.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay frosty!@@Good day, resident.@@Have a nice day in Vault 32.@@It is so nice to see you again, resident.@@Vault Tec is here to protect you, stay safe.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay frosty!@@Good day, resident.@@Have a nice day in Vault 32.@@It is so nice to see you again, resident.@@Vault Tec is here to protect you, stay safe.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay frosty!@@Good day, resident.@@Have a nice day in Vault 32.@@It is so nice to see you again, resident.@@Vault Tec is here to protect you, stay safe.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Stay frosty!@@Good day, resident.@@Have a nice day in Vault 32.@@It is so nice to see you again, resident.@@Vault Tec is here to protect you, stay safe.}
+

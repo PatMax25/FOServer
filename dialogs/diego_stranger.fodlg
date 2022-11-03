@@ -1,0 +1,198 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+3 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 R _var p name_mem_npc_player = 1 #
+65507 2020 @
+3 3000 None 0 #
+4 3010 #
+8 3020 #
+9 3030 #
+10 3040 #
+11 3050 D _item p PID_5MM_AP } 1000 R _item p PID_5MM_AP - 1000 R _item p PID_PREWAR_MONEY + 300 R _item p PID_PREWAR_BOOK + 1 R _item p PID_RADAWAY + 2 R _item p PID_RAVIOLI + 5 R _item p PID_SUPER_STIMPAK + 5 R _item p PID_VOODOO + 2 R _param p ST_EXPERIENCE + 250 @
+4 4000 None 0 #
+5 4010 #
+3 4020 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 #
+65507 6020 @
+7 7000 None 0 #
+3 7010 @
+8 8000 None 0 #
+3 8010 @
+9 9000 None 0 #
+3 9010 @
+10 10000 None 0 #
+0 10010 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Stranger}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hmh? Ah... I see you managed to pass through my turrets. So, what's the purpose of your arrival here?}
+{2010}{}{So... these were yours... And who are you?}
+{2020}{}{I am here to give you the same fate as your fucking turrets had.}
+{3000}{}{What is it?}
+{3010}{}{So... Who are you again?}
+{3020}{}{What happened with this city anyway?}
+{3030}{}{Anything interesting to be found here?}
+{3040}{}{I am looking for a job. You need anything?}
+{3050}{}{I have 1000 5mm AP for ya.}
+{4000}{}{My name is not that important. I am a simple resident of this town. Always have been and always will be.}
+{4010}{}{You are a ghoul... But for some reason you didn't become one of those who are wandering the streets now.}
+{4020}{}{Let's switch the subject.}
+{5000}{}{Yes, I had a better fate not to turn into one of my less lucky collegues. I saw the first day of the Great War, and I saw all 200 years of this post apocalyptic city after it. The fact that the storm that once kept the city under its dome is now gone thrills me.}
+{5010}{}{Who were you before the War then?}
+{6000}{}{[ He remains silent for a while ] I was the one who had to organize the evacuation back in 2077... [ He remains silent for a while again ] But instead of getting all citizens out of the city I ordered my troops to lock everyone in here. We... We followed the order of HQ, they told us that the city must be locked even though it made no fucking sense...}
+{6010}{}{A captain sinks together with his ship, ey?}
+{6020}{}{[ Attack ] Time to pay for your sins!}
+{7000}{}{Yes, yes... I... you understand it now. I can't leave it, it's all my fault and I have to carry this burden together with the rest of San Diego.}
+{7010}{}{Let's switch the subject.}
+{8000}{}{The radioactive storm happened... But it was not just about radiation. Not so far from here stands an old West Tek research facility. A chinese rocket hit it directly and the entire facility with all the damn biological shit they were studying there went up into the air around here. Once the fallout started to settle, winds sent this cloud to San Diego... That was the city's doom. All the citizens suffered not just from the radiation, but from the different chemical agents too...}
+{8010}{}{Alright, one more thing...}
+{9000}{}{Nothing much. This city is mostly in ruins, however... south from here stands a big settlement of ghouls that surrounds a huge "Olympia" Hotel tower. It is believed that the tower is still ruled by its pre war owner. I wouldn't be surprised.}
+{9010}{}{Let's talk about something else.}
+{10000}{}{Hmh... Yeah, if you wish to help I have a small task for you. I am running out of ammo for my turrets down there. Yeah, I know you destroyed them, it is not so much a problem to fix them... parts are everywhere. The problem is that they eat a lot of bullets, so... I wouldn't mind recieving 5mm AP from you. I am ready to pay nicely for every 1000 5mm AP you will bring me.}
+{10010}{}{I will keep it in mind.}
+{11000}{}{Much appreciated.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hmh? Ah... I see you managed to pass through my turrets. So what's the point of your arrival here?}
+{2010}{}{So... these were yours... And who are you?}
+{2020}{}{I am here to give the same fate as your fucking turrets had.}
+{3000}{}{What is it?}
+{3010}{}{So... Who are you again?}
+{3020}{}{What happened with this city anyway?}
+{3030}{}{Anything interesting can be found here?}
+{3040}{}{I am looking for some job. You need anything?}
+{3050}{}{I have 1000 5mm AP for ya.}
+{4000}{}{My name is not that important. I am a simple resident of this town. Always has been and will always remain being.}
+{4010}{}{You are a ghoul... But for some reason you didn't become one of those who are wandering the streets now.}
+{4020}{}{Let's switch the subject.}
+{5000}{}{Yes, I had a better fate not to turn into one of my less lucky collegues. I saw the first day of the Great War, I saw all 200 years of this post apocalyptic city after it and surely the fact that the storm, that kept the city under its dome is now gone thrills me.}
+{5010}{}{Who were you before the War then?}
+{6000}{}{[ He remains silent for a while ] I used to be the one who has to orginise the evacuation back in 2077... [ He remains silent for a while again ] But instead of getting all citizens out of the city I ordered my troops to lock everyone in here. We... We followed the order of HQ, they told us that the city must be locked even though it made no fucking sense...}
+{6010}{}{A captain sinks together with his ship, ey?}
+{6020}{}{[ Attack ] Time to pay for your sins!}
+{7000}{}{Yes, yes... I... you understand it now. I can't leave it, it's all my fault and I have to carry this burden together with San Diego.}
+{7010}{}{Let's switch the subject.}
+{8000}{}{Radioactive storm happened... But it was not just about radiation. Not so far from here stands an old West Tek research facility. Chinese rocket hit it directly and the entire facility with all damn biological shit they were studing there went up into the air. Once the fallout started to settle, winds sent this cloud to San Diego... That was the city's doom. All citizens became effected not just to radiation, but to different chemical agents too...}
+{8010}{}{Alright, one more thing...}
+{9000}{}{Nothing much. City is mostly in ruins, however... south from here stands a big settlement of ghouls that surrounds a huge "Olympia" Hotel tower. It is believed that the tower is still rulled by its pre war owner. I wouldn't be surprised.}
+{9010}{}{Let's talk about something else.}
+{10000}{}{Hmh... Yeah, if you wish to help I have a small task for you. I am running out of ammo for my turrets down there. Yeah, I know he destryed them, it is not a problem to fix them back. The problem is that they eat a lot of bullets, so... I wouldn't mind recieving 5mm AP from you, Let's say... I am ready to pay for every 1000 5 mm AP you will bring me.}
+{10010}{}{I will keep it in mind.}
+{11000}{}{Much appreciated.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hmh? Ah... I see you managed to pass through my turrets. So what's the point of your arrival here?}
+{2010}{}{So... these were yours... And who are you?}
+{2020}{}{I am here to give the same fate as your fucking turrets had.}
+{3000}{}{What is it?}
+{3010}{}{So... Who are you again?}
+{3020}{}{What happened with this city anyway?}
+{3030}{}{Anything interesting can be found here?}
+{3040}{}{I am looking for some job. You need anything?}
+{3050}{}{I have 1000 5mm AP for ya.}
+{4000}{}{My name is not that important. I am a simple resident of this town. Always has been and will always remain being.}
+{4010}{}{You are a ghoul... But for some reason you didn't become one of those who are wandering the streets now.}
+{4020}{}{Let's switch the subject.}
+{5000}{}{Yes, I had a better fate not to turn into one of my less lucky collegues. I saw the first day of the Great War, I saw all 200 years of this post apocalyptic city after it and surely the fact that the storm, that kept the city under its dome is now gone thrills me.}
+{5010}{}{Who were you before the War then?}
+{6000}{}{[ He remains silent for a while ] I used to be the one who has to orginise the evacuation back in 2077... [ He remains silent for a while again ] But instead of getting all citizens out of the city I ordered my troops to lock everyone in here. We... We followed the order of HQ, they told us that the city must be locked even though it made no fucking sense...}
+{6010}{}{A captain sinks together with his ship, ey?}
+{6020}{}{[ Attack ] Time to pay for your sins!}
+{7000}{}{Yes, yes... I... you understand it now. I can't leave it, it's all my fault and I have to carry this burden together with San Diego.}
+{7010}{}{Let's switch the subject.}
+{8000}{}{Radioactive storm happened... But it was not just about radiation. Not so far from here stands an old West Tek research facility. Chinese rocket hit it directly and the entire facility with all damn biological shit they were studing there went up into the air. Once the fallout started to settle, winds sent this cloud to San Diego... That was the city's doom. All citizens became effected not just to radiation, but to different chemical agents too...}
+{8010}{}{Alright, one more thing...}
+{9000}{}{Nothing much. City is mostly in ruins, however... south from here stands a big settlement of ghouls that surrounds a huge "Olympia" Hotel tower. It is believed that the tower is still rulled by its pre war owner. I wouldn't be surprised.}
+{9010}{}{Let's talk about something else.}
+{10000}{}{Hmh... Yeah, if you wish to help I have a small task for you. I am running out of ammo for my turrets down there. Yeah, I know he destryed them, it is not a problem to fix them back. The problem is that they eat a lot of bullets, so... I wouldn't mind recieving 5mm AP from you, Let's say... I am ready to pay for every 1000 5 mm AP you will bring me.}
+{10010}{}{I will keep it in mind.}
+{11000}{}{Much appreciated.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hmh? Ah... I see you managed to pass through my turrets. So what's the point of your arrival here?}
+{2010}{}{So... these were yours... And who are you?}
+{2020}{}{I am here to give the same fate as your fucking turrets had.}
+{3000}{}{What is it?}
+{3010}{}{So... Who are you again?}
+{3020}{}{What happened with this city anyway?}
+{3030}{}{Anything interesting can be found here?}
+{3040}{}{I am looking for some job. You need anything?}
+{3050}{}{I have 1000 5mm AP for ya.}
+{4000}{}{My name is not that important. I am a simple resident of this town. Always has been and will always remain being.}
+{4010}{}{You are a ghoul... But for some reason you didn't become one of those who are wandering the streets now.}
+{4020}{}{Let's switch the subject.}
+{5000}{}{Yes, I had a better fate not to turn into one of my less lucky collegues. I saw the first day of the Great War, I saw all 200 years of this post apocalyptic city after it and surely the fact that the storm, that kept the city under its dome is now gone thrills me.}
+{5010}{}{Who were you before the War then?}
+{6000}{}{[ He remains silent for a while ] I used to be the one who has to orginise the evacuation back in 2077... [ He remains silent for a while again ] But instead of getting all citizens out of the city I ordered my troops to lock everyone in here. We... We followed the order of HQ, they told us that the city must be locked even though it made no fucking sense...}
+{6010}{}{A captain sinks together with his ship, ey?}
+{6020}{}{[ Attack ] Time to pay for your sins!}
+{7000}{}{Yes, yes... I... you understand it now. I can't leave it, it's all my fault and I have to carry this burden together with San Diego.}
+{7010}{}{Let's switch the subject.}
+{8000}{}{Radioactive storm happened... But it was not just about radiation. Not so far from here stands an old West Tek research facility. Chinese rocket hit it directly and the entire facility with all damn biological shit they were studing there went up into the air. Once the fallout started to settle, winds sent this cloud to San Diego... That was the city's doom. All citizens became effected not just to radiation, but to different chemical agents too...}
+{8010}{}{Alright, one more thing...}
+{9000}{}{Nothing much. City is mostly in ruins, however... south from here stands a big settlement of ghouls that surrounds a huge "Olympia" Hotel tower. It is believed that the tower is still rulled by its pre war owner. I wouldn't be surprised.}
+{9010}{}{Let's talk about something else.}
+{10000}{}{Hmh... Yeah, if you wish to help I have a small task for you. I am running out of ammo for my turrets down there. Yeah, I know he destryed them, it is not a problem to fix them back. The problem is that they eat a lot of bullets, so... I wouldn't mind recieving 5mm AP from you, Let's say... I am ready to pay for every 1000 5 mm AP you will bring me.}
+{10010}{}{I will keep it in mind.}
+{11000}{}{Much appreciated.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Hmh? Ah... I see you managed to pass through my turrets. So what's the point of your arrival here?}
+{2010}{}{So... these were yours... And who are you?}
+{2020}{}{I am here to give the same fate as your fucking turrets had.}
+{3000}{}{What is it?}
+{3010}{}{So... Who are you again?}
+{3020}{}{What happened with this city anyway?}
+{3030}{}{Anything interesting can be found here?}
+{3040}{}{I am looking for some job. You need anything?}
+{3050}{}{I have 1000 5mm AP for ya.}
+{4000}{}{My name is not that important. I am a simple resident of this town. Always has been and will always remain being.}
+{4010}{}{You are a ghoul... But for some reason you didn't become one of those who are wandering the streets now.}
+{4020}{}{Let's switch the subject.}
+{5000}{}{Yes, I had a better fate not to turn into one of my less lucky collegues. I saw the first day of the Great War, I saw all 200 years of this post apocalyptic city after it and surely the fact that the storm, that kept the city under its dome is now gone thrills me.}
+{5010}{}{Who were you before the War then?}
+{6000}{}{[ He remains silent for a while ] I used to be the one who has to orginise the evacuation back in 2077... [ He remains silent for a while again ] But instead of getting all citizens out of the city I ordered my troops to lock everyone in here. We... We followed the order of HQ, they told us that the city must be locked even though it made no fucking sense...}
+{6010}{}{A captain sinks together with his ship, ey?}
+{6020}{}{[ Attack ] Time to pay for your sins!}
+{7000}{}{Yes, yes... I... you understand it now. I can't leave it, it's all my fault and I have to carry this burden together with San Diego.}
+{7010}{}{Let's switch the subject.}
+{8000}{}{Radioactive storm happened... But it was not just about radiation. Not so far from here stands an old West Tek research facility. Chinese rocket hit it directly and the entire facility with all damn biological shit they were studing there went up into the air. Once the fallout started to settle, winds sent this cloud to San Diego... That was the city's doom. All citizens became effected not just to radiation, but to different chemical agents too...}
+{8010}{}{Alright, one more thing...}
+{9000}{}{Nothing much. City is mostly in ruins, however... south from here stands a big settlement of ghouls that surrounds a huge "Olympia" Hotel tower. It is believed that the tower is still rulled by its pre war owner. I wouldn't be surprised.}
+{9010}{}{Let's talk about something else.}
+{10000}{}{Hmh... Yeah, if you wish to help I have a small task for you. I am running out of ammo for my turrets down there. Yeah, I know he destryed them, it is not a problem to fix them back. The problem is that they eat a lot of bullets, so... I wouldn't mind recieving 5mm AP from you, Let's say... I am ready to pay for every 1000 5 mm AP you will bring me.}
+{10010}{}{I will keep it in mind.}
+{11000}{}{Much appreciated.}
+

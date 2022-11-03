@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p diego_vc = 1 @
+2 2000 None 0 #
+0 2010 D _var p diego_body1 = 0 R _item p PID_BADGE + 1 R _var p diego_body1 = 1 #
+0 2020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is the body of a Vault City guardsman... ]}
+{2010}{}{[ Take the badge ]}
+{2020}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is the body of Vault City guardsman... ]}
+{2010}{}{[ Take the badge ]}
+{2020}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is the body of Vault City guardsman... ]}
+{2010}{}{[ Take the badge ]}
+{2020}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is the body of Vault City guardsman... ]}
+{2010}{}{[ Take the badge ]}
+{2020}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is the body of Vault City guardsman... ]}
+{2010}{}{[ Take the badge ]}
+{2020}{}{[ Exit ]}
+

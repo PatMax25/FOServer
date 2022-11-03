@@ -1,0 +1,204 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p name_mem_npc_player = 0 R _var p name_mem_npc_player = 1 #
+5 2020 #
+6 2030 D _var p radio_duke = 0 #
+0 2040 #
+9 2050 D _var p radio_duke = 2 R _var p radio_duke = 3 R _item p PID_BOTTLE_CAPS + 3000 R _param p ST_EXPERIENCE + 5000 #
+10 2060 D _var p radio_duke = 2 R _param p ST_EXPERIENCE + 5000 R _var p radio_duke = 3 R _var p radio_duke + 3000 @
+3 3000 None 0 #
+4 3010 #
+2 3020 #
+0 3030 @
+4 4000 None 0 #
+5 4010 #
+2 4020 @
+5 5000 None 0 #
+2 5010 #
+0 5020 @
+6 6000 None 0 #
+7 6010 D _var p radio_duke = 0 #
+0 6020 @
+7 7000 None 0 #
+8 7010 D _var p radio_duke = 0 R _var p radio_duke = 1 #
+0 7020 @
+8 8000 None 0 @
+9 9000 None 0 @
+10 10000 None 0 #
+0 10010 #
+65507 10020 &
+
+[engl]
+{100}{}{Duke}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. What's up?}
+{2010}{}{Who are you?}
+{2020}{}{Would you tell me a little about yourself?}
+{2030}{}{Do you know if there might be any jobs for me around here?}
+{2040}{}{Nothing, see you.}
+{2050}{}{Job's done.}
+{2060}{}{You fucker! You didn't mention about the place being filled with cultists!}
+{3000}{}{You can call me Duke. I am the host of Wasteland Radio.}
+{3010}{}{Wasteland Radio?}
+{3020}{}{Alright... One more thing...}
+{3030}{}{That's all that I needed.}
+{4000}{}{Yup. The first and only radio broadcasting through the entire wasteland! Well... at least soon it will be.}
+{4010}{}{Can you tell me more about yourself?}
+{4020}{}{Lets talk about another topic.}
+{5000}{}{Do I look like the guy who likes to talk about his past, huh? Sorry, mate, I am not into discussing such topics.}
+{5010}{}{I want to ask you about something else.}
+{5020}{}{Well, no point of talking with you then.}
+{6000}{}{Yeah, you can help me with something. This wreck requires more power to broadcast, but unfortunately 3 out of 4 generators are dead for good here. The only opportunity is to redirect power from somewhere else.}
+{6010}{}{Go on...}
+{6020}{}{Nah, not interested.}
+{7000}{}{I found some old documents here. It seems like North - East of here stands something called "NSA listening post Alpha", and it has 10 very nice generators! It is an old government facility, I want you to get in there and redirect power. I am sure that the thing has been abandoned for a long time already, so it should be easy for you. Get there, find some terminal and redirect the power to us. Easy enough?}
+{7010}{}{Seems so. I am on it.}
+{7020}{}{No way. I am not helping you with it.}
+{8000}{}{In return I will give you access to the terminal behind me.. And pay you of course. I keep my word, so... I am waiting for the light bulb above my head to shine.}
+{9000}{}{Good, here is your payment. Also, you now have computer access, as promised.}
+{10000}{}{So what? You are still alive, so it wasn't a big deal. Here is your reward and access to the terminal, as promised.}
+{10010}{}{Fine. But I will remember this.}
+{10020}{}{Oh that won't be enough. But I am sure that your death can make my day brighter.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. What's up?}
+{2010}{}{Who are you?}
+{2020}{}{Mind to tell me about yourself?}
+{2030}{}{Do you have some job for me around?}
+{2040}{}{Nothing, see you.}
+{2050}{}{Job's done.}
+{2060}{}{You fucker! You didn't mention about the place being filled with cultists!}
+{3000}{}{You can call me Duke. I am a host of Wasteland Radio.}
+{3010}{}{Wasteland Radio?}
+{3020}{}{Alright... One more thing...}
+{3030}{}{That's all what I needed.}
+{4000}{}{Yup. The first and only radio broadcasting through the entire wasteland! Well... at least soon it will be.}
+{4010}{}{Can you tell me more about yourself?}
+{4020}{}{Lets talk about another topic.}
+{5000}{}{Do I look like the guy who likes to talk about his past, huh? Sorry, mate, I am not into discussing such topics.}
+{5010}{}{I want to ask you about something else.}
+{5020}{}{Well, no point of talking with you then.}
+{6000}{}{Yeah, you can help me with something. This wreck requires more powers to broadcast. But unfortunately 3 out of 4 generators are gone here. The only opportuniy is to redirect power from somewhere else.}
+{6010}{}{Go on...}
+{6020}{}{Nah, not interested.}
+{7000}{}{I found some old documents here. It seems like here on North - East stands something called "NSA listening post Alpha". And it has 10 generators! I want you to get in there and redirect powers. I am sure that the thing has been abandoned for a long time already. So it should be easy for you. Get there, find some terminal and redirect the power to us. Easy enough?}
+{7010}{}{Seems so. I am on it.}
+{7020}{}{No way. I am not helping you with it.}
+{8000}{}{In return I will give you an access to the terminal behind me.. And pay you of course. I keep my words, so... I am waiting for the light bulb above my head to shine.}
+{9000}{}{Good, here is your payment and the access, as promised.}
+{10000}{}{So what? You are still alive, so it wasn't a big deal. Here is your reward and the access to the terminal, as promised.}
+{10010}{}{Fine. But I will remember this.}
+{10020}{}{Oh that won't be enough. But I am sure that your death can make my day brighter.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. What's up?}
+{2010}{}{Who are you?}
+{2020}{}{Mind to tell me about yourself?}
+{2030}{}{Do you have some job for me around?}
+{2040}{}{Nothing, see you.}
+{2050}{}{Job's done.}
+{2060}{}{You fucker! You didn't mention about the place being filled with cultists!}
+{3000}{}{You can call me Duke. I am a host of Wasteland Radio.}
+{3010}{}{Wasteland Radio?}
+{3020}{}{Alright... One more thing...}
+{3030}{}{That's all what I needed.}
+{4000}{}{Yup. The first and only radio broadcasting through the entire wasteland! Well... at least soon it will be.}
+{4010}{}{Can you tell me more about yourself?}
+{4020}{}{Lets talk about another topic.}
+{5000}{}{Do I look like the guy who likes to talk about his past, huh? Sorry, mate, I am not into discussing such topics.}
+{5010}{}{I want to ask you about something else.}
+{5020}{}{Well, no point of talking with you then.}
+{6000}{}{Yeah, you can help me with something. This wreck requires more powers to broadcast. But unfortunately 3 out of 4 generators are gone here. The only opportuniy is to redirect power from somewhere else.}
+{6010}{}{Go on...}
+{6020}{}{Nah, not interested.}
+{7000}{}{I found some old documents here. It seems like here on North - East stands something called "NSA listening post Alpha". And it has 10 generators! I want you to get in there and redirect powers. I am sure that the thing has been abandoned for a long time already. So it should be easy for you. Get there, find some terminal and redirect the power to us. Easy enough?}
+{7010}{}{Seems so. I am on it.}
+{7020}{}{No way. I am not helping you with it.}
+{8000}{}{In return I will give you an access to the terminal behind me.. And pay you of course. I keep my words, so... I am waiting for the light bulb above my head to shine.}
+{9000}{}{Good, here is your payment and the access, as promised.}
+{10000}{}{So what? You are still alive, so it wasn't a big deal. Here is your reward and the access to the terminal, as promised.}
+{10010}{}{Fine. But I will remember this.}
+{10020}{}{Oh that won't be enough. But I am sure that your death can make my day brighter.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. What's up?}
+{2010}{}{Who are you?}
+{2020}{}{Mind to tell me about yourself?}
+{2030}{}{Do you have some job for me around?}
+{2040}{}{Nothing, see you.}
+{2050}{}{Job's done.}
+{2060}{}{You fucker! You didn't mention about the place being filled with cultists!}
+{3000}{}{You can call me Duke. I am a host of Wasteland Radio.}
+{3010}{}{Wasteland Radio?}
+{3020}{}{Alright... One more thing...}
+{3030}{}{That's all what I needed.}
+{4000}{}{Yup. The first and only radio broadcasting through the entire wasteland! Well... at least soon it will be.}
+{4010}{}{Can you tell me more about yourself?}
+{4020}{}{Lets talk about another topic.}
+{5000}{}{Do I look like the guy who likes to talk about his past, huh? Sorry, mate, I am not into discussing such topics.}
+{5010}{}{I want to ask you about something else.}
+{5020}{}{Well, no point of talking with you then.}
+{6000}{}{Yeah, you can help me with something. This wreck requires more powers to broadcast. But unfortunately 3 out of 4 generators are gone here. The only opportuniy is to redirect power from somewhere else.}
+{6010}{}{Go on...}
+{6020}{}{Nah, not interested.}
+{7000}{}{I found some old documents here. It seems like here on North - East stands something called "NSA listening post Alpha". And it has 10 generators! I want you to get in there and redirect powers. I am sure that the thing has been abandoned for a long time already. So it should be easy for you. Get there, find some terminal and redirect the power to us. Easy enough?}
+{7010}{}{Seems so. I am on it.}
+{7020}{}{No way. I am not helping you with it.}
+{8000}{}{In return I will give you an access to the terminal behind me.. And pay you of course. I keep my words, so... I am waiting for the light bulb above my head to shine.}
+{9000}{}{Good, here is your payment and the access, as promised.}
+{10000}{}{So what? You are still alive, so it wasn't a big deal. Here is your reward and the access to the terminal, as promised.}
+{10010}{}{Fine. But I will remember this.}
+{10020}{}{Oh that won't be enough. But I am sure that your death can make my day brighter.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo. What's up?}
+{2010}{}{Who are you?}
+{2020}{}{Mind to tell me about yourself?}
+{2030}{}{Do you have some job for me around?}
+{2040}{}{Nothing, see you.}
+{2050}{}{Job's done.}
+{2060}{}{You fucker! You didn't mention about the place being filled with cultists!}
+{3000}{}{You can call me Duke. I am a host of Wasteland Radio.}
+{3010}{}{Wasteland Radio?}
+{3020}{}{Alright... One more thing...}
+{3030}{}{That's all what I needed.}
+{4000}{}{Yup. The first and only radio broadcasting through the entire wasteland! Well... at least soon it will be.}
+{4010}{}{Can you tell me more about yourself?}
+{4020}{}{Lets talk about another topic.}
+{5000}{}{Do I look like the guy who likes to talk about his past, huh? Sorry, mate, I am not into discussing such topics.}
+{5010}{}{I want to ask you about something else.}
+{5020}{}{Well, no point of talking with you then.}
+{6000}{}{Yeah, you can help me with something. This wreck requires more powers to broadcast. But unfortunately 3 out of 4 generators are gone here. The only opportuniy is to redirect power from somewhere else.}
+{6010}{}{Go on...}
+{6020}{}{Nah, not interested.}
+{7000}{}{I found some old documents here. It seems like here on North - East stands something called "NSA listening post Alpha". And it has 10 generators! I want you to get in there and redirect powers. I am sure that the thing has been abandoned for a long time already. So it should be easy for you. Get there, find some terminal and redirect the power to us. Easy enough?}
+{7010}{}{Seems so. I am on it.}
+{7020}{}{No way. I am not helping you with it.}
+{8000}{}{In return I will give you an access to the terminal behind me.. And pay you of course. I keep my words, so... I am waiting for the light bulb above my head to shine.}
+{9000}{}{Good, here is your payment and the access, as promised.}
+{10000}{}{So what? You are still alive, so it wasn't a big deal. Here is your reward and the access to the terminal, as promised.}
+{10010}{}{Fine. But I will remember this.}
+{10020}{}{Oh that won't be enough. But I am sure that your death can make my day brighter.}
+

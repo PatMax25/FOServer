@@ -1,0 +1,45 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Toto}
+{200}{}{It's a big robot with tools and stuff.}
+{210}{}{That's Toto, Dorothy's maintainence robot.}
+{210}{}{It's a robot, maintainence model.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Bzzz...Arf, arf!...Bzzt. Click... Arf!@@Woof! Woof!@@*pant, pant* Bzzt...Woof. Grrrrrr.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Bzzz...Arf, arf!...Bzzt. Click... Arf!@@Woof. Woof.@@(Pant, pant) Bzzt...Woof. Grrrrrr.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Bzzz...Arf, arf!...Bzzt. Click... Arf!@@Woof. Woof.@@(Pant, pant) Bzzt...Woof. Grrrrrr.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Bzzz...Arf, arf!...Bzzt. Click... Arf!@@Woof. Woof.@@(Pant, pant) Bzzt...Woof. Grrrrrr.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Bzzz...Arf, arf!...Bzzt. Click... Arf!@@Woof. Woof.@@(Pant, pant) Bzzt...Woof. Grrrrrr.}
+

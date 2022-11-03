@@ -1,0 +1,24 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// _client_maps.fos
+//
+
+#ifndef __CL_MAPS__
+#define __CL_MAPS__
+
+#define MAP_den                 (6)
+#define MAP_klamath             (9)
+#define MAP_modoc               (18)
+#define MAP_gecko_settlement    (31)
+#define MAP_redding             (62)
+#define MAP_broken              (115)
+#define MAP_NecropolisHotel              (141)
+#define MAP_NewReno1              (54)
+#define MAP_event_map_1						  (724)
+#define MAP_event_map_2					  (725)
+#define MAP_event_map_3						  (726)
+#define MAP_event_map_4						  (727)
+#define MAP_event_map_5					  (728)
+#endif

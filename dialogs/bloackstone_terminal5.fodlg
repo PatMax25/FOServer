@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 #
+3 2020 D _item p PID_BLOODPACK < 3 #
+4 2030 D _item p PID_BLOODPACK } 3 D _var p mansion_door = 2 R _item p PID_BLOODPACK - 3 R _var p mansion_door = 3 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God.. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Start treasure room door hack sequence. Terminal 3/3 ]}
+{2030}{}{[ Start treasure room door hack sequence. Terminal 3/3 ]}
+{3000}{}{[ Terminal flickers with this sign: "Sacrifices must be made. 3 blood packs are needed to open the door..." ]}
+{4000}{}{[ Sequence started. Terminal 3/3. Return to the main terminal and finish the sequence. ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Open the treasure room door ]}
+{2030}{}{[ Start treasure room door hack sequence. Terminal 1/3 ]}
+{3000}{}{[ Terminal flickers with this sign: "Sacrifices must be made. 3 blood packs are needed to open the door..." ]}
+{4000}{}{[ Sequence started. Terminal 1/3 ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Open the treasure room door ]}
+{2030}{}{[ Start treasure room door hack sequence. Terminal 1/3 ]}
+{3000}{}{[ Terminal flickers with this sign: "Sacrifices must be made. 3 blood packs are needed to open the door..." ]}
+{4000}{}{[ Sequence started. Terminal 1/3 ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Open the treasure room door ]}
+{2030}{}{[ Start treasure room door hack sequence. Terminal 1/3 ]}
+{3000}{}{[ Terminal flickers with this sign: "Sacrifices must be made. 3 blood packs are needed to open the door..." ]}
+{4000}{}{[ Sequence started. Terminal 1/3 ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ In the name of Blood God. We, Followers of the Red Sun, shall always follow our true path. Blood helps us survive in this city, blood helps us see the truth, hidden away from us. Blood is the key to our survival and our glory. Glory to the Blood God. HE always needs blood, HE always watches us. ]}
+{2010}{}{[ Exit ]}
+{2020}{}{[ Open the treasure room door ]}
+{2030}{}{[ Start treasure room door hack sequence. Terminal 1/3 ]}
+{3000}{}{[ Terminal flickers with this sign: "Sacrifices must be made. 3 blood packs are needed to open the door..." ]}
+{4000}{}{[ Sequence started. Terminal 1/3 ]}
+

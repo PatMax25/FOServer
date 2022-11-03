@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Vault City Guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not now.@@I can't talk with you.@@I mustn't chit chat on my post.@@Stop messing with me.@@Hey.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not now.@@I can't talk with you.@@I mustn't chit chat on my post.@@Stop messing with me.@@Hey.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not now.@@I can't talk with you.@@I mustn't chit chat on my post.@@Stop messing with me.@@Hey.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not now.@@I can't talk with you.@@I mustn't chit chat on my post.@@Stop messing with me.@@Hey.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Not now.@@I can't talk with you.@@I mustn't chit chat on my post.@@Stop messing with me.@@Hey.}
+

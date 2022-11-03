@@ -1,0 +1,282 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+65507 2010 #
+3 2020 #
+5 2030 #
+0 2040 #
+6 2050 #
+7 2060 #
+8 2070 #
+9 2080 #
+10 2090 #
+11 2100 D _item p PID_GOLD_BAR } 1 R _item p PID_GOLD_BAR - 1 R _item p PID_DOLLAR + 55 @
+3 3000 None 0 #
+4 3010 #
+5 3020 #
+2 3030 @
+4 4000 None 0 #
+5 4010 #
+2 4020 @
+5 5000 None 0 #
+0 5010 @
+6 6000 None 0 #
+6 6010 D _item p PID_NCR_MONEY } 2700 R _item p PID_NCR_MONEY - 2700 R _item p PID_DOLLAR + 1 #
+6 6020 D _item p PID_NCR_MONEY } 13500 R _item p PID_NCR_MONEY - 13500 R _item p PID_DOLLAR + 5 #
+0 6030 @
+7 7000 None 0 #
+7 7010 D _item p PID_ENCLAVE_MONEY } 2100 R _item p PID_DOLLAR + 1 R _item p PID_ENCLAVE_MONEY - 2100 #
+7 7020 D _item p PID_ENCLAVE_MONEY } 10500 R _item p PID_DOLLAR + 5 R _item p PID_ENCLAVE_MONEY - 10500 #
+0 7030 @
+8 8000 None 0 #
+8 8010 D _item p PID_BOS_MONEY } 2400 R _item p PID_DOLLAR + 1 R _item p PID_BOS_MONEY - 2400 #
+8 8020 D _item p PID_BOS_MONEY } 12000 R _item p PID_DOLLAR + 5 R _item p PID_BOS_MONEY - 12000 #
+0 8030 @
+9 9000 None 0 #
+9 9010 D _item p PID_MA_MONEY } 2300 R _item p PID_DOLLAR + 1 R _item p PID_MA_MONEY - 2300 #
+9 9020 D _item p PID_MA_MONEY } 11500 R _item p PID_DOLLAR + 5 R _item p PID_MA_MONEY - 11500 #
+0 9030 @
+10 10000 None 0 #
+10 10010 D _item p PID_VC_MONEY } 2200 R _item p PID_VC_MONEY - 2200 R _item p PID_DOLLAR + 1 #
+10 10020 D _item p PID_VC_MONEY } 11000 R _item p PID_VC_MONEY - 11000 R _item p PID_DOLLAR + 5 #
+0 10030 @
+11 11000 None 0 &
+
+[engl]
+{100}{}{Bank Manager}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings. May I help you?}
+{2010}{}{Money on the table, bitch!}
+{2020}{}{What is this place?}
+{2030}{}{I want to exchange currencies. Caps on dollars.}
+{2040}{}{Nah, see ya.}
+{2050}{}{I want to exchange currencies. NCR bucks on golden dollars.}
+{2060}{}{I want to exchange currencies. Enclave bucks on golden dollars.}
+{2070}{}{I want to exchange currencies. Brotherhood memory chips on golden dollars.}
+{2080}{}{I want to exchange currencies. Master's chips on golden dollars.}
+{2090}{}{I want to exchange currencies. Vault City dollars on golden dollars.}
+{2100}{}{I want to exchange this gold bar on 55 golden dollars.}
+{3000}{}{This is FLC exchange unit. Here we exchange your caps on golden dollars.}
+{3010}{}{Golden dollar? What is this about?}
+{3020}{}{I wish to exchange currencies.}
+{3030}{}{I wanted to ask something else.}
+{4000}{}{Golden dollars are our new currency that soon will become California wide. Caps are not stable and many people still use some old machines to create big amounts of caps, so we created a completely new currency that will stabalize our economy and everyone will be happy. Golden dollars are our future.}
+{4010}{}{I wish to exchange currencies.}
+{4020}{}{I wanted to ask something else.}
+{5000}{}{We no longer exchange caps on Golden dollars, sir. Now we only exchange other currencies on it.}
+{5010}{}{Nevermind.}
+{6000}{}{It will be 2700 NCR bucks for 1 dollar.}
+{6010}{}{1 dollar please.}
+{6020}{}{Give me 5 dollars.}
+{6030}{}{That's it. I will be going.}
+{7000}{}{It will be 2100 Enclave bucks for 1 dollar.}
+{7010}{}{1 dollar please.}
+{7020}{}{Give me 5 dollars.}
+{7030}{}{That's it. I will be going.}
+{8000}{}{It will be 2400 Brotherhood memory modules for 1 dollar.}
+{8010}{}{1 dollar please.}
+{8020}{}{Give me 5 dollars.}
+{8030}{}{That's it. I will be going.}
+{9000}{}{It will be 2300 Master's chips for 1 dollar.}
+{9010}{}{1 dollar please.}
+{9020}{}{Give me 5 dollars.}
+{9030}{}{That's it. I will be going.}
+{10000}{}{This will be 2200 Vault City dollars for 1 golden dollar.}
+{10010}{}{1 dollar please.}
+{10020}{}{5 dollars please.}
+{10030}{}{That's it. Bye.}
+{11000}{}{Here you go.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings. May I help you?}
+{2010}{}{Money on the table, bitch!}
+{2020}{}{What is this place?}
+{2030}{}{I want to exchange currencies. Caps on dollars.}
+{2040}{}{Nah, see ya.}
+{2050}{}{I want to exchange currencies. NCR bucks on golden dollars.}
+{2060}{}{I want to exchange currencies. Enclave bucks on golden dollars.}
+{2070}{}{I want to exchange currencies. Brotherhood memory chips on golden dollars.}
+{2080}{}{I want to exchange currencies. Master's chips on golden dollars.}
+{2090}{}{I want to exchange currencies. Vault City dollars on golden dollars.}
+{2100}{}{I want to exchange this gold bar on 55 golden dollars.}
+{3000}{}{This is FLC exchange unit. Here we exchange your caps on golden dollars.}
+{3010}{}{Golden dollar? What is this about?}
+{3020}{}{I wish to exchange currencies.}
+{3030}{}{I wanted to ask something else.}
+{4000}{}{Golden dollars are our new currency that soon will become California wide. Caps are not stable and many people still use some old machines to create big amounts of caps, so we created a completely new currency that will stabalize our economic and everyone will be happy. Golden dollars are our future.}
+{4010}{}{I wish to exchange currencies.}
+{4020}{}{I wanted to ask something else.}
+{5000}{}{Sure, currenct currency is 1000 caps per one golden dollar. Exchange comission - 100 caps. All in all 1100 caps per one golden dollar.}
+{5010}{}{Nevermind.}
+{6000}{}{It will be 2700 NCR bucks for 1 dollar.}
+{6010}{}{1 dollar please.}
+{6020}{}{Give me 5 dollars.}
+{6030}{}{That's it. I will be going.}
+{7000}{}{It will be 2100 Enclave bucks for 1 dollar.}
+{7010}{}{1 dollar please.}
+{7020}{}{Give me 5 dollars.}
+{7030}{}{That's it. I will be going.}
+{8000}{}{It will be 2400 Brotherhood memory modules for 1 dollar.}
+{8010}{}{1 dollar please.}
+{8020}{}{Give me 5 dollars.}
+{8030}{}{That's it. I will be going.}
+{9000}{}{It will be 2300 Master's chips for 1 dollar.}
+{9010}{}{1 dollar please.}
+{9020}{}{Give me 5 dollars.}
+{9030}{}{That's it. I will be going.}
+{10000}{}{This will be 2200 Vault City dollars for 1 golden dollar.}
+{10010}{}{1 dollar please.}
+{10020}{}{5 dollars please.}
+{10030}{}{That's it. Bye.}
+{11000}{}{Here you go.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings. May I help you?}
+{2010}{}{Money on the table, bitch!}
+{2020}{}{What is this place?}
+{2030}{}{I want to exchange currencies. Caps on dollars.}
+{2040}{}{Nah, see ya.}
+{2050}{}{I want to exchange currencies. NCR bucks on golden dollars.}
+{2060}{}{I want to exchange currencies. Enclave bucks on golden dollars.}
+{2070}{}{I want to exchange currencies. Brotherhood memory chips on golden dollars.}
+{2080}{}{I want to exchange currencies. Master's chips on golden dollars.}
+{2090}{}{I want to exchange currencies. Vault City dollars on golden dollars.}
+{2100}{}{I want to exchange this gold bar on 55 golden dollars.}
+{3000}{}{This is FLC exchange unit. Here we exchange your caps on golden dollars.}
+{3010}{}{Golden dollar? What is this about?}
+{3020}{}{I wish to exchange currencies.}
+{3030}{}{I wanted to ask something else.}
+{4000}{}{Golden dollars are our new currency that soon will become California wide. Caps are not stable and many people still use some old machines to create big amounts of caps, so we created a completely new currency that will stabalize our economic and everyone will be happy. Golden dollars are our future.}
+{4010}{}{I wish to exchange currencies.}
+{4020}{}{I wanted to ask something else.}
+{5000}{}{Sure, currenct currency is 1000 caps per one golden dollar. Exchange comission - 100 caps. All in all 1100 caps per one golden dollar.}
+{5010}{}{Nevermind.}
+{6000}{}{It will be 2700 NCR bucks for 1 dollar.}
+{6010}{}{1 dollar please.}
+{6020}{}{Give me 5 dollars.}
+{6030}{}{That's it. I will be going.}
+{7000}{}{It will be 2100 Enclave bucks for 1 dollar.}
+{7010}{}{1 dollar please.}
+{7020}{}{Give me 5 dollars.}
+{7030}{}{That's it. I will be going.}
+{8000}{}{It will be 2400 Brotherhood memory modules for 1 dollar.}
+{8010}{}{1 dollar please.}
+{8020}{}{Give me 5 dollars.}
+{8030}{}{That's it. I will be going.}
+{9000}{}{It will be 2300 Master's chips for 1 dollar.}
+{9010}{}{1 dollar please.}
+{9020}{}{Give me 5 dollars.}
+{9030}{}{That's it. I will be going.}
+{10000}{}{This will be 2200 Vault City dollars for 1 golden dollar.}
+{10010}{}{1 dollar please.}
+{10020}{}{5 dollars please.}
+{10030}{}{That's it. Bye.}
+{11000}{}{Here you go.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings. May I help you?}
+{2010}{}{Money on the table, bitch!}
+{2020}{}{What is this place?}
+{2030}{}{I want to exchange currencies. Caps on dollars.}
+{2040}{}{Nah, see ya.}
+{2050}{}{I want to exchange currencies. NCR bucks on golden dollars.}
+{2060}{}{I want to exchange currencies. Enclave bucks on golden dollars.}
+{2070}{}{I want to exchange currencies. Brotherhood memory chips on golden dollars.}
+{2080}{}{I want to exchange currencies. Master's chips on golden dollars.}
+{2090}{}{I want to exchange currencies. Vault City dollars on golden dollars.}
+{2100}{}{I want to exchange this gold bar on 55 golden dollars.}
+{3000}{}{This is FLC exchange unit. Here we exchange your caps on golden dollars.}
+{3010}{}{Golden dollar? What is this about?}
+{3020}{}{I wish to exchange currencies.}
+{3030}{}{I wanted to ask something else.}
+{4000}{}{Golden dollars are our new currency that soon will become California wide. Caps are not stable and many people still use some old machines to create big amounts of caps, so we created a completely new currency that will stabalize our economic and everyone will be happy. Golden dollars are our future.}
+{4010}{}{I wish to exchange currencies.}
+{4020}{}{I wanted to ask something else.}
+{5000}{}{Sure, currenct currency is 1000 caps per one golden dollar. Exchange comission - 100 caps. All in all 1100 caps per one golden dollar.}
+{5010}{}{Nevermind.}
+{6000}{}{It will be 2700 NCR bucks for 1 dollar.}
+{6010}{}{1 dollar please.}
+{6020}{}{Give me 5 dollars.}
+{6030}{}{That's it. I will be going.}
+{7000}{}{It will be 2100 Enclave bucks for 1 dollar.}
+{7010}{}{1 dollar please.}
+{7020}{}{Give me 5 dollars.}
+{7030}{}{That's it. I will be going.}
+{8000}{}{It will be 2400 Brotherhood memory modules for 1 dollar.}
+{8010}{}{1 dollar please.}
+{8020}{}{Give me 5 dollars.}
+{8030}{}{That's it. I will be going.}
+{9000}{}{It will be 2300 Master's chips for 1 dollar.}
+{9010}{}{1 dollar please.}
+{9020}{}{Give me 5 dollars.}
+{9030}{}{That's it. I will be going.}
+{10000}{}{This will be 2200 Vault City dollars for 1 golden dollar.}
+{10010}{}{1 dollar please.}
+{10020}{}{5 dollars please.}
+{10030}{}{That's it. Bye.}
+{11000}{}{Here you go.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings. May I help you?}
+{2010}{}{Money on the table, bitch!}
+{2020}{}{What is this place?}
+{2030}{}{I want to exchange currencies. Caps on dollars.}
+{2040}{}{Nah, see ya.}
+{2050}{}{I want to exchange currencies. NCR bucks on golden dollars.}
+{2060}{}{I want to exchange currencies. Enclave bucks on golden dollars.}
+{2070}{}{I want to exchange currencies. Brotherhood memory chips on golden dollars.}
+{2080}{}{I want to exchange currencies. Master's chips on golden dollars.}
+{2090}{}{I want to exchange currencies. Vault City dollars on golden dollars.}
+{2100}{}{I want to exchange this gold bar on 55 golden dollars.}
+{3000}{}{This is FLC exchange unit. Here we exchange your caps on golden dollars.}
+{3010}{}{Golden dollar? What is this about?}
+{3020}{}{I wish to exchange currencies.}
+{3030}{}{I wanted to ask something else.}
+{4000}{}{Golden dollars are our new currency that soon will become California wide. Caps are not stable and many people still use some old machines to create big amounts of caps, so we created a completely new currency that will stabalize our economic and everyone will be happy. Golden dollars are our future.}
+{4010}{}{I wish to exchange currencies.}
+{4020}{}{I wanted to ask something else.}
+{5000}{}{Sure, currenct currency is 1000 caps per one golden dollar. Exchange comission - 100 caps. All in all 1100 caps per one golden dollar.}
+{5010}{}{Nevermind.}
+{6000}{}{It will be 2700 NCR bucks for 1 dollar.}
+{6010}{}{1 dollar please.}
+{6020}{}{Give me 5 dollars.}
+{6030}{}{That's it. I will be going.}
+{7000}{}{It will be 2100 Enclave bucks for 1 dollar.}
+{7010}{}{1 dollar please.}
+{7020}{}{Give me 5 dollars.}
+{7030}{}{That's it. I will be going.}
+{8000}{}{It will be 2400 Brotherhood memory modules for 1 dollar.}
+{8010}{}{1 dollar please.}
+{8020}{}{Give me 5 dollars.}
+{8030}{}{That's it. I will be going.}
+{9000}{}{It will be 2300 Master's chips for 1 dollar.}
+{9010}{}{1 dollar please.}
+{9020}{}{Give me 5 dollars.}
+{9030}{}{That's it. I will be going.}
+{10000}{}{This will be 2200 Vault City dollars for 1 golden dollar.}
+{10010}{}{1 dollar please.}
+{10020}{}{5 dollars please.}
+{10030}{}{That's it. Bye.}
+{11000}{}{Here you go.}
+

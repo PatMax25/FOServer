@@ -1,0 +1,85 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+5 2010 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script perks@can_class 1 110 R _script perks@allstatup 0  R _param p PE_SOLDIER + 1 @
+5 4000 None 0 #
+4 4010 #
+0 4020 &
+
+[engl]
+{100}{}{Soldier}
+{210}{}{Here you are... Meet the soldier.}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! Sun Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This requires some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir!}
+{4000}{}{What... What is it, maggot?}
+{4010}{}{I want to be a soldier like you. Our nation needs us!}
+{4020}{}{Nothing. Bye.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+{4000}{}{What... What is it, maggot?}
+{4010}{}{I want to be a soldier like you. Our nation needs us!}
+{4020}{}{Nothing. Bye.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+{4000}{}{What... What is it, maggot?}
+{4010}{}{I want to be a soldier like you. Our nation needs us!}
+{4020}{}{Nothing. Bye.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+{4000}{}{What... What is it, maggot?}
+{4010}{}{I want to be a soldier like you. Our nation needs us!}
+{4020}{}{Nothing. Bye.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{If fighting is sure to result in victory, then you must fight! San Tzu said that, and I'd say he knows a little more about fighting...}
+{2010}{}{Eeh...? }
+{3000}{}{Are you sure? This require some proper experience, maggot!}
+{3010}{}{Then my answer is no.}
+{3020}{}{YES sir}
+{4000}{}{What... What is it, maggot?}
+{4010}{}{I want to be a soldier like you. Our nation needs us!}
+{4020}{}{Nothing. Bye.}
+

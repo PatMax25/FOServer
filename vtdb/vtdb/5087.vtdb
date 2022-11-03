@@ -1,0 +1,14 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = limmy hopkins;
+@gender = 0;
+@age = 20;
+
+@special = 4 4 4 10 10 4 4;
+@xp = 1 0 1000;
+@life = 67 67 0 0 0 0 0 0 0;
+@stats = 12 7 76625 1 0 20 8 8 3 4;
+@skills = 21 8 8 46 36 16 28 19 17 18 12 18 40 30 50 40 20 28 0;
+@traits = 558 560;
+@perks = 301;

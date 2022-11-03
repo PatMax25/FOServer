@@ -1,0 +1,114 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 #
+5 3020 #
+0 3030 @
+4 4000 None 0 #
+0 4010 #
+6 4020 @
+5 5000 None 0 #
+6 5010 #
+0 5020 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Mrs. Mercury}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello! Welcome to Mrs. Mercury's museum! *she points at her own name tag* How can I help you?}
+{2010}{}{Museum? What is it about?}
+{3000}{}{About... Everything! Our museum is split into 2 parts. In the first one you can check out different pre war relics and in the second one learn a little about the saviors of our city - The Khans!}
+{3010}{}{Pre War relics?}
+{3020}{}{The Khans?}
+{3030}{}{Uh, whatever. I better go find a local bar.}
+{4000}{}{Yes, these are taken from all over the Boneyard. Just check it out, it is for free.}
+{4010}{}{Sure...}
+{4020}{}{I don't give a shit about pre war trash!}
+{5000}{}{Yup. These guys saved our city from economic disaster. We had to devote some space in our museum for them.}
+{5010}{}{Ain't it a pack of some jet addicted bandits roaming around?}
+{5020}{}{Aha... Will take a look.}
+{6000}{}{Hey, be more respectful!}
+
+[czec]
+{100}{}{Mrs. Mercury}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello! Welcome to Mrs. Mercury's museum! *she points at her own name tag* How can I help you?}
+{2010}{}{Museum? What is it about?}
+{3000}{}{About... Everything! Our museum is split into 2 parts. In the first one you can check out different pre war relics and in the second one learn a little about the saviors of our city - The Khans!}
+{3010}{}{Pre War relics?}
+{3020}{}{The Khans?}
+{3030}{}{Uh, whatever. I better go find a local bar.}
+{4000}{}{Yes, these are taken from all over the Boneyard. Just check it out, it is for free.}
+{4010}{}{Sure...}
+{4020}{}{I don't give a shit about pre war trash!}
+{5000}{}{Yup. These guys saved our city from economic disaster. We had to devote some space in our museum for them.}
+{5010}{}{Ain't it a pack of some jet addicted bandits roaming around?}
+{5020}{}{Aha... Will take a look.}
+{6000}{}{Hey, be more respectful!}
+
+[pols]
+{100}{}{Mrs. Mercury}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello! Welcome to Mrs. Mercury's museum! *she points at her own name tag* How can I help you?}
+{2010}{}{Museum? What is it about?}
+{3000}{}{About... Everything! Our museum is split into 2 parts. In the first one you can check out different pre war relics and in the second one learn a little about the saviors of our city - The Khans!}
+{3010}{}{Pre War relics?}
+{3020}{}{The Khans?}
+{3030}{}{Uh, whatever. I better go find a local bar.}
+{4000}{}{Yes, these are taken from all over the Boneyard. Just check it out, it is for free.}
+{4010}{}{Sure...}
+{4020}{}{I don't give a shit about pre war trash!}
+{5000}{}{Yup. These guys saved our city from economic disaster. We had to devote some space in our museum for them.}
+{5010}{}{Ain't it a pack of some jet addicted bandits roaming around?}
+{5020}{}{Aha... Will take a look.}
+{6000}{}{Hey, be more respectful!}
+
+[span]
+{100}{}{Mrs. Mercury}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello! Welcome to Mrs. Mercury's museum! *she points at her own name tag* How can I help you?}
+{2010}{}{Museum? What is it about?}
+{3000}{}{About... Everything! Our museum is split into 2 parts. In the first one you can check out different pre war relics and in the second one learn a little about the saviors of our city - The Khans!}
+{3010}{}{Pre War relics?}
+{3020}{}{The Khans?}
+{3030}{}{Uh, whatever. I better go find a local bar.}
+{4000}{}{Yes, these are taken from all over the Boneyard. Just check it out, it is for free.}
+{4010}{}{Sure...}
+{4020}{}{I don't give a shit about pre war trash!}
+{5000}{}{Yup. These guys saved our city from economic disaster. We had to devote some space in our museum for them.}
+{5010}{}{Ain't it a pack of some jet addicted bandits roaming around?}
+{5020}{}{Aha... Will take a look.}
+{6000}{}{Hey, be more respectful!}
+
+[russ]
+{100}{}{Mrs. Mercury}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello! Welcome to Mrs. Mercury's museum! *she points at her own name tag* How can I help you?}
+{2010}{}{Museum? What is it about?}
+{3000}{}{About... Everything! Our museum is split into 2 parts. In the first one you can check out different pre war relics and in the second one learn a little about the saviors of our city - The Khans!}
+{3010}{}{Pre War relics?}
+{3020}{}{The Khans?}
+{3030}{}{Uh, whatever. I better go find a local bar.}
+{4000}{}{Yes, these are taken from all over the Boneyard. Just check it out, it is for free.}
+{4010}{}{Sure...}
+{4020}{}{I don't give a shit about pre war trash!}
+{5000}{}{Yup. These guys saved our city from economic disaster. We had to devote some space in our museum for them.}
+{5010}{}{Ain't it a pack of some jet addicted bandits roaming around?}
+{5020}{}{Aha... Will take a look.}
+{6000}{}{Hey, be more respectful!}
+

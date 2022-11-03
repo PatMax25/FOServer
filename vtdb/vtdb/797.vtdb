@@ -1,0 +1,15 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Dumpgrah;
+@gender = 0;
+@age = 29;
+
+@special = 6 9 7 2 6 7 3;
+@xp = 1 420 1000;
+@life = 75 75 0 0 0 0 0 0 0;
+@stats = 21 8 99275 1 0 35 14 18 4 3;
+@skills = 33 14 14 56 46 28 30 20 26 26 21 26 24 18 10 8 15 26 0;
+@perks = 301;
+@reputation = 689:11 690:8;
+@kills = 267:2 277;

@@ -1,0 +1,14 @@
+import void InitializeDynamicMob(Map& map) from "mob_dynamic";
+import void InitializeDynamicMob(Map& map, bool withBoss) from "mob_dynamic";
+
+void map_init(Map& map, bool firstTime)
+{
+    //Dynamic mobs
+	if(firstTime) InitializeDynamicMob(map);
+}
+
+void map_init2(Map& map, bool firstTime)
+{
+    //Dynamic mobs
+	if(firstTime) InitializeDynamicMob(map, true);
+}

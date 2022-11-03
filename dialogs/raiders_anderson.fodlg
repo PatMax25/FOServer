@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+65506 2020 #
+0 2030 @
+3 3000 None 0 #
+2 3010 &
+
+[engl]
+{100}{}{Anderson}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo, mate? Looking for some nice armors? I can give ya the best I have!}
+{2010}{}{From where do you get your stock?}
+{2020}{}{Show me what you have now.}
+{2030}{}{Later maybe.}
+{3000}{}{I usually get my stuff from some very... let's say... sensitive people. They bring me only exclusive stuff. However shipments don't come often and I am usually selling everything off pretty fast. You really have to visit me often and check my stock from time to time to get the best gear.}
+{3010}{}{Alright, back to the topic.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is an old Nuka Cola Manufacture machine, It is long gone and doesn't even seem to work. However, you can try to get its matrix out. Though it will require some serious tools. ]}
+{2010}{}{From where do you get your stock?}
+{2020}{}{Show me what you have now.}
+{2030}{}{Later maybe.}
+{3000}{}{I usually get my stuff from some very... let's say... gentle people. They bring me only exculive stuff. However shipments don't come often and I am usually selling everything off pretty fast. So you shall really visit me from time to time.}
+{3010}{}{Alright, back to the topic.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is an old Nuka Cola Manufacture machine, It is long gone and doesn't even seem to work. However, you can try to get its matrix out. Though it will require some serious tools. ]}
+{2010}{}{From where do you get your stock?}
+{2020}{}{Show me what you have now.}
+{2030}{}{Later maybe.}
+{3000}{}{I usually get my stuff from some very... let's say... gentle people. They bring me only exculive stuff. However shipments don't come often and I am usually selling everything off pretty fast. So you shall really visit me from time to time.}
+{3010}{}{Alright, back to the topic.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is an old Nuka Cola Manufacture machine, It is long gone and doesn't even seem to work. However, you can try to get its matrix out. Though it will require some serious tools. ]}
+{2010}{}{From where do you get your stock?}
+{2020}{}{Show me what you have now.}
+{2030}{}{Later maybe.}
+{3000}{}{I usually get my stuff from some very... let's say... gentle people. They bring me only exculive stuff. However shipments don't come often and I am usually selling everything off pretty fast. So you shall really visit me from time to time.}
+{3010}{}{Alright, back to the topic.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is an old Nuka Cola Manufacture machine, It is long gone and doesn't even seem to work. However, you can try to get its matrix out. Though it will require some serious tools. ]}
+{2010}{}{From where do you get your stock?}
+{2020}{}{Show me what you have now.}
+{2030}{}{Later maybe.}
+{3000}{}{I usually get my stuff from some very... let's say... gentle people. They bring me only exculive stuff. However shipments don't come often and I am usually selling everything off pretty fast. So you shall really visit me from time to time.}
+{3010}{}{Alright, back to the topic.}
+

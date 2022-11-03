@@ -1,0 +1,3331 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// dialog.fos
+//
+
+#ifndef __DIALOG__
+#define __DIALOG__
+
+#include "_macros.fos"
+#include "economy_h.fos"
+#include "factions_h.fos"
+#include "follower_common_h.fos"
+#include "lexems_h.fos"
+#include "mapdata_h.fos"
+#include "messages_h.fos"
+#include "npc_common_h.fos"
+#include "npc_roles_h.fos"
+#include "world_common_h.fos"
+#include "dynamic_light_source_h.fos"
+#include "_colors.fos"
+#include "MsgStr.h"
+
+/**
+ * \~english @defgroup DialogFuncs Dialog module
+ * List of dialog module dialog functions.
+ * \~ @ingroup FOnline2238
+ */
+/*@{*/
+
+
+#include "dialog_factions.fos"
+#include "dialog_reputations.fos"
+
+
+import void AffectRadiation(Critter& cr, int value) from "radiation";
+import void DropPoison(Critter& cr) from "poison";
+import void DropRadiation(Critter& cr) from "radiation";
+import void FlushScreen(Critter& cr, bool fadeOut, uint timeMs) from "effects";
+import void PlaySound(Critter& cr, string& soundName) from "media";
+
+import int stringReplaceText(string& s, string@ f, string@ t) from "config_file";
+import void ServerEventCNTSet(string message, uint location, uint type, uint time)  from "broadcast";
+
+/**
+ * \~english @name General
+ *
+ * \~ @weight 550
+ */
+// @{
+
+/**
+ * Check if the player is the owner of the currently occupied location
+ */
+bool d_IsLocationOwner(Critter& player, Critter@ npc)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return false;
+    return int(player.Id) == GetRootMapData(map, MAP_DATA_OWNER);
+}
+
+
+uint Addpropermoney(Critter@ npc)
+{
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 0: return PID_BOTTLE_CAPS;
+	case 1: return PID_ENCLAVE_MONEY; 
+	case 2: return PID_BOS_MONEY;
+	case 3: return PID_NCR_MONEY; 
+	case 4: return PID_VC_MONEY; 
+	case 5: return PID_MA_MONEY;
+	}
+	return PID_BOTTLE_CAPS;
+
+}
+bool d_havepropermoney(Critter& player, Critter@ npc, int price)
+{
+    Map@ map = player.GetMap();
+	uint prices = price;
+    if(!valid(map))
+        return false;
+    return _CritCountItem(player, Addpropermoney(npc)) >= prices;
+}
+/**
+ * Check if the player is not the owner of the currently occupied location
+ */
+bool d_IsNotLocationOwner(Critter& player, Critter@ npc)
+{
+    return !d_IsLocationOwner(player, npc);
+}
+
+/**
+ * Check if a player is already talking to the NPC.
+ */
+bool d_IsBusy(Critter& player, Critter@ npc)
+{
+    return(npc.GetTalkedPlayers(null) > 0);
+}
+
+/**
+ * Add some caps to the player.
+ * This is the prefered method to add caps, instead of doing it manually in dialog editor.
+ * @param val Amount of money to add
+ */
+void r_AddMoney(Critter& player, Critter@ npc, int val)
+{
+    BanksTransferToCritter(player, val, TRANSACTION_DEFAULT, false);
+}
+
+/**
+ * Flush the screen black and back.
+ */
+void r_FlushScreen(Critter& cr, Critter@ tray)
+{
+    FlushScreen(cr, false, 500);
+    FlushScreen(cr, true, 5000);
+}
+
+/**
+ * Remove some caps from the player.
+ * This is the prefered method to remove caps, instead of doing it manually in dialog editor.
+ * @param val Amount of money to subtract
+ */
+void r_RemoveMoney(Critter& player, Critter@ npc, int val)
+{
+	player.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+    BanksTransferFromCritter(player, val, TRANSACTION_DEFAULT, false);
+}
+
+/**
+ * Check if the amount of money is available in all banks combined.
+ * @param val The given amount.
+ */
+bool d_IsMoneyAvailable(Critter& player, Critter@ npc, int val)
+{
+    return(int(BanksGetTotalMoney()) >= val);
+}
+
+bool d_IsWearingArmor(Critter& player, Critter@ npc)
+{
+    uint8 dummy = 0;
+    return valid(player.GetSlotProto(SLOT_ARMOR, dummy));
+}
+
+bool d_IsWearingScaryHelmet(Critter& player, Critter@ npc)
+{
+    uint16[] scaryHelmets =
+    {
+        PID_METAL_HELMET,
+        PID_METAL_HELMET_MK2
+    };
+
+    Item@ helmet = player.GetItem(0, SLOT_HEAD);
+    if(valid(helmet) && Present(helmet.GetProtoId(), scaryHelmets))
+        return(true);
+    else
+        return(false);
+}
+
+/**
+ * Remove the items the player has in Slot1 and 2. 1 drops to ground, 2 goes to inv.
+ */
+void r_RemoveWeapon(Critter& player, Critter@ tray)
+{
+    Item@ item = player.GetItem(0, SLOT_HAND1);
+    if(valid(item))
+        player.MoveItem(item.Id, 0, SLOT_GROUND);
+    @item = player.GetItem(0, SLOT_HAND2);
+    if(valid(item))
+        player.MoveItem(item.Id, 0, SLOT_INV);
+}
+
+/**
+ * Drops armor to ground.
+ */
+void r_RemoveArmor(Critter& player, Critter@ tray)
+{
+    Item@ armor = player.GetItem(0, SLOT_ARMOR);
+    if(valid(armor))
+        player.MoveItem(armor.Id, 0, SLOT_GROUND);
+}
+
+/**
+ * Send messages to everyone that sees the player, ordering them to attack.
+ */
+void r_Alert(Critter& player, Critter@npc)
+{
+    player.SendMessage(MSG_ATTACK_ME, 0, MESSAGE_TO_WHO_SEES_ME);
+}
+
+/**
+ * Teleport player to a map.
+ * @param mappid PID of map to teleport to
+ * @param entid Entire id on map, 0 is default entry point.
+ */
+void r_TeleportToMap(Critter& player, Critter@npc, int mappid, int entid)
+{
+    Map@ map = GetMapByPid(mappid, 0);
+    if(!valid(map))
+    {
+    //    Log("r_TeleportToMap failed, map " + mappid + " not found.");
+        return;
+    }
+    player.TransitToMap(map.Id, entid);
+}
+
+void r_TeleportToMapFollowers(Critter& player, Critter@npc, int mappid, int entid)
+{
+    array<Critter@> followers;
+    uint            num = GetFollowers(player, player.GetMap(), followers);
+    Map@            map = GetMapByPid(mappid, 0);
+    if(!valid(map))
+    {
+     //   Log("r_TeleportToMapFollowers failed, map " + mappid + " not found.");
+        return;
+    }
+    for(uint i = 0; i < num; i++)
+        followers[i].TransitToMap(map.Id, entid);
+}
+
+/**
+ * Delete all items in player's inventory
+ */
+void r_ClearInventory(Critter& player, Critter@npc)
+{
+    array<Item@> items;
+    int          count = player.GetItems(-1, items);
+    DeleteItems(items);
+}
+
+void r_RunAway(Critter& player, Critter@ npc)
+{
+    r_RunAway(player, npc, 10, 20);
+}
+
+void r_RunAway(Critter& player, Critter@ npc, int distance)
+{
+    r_RunAway(player, npc, distance, distance);
+}
+
+void r_RunAway(Critter& player, Critter@ npc, int minDistance, int maxDistance)
+{
+    if(valid(npc))
+        MoveRandom(npc, Random(minDistance, maxDistance), true);
+}
+
+// @}
+
+/**
+ * \~english @name World related
+ *
+ * \~ @weight 530
+ */
+// @{
+
+/**
+ * Check if it's night in the world. Night is defined as 22:00-06:59.
+ */
+bool d_CheckNight(Critter& player, Critter@ npc)
+{
+    return(IsNight());
+}
+
+/**
+ * Check if it's day in the world. Day is defined as 07:00-21:59.
+ */
+bool d_CheckDay(Critter& player, Critter@ npc)
+{
+    return(!IsNight());
+}
+
+/**
+ * Check if it's morning in the world. Morning is defined as 07:00-11:59.
+ */
+bool d_CheckMorning(Critter& player, Critter@ npc)
+{
+    return(IsMorning());
+}
+
+/**
+ * Check if it's afternoon in the world. Afternoon is defined as 12:00-17:59.
+ */
+bool d_CheckAfternoon(Critter& player, Critter@ npc)
+{
+    return(IsAfternoon());
+}
+
+/**
+ * Check if it's evening in the world. Evening is defined as 18:00-21:59.
+ */
+bool d_CheckEvening(Critter& player, Critter@ npc)
+{
+    return(IsEvening());
+}
+
+/**
+ * Check if a player can see a location.
+ * @param locationId Unique id of the location.
+ */
+bool d_IsLocationVisible(Critter& player, Critter@ npc, int locationId)
+{
+    return player.IsKnownLoc(false, locationId);
+}
+
+/**
+ * Check if a player can not see a location.
+ * @param locationId Unique id of the location.
+ */
+bool d_IsLocationNotVisible(Critter& player, Critter@ npc, int locationId)
+{
+    return !player.IsKnownLoc(false, locationId);
+}
+
+/**
+ * Show location to the player.
+ * @param locationId Unique id of the location.
+ */
+void r_ShowLocation(Critter& player, Critter@ npc, int locationId)
+{
+    player.SetKnownLoc(false, locationId);
+}
+
+/**
+ * Mark the current location as autogarbage-ready.
+ */
+void r_RetireLocation(Critter& player, Critter@ npc)
+{
+    Location@ loc = player.GetMap().GetLocation();
+    if(!loc.IsInstancedQuest())
+        return;
+    loc.AutoGarbage = true;
+}
+
+// @}
+
+/**
+ * \~english @name Critter state
+ *
+ * \~ @weight 545
+ */
+// @{
+
+/**
+ * Check if player's current HP is under 25% of his maximum HP.
+ */
+bool d_HpVeryLow(Critter& player, Critter@ npc)   // these functions return Hit Points
+{
+    // there are 4 levels: <25%, <50%, <75%, <100%
+    return player.Param[ST_CURRENT_HP] < player.Param[ST_MAX_LIFE] / 4;
+}
+
+/**
+ * Check if player's current HP is under 50% of his maximum HP.
+ */
+bool d_HpLow(Critter& player, Critter@ npc)
+{
+    return player.Param[ST_CURRENT_HP] < player.Param[ST_MAX_LIFE] * 2 / 4;
+}
+
+/**
+ * Check if player's current HP is under 75% of his maximum HP.
+ */
+bool d_HpAverage(Critter& player, Critter@ npc)
+{
+    return player.Param[ST_CURRENT_HP] < player.Param[ST_MAX_LIFE] * 3 / 4;
+}
+
+/**
+ * Check if player's current HP is under 100% of his maximum HP.
+ */
+bool d_HpHigh(Critter& player, Critter@ npc)
+{
+    return player.Param[ST_CURRENT_HP] < player.Param[ST_MAX_LIFE]; // use them in this order to get something useful
+}                                                                 // it can be used with d_IsToHeal too
+
+/**
+ * Check if NPC's current HP is under 25% of his maximum HP.
+ */
+bool d_NPCHpVeryLow(Critter& player, Critter@ npc)                // these functions return Hit Points
+{
+    // there are 4 levels: <25%, <50%, <75%, <100%
+    return npc.Param[ST_CURRENT_HP] < npc.Param[ST_MAX_LIFE] / 4;
+}
+
+/**
+ * Check if NPC's current HP is under 50% of his maximum HP.
+ */
+bool d_NPCHpLow(Critter& player, Critter@ npc)
+{
+    return npc.Param[ST_CURRENT_HP] < npc.Param[ST_MAX_LIFE] * 2 / 4;
+}
+
+/**
+ * Check if NPC's current HP is under 75% of his maximum HP.
+ */
+bool d_NPCHpAverage(Critter& player, Critter@ npc)
+{
+    return npc.Param[ST_CURRENT_HP] < npc.Param[ST_MAX_LIFE] * 3 / 4;
+}
+
+/**
+ * Check if NPC's current HP is under 100% of his maximum HP.
+ */
+bool d_NPCHpHigh(Critter& player, Critter@ npc)
+{
+    return npc.Param[ST_CURRENT_HP] < npc.Param[ST_MAX_LIFE];     // use them in this order to get something useful
+}
+
+// Define healing price
+
+// #define HEALING_PRICE #(player) (player.Param[ST_LEVEL] * 50)	// money needed for healing
+#define HEALING_PRICE                                                                                                                              \
+    # (player)                                                                                                                                     \
+    (                                                                                                                                              \
+        ((player.Param[ST_MAX_LIFE] - player.Param[ST_CURRENT_HP]) * 2) +                                                                          \
+        ((player.Param[DAMAGE_LEFT_ARM] + player.Param[DAMAGE_RIGHT_ARM] + player.Param[DAMAGE_LEFT_LEG] + player.Param[DAMAGE_RIGHT_LEG]) * 40) + \
+        (player.Param[DAMAGE_EYE] * 50) +                                                                                                          \
+        (player.Param[ST_RADIATION_LEVEL] + (player.Param[ST_RADIATION_LEVEL] > 0 ? 100 : 0)) +                                                    \
+        (player.Param[ST_POISONING_LEVEL] * 3)                                                                                                     \
+    )
+
+/**
+ * Check if player has enough caps for healing.
+ */
+bool d_HealingMoney(Critter& player, Critter@ npc)
+{
+    uint price = HEALING_PRICE(player);
+
+    return _CritCountItem(player, Addpropermoney(npc)) >= price;
+}
+
+/**
+ * Check if player can be healed.
+ */
+bool d_IsToHeal(Critter& player, Critter@ npc)
+{
+    return player.Param[ST_CURRENT_HP] < player.Param[ST_MAX_LIFE] ||
+           _CritIsInjured(player) ||
+           player.Param[ST_POISONING_LEVEL] > 0 ||
+           player.Param[ST_RADIATION_LEVEL] > 0;
+}
+
+/**
+ * Removes poision, radiation, heals limbs and returns HP to max.
+ */
+void r_DocHeal(Critter& player, Critter@ npc)             // use this for healing Docs only, it fixes limbs too
+{
+    uint price = HEALING_PRICE(player);
+
+    player.DamageBase[DAMAGE_EYE] = 0;
+    player.DamageBase[DAMAGE_RIGHT_ARM] = 0;
+    player.DamageBase[DAMAGE_LEFT_ARM] = 0;
+    player.DamageBase[DAMAGE_RIGHT_LEG] = 0;
+    player.DamageBase[DAMAGE_LEFT_LEG] = 0;
+    player.ParamBase[ST_CURRENT_HP] = player.Param[ST_MAX_LIFE];
+
+    DropPoison(player);
+    DropRadiation(player);
+
+    // reduce money
+    _CritDeleteItem(player, Addpropermoney(npc), price);
+}
+
+/**
+ * Show how much healing costs. @lex price@ is used.
+ */
+void dlg_ShowHealingPrice(Critter& player, Critter@ npc, string@ text)    // shows the price for healing
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+
+    uint price = HEALING_PRICE(player);
+    text = "$price" + price;
+	string money;
+	string prefix;
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 1: money = "Dollars";
+	case 2: money =  "Chips";
+	case 3: money =  "Scrips";
+	case 4: money =  "Pounds";
+	case 5: money =  "Rings";
+	default: money =  "Caps";
+	}
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 1: prefix = "Enclave ";
+	case 2: prefix =  "Memory ";
+	case 3: prefix =  "NCR ";
+	case 4: prefix =  "Vault City ";
+	case 5: prefix =  "Pull ";
+	default: prefix = "Bottle ";
+	}
+	text += ("$prefix" + prefix);
+	text += ("$money" + money);
+}
+
+/**
+ * Check if a player is addicted to anything.
+ * This includes: Nuka Cola, Buffout, Mentats, Psycho, Radaway, Jet or Tragic (the card game).
+ */
+bool d_IsAddict(Critter& player, Critter@ npc)
+{
+    return player.Addiction[ADDICTION_NUKA_COLA] > 0 ||
+           player.Addiction[ADDICTION_BUFFOUT] > 0 ||
+           player.Addiction[ADDICTION_MENTATS] > 0 ||
+           player.Addiction[ADDICTION_PSYCHO] > 0 ||
+           player.Addiction[ADDICTION_RADAWAY] > 0 ||
+           player.Addiction[ADDICTION_JET] > 0 ||
+           player.Addiction[ADDICTION_TRAGIC] > 0;
+}
+
+/**
+ * Checks if player is not addicted to anything.
+ * @see d_IsAddict
+ */
+bool d_IsNotAddict(Critter& player, Critter@ npc)
+{
+    return !d_IsAddict(player, npc);
+}
+
+/**
+ * Checks if player have any weapon in active slot
+ */
+bool d_WeaponInHand(Critter& player, Critter@ npc)
+{
+    Item@ item = _CritGetItemHand(player);
+    if(!valid(item))
+        return false;
+    return item.GetType() == ITEM_TYPE_WEAPON;
+}
+
+/**
+ * Checks if player DOESNT have any weapon in active slot
+ */
+bool d_NoWeaponInHand(Critter& player, Critter@ npc)
+{
+    return !d_WeaponInHand(player, npc);
+}
+
+/**
+ * Checks if player have specified item in active slot
+ */
+bool d_ItemInHand(Critter& player, Critter@ npc, int pid)
+{
+    Item@ item = _CritGetItemHand(player);
+    if(!valid(item))
+        return false;
+    return item.GetProtoId() == uint(pid);
+}
+
+/**
+ * Heal HP to players' maximum.
+ */
+void r_ToHeal(Critter& player, Critter@ npc)
+{
+    player.ParamBase[ST_CURRENT_HP] = player.Param[ST_MAX_LIFE];
+}
+
+/**
+ * Kill the player with a given animation
+ * @param val Animation number
+ */
+void r_ToDead(Critter& player, Critter@ npc, int val)
+{
+    player.ToDead(val, null);
+}
+
+/**
+ * Kills the NPC, player is the killer.
+ * @param val Death animation number
+ */
+void r_KillNpc(Critter& player, Critter@ npc, int val)
+{
+    npc.ToDead(val, player);
+}
+/**
+ * Kills the NPC, no one is the killer.
+ * @param val Death animation number
+ */
+void r_NinjaKillNpc(Critter& player, Critter@ npc, int val)
+{
+    npc.ToDead(val, null);
+}
+
+/**
+ * Checks whether npc is on a map with given protoid
+ */
+bool d_NpcOnMap(Critter& player, Critter@ npc, int mappid)
+{
+    if(!valid(npc) || !valid(npc.GetMap()))
+        return false;
+    return npc.GetMapProtoId() == uint(mappid);
+}
+/**
+ * Checks whether npc is in location with given protoid.
+ */
+bool d_NpcInLocation(Critter& player, Critter@ npc, int locpid)
+{
+    if(!valid(npc) || !valid(npc.GetMap()))
+        return false;
+    return npc.GetMap().GetLocation().GetProtoId() == uint(locpid);
+}
+
+/////////////
+// RADIATION
+/////////////
+
+
+/**
+ * Irradiate or de-radiate the player.
+ * @param val Amount of radiation to receive (negative value will result in radiation decrease)
+ */
+void r_Irradiate(Critter& player, Critter@ npc, int val)
+{
+    AffectRadiation(player, val);
+}
+
+// @}
+
+/**
+ * \~english @name Stat checks and random rolls
+ *
+ * \~ @weight 540
+ */
+// @{
+
+
+/**
+ * Jump to a node between min and max nodes.
+ * @param min Minimum node.
+ * @param max Maximum node.
+ * @param multiplier Multiplier. If multiplier is 10 and minimum node is 1 and maximum node is 5, then 10,20,30,40,50 are nodes that can be randomized
+ */
+uint r_JumpToRandomNode(Critter& player, Critter@ npc, int min, int max, int multiplier)
+{
+    return Random(min, max) * multiplier;
+}
+
+/**
+ * Jump to a node between min and max nodes.
+ * @param min Minimum node.
+ * @param max Maximum node.
+ */
+uint r_JumpToRandomNode(Critter& player, Critter@ npc, int min, int max)
+{
+    return Random(min, max);
+}
+
+uint r_NodeChancePercent(Critter& player, Critter@ npc, int chance, int node)
+{
+    if(Random(1, 100) <= chance)
+        return(node);
+
+    return(0);
+}
+
+uint r_NodeChancePercent(Critter& player, Critter@ npc, int chance, int nodeOK, int nodeFAIL)
+{
+    if(Random(1, 100) <= chance)
+        return(nodeOK);
+
+    return(nodeFAIL);
+}
+
+/**
+ * Make a random dice roll which is true only if 1==n
+ * @param n As in the function description.
+ * n is the input value you provide
+ * Some example of chances when providing different values:
+ * 1 - Always true.
+ * 2 - Will be true in 50% of cases
+ * 5 - Will be true in 20% of cases.
+ */
+bool d_Random(Critter& player, Critter@ npc, int n)
+{
+    return Random(1, n) == 1;
+}
+
+/**
+ * Make a random roll which has a certain % chance of being true.
+ * @param chance A number between 0 and 100.
+ */
+bool d_RandomPercent(Critter& player, Critter@ npc, int chance)
+{
+    chance = CLAMP(chance, 0, 100);
+    return Random(1, 100) <= chance;
+}
+
+uint r_Roll(Critter& player, Critter@ npc, int from, int to, int need, int jump)
+{
+    if(Random(from, to) == need)
+        return(jump);
+    return(0);
+}
+
+/**
+ * Does a roll for skill, then redirects the dialog in case of success
+ * @param     skill           Skill to be checked
+ * @param     successnode     Node to redirect to in case of success
+ */
+uint r_SkillRoll(Critter& player, Critter@ npc, int skill, int successnode)
+{
+    if(SkillRoll(player, skill, 0))
+        return successnode;
+    return 0;
+}
+
+/**
+ * Does a roll for skill with specified skill bonus, then redirects the dialog in case of success
+ * @param     skill           Skill to be checked
+ * @param     skillbonus      Bonus to the checked skill
+ * @param     successnode     Node to redirect to in case of success
+ */
+uint r_SkillRoll(Critter& player, Critter@ npc, int skill, int bonus, int successnode)
+{
+    if(SkillRoll(player, skill, bonus))
+        return successnode;
+    return 0;
+}
+
+/**
+ * Does a roll for stat, then redirects the dialog in case of success
+ * @param     stat            Stat to be checked
+ * @param     successnode     Node to redirect to in case of success
+ */
+uint r_StatRoll(Critter& player, Critter@ npc, int stat, int successnode)
+{
+    if(player.Param[stat] >= Random(1, 10))
+        return successnode;
+    return 0;
+}
+
+/**
+ * Does  aroll for stat with specified stat bonus, then redirects the dialog in case of success
+ * @param     stat            Stat to be checked
+ * @param     statbonus       Bonus to the checked stat
+ * @param     successnode     Node to redirect to in case of success
+ */
+uint r_StatRoll(Critter& player, Critter@ npc, int stat, int bonus, int successnode)
+{
+    if(player.Param[stat] + bonus >= Random(1, 10))
+        return successnode;
+    return 0;
+}
+
+// @}
+
+/**
+ * \~english @name Special
+ *
+ * \~ @weight 510
+ */
+// @{
+
+/**
+ * Add Vault City daypass to player.
+ */
+void r_ReceiveDayPass(Critter& player, Critter@ npc)
+{
+    Item@ daypass = player.AddItem(PID_DAY_PASS2, 1);
+    daypass.Val5 = player.Id;
+}
+
+/**
+ * Check if player has a valid Vault City daypass.
+ */
+bool d_HasValidDayPass(Critter& player, Critter@ npc)
+{
+    Item@ daypass = player.GetItem(PID_DAY_PASS2, -1);
+    if(!valid(daypass))
+        return false;
+    return(uint(daypass.Val5) == player.Id);
+}
+
+//
+// lisac
+// These functions test different checks in game
+//
+
+// JUNK
+bool d_LillyCheckQuest(Critter& player, Critter@ npc, int val)
+{
+    return((GetLocalVar(val, player.Id) == 1) || (GetLocalVar(val, player.Id) > 3));
+}
+
+bool d_VCCheckLK(Critter& player, Critter@ npc, int val)
+{
+    return(Random(0, val) < player.Param[ST_LUCK]);
+}
+
+void r_TransferItemsToContainer(Critter& player, Critter@npc, int mappid, int entid, int contpid, int itemtypes)
+{
+    Map@ map = GetMapByPid(mappid, 0);
+    if(!valid(map))
+        return;
+
+    TransferItemsToContOnMap(player, map, entid, contpid, itemtypes);
+}
+
+void r_TransferItemsFromContainer(Critter& player, Critter@npc, int mappid, int entid, int contpid)
+{
+    Map@ map = GetMapByPid(mappid, 0);
+    if(!valid(map))
+        return;
+
+    TransferItemsFromContOnMap(player, map, entid, contpid);
+}
+
+/////////////////
+//  Scenarios  //
+/////////////////
+
+// A general purpose function, gives all num party members val/num exp (rounded down)
+// Used by:
+// Scenario: MFC Crafting - Gives XP according to MFC you hand over to your superiors (Enclave/BoS)
+void r_AddExpTeam(Critter& player, Critter@ npc, int val)
+{
+    AddExpTeam(player, val);
+
+    Location@ loc = GetLocation(LOCATION_Navarro);
+    Map@      map = loc.GetMapByIndex(1);   // Navarro sublevel
+    Item@     locker;                       // = map.GetItem(63, 90, PID_LOCKER_CLEAN_RIGHT);	// Commander's locker
+    int       mfc = val / 25;               // 20% for Enclave, do not edit! val/25 is correct!
+    locker.AddItem(PID_MICRO_FUSION_CELL, mfc, 0);
+
+    // the rest 80% go to Renesco's inventory (not to new reno limbo, but his inventory)
+
+}
+
+/////////////////
+//   SOUNDS    //
+/////////////////
+
+// lisac2k
+// ugly for now, maybe I bother with this later
+// wipe
+// made it bit better
+void r_PlaySound(Critter& player, Critter@ npc, int val)
+{
+    // passing 1 and 2 for duel atmosphere with Tamira
+    if(val == 1)
+        PlaySound(player, "flute_duel.ogg");
+    else if(val == 2)
+        PlaySound(player, "crickets_duel.ogg");
+	else if(val == 3)
+        PlaySound(player, "handy1_1.ogg");
+	else if(val == 4)
+        PlaySound(player, "handy1_2.ogg");
+	else if(val == 5)
+        PlaySound(player, "handy1_3.ogg");
+	else if(val == 6)
+        PlaySound(player, "handy1_4.ogg");
+	else if(val == 7)
+        PlaySound(player, "handy1_5.ogg");
+	else if(val == 8)
+        PlaySound(player, "handy1_6.ogg");
+	else if(val == 9)
+        PlaySound(player, "handy1_7.ogg");
+	else if(val == 10)
+        PlaySound(player, "handy1_8.ogg");
+	else if(val == 11)
+        PlaySound(player, "handy1_9.ogg");
+	else if(val == 12)
+        PlaySound(player, "handy2_1.ogg");
+	else if(val == 13)
+        PlaySound(player, "handy2_2.ogg");
+	else if(val == 14)
+        PlaySound(player, "handy2_3.ogg");
+	else if(val == 15)
+        PlaySound(player, "handy2_4.ogg");
+	else if(val == 16)
+        PlaySound(player, "handy2_5.ogg");
+	else if(val == 17)
+        PlaySound(player, "handy2_6.ogg");
+	else if(val == 18)
+        PlaySound(player, "handy3_1.ogg");
+	else if(val == 19)
+        PlaySound(player, "handy3_2.ogg");
+	else if(val == 20)
+        PlaySound(player, "handy3_3.ogg");
+	else if(val == 21)
+        PlaySound(player, "handy3_4.ogg");
+	else if(val == 22)
+        PlaySound(player, "handy3_5.ogg");
+	else if(val == 23)
+        PlaySound(player, "handy3_6.ogg");
+	else if(val == 24)
+        PlaySound(player, "knock.ogg");
+	else if(val == 25)
+        PlaySound(player, "crying.ogg");
+	else if(val == 26)
+        PlaySound(player, "signal_door_open.ogg");
+	else if(val == 27)
+        PlaySound(player, "hacking_good.ogg");
+	else if(val == 28)
+        PlaySound(player, "alarm.ogg");
+	else if(val == 29)
+        PlaySound(player, "party.ogg");
+	else if(val == 30)
+        PlaySound(player, "vanilla.ogg");
+	else if(val == 31)
+        PlaySound(player, "Session_end.ogg");
+    else if(val == 32)
+        PlaySound(player, "pandemic.ogg");
+	else if (val == 33)
+	    PlaySound(player,"record_hosp.ogg");
+	else if (val == 34)
+	    PlaySound(player,"nuka.ogg");
+    else if (val == 35)
+	    PlaySound(player,"wasteland.ogg");
+	else if (val == 36)
+	    PlaySound(player,"fortunateson.ogg");
+	else if (val == 37)
+	    PlaySound(player,"motivational.ogg");
+	else if (val == 38)
+	    PlaySound(player,"polka.ogg");
+	else if (val == 39)
+	    PlaySound(player,"1-new_faces.ogg");
+	else if (val == 40)
+	    PlaySound(player,"2-nice_name.ogg");
+	else if (val == 41)
+	    PlaySound(player,"3.what_is_it.ogg");
+	else if (val == 42)
+	    PlaySound(player,"4-ive_spent.ogg");
+	else if (val == 43)
+	    PlaySound(player,"5-scavenging_is_.ogg");
+	else if (val == 44)
+	    PlaySound(player,"6-yeah..._i_actually_have.ogg");
+	else if (val == 45)
+	    PlaySound(player,"7-lemme_tell_you.ogg");
+	else if (val == 46)
+	    PlaySound(player,"8-dark_as_fuck.ogg");
+	else if (val == 47)
+	    PlaySound(player,"9-ive_marked_thelocation.ogg");
+	else if (val == 48)
+	    PlaySound(player,"10-heck_yeah_thats_my_gun.ogg");
+	else if (val == 49)
+	    PlaySound(player,"11-im_no_longer_ambitious.ogg");
+	else if (val == 50)
+	    PlaySound(player,"1-hello.ogg");
+	else if (val == 51)
+	    PlaySound(player,"2.benjamin_.ogg");
+	else if (val == 52)
+	    PlaySound(player,"3-shady_sands_is_a_big.ogg");
+	else if (val == 53)
+	    PlaySound(player,"4-i_dont_discuss.ogg");
+	else if (val == 54)
+	    PlaySound(player,"5-_wont_be_able.ogg");
+	else if (val == 55)
+	    PlaySound(player,"6-piece_of_technoloy.ogg");
+	else if (val == 56)
+	    PlaySound(player,"12-heck.ogg");
+	else if (val == 57)
+	    PlaySound(player,"sovmarch.ogg");
+	else if (val == 58)
+	    PlaySound(player,"so_what_have_we_here.ogg");
+	else if (val == 59)
+	    PlaySound(player,"the_president.ogg");
+	else if (val == 60)
+	    PlaySound(player,"enough_chatting.ogg");
+	else if (val == 61)
+	    PlaySound(player,"knight1.wav");
+	else if (val == 62)
+	    PlaySound(player,"knight2.wav");
+	else if (val == 63)
+	    PlaySound(player,"knight3.wav");
+	else if (val == 64)
+	    PlaySound(player,"knight4.wav");
+	else if (val == 65)
+	    PlaySound(player,"knight5.wav");
+	else if (val == 66)
+	    PlaySound(player,"knight6.wav");
+	else if (val == 67)
+	    PlaySound(player,"knight7.wav");
+	else if (val == 68)
+	    PlaySound(player,"knight8.wav");
+	else if (val == 69)
+	    PlaySound(player,"knight9.wav");
+	else if (val == 70)
+	    PlaySound(player,"knight10.wav");
+	else if (val == 71)
+	    PlaySound(player,"knight11.wav");
+	else if (val == 72)
+	    PlaySound(player,"knight12.wav");
+	else if (val == 73)
+	    PlaySound(player,"knight13.wav");
+	else if (val == 74)
+	    PlaySound(player,"knight14.wav");
+}
+
+
+/////////////////
+//    MISC     //
+/////////////////
+// first argument for groupId
+// secnd argument for on/off, consider values higher than zero as On, otherwise Off
+void r_SwtichLightGroup(Critter& player, Critter@ npc, int groupId, int on)
+{
+	bool toOn = on > 0;
+	Map@ currentMap = player.GetMap();
+	if(valid(currentMap))
+		SwitchGroupLights(currentMap, groupId, toOn);
+}
+
+// param id is
+// 0 - color
+// 1 - intensity
+// 2 - distance
+// 3 - drop to base ( paramVal not used )
+// paramVal for new value to set
+void r_ChangeLightGroupParam(Critter& player, Critter@ npc, int groupId, int paramId, int paramVal)
+{
+	Map@ currentMap = player.GetMap();
+	if(valid(currentMap))
+		ChangeGroupLightsParam(currentMap, groupId, paramId, paramVal);
+}
+
+void r_GunRunnerInsult(Critter& player, Critter@ npc)
+{
+    array<Critter@> crits;
+    uint            n = player.GetMap().GetCritters(0, FIND_LIFE | FIND_ONLY_NPC, crits);
+    for(uint i = 0; i < n; i++)
+        if(crits[i].Param[ST_NPC_ROLE] == ROLE_GUNRUNNERS_OHREALLY)
+        {
+            crits[i].Say(SAY_NORM_ON_HEAD, "Oh really?");
+            AttackCritter(crits[i], player);
+        }
+}
+
+void r_DogsQuestReward(Critter& player, Critter@ npc)
+{
+    switch(Random(0, 6))
+    {
+    case 0:
+        player.AddItem(PID_5MM_JHP, 50);
+        break;                                    // 12
+    case 1:
+        player.AddItem(PID_5MM_AP, 45);
+        break;                                    // 14
+    case 2:
+        player.AddItem(PID_10MM_JHP, 60);
+        break;                                    // 10
+    case 3:
+        player.AddItem(PID_10MM_AP, 50);
+        break;                                    // 12
+    case 4:
+        player.AddItem(PID_9MM_BALL, 100);
+        break;                                    // 6
+    case 5:
+        player.AddItem(PID_EXPLOSIVE_ROCKET, 1);
+        player.AddItem(PID_ROCKET_AP, 1);
+        break;
+    case 6:
+        player.AddItem(PID_SHOTGUN_SHELLS, 45);
+        break;                                            // 14
+    default:
+        break;
+    }
+    if(Random(1, 1000000) == 1)
+        player.AddItem(PID_HOWITZER_SHELL, 1);
+}
+/**
+ * Places item in random container on map with given pid.
+ * @param	mapPid		PID of map to spawn the item in (MAPS.TXT) - Val1.
+ * @param	itemPid		PID of item to be spawned - Val2.
+ * @remarks	Since it uses GetMapByPid with skipCount 0, it takes first map with given pid.
+ */
+void r_SpawnInRandomContainer(Critter& player, Critter@ npc, int mapPid, int itemPid)
+{
+    Map@ map = GetMapByPid(mapPid, 0);
+    if(!valid(map))
+    {
+     //   Log("ERR: Incorrect mapPid");
+        player.Say(SAY_NETMSG, "Dialog error, wrong map proto: " + mapPid);
+        return;
+    }
+    array<Item@> items;
+    array<Item@> containers;
+    uint         num = map.GetItems(0, items);
+    for(uint i = 0; i < num; i++)
+    {
+        if(items[i].GetType() == ITEM_TYPE_CONTAINER)
+            containers.insertLast(items[i]);
+    }
+    Item@ cont = random_from_array(containers);
+    Item@ item = npc.AddItem(itemPid, 1);
+    if(!valid(item))
+    {
+    //    Log("ERR: Incorrect itemPid");
+        player.Say(SAY_NETMSG, "Dialog error, wrong itemPid: " + itemPid);
+        return;
+    }
+    MoveItem(item, 0, cont, 0);
+    #ifdef __DEBUG__
+    player.ParamBase[ST_VAR0] = cont.Id;
+    #endif
+}
+void test_SpawnInRandomContainer(Critter& cr, int p0, int p1, int p2)
+{
+    r_SpawnInRandomContainer(cr, cr, p0, p1);
+    Item@  cont = GetItem(cr.Param[ST_VAR0]);
+    Map@   map;
+    uint16 hx = 0, hy = 0;
+    @map = cont.GetMapPosition(hx, hy);
+    cr.TransitToMap(map.Id, hx, hy, 0);
+}
+
+// @}
+
+/**
+ * \~english @name Quest timeouts
+ *
+ * \~ @weight 525
+ */
+// @{
+
+/**
+ * Checks timeout for given npc, in order to check if some repeatable quest can be given again.
+ * It works per npc-player, so you can't make it for each quest. But it's simplier that way.
+ * @return true - quest can be given, false - need to wait
+ */
+bool d_QuestTimeoutReady(Critter& player, Critter@ npc)
+{
+    if(!valid(player) || !valid(npc))
+        return true;
+
+    GameVar@ var = GetUnicumVar(UVAR_quest_timeout, npc.Id, player.Id);
+    DLog("var value: " + var.GetValue());
+    return var.GetValue() == 0 || uint(var.GetValue()) <= ELAPSED_TIME;
+}
+
+/**
+ * Checks timeout for given npc, in order to check if some repeatable quest can NOT be given again.
+ * It works per npc-player, so you can't make it for each quest. But it's simplier that way.
+ * @return true - quest cannot be given, false - quest is available
+ */
+bool d_QuestTimeoutNotReady(Critter& player, Critter@ npc)
+{
+    if(!valid(player) || !valid(npc))
+        return false;
+
+    GameVar@ var = GetUnicumVar(UVAR_quest_timeout, npc.Id, player.Id);
+
+    return var.GetValue() != 0 && uint(var.GetValue()) > ELAPSED_TIME;
+}
+/**
+ * Assignes timeout for given npc so he will remember that player made some quest for him lately.
+ * @param timeout       Quest timeout in ingame hours
+ */
+void r_QuestTimeout(Critter& player, Critter@ npc, int timeout)
+{
+    if(!valid(player) || !valid(npc))
+        return;
+
+    GameVar@ var = GetUnicumVar(UVAR_quest_timeout, npc.Id, player.Id);
+    var = AFTER(GAME_HOUR(timeout));
+}
+
+/**
+ * Checks timeout for given npc, in order to check if some repeatable quest can be given again.
+ * It works per npc, so you can't make it for each quest. But it's simplier that way.
+ * @return true - quest can be given, false - need to wait
+ */
+bool d_CommonTimeoutReady(Critter& player, Critter@ npc)
+{
+    if(!valid(player) || !valid(npc))
+        return true;
+
+    GameVar@ var = GetLocalVar(LVAR_common_timeout, npc.Id);
+    DLog("var value: " + var.GetValue());
+    return var.GetValue() == 0 || uint(var.GetValue()) <= ELAPSED_TIME;
+}
+
+/**
+ * Checks timeout for given npc, in order to check if some repeatable quest can NOT be given again.
+ * It works per npc, so you can't make it for each quest. But it's simplier that way.
+ * @return true - quest cannot be given, false - quest is available
+ */
+bool d_CommonTimeoutNotReady(Critter& player, Critter@ npc)
+{
+    if(!valid(player) || !valid(npc))
+        return false;
+
+    GameVar@ var = GetLocalVar(LVAR_common_timeout, npc.Id);
+
+    return var.GetValue() != 0 && uint(var.GetValue()) > ELAPSED_TIME;
+}
+/**
+ * Assignes timeout for given npc so he will remember that player made some quest for him lately.
+ * @param timeout       Quest timeout in ingame hours
+ */
+void r_CommonTimeout(Critter& player, Critter@ npc, int timeout)
+{
+    if(!valid(player) || !valid(npc))
+        return;
+
+    GameVar@ var = GetLocalVar(LVAR_common_timeout, npc.Id);
+    var = AFTER(GAME_HOUR(timeout));
+}
+
+/**
+ * \~english @name Holodisks
+ *
+ * \~ @weight 400
+ */
+// @{
+
+/**
+ * Checks if the player has holodisk containing specific information.
+ * @param val   Number of holodisk information
+ */
+bool d_HasHolodisk(Critter& player, Critter@ npc, int val)
+{
+    array<Item@> items;
+    uint         n = player.GetItemsByType(ITEM_TYPE_MISC, items);     // how about proto without slot?
+    for(uint i = 0; i < n; i++)
+        if(items[i].GetProtoId() == PID_HOLODISK && items[i].HolodiskNumber == uint(val))
+            return true;
+    return false;
+}
+
+/**
+ * Checks if the player has specific holodisk information stored in pipboy.
+ * @param val   Number of holodisk information
+ */
+bool d_HasHoloInfo(Critter& player, Critter@ npc, int val)
+{
+    return player.IsHolodiskInfo(val);
+}
+
+/**
+ * Gives the player a holodisk containing specific information.
+ * @param val   Number of holodisk information
+ */
+void r_GiveHolodisk(Critter& player, Critter@ npc, int val)
+{
+    Item@ item = player.AddItem(PID_HOLODISK, 1);
+    item.HolodiskNumber = val;
+    item.Update();
+}
+
+
+void r_GlobalTimer(Critter& player, Critter@ npc, int val)
+{
+	int type = 21;
+	int time = REAL_SECOND(15);
+	string message = "Vault 41 is reported being opened in Wind of War";
+    switch(val)
+	{
+	case 1: message = "Vault 41 is reported being opened in Wind of War"; break;
+	case 2: message = "Vault Tec HQ is reported being opened in Adytum"; break;
+	}
+	
+	ServerEventCNTSet(message, player.GetMap().Id + 100, type, time);
+}
+// @}
+
+/**
+ * \~english @name Professions
+ *
+ * \~ @weight 515
+ */
+// @{
+
+///////////////////
+//  Professions  //
+///////////////////
+
+// Check if player has still some profession point that he can acquire profession for
+
+bool d_CheckProfession(Critter& player, Critter@ npc, int val)
+{
+    return true;
+
+}
+
+// todo: move to perks
+bool CheckProfession(Critter& player, int prof, int currentLevel)
+{
+    if(currentLevel > 1)
+        return false;
+    if(player.Param[prof] != currentLevel)
+        return false;
+    if(!d_CheckProfession(player, null, 0))
+        return false;
+
+    int skill = SK_REPAIR;
+
+    return player.Param[skill] >= 25 + (50 * (currentLevel + 1));
+}
+
+// check Armorer
+bool d_CheckArmorer0(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckArmorer1(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckArmorer2(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+// check Gunsmith Small Guns
+
+bool d_CheckGunsmithS0(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckGunsmithS1(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckGunsmithS2(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+// check Gunsmith Big Guns
+
+bool d_CheckGunsmithB0(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckGunsmithB1(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckGunsmithB2(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+// check Energy Expert
+
+bool d_CheckEnergyExpert0(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckEnergyExpert1(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckEnergyExpert2(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+// check Demolition Expert
+
+bool d_CheckDemolitionExpert0(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckDemolitionExpert1(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+// check Doctor
+
+bool d_CheckDoctor0(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckDoctor1(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckDoctor2(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+// FOnline: After Times
+
+// check Barman
+
+bool d_CheckBarman0(Critter& player, Critter@ npc, int val)
+{
+    return false;;
+}
+
+bool d_CheckBarman1(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckBarman2(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+// check Ironmaster
+
+bool d_CheckIronmaster0(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckIronmaster1(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckIronmaster2(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+// ckeck Ironworker
+
+bool d_CheckIronworker0(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckIronworker1(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+bool d_CheckIronworker2(Critter& player, Critter@ npc, int val)
+{
+    return false;
+}
+
+// @}
+
+/*@}*/
+
+// undocumented
+// for Shren child, in Hub
+void dlg_ShrenRumour(Critter& player, Critter@ npc, string@ text)
+{
+	text += ("$money" + propermoney(npc));
+	text += ("$prefix" + properprefix(npc));  if(!IS_DIALOG_GENERATED(text))
+        return;
+
+    float interests = 0;
+    uint  bank = 0;
+    for(uint i = 1; i < BANK_COUNT; i++)
+    {
+        float newinterests = BankGetSaveInterest(i);
+        if(interests < newinterests)
+        {
+            interests = newinterests;
+            bank = i;
+        }
+    }
+    text = "$bank";
+    if(interests == 0)
+        bank = Random(0, BANK_COUNT - 1);
+    switch(bank)
+    {
+    case BANK_VAULTCITY:
+        text += "Vault City";
+        break;
+    case BANK_REDDING:
+        text += "Redding";
+        break;
+    case BANK_BROKENHILLS:
+        text += "Broken Hills";
+        break;
+    case BANK_SANFRANCISCO:
+        text += "San Francisco";
+        break;
+    case BANK_NCR:
+        text += "NCR";
+        break;
+    case BANK_HUB:
+        text += "Hub";
+        break;
+	case BANK_SALT_LAKE:
+        text += "Salt Lake City";
+        break;
+    default:
+    }
+	string money;
+	string prefix;
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 1: money = "Dollars";
+	case 2: money =  "Chips";
+	case 3: money =  "Scrips";
+	case 4: money =  "Pounds";
+	case 5: money =  "Rings";
+	default: money =  "Caps";
+	}
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 1: prefix = "Enclave ";
+	case 2: prefix =  "Memory ";
+	case 3: prefix =  "NCR ";
+	case 4: prefix =  "Vault City ";
+	case 5: prefix =  "Pull ";
+	default: prefix = "Bottle ";
+	}
+	text += ("$prefix" + properprefix(npc));
+	text += ("$money" + propermoney(npc));
+
+}
+
+
+/**
+ * Checks if PC can see all locations needed to take the Explorer perk.
+ */
+bool d_ExploredWasteland(Critter& player, Critter@ npc)
+{
+    if
+    (
+        player.IsKnownLoc(false, LOCATION_TheDen)       &&
+        player.IsKnownLoc(false, LOCATION_Klamath)      &&
+        player.IsKnownLoc(false, LOCATION_Modoc)        &&
+        player.IsKnownLoc(false, LOCATION_VaultCity)    &&
+        player.IsKnownLoc(false, LOCATION_Gecko)        &&
+        player.IsKnownLoc(false, LOCATION_BrokenHills)  &&
+        player.IsKnownLoc(false, LOCATION_NewReno)      &&
+        player.IsKnownLoc(false, LOCATION_NCR)          &&
+        player.IsKnownLoc(false, LOCATION_Redding)      &&
+        player.IsKnownLoc(false, LOCATION_SanFrancisco) &&
+        player.IsKnownLoc(false, LOCATION_Junktown)     &&
+        player.IsKnownLoc(false, LOCATION_Necropolis)   &&
+        player.IsKnownLoc(false, LOCATION_Hub)          &&
+        player.IsKnownLoc(false, LOCATION_Boneyard)     &&
+        player.IsKnownLoc(false, LOCATION_Trainyard1)   &&
+        player.IsKnownLoc(false, LOCATION_Trainyard2)   &&
+        player.IsKnownLoc(false, LOCATION_Trainyard3)   &&
+        player.IsKnownLoc(false, LOCATION_Trainyard4)
+    )
+        return true;
+    return false;
+}
+
+
+
+
+//////////////
+//  Tatoos  //
+//////////////
+
+bool d_IsTatoo(Critter& player, Critter@ npc)
+{
+    if(IsLexem(player, "$tatoo") && GetLexem(player, "$tatoo").length() > 0)
+        return(true);
+    else
+        return(false);
+}
+
+bool d_NoTatoo(Critter& player, Critter@ npc)
+{
+    return(!d_IsTatoo(player, npc));
+}
+
+// fight against typos
+#define _Tatoo_Corsican    "Corsican Brothers"
+
+bool d_HaveCorsicanBrothersTatoo(Critter& player, Critter@ npc)
+{
+    if(d_IsTatoo(player, npc) && GetLexem(player, "$tatoo") == _Tatoo_Corsican)
+        return(true);
+    else
+        return(false);
+}
+
+void r_SetCorsicanBrothersTatoo(Critter& player, Critter@ npc)
+{
+    SetLexem(player, "$tatoo", _Tatoo_Corsican);
+}
+
+uint dlg_EnterTatoo(Critter& player, Critter@ npc, string@ say)
+{
+    if(!IS_DIALOG_SAY_MODE(say))
+        return 0;
+
+    if(!valid(say) || say.length() == 0 || say.length() > 12)
+        return(14);
+    else
+    {
+        stringReplaceText(say, "@pname@", "" + player.Name);
+
+        SetLexem(player, "$tatoo", say);
+        return(12);
+    }
+}
+
+bool d_SetDialogImage(Critter& player, Critter@ npc, int x, int y, int imageId)
+{
+    player.RunClientScript("client_interface@_DialogImage", x, y, imageId, null, null);
+    return(false);
+}
+
+// Returns true if a param in specific param range has the highest value.
+// It can be used for example to test if a skill is the best combat skill.
+bool d_IsHighestParamInRange(Critter& player, Critter@ npc, int param, int paramFrom, int paramTo)
+{
+    for(int i = paramFrom; i <= paramTo; i++)
+    {
+        if(player.Param[i] > player.Param[param])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+/**
+ * Outfitter - gives NOT LEGIT items to players and sets outfitted var
+ */
+
+array<array<uint16> > outfitData =
+{
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_ASSAULT_RIFLE_EXT_MAG, 1, PID_5MM_AP, 480, PID_5MM_JHP, 240 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_HK_P90C, 2, PID_10MM_AP, 480, PID_10MM_JHP, 240 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_PANCOR_JACKHAMMER, 1, PID_SHOTGUN_SHELLS, 300 },
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_223_PISTOL, 1, PID_223_FMJ, 100 },
+    { PID_CURED_LEATHER_ARMOR, 1, PID_COMBAT_LEATHER_JACKET_HELMET, 1, PID_SNIPER_RIFLE, 1, PID_223_FMJ, 100 },
+
+    { PID_COMBAT_ARMOR, 1, PID_COMBAT_HELMET, 1, PID_LIGHT_SUPPORT_WEAPON, 1, PID_223_FMJ, 500 },
+    { PID_COMBAT_ARMOR, 1, PID_COMBAT_HELMET, 1, PID_AVENGER_MINIGUN, 1, PID_5MM_AP, 960, PID_5MM_JHP, 480 },
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_M60, 1, PID_7_62MM_AMMO, 600 },
+    { PID_METAL_ARMOR, 1, PID_METAL_HELMET, 1, PID_ROCKET_LAUNCHER, 1, PID_ROCKET_AP, 25 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_IMPROVED_FLAMETHROWER, 1, PID_FLAMETHROWER_FUEL_MK_II, 40 },
+
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_PLASMA_RIFLE, 1, PID_MICRO_FUSION_CELL, 100 },
+    { PID_METAL_ARMOR, 1, PID_METAL_HELMET, 1, PID_LASER_RIFLE_EXT_CAP, 1, PID_MICRO_FUSION_CELL, 100 },
+    { PID_METAL_ARMOR_MK_II, 1, PID_METAL_HELMET_MK2, 1, PID_GATLING_LASER, 1, PID_MICRO_FUSION_CELL, 600 },
+    { PID_COMBAT_ARMOR, 1, PID_COMBAT_HELMET, 1, PID_MAGNETO_LASER_PISTOL, 1, PID_PLASMA_PISTOL, 1, PID_SMALL_ENERGY_CELL, 120 },
+
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_MEGA_POWER_FIST, 1, PID_SMALL_ENERGY_CELL, 200 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_ROCK, 1 },
+
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_SUPER_SLEDGE, 1 },
+    { PID_COMBAT_ARMOR_MK_II, 1, PID_COMBAT_HELMET_MK_II, 1, PID_SUPER_CATTLE_PROD, 1, PID_SMALL_ENERGY_CELL, 200 },
+
+    { PID_CURED_LEATHER_ARMOR, 1, PID_COMBAT_LEATHER_JACKET_HELMET, 1, PID_FRAG_GRENADE, 30, PID_PLASMA_GRENADE, 15 },
+    { PID_CURED_LEATHER_ARMOR, 1, PID_COMBAT_LEATHER_JACKET_HELMET, 1, PID_THROWING_KNIFE, 40 },
+
+    { PID_SUPER_STIMPAK, 6 },
+    { PID_CIGARETTES, 2, PID_LIGHTER, 1 },
+    { PID_NUKA_COLA, 2 },
+    { PID_BUFFOUT, 1 },
+    { PID_PSYCHO, 1 },
+    { PID_JET, 3 },
+    { PID_MENTATS, 1 },
+
+    { PID_TESLA_HELMET, 1 },
+    { PID_SPECTACLES, 1 },
+    { PID_MOTION_SENSOR, 1, PID_GOGGLES, 1 },
+    { PID_SUPER_STIMPAK, 3 },
+    { PID_COOKIE, 10 },
+    { PID_MIRROR_SHADES, 1 }
+};
+
+
+void r_Outfitter(Critter& player, Critter@npc, int outfitId)
+{
+    for(uint i = 0, j = outfitData[outfitId].length(); i < j; i += 2)
+    {
+        Item@ item = player.AddItem(outfitData[outfitId][i], outfitData[outfitId][i + 1]);
+        item.Val2 = int(0xFFFFFFFF);
+    }
+    GameVar@ outfitted = GetLocalVar(LVAR_event_outfitted, player.Id);
+    outfitted = 1;
+}
+
+
+uint dlg_SayBuyJet(Critter& player, Critter@ npc, string@ text)
+{
+	text += ("$money" + propermoney(npc));
+	text += ("$prefix" + properprefix(npc));  if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 500;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+	    if(cnt<0)
+        return DIALOG_END;  
+	if(cnt>1000)
+        return DIALOG_END; 
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, Addpropermoney(npc)) >= price*cnt)
+        {
+            _CritDeleteItem(player, Addpropermoney(npc), (price*cnt));
+            player.AddItem(PID_JET, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+    return DIALOG_END;
+}
+
+string propermoney(Critter& cr)
+{
+	switch(cr.Param[ST_DESCRIPTION2])
+	{
+	case 1: return "Dollars";
+	case 2: return "Chips";
+	case 3: return "Scrips";
+	case 4: return "Pounds";
+	case 5: return "Rings";
+	default: return "Caps";
+	}
+	return "caps";
+}
+string properprefix(Critter& cr)
+{
+	switch(cr.Param[ST_DESCRIPTION2])
+	{
+	case 1: return "Enclave";
+	case 2: return "Memory";
+	case 3: return "NCR";
+	case 4: return "Vault City";
+	case 5: return "Pull";
+	default: return "Bottle";
+	}
+	return "Bottle";
+}
+
+uint dlg_SayBuyNuka(Critter& player, Critter@ npc, string@ text)
+{
+	text += ("$money" + propermoney(npc));
+	text += ("$prefix" + properprefix(npc));
+	if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 100;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+        if(cnt<0)
+        return DIALOG_END;  
+	if(cnt>1000)
+        return DIALOG_END;     
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, Addpropermoney(npc)) >= price*cnt)
+        {
+            _CritDeleteItem(player, Addpropermoney(npc), (price*cnt));
+            player.AddItem(PID_NUKA_COLA, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+	text += ("$error" + propermoney(npc));
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyBeer(Critter& player, Critter@ npc, string@ text)
+{
+	text += ("$money" + propermoney(npc));
+	text += ("$prefix" + properprefix(npc));  if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 10;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+        if(cnt<0)
+        return DIALOG_END;  
+	if(cnt>1000)
+        return DIALOG_END;     
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, Addpropermoney(npc)) >= price*cnt)
+        {
+            _CritDeleteItem(player, Addpropermoney(npc), (price*cnt));
+            player.AddItem(PID_BEER, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+	text += ("$error" + propermoney(npc));
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyCigarettes(Critter& player, Critter@ npc, string@ text)
+{
+	text += ("$money" + propermoney(npc));
+	text += ("$prefix" + properprefix(npc));  if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 100;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+         if(cnt<0)
+        return DIALOG_END;  
+	if(cnt>1000)
+        return DIALOG_END;    
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, Addpropermoney(npc)) >= price*cnt)
+        {
+            _CritDeleteItem(player, Addpropermoney(npc), (price*cnt));
+            player.AddItem(PID_CIGARETTES, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+	text += ("$error" + propermoney(npc));
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyLighter(Critter& player, Critter@ npc, string@ text)
+{
+	text += ("$money" + propermoney(npc));
+	text += ("$prefix" + properprefix(npc));  if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 100;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+        if(cnt<0)
+        return DIALOG_END;  
+	if(cnt>1000)
+        return DIALOG_END;     
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, Addpropermoney(npc)) >= price*cnt)
+        {
+            _CritDeleteItem(player, Addpropermoney(npc), (price*cnt));
+            player.AddItem(PID_LIGHTER, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+	text += ("$error" + propermoney(npc));
+    return DIALOG_END;
+}
+
+uint dlg_SayBuyMedGel(Critter& player, Critter@ npc, string@ text)
+{
+	text += ("$money" + propermoney(npc));
+	text += ("$prefix" + properprefix(npc));
+    if(!IS_DIALOG_SAY_MODE(text))
+        return DIALOG_END;
+
+    uint price = 25;
+    uint cnt = 0;
+    if(!StrToInt(text, cnt))
+        return DIALOG_END;
+    if(cnt<0)
+        return DIALOG_END;  
+	if(cnt>1000)
+        return DIALOG_END; 
+    if(cnt > 0)
+    {
+        if(_CritCountItem(player, Addpropermoney(npc)) >= price*cnt)
+        {
+            _CritDeleteItem(player, Addpropermoney(npc), (price*cnt));
+            player.AddItem(PID_BIO_GEL, cnt);
+            npc.Say(SAY_NORM_ON_HEAD, "Pleasure doing business.");
+        }
+        else
+        {
+            npc.Say(SAY_NORM_ON_HEAD, "Come back with money!");
+            return DIALOG_END;
+        }
+    }
+	
+    return DIALOG_END;
+}
+
+bool d_IsAdmin( Critter& player, Critter@ )
+{
+    return( player.GetAccess() == ACCESS_ADMIN ||  player.GetAccess() == ACCESS_MODER );
+}
+
+bool d_IsMutant( Critter& player, Critter@ npc)
+{
+	uint plType = player.Param[ST_BASE_CRTYPE];
+	return ( player.Param[PE_MUTANT] > 0 );
+}
+
+bool d_IsHuman( Critter& player, Critter@ npc)
+{
+	uint plType = player.Param[ST_BASE_CRTYPE];
+	return ( player.Param[PE_MUTANT] == 0 && player.Param[PE_DEATHCLAW] == 0);
+}
+
+bool d_IsDeathclaw( Critter& player, Critter@ npc)
+{
+	uint plType = player.Param[ST_BASE_CRTYPE];
+	return ( player.Param[PE_DEATHCLAW] > 0 );
+}
+
+void dlg_OpenDoor(Critter& player, Critter@ npc, int entire)
+{
+	uint16 hexX = 0;
+    uint16 hexY = 0;
+    Map@ map = player.GetMap();
+	map.GetEntireCoords(entire, 0, hexX, hexY);
+    Item@  door = map.GetDoor(hexX, hexY);
+	door.LockerOpen();
+	array<uint> filldata = {map.Id, hexX, hexY};
+	CreateTimeEvent(AFTER(REAL_MINUTE(5)), "e_OpenDoor", filldata, false);
+}
+
+void r_OpenDoor(Critter& player, Critter@ npc, int entire)
+{
+	uint16 hexX = 0;
+    uint16 hexY = 0;
+    Map@ map = player.GetMap();
+	map.GetEntireCoords(entire, 0, hexX, hexY);
+    Item@  door = map.GetDoor(hexX, hexY);
+	door.LockerOpen();
+	array<uint> filldata = {map.Id, hexX, hexY};
+	CreateTimeEvent(AFTER(REAL_MINUTE(5)), "e_OpenDoor", filldata, false);
+}
+
+void r_OpenDoor(Critter& player, Critter@ npc, int entire, int time)
+{
+	uint16 hexX = 0;
+    uint16 hexY = 0;
+    Map@ map = player.GetMap();
+	map.GetEntireCoords(entire, 0, hexX, hexY);
+    Item@  door = map.GetDoor(hexX, hexY);
+	door.LockerOpen();
+	array<uint> filldata = {map.Id, hexX, hexY};
+	CreateTimeEvent(AFTER(REAL_SECOND(time)), "e_OpenDoor", filldata, false);
+}
+
+void r_CloseDoor(Critter& player, Critter@ npc, int entire)
+{
+	uint16 hexX = 0;
+    uint16 hexY = 0;
+    Map@ map = player.GetMap();
+	map.GetEntireCoords(entire, 0, hexX, hexY);
+    Item@  door = map.GetDoor(hexX, hexY);
+	door.LockerClose();
+}
+
+uint e_OpenDoor(array<uint>@ values)
+{	
+	Map@ map = GetMap(values[0]);
+	uint16 hexX = values[1];
+    uint16 hexY = values[2];
+	Item@  door = map.GetDoor(hexX, hexY);
+	door.LockerClose();
+	return 0;
+}
+
+void r_location_quest(Critter& player, Critter@ npc, int LocationID, int globalX, int globalY, int time_to_delete_location)
+{  
+	Critter@[] crits = { player };
+        int loc = CreateLocation(LocationID, globalX, globalY, crits);
+        Location@ location = GetLocation(loc);
+        location.Color = COLOR_WM_QUEST;
+        location.Update();
+	uint[] values = { location.Id };
+	if(time_to_delete_location != 0 )
+    CreateTimeEvent(AFTER(REAL_MINUTE(time_to_delete_location)), "e_delete_quest_location", values, true);
+}
+
+uint e_delete_quest_location(array<uint>@ values)
+{    
+	DeleteLocation(values[0]);		
+    return 0;
+}
+
+void r_cd_quest(Critter& player, Critter@ npc, int time, int varID)
+{
+    GameVar@ var = GetLocalVar(varID, player.Id);
+    uint[] values = { player.Id, npc.Id, varID };
+    CreateTimeEvent(AFTER(REAL_MINUTE(time)), "e_reset_quest_var", values, true);
+}
+
+void r_cd_quest_global(Critter& player, Critter@ npc, int time, int varID)
+{
+    GameVar@ var = GetGlobalVar(varID);
+    uint[] values = { player.Id, npc.Id, varID };
+    CreateTimeEvent(AFTER(REAL_MINUTE(time)), "e_reset_quest_var_global", values, true);
+}
+
+void r_expire_role(Critter& player, Critter@ npc, int time, int varID)
+{
+    uint[] values = { player.Id, npc.Id};
+    CreateTimeEvent(AFTER(REAL_MINUTE(time)), "e_expire_role", values, true);
+}
+
+uint e_expire_role(array<uint>@ values)
+{    
+	Critter@ cr = GetCritter(values[0]);
+	cr.ParamBase[ST_NPC_ROLE] = 0;
+	cr.ParamBase[ST_SCENARIO] = 0;		
+    return 0;
+}
+
+void r_expire_role_overhead(Critter& player, Critter@ npc, int time, int varID)
+{
+    uint[] values = { player.Id, npc.Id};
+    CreateTimeEvent(AFTER(REAL_MINUTE(time)), "e_expire_role_overhead", values, true);
+}
+
+uint e_expire_role_overhead(array<uint>@ values)
+{    
+	Critter@ cr = GetCritter(values[0]);
+	cr.ParamBase[ST_PLAYER_KARMA] = 0;
+	cr.ParamBase[ST_SCENARIO] = 0;		
+    return 0;
+}
+
+uint e_reset_quest_var(array<uint>@ values)
+{    
+	GameVar@ var = GetLocalVar(values[2], values[0]);
+	var = 0;		
+    return 0;
+}
+
+uint e_reset_quest_var_global(array<uint>@ values)
+{    
+	GameVar@ var = GetGlobalVar(values[2]);
+	var = 0;		
+    return 0;
+}
+string getdialogtext(Critter& cr)
+{
+	string text = "";
+	file f;
+	f.open("dialogs/" + getdialogfile(cr) + ".fodlg", "r");
+	if(!valid(f))
+		return "error";
+    f.readString(f.getSize(), text);
+	//Log(text);
+	f.close();
+	return text;
+
+}
+string getdialogfile(Critter& cr)
+{
+	string dialogname = "";
+	switch(cr.Param[ST_DIALOG_ID])
+	{
+	case 10:	dialogname ="all_default"; break;			
+case 20:	dialogname ="all_alco"; break;			
+case 21:	dialogname ="all_alco_w"; break;			
+case 22:	dialogname ="all_merchant"; break;			
+case 23:	dialogname ="all_farmer"; break;			
+case 25:	dialogname ="all_narcoman"; break;			
+case 26:	dialogname ="all_narcoman_w"; break;			
+case 27:	dialogname ="all_turret"; break;			
+case 30:	dialogname ="all_prostitute"; break;			
+case 35:	dialogname ="all_poor_man"; break;			
+case 36:	dialogname ="all_poor_man_w"; break;			
+case 40:	dialogname ="all_child"; break;			
+case 41:	dialogname ="all_child_w"; break;			
+case 42:	dialogname ="all_slave"; break;			
+case 43:	dialogname ="all_slaver"; break;			
+case 44:	dialogname ="all_trapper"; break;			
+case 45:	dialogname ="all_narcodialer"; break;			
+case 46:	dialogname ="all_tatoo_shop"; break;			
+case 50:	dialogname ="all_bootlegger"; break;			
+case 55:	dialogname ="all_robber"; break;			
+case 56:	dialogname ="all_bandit"; break;			
+case 57:	dialogname ="all_cannibal"; break;			
+case 60:	dialogname ="all_guard"; break;			
+case 61:	dialogname ="all_guard_w"; break;			
+case 62:	dialogname ="all_homesteader"; break;			
+case 63:	dialogname ="all_raider"; break;			
+case 64:	dialogname ="all_enclave_patrol"; break;			
+case 65:	dialogname ="all_casino_player"; break;			
+case 66:	dialogname ="all_casino_player_w"; break;			
+case 67:	dialogname ="all_mercenary"; break;			
+case 68:	dialogname ="all_elronologist"; break;			
+case 69:	dialogname ="all_press_gang"; break;			
+case 80:	dialogname ="all_unity"; break;			
+case 81:	dialogname ="all_mafia"; break;			
+case 82:	dialogname ="all_traveller"; break;			
+case 83:	dialogname ="all_ranger"; break;			
+case 84:	dialogname ="all_marauder"; break;			
+case 85:	dialogname ="all_bounty_hunter"; break;			
+case 86:	dialogname ="all_outcast"; break;			
+case 87:	dialogname ="all_holy_people"; break;			
+case 88:	dialogname ="all_nomad"; break;			
+case 89:	dialogname ="all_hunter"; break;			
+case 90:	dialogname ="all_brahmin_herdsman"; break;			
+case 91:	dialogname ="all_brahmin"; break;			
+case 92:	dialogname ="all_endless_walker"; break;			
+case 93:	dialogname ="all_caravan_packer"; break;			
+case 94:	dialogname ="all_sierra_hermit"; break;			
+case 95:	dialogname ="all_mine_foreman"; break;			
+case 96:	dialogname ="all_follower"; break;			
+case 97:	dialogname ="all_powderganger"; break;			
+case 98:	dialogname ="all_barber"; break;			
+case 99:	dialogname ="all_supermutants_enc"; break;			
+case 100:	dialogname ="den_man"; break;			
+case 101:	dialogname ="den_woman"; break;			
+case 102:	dialogname ="den_kid"; break;			
+case 105:	dialogname ="den_bar_visiter"; break;			
+case 106:	dialogname ="den_bar_visiter_w"; break;			
+case 107:	dialogname ="den_mom"; break;			
+case 108:	dialogname ="den_smitty"; break;			
+case 109:	dialogname ="den_metzger"; break;			
+case 110:	dialogname ="den_metzgers_guard"; break;			
+case 111:	dialogname ="den_slaves"; break;			
+case 112:	dialogname ="den_lara"; break;			
+case 113:	dialogname ="den_fred"; break;			
+case 114:	dialogname ="den_flik"; break;			
+case 115:	dialogname ="den_bekky"; break;			
+case 116:	dialogname ="den_radriges"; break;			
+case 117:	dialogname ="den_croupier"; break;			
+case 118:	dialogname ="den_laraband_member"; break;			
+case 119:	dialogname ="den_tubby"; break;			
+case 120:	dialogname ="den_billy"; break;			
+case 121:	dialogname ="den_joey"; break;			
+case 122:	dialogname ="den_thug"; break;			
+case 123:	dialogname ="den_joshua"; break;			
+case 125:	dialogname ="den_hub_guard"; break;			
+case 127:	dialogname ="den_ghost_treasure"; break;			
+case 150:	dialogname ="den_cs_bandit"; break;			
+case 151:	dialogname ="den_cs_barmen"; break;			
+case 152:	dialogname ="den_cs_jeffry"; break;			
+case 153:	dialogname ="den_cs_bar_boy"; break;			
+case 154:	dialogname ="den_cs_bar_girl"; break;			
+case 155:	dialogname ="den_cs_brahmin"; break;			
+case 156:	dialogname ="den_cs_breeder"; break;			
+case 157:	dialogname ="den_cs_boss_daughter"; break;			
+case 173:	dialogname ="den_ananius"; break;			
+case 179:	dialogname ="den_stokes"; break;			
+case 180:	dialogname ="den_bostrainer_myers"; break;			
+case 200:	dialogname ="klam_child"; break;			
+case 201:	dialogname ="klam_trapper"; break;			
+case 202:	dialogname ="klam_civilian"; break;			
+case 203:	dialogname ="klam_aldo"; break;			
+case 204:	dialogname ="klam_dog"; break;			
+case 205:	dialogname ="klam_bakner_visiter"; break;			
+case 206:	dialogname ="klam_golden_visiter"; break;			
+case 207:	dialogname ="klam_sajag"; break;			
+case 208:	dialogname ="klam_ardin"; break;			
+case 209:	dialogname ="klam_majda"; break;			
+case 210:	dialogname ="klam_bob"; break;			
+case 211:	dialogname ="klam_baseseller"; break;			
+case 212:	dialogname ="klam_torr"; break;			
+case 213:	dialogname ="klam_vic"; break;			
+case 214:	dialogname ="klam_slim"; break;			
+case 215:	dialogname ="klam_danton"; break;			
+case 216:	dialogname ="klam_sally"; break;			
+case 217:	dialogname ="klam_jenny"; break;			
+case 218:	dialogname ="klam_prostitute_1"; break;			
+case 219:	dialogname ="klam_prostitute_2"; break;			
+case 220:	dialogname ="klam_prostitute_3"; break;			
+case 221:	dialogname ="klam_sulivan"; break;			
+case 222:	dialogname ="klam_lucy"; break;			
+case 223:	dialogname ="klam_blood"; break;			
+case 224:	dialogname ="klam_dogman"; break;			
+case 225:	dialogname ="klam_meloy"; break;			
+case 226:	dialogname ="klam_mine_guard"; break;			
+case 300:	dialogname ="mod_hose"; break;			
+case 301:	dialogname ="mod_joe"; break;			
+case 302:	dialogname ="mod_citizen"; break;			
+case 303:	dialogname ="mod_baltas"; break;			
+case 304:	dialogname ="mod_leddi"; break;			
+case 305:	dialogname ="mod_jonny"; break;			
+case 306:	dialogname ="mod_baltas_wife"; break;			
+case 307:	dialogname ="mod_grishem"; break;			
+case 308:	dialogname ="mod_davin"; break;			
+case 309:	dialogname ="mod_miria"; break;			
+case 310:	dialogname ="mod_farrel"; break;			
+case 311:	dialogname ="mod_rose"; break;			
+case 312:	dialogname ="mod_cornelius"; break;			
+case 313:	dialogname ="mod_trader"; break;			
+case 314:	dialogname ="mod_bess"; break;			
+case 315:	dialogname ="mod_butcher"; break;			
+case 316:	dialogname ="mod_boy"; break;			
+case 317:	dialogname ="mod_girl"; break;			
+case 318:	dialogname ="mod_karl"; break;			
+case 319:	dialogname ="mod_brahmin_boy"; break;			
+case 320:	dialogname ="mod_farmer_q"; break;			
+case 321:	dialogname ="mod_slag"; break;			
+case 322:	dialogname ="mod_brahminman"; break;			
+case 323:	dialogname ="ghostfarm_vegeir"; break;			
+case 400:	dialogname ="vaul_citizen"; break;			
+case 401:	dialogname ="vaul_non_citizen"; break;			
+case 402:	dialogname ="vaul_guard"; break;			
+case 404:	dialogname ="vaul_slave"; break;			
+case 405:	dialogname ="vaul_prisoner"; break;			
+case 406:	dialogname ="vaul_slave_w"; break;			
+case 407:	dialogname ="vaul_citizen_house"; break;			
+case 408:	dialogname ="vaul_amanda"; break;			
+case 409:	dialogname ="vaul_doctor_andru"; break;			
+case 410:	dialogname ="vaul_barkus"; break;			
+case 411:	dialogname ="vaul_bar_visiter"; break;			
+case 412:	dialogname ="vaul_charli"; break;			
+case 414:	dialogname ="vaul_barman"; break;			
+case 415:	dialogname ="vaul_kertis"; break;			
+case 416:	dialogname ="vaul_darrow"; break;			
+case 417:	dialogname ="vaul_doctor_troy"; break;			
+case 418:	dialogname ="vaul_barman_lidia"; break;			
+case 419:	dialogname ="vaul_ed"; break;			
+case 420:	dialogname ="vaul_hoden"; break;			
+case 421:	dialogname ="vaul_miss_smit"; break;			
+case 424:	dialogname ="vaul_gregory"; break;			
+case 425:	dialogname ="vaul_garry"; break;			
+case 426:	dialogname ="vaul_joshua"; break;			
+case 427:	dialogname ="vaul_kohl"; break;			
+case 428:	dialogname ="vaul_lynnet"; break;			
+case 429:	dialogname ="vaul_macrae"; break;			
+case 430:	dialogname ="vaul_valery"; break;			
+case 431:	dialogname ="vaul_maclure"; break;			
+case 432:	dialogname ="vaul_melinda"; break;			
+case 433:	dialogname ="vaul_moore"; break;			
+case 434:	dialogname ="vaul_smith"; break;			
+case 435:	dialogname ="vaul_fillis"; break;			
+case 436:	dialogname ="vaul_outer_prizoner"; break;			
+case 437:	dialogname ="vaul_randal"; break;			
+case 438:	dialogname ="vaul_skeeve"; break;			
+case 439:	dialogname ="vaul_worker"; break;			
+case 440:	dialogname ="vaul_worker_w"; break;			
+case 441:	dialogname ="vaul_stark"; break;			
+case 442:	dialogname ="vaul_steeve"; break;			
+case 444:	dialogname ="vaul_citizen_closet"; break;			
+case 446:	dialogname ="vaul_walles"; break;			
+case 447:	dialogname ="vaul_lilly"; break;			
+case 449:	dialogname ="vaul_train_guard"; break;			
+case 450:	dialogname ="vaul_train_peasant1"; break;			
+case 451:	dialogname ="vaul_train_ticketseller"; break;			
+case 452:	dialogname ="vaul_spawnwoman"; break;			
+case 501:	dialogname ="geck_garold"; break;			
+case 502:	dialogname ="geck_citizen"; break;			
+case 503:	dialogname ="geck_citizen_glow"; break;			
+case 504:	dialogname ="geck_guard"; break;			
+case 505:	dialogname ="geck_bar_visitor"; break;			
+case 506:	dialogname ="geck_brain"; break;			
+case 507:	dialogname ="geck_festas"; break;			
+case 508:	dialogname ="geck_gordon"; break;			
+case 509:	dialogname ="geck_hank"; break;			
+case 510:	dialogname ="geck_jeremy"; break;			
+case 511:	dialogname ="geck_lenny"; break;			
+case 512:	dialogname ="geck_lumpy"; break;			
+case 513:	dialogname ="geck_persi"; break;			
+case 514:	dialogname ="geck_robot"; break;			
+case 515:	dialogname ="geck_sceetr"; break;			
+case 516:	dialogname ="geck_wooz"; break;			
+case 517:	dialogname ="geck_worship"; break;			
+case 518:	dialogname ="geck_zomak"; break;			
+case 520:	dialogname ="geck_merc_recruiter"; break;			
+case 521:	dialogname ="geck_keith"; break;			
+case 600:	dialogname ="bh_aileen"; break;			
+case 603:	dialogname ="bh_bnkgrd"; break;			
+case 604:	dialogname ="bh_brian"; break;			
+case 605:	dialogname ="bh_chad"; break;			
+case 607:	dialogname ="bh_chuck"; break;			
+case 608:	dialogname ="bh_dan"; break;			
+case 609:	dialogname ="bh_doc"; break;			
+case 610:	dialogname ="bh_elmo"; break;			
+case 613:	dialogname ="bh_eric"; break;			
+case 614:	dialogname ="bh_female"; break;			
+case 615:	dialogname ="bh_franci"; break;			
+case 616:	dialogname ="bh_frank"; break;			
+case 617:	dialogname ="bh_ghoul"; break;			
+case 618:	dialogname ="bh_hench"; break;			
+case 619:	dialogname ="bh_huswif"; break;			
+case 620:	dialogname ="bh_jacob"; break;			
+case 621:	dialogname ="bh_liz"; break;			
+case 623:	dialogname ="bh_male"; break;			
+case 624:	dialogname ="bh_manson"; break;			
+case 625:	dialogname ="bh_marcus"; break;			
+case 626:	dialogname ="bh_micky"; break;			
+case 627:	dialogname ="bh_miners"; break;			
+case 628:	dialogname ="bh_mutant"; break;			
+case 629:	dialogname ="bh_oldghl"; break;			
+case 630:	dialogname ="bh_outfit"; break;			
+case 631:	dialogname ="bh_phil"; break;			
+case 632:	dialogname ="bh_prof"; break;			
+case 633:	dialogname ="bh_super"; break;			
+case 634:	dialogname ="bh_seymor"; break;			
+case 635:	dialogname ="bh_skorp"; break;			
+case 636:	dialogname ="bh_steve"; break;			
+case 637:	dialogname ="bh_sulvan"; break;			
+case 639:	dialogname ="bh_typhon"; break;			
+case 640:	dialogname ="bh_zaius"; break;			
+case 641:	dialogname ="bh_mutant_female"; break;			
+case 642:	dialogname ="bh_brahminman"; break;			
+case 650:	dialogname ="bh_merc_recruiter"; break;			
+case 700:	dialogname ="nr_kitty"; break;			
+case 701:	dialogname ="nr_casino_guard"; break;			
+case 702:	dialogname ="nr_barmen"; break;			
+case 703:	dialogname ="nr_bis_guard"; break;			
+case 704:	dialogname ="nr_bishop"; break;			
+case 705:	dialogname ="nr_bis_man"; break;			
+case 706:	dialogname ="nr_bis_angela"; break;			
+case 707:	dialogname ="nr_bis_miss"; break;			
+case 708:	dialogname ="nr_mordino_big"; break;			
+case 709:	dialogname ="nr_mordino_small"; break;			
+case 710:	dialogname ="nr_mor_man"; break;			
+case 711:	dialogname ="nr_write_orvill"; break;			
+case 712:	dialogname ="nr_write_kriss"; break;			
+case 713:	dialogname ="nr_write_entil"; break;			
+case 714:	dialogname ="nr_write_kate"; break;			
+case 715:	dialogname ="nr_write_child"; break;			
+case 716:	dialogname ="nr_write_child_girl"; break;			
+case 717:	dialogname ="nr_write_son"; break;			
+case 718:	dialogname ="nr_write_daughter"; break;			
+case 719:	dialogname ="nr_kors_snake"; break;			
+case 720:	dialogname ="nr_kors_marti"; break;			
+case 721:	dialogname ="nr_kors_sid"; break;			
+case 722:	dialogname ="nr_kors_guard_woman"; break;			
+case 723:	dialogname ="nr_kors_guard"; break;			
+case 724:	dialogname ="nr_boxer"; break;			
+case 725:	dialogname ="nr_boxer_fanat"; break;			
+case 726:	dialogname ="nr_boxer_fanat_woman"; break;			
+case 727:	dialogname ="nr_casino_player_woman"; break;			
+case 728:	dialogname ="nr_casino_player"; break;			
+case 729:	dialogname ="nr_comedy"; break;			
+case 730:	dialogname ="nr_narcodealer"; break;			
+case 731:	dialogname ="nr_monte"; break;			
+case 732:	dialogname ="nr_monte_guard"; break;			
+case 733:	dialogname ="nr_pornactres"; break;			
+case 734:	dialogname ="nr_pornactres_new"; break;			
+case 735:	dialogname ="nr_franch"; break;			
+case 736:	dialogname ="nr_pain"; break;			
+case 737:	dialogname ="nr_sims"; break;			
+case 738:	dialogname ="nr_bill"; break;			
+case 739:	dialogname ="nr_t-ray"; break;			
+case 740:	dialogname ="nr_mechanic"; break;			
+case 741:	dialogname ="nr_eldrid"; break;			
+case 742:	dialogname ="nr_tully"; break;			
+case 743:	dialogname ="nr_jimmy"; break;			
+case 744:	dialogname ="nr_jules"; break;			
+case 745:	dialogname ="nr_narcoman"; break;			
+case 746:	dialogname ="nr_narcowoman"; break;			
+case 747:	dialogname ="nr_lloyd"; break;			
+case 748:	dialogname ="nr_salvatore"; break;			
+case 749:	dialogname ="nr_salvatore_man"; break;			
+case 750:	dialogname ="nr_mason"; break;			
+case 751:	dialogname ="nr_holly"; break;			
+case 752:	dialogname ="nr_mcgee"; break;			
+case 753:	dialogname ="nr_mcknee"; break;			
+case 754:	dialogname ="nr_miron_guard"; break;			
+case 755:	dialogname ="nr_nikki"; break;			
+case 756:	dialogname ="nr_pimp"; break;			
+case 757:	dialogname ="nr_casino_boss_woman"; break;			
+case 758:	dialogname ="nr_casino_boss"; break;			
+case 759:	dialogname ="nr_prostitute"; break;			
+case 760:	dialogname ="nr_renesco"; break;			
+case 761:	dialogname ="nr_researcher"; break;			
+case 762:	dialogname ="nr_scientist"; break;			
+case 763:	dialogname ="nr_scientist_woman"; break;			
+case 764:	dialogname ="nr_sheb"; break;			
+case 765:	dialogname ="nr_slave"; break;			
+case 766:	dialogname ="nr_slots"; break;			
+case 767:	dialogname ="nr_tyson"; break;			
+case 768:	dialogname ="nr_citizen"; break;			
+case 769:	dialogname ="nr_citizen_woman"; break;			
+case 770:	dialogname ="nr_cody"; break;			
+case 771:	dialogname ="nr_algernon"; break;			
+case 772:	dialogname ="nr_jessy"; break;			
+case 773:	dialogname ="nr_jessy_man"; break;			
+case 774:	dialogname ="nr_door_sharc"; break;			
+case 775:	dialogname ="nr_door_salvatore"; break;			
+case 776:	dialogname ="nr_door_desperado"; break;			
+case 777:	dialogname ="nr_boxer_announcer"; break;			
+case 778:	dialogname ="nr_old_man_mcgee"; break;			
+case 779:	dialogname ="nr_scavenger"; break;			
+case 800:	dialogname ="sad_mainframe"; break;			
+case 801:	dialogname ="sad_soldier"; break;			
+case 802:	dialogname ="sad_terminal"; break;			
+case 803:	dialogname ="sad_rewardterminal"; break;			
+case 1000:	dialogname ="ncr_dufus"; break;			
+case 1001:	dialogname ="ncr_miky"; break;			
+case 1002:	dialogname ="ncr_trader_buster"; break;			
+case 1003:	dialogname ="ncr_trader_guard"; break;			
+case 1004:	dialogname ="ncr_barmen_mira"; break;			
+case 1005:	dialogname ="ncr_bar_visiter"; break;			
+case 1006:	dialogname ="ncr_city_guard"; break;			
+case 1007:	dialogname ="ncr_mutant_lenny"; break;			
+case 1008:	dialogname ="ncr_ratch"; break;			
+case 1009:	dialogname ="ncr_slaves"; break;			
+case 1010:	dialogname ="ncr_vortis"; break;			
+case 1011:	dialogname ="ncr_slave_guard"; break;			
+case 1012:	dialogname ="ncr_slave_mainguard"; break;			
+case 1013:	dialogname ="ncr_citizen"; break;			
+case 1014:	dialogname ="ncr_policeman"; break;			
+case 1015:	dialogname ="ncr_karl"; break;			
+case 1016:	dialogname ="ncr_dumont"; break;			
+case 1017:	dialogname ="ncr_trader_dappo"; break;			
+case 1018:	dialogname ="ncr_repair_robot"; break;			
+case 1019:	dialogname ="ncr_doroty"; break;			
+case 1020:	dialogname ="ncr_rondo"; break;			
+case 1021:	dialogname ="ncr_elize"; break;			
+case 1022:	dialogname ="ncr_gond"; break;			
+case 1023:	dialogname ="ncr_bos_luk"; break;			
+case 1024:	dialogname ="ncr_barmen_dasty"; break;			
+case 1025:	dialogname ="ncr_Hoss"; break;			
+case 1026:	dialogname ="ncr_doctor_jubiley"; break;			
+case 1027:	dialogname ="ncr_doctor_henry"; break;			
+case 1028:	dialogname ="ncr_hub_clearens"; break;			
+case 1029:	dialogname ="ncr_grant"; break;			
+case 1030:	dialogname ="ncr_bob"; break;			
+case 1031:	dialogname ="ncr_felix"; break;			
+case 1032:	dialogname ="ncr_westin"; break;			
+case 1033:	dialogname ="ncr_workers"; break;			
+case 1034:	dialogname ="ncr_gunter"; break;			
+case 1035:	dialogname ="ncr_tandy"; break;			
+case 1036:	dialogname ="ncr_fergus"; break;			
+case 1037:	dialogname ="ncr_karlson"; break;			
+case 1038:	dialogname ="ncr_karlson_guard"; break;			
+case 1039:	dialogname ="ncr_karlson_son"; break;			
+case 1040:	dialogname ="ncr_karlson_bodyguard"; break;			
+case 1041:	dialogname ="ncr_captain"; break;			
+case 1042:	dialogname ="ncr_merk"; break;			
+case 1043:	dialogname ="ncr_merk_bodyguard"; break;			
+case 1044:	dialogname ="ncr_jeck"; break;			
+case 1045:	dialogname ="ncr_prisoner"; break;			
+case 1046:	dialogname ="ncr_robodog"; break;			
+case 1047:	dialogname ="ncr_brahminman"; break;			
+case 1048:	dialogname ="ncr_shaenine"; break;			
+case 1049:	dialogname ="ncr_caravantrader"; break;			
+case 1051:	dialogname ="ncr_train_guard"; break;			
+case 1052:	dialogname ="ncr_train_peasant1"; break;			
+case 1053:	dialogname ="ncr_train_ticketseller"; break;			
+case 1054:	dialogname ="ncr_spawn_feelslong"; break;			
+case 1055:	dialogname ="ncr_harris"; break;			
+case 1056:	dialogname ="ncr_train_shadyperson"; break;			
+case 1057:	dialogname ="ncr_train_mantis"; break;			
+case 1058:	dialogname ="ncr_mine_guard"; break;			
+case 1059:	dialogname ="ncr_mine_shouter"; break;			
+case 1060:	dialogname ="ncr_army_doorguard"; break;			
+case 1061:	dialogname ="ncr_greeter"; break;			
+case 1062:	dialogname ="ncr_bostrainer_henrickson"; break;			
+case 1063:	dialogname ="ncr_prison_doorguard"; break;			
+case 1064:	dialogname ="ncr_prison_guards"; break;			
+case 1065:	dialogname ="ncr_prison_convicts"; break;			
+case 1066:	dialogname ="ncr_prison_governor"; break;			
+case 1067:	dialogname ="ncr_prison_overseer"; break;			
+case 1068:	dialogname ="ncr_prison_rails_overseer"; break;			
+case 1069:	dialogname ="ncr_res_housekeeper"; break;			
+case 1100:	dialogname ="cath_caravan1"; break;			
+case 1101:	dialogname ="cath_caravan2"; break;			
+case 1102:	dialogname ="cath_caravan3"; break;			
+case 1103:	dialogname ="cath_chanter"; break;			
+case 1104:	dialogname ="cath_guard1"; break;			
+case 1105:	dialogname ="cath_guard2"; break;			
+case 1106:	dialogname ="cath_guard3"; break;			
+case 1107:	dialogname ="cath_guard4"; break;			
+case 1108:	dialogname ="cath_pray1"; break;			
+case 1109:	dialogname ="cath_nightkin"; break;			
+case 1110:	dialogname ="cath_shopkeeper"; break;			
+case 1111:	dialogname ="floyd"; break;			
+case 1112:	dialogname ="cath_bum"; break;			
+case 1113:	dialogname ="cath_barber"; break;			
+case 1114:	dialogname ="cath_greeter"; break;			
+case 1115:	dialogname ="cath_lost"; break;			
+case 1116:	dialogname ="cath_lostw"; break;			
+case 1117:	dialogname ="cath_hobo"; break;			
+case 1118:	dialogname ="cath_doorguard"; break;			
+case 1119:	dialogname ="cath_cook"; break;			
+case 1200:	dialogname ="mar_terminal"; break;			
+case 1300:	dialogname ="redd_doctor"; break;			
+case 1301:	dialogname ="redd_ratt"; break;			
+case 1302:	dialogname ="redd_citizen"; break;			
+case 1303:	dialogname ="redd_guard"; break;			
+case 1304:	dialogname ="redd_child"; break;			
+case 1305:	dialogname ="redd_askorti"; break;			
+case 1306:	dialogname ="redd_betti"; break;			
+case 1307:	dialogname ="redd_caminet"; break;			
+case 1308:	dialogname ="redd_trader"; break;			
+case 1309:	dialogname ="redd_dick"; break;			
+case 1310:	dialogname ="redd_fannie"; break;			
+case 1311:	dialogname ="redd_fern"; break;			
+case 1312:	dialogname ="redd_gambler"; break;			
+case 1313:	dialogname ="redd_miner"; break;			
+case 1314:	dialogname ="redd_farmer"; break;			
+case 1315:	dialogname ="redd_alco"; break;			
+case 1316:	dialogname ="redd_alco_woman"; break;			
+case 1317:	dialogname ="redd_hoffy"; break;			
+case 1318:	dialogname ="redd_jane"; break;			
+case 1319:	dialogname ="redd_josh"; break;			
+case 1320:	dialogname ="redd_lou"; break;			
+case 1321:	dialogname ="redd_marge"; break;			
+case 1322:	dialogname ="redd_marion"; break;			
+case 1323:	dialogname ="redd_mcgrew"; break;			
+case 1324:	dialogname ="redd_modjes"; break;			
+case 1325:	dialogname ="redd_nordik"; break;			
+case 1326:	dialogname ="redd_rooney"; break;			
+case 1327:	dialogname ="redd_savinel"; break;			
+case 1328:	dialogname ="redd_stanwell"; break;			
+case 1329:	dialogname ="redd_velani"; break;			
+case 1330:	dialogname ="redd_wade"; break;			
+case 1331:	dialogname ="redd_melkor_small"; break;			
+case 1332:	dialogname ="redd_fight_fanat"; break;			
+case 1333:	dialogname ="redd_oldman"; break;			
+case 1334:	dialogname ="redd_lost_computer"; break;			
+case 1335:	dialogname ="redd_baseseller"; break;			
+case 1336:	dialogname ="redd_christopher"; break;			
+case 1337:	dialogname ="redd_old_parker"; break;			
+case 1338:	dialogname ="redd_mel_williams"; break;			
+case 1400:	dialogname ="san_citizen_shue"; break;			
+case 1401:	dialogname ="san_guard_shue"; break;			
+case 1402:	dialogname ="san_trader_chiang"; break;			
+case 1403:	dialogname ="san_trader_lao"; break;			
+case 1404:	dialogname ="san_dragon"; break;			
+case 1405:	dialogname ="san_doctor_fung"; break;			
+case 1406:	dialogname ="san_technic"; break;			
+case 1407:	dialogname ="san_doctor_wong"; break;			
+case 1408:	dialogname ="san_kenli"; break;			
+case 1409:	dialogname ="san_poor_man"; break;			
+case 1410:	dialogname ="san_peasant"; break;			
+case 1411:	dialogname ="san_pank"; break;			
+case 1412:	dialogname ="san_pank_w"; break;			
+case 1413:	dialogname ="san_barmen_slim"; break;			
+case 1414:	dialogname ="san_badger"; break;			
+case 1415:	dialogname ="san_trader_jenny"; break;			
+case 1416:	dialogname ="san_trader_karl"; break;			
+case 1417:	dialogname ="san_hubguard"; break;			
+case 1418:	dialogname ="san_dave_x"; break;			
+case 1419:	dialogname ="san_garry_rocket"; break;			
+case 1420:	dialogname ="san_suze"; break;			
+case 1421:	dialogname ="san_doctor_tigang"; break;			
+case 1422:	dialogname ="san_chip"; break;			
+case 1423:	dialogname ="san_trader"; break;			
+case 1424:	dialogname ="san_axs7"; break;			
+case 1425:	dialogname ="san_axs9"; break;			
+case 1426:	dialogname ="san_ron"; break;			
+case 1427:	dialogname ="san_crocket"; break;			
+case 1428:	dialogname ="san_dock_kid"; break;			
+case 1429:	dialogname ="san_hubbolog"; break;			
+case 1430:	dialogname ="san_raian"; break;			
+case 1431:	dialogname ="san_huan_cruz"; break;			
+case 1432:	dialogname ="san_dock_guard"; break;			
+case 1433:	dialogname ="san_guard_shue_2"; break;			
+case 1434:	dialogname ="san_mark"; break;			
+case 1435:	dialogname ="san_china_kid"; break;			
+case 1436:	dialogname ="san_roomkeeper"; break;			
+case 1437:	dialogname ="san_bos_ron"; break;			
+case 1438:	dialogname ="san_bos_bronco"; break;			
+case 1439:	dialogname ="san_bos_blake"; break;			
+case 1440:	dialogname ="san_caravantrader"; break;			
+case 1441:	dialogname ="san_brahminman"; break;			
+case 1442:	dialogname ="san_train_ticketseller"; break;			
+case 1443:	dialogname ="san_train_peasant1"; break;			
+case 1444:	dialogname ="san_train_guard"; break;			
+case 1445:	dialogname ="san_charlie"; break;			
+case 1446:	dialogname ="san_bostrainer_windsted"; break;			
+case 1500:	dialogname ="nav_air_control"; break;			
+case 1501:	dialogname ="nav_cook"; break;			
+case 1502:	dialogname ="nav_quincy"; break;			
+case 1503:	dialogname ="nav_mark"; break;			
+case 1504:	dialogname ="nav_sergant"; break;			
+case 1505:	dialogname ="nav_soldier"; break;			
+case 1506:	dialogname ="nav_jefferson"; break;			
+case 1507:	dialogname ="nav_comptech1"; break;			
+case 1508:	dialogname ="nav_comptech2"; break;			
+case 1509:	dialogname ="nav_lola"; break;			
+case 1510:	dialogname ="nav_raul"; break;			
+case 1511:	dialogname ="nav_comm1"; break;			
+case 1512:	dialogname ="nav_chris"; break;			
+case 1513:	dialogname ="nav_soldier2"; break;			
+case 1514:	dialogname ="nav_qmaster"; break;			
+case 1515:	dialogname ="nav_cmdguard"; break;			
+case 1516:	dialogname ="nav_cmd"; break;			
+case 1517:	dialogname ="nav_schreber"; break;			
+case 1518:	dialogname ="nav_lab1"; break;			
+case 1519:	dialogname ="nav_armstrong"; break;			
+case 1700:	dialogname ="junktown_guard"; break;			
+case 1701:	dialogname ="junktown_neal"; break;			
+case 1702:	dialogname ="junktown_barv"; break;			
+case 1703:	dialogname ="junktown_killian"; break;			
+case 1705:	dialogname ="junktown_dogman"; break;			
+case 1706:	dialogname ="junktown_crash1"; break;			
+case 1707:	dialogname ="junktown_doctor"; break;			
+case 1708:	dialogname ="junktown_entrancegrd"; break;			
+case 1709:	dialogname ="junktown_jail"; break;			
+case 1710:	dialogname ="junktown_peasant"; break;			
+case 1711:	dialogname ="junktown_gang"; break;			
+case 1712:	dialogname ="junktown_drunktard"; break;			
+case 1713:	dialogname ="junktown_boyce"; break;			
+case 1714:	dialogname ="junktown_baseseller"; break;			
+case 1715:	dialogname ="junktown_scout"; break;			
+case 1716:	dialogname ="junktown_bartender"; break;			
+case 1717:	dialogname ="junktown_duelguy"; break;			
+case 1718:	dialogname ="junktown_caravantrader"; break;			
+case 1719:	dialogname ="junktown_sassy"; break;			
+case 1720:	dialogname ="junktown_ronnie"; break;			
+case 1721:	dialogname ="junktown_phouse_guard"; break;			
+case 1722:	dialogname ="junktown_phouse_thomas"; break;			
+case 1723:	dialogname ="junktown_phouse_mrhandy"; break;			
+case 1724:	dialogname ="junktown_gate_guard"; break;			
+case 1800:	dialogname ="bos_lh_guard"; break;			
+case 1801:	dialogname ="bos_lh_guard1"; break;			
+case 1802:	dialogname ="bos_lh_guard2"; break;			
+case 1803:	dialogname ="bos_lh_student"; break;			
+case 1804:	dialogname ="bos_lh_guard3"; break;			
+case 1805:	dialogname ="bos_lh_scribe"; break;			
+case 1806:	dialogname ="bos_lh_qmaster"; break;			
+case 1807:	dialogname ="bos_lh_trainer"; break;			
+case 1808:	dialogname ="bos_lh_entrance"; break;			
+case 1809:	dialogname ="bos_lh_knight"; break;			
+case 1810:	dialogname ="bos_lh_patrol"; break;			
+case 1811:	dialogname ="bos_lh_peter"; break;			
+case 1812:	dialogname ="bos_lh_jenna"; break;			
+case 1813:	dialogname ="bos_lh_elder"; break;			
+case 1814:	dialogname ="bos_lh_mathia"; break;			
+case 1815:	dialogname ="bos_lh_maxson"; break;			
+case 1820:	dialogname ="bos_quartermaster"; break;			
+case 1821:	dialogname ="bos_town_doorguard"; break;			
+case 1900:	dialogname ="se_bos_hummer_driver"; break;			
+case 1901:	dialogname ="se_bos_injured"; break;			
+case 2000:	dialogname ="q_bos_bunker_computer"; break;			
+case 2001:	dialogname ="q_bos_bunker_terminal"; break;			
+case 2400:	dialogname ="necropolis_ghoul1"; break;			
+case 2401:	dialogname ="necropolis_ghoul2"; break;			
+case 2402:	dialogname ="necropolis_ghoul3"; break;			
+case 2403:	dialogname ="necropolis_ghoul_wally"; break;			
+case 2404:	dialogname ="necropolis_wally"; break;			
+case 2405:	dialogname ="necropolis_elmer"; break;			
+case 2406:	dialogname ="necropolis_pump_staff"; break;			
+case 2500:	dialogname ="hub_police1"; break;			
+case 2501:	dialogname ="farmer1"; break;			
+case 2502:	dialogname ="farmer2"; break;			
+case 2503:	dialogname ="hub_iguana_pete"; break;			
+case 2504:	dialogname ="hub_prisoner"; break;			
+case 2505:	dialogname ="hub_caravan1"; break;			
+case 2506:	dialogname ="hub_caravan2"; break;			
+case 2507:	dialogname ="hub_caravan3"; break;			
+case 2508:	dialogname ="hub_jkelly"; break;			
+case 2509:	dialogname ="hub_jacob"; break;			
+case 2510:	dialogname ="hub_beth"; break;			
+case 2511:	dialogname ="hub_mitch"; break;			
+case 2512:	dialogname ="hub_shopguard"; break;			
+case 2513:	dialogname ="hub_falcon1"; break;			
+case 2514:	dialogname ="hub_brahminman"; break;			
+case 2515:	dialogname ="hub_keri"; break;			
+case 2516:	dialogname ="hub_ailis"; break;			
+case 2517:	dialogname ="hub_crimsonguard"; break;			
+case 2518:	dialogname ="hub_bankguard"; break;			
+case 2519:	dialogname ="hub_library"; break;			
+case 2520:	dialogname ="hub_skag"; break;			
+case 2521:	dialogname ="hub_hubber"; break;			
+case 2522:	dialogname ="hub_policecaptain"; break;			
+case 2523:	dialogname ="hub_crimson_leader"; break;			
+case 2524:	dialogname ="hub_fargo_leader"; break;			
+case 2525:	dialogname ="hub_police2"; break;			
+case 2526:	dialogname ="hub_sadwife"; break;			
+case 2527:	dialogname ="hub_fargo_mandesa"; break;			
+case 2528:	dialogname ="hub_fargo_mitch"; break;			
+case 2529:	dialogname ="hub_arena_manager"; break;			
+case 2530:	dialogname ="hub_arena_shouter"; break;			
+case 2531:	dialogname ="hub_duelguy"; break;			
+case 2532:	dialogname ="hub_henry"; break;			
+case 2533:	dialogname ="hub_child_shren"; break;			
+case 2534:	dialogname ="hub_mick"; break;			
+case 2535:	dialogname ="hub_farmer1"; break;			
+case 2536:	dialogname ="hub_farmer2"; break;			
+case 2537:	dialogname ="hub_waterboy"; break;			
+case 2538:	dialogname ="hub_watermerchant_guard"; break;			
+case 2539:	dialogname ="hub_water_merchant"; break;			
+case 2540:	dialogname ="hub_thief_connection"; break;			
+case 2541:	dialogname ="hub_caravan_master"; break;			
+case 2700:	dialogname ="raiders_guard"; break;			
+case 2701:	dialogname ="raiders_scully"; break;			
+case 2702:	dialogname ="raiders_amis"; break;			
+case 2703:	dialogname ="raiders_carter"; break;			
+case 2704:	dialogname ="raiders_collins"; break;			
+case 2705:	dialogname ="raiders_garcia"; break;			
+case 2706:	dialogname ="raiders_kazenzakis"; break;			
+case 2707:	dialogname ="raiders_keaton"; break;			
+case 2708:	dialogname ="raiders_king"; break;			
+case 2709:	dialogname ="raiders_miller"; break;			
+case 2710:	dialogname ="raiders_morgan"; break;			
+case 2711:	dialogname ="raiders_murphy"; break;			
+case 2712:	dialogname ="raiders_parker"; break;			
+case 2713:	dialogname ="raiders_peterson"; break;			
+case 2714:	dialogname ="raiders_reed"; break;			
+case 2715:	dialogname ="raiders_rodriguez"; break;			
+case 2716:	dialogname ="raiders_sanchez"; break;			
+case 2717:	dialogname ="raiders_hernandez"; break;			
+case 2718:	dialogname ="raiders_sonja"; break;			
+case 2719:	dialogname ="raiders_art"; break;			
+case 2720:	dialogname ="raiders_ashdown"; break;			
+case 2721:	dialogname ="raiders_augustus"; break;			
+case 2722:	dialogname ="raiders_gomes"; break;			
+case 2723:	dialogname ="raiders_jefferson"; break;			
+case 2724:	dialogname ="raiders_peter"; break;			
+case 2725:	dialogname ="raiders_slave"; break;			
+case 2726:	dialogname ="raiders_k_raynes"; break;			
+case 2727:	dialogname ="q_cooper"; break;			
+case 2900:	dialogname ="repl_guard1"; break;			
+case 2901:	dialogname ="repl_guard2"; break;			
+case 2902:	dialogname ="repl_farmerwife"; break;			
+case 2903:	dialogname ="repl_caravantrader"; break;			
+case 2904:	dialogname ="repl_farmer"; break;			
+case 2905:	dialogname ="repl_scavcamp_regulator"; break;			
+case 2906:	dialogname ="repl_ncr_ranger"; break;			
+case 2907:	dialogname ="repl7_nomad"; break;			
+case 2908:	dialogname ="repl7_nomad_warrior"; break;			
+case 2909:	dialogname ="repl5_citizen"; break;			
+case 2910:	dialogname ="repl5_q_subway"; break;			
+case 3000:	dialogname ="se_caravan"; break;			
+case 5000:	dialogname ="mob_norm_rat"; break;			
+case 5001:	dialogname ="mob_pig_rat"; break;			
+case 5002:	dialogname ="mob_mole_rat"; break;			
+case 5003:	dialogname ="mob_int_mole_rat"; break;			
+case 5010:	dialogname ="mob_small_scorp"; break;			
+case 5011:	dialogname ="mob_large_scorp"; break;			
+case 5012:	dialogname ="mob_mantis"; break;			
+case 5013:	dialogname ="mob_giant_ant"; break;			
+case 5020:	dialogname ="mob_silver_gecko"; break;			
+case 5021:	dialogname ="mob_golden_gecko"; break;			
+case 5022:	dialogname ="mob_fire_gecko"; break;			
+case 5030:	dialogname ="mob_baby_deathclaw"; break;			
+case 5031:	dialogname ="mob_adult_deathclaw"; break;			
+case 5032:	dialogname ="mob_int_deathclaw"; break;			
+case 5033:	dialogname ="mob_deathclaw_egg"; break;			
+case 5040:	dialogname ="mob_robobrain"; break;			
+case 5041:	dialogname ="mob_fly_eyeball"; break;			
+case 5042:	dialogname ="mob_sentry_bot"; break;			
+case 5043:	dialogname ="mob_mr_handy"; break;			
+case 5044:	dialogname ="mob_floor_turret"; break;			
+case 5045:	dialogname ="mob_plasma_turret"; break;			
+case 5050:	dialogname ="mob_floater"; break;			
+case 5051:	dialogname ="mob_centaur"; break;			
+case 5052:	dialogname ="mob_wanamingo"; break;			
+case 5053:	dialogname ="mob_spore_plant"; break;			
+case 5054:	dialogname ="mob_dog"; break;			
+case 5055:	dialogname ="mob_brahmin"; break;			
+case 5056:	dialogname ="mob_alien"; break;			
+case 5057:	dialogname ="mob_tribal"; break;			
+case 5058:	dialogname ="mob_bandit"; break;			
+case 5059:	dialogname ="mob_mutant"; break;			
+case 5060:	dialogname ="mob_pashtshuur"; break;			
+case 5061:	dialogname ="mob_uber_sentry_bot"; break;			
+case 6661:	dialogname ="train_mut"; break;			
+case 6662:	dialogname ="train_dc"; break;			
+case 6663:	dialogname ="train_cyb"; break;			
+case 6664:	dialogname ="train_hun"; break;			
+case 6665:	dialogname ="train_prist"; break;			
+case 6666:	dialogname ="train_chosen"; break;			
+case 6667:	dialogname ="train_sol"; break;			
+case 6668:	dialogname ="train_random"; break;			
+case 6669:	dialogname ="train_killer"; break;			
+case 6670:	dialogname ="train_asa"; break;			
+case 6680:	dialogname ="cyborg"; break;			
+case 6681:	dialogname ="leader"; break;			
+case 6682:	dialogname ="train_medic"; break;			
+case 6683:	dialogname ="train_lead"; break;			
+case 6684:	dialogname ="train_inf"; break;			
+case 6685:	dialogname ="train_sni"; break;			
+case 7000:	dialogname ="skintest"; break;			
+case 7001:	dialogname ="base_enginer"; break;			
+case 7002:	dialogname ="reno_dung_boss"; break;			
+case 8820:	dialogname ="bos_warehouse_guard"; break;			
+case 8821:	dialogname ="vegas_barmen"; break;			
+case 8822:	dialogname ="vegas_cafe_barmen"; break;			
+case 8823:	dialogname ="vegas_monte_barmen"; break;			
+case 8824:	dialogname ="vegas_singer"; break;			
+case 8825:	dialogname ="vegas_cafe_guest"; break;			
+case 8826:	dialogname ="vegas_citizen"; break;			
+case 8827:	dialogname ="vegas_gambler"; break;			
+case 8828:	dialogname ="vegas_homeless"; break;			
+case 8829:	dialogname ="vegas_kitchen"; break;			
+case 8830:	dialogname ="vegas_mob_guard"; break;			
+case 8831:	dialogname ="vegas_poor"; break;			
+case 8832:	dialogname ="vegas_prostitute"; break;			
+case 8833:	dialogname ="vegas_croupier"; break;			
+case 8834:	dialogname ="vegas_slaver"; break;			
+case 8835:	dialogname ="vegas_slave"; break;			
+case 8836:	dialogname ="vegas_slave_box"; break;			
+case 8837:	dialogname ="vegas_box_guest"; break;			
+case 8838:	dialogname ="vegas_box_slaver"; break;			
+case 8839:	dialogname ="vegas_gecko_guest"; break;			
+case 8840:	dialogname ="vegas_policeman"; break;			
+case 8841:	dialogname ="vegas_hotel_guest"; break;			
+case 8842:	dialogname ="vegas_secretary"; break;			
+case 8843:	dialogname ="vegas_commander"; break;			
+case 8844:	dialogname ="vegas_cas_owner"; break;			
+case 8845:	dialogname ="vegas_staff"; break;			
+case 8846:	dialogname ="vegas_officer"; break;			
+case 8847:	dialogname ="vegas_hotdog"; break;			
+case 8848:	dialogname ="vegas_mechanic"; break;			
+case 8849:	dialogname ="vegas_paul"; break;			
+case 8850:	dialogname ="vegas_tony"; break;			
+case 8851:	dialogname ="vegas_woody"; break;			
+case 8900:	dialogname ="saltlake_roger"; break;			
+case 8901:	dialogname ="saltlake_steven"; break;			
+case 8902:	dialogname ="saltlake_joe"; break;			
+case 8903:	dialogname ="saltlake_nukacolaworker"; break;			
+case 8904:	dialogname ="saltlake_pharmacist"; break;			
+case 8905:	dialogname ="saltlake_caravaneer"; break;			
+case 8906:	dialogname ="saltlake_skinner"; break;			
+case 8907:	dialogname ="saltlake_administrator"; break;			
+case 8908:	dialogname ="saltlake_cook"; break;			
+case 8909:	dialogname ="saltlake_technician"; break;			
+case 9000:	dialogname ="hawthorne_liquidjoe"; break;			
+case 9001:	dialogname ="hawthorne_fernandez"; break;			
+case 9002:	dialogname ="hawthorne_soldier"; break;			
+case 9051:	dialogname ="repl_bank_guard"; break;	
+case 9052:	dialogname ="repl_bank_keeper"; break;	
+case 9060:	dialogname ="factions_terminal"; break;			
+case 9061:	dialogname ="tents_campfire"; break;	
+case 9062:	dialogname ="faction_door"; break;			
+case 9063:	dialogname ="faction_settlement"; break;			
+case 9064:	dialogname ="faction_trader"; break;			
+case 9065:	dialogname ="faction_worker"; break;			
+case 9066:	dialogname ="faction_guard"; break;			
+case 9067:	dialogname ="faction_caravaner"; break;			
+case 9068:	dialogname ="faction_vortis"; break;			
+case 9069:	dialogname ="faction_doctor"; break;			
+case 9070:	dialogname ="faction_implantier"; break;			
+case 9071:	dialogname ="blackcross_base_foreworker"; break;			
+case 9100:	dialogname ="faction_lights"; break;			
+case 9200:	dialogname ="factions_geck_kelvin"; break;			
+case 9201:	dialogname ="gen_quest_fetcher_1"; break;			
+case 9202:	dialogname ="gen_quest_fetcher_2"; break;			
+case 9203:	dialogname ="gen_quest_fetcher_3"; break;			
+case 9204:	dialogname ="gen_quest_fetcher_4"; break;			
+case 9300:	dialogname ="economy_banker"; break;			
+case 9301:	dialogname ="economy_vault_guard"; break;			
+case 9310:	dialogname ="follower"; break;			
+case 9311:	dialogname ="follower_dog"; break;			
+case 9312:	dialogname ="follower_brahmin"; break;			
+case 9313:	dialogname ="brahminman_guard"; break;			
+case 9314:	dialogname ="follower_slave"; break;			
+case 9315:	dialogname ="dialogname"; break;			
+case 9316:	dialogname ="dialogname"; break;			
+case 9319:	dialogname ="dialogname"; break;			
+case 9320:	dialogname ="follower_companion"; break;			
+case 9321:	dialogname ="follower_companion_pre"; break;			
+case 9322:	dialogname ="follower_rat"; break;			
+case 9323:	dialogname ="vaultx_door"; break;			
+case 9400:	dialogname ="cafe_1"; break;			
+case 9401:	dialogname ="cafe_2"; break;			
+case 9402:	dialogname ="cafe_3"; break;			
+case 9403:	dialogname ="cafe_4"; break;			
+case 9404:	dialogname ="cafe_5"; break;			
+case 9405:	dialogname ="cafe_6"; break;			
+case 9406:	dialogname ="cafe_7"; break;			
+case 9407:	dialogname ="cafe_8"; break;			
+case 9408:	dialogname ="cafe_9"; break;			
+case 9409:	dialogname ="cafe_10"; break;			
+case 9438:	dialogname ="gun_gabriel"; break;			
+case 9439:	dialogname ="gun_gunrnr"; break;			
+case 9440:	dialogname ="gun_moatalexei"; break;			
+case 9441:	dialogname ="gun_zack"; break;			
+case 9442:	dialogname ="la_ady_caleb"; break;			
+case 9443:	dialogname ="la_ady_chuck"; break;			
+case 9444:	dialogname ="la_ady_cit"; break;			
+case 9445:	dialogname ="la_ady_lorraine"; break;			
+case 9446:	dialogname ="la_ady_taylor"; break;			
+case 9447:	dialogname ="la_ady_zimmer"; break;			
+case 9448:	dialogname ="la_ady_miles"; break;			
+case 9449:	dialogname ="la_blade_generic"; break;			
+case 9450:	dialogname ="la_blade_razor"; break;			
+case 9451:	dialogname ="la_lib_fol"; break;			
+case 9452:	dialogname ="la_lib_katja"; break;			
+case 9453:	dialogname ="la_lib_nicole"; break;			
+case 9454:	dialogname ="la_ady_reg"; break;			
+case 9455:	dialogname ="la_ady_gunsmith"; break;			
+case 9456:	dialogname ="la_lib_caesar"; break;			
+case 9457:	dialogname ="la_blade_simon"; break;			
+case 9458:	dialogname ="la_gun_elmer"; break;			
+case 9459:	dialogname ="la_regulator1"; break;			
+case 9460:	dialogname ="la_regulator2"; break;			
+case 9461:	dialogname ="la_train_peasant1"; break;			
+case 9462:	dialogname ="la_train_peasant2"; break;			
+case 9463:	dialogname ="la_train_ticketseller"; break;			
+case 9464:	dialogname ="la_train_coc1"; break;			
+case 9465:	dialogname ="la_train_coc2"; break;			
+case 9466:	dialogname ="la_train_coc3"; break;			
+case 9468:	dialogname ="la_blade_hangman_regulator"; break;			
+case 9469:	dialogname ="la_train_coc4"; break;			
+case 9470:	dialogname ="la_ady_hendriks"; break;			
+case 9471:	dialogname ="la_dog"; break;			
+case 9472:	dialogname ="la_lib_librarian"; break;			
+case 9473:	dialogname ="la_lib_tent_dweller"; break;			
+case 9474:	dialogname ="la_ady_dogman"; break;			
+case 9475:	dialogname ="gun_gunrnr2"; break;			
+case 9476:	dialogname ="la_blade_trisha"; break;			
+case 9477:	dialogname ="la_lib_therese"; break;			
+case 9478:	dialogname ="gun_facility_worker"; break;			
+case 9479:	dialogname ="la_locker_guards"; break;			
+case 10100:	dialogname ="prospect_owner"; break;			
+case 10101:	dialogname ="prospect_guard"; break;			
+case 10150:	dialogname ="all_base_foreworker"; break;			
+case 10151:	dialogname ="all_base_builder"; break;			
+case 10152:	dialogname ="all_mr_handy"; break;			
+case 10200:	dialogname ="train_conductor"; break;			
+case 10203:	dialogname ="event_team"; break;			
+case 10204:	dialogname ="event_enclave"; break;			
+case 10206:	dialogname ="event_vc"; break;			
+case 10207:	dialogname ="event_ncr"; break;			
+case 10208:	dialogname ="event_def"; break;			
+case 10209:	dialogname ="event_bos"; break;			
+case 10210:	dialogname ="event_door"; break;			
+case 10211:	dialogname ="event_doors"; break;			
+case 10212:	dialogname ="event_unity"; break;			
+case 10230:	dialogname ="event_Reno"; break;			
+case 10250:	dialogname ="ul_junk_todd"; break;			
+case 10251:	dialogname ="spawn_caravan_ghoul1"; break;			
+case 10252:	dialogname ="spawn_caravan_ghoul_newton"; break;			
+case 10253:	dialogname ="spawn_caravan_ghoul_leeroy"; break;			
+case 10254:	dialogname ="spawn_hub_caravanleader"; break;			
+case 10255:	dialogname ="spawn_hub_caravanwater"; break;			
+case 10256:	dialogname ="verti_mechanic"; break;			
+case 10260:	dialogname ="q_horatius_leader"; break;			
+case 10261:	dialogname ="q_horatius_gang"; break;			
+case 10262:	dialogname ="q_tanker_terminal"; break;			
+case 10263:	dialogname ="q_caesar_ganger_leader"; break;			
+case 10264:	dialogname ="q_caesar_ganger"; break;			
+case 10265:	dialogname ="q_caesar_girl"; break;			
+case 10266:	dialogname ="q_caesar_father"; break;			
+case 10267:	dialogname ="q_rail_raider_leader"; break;			
+case 10268:	dialogname ="q_rail_raider_generic"; break;			
+case 10269:	dialogname ="q_rail_raider_conductor"; break;			
+case 10270:	dialogname ="q_la_warehouse_jobgiver"; break;			
+case 10271:	dialogname ="q_la_warehouse_generic"; break;			
+case 10272:	dialogname ="q_la_warehouse_main"; break;			
+case 10273:	dialogname ="q_cath_cranium_rat"; break;			
+case 10274:	dialogname ="q_cath_basement_door"; break;			
+case 10275:	dialogname ="q_cath_monk"; break;			
+case 10276:	dialogname ="q_cath_ghoul"; break;			
+case 10277:	dialogname ="q_gunrunner_smutant"; break;			
+case 10278:	dialogname ="q_frisco_subway_stairs"; break;			
+case 10279:	dialogname ="q_ncr_brahmin_child"; break;			
+case 10280:	dialogname ="q_jt_scorpion"; break;			
+case 10281:	dialogname ="q_brahmin_run_giver1"; break;			
+case 10282:	dialogname ="q_brahmin_run_herdsman"; break;			
+case 10283:	dialogname ="q_brahmin_run_destination_npc"; break;			
+case 10284:	dialogname ="q_first_tent_eric"; break;			
+case 10285:	dialogname ="q_first_tent_sally"; break;			
+case 10286:	dialogname ="q_first_tent_hasso"; break;			
+case 10287:	dialogname ="q_first_tent_evelyn"; break;			
+case 10288:	dialogname ="q_daily"; break;			
+case 10500:	dialogname ="rq_risto"; break;			
+case 10501:	dialogname ="rq_monte_carlo"; break;			
+case 10600:	dialogname ="militia"; break;			
+case 10700:	dialogname ="ul_gas_gordon"; break;			
+case 10701:	dialogname ="ul_gas_tamira"; break;			
+case 10710:	dialogname ="ul_trainyard3_bobjr"; break;			
+case 10799:	dialogname ="event_low_outfitter"; break;			
+case 10800:	dialogname ="event_warzone_terminal"; break;			
+case 10801:	dialogname ="event_outfitter"; break;			
+case 10803:	dialogname ="arena_scheduler"; break;			
+case 10804:	dialogname ="arena_outfitter"; break;			
+case 10805:	dialogname ="arena_guard"; break;			
+case 10806:	dialogname ="arena_door"; break;			
+case 10807:	dialogname ="arena_barman"; break;			
+case 10808:	dialogname ="dialogimage"; break;			
+case 10809:	dialogname ="event_outfitter2"; break;			
+case 10810:	dialogname ="event_teleporter"; break;			
+case 10811:	dialogname ="event_outfitter_special"; break;	
+case 10812:	dialogname ="id_enter"; break;	
+case 10813:	dialogname ="id_outpost"; break;
+case 10900:	dialogname ="billboard_hub"; break;			
+case 10901:	dialogname ="billboard_adytum"; break;			
+case 10902:	dialogname ="billboard_shadysands"; break;			
+case 10903:	dialogname ="billboard_shadysands2"; break;			
+case 10999:	dialogname ="war_officer"; break;			
+case 11000:	dialogname ="all_ncr_army"; break;			
+case 11001:	dialogname ="all_caravan_town_generic"; break;			
+case 11002:	dialogname ="all_caravan_encounter_generic"; break;			
+case 11003:	dialogname ="all_enclave_soldier"; break;	
+case 11004:	dialogname ="all_renegade"; break;
+case 12000:	dialogname ="vault13_mob_dweller"; break;
+case 12001:	dialogname ="vault13_overseer"; break;	
+case 21200:	dialogname ="q_mb_energetics"; break;			
+case 21201:	dialogname ="q_mb_reactor"; break;			
+case 21202:	dialogname ="q_mb_infi"; break;			
+case 21203:	dialogname ="q_mb_body"; break;			
+case 21204:	dialogname ="q_mb_uber_bot_terminal"; break;			
+case 22120:	dialogname ="talchem_l5"; break;			
+case 22121:	dialogname ="talchem_rl"; break;			
+case 22122:	dialogname ="talchem_Ter"; break;			
+case 22123:	dialogname ="hub_foxter"; break;			
+case 22124:	dialogname ="bos_surface_knight"; break;			
+case 22125:	dialogname ="bos_surface_rox"; break;			
+case 22126:	dialogname ="bos_mechanic"; break;			
+case 22127:	dialogname ="bos_lh_jack"; break;			
+case 22128:	dialogname ="bos_surface_rose"; break;			
+case 22129:	dialogname ="bos_surface_Ostin"; break;			
+case 22130:	dialogname ="GAV_Terminal1"; break;			
+case 22131:	dialogname ="GAV_Terminal2"; break;			
+case 22132:	dialogname ="GAV_Handy1"; break;			
+case 22133:	dialogname ="GAV_Handy2"; break;			
+case 22134:	dialogname ="GAV_Handy3"; break;			
+case 22135:	dialogname ="GAV_Handy4"; break;			
+case 22136:	dialogname ="GAV_Handy5"; break;			
+case 22137:	dialogname ="rockside_Arnold"; break;			
+case 22138:	dialogname ="rockside_William"; break;			
+case 22139:	dialogname ="q_rockside_nuka"; break;			
+case 22140:	dialogname ="q_rockside_cig_robot"; break;			
+case 22141:	dialogname ="ncr_citizenship"; break;			
+case 22142:	dialogname ="lh_darius"; break;			
+case 22143:	dialogname ="Abbey_Terminal"; break;			
+case 22144:	dialogname ="Abbey_Knight"; break;			
+case 22145:	dialogname ="Abbey_Roy"; break;			
+case 22146:	dialogname ="q_rockside_boris"; break;			
+case 22147:	dialogname ="q_rockside_agnes"; break;			
+case 22148:	dialogname ="rockside_Fernand"; break;			
+case 22149:	dialogname ="q_rockside_pfs"; break;			
+case 22150:	dialogname ="nav_sniper"; break;			
+case 22151:	dialogname ="nav_spy"; break;			
+case 22152:	dialogname ="q_rockside_Miguel"; break;			
+case 22153:	dialogname ="q_rockside_Watcher"; break;			
+case 22154:	dialogname ="tunnels_terminal"; break;			
+case 22155:	dialogname ="abbey_terminal_rad"; break;			
+case 22156:	dialogname ="waterworks_terminal1"; break;			
+case 22157:	dialogname ="waterworks_terminal2"; break;			
+case 22158:	dialogname ="tc_terminal1"; break;			
+case 22159:	dialogname ="tc_terminal2"; break;			
+case 22160:	dialogname ="tc_terminal3"; break;			
+case 22161:	dialogname ="x7_terminal1"; break;			
+case 22162:	dialogname ="x7_terminal2"; break;			
+case 22163:	dialogname ="ares_terminal"; break;			
+case 22164:	dialogname ="glow_terminal1"; break;			
+case 22165:	dialogname ="glow_terminal2"; break;			
+case 22166:	dialogname ="glow_terminal3"; break;			
+case 22167:	dialogname ="nav_watcher"; break;			
+case 22168:	dialogname ="q_rockside_Alexis"; break;			
+case 22169:	dialogname ="q_rockside_Constantine"; break;			
+case 22170:	dialogname ="fo3_q_francis"; break;			
+case 22171:	dialogname ="q_rockside_cooker"; break;			
+case 22172:	dialogname ="q_rockside_judith"; break;			
+case 22173:	dialogname ="q_rockside_sally"; break;			
+case 22174:	dialogname ="q_rockside_redwolf"; break;			
+case 22175:	dialogname ="rockside_bishop"; break;			
+case 22176:	dialogname ="rockside_bruce"; break;			
+case 22177:	dialogname ="rockside_joseph"; break;			
+case 22178:	dialogname ="q_rockside_farmer"; break;			
+case 22179:	dialogname ="rockside_kyles"; break;			
+case 22180:	dialogname ="q_rockside_arkham"; break;			
+case 22181:	dialogname ="rockside_drunk"; break;			
+case 22182:	dialogname ="rockside_vangraffs"; break;			
+case 22183:	dialogname ="rockside_kids"; break;			
+case 22184:	dialogname ="rockside_civil"; break;			
+case 22185:	dialogname ="rockside_guard"; break;			
+case 22186:	dialogname ="rockside_caravaner"; break;			
+case 22187:	dialogname ="rockside_gunsmith"; break;			
+case 22188:	dialogname ="q_rockside_breakit"; break;			
+case 22189:	dialogname ="hub_arkansas"; break;			
+case 22190:	dialogname ="ncr_paramedic"; break;			
+case 22191:	dialogname ="klam_enc_cit"; break;			
+case 22192:	dialogname ="klam_enc_driver"; break;			
+case 22193:	dialogname ="q_klamath_felix"; break;			
+case 22194:	dialogname ="tc_generator"; break;			
+case 22195:	dialogname ="necro_bos"; break;			
+case 22196:	dialogname ="necro_protest"; break;			
+case 22197:	dialogname ="q_necro_lucifer"; break;			
+case 22198:	dialogname ="necro_main_terminal"; break;			
+case 22199:	dialogname ="adytum_driver"; break;			
+case 22200:	dialogname ="adytum_mechanic"; break;			
+case 22201:	dialogname ="adytum_mercury"; break;			
+case 22202:	dialogname ="mus_motorcycle"; break;			
+case 22203:	dialogname ="mus_trash_bin"; break;			
+case 22204:	dialogname ="mus_gas_pump"; break;			
+case 22205:	dialogname ="mus_police_barrier"; break;			
+case 22206:	dialogname ="mus_police_shield"; break;			
+case 22207:	dialogname ="mus_tv"; break;			
+case 22208:	dialogname ="mus_generator"; break;			
+case 22209:	dialogname ="mus_machine"; break;			
+case 22210:	dialogname ="junk_colonel"; break;			
+case 22211:	dialogname ="junk_ncr"; break;			
+case 22212:	dialogname ="klamath_bunker_terminal"; break;			
+case 22213:	dialogname ="vegas_ncr"; break;			
+case 22214:	dialogname ="vegas_velix"; break;			
+case 22215:	dialogname ="vegas_david"; break;			
+case 22216:	dialogname ="vegas_robenson"; break;			
+case 22217:	dialogname ="adytum_weffer"; break;			
+case 22218:	dialogname ="adytum_bos_soldiers"; break;			
+case 22219:	dialogname ="adytum_bos_commander"; break;			
+case 22220:	dialogname ="adytum_market_guard"; break;			
+case 22221:	dialogname ="bh_vc"; break;			
+case 22222:	dialogname ="bh_vc_guard"; break;			
+case 22223:	dialogname ="bh_vc_max"; break;			
+case 22224:	dialogname ="bh_vc_terminal"; break;			
+case 22225:	dialogname ="bh_vc_centurion"; break;			
+case 22226:	dialogname ="hawthorne_christian"; break;			
+case 22227:	dialogname ="hawthorne_board"; break;			
+case 22228:	dialogname ="hawthorne_robobrain"; break;			
+case 22229:	dialogname ="hawthorne_alpha"; break;			
+case 22230:	dialogname ="hawthorne_robot"; break;			
+case 22231:	dialogname ="hawthorne_deathclaw"; break;			
+case 22232:	dialogname ="hawthorne_citizen"; break;			
+case 22233:	dialogname ="hawthorne_christofer"; break;			
+case 22234:	dialogname ="hawthorne_secretary"; break;			
+case 22235:	dialogname ="hawthorne_whore"; break;			
+case 22236:	dialogname ="hawthorne_whore2"; break;			
+case 22237:	dialogname ="den_pax"; break;			
+case 22238:	dialogname ="den_private"; break;			
+case 22239:	dialogname ="den_doctor"; break;			
+case 22240:	dialogname ="den_infected"; break;			
+case 22241:	dialogname ="den_memory"; break;			
+case 22242:	dialogname ="a51_power1"; break;			
+case 22243:	dialogname ="a51_power2"; break;			
+case 22244:	dialogname ="a51_power3"; break;			
+case 22245:	dialogname ="hawthorne_guard"; break;			
+case 22246:	dialogname ="hawthorne_roboguard"; break;			
+case 22247:	dialogname ="treasure_MarkDougan"; break;			
+case 22248:	dialogname ="treasure_bounty"; break;			
+case 22249:	dialogname ="signal_bandit"; break;			
+case 22250:	dialogname ="signal_helix"; break;			
+case 22251:	dialogname ="signal_terminal"; break;			
+case 22252:	dialogname ="hawthorne_slave"; break;			
+case 22253:	dialogname ="hawthorne_vc"; break;			
+case 22254:	dialogname ="hawthorne_ticket"; break;			
+case 22255:	dialogname ="hawthorne_civil"; break;			
+case 22256:	dialogname ="tunnel_terminal"; break;			
+case 22257:	dialogname ="seth_soldier"; break;			
+case 22258:	dialogname ="seth_dean"; break;			
+case 22259:	dialogname ="signal_computer"; break;			
+case 22260:	dialogname ="hawthorne_tech"; break;			
+case 22261:	dialogname ="se_chosen"; break;			
+case 22262:	dialogname ="notr_terminal1"; break;			
+case 22263:	dialogname ="notr_terminal2"; break;			
+case 22264:	dialogname ="notr_terminal3"; break;			
+case 22265:	dialogname ="notrhill_veter"; break;			
+case 22266:	dialogname ="notr_alex"; break;			
+case 22267:	dialogname ="notr_computer"; break;			
+case 22268:	dialogname ="ncr_army_doorguard2"; break;			
+case 22269:	dialogname ="seth_dorian"; break;			
+case 22270:	dialogname ="seth_joe"; break;			
+case 22271:	dialogname ="seth_burk"; break;			
+case 22272:	dialogname ="seth_isaac"; break;			
+case 22273:	dialogname ="seth_guard"; break;			
+case 22274:	dialogname ="seth_local"; break;			
+case 22275:	dialogname ="seth_alastor"; break;			
+case 22276:	dialogname ="seth_samantha"; break;			
+case 22277:	dialogname ="seth_kid"; break;			
+case 22278:	dialogname ="seth_bum"; break;			
+case 22279:	dialogname ="seth_betsy"; break;			
+case 22280:	dialogname ="seth_julian"; break;			
+case 22281:	dialogname ="seth_junk1"; break;			
+case 22282:	dialogname ="seth_junk2"; break;			
+case 22283:	dialogname ="seth_junk3"; break;			
+case 22284:	dialogname ="seth_anna"; break;			
+case 22285:	dialogname ="seth_charley"; break;			
+case 22286:	dialogname ="wow_guard"; break;			
+case 22287:	dialogname ="wow_local"; break;			
+case 22288:	dialogname ="wow_caravaner"; break;			
+case 22289:	dialogname ="radio_merc"; break;			
+case 22290:	dialogname ="radio_box"; break;			
+case 22291:	dialogname ="radio_alice"; break;			
+case 22292:	dialogname ="radio_duke"; break;			
+case 22293:	dialogname ="radio_cultist"; break;			
+case 22294:	dialogname ="radio_terminal1"; break;			
+case 22295:	dialogname ="bunker_terminal1"; break;			
+case 22296:	dialogname ="bunker_terminal2"; break;			
+case 22297:	dialogname ="slc_terminal1"; break;			
+case 22298:	dialogname ="wow_bus"; break;			
+case 22299:	dialogname ="wow_robot"; break;			
+case 22300:	dialogname ="wow_ryan"; break;			
+case 22301:	dialogname ="wow_foxlove"; break;			
+case 22302:	dialogname ="wow_jery"; break;			
+case 22303:	dialogname ="wow_howard"; break;			
+case 22304:	dialogname ="wow_glory"; break;			
+case 22305:	dialogname ="v41_terminal1"; break;			
+case 22306:	dialogname ="v41_terminal1_1"; break;			
+case 22307:	dialogname ="v41_terminal2"; break;			
+case 22308:	dialogname ="v41_armory"; break;			
+case 22309:	dialogname ="v41_main"; break;			
+case 22310:	dialogname ="v41_main1"; break;			
+case 22311:	dialogname ="wow_kid"; break;			
+case 22312:	dialogname ="v41_alarm"; break;			
+case 22313:	dialogname ="provo_enc"; break;			
+case 22314:	dialogname ="provo_scientist"; break;			
+case 22315:	dialogname ="provo_gate"; break;			
+case 22316:	dialogname ="wow_trader"; break;			
+case 22317:	dialogname ="wow_doctor"; break;			
+case 22318:	dialogname ="fort_doc"; break;			
+case 22319:	dialogname ="graf_merc"; break;			
+case 22320:	dialogname ="graf_gloria"; break;			
+case 22321:	dialogname ="all_infected"; break;			
+case 22322:	dialogname ="adytum_informer"; break;			
+case 22323:	dialogname ="gramaphone"; break;			
+case 22324:	dialogname ="enc_quartermaster"; break;			
+case 22325:	dialogname ="talchem_terminal_research"; break;			
+case 22326:	dialogname ="x7_generator"; break;			
+case 22327:	dialogname ="x7_computer"; break;			
+case 22328:	dialogname ="tunnel_term"; break;			
+case 22329:	dialogname ="ady_terminal"; break;			
+case 22340:	dialogname ="vt_terminal1"; break;			
+case 22341:	dialogname ="vt_terminal2"; break;			
+case 22342:	dialogname ="vt_terminal3"; break;			
+case 22343:	dialogname ="ncr_door"; break;			
+case 22344:	dialogname ="ncr_aria"; break;			
+case 22345:	dialogname ="ncr_follower"; break;			
+case 22346:	dialogname ="ncr_leo"; break;			
+case 22347:	dialogname ="ncr_plant"; break;			
+case 22348:	dialogname ="den_cultist"; break;			
+case 22349:	dialogname ="den_terminal"; break;			
+case 22350:	dialogname ="sal_terminal"; break;			
+case 22351:	dialogname ="v32_res"; break;			
+case 22352:	dialogname ="v32_guard"; break;			
+case 22353:	dialogname ="v32_bot"; break;			
+case 22354:	dialogname ="v12_lucius"; break;			
+case 22355:	dialogname ="v12_lucius_guard"; break;			
+case 22356:	dialogname ="v32_watch"; break;			
+case 22357:	dialogname ="v32_nuka"; break;			
+case 22358:	dialogname ="v32_adam"; break;			
+case 22359:	dialogname ="vegas_monument"; break;			
+case 22360:	dialogname ="crashed_terminal"; break;			
+case 22361:	dialogname ="vault_printer"; break;			
+case 22362:	dialogname ="all_conscript"; break;			
+case 22363:	dialogname ="crashed_terminal2"; break;			
+case 22364:	dialogname ="all_securitron"; break;			
+case 22365:	dialogname ="vegas_bum"; break;			
+case 22366:	dialogname ="vegas_gate1"; break;			
+case 22367:	dialogname ="vegas_nuka"; break;			
+case 22368:	dialogname ="vegas_vending"; break;			
+case 22369:	dialogname ="vegas_bank"; break;			
+case 22370:	dialogname ="vegas_pile"; break;			
+case 22371:	dialogname ="vegas_christine"; break;			
+case 22372:	dialogname ="cit1"; break;			
+case 22373:	dialogname ="cit2"; break;			
+case 22374:	dialogname ="cit3"; break;			
+case 22375:	dialogname ="cit_term"; break;			
+case 22377:	dialogname ="vegas_magazine1"; break;			
+case 22378:	dialogname ="vegas_magazine2"; break;			
+case 22379:	dialogname ="rockside_rogers"; break;			
+case 22380:	dialogname ="rockside_denkel"; break;			
+case 22381:	dialogname ="museum1"; break;			
+case 22382:	dialogname ="museum2"; break;			
+case 22383:	dialogname ="museum3"; break;			
+case 22384:	dialogname ="museum4"; break;			
+case 22385:	dialogname ="vegas_sandra"; break;			
+case 22386:	dialogname ="vegas_bath"; break;			
+case 22387:	dialogname ="vegas_stephan"; break;			
+case 22388:	dialogname ="vegas_machine"; break;			
+case 22389:	dialogname ="vegas_bar"; break;			
+case 22390:	dialogname ="vegas_manager"; break;			
+case 22391:	dialogname ="vegas_memorial"; break;			
+case 22392:	dialogname ="vegas_ranger"; break;			
+case 22393:	dialogname ="vegas_chaz"; break;			
+case 22394:	dialogname ="vegas_gaz"; break;			
+case 22395:	dialogname ="vegas_gary"; break;			
+case 22396:	dialogname ="vegas_ronald"; break;			
+case 22397:	dialogname ="vegas_liza"; break;			
+case 22398:	dialogname ="vegas_exchange"; break;			
+case 22399:	dialogname ="rockside_bank"; break;			
+case 22400:	dialogname ="ranger_terminal"; break;			
+case 22401:	dialogname ="vegas_gross"; break;			
+case 22402:	dialogname ="vegas_douglas"; break;			
+case 22403:	dialogname ="talchem_computer"; break;			
+case 22404:	dialogname ="tobacco_robot"; break;			
+case 22405:	dialogname ="tobacco_terminal"; break;			
+case 22406:	dialogname ="adytum_vulfus"; break;			
+case 22407:	dialogname ="tobacco_decker"; break;			
+case 22408:	dialogname ="raiders_arrow"; break;			
+case 22409:	dialogname ="raiders_lector"; break;			
+case 22410:	dialogname ="farm_pump"; break;			
+case 22411:	dialogname ="farm_cabbage"; break;			
+case 22412:	dialogname ="farm_papaya"; break;			
+case 22413:	dialogname ="farm_mushroom"; break;			
+case 22414:	dialogname ="sarmatia_janna"; break;			
+case 22415:	dialogname ="all_stove"; break;			
+case 22416:	dialogname ="flag_seller"; break;			
+case 22417:	dialogname ="nuka_matrix"; break;			
+case 22418:	dialogname ="raiders_anderson"; break;			
+case 22419:	dialogname ="vc_hq"; break;			
+case 22420:	dialogname ="vault_pump"; break;			
+case 22421:	dialogname ="master_gate"; break;			
+case 22422:	dialogname ="master_pope"; break;			
+case 22423:	dialogname ="vc_quartermaster"; break;			
+case 22424:	dialogname ="ma_quartermaster"; break;			
+case 22425:	dialogname ="diego_terminal1"; break;			
+case 22426:	dialogname ="diego_terminal2"; break;			
+case 22427:	dialogname ="diego_bcd"; break;			
+case 22428:	dialogname ="diego_bcd2"; break;			
+case 22429:	dialogname ="diego_bcd_terminal"; break;			
+case 22430:	dialogname ="diego_matrix"; break;			
+case 22431:	dialogname ="diego_warning"; break;			
+case 22432:	dialogname ="blackstone_terminal1"; break;			
+case 22433:	dialogname ="blackstone_terminal2"; break;			
+case 22434:	dialogname ="blackstone_terminal3"; break;			
+case 22435:	dialogname ="blackstone_piano"; break;			
+case 22436:	dialogname ="blackstone_terminal4"; break;			
+case 22437:	dialogname ="blackstone_terminal5"; break;			
+case 22438:	dialogname ="tobacco_control"; break;			
+case 22439:	dialogname ="naval_bar"; break;			
+case 22440:	dialogname ="naval_door"; break;			
+case 22441:	dialogname ="sarmatia_beer"; break;			
+case 22442:	dialogname ="legion_barman"; break;			
+case 22443:	dialogname ="legion_book_trader"; break;			
+case 22444:	dialogname ="legion_terminal_drugs"; break;			
+case 22445:	dialogname ="legion_door"; break;			
+case 22446:	dialogname ="legion_trader"; break;			
+case 22447:	dialogname ="signifer_max"; break;			
+case 22448:	dialogname ="legionary"; break;			
+case 22449:	dialogname ="legion_butcher"; break;			
+case 40004:	dialogname ="all_exploding_barrel"; break;			
+case 40005:	dialogname ="all_sandbag"; break;	
+default: dialogname ="ERROR"; break;			
+	}
+	return dialogname;
+}
+
+
+#endif // __DIALOG__ //

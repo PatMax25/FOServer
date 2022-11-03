@@ -1,0 +1,149 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _item p PID_MEAT } 1 D _item p PID_FIREWOOD } 2 R _item p PID_FIREWOOD - 2 R _item p PID_MEAT - 1 R _param p ST_EXPERIENCE + 100 R _item p PID_FRYED_MEAT + 1 #
+2 2020 D _item p PID_FIREWOOD } 2 D _item p PID_RAW_GECKO_MEAT } 1 R _item p PID_FIREWOOD - 2 R _item p PID_RAW_GECKO_MEAT - 1 R _param p ST_EXPERIENCE + 100 R _item p PID_GECKO_MEAT + 1 #
+2 2030 D _item p PID_FIREWOOD } 5 D _item p PID_CABBAGE } 2 D _item p PID_XANDER_ROOT } 3 D _item p PID_BROC_FLOWER } 2 R _item p PID_FIREWOOD - 5 R _item p PID_XANDER_ROOT - 3 R _item p PID_BROC_FLOWER - 2 R _item p PID_CABBAGE - 2 R _item p PID_FOOD2 + 1 R _param p ST_EXPERIENCE + 400 #
+3 2040 #
+0 2050 #
+2 2060 D _item p PID_FIREWOOD } 3 D _item p PID_CABBAGE } 1 D _item p PID_MUSHROOM } 2 D _item p PID_GECKO_MEAT } 1 D _item p PID_FRYED_MEAT } 1 R _item p PID_SANDWICH + 1 R _item p PID_FIREWOOD - 3 R _item p PID_FRYED_MEAT - 1 R _item p PID_GECKO_MEAT - 1 R _item p PID_CABBAGE - 1 R _item p PID_MUSHROOM - 2 R _param p ST_EXPERIENCE + 400 #
+2 2070 D _item p PID_FIREWOOD } 5 D _item p PID_PAPAYA } 2 D _item p PID_MUSHROOM } 4 D _item p PID_CABBAGE } 1 D _item p PID_BOTTLE_FULL } 1 D _item p PID_BEANS } 1 R _item p PID_MUSHROOM - 4 R _item p PID_PAPAYA - 2 R _item p PID_CABBAGE - 1 R _item p PID_BOTTLE_FULL - 1 R _item p PID_BEANS - 1 R _item p PID_FIREWOOD - 5 R _item p PID_FOOD3 + 1 R _param p ST_EXPERIENCE + 400 #
+4 2080 #
+5 2090 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 #
+5 5020 D _item p PID_PAPAYA } 15 D _item p PID_CABBAGE } 10 D _item p PID_MUSHROOM } 20 R _item p PID_FOODPACK_VEGETABLES + 1 R _item p PID_CABBAGE - 10 R _item p PID_PAPAYA - 15 R _item p PID_MUSHROOM - 20 #
+5 5030 D _item p PID_GECKO_MEAT } 10 D _item p PID_FRYED_MEAT } 10 R _item p PID_FOODPACK_MEAT + 1 R _item p PID_GECKO_MEAT - 10 R _item p PID_FRYED_MEAT - 10 #
+5 5040 D _item p PID_SANDWICH } 3 D _item p PID_FOOD2 } 4 D _item p PID_FOOD3 } 3 R _item p PID_FOODPACK_COMBINED + 1 R _item p PID_FOOD2 - 4 R _item p PID_FOOD3 - 3 R _item p PID_SANDWICH - 3 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a stove. Using wood, you can try to cook something. Most of the dishes require 2 - 5 pieces of wood. A small note over the stove says: "The better your Outdoorsman skill - the better you are at cooking." ]}
+{2010}{}{[ Cook fried Brahmin meat ]}
+{2020}{}{[ Cook fried Gecko meat ]}
+{2030}{}{[ Cook Desert Salat ]}
+{2040}{}{[ Recipes ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Cook Sandwich ]}
+{2070}{}{[ Cook Shady Soup ]}
+{2080}{}{[ Read a strange note near the stove ]}
+{2090}{}{[ Pack supplies ]}
+{3000}{}{[ Fried Brahmin Mea ( 50 Outdoorsman) t: 1  Raw Meat, 2 wood. Fried Gecko Meat ( 50 Outdoorsman ): 1 Raw Gecko Meat, 2 wood. Desert Salat ( 100 Outdoorsman ): 2 Cabbage, 3 Xander Root, 2 Broc Flowers, 5 wood. Sandwich ( 100 Outdoorsman ): 1 Fried Brhamin Meat, 1 Fried Gecko Meat, 1 Cabbage, 2 Nukies, 3 wood. Shady Soup ( Outdoorsman 100 ): 2 Papaya, 4 Nukies, 1 Bottle of Water, 1 Cabbage, 1 Backed Beans, 5 wood. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I heard that the "Honest Hearts" company in Reno is paying good money for food supplies. This is your chance to buy the farm back, Janna, don't miss it. R. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Fruits and vegetables pack: 15 Papaya, 10 Cabbage, 20 Mushrooms. Meat pack: 10 fried Gecko steaks, 10 fried Brahmin steaks. Combined pack: 3 Sandwiches, 4 salads, 3 soup, ]}
+{5010}{}{[ Back ]}
+{5020}{}{[ Pack Fruits and Vegetables supplies ]}
+{5030}{}{[ Pack Meat supplies ]}
+{5040}{}{[ Pack Combined supplies ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a stove. Using wood, you can try to cook something. Most of the dishes require 2 - 5 pieces of wood. A small note over the stove says: "The better your Outdoorsman skill - the better you are at cooking." ]}
+{2010}{}{[ Cook fried Brahmin meat ]}
+{2020}{}{[ Cook fried Gecko meat ]}
+{2030}{}{[ Cook Desert Salat ]}
+{2040}{}{[ Recipes ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Cook Sandwich ]}
+{2070}{}{[ Cook Shady Soup ]}
+{2080}{}{[ Read a strange note near the stove ]}
+{2090}{}{[ Pack supplies ]}
+{3000}{}{[ Fried Brahmin Mea ( 50 Outdoorsman) t: 1  Raw Meat, 2 wood. Fried Gecko Meat ( 50 Outdoorsman ): 1 Raw Gecko Meat, 2 wood. Desert Salat ( 100 Outdoorsman ): 2 Cabbage, 3 Xander Root, 2 Broc Flowers, 5 wood. Sandwich ( 100 Outdoorsman ): 1 Fried Brhamin Meat, 1 Fried Gecko Meat, 1 Cabbage, 2 Nukies, 3 wood. Shady Soup ( Outdoorsman 100 ): 2 Papaya, 4 Nukies, 1 Bottle of Water, 1 Cabbage, 1 Backed Beans, 5 wood. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I heard that the "Honest Hearts" company in Reno is paying good money for food supplies. This is your chance to buy the farm back, Janna, don't miss it. R. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Fruits and vegetables pack: 15 Papaya, 10 Cabbage, 20 Mushrooms. Meat pack: 10 fried Gecko steaks, 10 fried Brahmin steaks. Combined pack: 3 Sandwiches, 4 salads, 3 soup, ]}
+{5010}{}{[ Back ]}
+{5020}{}{[ Pack Fruits and Vegetables supplies ]}
+{5030}{}{[ Pack Meat supplies ]}
+{5040}{}{[ Pack Combined supplies ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a stove. Using wood, you can try to cook something. Most of the dishes require 2 - 5 pieces of wood. A small note over the stove says: "The better your Outdoorsman skill - the better you are at cooking." ]}
+{2010}{}{[ Cook fried Brahmin meat ]}
+{2020}{}{[ Cook fried Gecko meat ]}
+{2030}{}{[ Cook Desert Salat ]}
+{2040}{}{[ Recipes ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Cook Sandwich ]}
+{2070}{}{[ Cook Shady Soup ]}
+{2080}{}{[ Read a strange note near the stove ]}
+{2090}{}{[ Pack supplies ]}
+{3000}{}{[ Fried Brahmin Mea ( 50 Outdoorsman) t: 1  Raw Meat, 2 wood. Fried Gecko Meat ( 50 Outdoorsman ): 1 Raw Gecko Meat, 2 wood. Desert Salat ( 100 Outdoorsman ): 2 Cabbage, 3 Xander Root, 2 Broc Flowers, 5 wood. Sandwich ( 100 Outdoorsman ): 1 Fried Brhamin Meat, 1 Fried Gecko Meat, 1 Cabbage, 2 Nukies, 3 wood. Shady Soup ( Outdoorsman 100 ): 2 Papaya, 4 Nukies, 1 Bottle of Water, 1 Cabbage, 1 Backed Beans, 5 wood. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I heard that the "Honest Hearts" company in Reno is paying good money for food supplies. This is your chance to buy the farm back, Janna, don't miss it. R. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Fruits and vegetables pack: 15 Papaya, 10 Cabbage, 20 Mushrooms. Meat pack: 10 fried Gecko steaks, 10 fried Brahmin steaks. Combined pack: 3 Sandwiches, 4 salads, 3 soup, ]}
+{5010}{}{[ Back ]}
+{5020}{}{[ Pack Fruits and Vegetables supplies ]}
+{5030}{}{[ Pack Meat supplies ]}
+{5040}{}{[ Pack Combined supplies ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a stove. Using wood, you can try to cook something. Most of the dishes require 2 - 5 pieces of wood. A small note over the stove says: "The better your Outdoorsman skill - the better you are at cooking." ]}
+{2010}{}{[ Cook fried Brahmin meat ]}
+{2020}{}{[ Cook fried Gecko meat ]}
+{2030}{}{[ Cook Desert Salat ]}
+{2040}{}{[ Recipes ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Cook Sandwich ]}
+{2070}{}{[ Cook Shady Soup ]}
+{2080}{}{[ Read a strange note near the stove ]}
+{2090}{}{[ Pack supplies ]}
+{3000}{}{[ Fried Brahmin Mea ( 50 Outdoorsman) t: 1  Raw Meat, 2 wood. Fried Gecko Meat ( 50 Outdoorsman ): 1 Raw Gecko Meat, 2 wood. Desert Salat ( 100 Outdoorsman ): 2 Cabbage, 3 Xander Root, 2 Broc Flowers, 5 wood. Sandwich ( 100 Outdoorsman ): 1 Fried Brhamin Meat, 1 Fried Gecko Meat, 1 Cabbage, 2 Nukies, 3 wood. Shady Soup ( Outdoorsman 100 ): 2 Papaya, 4 Nukies, 1 Bottle of Water, 1 Cabbage, 1 Backed Beans, 5 wood. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I heard that the "Honest Hearts" company in Reno is paying good money for food supplies. This is your chance to buy the farm back, Janna, don't miss it. R. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Fruits and vegetables pack: 15 Papaya, 10 Cabbage, 20 Mushrooms. Meat pack: 10 fried Gecko steaks, 10 fried Brahmin steaks. Combined pack: 3 Sandwiches, 4 salads, 3 soup, ]}
+{5010}{}{[ Back ]}
+{5020}{}{[ Pack Fruits and Vegetables supplies ]}
+{5030}{}{[ Pack Meat supplies ]}
+{5040}{}{[ Pack Combined supplies ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a stove. Using wood, you can try to cook something. Most of the dishes require 2 - 5 pieces of wood. A small note over the stove says: "The better your Outdoorsman skill - the better you are at cooking." ]}
+{2010}{}{[ Cook fried Brahmin meat ]}
+{2020}{}{[ Cook fried Gecko meat ]}
+{2030}{}{[ Cook Desert Salat ]}
+{2040}{}{[ Recipes ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Cook Sandwich ]}
+{2070}{}{[ Cook Shady Soup ]}
+{2080}{}{[ Read a strange note near the stove ]}
+{2090}{}{[ Pack supplies ]}
+{3000}{}{[ Fried Brahmin Mea ( 50 Outdoorsman) t: 1  Raw Meat, 2 wood. Fried Gecko Meat ( 50 Outdoorsman ): 1 Raw Gecko Meat, 2 wood. Desert Salat ( 100 Outdoorsman ): 2 Cabbage, 3 Xander Root, 2 Broc Flowers, 5 wood. Sandwich ( 100 Outdoorsman ): 1 Fried Brhamin Meat, 1 Fried Gecko Meat, 1 Cabbage, 2 Nukies, 3 wood. Shady Soup ( Outdoorsman 100 ): 2 Papaya, 4 Nukies, 1 Bottle of Water, 1 Cabbage, 1 Backed Beans, 5 wood. ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ I heard that the "Honest Hearts" company in Reno is paying good money for food supplies. This is your chance to buy the farm back, Janna, don't miss it. R. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Fruits and vegetables pack: 15 Papaya, 10 Cabbage, 20 Mushrooms. Meat pack: 10 fried Gecko steaks, 10 fried Brahmin steaks. Combined pack: 3 Sandwiches, 4 salads, 3 soup, ]}
+{5010}{}{[ Back ]}
+{5020}{}{[ Pack Fruits and Vegetables supplies ]}
+{5030}{}{[ Pack Meat supplies ]}
+{5040}{}{[ Pack Combined supplies ]}

@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{Nuka Cola Machine}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{This model is one of the oldest--and was a generous gift from the Nuka Cola Museum of Washington DC.  Fortunately, it still works: anyone can try to buy a Nuka with the special taste of rust.}
+{2010}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{This model is one of the oldest--was a generous gift from Nuka Cola Museum of Washington DC.  Fortunatley, it still works: anyone can try to buy a Nuka with special taste of rust.}
+{2010}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{This model is one of the oldest--was a generous gift from Nuka Cola Museum of Washington DC.  Fortunatley, it still works: anyone can try to buy a Nuka with special taste of rust.}
+{2010}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{This model is one of the oldest--was a generous gift from Nuka Cola Museum of Washington DC.  Fortunatley, it still works: anyone can try to buy a Nuka with special taste of rust.}
+{2010}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{This model is one of the oldest--was a generous gift from Nuka Cola Museum of Washington DC.  Fortunatley, it still works: anyone can try to buy a Nuka with special taste of rust.}
+{2010}{}{[ Exit ]}
+

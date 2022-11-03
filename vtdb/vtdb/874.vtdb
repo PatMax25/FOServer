@@ -1,0 +1,8 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Mr.Blonde;
+@gender = 0;
+@age = 30;
+
+@special = 6 4 9 1 4 10 7;

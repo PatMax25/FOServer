@@ -1,0 +1,65 @@
+#include "_colors.fos"
+#include "_macros.fos"
+#include "_npc_pids.fos"
+#include "mapdata_h.fos"
+#include "utils_h.fos"
+
+
+void r_finishwork(Critter& player, Critter@ npc)
+{
+	Map@     familyTent = npc.GetMap();
+	Map@     emptyFamilyTent = familyTent.GetLocation().GetMapByIndex(1);
+	array<Critter@> critters;
+    uint            num = familyTent.GetCritters(0, FIND_ALL, critters);
+
+    for(uint i = 0; i < num; i++)
+    {
+        if(_IsTrueNpc(critters[i]))
+        {
+            DeleteNpc(critters[i]);
+        }
+        else
+        {
+            critters[i].TransitToMap(emptyFamilyTent.Id, critters[i].HexX, critters[i].HexY, critters[i].Dir);
+        }
+    }
+}
+
+void r_BuyVerti(Critter& player, Critter@ npc)
+{
+	array<Critter@> players = {player};
+	int id = CreateLocation(LOCATION_own_verti, 343, 1125, players);
+}
+void _InitReady(Map& map, bool firstTime)
+{
+	map.SetEvent(MAP_EVENT_OUT_CRITTER, "_deleteloc");
+}
+
+void _InitNotReady(Map& map, bool firstTime)
+{
+	map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterMap");
+}
+
+void _OnEnterMap(Map& map, Critter& cr)
+{
+	if(cr.IsPlayer())
+	{
+    Location@ loc = map.GetLocation();
+    if (valid(loc) && !cr.IsKnownLoc(true,loc.Id)) 
+		{
+		cr.SetKnownLoc(true, loc.Id);
+		cr.Say(SAY_NETMSG, "You note coordinates of this crashed vertibird in your PipBoy.");
+		}
+	}
+}
+
+void _deleteloc(Map& map, Critter& cr)
+{
+    Location@ loc = map.GetLocation();
+
+    if(loc.IsNotValid)
+    {
+        return;
+    }
+	DeleteLocation(loc.Id);
+}

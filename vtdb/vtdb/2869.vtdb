@@ -1,0 +1,14 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Autismking;
+@gender = 0;
+@age = 18;
+
+@special = 3 6 6 7 6 6 6;
+@xp = 2 1017 3000;
+@life = 73 73 0 0 0 0 0 0 0;
+@stats = 18 8 65300 1 0 30 12 12 4 6;
+@skills = 50 12 12 50 38 24 24 17 23 22 18 22 24 18 35 28 30 24 0;
+@perks = 301;
+@kills = 266;

@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Boy}
+{200}{}{You see a little dirty boy tending to brahmin.}
+{210}{}{You see a little shepherd.}
+{1000}{}{Predialogue installations}
+{1010}{}{ioaao}
+{2000}{}{Sigh...@@So tired...@@*Yawn*}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ioaao}
+{2000}{}{Sigh...@@So tired...@@*Yawn*}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ioaao}
+{2000}{}{Sigh...@@So tired...@@*Yawn*}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ioaao}
+{2000}{}{Sigh...@@So tired...@@*Yawn*}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ioaao}
+{2000}{}{Sigh...@@So tired...@@*Yawn*}
+

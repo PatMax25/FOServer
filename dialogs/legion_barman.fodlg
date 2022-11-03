@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _item p PID_BOTTLE_CAPS } 55 R _item p PID_BOOZE + 1 R _item p PID_BOTTLE_CAPS - 55 #
+2 2020 D _item p PID_BOTTLE_CAPS } 20 R _item p PID_BEER + 1 R _item p PID_BOTTLE_CAPS - 20 #
+0 2030 &
+
+[engl]
+{100}{}{Slave}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{W-What does kind master wish to drink today? Booze for 55 caps or m-maybe beer for 20 caps?}
+{2010}{}{1 Booze.}
+{2020}{}{1 bottle of beer.}
+{2030}{}{I will visit you later.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{W-What a kind master wishes to drink today? Booze for 15 caps or m-maybe beer for 10 caps?}
+{2010}{}{I will come later.}
+{2020}{}{I will come later.}
+{2030}{}{I will visit you later.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{W-What a kind master wishes to drink today? Booze for 15 caps or m-maybe beer for 10 caps?}
+{2010}{}{I will come later.}
+{2020}{}{I will come later.}
+{2030}{}{I will visit you later.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{W-What a kind master wishes to drink today? Booze for 15 caps or m-maybe beer for 10 caps?}
+{2010}{}{I will come later.}
+{2020}{}{I will come later.}
+{2030}{}{I will visit you later.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{W-What a kind master wishes to drink today? Booze for 15 caps or m-maybe beer for 10 caps?}
+{2010}{}{I will come later.}
+{2020}{}{I will come later.}
+{2030}{}{I will visit you later.}
+

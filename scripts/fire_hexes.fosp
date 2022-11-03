@@ -1,0 +1,366 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;                    
+
+uint __GetColor(int r,int g,int b,int a=0xFF)
+{
+	r=(((r)>(255))?(255):(((r)<(0))?(0):(r)));
+	g=(((g)>(255))?(255):(((g)<(0))?(0):(g)));
+	b=(((b)>(255))?(255):(((b)<(0))?(0):(b)));
+	a=(((a)>(255))?(255):(((a)<(0))?(0):(a)));
+	return(uint(((a)<<24)|(((r)&0xFF)<<16)|(((g)&0xFF)<<8)|((b)&0xFF)));
+}                                                          
+
+import void InjureCritter(Critter&cr,uint dmg,uint dmgType,uint8 dir,uint attackerId)from"combat";
+import void InjureCritter(Critter&cr,uint dmg,uint dmgType,uint8 dir,uint attackerId,Item@realWeapon)from"combat";
+import void AffectBurn(Critter&cr,int value)from"combat";   
+
+void MolotovBlast(Map&map,uint16 hexX,uint16 hexY,uint16 firePid,uint ownerId)
+{
+	uint[]values={map.Id,hexX,hexY,0,firePid,ownerId};
+	CreateTimeEvent(__FullSecond,"e_MolotovBlast",values,false);
+	map.PlaySound("molotov.wav",hexX,hexY,25);
+}
+
+void NapalmBlast(Map&map,uint16 hexX,uint16 hexY,uint16 firePid,uint ownerId)
+{
+	uint[]values={map.Id,hexX,hexY,0,firePid,ownerId};
+	CreateTimeEvent(__FullSecond,"e_NapalmBlast",values,false);
+}
+
+void NapalmBall(Map&map,uint16 hexX,uint16 hexY,uint16 firePid,uint ownerId)
+{
+	uint[]values={map.Id,hexX,hexY,0,firePid,ownerId};
+	CreateTimeEvent(__FullSecond,"e_NapalmBall",values,false);
+}
+
+uint e_MolotovBlast(uint[]@values)
+{
+	Map@map=GetMap(values[0]);
+	if(!(@map!=null))return 0;
+	uint16 hexX=values[1];
+	uint16 hexY=values[2];
+	uint8 step=values[3];
+	uint16 pid=values[4];
+	uint ownerId=values[5];
+	uint penaltyLowSkill=0;
+	if(step>((Random(1,5))-penaltyLowSkill))
+	return 0;
+	uint[]fireIds;
+	
+	AddFire(map,hexX,hexY,(step==0||(step<2&&(Random(1,2)==1))),pid,ownerId,fireIds);
+	
+	for(uint curStep=1;curStep<step;curStep++)
+	{
+		hexX=values[1];
+		hexY=values[2];
+		map.MoveHexByDir(hexX,hexY,4,curStep);
+		for(uint i=0;i<6;i++)
+		{
+			for(uint j=0;j<curStep;j++)
+			{
+				map.MoveHexByDir(hexX,hexY,i,1);
+				AddFire(map,hexX,hexY,(curStep+2>step)||((curStep+3>step)&&(Random(1,2)==1))||(Random(1,3)==1),pid,ownerId,fireIds);
+			}
+		}
+	}
+	if(fireIds.length()>0)
+	CreateTimeEvent(__FullSecond+uint(((Random(1,2))*__TimeMultiplier)*(12-step)*(5-penaltyLowSkill)/5),"e_DeleteFire",fireIds,true);
+	values[3]++;
+	return 2;
+}
+
+uint e_NapalmBlast(uint[]@values)
+{
+	Map@map=GetMap(values[0]);
+	uint16 hexX=values[1];
+	uint16 hexY=values[2];
+	uint8 step=values[3];
+	uint16 pid=values[4];
+	uint ownerId=values[5];
+	uint penaltyLowSkill=0;
+	if(step>((1)-penaltyLowSkill))
+	return 0;
+	uint[]fireIds;
+	AddFire(map,hexX,hexY,(step==0||(step<2&&(Random(1,2)==1))),pid,ownerId,fireIds);
+	
+	for(uint curStep=1;curStep<step;curStep++)
+	{
+		hexX=values[1];
+		hexY=values[2];
+		map.MoveHexByDir(hexX,hexY,4,curStep);
+		for(uint i=0;i<6;i++)
+		{
+			for(uint j=0;j<curStep;j++)
+			{
+				map.MoveHexByDir(hexX,hexY,i,1);
+				AddFire(map,hexX,hexY,(curStep+2>step)||((curStep+3>step)&&(Random(1,2)==1))||(Random(1,3)==1),pid,ownerId,fireIds);
+			}
+		}
+	}
+	if(fireIds.length()>0)
+	CreateTimeEvent(__FullSecond+((((5)*__TimeMultiplier))),"e_DeleteFire",fireIds,true);
+	values[3]++;
+	return 2;
+}
+
+uint e_NapalmBall(uint[]@values)
+{
+	Map@map=GetMap(values[0]);
+	uint16 hexX=values[1];
+	uint16 hexY=values[2];
+	uint8 step=values[3];
+	uint16 pid=values[4];
+	uint ownerId=values[5];
+	uint penaltyLowSkill=0;
+	if(step>((2)-penaltyLowSkill))
+	return 0;
+	uint[]fireIds;
+	AddFire(map,hexX,hexY,(step==0||(step<2&&(Random(1,2)==1))),pid,ownerId,fireIds);
+	
+	for(uint curStep=1;curStep<step;curStep++)
+	{
+		hexX=values[1];
+		hexY=values[2];
+		map.MoveHexByDir(hexX,hexY,4,curStep);
+		for(uint i=0;i<6;i++)
+		{
+			for(uint j=0;j<curStep;j++)
+			{
+				map.MoveHexByDir(hexX,hexY,i,1);
+				AddFire(map,hexX,hexY,(curStep+2>step)||((curStep+3>step)&&(Random(1,2)==1))||(Random(1,3)==1),pid,ownerId,fireIds);
+			}
+		}
+	}
+	if(fireIds.length()>0)
+	CreateTimeEvent(__FullSecond+((((5)*__TimeMultiplier))),"e_DeleteFire",fireIds,true);
+	values[3]++;
+	return 2;
+}
+
+uint e_DeleteFire(uint[]@values)
+{
+	for(uint i=0,l=values.length();i<l;i++)
+	{
+		if(values[i]==0)
+		continue;
+		Item@item=GetItem(values[Random(i,l-1)]);
+		if((@item!=null))
+		{
+			CreateTimeEvent(__FullSecond+((500)*__TimeMultiplier/1000),"e_DeleteFire",values,true);
+			DeleteItem(item);
+			break;
+		}
+		else
+		{
+			if(values[i]==0)
+			continue;
+			Item@item2=GetItem(values[i]);
+			if((@item2!=null))
+			{
+				DeleteItem(item2);
+			}
+			
+		}
+	}
+	return 0;
+}
+
+void _FireInit(Item&item,bool firstTime)
+{
+	if(!firstTime)
+	DeleteItem(item);
+	else
+	{
+		((item.Flags)=(item.Flags)|((0x00000004)));
+		((item.Flags)=(item.Flags)|((0x00000008)));
+		Map@map=GetMap(item.MapId);
+		
+		array<Item@>fireplaces;
+		map.GetItems(item.HexX,item.HexY,fireplaces);
+		
+		for(uint16 i=0;i<fireplaces.length();i++)
+		{
+			if((@fireplaces[i]!=null))
+			if(fireplaces[i].GetProtoId()==(608)&&fireplaces[i].Id!=item.Id)
+			DeleteItem(fireplaces[i]);
+		}      
+		
+		item.SetEvent((7),"_FireHexWalk");
+		array<uint>firedata={item.Id,map.Id};
+		CreateTimeEvent(((__FullSecond)+(0)),"e_FireHexWalk",firedata,false); 
+		
+	}
+}
+
+uint e_FireHexWalk(array<uint>@values)
+{
+	Item@fire=GetItem(values[0]);
+	if(!(@fire!=null))
+	return 0;
+	
+	Map@map=GetMap(values[1]);
+	if(!(@map!=null))
+	return 0;
+	
+	array<Critter@>burnedCritters;
+	uint16 hexX=fire.HexX,hexY=fire.HexY;
+	uint8 countcrit;
+	countcrit=map.GetCrittersHex(hexX,hexY,0,(0x03),burnedCritters);
+	int damage=(Random(4,9));
+	Critter@cr=GetCritter(fire.Val0);
+	if(cr.Param[(402)]>0)
+	damage+=7*cr.Param[(402)];
+	if(cr.Param[(321)]>1)
+	damage+=7;
+	for(uint8 i=0;i<countcrit;i++)
+	if((@burnedCritters[i]!=null)) 
+	
+	{
+		if(burnedCritters[i].IsPlayer())
+		{
+			if(burnedCritters[i].Param[(72)]>-10)
+			burnedCritters[i].ParamBase[(72)]-=damage;
+			burnedCritters[i].ParamBase[(188)]=(51);
+			burnedCritters[i].AddTimeEvent("cte_Burn",GetBurnDuration(burnedCritters[i]),(11));
+			if((burnedCritters[i].ParamBase[(120)]>(10)))burnedCritters[i].ParamBase[(120)]=(10);
+			else burnedCritters[i].ParamBase[(120)]+=(1);
+			
+		}
+		else
+		{
+			if(burnedCritters[i].Param[(527)]==0)
+			{
+				if(burnedCritters[i].Param[(72)]>-10)
+				burnedCritters[i].ParamBase[(72)]-=damage;
+				burnedCritters[i].AddTimeEvent("cte_Burn",GetBurnDuration(burnedCritters[i]),(1));
+				burnedCritters[i].ParamBase[(188)]=(51);
+				if((burnedCritters[i].ParamBase[(120)]>(10)))burnedCritters[i].ParamBase[(120)]=(10);
+				else burnedCritters[i].ParamBase[(120)]+=(1);
+			}
+		}
+	}
+	
+	if(map.IsTurnBased())
+	return(((2000))*__TimeMultiplier/1000);
+	else
+	return(((1000))*__TimeMultiplier/1000);
+}
+
+void _FireHexWalk(Item&mine,Critter&cr,bool entered,uint8 dir)
+{
+	int damage=(Random(4,9));
+	Critter@cr2=GetCritter(mine.Val0);
+	if(cr2.Param[(402)]>0)
+	damage+=7*cr2.Param[(402)];
+	if(cr2.Param[(321)]>1)
+	damage+=7;
+	if(entered)
+	{
+		if(cr.ParamBase[(120)]!=0)return;
+		
+		if(cr.IsPlayer())
+		{
+			if(cr.Param[(72)]>-10)
+			cr.ParamBase[(72)]-=damage;
+			cr.ParamBase[(188)]=0;
+			cr.AddTimeEvent("cte_Burn",GetBurnDuration(cr),(11));
+			if((cr.ParamBase[(120)]>(10)))cr.ParamBase[(120)]=(10);
+			else cr.ParamBase[(120)]+=(1);
+			
+		}
+		else
+		{
+			if(cr.Param[(527)]==0)
+			{
+				if(cr.Param[(72)]>-10)
+				cr.ParamBase[(72)]-=damage;
+				cr.AddTimeEvent("cte_Burn",GetBurnDuration(cr),(1));
+				cr.ParamBase[(188)]=mine.Val0;
+				if((cr.ParamBase[(120)]>(10)))cr.ParamBase[(120)]=(10);
+				else cr.ParamBase[(120)]+=(1);
+				
+			}
+		}
+	}
+}
+
+void AddFire(Map@map,uint16 hexX,uint16 hexY,bool place,int16 pid,int ownerId,uint[]&ids)
+{
+	if((@map!=null)&&place&&(map.IsHexPassed(hexX,hexY)||(@map.GetCritter(hexX,hexY)!=null)))
+	{
+		Item@item=map.AddItem(hexX,hexY,pid,1);
+		if((@item!=null))
+		{
+			item.Val0=ownerId;
+			ids.insertLast(item.Id);
+			item.SetScript("_FireInit");
+		}
+	}
+}
+
+void MolotovBlast(Critter&cr,int pid,int,int)
+{
+	MolotovBlast(cr.GetMap(),cr.HexX,cr.HexY,uint16(pid),cr.Id);
+}
+
+uint cte_Burn(Critter&cr,int identifier,uint&rate)
+{
+	if(cr.IsDead())cr.ParamBase[(120)]=0;
+	int count=cr.Param[(120)];
+	cr.ParamBase[(120)]=(((count)>((10)))?((10)):(((count)<(0))?(0):(count)));
+	Critter@attacker=GetCritter(cr.Param[(188)]);
+	uint damage=(Random(4,9));
+	if(attacker.Param[(402)]>0)
+	damage+=3*attacker.Param[(402)];
+	if(attacker.Param[(321)]>1)
+	damage+=3;
+	count=cr.Param[(120)];
+	if(count>0)
+	{
+		if(cr.Param[(72)]>-10)
+		cr.ParamBase[(72)]-=damage;
+		cr.ParamBase[(120)]-=1;
+		if(cr.Param[(72)]<=-19)cr.ToDead((118),null);
+	}
+	return GetBurnDuration(cr);
+}
+
+uint GetBurnDuration(Critter&cr)
+{
+	int duration;
+	int count=cr.Param[(120)];
+	if(count==0)return 0;
+	duration=count*(8);
+	if(duration<=0)cr.EraseTimeEvents((11));
+	return duration;
+}

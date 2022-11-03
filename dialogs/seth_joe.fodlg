@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+3 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 D _script dialog@d_havepropermoney 1 5 R _var p name_mem_npc_player = 1 R _script dialog@r_RemoveMoney 1 5 R _param p ST_KARMA + 15 #
+0 2020 @
+3 3000 None 0 @
+4 4000 None 0 &
+
+[engl]
+{100}{}{Drunk Joe}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Heey bud... Won't ya give ol' pal Joe a couple o' Currency? 5 maybe? Ol' Joe needs some Currency to buy a pill. Ay?}
+{2010}{}{Sure, here's some Currency for you.}
+{2020}{}{Back off, bum! [ end dialogue ]}
+{3000}{}{Ay, thank ya for dose Currency, bud!@@Ain't kidding, taxes are too high.@@Oi, I heard that that guy in de tent is...a... a clone? Yeah, something like dat.@@Doc is a nice pal, ya.@@These daimn scorpios in junkyard...@@Oh hi!@@Ain't dat my bud? Hiyo!}
+{4000}{}{Ooh, thank you!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Heey bud... Won't ya give ol' pal Joe a couple o' Currency? 5 maybe? Ol' Joe needs some Currency to buy a pill. Ay?}
+{2010}{}{Sure, here are some Currency for you.}
+{2020}{}{Back off, bum!}
+{3000}{}{Ay, thank ya for dose Currency, bud!@@Ain't kidding, taxes are too high.@@Oi, I heard that that guy in de tent is...a... a clone? Yeah, something like dat.@@Doc is a nice pal, ya.@@These daimn scorpios in junkyard...@@Oh hi!@@Ain't dat my bud? Hiyo!}
+{4000}{}{Ooh, thank you!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Heey bud... Won't ya give ol' pal Joe a couple o' Currency? 5 maybe? Ol' Joe needs some Currency to buy a pill. Ay?}
+{2010}{}{Sure, here are some Currency for you.}
+{2020}{}{Back off, bum!}
+{3000}{}{Ay, thank ya for dose Currency, bud!@@Ain't kidding, taxes are too high.@@Oi, I heard that that guy in de tent is...a... a clone? Yeah, something like dat.@@Doc is a nice pal, ya.@@These daimn scorpios in junkyard...@@Oh hi!@@Ain't dat my bud? Hiyo!}
+{4000}{}{Ooh, thank you!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Heey bud... Won't ya give ol' pal Joe a couple o' Currency? 5 maybe? Ol' Joe needs some Currency to buy a pill. Ay?}
+{2010}{}{Sure, here are some Currency for you.}
+{2020}{}{Back off, bum!}
+{3000}{}{Ay, thank ya for dose Currency, bud!@@Ain't kidding, taxes are too high.@@Oi, I heard that that guy in de tent is...a... a clone? Yeah, something like dat.@@Doc is a nice pal, ya.@@These daimn scorpios in junkyard...@@Oh hi!@@Ain't dat my bud? Hiyo!}
+{4000}{}{Ooh, thank you!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Heey bud... Won't ya give ol' pal Joe a couple o' Currency? 5 maybe? Ol' Joe needs some Currency to buy a pill. Ay?}
+{2010}{}{Sure, here are some Currency for you.}
+{2020}{}{Back off, bum!}
+{3000}{}{Ay, thank ya for dose Currency, bud!@@Ain't kidding, taxes are too high.@@Oi, I heard that that guy in de tent is...a... a clone? Yeah, something like dat.@@Doc is a nice pal, ya.@@These daimn scorpios in junkyard...@@Oh hi!@@Ain't dat my bud? Hiyo!}
+{4000}{}{Ooh, thank you!}
+

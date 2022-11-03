@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+0 4010 #
+0 4020 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hm?}
+{2010}{}{Hello. Who are you?}
+{2020}{}{What is this terminal behind you?}
+{2030}{}{Hm?}
+{3000}{}{Well... You can call me Fernand. Why?}
+{3010}{}{What is this terminal behind you?}
+{3020}{}{Nothing. I will go now. [ end dialogue ]}
+{4000}{}{Meh, just a pile of freaking crap I tell ya. One of our boys got it out of the Vault a few months ago. Useless as heck, has nothing much inside but some stupid test or whatever it is. You can take a look if you wish.}
+{4010}{}{Sure, I will. [ end dialogue ]}
+{4020}{}{Nah, I'm not interested in some old crap. [ end dialogue ]}
+{5000}{}{Oh dear you just look at that. Another dumb on the way to conquer the Wasteland, I tell ya.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hm?}
+{2010}{}{Hello. Who are you?}
+{2020}{}{What is this terminal behind you?}
+{2030}{}{Hm?}
+{3000}{}{Well... You can call me Fernand. Why?}
+{3010}{}{What is this terminal behind you?}
+{3020}{}{Nothing. I will go now.}
+{4000}{}{Meh, just a pile of freaking crap I tell ya. One of our boys got it out of the Vault few months ago. Useless as heck, have nothing much inside but some stupid test or whatever it is. You can take a look if you wish.}
+{4010}{}{Sure, I will.}
+{4020}{}{Nah, not interested in some old crap.}
+{5000}{}{Oh dear you just look at that. Another dumb on the way to conquer the Wasteland, I tell ya.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hm?}
+{2010}{}{Hello. Who are you?}
+{2020}{}{What is this terminal behind you?}
+{2030}{}{Hm?}
+{3000}{}{Well... You can call me Fernand. Why?}
+{3010}{}{What is this terminal behind you?}
+{3020}{}{Nothing. I will go now.}
+{4000}{}{Meh, just a pile of freaking crap I tell ya. One of our boys got it out of the Vault few months ago. Useless as heck, have nothing much inside but some stupid test or whatever it is. You can take a look if you wish.}
+{4010}{}{Sure, I will.}
+{4020}{}{Nah, not interested in some old crap.}
+{5000}{}{Oh dear you just look at that. Another dumb on the way to conquer the Wasteland, I tell ya.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hm?}
+{2010}{}{Hello. Who are you?}
+{2020}{}{What is this terminal behind you?}
+{2030}{}{Hm?}
+{3000}{}{Well... You can call me Fernand. Why?}
+{3010}{}{What is this terminal behind you?}
+{3020}{}{Nothing. I will go now.}
+{4000}{}{Meh, just a pile of freaking crap I tell ya. One of our boys got it out of the Vault few months ago. Useless as heck, have nothing much inside but some stupid test or whatever it is. You can take a look if you wish.}
+{4010}{}{Sure, I will.}
+{4020}{}{Nah, not interested in some old crap.}
+{5000}{}{Oh dear you just look at that. Another dumb on the way to conquer the Wasteland, I tell ya.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hm?}
+{2010}{}{Hello. Who are you?}
+{2020}{}{What is this terminal behind you?}
+{2030}{}{Hm?}
+{3000}{}{Well... You can call me Fernand. Why?}
+{3010}{}{What is this terminal behind you?}
+{3020}{}{Nothing. I will go now.}
+{4000}{}{Meh, just a pile of freaking crap I tell ya. One of our boys got it out of the Vault few months ago. Useless as heck, have nothing much inside but some stupid test or whatever it is. You can take a look if you wish.}
+{4010}{}{Sure, I will.}
+{4020}{}{Nah, not interested in some old crap.}
+{5000}{}{Oh dear you just look at that. Another dumb on the way to conquer the Wasteland, I tell ya.}
+

@@ -1,0 +1,48 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 &
+
+[engl]
+{100}{}{Police Barrier}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Metal barrier, found in the Police Station storage room. Used to hold down... someone? Something? Anyway, it's no use against hordes of hungry ghouls. Or dogs. Or deathclaws.}
+{2010}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Metal barrier, found in the Police Station storage room. Used to hold down... someone? Something? Anyway, it's no use against horde of hungry ghouls. Or dogs. Or deathclaws.}
+{2010}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Metal barrier, found in the Police Station storage room. Used to hold down... someone? Something? Anyway, it's no use against horde of hungry ghouls. Or dogs. Or deathclaws.}
+{2010}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Metal barrier, found in the Police Station storage room. Used to hold down... someone? Something? Anyway, it's no use against horde of hungry ghouls. Or dogs. Or deathclaws.}
+{2010}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Metal barrier, found in the Police Station storage room. Used to hold down... someone? Something? Anyway, it's no use against horde of hungry ghouls. Or dogs. Or deathclaws.}
+{2010}{}{[ Exit ]}
+

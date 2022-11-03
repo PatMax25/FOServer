@@ -1,0 +1,901 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// followers_menu.fos
+//
+
+#include "_macros.fos"
+#include "follower_common_h.fos"
+#include "follower_h.fos"
+#include "npc_planes_h.fos"
+#include "_maps.fos"
+#include "_defines.fos"
+#include "flags_h.fos"
+
+import void SetMode(Critter& master, Critter& follower, uint mode) from "follower" ;
+import void   UseDrug(Critter& cr, Item& drug) from "drugs";
+import void InjureCritter(Critter& cr, uint dmg, uint dmgType, uint8 dir, uint attackerId) from "combat";
+// The code in this file handles the functions from the follower menu (alt + mouse 1)
+
+void unsafe_Attack(Critter& player, int crId, int high, int param2, string@ param3, array<int>@ param4)
+{
+    Critter@ cr = GetCritter(crId);
+    if(!valid(cr))
+        return;
+    if(!player.IsSee(cr))
+        return;
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+        if(player.IsSee(crits[i]))
+        {
+		if(crits[i].Param[ST_NPC_ROLE] == 211)
+					return;
+		if(!crits[i].IsLife())
+					continue;	
+            uint priority = 0;
+            if(high == 1)
+            {
+                array<NpcPlane@> crPlanes(0);
+                if(crits[i].GetPlanes(crPlanes) > 0)
+                    priority = crPlanes[0].Priority + 1;
+            }
+            AddAttackPlane(crits[i], priority, cr);
+        }
+}
+
+void MoveTo(Critter& player, int high, int hexX, int hexY, bool clearPlanes, bool manualMode)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits, true);
+    if(n < 0)
+        return;
+
+    array<uint16> coordsX;
+    array<uint16> coordsY;
+
+    FindFreeHexes(map, hexX, hexY, n, coordsX, coordsY);   // k can be changed here
+
+    int i = 0;                                             // processed
+    int j = 0;                                             // index
+
+    while(i < n && j < n)
+    {
+        if(@crits[j] == null)
+        {
+            j++;
+            continue;
+        }
+		if(crits[j].Param[ST_NPC_ROLE] == 211)
+					return;
+		if(!crits[i].IsLife())
+					continue;	
+        uint priority = 0;
+        if(high == 1)
+        {
+            array<NpcPlane@> crPlanes(0);
+            if(crits[j].GetPlanes(crPlanes) > 0)
+                priority = crPlanes[0].Priority + 1;
+        }
+        crits[j].ParamBase[MODE_GECK] = 1;
+        if(manualMode)
+            crits[j].FollowerVarBase[FV_MODE] = FOLLOWMODE_FOLLOW_CONTROL;
+        else
+            crits[j].FollowerVarBase[FV_MODE] = FOLLOWMODE_FOLLOW;
+
+        if(clearPlanes)
+        {
+            crits[j].ErasePlane(AI_PLANE_WALK, true);
+            crits[j].ErasePlane(AI_PLANE_ATTACK, true);
+        }
+        AddWalkPlane(crits[j], priority, coordsX[i], coordsY[i], GetDirection(crits[j].HexX, crits[j].HexY, hexX, hexY), true, 0);
+        crits[j].SetHomePos(coordsX[i], coordsY[i], GetDirection(crits[j].HexX, crits[j].HexY, hexX, hexY));
+        i++;
+        j++;
+    }
+}
+
+void MoveTo(Critter& player, int hexX, int hexY)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    
+        AddWalkPlane(player, 1, hexX, hexY, GetDirection(player.HexX, player.HexY, hexX, hexY), true, 0);
+}
+
+void unsafe_MoveTo(Critter& player, int high, int hexX, int hexY, string@ param3, array<int>@ param4)
+{
+    MoveTo(player, high, hexX, hexY, false, true);
+}
+
+void unsafe_Regroup(Critter& player, int, int, int, string@, array<int>@)
+{
+    MoveTo(player, 1, player.HexX, player.HexY, true, false);
+}
+
+void unsafe_SwitchMode(Critter& player, int mode, int param1, int param2, string@ param3, array<int>@ param4)
+{
+    if((mode > 1) || (mode < 0))
+        return;
+
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+    for(int i = 0; i < n; i++)
+        if(player.IsSee(crits[i]))
+        {
+			if(crits[i].Param[ST_NPC_ROLE] == 211)
+					return;
+			if(!crits[i].IsLife())
+					continue;	
+            if(crits[i].FollowerVar[FV_MODE] < FOLLOWMODE_GUARD)   // Only if following
+                crits[i].FollowerVarBase[FV_MODE] = mode;
+        }
+
+}
+
+void unsafe_Flee(Critter& player, int, int, int, string@, array<int>@)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+        if(player.IsSee(crits[i]))
+			{
+				if(crits[i].Param[ST_NPC_ROLE] == 211)
+					return;
+				if(!crits[i].IsLife())
+					continue;	
+				if(IsDungeon(player.GetMap()))
+				/* if(player.GetMapProtoId() == MAP_Ares_level4 || player.GetMapProtoId() == MAP_Ares_level3
+				|| player.GetMapProtoId() == MAP_Glow_Floor1 || player.GetMapProtoId() == MAP_Glow_Floor2
+				|| player.GetMapProtoId() == MAP_Glow_Floor3 || player.GetMapProtoId() == MAP_Glow_Floor4
+				|| player.GetMapProtoId() == MAP_Glow_Floor5 || player.GetMapProtoId() == MAP_Glow_Floor6
+				|| player.GetMapProtoId() == MAP_KlamathToxicCaves1 || player.GetMapProtoId() == MAP_KlamathToxicCaves2
+				|| player.GetMapProtoId() == MAP_KlamathToxicCaves3 || player.GetMapProtoId() == MAP_VaultCityVaultLevel1
+				|| player.GetMapProtoId() == MAP_VaultCityVaultLevel2 || player.GetMapProtoId() == MAP_VaultCityVaultLevel3
+				|| player.GetMapProtoId() == MAP_SierraArmyDepot_Level1 || player.GetMapProtoId() == MAP_SierraArmyDepot_Level2
+				|| player.GetMapProtoId() == MAP_SierraArmyDepot_Level3 || player.GetMapProtoId() == MAP_SierraArmyDepot_Level4
+				|| player.GetMapProtoId() == MAP_Vault15Level1 || player.GetMapProtoId() == MAP_Vault15Level2
+				|| player.GetMapProtoId() == MAP_Vault15Level3 || player.GetMapProtoId() == MAP_QCathedralBasement1
+				|| player.GetMapProtoId() == MAP_QCathedralBasement2 || player.GetMapProtoId() == MAP_QCathedralBasement3
+				|| player.GetMapProtoId() == MAP_MilitaryBaseLevel1 || player.GetMapProtoId() == MAP_MilitaryBaseLevel2
+				|| player.GetMapProtoId() == MAP_MilitaryBaseLevel3 || player.GetMapProtoId() == MAP_MilitaryBaseLevel4
+				|| player.GetMapProtoId() == MAP_LostHills_Level1 || player.GetMapProtoId() == MAP_LostHills_Level2
+				|| player.GetMapProtoId() == MAP_LostHills_Level3 || player.GetMapProtoId() == MAP_LostHills_Level4
+				|| player.GetMapProtoId() == MAP_Vault13Level1 || player.GetMapProtoId() == MAP_Vault13Level2
+				|| player.GetMapProtoId() == MAP_Vault13Level3 || player.GetMapProtoId() == MAP_Vault13Level4
+				|| player.GetMapProtoId() == MAP_AresMilitaryBase_Level1 || player.GetMapProtoId() == MAP_AresMilitaryBase_Level2
+				|| player.GetMapProtoId() == MAP_NecropolisSewer || player.GetMapProtoId() == MAP_NecropolisVaultLevel1
+				|| player.GetMapProtoId() == MAP_NecropolisVaultLevel2 || player.GetMapProtoId() == MAP_NecropolisVaultLevel3
+				|| player.GetMapProtoId() == MAP_Klamath_rat1 || player.GetMapProtoId() == MAP_Klamath_rat2
+				|| player.GetMapProtoId() == MAP_Klamath_rat3 || player.GetMapProtoId() == MAP_Talchem_1
+				|| player.GetMapProtoId() == MAP_Talchem_2 || player.GetMapProtoId() == MAP_RaidersCave1
+				|| player.GetMapProtoId() == MAP_RaidersCave2 || player.GetMapProtoId() == MAP_RaidersCave3
+				|| player.GetMapProtoId() == MAP_SlaveryVault2 || player.GetMapProtoId() == MAP_SlaveryVault3
+				|| player.GetMapProtoId() == MAP_Vault14Level1 || player.GetMapProtoId() == MAP_Vault14Level2
+				|| player.GetMapProtoId() == MAP_Vault14Level3 || player.GetMapProtoId() == MAP_SanFranTanker_2
+				|| player.GetMapProtoId() == MAP_SanFranTanker_3 || player.GetMapProtoId() == MAP_Gecko_dungeon) */
+					{
+						if(crits[i].Param[ST_BODY_TYPE] == BT_SUPER_MUTANT)
+							crits[i].Say(SAY_NORM_ON_HEAD, "No, human!");
+						if(crits[i].Param[ST_BODY_TYPE] == BT_MEN || crits[i].Param[ST_BODY_TYPE] == BT_WOMEN
+						|| crits[i].Param[ST_BODY_TYPE] == BT_CHILDREN || crits[i].Param[ST_BODY_TYPE] == BT_GHOUL)
+							crits[i].Say(SAY_NORM_ON_HEAD, "I can't leave you now!");
+						if(crits[i].Param[ST_BODY_TYPE] == BT_BRAHMIN)
+							crits[i].Say(SAY_NORM_ON_HEAD, "Moooooo! Mooooooo! Moooooo!");
+						if(crits[i].Param[ST_BODY_TYPE] == BT_ROBOT)
+							crits[i].Say(SAY_NORM_ON_HEAD, "Fatal error!");
+						if(crits[i].Param[ST_BODY_TYPE] == BT_DOG)
+							crits[i].Say(SAY_NORM_ON_HEAD, "Grrrrr! Woooof!");
+						if(i == n)
+							return;
+					}
+				else
+					{
+				SetMode(player, crits[i], FOLLOWMODE_FOLLOW); 
+				crits[i].ParamBase[MODE_GECK] = 1;
+				Flee(crits[i]);
+					}
+			}
+}
+
+void unsafe_Stop(Critter& player, int param0, int param1, int param2, string@ param3, array<int>@ param4)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+        if(player.IsSee(crits[i]))
+        {
+			if(!crits[i].IsLife())
+					continue;	
+            crits[i].DropPlanes();
+        }
+}
+
+void unsafe_UseDrugs(Critter& player, int, int, int, string@, array<int>@)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+	
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+	{
+    if(player.IsSee(crits[i]))
+	{
+		if(crits[i].Param[ST_NPC_ROLE] == 211)
+					continue;
+		if(!crits[i].IsLife())
+					continue;			
+		if(crits[i].CountItem(PID_JET)>0 && crits[i].Timeout[TO_JET] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_JET, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_PSYCHO)>0 && crits[i].Timeout[TO_PSYCHO] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_PSYCHO, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_BUFFOUT)>0 && crits[i].Timeout[TO_BUFFOUT] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_BUFFOUT, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_MENTATS)>0 && crits[i].Timeout[TO_MENTATS] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_MENTATS, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_GUM)>0 && crits[i].Timeout[TO_GUM] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_GUM, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_MUTIE)>0 && crits[i].Timeout[TO_MUTIE] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_MUTIE, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_VOODOO)>0 && crits[i].Timeout[TO_VOODOO] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_VOODOO, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_HEALING_POWDER)>0 && crits[i].Timeout[TO_HEALING_POWDER] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_HEALING_POWDER, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_NUKA_COLA)>0 && crits[i].Timeout[TO_NUKA_COLA] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_NUKA_COLA, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_BEER)>0 && crits[i].Timeout[TO_BEER] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_BEER, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_BOOZE)>0 && crits[i].Timeout[TO_BOOZE] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_BOOZE, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_GAMMA_GULP_BEER)>0 && crits[i].Timeout[TO_GAMMA] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_GAMMA_GULP_BEER, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_ROENTGEN_RUM)>0 && crits[i].Timeout[TO_RUM] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_ROENTGEN_RUM, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		if(crits[i].CountItem(PID_ROT_GUT)>0 && crits[i].Timeout[TO_ROTGUT] <= 0)
+		{
+			Item @ item = crits[i].GetItem(PID_ROT_GUT, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+			usedrugagain(crits[i]);
+			return;
+		}
+		
+	}
+	}
+}
+void usedrugagain(Critter& crits)
+{
+	CreateTimeEvent(AFTER(REAL_SECOND(1)), "e_usedrug", crits.Id, true);
+}
+uint e_usedrug(array<uint>@ data)
+{
+	Critter@ crits = GetCritter(data[0]);
+	if(crits.CountItem(PID_JET)>0 && crits.Timeout[TO_JET] <= 0)
+		{
+			if(crits.Param[ST_NPC_ROLE] == 211)
+					return 0;
+			Item @ item = crits.GetItem(PID_JET, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_PSYCHO)>0 && crits.Timeout[TO_PSYCHO] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_PSYCHO, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_BUFFOUT)>0 && crits.Timeout[TO_BUFFOUT] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_BUFFOUT, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_MENTATS)>0 && crits.Timeout[TO_MENTATS] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_MENTATS, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_GUM)>0 && crits.Timeout[TO_GUM] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_GUM, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_MUTIE)>0 && crits.Timeout[TO_MUTIE] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_MUTIE, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_VOODOO)>0 && crits.Timeout[TO_VOODOO] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_VOODOO, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_HEALING_POWDER)>0 && crits.Timeout[TO_HEALING_POWDER] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_HEALING_POWDER, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_NUKA_COLA)>0 && crits.Timeout[TO_NUKA_COLA] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_NUKA_COLA, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_BEER)>0 && crits.Timeout[TO_BEER] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_BEER, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_BOOZE)>0 && crits.Timeout[TO_BOOZE] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_BOOZE, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_GAMMA_GULP_BEER)>0 && crits.Timeout[TO_GAMMA] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_GAMMA_GULP_BEER, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_ROENTGEN_RUM)>0 && crits.Timeout[TO_RUM] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_ROENTGEN_RUM, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+		if(crits.CountItem(PID_ROT_GUT)>0 && crits.Timeout[TO_ROTGUT] <= 0)
+		{
+			Item @ item = crits.GetItem(PID_ROT_GUT, -1);
+			UseDrug(crits, item);
+			_CritAnimateUse(crits);
+			usedrugagain(crits);
+			return 0;
+		}
+	return 0;
+}	
+void unsafe_UseBuffout(Critter& player, int, int, int, string@, array<int>@)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+	{
+    if(player.IsSee(crits[i]))
+	{
+		if(crits[i].Param[ST_NPC_ROLE] == 211)
+					return;
+		if(!crits[i].IsLife())
+					continue;	
+		if(crits[i].GetMap().IsTurnBased())
+					continue;
+		if(crits[i].CountItem(PID_SUPER_STIMPAK)>0)
+		{
+			Item @ item = crits[i].GetItem(PID_SUPER_STIMPAK, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+		}
+		else if(crits[i].CountItem(PID_STIMPAK)>0)
+		{
+			Item @ item = crits[i].GetItem(PID_STIMPAK, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+		}
+		else crits[i].Say(SAY_NORM_ON_HEAD, "I dont have any Stimpaks!");
+	}
+	}
+}
+
+void unsafe_UseNuka(Critter& player, int, int, int, string@, array<int>@)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+	{
+    if(player.IsSee(crits[i]))
+	{
+		if(crits[i].Param[ST_NPC_ROLE] == 211)
+					return;
+		if(!crits[i].IsLife())
+					continue;	
+		if(crits[i].CountItem(PID_ANTIDOTE)>0)
+		{
+			Item @ item = crits[i].GetItem(PID_ANTIDOTE, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+		}
+		else crits[i].Say(SAY_NORM_ON_HEAD, "Give me some Antidote!");
+	}
+	}
+}
+
+void unsafe_UseCigs(Critter& player, int, int, int, string@, array<int>@)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+	{
+    if(player.IsSee(crits[i]))
+	{
+		if(!crits[i].IsLife())
+					continue;	
+		if(crits[i].Timeout[TO_CIGARETTES] > 0) return;
+		if(crits[i].CountItem(PID_CIGARETTES)>0)
+		{
+			if(crits[i].CountItem(PID_LIGHTER)>0)
+			{
+				Item @ item = crits[i].GetItem(PID_CIGARETTES, -1);
+				UseDrug(crits[i], item);
+				_CritAnimateUse(crits[i]);
+			}
+			else crits[i].Say(SAY_NORM_ON_HEAD, "Give me Lighter!");
+		}
+		else crits[i].Say(SAY_NORM_ON_HEAD, "Give me some Cigarettes!");
+	}
+	}
+}
+
+void unsafe_UsePsycho(Critter& player, int, int, int, string@, array<int>@)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+	{
+    if(player.IsSee(crits[i]))
+	{
+		if(!crits[i].IsLife())
+					continue;	
+		if(crits[i].Timeout[TO_PSYCHO] > 0) return;
+		if(crits[i].CountItem(PID_PSYCHO)>0)
+		{
+			Item @ item = crits[i].GetItem(PID_PSYCHO, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+		}
+		else crits[i].Say(SAY_NORM_ON_HEAD, "Give me some Psycho!");
+	}
+	}
+}
+
+void unsafe_sandbag(Critter& player, int, int hexX, int hexY, string@ param3, array<int>@ param4)
+{
+	if(!player.IsLife())
+		return;
+	Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+	if(player.CountItem(PID_SHOVEL)>0 && player.CountItem(PID_BRAHMIN_HIDE)>0)
+		{
+	Item @ gunpower = player.GetItem(PID_SHOVEL, -1);
+	Item @ metalpart = player.GetItem(PID_BRAHMIN_HIDE, -1);	
+			if(metalpart.GetCount() > 1)
+			metalpart.SetCount(metalpart.GetCount() - 1);
+			else
+			DeleteItem(metalpart);
+	Critter @spawncr=map.AddNpc(1485,player.HexX,player.HexY,0,null,null,null);
+	spawncr.ParamBase[ST_DIALOG_ID]=40005;
+	spawncr.ParamBase[ST_MAX_LIFE] = Random(1 + player.Param[SK_ENGINE],player.Param[SK_ENGINE]*10);
+	spawncr.ParamBase[ST_CURRENT_HP] = spawncr.Param[ST_MAX_LIFE];
+	spawncr.SetEvent(CRITTER_EVENT_DEAD,"deletebag");
+	spawncr.ParamBase[MODE_NO_DROP]=1;
+	spawncr.ParamBase[MODE_NO_LOOT]=1;
+	spawncr.ParamBase[MODE_NO_HEAL]=1;
+	spawncr.ParamBase[ST_NPC_ROLE]=400;
+		}
+	else player.Say(SAY_NETMSG, "You need a shovel and Brahmin hide to make it.");
+}
+
+void deletebag(Critter& cr, Critter@ killer)
+{
+	Map @map=cr.GetMap();
+	if(@map==null) return;
+	DeleteNpc(cr);
+}
+
+void unsafe_barrel(Critter& player, int, int hexX, int hexY, string@ param3, array<int>@ param4)
+{
+	Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+	if(!player.IsLife())
+		return;
+	if(player.CountItem(PID_GUNPOWDER2)>9 && player.CountItem(PID_METAL_PARTS)>4)
+		{
+	Item @ gunpower = player.GetItem(PID_GUNPOWDER2, -1);
+	Item @ metalpart = player.GetItem(PID_METAL_PARTS, -1);	
+			if(gunpower.GetCount() > 10)
+			gunpower.SetCount(gunpower.GetCount() - 10);
+			else
+			DeleteItem(gunpower);
+			if(metalpart.GetCount() > 5)
+			metalpart.SetCount(metalpart.GetCount() - 5);
+			else
+			DeleteItem(metalpart);
+	Critter @spawncr=map.AddNpc(1484,player.HexX,player.HexY,0,null,null,null);
+	spawncr.ParamBase[ST_DIALOG_ID]=40004;
+	spawncr.ParamBase[SK_TRAPS] = player.Param[SK_ENGINE];
+	spawncr.SetEvent(CRITTER_EVENT_DEAD,"exploding_barrel_explode");
+	spawncr.ParamBase[MODE_NO_DROP]=1;
+	spawncr.ParamBase[MODE_NO_LOOT]=1;
+	spawncr.ParamBase[ST_NPC_ROLE]=400;
+	}
+	else player.Say(SAY_NETMSG, "You need 10 adv. Gun Powder and 5 Metal Parts to make it.");
+}
+
+void exploding_barrel_explode(Critter& cr, Critter@ killer)
+{
+	Map @map=cr.GetMap();
+	if(@map==null) return;
+	map.PlaySound(Random(0,1)==0?"WHN1XXX1.ACM":"WHN1XXX2.ACM",cr.HexX,cr.HexY,0);
+	map.RunEffect(PID_EXPLODE_FIRE_SMALL,cr.HexX,cr.HexY,2);
+	int HexX=cr.HexX;
+	int HexY=cr.HexY;
+	
+	
+	Critter@[] critsHit;
+	map.GetCrittersHex(HexX,HexY,3,FIND_LIFE_AND_KO,critsHit);
+	for(uint i=0; i<critsHit.length(); i++)
+	{
+		if(@critsHit[i]==null) continue;
+		InjureCritter(critsHit[i], Random(5+cr.Param[SK_TRAPS],100+cr.Param[SK_TRAPS]*2), DAMAGE_EXPLODE, 0, killer.Id);
+	}
+	DeleteNpc(cr);
+}
+
+void unsafe_Flag(Critter& player, int, int hexX, int hexY, string@ param3, array<int>@ param4)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+	int cdLeader = 180 - player.Param[ST_CHARISMA]*5;
+	uint deletecd = 320;
+   if(player.Timeout[TO_KARMA_VOTING] > 0) 
+   {
+    player.Say(SAY_NETMSG, "|-65536 Too Tired");
+   return;
+   }
+   if(player.Param[PE_LEADER] == 0)
+   {
+   player.Say(SAY_NETMSG, "|-65536 I'm not a Leader");
+   return;
+   }
+   if(player.Param[ST_TEAM_ID] < 2)
+   {
+   player.Say(SAY_NETMSG, "|-65536 I'm not in a faction");
+   return;
+   }
+   
+	if(player.CountItem(PID_FIREWOOD)>0)
+		{
+			Item @ item = player.GetItem(PID_FIREWOOD, -1);
+		
+			if(item.GetCount() > 1)
+			item.SetCount(item.GetCount() - 1);
+			else
+			DeleteItem(item);
+			_CritAnimateUse(player);
+			Item @ flag = map.AddItem(player.HexX, player.HexY, 9300, 1);
+			if(player.Param[ST_LEADER_PRE]==0)
+			player.Say(SAY_NETMSG, "|0xCC0000 I didn't choose a bonus, To choose it, I should type in chat command |0xCCCCCC ~leader");
+			flag.Val6 = player.Param[ST_NPC_ROLE];
+			flag.Val8 = player.Param[ST_TEAM_ID];
+			flag.Val9 = player.Param[ST_LEADER_PRE];
+			flag.Val7 = deletecd;
+			
+			if(player.Param[ST_NPC_ROLE] > 203 && player.Param[ST_NPC_ROLE] < 213 )
+				flag.ChangeProto(9000 + player.Param[ST_NPC_ROLE]);
+			else flag.ChangeProto(9200 + player.Param[ST_TEAM_ID]);
+			
+			flag.SetScript("followers_menu@Flag");
+			_SetTimeout(player, TO_KARMA_VOTING, REAL_SECOND(cdLeader));
+			
+			
+		}
+		else player.Say(SAY_NORM_ON_HEAD, "|-65536 I dont have any wood");
+
+}
+
+void Flag(Item& item, bool firstTime)
+{
+
+    SETFLAG(item.Flags, ITEM_CAN_USE);
+    //SETFLAG(item.Flags, ITEM_CAN_PICKUP);
+    item.Update();
+	
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseFlag");
+	CreateTimeEvent(AFTER(REAL_SECOND(item.Val7)), "e_deleteflag", item.Id, true);
+}
+
+bool _UseFlag(Item& flag, Critter& player, int skill)
+{
+	if(player.Param[ST_TEAM_ID] != flag.Val8 || player.Param[ST_NPC_ROLE] != flag.Val6 )
+			CreateTimeEvent(AFTER(REAL_SECOND(2)), "e_deleteflag", flag.Id, true);
+	return true;
+}
+
+uint e_deleteflag(array<uint>@ data)
+{
+	Item @ flag = GetItem(data[0]);
+	if(!valid(flag))
+		return 0;
+	DeleteItem(flag);
+	return 0;
+}
+
+void unsafe_UseRadX(Critter& player, int, int, int, string@, array<int>@)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+	{
+    if(player.IsSee(crits[i]))
+	{
+		if(crits[i].CountItem(PID_RAD_X)>0)
+		{
+			Item @ item = crits[i].GetItem(PID_RAD_X, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+		}
+		else crits[i].Say(SAY_NORM_ON_HEAD, "Give me some Rad X!");
+	}
+	}
+}
+
+void unsafe_UseRadAway(Critter& player, int, int, int, string@, array<int>@)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+	{
+    if(player.IsSee(crits[i]))
+	{
+		if(crits[i].CountItem(PID_RADAWAY)>0)
+		{
+			Item @ item = crits[i].GetItem(PID_RADAWAY, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+		}
+		else crits[i].Say(SAY_NORM_ON_HEAD, "Give me some Rad Away!");
+	}
+	}
+}
+
+void unsafe_UseJetAntidote(Critter& player, int, int, int, string@, array<int>@)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+        return;
+
+    array<Critter@> crits;
+    int             n = GetFollowers(player, map, crits);
+
+    if(n < 0)
+        return;
+    for(int i = 0; i < n; i++)
+	{
+    if(player.IsSee(crits[i]))
+	{
+		if(crits[i].CountItem(PID_JET_ANTIDOTE)>0)
+		{
+			Item @ item = crits[i].GetItem(PID_JET_ANTIDOTE, -1);
+			UseDrug(crits[i], item);
+			_CritAnimateUse(crits[i]);
+		}
+		else crits[i].Say(SAY_NORM_ON_HEAD, "Give me some Jet Antidote!");
+	}
+	}
+}
+
+//Can be also added check for ST_FACTION_RANK from officer (4) and leader (5)
+void unsafe_Command(Critter& player, int command, int hexX, int hexY, string@, int[]@)
+{
+	Map@ map = player.GetMap();
+	    if(!valid(map))
+        return;
+	player.ParamBase[ST_COMMAND]=command;
+	player.ParamBase[ST_COMMAND_X]=hexX;
+	player.ParamBase[ST_COMMAND_Y]=hexY;
+	array<Critter@> crits;
+	map.GetCritters(0,FIND_ONLY_PLAYERS | FIND_LIFE_AND_KO,crits);
+	for(uint i = 0; i < crits.length(); i++)
+	{
+		if((crits[i].Param[ST_TEAM_ID] == player.Param[ST_TEAM_ID]) && player.Param[ST_TEAM_ID] >= 0 && player.Param[ST_NPC_ROLE] < 2)
+		{
+			crits[i].ParamBase[ST_COMMAND] = player.Param[ST_COMMAND];
+			crits[i].ParamBase[ST_COMMAND_X] = player.Param[ST_COMMAND_X];
+			crits[i].ParamBase[ST_COMMAND_Y] = player.Param[ST_COMMAND_Y];
+		}
+		if(player.Param[ST_NPC_ROLE] > 1 && crits[i].Param[ST_NPC_ROLE] == player.Param[ST_NPC_ROLE])
+		{
+			crits[i].ParamBase[ST_COMMAND] = player.Param[ST_COMMAND];
+			crits[i].ParamBase[ST_COMMAND_X] = player.Param[ST_COMMAND_X];
+			crits[i].ParamBase[ST_COMMAND_Y] = player.Param[ST_COMMAND_Y];
+		}
+	}
+}

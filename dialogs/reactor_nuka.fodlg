@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+0 2010 D _var p reactor_gorus = 1 D _item p PID_COIN } 5 R _item p PID_COIN - 5 R _var p reactor_gorus = 2 R _item p PID_NUKA_COLA + 1 #
+0 2020 D _var p reactor_gorus = 3 D _item p PID_COIN } 5 R _item p PID_COIN - 5 R _item p PID_NUKA_COLA + 1 #
+0 2030 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a Nuka Cola vending machine. One bottle of Nuka - 5 dollars. ]}
+{2010}{}{[ Buy a bottle of Nuka Cola ]}
+{2020}{}{[ Buy a bottle of Nuka Cola ]}
+{2030}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a Nuka Cola vending machine. One bottle of Nuka - 5 dollars. ]}
+{2010}{}{[ Buy a bottle of Nuka Cola ]}
+{2020}{}{[ Buy a bottle of Nuka Cola ]}
+{2030}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a Nuka Cola vending machine. One bottle of Nuka - 5 dollars. ]}
+{2010}{}{[ Buy a bottle of Nuka Cola ]}
+{2020}{}{[ Buy a bottle of Nuka Cola ]}
+{2030}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a Nuka Cola vending machine. One bottle of Nuka - 5 dollars. ]}
+{2010}{}{[ Buy a bottle of Nuka Cola ]}
+{2020}{}{[ Buy a bottle of Nuka Cola ]}
+{2030}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a Nuka Cola vending machine. One bottle of Nuka - 5 dollars. ]}
+{2010}{}{[ Buy a bottle of Nuka Cola ]}
+{2020}{}{[ Buy a bottle of Nuka Cola ]}
+{2030}{}{[ Exit ]}
+

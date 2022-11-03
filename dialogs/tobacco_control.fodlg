@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p tobacco_robot = 0 #
+3 1020 D _var p tobacco_robot = 1 @
+2 2000 None 0 #
+0 2010 @
+3 3000 None 0 #
+0 3010 D _var p tobacco_harvest = 0 R _var p tobacco_harvest = 1 R _script dialog@r_cd_quest 2 240 579 R _item p PID_TOBACCO + 400 #
+0 3020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Bot controlling terminal. WARNING, harvest bot is offline. ]}
+{2010}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ Bot controlling terminal. Currently harvesting tobacco. 400 tobacco per 4 hours. ]}
+{3010}{}{[ collect tobacco ]}
+{3020}{}{[ Exit ] [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Bot controlling terminal. WARNING, harvest bot is offline. ]}
+{2010}{}{[ Exit ]}
+{3000}{}{[ Bot controlling terminal. Currently harvesting tobacco. 300 tobacco per 4 hours. ]}
+{3010}{}{[ Collect tobacco ]}
+{3020}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Bot controlling terminal. WARNING, harvest bot is offline. ]}
+{2010}{}{[ Exit ]}
+{3000}{}{[ Bot controlling terminal. Currently harvesting tobacco. 300 tobacco per 4 hours. ]}
+{3010}{}{[ Collect tobacco ]}
+{3020}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Bot controlling terminal. WARNING, harvest bot is offline. ]}
+{2010}{}{[ Exit ]}
+{3000}{}{[ Bot controlling terminal. Currently harvesting tobacco. 300 tobacco per 4 hours. ]}
+{3010}{}{[ Collect tobacco ]}
+{3020}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{[ Bot controlling terminal. WARNING, harvest bot is offline. ]}
+{2010}{}{[ Exit ]}
+{3000}{}{[ Bot controlling terminal. Currently harvesting tobacco. 300 tobacco per 4 hours. ]}
+{3010}{}{[ Collect tobacco ]}
+{3020}{}{[ Exit ]}
+

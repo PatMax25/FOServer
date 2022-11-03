@@ -1,0 +1,189 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 item_achievementbook@reroll_cost 0 #
+2 2010 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_BRUTE < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_BRUTE + 1 #
+2 2020 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_LOOTER < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_LOOTER + 1 #
+2 2030 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_COMMANDER < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_COMMANDER + 1 #
+2 2040 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_ACTOR < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_ACTOR + 1 #
+2 2050 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_CLEAR < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_CLEAR + 1 #
+2 2060 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_MINER < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_MINER + 1 #
+2 2070 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_SLAYER_DESERT < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_SLAYER_DESERT + 1 #
+2 2080 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_TRAVELER < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_TRAVELER + 1 #
+2 2090 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_SLAYER_ROBOT < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_SLAYER_ROBOT + 1 #
+3 2100 @
+3 3000 None 0 #
+3 3010 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_DODGER < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_DODGER + 1 #
+3 3020 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_HUNTER < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_HUNTER + 1 #
+3 3030 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_SLAYER_HUMAN < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_SLAYER_HUMAN + 1 #
+3 3040 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_SLAYER_MUTANT < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_SLAYER_MUTANT + 1 #
+3 3050 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_TRADERS < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_TRADERS + 1 #
+3 3060 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_PATHFINDER < 5 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_PATHFINDER + 1 #
+3 3070 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_THOUGNESS < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_THOUGNESS + 1 #
+3 3080 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_STRONGBACK < 50 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_STRONGBACK + 1 #
+3 3090 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_BRD < 25 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_BRD + 1 #
+4 3100 @
+4 4000 None 0 #
+4 4010 D _param p ST_UNSPENT_PERKS > 0 D _param p PE_PVE_REPAIR < 10 D _param p ST_LEVEL > 54 R _param p ST_UNSPENT_PERKS - 1 R _param p PE_PVE_REPAIR + 1 #
+2 4020 &
+
+[engl]
+{100}{}{Player}
+{200}{}{You see a construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{Choose Perks}
+{2010}{}{Brute}
+{2020}{}{Scrounger}
+{2030}{}{Commander}
+{2040}{}{Tactical Actor}
+{2050}{}{Base Cleaner}
+{2060}{}{Miner}
+{2070}{}{Desert Hunter}
+{2080}{}{Traveller}
+{2090}{}{Robot Slayer}
+{2100}{}{Next Page}
+{3000}{}{Choose Perks}
+{3010}{}{Quick Dodger}
+{3020}{}{Merciless Hunter}
+{3030}{}{Murder}
+{3040}{}{Mutant Slayer}
+{3050}{}{Trader}
+{3060}{}{Semi Pathfinder}
+{3070}{}{Mini Toughness}
+{3080}{}{Strongback Lite}
+{3090}{}{Small Ranged Damage}
+{3100}{}{Next Page}
+{4000}{}{Choose Perks}
+{4010}{}{Repairboy}
+{4020}{}{Next Page}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Brute}
+{2020}{}{Scounger}
+{2030}{}{Commader}
+{2040}{}{Tactical Actor}
+{2050}{}{Base Cleaner}
+{2060}{}{Miner}
+{2070}{}{Desert Hunter}
+{2080}{}{Traveller}
+{2090}{}{Robot Slayer}
+{2100}{}{Next Page}
+{3000}{}{Choose Perks}
+{3010}{}{Quick Dodger}
+{3020}{}{Merciless Hunter}
+{3030}{}{Murder}
+{3040}{}{Mutant Slayer}
+{3050}{}{Trader}
+{3060}{}{Semi Pathfinder}
+{3070}{}{Mini Toughness}
+{3080}{}{Strongback Lite}
+{3090}{}{Small Ranged Damage}
+{3100}{}{Next Page}
+{4000}{}{Choose Perks}
+{4010}{}{Repairboy}
+{4020}{}{Next Page}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Brute}
+{2020}{}{Scounger}
+{2030}{}{Commader}
+{2040}{}{Tactical Actor}
+{2050}{}{Base Cleaner}
+{2060}{}{Miner}
+{2070}{}{Desert Hunter}
+{2080}{}{Traveller}
+{2090}{}{Robot Slayer}
+{2100}{}{Next Page}
+{3000}{}{Choose Perks}
+{3010}{}{Quick Dodger}
+{3020}{}{Merciless Hunter}
+{3030}{}{Murder}
+{3040}{}{Mutant Slayer}
+{3050}{}{Trader}
+{3060}{}{Semi Pathfinder}
+{3070}{}{Mini Toughness}
+{3080}{}{Strongback Lite}
+{3090}{}{Small Ranged Damage}
+{3100}{}{Next Page}
+{4000}{}{Choose Perks}
+{4010}{}{Repairboy}
+{4020}{}{Next Page}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Brute}
+{2020}{}{Scounger}
+{2030}{}{Commader}
+{2040}{}{Tactical Actor}
+{2050}{}{Base Cleaner}
+{2060}{}{Miner}
+{2070}{}{Desert Hunter}
+{2080}{}{Traveller}
+{2090}{}{Robot Slayer}
+{2100}{}{Next Page}
+{3000}{}{Choose Perks}
+{3010}{}{Quick Dodger}
+{3020}{}{Merciless Hunter}
+{3030}{}{Murder}
+{3040}{}{Mutant Slayer}
+{3050}{}{Trader}
+{3060}{}{Semi Pathfinder}
+{3070}{}{Mini Toughness}
+{3080}{}{Strongback Lite}
+{3090}{}{Small Ranged Damage}
+{3100}{}{Next Page}
+{4000}{}{Choose Perks}
+{4010}{}{Repairboy}
+{4020}{}{Next Page}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Brute}
+{2020}{}{Scounger}
+{2030}{}{Commader}
+{2040}{}{Tactical Actor}
+{2050}{}{Base Cleaner}
+{2060}{}{Miner}
+{2070}{}{Desert Hunter}
+{2080}{}{Traveller}
+{2090}{}{Robot Slayer}
+{2100}{}{Next Page}
+{3000}{}{Choose Perks}
+{3010}{}{Quick Dodger}
+{3020}{}{Merciless Hunter}
+{3030}{}{Murder}
+{3040}{}{Mutant Slayer}
+{3050}{}{Trader}
+{3060}{}{Semi Pathfinder}
+{3070}{}{Mini Toughness}
+{3080}{}{Strongback Lite}
+{3090}{}{Small Ranged Damage}
+{3100}{}{Next Page}
+{4000}{}{Choose Perks}
+{4010}{}{Repairboy}
+{4020}{}{Next Page}
+

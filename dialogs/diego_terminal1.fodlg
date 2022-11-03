@@ -1,0 +1,138 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+7 1010 @
+2 2000 None 0 #
+7 2010 @
+3 3000 None 0 #
+7 3010 @
+4 4000 None 0 #
+7 4010 @
+5 5000 None 0 #
+7 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+2 7010 #
+3 7020 #
+4 7030 #
+5 7040 #
+6 7050 #
+0 7060 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{f}
+{2000}{}{My job as a psychiatrist has never felt more uselss than it does now. It's funny how fast all our lives have suddenly changed. I would really laugh, if it wasn't so sad. I saw soldiers today, and it seems like we can forget about getting out of the city. They said that San Diego is surrounded by some kind of radioactive storm or some sort. Our anti air systems saved our lives but doomed us all to die from hunger and panic it seems. I found my old gas mask today... I will write something else later... Maybe.}
+{2010}{}{[ Back ]}
+{3000}{}{Unlike I imagined, nobody panicked. Hardly anyone became violent, and we haven't delved into anarchy. It's pretty calm in the city and a lot of people have even returned back to their normal jobs. Hah... As if the world hasn't just ended. Somehow we still experience no food shortages, even though our local administration decided to keep the city under the lockdown and let nobody outside. I don't think that anyone would try to escape anywhere. We are surrounded by the storm, so... We have nowhere to go.}
+{3010}{}{[ Back ]}
+{4000}{}{It is getting colder. I checked the temperature today, it is -10 Celcius. Funny... I don't remember such cold Novembers here.}
+{4010}{}{[ Back ]}
+{5000}{}{So this is our end. Not the radiation, not the bombs... The cold... It is -30 already. I burn my books to get at least some warmth. I am running out water and food. Funny, but... still no panic, still no anarchy. It seems like everyone decided to die peacefuly. We are all so tired. Good for them... Good for all of us.}
+{5010}{}{[ Back ]}
+{6000}{}{I saw Mrs. Sterlington today. Turned. She completely lost her mind and became a bloodthirsty creature. We had problems with turned before too, but... Nowadays there is nobody to get her down. Temperature today is -48 Celcium. I am out of books and wallpaper. I shall try to hide in the basement and... Maybe I can try to escape the city via sewers. I know it may not lead me anywhere, but those... creatures... They are more and more daily. UPDATE: I just saw how they caught a soldier. Poor guy was torn into pieces. I need to try to escape, even if I might die from radiation in sewers. One way or another - it's a better option than being eaten alive.}
+{6010}{}{[ Back ]}
+{7000}{}{[ Loading... Terminal operating ]}
+{7010}{}{[ Note 27.05.77 ]}
+{7020}{}{[ Note 02.05.77 ]}
+{7030}{}{[ Note 04.05.77 ]}
+{7040}{}{[ Note 07.05.77 ]}
+{7050}{}{[ Note 09.05.77 ]}
+{7060}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{f}
+{2000}{}{My job of psychiatrist has never been even more uselss than now. It's funny how fast all our lives have suddenly changed. I would really laugh, if it wasn't so sad. I saw soldiers today, it seems like we can forget about getting out of the city. They said that San Diego is surrounded by some kind of radioactive storm or some sort. Our anti air systems saved our lives and doomed us all to die from hunger and panic as it seems. I found my old gas mask today... I will write something else later... Maybe.}
+{2010}{}{[ Back ]}
+{3000}{}{Unlike I imagined, nobody paniced, nobody got his mind into the anarchy. It's pretty calm in the city and everyone even returns back to their jobs. Hah... As if the world hasn't just ended. Somehow we still experience no food shortages, our local administartion decided to keep the city under the lockdown and let nobody outside. I don't think that anyone would try to escape anywhere. We are surrounded by the storm, so... We have nowhere to go.}
+{3010}{}{[ Back ]}
+{4000}{}{It is getting colder. I checked the temperature today, it is -10 Celcium. Funny... I don't remember so cold Novembers here.}
+{4010}{}{[ Back ]}
+{5000}{}{So this is our end. Not the radiation, not the bombs... The cold... It is -30 already. I burn my books to get at least some warmth. I am running out water and food. Funny, but... still no panic, still no anarchy. It seems like everyone decided to die peacefuly. Good for them... Good for all of us.}
+{5010}{}{[ Back ]}
+{6000}{}{I saw Mrs. Sterlington today. Turned. She completely lost her mind and became a bloodthirsty creature. We had problems with turned before too, but... Nowadays there is nobody to get her down. Temperature today is -48 Celcium. I am out of books and wallpaper. I shall try to hide in the basement and... Maybe try to escape the city via sewers. I know it may not lead me anywhere, but those... creatures... They are more and more daily. UPDATE: I just saw how they cought a soldier. Poor guy was torn into pieces. I need to try to escape and maybe die from radiation in sewers. One way or another - a better option rather than being eaten alive.}
+{6010}{}{[ Back ]}
+{7000}{}{[ Loading... Terminal operating ]}
+{7010}{}{[ Note 27.05.77 ]}
+{7020}{}{[ Note 02.05.77 ]}
+{7030}{}{[ Note 04.05.77 ]}
+{7040}{}{[ Note 07.05.77 ]}
+{7050}{}{[ Note 09.05.77 ]}
+{7060}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{f}
+{2000}{}{My job of psychiatrist has never been even more uselss than now. It's funny how fast all our lives have suddenly changed. I would really laugh, if it wasn't so sad. I saw soldiers today, it seems like we can forget about getting out of the city. They said that San Diego is surrounded by some kind of radioactive storm or some sort. Our anti air systems saved our lives and doomed us all to die from hunger and panic as it seems. I found my old gas mask today... I will write something else later... Maybe.}
+{2010}{}{[ Back ]}
+{3000}{}{Unlike I imagined, nobody paniced, nobody got his mind into the anarchy. It's pretty calm in the city and everyone even returns back to their jobs. Hah... As if the world hasn't just ended. Somehow we still experience no food shortages, our local administartion decided to keep the city under the lockdown and let nobody outside. I don't think that anyone would try to escape anywhere. We are surrounded by the storm, so... We have nowhere to go.}
+{3010}{}{[ Back ]}
+{4000}{}{It is getting colder. I checked the temperature today, it is -10 Celcium. Funny... I don't remember so cold Novembers here.}
+{4010}{}{[ Back ]}
+{5000}{}{So this is our end. Not the radiation, not the bombs... The cold... It is -30 already. I burn my books to get at least some warmth. I am running out water and food. Funny, but... still no panic, still no anarchy. It seems like everyone decided to die peacefuly. Good for them... Good for all of us.}
+{5010}{}{[ Back ]}
+{6000}{}{I saw Mrs. Sterlington today. Turned. She completely lost her mind and became a bloodthirsty creature. We had problems with turned before too, but... Nowadays there is nobody to get her down. Temperature today is -48 Celcium. I am out of books and wallpaper. I shall try to hide in the basement and... Maybe try to escape the city via sewers. I know it may not lead me anywhere, but those... creatures... They are more and more daily. UPDATE: I just saw how they cought a soldier. Poor guy was torn into pieces. I need to try to escape and maybe die from radiation in sewers. One way or another - a better option rather than being eaten alive.}
+{6010}{}{[ Back ]}
+{7000}{}{[ Loading... Terminal operating ]}
+{7010}{}{[ Note 27.05.77 ]}
+{7020}{}{[ Note 02.05.77 ]}
+{7030}{}{[ Note 04.05.77 ]}
+{7040}{}{[ Note 07.05.77 ]}
+{7050}{}{[ Note 09.05.77 ]}
+{7060}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{f}
+{2000}{}{My job of psychiatrist has never been even more uselss than now. It's funny how fast all our lives have suddenly changed. I would really laugh, if it wasn't so sad. I saw soldiers today, it seems like we can forget about getting out of the city. They said that San Diego is surrounded by some kind of radioactive storm or some sort. Our anti air systems saved our lives and doomed us all to die from hunger and panic as it seems. I found my old gas mask today... I will write something else later... Maybe.}
+{2010}{}{[ Back ]}
+{3000}{}{Unlike I imagined, nobody paniced, nobody got his mind into the anarchy. It's pretty calm in the city and everyone even returns back to their jobs. Hah... As if the world hasn't just ended. Somehow we still experience no food shortages, our local administartion decided to keep the city under the lockdown and let nobody outside. I don't think that anyone would try to escape anywhere. We are surrounded by the storm, so... We have nowhere to go.}
+{3010}{}{[ Back ]}
+{4000}{}{It is getting colder. I checked the temperature today, it is -10 Celcium. Funny... I don't remember so cold Novembers here.}
+{4010}{}{[ Back ]}
+{5000}{}{So this is our end. Not the radiation, not the bombs... The cold... It is -30 already. I burn my books to get at least some warmth. I am running out water and food. Funny, but... still no panic, still no anarchy. It seems like everyone decided to die peacefuly. Good for them... Good for all of us.}
+{5010}{}{[ Back ]}
+{6000}{}{I saw Mrs. Sterlington today. Turned. She completely lost her mind and became a bloodthirsty creature. We had problems with turned before too, but... Nowadays there is nobody to get her down. Temperature today is -48 Celcium. I am out of books and wallpaper. I shall try to hide in the basement and... Maybe try to escape the city via sewers. I know it may not lead me anywhere, but those... creatures... They are more and more daily. UPDATE: I just saw how they cought a soldier. Poor guy was torn into pieces. I need to try to escape and maybe die from radiation in sewers. One way or another - a better option rather than being eaten alive.}
+{6010}{}{[ Back ]}
+{7000}{}{[ Loading... Terminal operating ]}
+{7010}{}{[ Note 27.05.77 ]}
+{7020}{}{[ Note 02.05.77 ]}
+{7030}{}{[ Note 04.05.77 ]}
+{7040}{}{[ Note 07.05.77 ]}
+{7050}{}{[ Note 09.05.77 ]}
+{7060}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{f}
+{2000}{}{My job of psychiatrist has never been even more uselss than now. It's funny how fast all our lives have suddenly changed. I would really laugh, if it wasn't so sad. I saw soldiers today, it seems like we can forget about getting out of the city. They said that San Diego is surrounded by some kind of radioactive storm or some sort. Our anti air systems saved our lives and doomed us all to die from hunger and panic as it seems. I found my old gas mask today... I will write something else later... Maybe.}
+{2010}{}{[ Back ]}
+{3000}{}{Unlike I imagined, nobody paniced, nobody got his mind into the anarchy. It's pretty calm in the city and everyone even returns back to their jobs. Hah... As if the world hasn't just ended. Somehow we still experience no food shortages, our local administartion decided to keep the city under the lockdown and let nobody outside. I don't think that anyone would try to escape anywhere. We are surrounded by the storm, so... We have nowhere to go.}
+{3010}{}{[ Back ]}
+{4000}{}{It is getting colder. I checked the temperature today, it is -10 Celcium. Funny... I don't remember so cold Novembers here.}
+{4010}{}{[ Back ]}
+{5000}{}{So this is our end. Not the radiation, not the bombs... The cold... It is -30 already. I burn my books to get at least some warmth. I am running out water and food. Funny, but... still no panic, still no anarchy. It seems like everyone decided to die peacefuly. Good for them... Good for all of us.}
+{5010}{}{[ Back ]}
+{6000}{}{I saw Mrs. Sterlington today. Turned. She completely lost her mind and became a bloodthirsty creature. We had problems with turned before too, but... Nowadays there is nobody to get her down. Temperature today is -48 Celcium. I am out of books and wallpaper. I shall try to hide in the basement and... Maybe try to escape the city via sewers. I know it may not lead me anywhere, but those... creatures... They are more and more daily. UPDATE: I just saw how they cought a soldier. Poor guy was torn into pieces. I need to try to escape and maybe die from radiation in sewers. One way or another - a better option rather than being eaten alive.}
+{6010}{}{[ Back ]}
+{7000}{}{[ Loading... Terminal operating ]}
+{7010}{}{[ Note 27.05.77 ]}
+{7020}{}{[ Note 02.05.77 ]}
+{7030}{}{[ Note 04.05.77 ]}
+{7040}{}{[ Note 07.05.77 ]}
+{7050}{}{[ Note 09.05.77 ]}
+{7060}{}{[ Exit ]}
+

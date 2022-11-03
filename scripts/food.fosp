@@ -1,0 +1,87 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;  
+
+import void AffectPoison(Critter&cr,int value)from"poison";
+import void AffectRadiation(Critter&cr,int value)from"radiation";
+
+void heal_low(Item&item,bool firstTime)
+{
+	item.SetEvent((2),"_heal_low");
+	
+}
+
+bool _heal_low(Item&item,Critter&crit,Critter@onCritter,Item@onItem,Scenery@onScenery)
+{
+	return true;
+}
+
+void heal_high(Item&item,bool firstTime)
+{
+	item.SetEvent((2),"_heal_high");
+}
+
+bool _heal_high(Item&item,Critter&crit,Critter@onCritter,Item@onItem,Scenery@onScenery)
+{
+	return true;
+}
+
+void rad(Item&item,bool firstTime)
+{
+	item.SetEvent((2),"_rad");
+}
+
+bool _rad(Item&item,Critter&crit,Critter@onCritter,Item@onItem,Scenery@onScenery)
+{
+	return true;
+} 
+
+void antidote(Item&item,bool firstTime)
+{
+	item.SetEvent((2),"_antidote");
+}
+
+bool _antidote(Item&item,Critter&crit,Critter@onCritter,Item@onItem,Scenery@onScenery)
+{
+	return true;
+}
+
+void poison(Item&item,bool firstTime)
+{
+	item.SetEvent((2),"_poison");
+}
+
+bool _poison(Item&item,Critter&crit,Critter@onCritter,Item@onItem,Scenery@onScenery)
+{
+	return true; 
+	
+}

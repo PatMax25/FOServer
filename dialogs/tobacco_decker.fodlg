@@ -1,0 +1,336 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p tobacco_meeting = 1 D _var p tobacco_payday = 1 #
+16 1020 D _var p tobacco_meeting = 1 D _var p tobacco_payday = 0 #
+2 1030 D _var p tobacco_meeting = 0 D _var p tobacco_payday = 0 @
+2 2000 None 0 #
+3 2010 D _var p name_mem_npc_player = 0 D _var p tobacco_meeting = 0 #
+8 2020 D _var p name_mem_npc_player = 1 D _var p tobacco_water = 2 D _var p tobacco_meeting = 0 R _var p tobacco_water = 3 R _param p ST_EXPERIENCE + 2800 R _param p SK_OUTDOORSMAN + 5 R _var p tobacco_meeting = 1 #
+9 2030 D _var p name_mem_npc_player = 1 D _var p tobacco_meeting = 1 D _var p tobacco_trade = 0 #
+11 2040 D _var p name_mem_npc_player = 1 D _var p tobacco_robot = 0 D _var p tobacco_meeting = 1 #
+13 2050 D _var p name_mem_npc_player = 1 D _var p tobacco_upgrade1 = 0 D _var p tobacco_meeting = 1 #
+14 2060 D _var p name_mem_npc_player = 1 D _var p tobacco_upgrade2 = 0 D _var p tobacco_meeting = 1 #
+15 2070 D _var p name_mem_npc_player = 1 D _var p tobacco_meeting = 1 #
+18 2080 D _var p tobacco_trade = 1 #
+2 2090 D _var p name_mem_npc_player = 1 D _var p tobacco_meeting = 1 D _var p tobacco_robot = 1 D _var p tobacco_income1 = 0 R _item p PID_BOTTLE_CAPS + 1950 R _param p ST_EXPERIENCE + 800 R _var p tobacco_income1 = 1 R _script dialog@r_cd_quest 2 240 555 #
+2 2100 D _var p name_mem_npc_player = 1 D _var p tobacco_meeting = 1 D _var p tobacco_income2 = 0 D _var p tobacco_upgrade1 = 1 R _var p tobacco_income2 = 1 R _item p PID_BOTTLE_CAPS + 900 R _param p ST_EXPERIENCE + 750 R _script dialog@r_cd_quest 2 240 556 #
+2 2110 D _var p name_mem_npc_player = 1 D _var p tobacco_meeting = 1 D _var p tobacco_upgrade2 = 1 D _var p tobacco_income3 = 0 R _var p tobacco_income3 = 1 R _item p PID_BOTTLE_CAPS + 500 R _param p ST_EXPERIENCE + 700 R _script dialog@r_cd_quest 2 240 557 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+0 6010 D _var p tobacco_water = 0 R _var p name_mem_npc_player = 1 R _var p tobacco_water = 1 #
+0 6020 D _var p tobacco_water = 0 R _var p name_mem_npc_player = 1 R _var p tobacco_water = 1 @
+8 7000 None 0 @
+9 8000 None 0 #
+17 8010 D _var p tobacco_trade = 0 D _item p PID_CIGARETTES } 50 R _var p tobacco_trade = 1 R _item p PID_BOTTLE_CAPS + 450 R _param p ST_EXPERIENCE + 500 R _item p PID_CIGARETTES - 50 R _script dialog@r_cd_quest 2 180 554 #
+17 8020 D _var p tobacco_trade = 0 D _item p PID_CIGARETTES } 100 R _var p tobacco_trade = 1 R _item p PID_BOTTLE_CAPS + 850 R _param p ST_EXPERIENCE + 1000 R _item p PID_CIGARETTES - 100 R _script dialog@r_cd_quest 2 180 554 #
+17 8030 D _var p tobacco_trade = 0 D _item p PID_CIGARETTES } 200 R _var p tobacco_trade = 1 R _item p PID_BOTTLE_CAPS + 1950 R _param p ST_EXPERIENCE + 2000 R _item p PID_CIGARETTES - 200 R _script dialog@r_cd_quest 2 180 554 #
+17 8040 D _var p tobacco_trade = 0 D _item p PID_CIGARETTES } 500 R _var p tobacco_trade = 1 R _item p PID_BOTTLE_CAPS + 6400 R _param p ST_EXPERIENCE + 3500 R _item p PID_CIGARETTES - 500 R _script dialog@r_cd_quest 2 180 554 #
+0 8050 @
+10 9000 None 0 #
+0 9010 D _var p tobacco_plants1 = 0 D _item p PID_BOTTLE_CAPS } 12000 R _var p tobacco_plants1 = 1 R _item p PID_BOTTLE_CAPS - 12000 R _item p PID_PLANT1_FRUIT + 10 #
+0 9020 @
+11 10000 None 0 #
+12 10010 D _var p tobacco_robot = 0 D _item p PID_ELECTRONIC_PARTS } 20 D _item p PID_METAL_PARTS } 25 D _item p PID_BOTTLE_CAPS } 1000 R _var p tobacco_robot = 1 R _item p PID_BOTTLE_CAPS - 1000 R _item p PID_METAL_PARTS - 25 R _item p PID_ELECTRONIC_PARTS - 20 #
+0 10020 @
+12 11000 None 0 #
+0 11010 @
+13 12000 None 0 #
+0 12010 D _var p tobacco_upgrade1 = 0 D _item p PID_BOTTLE_CAPS } 2000 R _var p tobacco_upgrade1 = 1 R _item p PID_BOTTLE_CAPS - 2000 #
+0 12020 @
+14 13000 None 0 #
+0 13010 D _var p tobacco_upgrade2 = 0 D _item p PID_BOTTLE_CAPS } 1000 R _var p tobacco_upgrade2 = 1 R _item p PID_BOTTLE_CAPS - 1000 #
+0 13020 @
+15 14000 None 0 @
+16 15000 None 0 #
+2 15010 D _item p PID_BOTTLE_CAPS } 2400 R _item p PID_BOTTLE_CAPS - 2400 R _script dialog@r_cd_quest 2 1440 558 R _var p tobacco_payday = 1 #
+0 15020 @
+17 16000 None 0 @
+18 17000 None 0 &
+
+[engl]
+{100}{}{Decker}
+{1000}{}{Predialogue installations}
+{1010}{}{[ All payed ]}
+{1020}{}{[ Not payed ]}
+{1030}{}{[ First time ]}
+{2000}{}{Hey there partner. What's up?}
+{2010}{}{What the hell is this crap?! I was promised an entire farm!}
+{2020}{}{I switched the pipe. Now this place is supplied with water. What now? [ +5 to Outdoorsman ]}
+{2030}{}{Lets speak about contracts.}
+{2040}{}{Is there any way to fix that bot?}
+{2050}{}{Don't we have too much water now?}
+{2060}{}{Do you maybe have some nice contacts among cities where our tobacco can be more profitable?}
+{2070}{}{You said something about salaries and taxes...}
+{2080}{}{Lets, speak about contracts.}
+{2090}{}{I wish to take the income from the robot.}
+{2100}{}{I wish to take the income from selling water.}
+{2110}{}{I wish to take the income from profitable trades.}
+{3000}{}{Yes, indeedy. The old man just fooled you and sold you a true crap! But that's not critical, we can set things working here. Name's Decker by the way, I will be in charge of selling your cigs and managing expenses.}
+{3010}{}{And what will it look like?}
+{4000}{}{Well, everything is simple. You choose the contract and make a specific amount of cigs, mentioned in the contract. Then you just give me cigs and I go with them to the trading post and sell them all. It takes some time of course during which I won't be available here. I give ya caps right after the completion of the plan. Also... A very important remark: Once per day you need to pay me the salary and also pay taxes to the caravan company. I am sure you can develop some ways to organise a passive income.}
+{4010}{}{So... I need to pay you too, huh?}
+{5000}{}{Of course. We can be friends, but... work is work, partner.}
+{5010}{}{Fine... But I want to develop this junkyard into a normally functioning farm.}
+{6000}{}{Good, our first problem is that this farm needs more water. And the best place to get it is to take a visit to Waterworks West from here. Find the managing terminal there and send some water here.}
+{6010}{}{Alright, I will do it.}
+{6020}{}{I will think about it.}
+{7000}{}{Excellent, now we can start playing big. I am sure you wish to know more about contracts.}
+{8000}{}{There are some for now. 50 cigs for 450 caps, 100 cigs for 850 caps, 200 cigs for 1950 caps, 500 cigs for 6400 caps.}
+{8010}{}{I go for the first one.}
+{8020}{}{I go for the second one.}
+{8030}{}{I go for the third one.}
+{8040}{}{I go for the last one.}
+{8050}{}{Not now.}
+{9000}{}{Very well, I can sell you 10 more plants. But as we are good friends, here is the discount for you - I will ask for only 12000 caps for all of them.}
+{9010}{}{Deal!}
+{9020}{}{Later maybe.}
+{10000}{}{Hmh... Yeah, bring me 20 electronic parts and 25 metal parts... and 1000 caps of course.}
+{10010}{}{Here are the parts.}
+{10020}{}{I will be back.}
+{11000}{}{And done! Robot must be working. He will operate on the fields while you are away so you can passively get 1950 caps every 4 hours.}
+{11010}{}{Excellent.}
+{12000}{}{Well, if you pay me 2000 caps more, I can sell some extra to local farms. It will bring you 900 caps of passive income every 4 hours.}
+{12010}{}{Deal!}
+{12020}{}{We will come to this topic later.}
+{13000}{}{Well, I have some contacts in Adytum. You pay me 1000 caps and I will sell some of your stock to them. It will bring 500 caps of passive income every 4 hours.}
+{13010}{}{Deal.}
+{13020}{}{I will think about it.}
+{14000}{}{My salary is 1200 caps. Company's taxes are 800 caps. Also we need to pay some taxes to Adytum - 300 caps, also I need to feed brahmins - 100 caps. All in all - 2400 caps.}
+{15000}{}{Hey buddy. It's salary time. 2400 caps on the table and we are good to continue.}
+{15010}{}{Here are caps.}
+{15020}{}{Alright, let me just find my wallet.}
+{16000}{}{Very well, I will be right back in 3 hours.}
+{17000}{}{I am busy with your current order. Will be back in 3 hours.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{[ All payed ]}
+{1020}{}{[ Not payed ]}
+{1030}{}{[ First time ]}
+{2000}{}{Oh hello there. Name's Decker, I am the one who will be in charge of caravans and sellings of your cigs.}
+{2010}{}{What a hell is this crap?! I was promised to get a farm!}
+{2020}{}{I switched the pipe. Now this place is supplied with water. What now?}
+{2030}{}{Lets speak about contracts.}
+{2040}{}{Is there any way to fix that bot?}
+{2050}{}{Don't we have too much water now?}
+{2060}{}{Do you maybe have some nice contacts among cities where our tobacco can be sold for more money?}
+{2070}{}{You said something about salaries and taxes...}
+{2080}{}{Lets, speak about conracts.}
+{2090}{}{I wish to take the income from the robot.}
+{2100}{}{I wish to take the income from the selling water.}
+{2110}{}{I wish to take the income from profitable trades.}
+{3000}{}{Yes, indeedy. The old man just fooled you and sold you a true crap! But that's not critical, we can set things working here.}
+{3010}{}{And how will it look like?}
+{4000}{}{Well, everything is simple. You choose the contract and make a specific amount of cigs, mentioned in the contract. Then you just give me cigs and I go with them to the trading post and sell them all. It takes some time of course during which I won't be available here. I give ya caps right after the completing of the plan. Also... A very important remark though. Once per day you need to pay me the salary and also pay taxes to the carvan company.}
+{4010}{}{So... I need to pay you too, huh?}
+{5000}{}{Of course. We can be friends, but... work is work, partner.}
+{5010}{}{Fine... But I want to develop this junkyard into the normally functioning farm.}
+{6000}{}{Good, our first problem is that this farm needs more water. And the best place to get it is to take a visit Waterworks West from here. Find the managing terminal there and send some water here.}
+{6010}{}{Alright, I will do it.}
+{6020}{}{I will think about it.}
+{7000}{}{Excellent, now we can start playing big. I am sure you wish to know more about contracts.}
+{8000}{}{There are some for now. 50 cigs for 450 caps, 100 cigs for 850 caps, 200 cigs for 1950 caps, 500 cigs for 6400 caps.}
+{8010}{}{I go for the first one.}
+{8020}{}{I go for the second one.}
+{8030}{}{I go for the third one.}
+{8040}{}{I go for the last one.}
+{8050}{}{Not now.}
+{9000}{}{Very well, I can sell you 10 more plants. But as we are good friends here is the discount for you - I wil lask for only 12000 caps for all of them.}
+{9010}{}{Deal!}
+{9020}{}{Later maybe.}
+{10000}{}{Hmh... Yeah, bring me around 20 electronic parts and 25 metal parts... and 1000 caps of course.}
+{10010}{}{Here are the parts.}
+{10020}{}{I will be back.}
+{11000}{}{And done! Robot must be working. He will operate on the fields while you are away and so you can passively get 1500 caps every 5 hours.}
+{11010}{}{Excellent.}
+{12000}{}{Well, if you pay me 2000 caps more, I can sell some extra to local farms. It will bring you 900 caps of passive income every 5 hours.}
+{12010}{}{Deal!}
+{12020}{}{We will come to this topic later.}
+{13000}{}{Well, I have some contacts in Adytum. You pay me 1000 caps and I will sell some of your stock to them. It will bring 500 caps of passive income }
+{13010}{}{Deal.}
+{13020}{}{I will think about it.}
+{14000}{}{My salary is 1200 caps. Company's taxes are 800 caps. All in all - 2000 caps.}
+{15000}{}{Hey buddy. It's salary time. 2000 caps on the table and we are good to continue.}
+{15010}{}{Here are caps.}
+{15020}{}{Alright, let me just find my wallet.}
+{16000}{}{Very well, I will ba right back in 6 hours.}
+{17000}{}{I am busy with your current order. Will be back in 3 hours.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{[ All payed ]}
+{1020}{}{[ Not payed ]}
+{1030}{}{[ First time ]}
+{2000}{}{Oh hello there. Name's Decker, I am the one who will be in charge of caravans and sellings of your cigs.}
+{2010}{}{What a hell is this crap?! I was promised to get a farm!}
+{2020}{}{I switched the pipe. Now this place is supplied with water. What now?}
+{2030}{}{Lets speak about contracts.}
+{2040}{}{Is there any way to fix that bot?}
+{2050}{}{Don't we have too much water now?}
+{2060}{}{Do you maybe have some nice contacts among cities where our tobacco can be sold for more money?}
+{2070}{}{You said something about salaries and taxes...}
+{2080}{}{Lets, speak about conracts.}
+{2090}{}{I wish to take the income from the robot.}
+{2100}{}{I wish to take the income from the selling water.}
+{2110}{}{I wish to take the income from profitable trades.}
+{3000}{}{Yes, indeedy. The old man just fooled you and sold you a true crap! But that's not critical, we can set things working here.}
+{3010}{}{And how will it look like?}
+{4000}{}{Well, everything is simple. You choose the contract and make a specific amount of cigs, mentioned in the contract. Then you just give me cigs and I go with them to the trading post and sell them all. It takes some time of course during which I won't be available here. I give ya caps right after the completing of the plan. Also... A very important remark though. Once per day you need to pay me the salary and also pay taxes to the carvan company.}
+{4010}{}{So... I need to pay you too, huh?}
+{5000}{}{Of course. We can be friends, but... work is work, partner.}
+{5010}{}{Fine... But I want to develop this junkyard into the normally functioning farm.}
+{6000}{}{Good, our first problem is that this farm needs more water. And the best place to get it is to take a visit Waterworks West from here. Find the managing terminal there and send some water here.}
+{6010}{}{Alright, I will do it.}
+{6020}{}{I will think about it.}
+{7000}{}{Excellent, now we can start playing big. I am sure you wish to know more about contracts.}
+{8000}{}{There are some for now. 50 cigs for 450 caps, 100 cigs for 850 caps, 200 cigs for 1950 caps, 500 cigs for 6400 caps.}
+{8010}{}{I go for the first one.}
+{8020}{}{I go for the second one.}
+{8030}{}{I go for the third one.}
+{8040}{}{I go for the last one.}
+{8050}{}{Not now.}
+{9000}{}{Very well, I can sell you 10 more plants. But as we are good friends here is the discount for you - I wil lask for only 12000 caps for all of them.}
+{9010}{}{Deal!}
+{9020}{}{Later maybe.}
+{10000}{}{Hmh... Yeah, bring me around 20 electronic parts and 25 metal parts... and 1000 caps of course.}
+{10010}{}{Here are the parts.}
+{10020}{}{I will be back.}
+{11000}{}{And done! Robot must be working. He will operate on the fields while you are away and so you can passively get 1500 caps every 5 hours.}
+{11010}{}{Excellent.}
+{12000}{}{Well, if you pay me 2000 caps more, I can sell some extra to local farms. It will bring you 900 caps of passive income every 5 hours.}
+{12010}{}{Deal!}
+{12020}{}{We will come to this topic later.}
+{13000}{}{Well, I have some contacts in Adytum. You pay me 1000 caps and I will sell some of your stock to them. It will bring 500 caps of passive income }
+{13010}{}{Deal.}
+{13020}{}{I will think about it.}
+{14000}{}{My salary is 1200 caps. Company's taxes are 800 caps. All in all - 2000 caps.}
+{15000}{}{Hey buddy. It's salary time. 2000 caps on the table and we are good to continue.}
+{15010}{}{Here are caps.}
+{15020}{}{Alright, let me just find my wallet.}
+{16000}{}{Very well, I will ba right back in 6 hours.}
+{17000}{}{I am busy with your current order. Will be back in 3 hours.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{[ All payed ]}
+{1020}{}{[ Not payed ]}
+{1030}{}{[ First time ]}
+{2000}{}{Oh hello there. Name's Decker, I am the one who will be in charge of caravans and sellings of your cigs.}
+{2010}{}{What a hell is this crap?! I was promised to get a farm!}
+{2020}{}{I switched the pipe. Now this place is supplied with water. What now?}
+{2030}{}{Lets speak about contracts.}
+{2040}{}{Is there any way to fix that bot?}
+{2050}{}{Don't we have too much water now?}
+{2060}{}{Do you maybe have some nice contacts among cities where our tobacco can be sold for more money?}
+{2070}{}{You said something about salaries and taxes...}
+{2080}{}{Lets, speak about conracts.}
+{2090}{}{I wish to take the income from the robot.}
+{2100}{}{I wish to take the income from the selling water.}
+{2110}{}{I wish to take the income from profitable trades.}
+{3000}{}{Yes, indeedy. The old man just fooled you and sold you a true crap! But that's not critical, we can set things working here.}
+{3010}{}{And how will it look like?}
+{4000}{}{Well, everything is simple. You choose the contract and make a specific amount of cigs, mentioned in the contract. Then you just give me cigs and I go with them to the trading post and sell them all. It takes some time of course during which I won't be available here. I give ya caps right after the completing of the plan. Also... A very important remark though. Once per day you need to pay me the salary and also pay taxes to the carvan company.}
+{4010}{}{So... I need to pay you too, huh?}
+{5000}{}{Of course. We can be friends, but... work is work, partner.}
+{5010}{}{Fine... But I want to develop this junkyard into the normally functioning farm.}
+{6000}{}{Good, our first problem is that this farm needs more water. And the best place to get it is to take a visit Waterworks West from here. Find the managing terminal there and send some water here.}
+{6010}{}{Alright, I will do it.}
+{6020}{}{I will think about it.}
+{7000}{}{Excellent, now we can start playing big. I am sure you wish to know more about contracts.}
+{8000}{}{There are some for now. 50 cigs for 450 caps, 100 cigs for 850 caps, 200 cigs for 1950 caps, 500 cigs for 6400 caps.}
+{8010}{}{I go for the first one.}
+{8020}{}{I go for the second one.}
+{8030}{}{I go for the third one.}
+{8040}{}{I go for the last one.}
+{8050}{}{Not now.}
+{9000}{}{Very well, I can sell you 10 more plants. But as we are good friends here is the discount for you - I wil lask for only 12000 caps for all of them.}
+{9010}{}{Deal!}
+{9020}{}{Later maybe.}
+{10000}{}{Hmh... Yeah, bring me around 20 electronic parts and 25 metal parts... and 1000 caps of course.}
+{10010}{}{Here are the parts.}
+{10020}{}{I will be back.}
+{11000}{}{And done! Robot must be working. He will operate on the fields while you are away and so you can passively get 1500 caps every 5 hours.}
+{11010}{}{Excellent.}
+{12000}{}{Well, if you pay me 2000 caps more, I can sell some extra to local farms. It will bring you 900 caps of passive income every 5 hours.}
+{12010}{}{Deal!}
+{12020}{}{We will come to this topic later.}
+{13000}{}{Well, I have some contacts in Adytum. You pay me 1000 caps and I will sell some of your stock to them. It will bring 500 caps of passive income }
+{13010}{}{Deal.}
+{13020}{}{I will think about it.}
+{14000}{}{My salary is 1200 caps. Company's taxes are 800 caps. All in all - 2000 caps.}
+{15000}{}{Hey buddy. It's salary time. 2000 caps on the table and we are good to continue.}
+{15010}{}{Here are caps.}
+{15020}{}{Alright, let me just find my wallet.}
+{16000}{}{Very well, I will ba right back in 6 hours.}
+{17000}{}{I am busy with your current order. Will be back in 3 hours.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{[ All payed ]}
+{1020}{}{[ Not payed ]}
+{1030}{}{[ First time ]}
+{2000}{}{Oh hello there. Name's Decker, I am the one who will be in charge of caravans and sellings of your cigs.}
+{2010}{}{What a hell is this crap?! I was promised to get a farm!}
+{2020}{}{I switched the pipe. Now this place is supplied with water. What now?}
+{2030}{}{Lets speak about contracts.}
+{2040}{}{Is there any way to fix that bot?}
+{2050}{}{Don't we have too much water now?}
+{2060}{}{Do you maybe have some nice contacts among cities where our tobacco can be sold for more money?}
+{2070}{}{You said something about salaries and taxes...}
+{2080}{}{Lets, speak about conracts.}
+{2090}{}{I wish to take the income from the robot.}
+{2100}{}{I wish to take the income from the selling water.}
+{2110}{}{I wish to take the income from profitable trades.}
+{3000}{}{Yes, indeedy. The old man just fooled you and sold you a true crap! But that's not critical, we can set things working here.}
+{3010}{}{And how will it look like?}
+{4000}{}{Well, everything is simple. You choose the contract and make a specific amount of cigs, mentioned in the contract. Then you just give me cigs and I go with them to the trading post and sell them all. It takes some time of course during which I won't be available here. I give ya caps right after the completing of the plan. Also... A very important remark though. Once per day you need to pay me the salary and also pay taxes to the carvan company.}
+{4010}{}{So... I need to pay you too, huh?}
+{5000}{}{Of course. We can be friends, but... work is work, partner.}
+{5010}{}{Fine... But I want to develop this junkyard into the normally functioning farm.}
+{6000}{}{Good, our first problem is that this farm needs more water. And the best place to get it is to take a visit Waterworks West from here. Find the managing terminal there and send some water here.}
+{6010}{}{Alright, I will do it.}
+{6020}{}{I will think about it.}
+{7000}{}{Excellent, now we can start playing big. I am sure you wish to know more about contracts.}
+{8000}{}{There are some for now. 50 cigs for 450 caps, 100 cigs for 850 caps, 200 cigs for 1950 caps, 500 cigs for 6400 caps.}
+{8010}{}{I go for the first one.}
+{8020}{}{I go for the second one.}
+{8030}{}{I go for the third one.}
+{8040}{}{I go for the last one.}
+{8050}{}{Not now.}
+{9000}{}{Very well, I can sell you 10 more plants. But as we are good friends here is the discount for you - I wil lask for only 12000 caps for all of them.}
+{9010}{}{Deal!}
+{9020}{}{Later maybe.}
+{10000}{}{Hmh... Yeah, bring me around 20 electronic parts and 25 metal parts... and 1000 caps of course.}
+{10010}{}{Here are the parts.}
+{10020}{}{I will be back.}
+{11000}{}{And done! Robot must be working. He will operate on the fields while you are away and so you can passively get 1500 caps every 5 hours.}
+{11010}{}{Excellent.}
+{12000}{}{Well, if you pay me 2000 caps more, I can sell some extra to local farms. It will bring you 900 caps of passive income every 5 hours.}
+{12010}{}{Deal!}
+{12020}{}{We will come to this topic later.}
+{13000}{}{Well, I have some contacts in Adytum. You pay me 1000 caps and I will sell some of your stock to them. It will bring 500 caps of passive income }
+{13010}{}{Deal.}
+{13020}{}{I will think about it.}
+{14000}{}{My salary is 1200 caps. Company's taxes are 800 caps. All in all - 2000 caps.}
+{15000}{}{Hey buddy. It's salary time. 2000 caps on the table and we are good to continue.}
+{15010}{}{Here are caps.}
+{15020}{}{Alright, let me just find my wallet.}
+{16000}{}{Very well, I will ba right back in 6 hours.}
+{17000}{}{I am busy with your current order. Will be back in 3 hours.}
+

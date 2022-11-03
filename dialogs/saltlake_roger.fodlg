@@ -1,0 +1,380 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+5 3010 #
+4 3020 @
+4 4000 None 0 #
+0 4010 D _script dialog@d_havepropermoney 1 49999 D _item p PID_CYLINDRICAL_LOCK > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 1 R _item p PID_CYLINDRICAL_LOCK - 1 #
+0 4020 D _script dialog@d_havepropermoney 1 49999 D _item p PID_CARBON_POLYMER > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 2 R _item p PID_CARBON_POLYMER - 1 #
+0 4030 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_ELE_ENGINE > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 3 R _item p PID_TECH_ELE_ENGINE - 1 #
+0 4040 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_SCOPE > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 4 R _item p PID_TECH_SCOPE - 1 #
+0 4050 D _script dialog@d_havepropermoney 1 49999 D _item p PID_PLASMA_PARTS > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 5 R _item p PID_PLASMA_PARTS - 1 #
+0 4060 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_SEMI_TRIGGER > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 6 R _item p PID_TECH_SEMI_TRIGGER - 1 #
+0 4070 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_DELINER > 0 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_TECH_DELINER - 1 R _script item_level@r_upgrade_weapon 1 67 #
+0 4080 D _script dialog@d_havepropermoney 1 49999 D _item p PID_PLASMA_ACCELERATOR > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 9 R _item p PID_PLASMA_ACCELERATOR - 1 #
+0 4090 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_GUN_CONTROL > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 10 R _item p PID_TECH_GUN_CONTROL - 1 #
+0 4100 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ELECTROMAGNETIC > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 12 R _item p PID_ELECTROMAGNETIC - 1 #
+0 4110 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_ELE_WIRES > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 13 R _item p PID_TECH_ELE_WIRES - 1 #
+0 4120 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_AUTO_TRIGGER > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 16 R _item p PID_TECH_AUTO_TRIGGER - 1 #
+0 4130 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ROTARY_CHAMBER > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 18 R _item p PID_ROTARY_CHAMBER - 1 #
+0 4140 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_TRANSFORMATOR > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 47 R _item p PID_TECH_TRANSFORMATOR - 1 #
+0 4150 D _script dialog@d_havepropermoney 1 49999 D _item p PID_HIFLO > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_weapon 1 14 R _item p PID_HIFLO - 1 #
+0 4160 D _item p PID_TECH_CONDEN > 0 D _script dialog@d_havepropermoney 1 49999 R _script item_level@r_upgrade_weapon 1 62 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_TECH_CONDEN - 1 #
+0 4170 D _item p PID_ARM_STEEL > 0 D _script dialog@d_havepropermoney 1 49999 R _script item_level@r_upgrade_weapon 1 65 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_ARM_STEEL - 1 @
+5 5000 None 0 #
+0 5010 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_POLYMER_ADV > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 19 R _item p PID_ARM_POLYMER_ADV - 1 #
+0 5020 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_POLYMER_LASER > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 20 R _item p PID_ARM_POLYMER_LASER - 1 #
+0 5030 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_POLYCARBONITE > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 24 R _item p PID_ARM_POLYCARBONITE - 1 #
+0 5040 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_STEEL > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 25 R _item p PID_ARM_STEEL - 1 #
+0 5050 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_LEATHER_HIDE > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 26 R _item p PID_ARM_LEATHER_HIDE - 1 #
+0 5060 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ABSORBER > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 27 R _item p PID_ABSORBER - 1 #
+0 5070 D _script dialog@d_havepropermoney 1 49999 D _item p PID_SERVOMOTORS > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 28 R _item p PID_SERVOMOTORS - 1 #
+0 5080 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ADVANCED_SHELL > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 29 R _item p PID_ADVANCED_SHELL - 1 #
+0 5090 D _script dialog@d_havepropermoney 1 49999 D _item p PID_PA_SHELL > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 30 R _item p PID_PA_SHELL - 1 #
+0 5100 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_MECH_ENGINE > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 31 R _item p PID_TECH_MECH_ENGINE - 1 #
+0 5110 D _script dialog@d_havepropermoney 1 49999 D _item p PID_HIFLO > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 32 R _item p PID_HIFLO - 1 #
+0 5120 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_POLYMER > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 33 R _item p PID_ARM_POLYMER - 1 #
+0 5130 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_GORETEX > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 34 R _item p PID_ARM_GORETEX - 1 #
+0 5140 D _script dialog@d_havepropermoney 1 49999 D _item p PID_PA_FUEL > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 35 R _item p PID_PA_FUEL - 1 #
+0 5150 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_CARBON > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 36 R _item p PID_ARM_CARBON - 1 #
+0 5160 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_CERAMIC > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 37 R _item p PID_ARM_CERAMIC - 1 #
+0 5170 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_KEVLAR > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 38 R _item p PID_ARM_KEVLAR - 1 #
+0 5180 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_PLASMA > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 40 R _item p PID_TECH_PLASMA - 1 #
+0 5190 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_PLASMA > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 45 R _item p PID_TECH_PLASMA - 1 #
+0 5200 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ELECTRIC_AMPLIFIER > 0 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 46 R _item p PID_ELECTRIC_AMPLIFIER - 1 #
+0 5210 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_CONDEN > 0 R _script item_level@r_upgrade_armor 1 39 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_TECH_CONDEN - 1 #
+0 5220 D _item p PID_TECH_MICROCHIPS > 0 D _script dialog@d_havepropermoney 1 49999 R _item p PID_TECH_MICROCHIPS - 1 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 41 #
+0 5230 D _script dialog@d_havepropermoney 1 49999 D _item p PID_CARBON_POLYMER > 0 R _script item_level@r_upgrade_armor 1 48 R _script dialog@r_RemoveMoney 1 50000 R _item p PID_CARBON_POLYMER - 1 #
+0 5240 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_POLYMER_ADV > 0 R _item p PID_ARM_POLYMER_ADV - 1 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 21 #
+0 5250 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_POLYMER_LASER > 0 R _item p PID_ARM_POLYMER_LASER - 1 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 22 #
+0 5260 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_POLYCARBONITE > 0 R _item p PID_ARM_POLYCARBONITE - 1 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 23 #
+0 5270 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ARM_LEATHER_HIDE > 0 R _item p PID_ARM_LEATHER_HIDE - 1 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 60 #
+0 5280 D _script dialog@d_havepropermoney 1 49999 D _item p PID_SERVOMOTORS > 0 R _item p PID_SERVOMOTORS - 1 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 61 #
+0 5290 D _script dialog@d_havepropermoney 1 49999 D _item p PID_ROTARY_CHAMBER > 0 R _item p PID_ROTARY_CHAMBER - 1 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 59 #
+0 5300 D _script dialog@d_havepropermoney 1 49999 D _item p PID_TECH_ELE_ENGINE > 0 R _item p PID_TECH_ELE_ENGINE - 1 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 63 #
+0 5310 D _script dialog@d_havepropermoney 1 49999 D _item p PID_PLASMA_ACCELERATOR > 0 R _item p PID_PLASMA_ACCELERATOR - 1 R _script dialog@r_RemoveMoney 1 50000 R _script item_level@r_upgrade_armor 1 64 &
+
+[engl]
+{100}{}{Roger}
+{200}{}{Its Roger Kwok.}
+{210}{}{Before you, the trader Roger Kwok.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Hello, wanderer! The Kwok brothers always have a lot of useful stuff for the road. Choose, you wont regret it! We can also upgrade your gun or armor.}
+{2010}{}{[ Barter ]}
+{2020}{}{Lets talk about upgrades.}
+{2030}{}{Thanks, but no. [ end dialogue ]}
+{3000}{}{If you found any rare parts we can install it on your gear, simple right? We take 50,000 @Currency@ for each installation! Remember to wear the armor (in armor slot) or weapon (in first hand slot) for upgrade! *WARNING* In case you don't have gear already installed properly to upgrade we will not return money or part.}
+{3010}{}{Ok, let's do an upgrade to armor.}
+{3020}{}{Ok, let's do an upgrade to weapon.}
+{4000}{}{Great what would you like?}
+{4010}{}{Cylindrical Rotary Lock(Bonus Ranged Damage)}
+{4020}{}{Carbon Polymer Barrels(Bonus Damage)}
+{4030}{}{Electric Motor(Bonus Attack)}
+{4040}{}{Optic Scope(Scoped)}
+{4050}{}{Unique Plasma Parts(Better Critical)}
+{4060}{}{Semi Trigger(Fast Trigger)}
+{4070}{}{Delinker Mechanism(Bonus Attack Speed)}
+{4080}{}{Plasma Accelerator(Slayer)}
+{4090}{}{Gun Control Module(Destroyer)}
+{4100}{}{Electromagnetic Mechanism(Long Range)}
+{4110}{}{Wires(Penetrate)}
+{4120}{}{Auto Trigger(Killing Spree)}
+{4130}{}{Rotary Chamber(Chip Shot)}
+{4140}{}{Electrical Transformer(More Critical)}
+{4150}{}{HiFlo Hydraulic Shell(Poisoned)}
+{4160}{}{Capacitors(Smasher!)}
+{4170}{}{Steel Plate(Spiked)}
+{5000}{}{Great what would you like?}
+{5010}{}{Advanced Polymers(Gain ST)}
+{5020}{}{Glass Polymers(Gain PE)}
+{5030}{}{Polycarbonate(Gain AG)}
+{5040}{}{Steel Plate(Gain LK)}
+{5050}{}{Leather Hide(Cured)}
+{5060}{}{Recoil Absorber(Laser Reflector)}
+{5070}{}{Enhanced Servomotors(Anti-Thermal System)}
+{5080}{}{Advanced Shell(Defense Enhancement)}
+{5090}{}{T-51b Shell(Advanced Plate)}
+{5100}{}{Engine(Mirror System)}
+{5110}{}{HiFlo Hydraulic Systems(Tesla Addition)}
+{5120}{}{Polymers(Shock Protection)}
+{5130}{}{Goretex(Firegecko's Enhancement)}
+{5140}{}{TX-28 Microfusion pack(Special Force Bonus)}
+{5150}{}{Carbon Polymer(Regeneration)}
+{5160}{}{Ceramic Plate(Fill The Gaps)}
+{5170}{}{Kevlar(Heavy)}
+{5180}{}{Plasma Transformer(Bonus Move)}
+{5190}{}{Plasma Transformer(Speed Mechanism)}
+{5200}{}{Electric amplifier(Sneaky)}
+{5210}{}{Microchips(Utility)}
+{5220}{}{Microchips(Heavy Stonewall)}
+{5230}{}{Carbon Polymer Barrels(Lethal Protection)}
+{5240}{}{Advanced Polymers(Gain EN)}
+{5250}{}{Glass Polymers(Gain CH)}
+{5260}{}{Polycarbonate(Gain INT)}
+{5270}{}{Leather Hide(Survivalist)}
+{5280}{}{Enhanced Servomotors(Strategic Improvement)}
+{5290}{}{Rotary Chamber(Iron Skin)}
+{5300}{}{Electric Motor(Integrated Gloves)}
+{5310}{}{Plasma Accelerator(Defensive Belt)}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Hello, wanderer! The Kwok brothers always have a lot of useful stuff for the road. Choose, you wont regret it!}
+{2010}{}{[Trade]}
+{2020}{}{Lets talk about upgrades}
+{2030}{}{Thanks, but no.}
+{3000}{}{Sure, if you found any rare parts we can try install it on your gear simple right? We take 50000 @@money@@ for each instalation remember to wear armor(in armor slot) or weapon(in first hand slot) in case you don't or gear have already installed upgrade we not return money or part}
+{3010}{}{Ok, probably got upgrade to armor}
+{3020}{}{Ok, probably got upgrade to weapon}
+{4000}{}{Great what's is it?}
+{4010}{}{Cylindrical rotary lock(Bonus Ranged Damage)}
+{4020}{}{Carbon Polymer Barrels(Bonus Damage)}
+{4030}{}{Electric Motor(Bonus Attack)}
+{4040}{}{Optic Scope(Scoped)}
+{4050}{}{Unique Plasma Parts(Better Critical)}
+{4060}{}{Semi Trigger(Fast Trigger)}
+{4070}{}{Delinker Mechanism(Faster Reload)}
+{4080}{}{Plasma Accelerator(Slayer)}
+{4090}{}{Gun Control Module(accurate)}
+{4100}{}{Electromagnetic Mechanism(Long Range)}
+{4110}{}{Wires(Penetrate)}
+{4120}{}{Auto Trigger(Killing Spree)}
+{4130}{}{Rotary Chamber(Chip Shot)}
+{4140}{}{Electrical Transformer(More Critical)}
+{4150}{}{HiFlo hydraulic Shell(Poisoned)}
+{4160}{}{Capacitors(Smasher!)}
+{4170}{}{Steel Plate(Spiked)}
+{5000}{}{Great what's is it?}
+{5010}{}{Advanced Polymers(Gain ST)}
+{5020}{}{Glass Polymers(Gain PE)}
+{5030}{}{Polycarbonate(Gain AG)}
+{5040}{}{Steel Plate(Gain LK)}
+{5050}{}{Leather Hide(Cured)}
+{5060}{}{Recoil Absorber(Laser Reflector)}
+{5070}{}{Enhanced Servomotors(Anty-Termal System)}
+{5080}{}{Advanced Shell(Defense Enhancement)}
+{5090}{}{T-51b Shell(Advanced Plate)}
+{5100}{}{Engine(Mirror System)}
+{5110}{}{HiFlo hydraulic Systems(Tesla Addition)}
+{5120}{}{Polymers(Shock Protection)}
+{5130}{}{Goretex(Firegecko's Enhancement)}
+{5140}{}{TX-28 Microfusion pack(Special Force Bonus)}
+{5150}{}{Carbon Polymer(Regeneration)}
+{5160}{}{Ceramic Plate(Fill The Gaps)}
+{5170}{}{Kevlar(Heavy)}
+{5180}{}{Plasma Transformer(Bonus Move)}
+{5190}{}{Electric Amplifier(Speed Mechanism)}
+{5200}{}{Capacitors(Sneaky)}
+{5210}{}{Microchips}
+{5220}{}{Microchips(Heavy Stonewall)}
+{5230}{}{Carbon Polymer Barrels(Lethal Protection)}
+{5240}{}{Advanced Polymers(Gain EN)}
+{5250}{}{Glass Polymers(Gain CH)}
+{5260}{}{Polycarbonate(Gain INT)}
+{5270}{}{Leather Hide(Survivalist)}
+{5280}{}{Enhanced Servomotors(Strategic Improvement)}
+{5290}{}{Rotary Chamber(Iron Skin)}
+{5300}{}{Electric Motor(Integrated Gloves)}
+{5310}{}{Plasma Accelerator(Defensive Belt)}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Hello, wanderer! The Kwok brothers always have a lot of useful stuff for the road. Choose, you wont regret it!}
+{2010}{}{[Trade]}
+{2020}{}{Lets talk about upgrades}
+{2030}{}{Thanks, but no.}
+{3000}{}{Sure, if you found any rare parts we can try install it on your gear simple right? We take 50000 @@money@@ for each instalation remember to wear armor(in armor slot) or weapon(in first hand slot) in case you don't or gear have already installed upgrade we not return money or part}
+{3010}{}{Ok, probably got upgrade to armor}
+{3020}{}{Ok, probably got upgrade to weapon}
+{4000}{}{Great what's is it?}
+{4010}{}{Cylindrical rotary lock(Bonus Ranged Damage)}
+{4020}{}{Carbon Polymer Barrels(Bonus Damage)}
+{4030}{}{Electric Motor(Bonus Attack)}
+{4040}{}{Optic Scope(Scoped)}
+{4050}{}{Unique Plasma Parts(Better Critical)}
+{4060}{}{Semi Trigger(Fast Trigger)}
+{4070}{}{Delinker Mechanism(Faster Reload)}
+{4080}{}{Plasma Accelerator(Slayer)}
+{4090}{}{Gun Control Module(accurate)}
+{4100}{}{Electromagnetic Mechanism(Long Range)}
+{4110}{}{Wires(Penetrate)}
+{4120}{}{Auto Trigger(Killing Spree)}
+{4130}{}{Rotary Chamber(Chip Shot)}
+{4140}{}{Electrical Transformer(More Critical)}
+{4150}{}{HiFlo hydraulic Shell(Poisoned)}
+{4160}{}{Capacitors(Smasher!)}
+{4170}{}{Steel Plate(Spiked)}
+{5000}{}{Great what's is it?}
+{5010}{}{Advanced Polymers(Gain ST)}
+{5020}{}{Glass Polymers(Gain PE)}
+{5030}{}{Polycarbonate(Gain AG)}
+{5040}{}{Steel Plate(Gain LK)}
+{5050}{}{Leather Hide(Cured)}
+{5060}{}{Recoil Absorber(Laser Reflector)}
+{5070}{}{Enhanced Servomotors(Anty-Termal System)}
+{5080}{}{Advanced Shell(Defense Enhancement)}
+{5090}{}{T-51b Shell(Advanced Plate)}
+{5100}{}{Engine(Mirror System)}
+{5110}{}{HiFlo hydraulic Systems(Tesla Addition)}
+{5120}{}{Polymers(Shock Protection)}
+{5130}{}{Goretex(Firegecko's Enhancement)}
+{5140}{}{TX-28 Microfusion pack(Special Force Bonus)}
+{5150}{}{Carbon Polymer(Regeneration)}
+{5160}{}{Ceramic Plate(Fill The Gaps)}
+{5170}{}{Kevlar(Heavy)}
+{5180}{}{Plasma Transformer(Bonus Move)}
+{5190}{}{Electric Amplifier(Speed Mechanism)}
+{5200}{}{Capacitors(Sneaky)}
+{5210}{}{Microchips}
+{5220}{}{Microchips(Heavy Stonewall)}
+{5230}{}{Carbon Polymer Barrels(Lethal Protection)}
+{5240}{}{Advanced Polymers(Gain EN)}
+{5250}{}{Glass Polymers(Gain CH)}
+{5260}{}{Polycarbonate(Gain INT)}
+{5270}{}{Leather Hide(Survivalist)}
+{5280}{}{Enhanced Servomotors(Strategic Improvement)}
+{5290}{}{Rotary Chamber(Iron Skin)}
+{5300}{}{Electric Motor(Integrated Gloves)}
+{5310}{}{Plasma Accelerator(Defensive Belt)}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Hello, wanderer! The Kwok brothers always have a lot of useful stuff for the road. Choose, you wont regret it!}
+{2010}{}{[Trade]}
+{2020}{}{Lets talk about upgrades}
+{2030}{}{Thanks, but no.}
+{3000}{}{Sure, if you found any rare parts we can try install it on your gear simple right? We take 50000 @@money@@ for each instalation remember to wear armor(in armor slot) or weapon(in first hand slot) in case you don't or gear have already installed upgrade we not return money or part}
+{3010}{}{Ok, probably got upgrade to armor}
+{3020}{}{Ok, probably got upgrade to weapon}
+{4000}{}{Great what's is it?}
+{4010}{}{Cylindrical rotary lock(Bonus Ranged Damage)}
+{4020}{}{Carbon Polymer Barrels(Bonus Damage)}
+{4030}{}{Electric Motor(Bonus Attack)}
+{4040}{}{Optic Scope(Scoped)}
+{4050}{}{Unique Plasma Parts(Better Critical)}
+{4060}{}{Semi Trigger(Fast Trigger)}
+{4070}{}{Delinker Mechanism(Faster Reload)}
+{4080}{}{Plasma Accelerator(Slayer)}
+{4090}{}{Gun Control Module(accurate)}
+{4100}{}{Electromagnetic Mechanism(Long Range)}
+{4110}{}{Wires(Penetrate)}
+{4120}{}{Auto Trigger(Killing Spree)}
+{4130}{}{Rotary Chamber(Chip Shot)}
+{4140}{}{Electrical Transformer(More Critical)}
+{4150}{}{HiFlo hydraulic Shell(Poisoned)}
+{4160}{}{Capacitors(Smasher!)}
+{4170}{}{Steel Plate(Spiked)}
+{5000}{}{Great what's is it?}
+{5010}{}{Advanced Polymers(Gain ST)}
+{5020}{}{Glass Polymers(Gain PE)}
+{5030}{}{Polycarbonate(Gain AG)}
+{5040}{}{Steel Plate(Gain LK)}
+{5050}{}{Leather Hide(Cured)}
+{5060}{}{Recoil Absorber(Laser Reflector)}
+{5070}{}{Enhanced Servomotors(Anty-Termal System)}
+{5080}{}{Advanced Shell(Defense Enhancement)}
+{5090}{}{T-51b Shell(Advanced Plate)}
+{5100}{}{Engine(Mirror System)}
+{5110}{}{HiFlo hydraulic Systems(Tesla Addition)}
+{5120}{}{Polymers(Shock Protection)}
+{5130}{}{Goretex(Firegecko's Enhancement)}
+{5140}{}{TX-28 Microfusion pack(Special Force Bonus)}
+{5150}{}{Carbon Polymer(Regeneration)}
+{5160}{}{Ceramic Plate(Fill The Gaps)}
+{5170}{}{Kevlar(Heavy)}
+{5180}{}{Plasma Transformer(Bonus Move)}
+{5190}{}{Electric Amplifier(Speed Mechanism)}
+{5200}{}{Capacitors(Sneaky)}
+{5210}{}{Microchips}
+{5220}{}{Microchips(Heavy Stonewall)}
+{5230}{}{Carbon Polymer Barrels(Lethal Protection)}
+{5240}{}{Advanced Polymers(Gain EN)}
+{5250}{}{Glass Polymers(Gain CH)}
+{5260}{}{Polycarbonate(Gain INT)}
+{5270}{}{Leather Hide(Survivalist)}
+{5280}{}{Enhanced Servomotors(Strategic Improvement)}
+{5290}{}{Rotary Chamber(Iron Skin)}
+{5300}{}{Electric Motor(Integrated Gloves)}
+{5310}{}{Plasma Accelerator(Defensive Belt)}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Hello, wanderer! The Kwok brothers always have a lot of useful stuff for the road. Choose, you wont regret it!}
+{2010}{}{[Trade]}
+{2020}{}{Lets talk about upgrades}
+{2030}{}{Thanks, but no.}
+{3000}{}{Sure, if you found any rare parts we can try install it on your gear simple right? We take 50000 @@money@@ for each instalation remember to wear armor(in armor slot) or weapon(in first hand slot) in case you don't or gear have already installed upgrade we not return money or part}
+{3010}{}{Ok, probably got upgrade to armor}
+{3020}{}{Ok, probably got upgrade to weapon}
+{4000}{}{Great what's is it?}
+{4010}{}{Cylindrical rotary lock(Bonus Ranged Damage)}
+{4020}{}{Carbon Polymer Barrels(Bonus Damage)}
+{4030}{}{Electric Motor(Bonus Attack)}
+{4040}{}{Optic Scope(Scoped)}
+{4050}{}{Unique Plasma Parts(Better Critical)}
+{4060}{}{Semi Trigger(Fast Trigger)}
+{4070}{}{Delinker Mechanism(Faster Reload)}
+{4080}{}{Plasma Accelerator(Slayer)}
+{4090}{}{Gun Control Module(accurate)}
+{4100}{}{Electromagnetic Mechanism(Long Range)}
+{4110}{}{Wires(Penetrate)}
+{4120}{}{Auto Trigger(Killing Spree)}
+{4130}{}{Rotary Chamber(Chip Shot)}
+{4140}{}{Electrical Transformer(More Critical)}
+{4150}{}{HiFlo hydraulic Shell(Poisoned)}
+{4160}{}{Capacitors(Smasher!)}
+{4170}{}{Steel Plate(Spiked)}
+{5000}{}{Great what's is it?}
+{5010}{}{Advanced Polymers(Gain ST)}
+{5020}{}{Glass Polymers(Gain PE)}
+{5030}{}{Polycarbonate(Gain AG)}
+{5040}{}{Steel Plate(Gain LK)}
+{5050}{}{Leather Hide(Cured)}
+{5060}{}{Recoil Absorber(Laser Reflector)}
+{5070}{}{Enhanced Servomotors(Anty-Termal System)}
+{5080}{}{Advanced Shell(Defense Enhancement)}
+{5090}{}{T-51b Shell(Advanced Plate)}
+{5100}{}{Engine(Mirror System)}
+{5110}{}{HiFlo hydraulic Systems(Tesla Addition)}
+{5120}{}{Polymers(Shock Protection)}
+{5130}{}{Goretex(Firegecko's Enhancement)}
+{5140}{}{TX-28 Microfusion pack(Special Force Bonus)}
+{5150}{}{Carbon Polymer(Regeneration)}
+{5160}{}{Ceramic Plate(Fill The Gaps)}
+{5170}{}{Kevlar(Heavy)}
+{5180}{}{Plasma Transformer(Bonus Move)}
+{5190}{}{Electric Amplifier(Speed Mechanism)}
+{5200}{}{Capacitors(Sneaky)}
+{5210}{}{Microchips}
+{5220}{}{Microchips(Heavy Stonewall)}
+{5230}{}{Carbon Polymer Barrels(Lethal Protection)}
+{5240}{}{Advanced Polymers(Gain EN)}
+{5250}{}{Glass Polymers(Gain CH)}
+{5260}{}{Polycarbonate(Gain INT)}
+{5270}{}{Leather Hide(Survivalist)}
+{5280}{}{Enhanced Servomotors(Strategic Improvement)}
+{5290}{}{Rotary Chamber(Iron Skin)}
+{5300}{}{Electric Motor(Integrated Gloves)}
+{5310}{}{Plasma Accelerator(Defensive Belt)}
+

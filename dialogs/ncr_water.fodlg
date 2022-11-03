@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _item p PID_NCR_MONEY } 40 R _item p PID_NCR_MONEY - 40 R _item p PID_BOTTLE_FULL + 1 #
+3 2020 #
+0 2030 @
+3 3000 None 0 #
+2 3010 &
+
+[engl]
+{100}{}{Water trader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day to you, wastelander. Wish to get a bit refreshed? We are selling fresh water. Only 40 NCR bucks for a bottle.}
+{2010}{}{I will take a bottle.}
+{2020}{}{40 bucks?! Why is it so expensive?}
+{2030}{}{Not interested for now. [ end dialogue ]}
+{3000}{}{Because water nowadays is rare, don't you think? It is obvious. Fresh water is very rare to find in the wasteland.}
+{3010}{}{I see, alright, let's switch the topic.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day to you, wastelander. Wish to get a bit refreshed? We are selling fresh water. Only 40 NCR bucks for a bottle.}
+{2010}{}{I will take a bottle.}
+{2020}{}{40 bucks?! Why is it so expensive?}
+{2030}{}{Not interested for now.}
+{3000}{}{Because water nowadays is rare, don't you think? It is obvious. Fresh water is very rare to find in the wasteland.}
+{3010}{}{I see, alright, let's switch the topic.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day to you, wastelander. Wish to get a bit refreshed? We are selling fresh water. Only 40 NCR bucks for a bottle.}
+{2010}{}{I will take a bottle.}
+{2020}{}{40 bucks?! Why is it so expensive?}
+{2030}{}{Not interested for now.}
+{3000}{}{Because water nowadays is rare, don't you think? It is obvious. Fresh water is very rare to find in the wasteland.}
+{3010}{}{I see, alright, let's switch the topic.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day to you, wastelander. Wish to get a bit refreshed? We are selling fresh water. Only 40 NCR bucks for a bottle.}
+{2010}{}{I will take a bottle.}
+{2020}{}{40 bucks?! Why is it so expensive?}
+{2030}{}{Not interested for now.}
+{3000}{}{Because water nowadays is rare, don't you think? It is obvious. Fresh water is very rare to find in the wasteland.}
+{3010}{}{I see, alright, let's switch the topic.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Good day to you, wastelander. Wish to get a bit refreshed? We are selling fresh water. Only 40 NCR bucks for a bottle.}
+{2010}{}{I will take a bottle.}
+{2020}{}{40 bucks?! Why is it so expensive?}
+{2030}{}{Not interested for now.}
+{3000}{}{Because water nowadays is rare, don't you think? It is obvious. Fresh water is very rare to find in the wasteland.}
+{3010}{}{I see, alright, let's switch the topic.}
+

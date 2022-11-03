@@ -1,0 +1,723 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+11 4010 #
+5 4020 #
+6 4030 D _param p ST_NPC_ROLE < 50 #
+0 4040 R _script perks@joke 0  #
+13 4050 #
+2 4060 @
+5 5000 None 0 #
+7 5010 D _param p PE_SPECIAL_IMPLANT_LIMIT < 12 #
+8 5020 D _param p PE_COMBAT_IMPLANT_LIMIT < 10 #
+4 5030 @
+6 6000 None 0 #
+9 6010 #
+10 6020 #
+4 6030 @
+7 7000 None 0 #
+25 7010 D _param p ST_STRENGTH < 20 D _item p PID_IMPLANT_STRENGTH > 0 R _item p PID_IMPLANT_STRENGTH - 1 R _param p PE_IMP_STRENGTH + 1 #
+25 7020 D _param p ST_PERCEPTION < 20 D _item p PID_IMPLANT_PERCEPTION > 0 R _item p PID_IMPLANT_PERCEPTION - 1 R _param p PE_IMP_PERCEPTION + 1 #
+25 7030 D _param p ST_ENDURANCE < 20 D _item p PID_IMPLANT_ENDURANCE > 0 R _item p PID_IMPLANT_ENDURANCE - 1 R _param p PE_IMP_ENDURANCE + 1 #
+25 7040 D _param p ST_CHARISMA < 20 D _item p PID_IMPLANT_CHARISMA > 0 R _item p PID_IMPLANT_CHARISMA - 1 R _param p PE_IMP_CHARISMA + 1 #
+25 7050 D _param p ST_INTELLECT < 20 D _item p PID_IMPLANT_INTELLIGENCE > 0 R _item p PID_IMPLANT_INTELLIGENCE - 1 R _param p PE_IMP_INTELLIGENCE + 1 #
+25 7060 D _param p ST_AGILITY < 20 D _item p PID_IMPLANT_AGILITY > 0 R _item p PID_IMPLANT_AGILITY - 1 R _param p PE_IMP_AGILITY + 1 #
+25 7070 D _param p ST_LUCK < 20 D _item p PID_IMPLANT_LUCK > 0 R _item p PID_IMPLANT_LUCK - 1 R _param p PE_IMP_LUCK + 1 @
+25 8000 None 0 #
+4 8010 #
+0 8020 @
+8 9000 None 0 #
+25 9010 D _param p PE_DERMAL_IMPACT = 0 D _item p PID_IMPLANT_DERMAL > 0 D _param p PE_DERMAL_IMPACT_ENH = 0 R _item p PID_IMPLANT_DERMAL - 1 R _param p PE_DERMAL_IMPACT + 1 #
+25 9020 D _param p PE_PHOENIX_IMPLANTS = 0 D _item p PID_IMPLANT_PHOENIX > 0 D _param p PE_PHOENIX_IMPLANTS_ENH = 0 R _item p PID_IMPLANT_PHOENIX - 1 R _param p PE_PHOENIX_IMPLANTS + 1 #
+25 9030 D _param p PE_AGRO = 0 D _item p PID_IMPLANT_AGRO > 0 D _param p PE_AGRO2 = 0 R _item p PID_IMPLANT_AGRO - 1 R _param p PE_AGRO + 1 #
+25 9040 D _param p PE_DRAGON = 0 D _item p PID_IMPLANT_DRAGON > 0 D _param p PE_DRAGON2 = 0 R _item p PID_IMPLANT_DRAGON - 1 R _param p PE_DRAGON + 1 #
+25 9050 D _param p PE_TIGER = 0 D _item p PID_IMPLANT_TIGER > 0 D _param p PE_TIGER2 = 0 R _item p PID_IMPLANT_TIGER - 1 R _param p PE_TIGER + 1 #
+25 9060 D _param p PE_TACTICAL = 0 D _item p PID_IMPLANT_TACTICS > 0 D _param p PE_TACTICAL2 = 0 R _item p PID_IMPLANT_TACTICS - 1 R _param p PE_TACTICAL + 1 #
+25 9070 D _param p PE_NEMEAN_ARMOR < 4 D _item p PID_IMPLANT_NEMEAN > 0 R _item p PID_IMPLANT_NEMEAN - 1 R _param p PE_NEMEAN_ARMOR + 1 #
+25 9080 D _param p PE_DERMAL_IMPACT = 1 D _item p PID_IMPLANT_DERMAL > 0 D _param p PE_DERMAL_IMPACT_ENH = 0 R _item p PID_IMPLANT_DERMAL - 1 R _param p PE_DERMAL_IMPACT_ENH + 1 #
+25 9090 D _param p PE_PHOENIX_IMPLANTS = 1 D _item p PID_IMPLANT_PHOENIX > 0 D _param p PE_PHOENIX_IMPLANTS_ENH = 0 R _item p PID_IMPLANT_PHOENIX - 1 R _param p PE_PHOENIX_IMPLANTS_ENH + 1 #
+25 9100 D _param p PE_AGRO = 1 D _item p PID_IMPLANT_AGRO > 0 D _param p PE_AGRO2 = 0 R _item p PID_IMPLANT_AGRO - 1 R _param p PE_AGRO2 + 1 #
+25 9110 D _param p PE_DRAGON = 1 D _item p PID_IMPLANT_DRAGON > 0 D _param p PE_DRAGON2 = 0 R _item p PID_IMPLANT_DRAGON - 1 R _param p PE_DRAGON2 + 1 #
+25 9120 D _param p PE_CLAW = 1 D _item p PID_IMPLANT_CLAW > 0 D _param p PE_CLAW2 = 0 R _item p PID_IMPLANT_CLAW - 1 R _param p PE_CLAW2 + 1 #
+25 9130 D _param p PE_TIGER = 1 D _item p PID_IMPLANT_TIGER > 0 D _param p PE_TIGER2 = 0 R _item p PID_IMPLANT_TIGER - 1 R _param p PE_TIGER2 + 1 #
+25 9140 D _param p PE_TACTICAL = 1 D _item p PID_IMPLANT_TACTICS > 0 D _param p PE_TACTICAL2 = 0 R _item p PID_IMPLANT_TACTICS - 1 R _param p PE_TACTICAL2 + 1 #
+25 9150 D _param p PE_DERMAL_IMPACT = 1 D _param p PE_DERMAL_IMPACT_ENH = 1 D _item p PID_IMPLANT_DERMAL > 0 R _item p PID_IMPLANT_DERMAL - 1 R _param p PE_DERMAL_IMPACT + 1 #
+25 9160 D _param p PE_PHOENIX_IMPLANTS = 1 D _param p PE_PHOENIX_IMPLANTS_ENH = 1 D _item p PID_IMPLANT_PHOENIX > 0 R _item p PID_IMPLANT_PHOENIX - 1 R _param p PE_PHOENIX_IMPLANTS + 1 #
+25 9170 D _param p PE_AGRO = 1 D _param p PE_AGRO2 = 1 D _item p PID_IMPLANT_AGRO > 0 R _item p PID_IMPLANT_AGRO - 1 R _param p PE_AGRO2 + 1 #
+25 9180 D _param p PE_DRAGON = 1 D _param p PE_DRAGON2 = 1 D _item p PID_IMPLANT_DRAGON > 0 R _item p PID_IMPLANT_DRAGON - 1 R _param p PE_DRAGON2 + 1 #
+25 9190 D _param p PE_CLAW = 1 D _param p PE_CLAW2 = 1 D _item p PID_IMPLANT_CLAW > 0 R _item p PID_IMPLANT_CLAW - 1 R _param p PE_CLAW2 + 1 #
+25 9200 D _param p PE_TIGER = 1 D _param p PE_TIGER2 = 1 D _item p PID_IMPLANT_TIGER > 0 R _item p PID_IMPLANT_TIGER - 1 R _param p PE_TIGER + 1 #
+25 9210 D _param p PE_TACTICAL = 1 D _param p PE_TACTICAL2 = 1 D _item p PID_IMPLANT_TACTICS > 0 R _item p PID_IMPLANT_TACTICS - 1 R _param p PE_TACTICAL2 + 1 #
+25 9220 D _param p PE_CLAW = 0 D _item p PID_IMPLANT_CLAW > 0 D _param p PE_CLAW2 = 0 R _item p PID_IMPLANT_CLAW - 1 R _param p PE_CLAW + 1 #
+25 9230 D _param p PE_EMP_IMPLANT < 3 D _item p PID_IMPLANT_EMP > 0 R _param p PE_EMP_IMPLANT + 1 R _item p PID_IMPLANT_EMP - 1 @
+9 10000 None 0 #
+25 10010 D _param p PE_IMP_STRENGTH > 0 D _param p PE_IMP_STRENGTH > 0 R _param p PE_IMP_STRENGTH - 1 R _item p PID_IMPLANT_STRENGTH + 1 #
+25 10020 D _param p PE_IMP_PERCEPTION > 0 R _param p PE_IMP_PERCEPTION - 1 R _item p PID_IMPLANT_PERCEPTION + 1 #
+25 10030 D _param p PE_IMP_ENDURANCE > 0 R _param p PE_IMP_ENDURANCE - 1 R _item p PID_IMPLANT_ENDURANCE + 1 #
+25 10040 D _param p PE_IMP_CHARISMA > 0 R _param p PE_IMP_CHARISMA - 1 R _item p PID_IMPLANT_CHARISMA + 1 #
+25 10050 D _param p PE_IMP_INTELLIGENCE > 0 R _param p PE_IMP_INTELLIGENCE - 1 R _item p PID_IMPLANT_INTELLIGENCE + 1 #
+25 10060 D _param p PE_IMP_AGILITY > 0 R _param p PE_IMP_AGILITY - 1 R _item p PID_IMPLANT_AGILITY + 1 #
+25 10070 D _param p PE_IMP_LUCK > 0 R _param p PE_IMP_LUCK - 1 R _item p PID_IMPLANT_LUCK + 1 @
+10 11000 None 0 #
+25 11010 D _param p PE_DERMAL_IMPACT = 1 D _param p PE_DERMAL_IMPACT_ENH = 0 R _param p PE_DERMAL_IMPACT - 1 R _item p PID_IMPLANT_DERMAL + 1 #
+25 11020 D _param p PE_DERMAL_IMPACT_ENH = 1 D _param p PE_DERMAL_IMPACT = 1 R _param p PE_DERMAL_IMPACT_ENH - 1 R _item p PID_IMPLANT_DERMAL + 1 #
+25 11030 D _param p PE_DERMAL_IMPACT_ENH = 1 D _param p PE_DERMAL_IMPACT = 2 R _param p PE_DERMAL_IMPACT - 1 R _item p PID_IMPLANT_DERMAL + 1 #
+25 11040 D _param p PE_PHOENIX_IMPLANTS = 1 D _param p PE_PHOENIX_IMPLANTS_ENH = 0 R _param p PE_PHOENIX_IMPLANTS - 1 R _item p PID_IMPLANT_PHOENIX + 1 #
+25 11050 D _param p PE_PHOENIX_IMPLANTS_ENH = 1 D _param p PE_PHOENIX_IMPLANTS = 1 R _param p PE_PHOENIX_IMPLANTS_ENH - 1 R _item p PID_IMPLANT_PHOENIX + 1 #
+25 11060 D _param p PE_PHOENIX_IMPLANTS = 2 D _param p PE_PHOENIX_IMPLANTS_ENH = 1 R _param p PE_PHOENIX_IMPLANTS - 1 R _item p PID_IMPLANT_PHOENIX + 1 #
+25 11070 D _param p PE_AGRO = 1 D _param p PE_AGRO2 = 0 R _param p PE_AGRO - 1 R _item p PID_IMPLANT_AGRO + 1 #
+25 11080 D _param p PE_AGRO2 = 1 D _param p PE_AGRO = 1 R _param p PE_AGRO2 - 1 R _item p PID_IMPLANT_AGRO + 1 #
+25 11090 D _param p PE_AGRO = 1 D _param p PE_AGRO2 = 2 R _param p PE_AGRO2 - 1 R _item p PID_IMPLANT_AGRO + 1 #
+25 11100 D _param p PE_DRAGON = 1 D _param p PE_DRAGON2 = 0 R _param p PE_DRAGON - 1 R _item p PID_IMPLANT_DRAGON + 1 #
+25 11110 D _param p PE_DRAGON = 1 D _param p PE_DRAGON2 = 1 R _param p PE_DRAGON2 - 1 R _item p PID_IMPLANT_DRAGON + 1 #
+25 11120 D _param p PE_DRAGON = 1 D _param p PE_DRAGON2 = 2 R _param p PE_DRAGON2 - 1 R _item p PID_IMPLANT_DRAGON + 1 #
+25 11130 D _param p PE_CLAW = 1 D _param p PE_CLAW2 = 0 R _param p PE_CLAW - 1 R _item p PID_IMPLANT_CLAW + 1 #
+25 11140 D _param p PE_CLAW = 1 D _param p PE_CLAW2 = 1 R _param p PE_CLAW2 - 1 R _item p PID_IMPLANT_CLAW + 1 #
+25 11150 D _param p PE_CLAW = 1 D _param p PE_CLAW2 = 2 R _param p PE_CLAW2 - 1 R _item p PID_IMPLANT_CLAW + 1 #
+25 11160 D _param p PE_TIGER = 1 D _param p PE_TIGER2 = 0 R _param p PE_TIGER - 1 R _item p PID_IMPLANT_TIGER + 1 #
+25 11170 D _param p PE_TIGER = 1 D _param p PE_TIGER2 = 1 R _param p PE_TIGER2 - 1 R _item p PID_IMPLANT_TIGER + 1 #
+25 11180 D _param p PE_TIGER = 2 D _param p PE_TIGER2 = 1 R _param p PE_TIGER - 1 R _item p PID_IMPLANT_TIGER + 1 #
+25 11190 D _param p PE_TACTICAL = 1 D _param p PE_TACTICAL2 = 0 R _param p PE_TACTICAL - 1 R _item p PID_IMPLANT_TACTICS + 1 #
+25 11200 D _param p PE_TACTICAL = 1 D _param p PE_TACTICAL2 = 1 R _param p PE_TACTICAL2 - 1 R _item p PID_IMPLANT_TACTICS + 1 #
+25 11210 D _param p PE_TACTICAL = 1 D _param p PE_TACTICAL2 = 2 R _param p PE_TACTICAL2 - 1 R _item p PID_IMPLANT_TACTICS + 1 #
+25 11220 D _param p PE_NEMEAN_ARMOR > 0 R _param p PE_NEMEAN_ARMOR - 1 R _item p PID_IMPLANT_NEMEAN + 1 #
+25 11230 D _param p PE_EMP_IMPLANT > 0 R _item p PID_IMPLANT_EMP + 1 R _param p PE_EMP_IMPLANT - 1 #
+25 11240 R _script perks@uninstall 0  @
+11 12000 None 0 #
+12 12010 D _param p DAMAGE_EYE > 0 D _script perks@d_cd 0  R _param p DAMAGE_EYE = 0 R _script perks@r_cd 0  #
+12 12020 D _param p DAMAGE_LEFT_ARM > 0 D _script perks@d_cd 0  R _param p DAMAGE_LEFT_ARM = 0 R _script perks@r_cd 0  #
+12 12030 D _param p DAMAGE_RIGHT_ARM > 0 D _script perks@d_cd 0  R _param p DAMAGE_RIGHT_ARM = 0 R _script perks@r_cd 0  #
+12 12040 D _param p DAMAGE_LEFT_LEG > 0 D _script perks@d_cd 0  R _param p DAMAGE_LEFT_LEG = 0 R _script perks@r_cd 0  #
+12 12050 D _param p DAMAGE_RIGHT_LEG > 0 D _script perks@d_cd 0  R _param p DAMAGE_RIGHT_LEG = 0 R _script perks@r_cd 0  #
+0 12060 R _script perks@status 0  #
+4 12070 @
+12 13000 None 0 @
+13 14000 None 0 #
+13 14010 D _param p ST_CYBORG_CRAFT > 999 R _param p ST_CYBORG_CRAFT - 1000 R _item p PID_IMPLANT_EMP + 1 #
+12 14020 D _item p PID_IMPLANT_AGRO > 0 R _item p PID_IMPLANT_AGRO - 1 R _param p ST_CYBORG_CRAFT + 350 #
+12 14030 D _item p PID_IMPLANT_CLAW > 0 R _item p PID_IMPLANT_CLAW - 1 R _param p ST_CYBORG_CRAFT + 350 #
+12 14040 D _item p PID_IMPLANT_DERMAL > 0 R _item p PID_IMPLANT_DERMAL - 1 R _param p ST_CYBORG_CRAFT + 350 #
+12 14050 D _item p PID_IMPLANT_DRAGON > 0 R _item p PID_IMPLANT_DRAGON - 1 R _param p ST_CYBORG_CRAFT + 350 #
+12 14060 D _item p PID_IMPLANT_NEMEAN > 0 R _item p PID_IMPLANT_NEMEAN - 1 R _param p ST_CYBORG_CRAFT + 350 #
+12 14070 D _item p PID_IMPLANT_PHOENIX > 0 R _item p PID_IMPLANT_PHOENIX - 1 R _param p ST_CYBORG_CRAFT + 350 #
+12 14080 D _item p PID_IMPLANT_TACTICS > 0 R _item p PID_IMPLANT_TACTICS - 1 R _param p ST_CYBORG_CRAFT + 350 #
+12 14090 D _item p PID_IMPLANT_TIGER > 0 R _item p PID_IMPLANT_TIGER - 1 R _param p ST_CYBORG_CRAFT + 350 #
+12 14100 D _item p PID_IMPLANT_STRENGTH > 0 R _item p PID_IMPLANT_STRENGTH - 1 R _param p ST_CYBORG_CRAFT + 2 #
+12 14110 D _item p PID_IMPLANT_PERCEPTION > 0 R _item p PID_IMPLANT_PERCEPTION - 1 R _param p ST_CYBORG_CRAFT + 2 #
+12 14120 D _item p PID_IMPLANT_ENDURANCE > 0 R _item p PID_IMPLANT_ENDURANCE - 1 R _param p ST_CYBORG_CRAFT + 2 #
+12 14130 D _item p PID_IMPLANT_INTELLIGENCE > 0 R _item p PID_IMPLANT_INTELLIGENCE - 1 R _param p ST_CYBORG_CRAFT + 2 #
+12 14140 D _item p PID_IMPLANT_AGILITY > 0 R _item p PID_IMPLANT_AGILITY - 1 R _param p ST_CYBORG_CRAFT + 2 #
+12 14150 D _item p PID_IMPLANT_LUCK > 0 R _item p PID_IMPLANT_LUCK - 1 R _param p ST_CYBORG_CRAFT + 2 #
+12 14160 D _item p PID_IMPLANT_CHARISMA > 0 R _item p PID_IMPLANT_CHARISMA - 1 R _param p ST_CYBORG_CRAFT + 2 &
+
+[engl]
+{100}{}{Player}
+{200}{}{You see a construction foreworker.}
+{210}{}{He wears worn out workwear and a yellow protective helmet.}
+{210}{}{You see a gecko hunter. He has a limp in his left leg.}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{[ end cyborgOS ]}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Status}
+{4020}{}{Installation}
+{4030}{}{Uninstall module}
+{4040}{}{Find a Joke}
+{4050}{}{Crafting}
+{4060}{}{Logout}
+{5000}{}{Choose action}
+{5010}{}{S.P.E.C.I.A.L Implants}
+{5020}{}{Combat Implants}
+{5030}{}{Back}
+{6000}{}{Choose action}
+{6010}{}{S.P.E.C.I.A.L Implants}
+{6020}{}{Combat Implants}
+{6030}{}{Back}
+{7000}{}{Choose Module}
+{7010}{}{Hypertrophy Accelerator}
+{7020}{}{Optics Enhancer}
+{7030}{}{	Nociception Regulator}
+{7040}{}{	Empathy Synthesizer}
+{7050}{}{Logic Co-Processor}
+{7060}{}{Reflex Booster}
+{7070}{}{	Probability Calculator}
+{8000}{}{Action success}
+{8010}{}{Back}
+{8020}{}{[ end cyborgOS ]}
+{9000}{}{Choose Module}
+{9010}{}{Dermal Impact Armor}
+{9020}{}{Phoenix Armor Implants}
+{9030}{}{Aggressive Sensors}
+{9040}{}{	Dragon System}
+{9050}{}{	Tiger Movement}
+{9060}{}{	Tactical Chip}
+{9070}{}{	Nemean Armor}
+{9080}{}{	Dermal Impact Armor}
+{9090}{}{	Phoenix Armor Implants}
+{9100}{}{Aggressive Sensors}
+{9110}{}{Dragon System}
+{9120}{}{	Claw Module}
+{9130}{}{Tiger Movement}
+{9140}{}{	Tactical Chip}
+{9150}{}{Dermal Impact Armor}
+{9160}{}{Phoenix Armor Implants}
+{9170}{}{Aggressive Sensors}
+{9180}{}{Dragon System}
+{9190}{}{	Claw Module}
+{9200}{}{Tiger Movement}
+{9210}{}{	Tactical Chip}
+{9220}{}{Claw Module}
+{9230}{}{EMP Shield}
+{10000}{}{Choose Module}
+{10010}{}{Hypertrophy Accelerator}
+{10020}{}{Optics Enhancer}
+{10030}{}{Nociception Regulator}
+{10040}{}{Empathy Synthesizer}
+{10050}{}{Logic Co-Processor}
+{10060}{}{Reflex Booster}
+{10070}{}{	Probability Calculator}
+{11000}{}{Choose Module}
+{11010}{}{	Dermal Impact Armor}
+{11020}{}{	Dermal Impact Armor}
+{11030}{}{	Dermal Impact Armor}
+{11040}{}{Phoenix Armor Implants}
+{11050}{}{Phoenix Armor Implants}
+{11060}{}{Phoenix Armor Implants}
+{11070}{}{	Aggressive Sensors}
+{11080}{}{	Aggressive Sensors}
+{11090}{}{	Aggressive Sensors}
+{11100}{}{Dragon System}
+{11110}{}{Dragon System}
+{11120}{}{Dragon System}
+{11130}{}{	Claw Module}
+{11140}{}{	Claw Module}
+{11150}{}{	Claw Module}
+{11160}{}{Tiger Movement}
+{11170}{}{Tiger Movement}
+{11180}{}{Tiger Movement}
+{11190}{}{Tactical Chip}
+{11200}{}{Tactical Chip}
+{11210}{}{Tactical Chip}
+{11220}{}{	Nemean Armor}
+{11230}{}{EMP Shield}
+{11240}{}{Uninstall ALL}
+{12000}{}{Checking}
+{12010}{}{Repair broken optics}
+{12020}{}{Repair left arm}
+{12030}{}{Repair right arm}
+{12040}{}{Repair left leg}
+{12050}{}{Repair right leg}
+{12060}{}{Check Cyborg Points}
+{12070}{}{back}
+{13000}{}{Success}
+{14000}{}{Choose Action}
+{14010}{}{Craft EMP Shield Chip[-1000 cyborg points]}
+{14020}{}{decraft combat implant[+350 cyborg points]}
+{14030}{}{decraft combat implant[+350 cyborg points]}
+{14040}{}{decraft combat implant[+350 cyborg points]}
+{14050}{}{decraft combat implant[+350 cyborg points]}
+{14060}{}{decraft combat implant[+350 cyborg points]}
+{14070}{}{decraft combat implant[+350 cyborg points]}
+{14080}{}{decraft combat implant[+350 cyborg points]}
+{14090}{}{decraft combat implant[+350 cyborg points]}
+{14100}{}{decraft ST Implant[+2 cyborg points]}
+{14110}{}{decraft PE Implant[+2 cyborg points]}
+{14120}{}{decraft EN Implant[+2 cyborg points]}
+{14130}{}{decraft IN Implant[+5 cyborg points]}
+{14140}{}{decraft AG Implant[+2 cyborg points]}
+{14150}{}{decraft LK Implant[+2 cyborg points]}
+{14160}{}{decraft CH Implant[+2 cyborg points]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Status}
+{4020}{}{Installation}
+{4030}{}{Uninstall module}
+{4040}{}{Find a Joke}
+{4050}{}{Crafting}
+{4060}{}{Logout}
+{5000}{}{Choose action}
+{5010}{}{S.P.E.C.I.A.L Implants}
+{5020}{}{Combat Implants}
+{5030}{}{Back}
+{6000}{}{Choose action}
+{6010}{}{S.P.E.C.I.A.L Implants}
+{6020}{}{Combat Implants}
+{6030}{}{Back}
+{7000}{}{Choose Module}
+{7010}{}{Hypertrophy Accelerator}
+{7020}{}{Optics Enhancer}
+{7030}{}{	Nociception Regulator}
+{7040}{}{	Empathy Synthesizer}
+{7050}{}{Logic Co-Processor}
+{7060}{}{Reflex Booster}
+{7070}{}{	Probability Calculator}
+{8000}{}{Action success}
+{8010}{}{Back}
+{8020}{}{Logout}
+{9000}{}{Choose Module}
+{9010}{}{Dermal Impact Armor}
+{9020}{}{Phoenix Armor Implants}
+{9030}{}{Aggressive Sensors}
+{9040}{}{	Dragon System}
+{9050}{}{	Tiger Movement}
+{9060}{}{	Tactical Chip}
+{9070}{}{	Nemean Armor}
+{9080}{}{	Dermal Impact Armor}
+{9090}{}{	Phoenix Armor Implants}
+{9100}{}{Aggressive Sensors}
+{9110}{}{Dragon System}
+{9120}{}{	Claw Module}
+{9130}{}{Tiger Movement}
+{9140}{}{	Tactical Chip}
+{9150}{}{Dermal Impact Armor}
+{9160}{}{Phoenix Armor Implants}
+{9170}{}{Aggressive Sensors}
+{9180}{}{Dragon System}
+{9190}{}{	Claw Module}
+{9200}{}{Tiger Movement}
+{9210}{}{	Tactical Chip}
+{9220}{}{Claw Module}
+{9230}{}{EMP Shield}
+{10000}{}{Choose Module}
+{10010}{}{Hypertrophy Accelerator}
+{10020}{}{Optics Enhancer}
+{10030}{}{Nociception Regulator}
+{10040}{}{Empathy Synthesizer}
+{10050}{}{Logic Co-Processor}
+{10060}{}{Reflex Booster}
+{10070}{}{	Probability Calculator}
+{11000}{}{Choose Module}
+{11010}{}{	Dermal Impact Armor}
+{11020}{}{	Dermal Impact Armor}
+{11030}{}{	Dermal Impact Armor}
+{11040}{}{Phoenix Armor Implants}
+{11050}{}{Phoenix Armor Implants}
+{11060}{}{Phoenix Armor Implants}
+{11070}{}{	Aggressive Sensors}
+{11080}{}{	Aggressive Sensors}
+{11090}{}{	Aggressive Sensors}
+{11100}{}{Dragon System}
+{11110}{}{Dragon System}
+{11120}{}{Dragon System}
+{11130}{}{	Claw Module}
+{11140}{}{	Claw Module}
+{11150}{}{	Claw Module}
+{11160}{}{Tiger Movement}
+{11170}{}{Tiger Movement}
+{11180}{}{Tiger Movement}
+{11190}{}{Tactical Chip}
+{11200}{}{Tactical Chip}
+{11210}{}{Tactical Chip}
+{11220}{}{	Nemean Armor}
+{11230}{}{EMP Shield}
+{11240}{}{Uninstall ALL}
+{12000}{}{Checking...}
+{12010}{}{Repair broken optics}
+{12020}{}{Repair left arm}
+{12030}{}{Repair right arm}
+{12040}{}{Repair left leg}
+{12050}{}{Repair right leg}
+{12060}{}{Check Cyborg Points}
+{12070}{}{back}
+{13000}{}{Success}
+{14000}{}{Choose Action}
+{14010}{}{Craft EMP Shield Chip[-1000 cyborg points]}
+{14020}{}{decraft combat implant[+350 cyborg points]}
+{14030}{}{decraft combat implant[+350 cyborg points]}
+{14040}{}{decraft combat implant[+350 cyborg points]}
+{14050}{}{decraft combat implant[+350 cyborg points]}
+{14060}{}{decraft combat implant[+350 cyborg points]}
+{14070}{}{decraft combat implant[+350 cyborg points]}
+{14080}{}{decraft combat implant[+350 cyborg points]}
+{14090}{}{decraft combat implant[+350 cyborg points]}
+{14100}{}{decraft ST Implant[+2 cyborg points]}
+{14110}{}{decraft PE Implant[+2 cyborg points]}
+{14120}{}{decraft EN Implant[+2 cyborg points]}
+{14130}{}{decraft IN Implant[+2 cyborg points]}
+{14140}{}{decraft AG Implant[+2 cyborg points]}
+{14150}{}{decraft LK Implant[+2 cyborg points]}
+{14160}{}{decraft CH Implant[+2 cyborg points]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Status}
+{4020}{}{Installation}
+{4030}{}{Uninstall module}
+{4040}{}{Find a Joke}
+{4050}{}{Crafting}
+{4060}{}{Logout}
+{5000}{}{Choose action}
+{5010}{}{S.P.E.C.I.A.L Implants}
+{5020}{}{Combat Implants}
+{5030}{}{Back}
+{6000}{}{Choose action}
+{6010}{}{S.P.E.C.I.A.L Implants}
+{6020}{}{Combat Implants}
+{6030}{}{Back}
+{7000}{}{Choose Module}
+{7010}{}{Hypertrophy Accelerator}
+{7020}{}{Optics Enhancer}
+{7030}{}{	Nociception Regulator}
+{7040}{}{	Empathy Synthesizer}
+{7050}{}{Logic Co-Processor}
+{7060}{}{Reflex Booster}
+{7070}{}{	Probability Calculator}
+{8000}{}{Action success}
+{8010}{}{Back}
+{8020}{}{Logout}
+{9000}{}{Choose Module}
+{9010}{}{Dermal Impact Armor}
+{9020}{}{Phoenix Armor Implants}
+{9030}{}{Aggressive Sensors}
+{9040}{}{	Dragon System}
+{9050}{}{	Tiger Movement}
+{9060}{}{	Tactical Chip}
+{9070}{}{	Nemean Armor}
+{9080}{}{	Dermal Impact Armor}
+{9090}{}{	Phoenix Armor Implants}
+{9100}{}{Aggressive Sensors}
+{9110}{}{Dragon System}
+{9120}{}{	Claw Module}
+{9130}{}{Tiger Movement}
+{9140}{}{	Tactical Chip}
+{9150}{}{Dermal Impact Armor}
+{9160}{}{Phoenix Armor Implants}
+{9170}{}{Aggressive Sensors}
+{9180}{}{Dragon System}
+{9190}{}{	Claw Module}
+{9200}{}{Tiger Movement}
+{9210}{}{	Tactical Chip}
+{9220}{}{Claw Module}
+{9230}{}{EMP Shield}
+{10000}{}{Choose Module}
+{10010}{}{Hypertrophy Accelerator}
+{10020}{}{Optics Enhancer}
+{10030}{}{Nociception Regulator}
+{10040}{}{Empathy Synthesizer}
+{10050}{}{Logic Co-Processor}
+{10060}{}{Reflex Booster}
+{10070}{}{	Probability Calculator}
+{11000}{}{Choose Module}
+{11010}{}{	Dermal Impact Armor}
+{11020}{}{	Dermal Impact Armor}
+{11030}{}{	Dermal Impact Armor}
+{11040}{}{Phoenix Armor Implants}
+{11050}{}{Phoenix Armor Implants}
+{11060}{}{Phoenix Armor Implants}
+{11070}{}{	Aggressive Sensors}
+{11080}{}{	Aggressive Sensors}
+{11090}{}{	Aggressive Sensors}
+{11100}{}{Dragon System}
+{11110}{}{Dragon System}
+{11120}{}{Dragon System}
+{11130}{}{	Claw Module}
+{11140}{}{	Claw Module}
+{11150}{}{	Claw Module}
+{11160}{}{Tiger Movement}
+{11170}{}{Tiger Movement}
+{11180}{}{Tiger Movement}
+{11190}{}{Tactical Chip}
+{11200}{}{Tactical Chip}
+{11210}{}{Tactical Chip}
+{11220}{}{	Nemean Armor}
+{11230}{}{EMP Shield}
+{11240}{}{Uninstall ALL}
+{12000}{}{Checking...}
+{12010}{}{Repair broken optics}
+{12020}{}{Repair left arm}
+{12030}{}{Repair right arm}
+{12040}{}{Repair left leg}
+{12050}{}{Repair right leg}
+{12060}{}{Check Cyborg Points}
+{12070}{}{back}
+{13000}{}{Success}
+{14000}{}{Choose Action}
+{14010}{}{Craft EMP Shield Chip[-1000 cyborg points]}
+{14020}{}{decraft combat implant[+350 cyborg points]}
+{14030}{}{decraft combat implant[+350 cyborg points]}
+{14040}{}{decraft combat implant[+350 cyborg points]}
+{14050}{}{decraft combat implant[+350 cyborg points]}
+{14060}{}{decraft combat implant[+350 cyborg points]}
+{14070}{}{decraft combat implant[+350 cyborg points]}
+{14080}{}{decraft combat implant[+350 cyborg points]}
+{14090}{}{decraft combat implant[+350 cyborg points]}
+{14100}{}{decraft ST Implant[+2 cyborg points]}
+{14110}{}{decraft PE Implant[+2 cyborg points]}
+{14120}{}{decraft EN Implant[+2 cyborg points]}
+{14130}{}{decraft IN Implant[+2 cyborg points]}
+{14140}{}{decraft AG Implant[+2 cyborg points]}
+{14150}{}{decraft LK Implant[+2 cyborg points]}
+{14160}{}{decraft CH Implant[+2 cyborg points]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Status}
+{4020}{}{Installation}
+{4030}{}{Uninstall module}
+{4040}{}{Find a Joke}
+{4050}{}{Crafting}
+{4060}{}{Logout}
+{5000}{}{Choose action}
+{5010}{}{S.P.E.C.I.A.L Implants}
+{5020}{}{Combat Implants}
+{5030}{}{Back}
+{6000}{}{Choose action}
+{6010}{}{S.P.E.C.I.A.L Implants}
+{6020}{}{Combat Implants}
+{6030}{}{Back}
+{7000}{}{Choose Module}
+{7010}{}{Hypertrophy Accelerator}
+{7020}{}{Optics Enhancer}
+{7030}{}{	Nociception Regulator}
+{7040}{}{	Empathy Synthesizer}
+{7050}{}{Logic Co-Processor}
+{7060}{}{Reflex Booster}
+{7070}{}{	Probability Calculator}
+{8000}{}{Action success}
+{8010}{}{Back}
+{8020}{}{Logout}
+{9000}{}{Choose Module}
+{9010}{}{Dermal Impact Armor}
+{9020}{}{Phoenix Armor Implants}
+{9030}{}{Aggressive Sensors}
+{9040}{}{	Dragon System}
+{9050}{}{	Tiger Movement}
+{9060}{}{	Tactical Chip}
+{9070}{}{	Nemean Armor}
+{9080}{}{	Dermal Impact Armor}
+{9090}{}{	Phoenix Armor Implants}
+{9100}{}{Aggressive Sensors}
+{9110}{}{Dragon System}
+{9120}{}{	Claw Module}
+{9130}{}{Tiger Movement}
+{9140}{}{	Tactical Chip}
+{9150}{}{Dermal Impact Armor}
+{9160}{}{Phoenix Armor Implants}
+{9170}{}{Aggressive Sensors}
+{9180}{}{Dragon System}
+{9190}{}{	Claw Module}
+{9200}{}{Tiger Movement}
+{9210}{}{	Tactical Chip}
+{9220}{}{Claw Module}
+{9230}{}{EMP Shield}
+{10000}{}{Choose Module}
+{10010}{}{Hypertrophy Accelerator}
+{10020}{}{Optics Enhancer}
+{10030}{}{Nociception Regulator}
+{10040}{}{Empathy Synthesizer}
+{10050}{}{Logic Co-Processor}
+{10060}{}{Reflex Booster}
+{10070}{}{	Probability Calculator}
+{11000}{}{Choose Module}
+{11010}{}{	Dermal Impact Armor}
+{11020}{}{	Dermal Impact Armor}
+{11030}{}{	Dermal Impact Armor}
+{11040}{}{Phoenix Armor Implants}
+{11050}{}{Phoenix Armor Implants}
+{11060}{}{Phoenix Armor Implants}
+{11070}{}{	Aggressive Sensors}
+{11080}{}{	Aggressive Sensors}
+{11090}{}{	Aggressive Sensors}
+{11100}{}{Dragon System}
+{11110}{}{Dragon System}
+{11120}{}{Dragon System}
+{11130}{}{	Claw Module}
+{11140}{}{	Claw Module}
+{11150}{}{	Claw Module}
+{11160}{}{Tiger Movement}
+{11170}{}{Tiger Movement}
+{11180}{}{Tiger Movement}
+{11190}{}{Tactical Chip}
+{11200}{}{Tactical Chip}
+{11210}{}{Tactical Chip}
+{11220}{}{	Nemean Armor}
+{11230}{}{EMP Shield}
+{11240}{}{Uninstall ALL}
+{12000}{}{Checking...}
+{12010}{}{Repair broken optics}
+{12020}{}{Repair left arm}
+{12030}{}{Repair right arm}
+{12040}{}{Repair left leg}
+{12050}{}{Repair right leg}
+{12060}{}{Check Cyborg Points}
+{12070}{}{back}
+{13000}{}{Success}
+{14000}{}{Choose Action}
+{14010}{}{Craft EMP Shield Chip[-1000 cyborg points]}
+{14020}{}{decraft combat implant[+350 cyborg points]}
+{14030}{}{decraft combat implant[+350 cyborg points]}
+{14040}{}{decraft combat implant[+350 cyborg points]}
+{14050}{}{decraft combat implant[+350 cyborg points]}
+{14060}{}{decraft combat implant[+350 cyborg points]}
+{14070}{}{decraft combat implant[+350 cyborg points]}
+{14080}{}{decraft combat implant[+350 cyborg points]}
+{14090}{}{decraft combat implant[+350 cyborg points]}
+{14100}{}{decraft ST Implant[+2 cyborg points]}
+{14110}{}{decraft PE Implant[+2 cyborg points]}
+{14120}{}{decraft EN Implant[+2 cyborg points]}
+{14130}{}{decraft IN Implant[+2 cyborg points]}
+{14140}{}{decraft AG Implant[+2 cyborg points]}
+{14150}{}{decraft LK Implant[+2 cyborg points]}
+{14160}{}{decraft CH Implant[+2 cyborg points]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ia ciaeii}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Status}
+{4020}{}{Installation}
+{4030}{}{Uninstall module}
+{4040}{}{Find a Joke}
+{4050}{}{Crafting}
+{4060}{}{Logout}
+{5000}{}{Choose action}
+{5010}{}{S.P.E.C.I.A.L Implants}
+{5020}{}{Combat Implants}
+{5030}{}{Back}
+{6000}{}{Choose action}
+{6010}{}{S.P.E.C.I.A.L Implants}
+{6020}{}{Combat Implants}
+{6030}{}{Back}
+{7000}{}{Choose Module}
+{7010}{}{Hypertrophy Accelerator}
+{7020}{}{Optics Enhancer}
+{7030}{}{	Nociception Regulator}
+{7040}{}{	Empathy Synthesizer}
+{7050}{}{Logic Co-Processor}
+{7060}{}{Reflex Booster}
+{7070}{}{	Probability Calculator}
+{8000}{}{Action success}
+{8010}{}{Back}
+{8020}{}{Logout}
+{9000}{}{Choose Module}
+{9010}{}{Dermal Impact Armor}
+{9020}{}{Phoenix Armor Implants}
+{9030}{}{Aggressive Sensors}
+{9040}{}{	Dragon System}
+{9050}{}{	Tiger Movement}
+{9060}{}{	Tactical Chip}
+{9070}{}{	Nemean Armor}
+{9080}{}{	Dermal Impact Armor}
+{9090}{}{	Phoenix Armor Implants}
+{9100}{}{Aggressive Sensors}
+{9110}{}{Dragon System}
+{9120}{}{	Claw Module}
+{9130}{}{Tiger Movement}
+{9140}{}{	Tactical Chip}
+{9150}{}{Dermal Impact Armor}
+{9160}{}{Phoenix Armor Implants}
+{9170}{}{Aggressive Sensors}
+{9180}{}{Dragon System}
+{9190}{}{	Claw Module}
+{9200}{}{Tiger Movement}
+{9210}{}{	Tactical Chip}
+{9220}{}{Claw Module}
+{9230}{}{EMP Shield}
+{10000}{}{Choose Module}
+{10010}{}{Hypertrophy Accelerator}
+{10020}{}{Optics Enhancer}
+{10030}{}{Nociception Regulator}
+{10040}{}{Empathy Synthesizer}
+{10050}{}{Logic Co-Processor}
+{10060}{}{Reflex Booster}
+{10070}{}{	Probability Calculator}
+{11000}{}{Choose Module}
+{11010}{}{	Dermal Impact Armor}
+{11020}{}{	Dermal Impact Armor}
+{11030}{}{	Dermal Impact Armor}
+{11040}{}{Phoenix Armor Implants}
+{11050}{}{Phoenix Armor Implants}
+{11060}{}{Phoenix Armor Implants}
+{11070}{}{	Aggressive Sensors}
+{11080}{}{	Aggressive Sensors}
+{11090}{}{	Aggressive Sensors}
+{11100}{}{Dragon System}
+{11110}{}{Dragon System}
+{11120}{}{Dragon System}
+{11130}{}{	Claw Module}
+{11140}{}{	Claw Module}
+{11150}{}{	Claw Module}
+{11160}{}{Tiger Movement}
+{11170}{}{Tiger Movement}
+{11180}{}{Tiger Movement}
+{11190}{}{Tactical Chip}
+{11200}{}{Tactical Chip}
+{11210}{}{Tactical Chip}
+{11220}{}{	Nemean Armor}
+{11230}{}{EMP Shield}
+{11240}{}{Uninstall ALL}
+{12000}{}{Checking...}
+{12010}{}{Repair broken optics}
+{12020}{}{Repair left arm}
+{12030}{}{Repair right arm}
+{12040}{}{Repair left leg}
+{12050}{}{Repair right leg}
+{12060}{}{Check Cyborg Points}
+{12070}{}{back}
+{13000}{}{Success}
+{14000}{}{Choose Action}
+{14010}{}{Craft EMP Shield Chip[-1000 cyborg points]}
+{14020}{}{decraft combat implant[+350 cyborg points]}
+{14030}{}{decraft combat implant[+350 cyborg points]}
+{14040}{}{decraft combat implant[+350 cyborg points]}
+{14050}{}{decraft combat implant[+350 cyborg points]}
+{14060}{}{decraft combat implant[+350 cyborg points]}
+{14070}{}{decraft combat implant[+350 cyborg points]}
+{14080}{}{decraft combat implant[+350 cyborg points]}
+{14090}{}{decraft combat implant[+350 cyborg points]}
+{14100}{}{decraft ST Implant[+2 cyborg points]}
+{14110}{}{decraft PE Implant[+2 cyborg points]}
+{14120}{}{decraft EN Implant[+2 cyborg points]}
+{14130}{}{decraft IN Implant[+2 cyborg points]}
+{14140}{}{decraft AG Implant[+2 cyborg points]}
+{14150}{}{decraft LK Implant[+2 cyborg points]}
+{14160}{}{decraft CH Implant[+2 cyborg points]}
+

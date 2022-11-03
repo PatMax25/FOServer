@@ -1,0 +1,846 @@
+{10}{}{Hrdina}
+{20}{}{Hrdinka}
+{30}{}{Vesničan}
+{40}{}{Vesničan}
+{50}{}{Radškorpión}
+{51}{}{Zmutovaná verze škorpióna.}
+{60}{}{Radškorpión}
+{61}{}{Zmutovaný škorpión.}
+{70}{}{Párač}
+{71}{}{Mládě párače.}
+{80}{}{Párač}
+{81}{}{Mládě párače.}
+{90}{}{Pes}
+{91}{}{Vypadá to na nějaké smíšené plemeno.}
+{100}{}{Brahmína}
+{101}{}{Dvouhlavá zmutovaná kráva.}
+{110}{}{Krysa}
+{111}{}{Obyčejná obří krysa.}
+{120}{}{Kudlanka}
+{121}{}{Zmutovaná verze kudlanky nábožné.}
+{130}{}{Starší}
+{140}{}{Hakunin}
+{150}{}{Mynoc}
+{160}{}{Masožravá rostlina}
+{161}{}{Masožravá rostlina.}
+{170}{}{Pěkný otrok}
+{180}{}{Krásná otrokyně}
+{190}{}{Zdravý otrok}
+{200}{}{Zdravá otrokyně}
+{210}{}{Silný otrok}
+{220}{}{Silná otrokyně}
+{230}{}{Bojovný otrok}
+{240}{}{Bojovná otrokyně}
+{250}{}{Mazaný otrok}
+{260}{}{Mazaná otrokyně}
+{270}{}{Otrok}
+{280}{}{Otrokyně}
+{290}{}{Anna}
+{300}{}{Zavalitý rváč}
+{310}{}{Svalnatá rváčka}
+{320}{}{Rváč. Specialista na chladné zbraně}
+{330}{}{Rváčka. Specialistka na chladné zbraně}
+{340}{}{Podivuhodně mrštný rváč}
+{350}{}{Nebezpečně rychlá rváčka}
+{360}{}{Ozbrojený rváč}
+{370}{}{Ozbrojená rváčka}
+{380}{}{Rváč. Specialista na těžké zbraně}
+{390}{}{Rváčka. Specialistka na těžké zbraně}
+{400}{}{Zavalitý strážný}
+{410}{}{Namakaná členka ochranky}
+{420}{}{Strážný. Specialista na chladné zbraně}
+{430}{}{Strážná. Specialistka na chladné zbraně}
+{440}{}{Mrštný strážce}
+{450}{}{Mrštná strážkyně}
+{460}{}{Ozbrojený člen ochranky}
+{470}{}{Ozbrojená členka ochranky}
+{480}{}{Člen ochranky. Specialista na těžké zbraně}
+{490}{}{Členka ochranky. Specialistka na těžké zbraně}
+{500}{}{Sirotek}
+{510}{}{Sirotek}
+{520}{}{Chlapec}
+{530}{}{Dívenka}
+{540}{}{Ubožák}
+{550}{}{Ubožačka}
+{560}{}{Obchodník}
+{570}{}{Obchodnice}
+{580}{}{Obchodník}
+{590}{}{Obchodnice}
+{600}{}{Mistr obchodník}
+{610}{}{Skvělá obchodnice}
+{620}{}{Vic}
+{630}{}{Hubený rolník}
+{640}{}{Vychrtlá farmářka}
+{650}{}{Tuctový rolník}
+{660}{}{Tuctová farmářka}
+{670}{}{Svalnatý rolník}
+{680}{}{Silná farmářka}
+{690}{}{Slabý hlídač. Specialista na chladné zbraně}
+{700}{}{Slaboučká strážná. Specialistka na chladné zbraně}
+{710}{}{Bojácný strážný se střelnou zbraní}
+{720}{}{Křehká strážná se střelnou zbraní}
+{730}{}{Robot-opravář}
+{740}{}{Robot-opravář Typ II}
+{750}{}{Robomozek}
+{760}{}{Robot typu "Očko"}
+{770}{}{Strážný robot}
+{780}{}{Strážný robot Typ II}
+{790}{}{Robomozek}
+{800}{}{Malý geckon}
+{810}{}{Odolný malý geckon}
+{820}{}{Divoký pes}
+{821}{}{Zdivočelé plemeno psa.}
+{830}{}{Zlatý geckon}
+{840}{}{Párač}
+{850}{}{Páračský potěr}
+{860}{}{Odolný zlatý geckon}
+{870}{}{Lynette}
+{880}{}{Dr. Troy}
+{890}{}{John Cassidy}
+{900}{}{Gregory}
+{910}{}{Občanka}
+{920}{}{Občan}
+{930}{}{Občanka z vyšší kasty}
+{940}{}{Občan z vyšší kasty}
+{950}{}{Lovec}
+{960}{}{Stopařka}
+{970}{}{Sulik}
+{980}{}{Maida Bucknerová}
+{990}{}{Torr}
+{1000}{}{Lumpy}
+{1010}{}{"Zářící" ghoul. Obsluha reaktoru}
+{1020}{}{Reactor Ghoul. Obsluha reaktoru}
+{1030}{}{Člen ochranky reaktoru}
+{1040}{}{Zomak}
+{1050}{}{Skeeter}
+{1060}{}{Mozek}
+{1070}{}{Lenny}
+{1080}{}{Wooz}
+{1090}{}{Harold}
+{1100}{}{Krtčí potkan}
+{1110}{}{Obří krtčí potkan}
+{1120}{}{Prasečí potkan}
+{1130}{}{Odolný prasečí potkan}
+{1140}{}{Zesláblá brahmína}
+{1141}{}{Zmutovaná dvouhlavá kráva.}
+{1150}{}{A.Pwr.Armor (don't use)}
+{1160}{}{Zmutovaný potkan}
+{1161}{}{Odolná mutace potkana.}
+{1170}{}{Zmutovaný krtčí potkan}
+{1171}{}{Zvlášť houževnatá mutace krtčího potkana.}
+{1180}{}{Zmutovaný prasečí potkan}
+{1181}{}{Nebezpečně odolná mutace prasečího potkana.}
+{1190}{}{Supermutant}
+{1200}{}{Silný supermutant}
+{1210}{}{Melchoir}
+{1220}{}{Hero Andro (don't use)}
+{1230}{}{Hero Andro (don't use)}
+{1240}{}{Hero Male (don't use)}
+{1250}{}{Hero Female (don't use)}
+{1260}{}{Hero Male (don't use)}
+{1270}{}{Hero Female (don't use)}
+{1280}{}{Hero Male (don't use)}
+{1290}{}{Hero Female (don't use)}
+{1300}{}{Hero Male (don't use)}
+{1310}{}{Hero Female (don't use)}
+{1320}{}{Hero Male (don't use)}
+{1330}{}{Hero Female (don't use)}
+{1340}{}{Strážný z Vault City Guard}
+{1350}{}{Strážná z Vault City Guard}
+{1360}{}{Kyberpes}
+{1370}{}{Strážný z NCR Guard}
+{1380}{}{Strážná z NCR Guard}
+{1390}{}{Strážný z NCR. Specialista na chladné zbraně}
+{1400}{}{Člen otrokářské ochranky}
+{1410}{}{Členka otrokářské ochranky}
+{1420}{}{Obchodník - velmistr}
+{1430}{}{Obchodnice - velmistryně}
+{1440}{}{Tandi}
+{1450}{}{Merk}
+{1460}{}{Ratch}
+{1470}{}{Skeeter}
+{1480}{}{Mikey}
+{1490}{}{Barman z NCR Bartender}
+{1500}{}{Majitel obchodu}
+{1510}{}{Gruthar}
+{1520}{}{Goris}
+{1530}{}{Krtčí gladiátor}
+{1540}{}{Krtčí gladiátor}
+{1550}{}{Krtčí gladiátor}
+{1560}{}{Krtčí gladiátor}
+{1570}{}{Krtčí gladiátor}
+{1580}{}{Krtčí gladiátor}
+{1590}{}{Úplně vobyčejnej ghoul}
+{1600}{}{Myron}
+{1610}{}{Marcus}
+{1620}{}{Doktor Jones}
+{1630}{}{Davin}
+{1640}{}{Miria}
+{1650}{}{Laddie}
+{1660}{}{Rondo}
+{1670}{}{Nádeník}
+{1680}{}{Pacholek na ranči}
+{1690}{}{Pomocník na ranči}
+{1700}{}{Gorila}
+{1710}{}{Gorila}
+{1720}{}{Slabý Mr. Handy}
+{1730}{}{Typický "zářící" ghoul}
+{1740}{}{Dar}
+{1750}{}{Dalia}
+{1760}{}{Gordon}
+{1770}{}{test (don't use)}
+{1780}{}{Reactor Ghoul. Obsluha reaktoru}
+{1790}{}{Běžný ghoul}
+{1800}{}{Matt}
+{1810}{}{Velitel oddílu lovců odměn}
+{1820}{}{Lovec odměn}
+{1830}{}{Velitel oddílu lovců odměn}
+{1840}{}{Lovec odměn}
+{1850}{}{Lovec odměn}
+{1860}{}{Velitel oddílu lovců odměn}
+{1870}{}{Lovec odměn}
+{1880}{}{Lovec odměn}
+{1890}{}{Velitel oddílu lovců odměn}
+{1900}{}{Lovec odměn}
+{1910}{}{Bess}
+{1911}{}{Dvouhlavá zmutovaná kráva.}
+{1920}{}{Balthas}
+{1930}{}{Grisham}
+{1940}{}{Phil}
+{1950}{}{Kuře}
+{1960}{}{Karl}
+{1970}{}{Jonny}
+{1980}{}{Jo}
+{1990}{}{Zeke}
+{2000}{}{Butcher}
+{2010}{}{Petey}
+{2020}{}{Primitivní lovec}
+{2030}{}{Primitivní lovkyně}
+{2040}{}{Lidožrout}
+{2050}{}{Lidožroutka}
+{2060}{}{Svatý muž}
+{2070}{}{Svatá žena}
+{2080}{}{Kočovník}
+{2090}{}{Nomád}
+{2100}{}{Kočovnice}
+{2110}{}{Nomádka}
+{2120}{}{Bandita}
+{2130}{}{Banditka}
+{2140}{}{Farmář}
+{2150}{}{Farmářka}
+{2160}{}{Kudlanka}
+{2170}{}{Otrokář}
+{2180}{}{Otrokářka}
+{2190}{}{Divoká brahmína}
+{2200}{}{Starousedlík}
+{2210}{}{Starousedlice}
+{2220}{}{Člen patroly z Vault City Patrol}
+{2230}{}{Členka patroly z Vault City Patrol}
+{2240}{}{Silný otrokář}
+{2250}{}{Silná otrokářka}
+{2260}{}{Blázni}
+{2270}{}{Mrchožrouti}
+{2280}{}{Radioaktivní maniaci}
+{2290}{}{Radioaktivní mrchožrouti}
+{2300}{}{Rybář}
+{2310}{}{Rybářka}
+{2320}{}{Divoch}
+{2330}{}{Divoška}
+{2340}{}{Překupník s alkoholem}
+{2350}{}{Překupnice s alkoholem}
+{2360}{}{Prospektor}
+{2370}{}{Prospektorka}
+{2380}{}{Nájezdník}
+{2390}{}{Nájezdnice}
+{2400}{}{Ohnivý geckon}
+{2410}{}{Houževnatý ohnivý geckon}
+{2420}{}{Alien}
+{2430}{}{Odolný Alien}
+{2440}{}{Malý odolný párač}
+{2450}{}{Houževnatý párač}
+{2460}{}{Floater}
+{2470}{}{Hnusný floater}
+{2480}{}{Kentaur}
+{2490}{}{Průměrný kentaur}
+{2500}{}{Hlídka Enklávy}
+{2510}{}{Hlídka Enklávy}
+{2520}{}{Člen vymahačského gangu}
+{2530}{}{Členka gangu vymahačů}
+{2540}{}{Žoldák}
+{2550}{}{Žoldačka}
+{2560}{}{Nightkin}
+{2570}{}{Odolný nightkin}
+{2580}{}{Houževnatý ghoul}
+{2590}{}{Mafián}
+{2600}{}{Yakuza}
+{2610}{}{NCR Ranger z NCR}
+{2620}{}{Rangerka z NCR Ranger}
+{2630}{}{Hlídka Bratrstva}
+{2640}{}{Hlídka Bratrstva}
+{2650}{}{Hezoun Lloyd}
+{2660}{}{Vorpal krysa}
+{2670}{}{Obyvatel Vaultu 13 Man}
+{2680}{}{Obyvatelka Vaultu 13 Woman}
+{2690}{}{Strážce mostu}
+{2700}{}{Záhadný cizinec}
+{2710}{}{Záhadná cizinka}
+{2720}{}{Hakeswill}
+{2730}{}{Velkej Ježíš Mordino}
+{2740}{}{Dumar}
+{2750}{}{Matka páračů}
+{2760}{}{Drak}
+{2770}{}{Lo Pan}
+{2780}{}{Hubologista}
+{2790}{}{Hubologistka}
+{2800}{}{Záhadný cizinec}
+{2810}{}{Záhadná cizinka}
+{2820}{}{Záhadný cizinec}
+{2830}{}{Záhadná cizinka}
+{2840}{}{Záhadný cizinec}
+{2850}{}{Záhadná cizinka}
+{2860}{}{Záhadný cizinec}
+{2870}{}{Záhadná cizinka}
+{2880}{}{Ochranka}
+{2890}{}{Vejce párače}
+{2900}{}{Metzger}
+{2910}{}{Strážný Enklávy}
+{2920}{}{Hlídka Enklávy}
+{2930}{}{Prezident}
+{2940}{}{Víceprezident}
+{2950}{}{Technik}
+{2960}{}{Vztekloun}
+{2970}{}{Dr. Fung}
+{2980}{}{Chlapec}
+{2990}{}{Dítě}
+{3000}{}{Obchodník se zbraněmi}
+{3010}{}{Laboratorní technik Shi Lab Tech}
+{3020}{}{Strážný Shi Guard}
+{3030}{}{Příslušník Shi Peasant}
+{3040}{}{Členka Shi Peasant}
+{3050}{}{Člen klanu Lo Pan Peasant}
+{3060}{}{Členka klanu Lo Pan Peasant}
+{3070}{}{Přístavní dělník}
+{3080}{}{Obchodník Shi Merchant}
+{3090}{}{Král Krysa}
+{3100}{}{Sulik - úroveň 1}
+{3110}{}{Sulik - úroveň 2}
+{3120}{}{Sulik - úroveň 3}
+{3130}{}{Sulik - úroveň 4}
+{3140}{}{Sulik - úroveň 5}
+{3150}{}{Sulik - úroveň 6}
+{3160}{}{Lenny - úroveň 1}
+{3170}{}{Lenny - úroveň 2}
+{3180}{}{Lenny - úroveň 3}
+{3190}{}{Goris - úroveň 1}
+{3200}{}{Goris - úroveň 2}
+{3210}{}{Goris - úroveň 3}
+{3220}{}{Goris - úroveň 4}
+{3230}{}{Goris - úroveň 5}
+{3240}{}{Goris - úroveň 6}
+{3250}{}{Myron - úroveň 1}
+{3260}{}{Myron - úroveň 2}
+{3270}{}{Myron - úroveň 3}
+{3280}{}{Myron - úroveň 4}
+{3290}{}{Marcus - úroveň 1}
+{3300}{}{Marcus - úroveň 2}
+{3310}{}{Marcus - úroveň 3}
+{3320}{}{Marcus - úroveň 4}
+{3330}{}{Marcus - úroveň 5}
+{3340}{}{Kyberpes - úroveň 1}
+{3350}{}{Kyberpes - úroveň 2}
+{3360}{}{Kyberpes - úroveň 3}
+{3370}{}{Kyberpes - úroveň 4}
+{3380}{}{Cassidy - úroveň 1}
+{3390}{}{Cassidy - úroveň 2}
+{3400}{}{Cassidy - úroveň 3}
+{3410}{}{Cassidy - úroveň 4}
+{3420}{}{Pes}
+{3430}{}{Pes - úroveň 1}
+{3440}{}{Pes - úroveň 2}
+{3450}{}{Pes - úroveň 3}
+{3460}{}{Pes - úroveň 4}
+{3470}{}{Pes - úroveň 5}
+{3480}{}{Pes - úroveň 6}
+{3490}{}{Robomozek - úroveň 1}
+{3500}{}{Robomozek - úroveň 2}
+{3510}{}{Robomozek - úroveň 3}
+{3520}{}{Robomozek - úroveň 4}
+{3530}{}{Robomozek - úroveň 5}
+{3540}{}{Královna Alienů}
+{3550}{}{Černý radškorpión}
+{3560}{}{Obrovský radškorpión}
+{3570}{}{Spud}
+{3580}{}{Kapitán žoldáků}
+{3590}{}{Žoldák}
+{3600}{}{Žoldačka}
+{3610}{}{Stín-Který-Kráčí}
+{3620}{}{Punker}
+{3630}{}{Punkerka}
+{3640}{}{Marc}
+{3650}{}{Dave H.}
+{3660}{}{Kapitán A. Ron Meyers}
+{3670}{}{Chip}
+{3680}{}{AHS-9}
+{3690}{}{Strážný Hubologistů}
+{3700}{}{Strážná Hubologistů}
+{3710}{}{Juan}
+{3720}{}{Vikki}
+{3730}{}{Vic - úroveň 1}
+{3740}{}{Vic - úroveň 2}
+{3750}{}{Vic - úroveň 3}
+{3760}{}{Vic - úroveň 4}
+{3770}{}{Vic - úroveň 5}
+{3780}{}{Vic - úroveň 6}
+{3790}{}{Robomozek - Šimpanz}
+{3800}{}{Robomozek - Blbec}
+{3810}{}{Robomozek - Člověk}
+{3820}{}{Obří mravenec}
+{3830}{}{Odolný obří mravenec}
+{3840}{}{Pária-pes}
+{3850}{}{Zurak}
+{3860}{}{Imbot}
+{3870}{}{Jimmy}
+{3880}{}{Wejungh}
+{3890}{}{Herb}
+{3900}{}{Loopal}
+{3910}{}{Jobe}
+{3920}{}{Smitty}
+{3930}{}{Rube}
+{3940}{}{Mistr Krall}
+{3950}{}{Ziggy}
+{3960}{}{Mistr Khung}
+{3970}{}{John Bishop}
+{3980}{}{Angela Bishopová}
+{3990}{}{Paní Bishopová}
+{4000}{}{Bishopova stráž 1}
+{4010}{}{Bishopova stráž 2}
+{4020}{}{Bishopovův hrdlořez 1}
+{4030}{}{Bishopovův hrdlořez 2}
+{4040}{}{Rozzuřená brahmína}
+{4050}{}{Malej Ježíš}
+{4060}{}{Velkej Ježíš}
+{4070}{}{Mordinův maník 1}
+{4080}{}{Mordinův maník 2}
+{4090}{}{Mordinův maník 3}
+{4100}{}{Myronův hlídač 1}
+{4110}{}{Myronův hlídač 2}
+{4120}{}{Pan Wright}
+{4130}{}{Paní Wrightová}
+{4140}{}{Chris Wright}
+{4150}{}{Keith Wright}
+{4160}{}{Wrightův syn 1}
+{4170}{}{Wrightův syn 2}
+{4180}{}{Wrightova dcera 1}
+{4190}{}{Wrightova dcera 2}
+{4200}{}{Don Salvatore}
+{4210}{}{Mason}
+{4220}{}{Salvatorův maník 1}
+{4230}{}{Salvatorův maník 2}
+{4240}{}{Běžný barman}
+{4250}{}{Běžný barman}
+{4260}{}{Běžný barman}
+{4270}{}{Boxer 1}
+{4280}{}{Boxer 2}
+{4290}{}{Boxer 3}
+{4300}{}{Boxer 4}
+{4310}{}{Mike Ždímačka}
+{4320}{}{Holyfeld}
+{4330}{}{McKneely}
+{4340}{}{Stuart Malej}
+{4350}{}{Korsičtí bratři}
+{4360}{}{Korsičtí bratři}
+{4370}{}{Otec Tully}
+{4380}{}{Gorila 1}
+{4390}{}{Gorila 2}
+{4400}{}{Krupiérka}
+{4410}{}{Drogový dealer/Pasák1}
+{4420}{}{Drogový dealer/Pasák2}
+{4430}{}{Drogový dealer/Pasák3}
+{4440}{}{Drogový dealer/Pasák4}
+{4450}{}{McGee}
+{4460}{}{Slečna Kitty}
+{4470}{}{Děvka}
+{4480}{}{Děvka}
+{4490}{}{Pořezanej Jimmy J}
+{4500}{}{Renesco}
+{4510}{}{Vědec}
+{4520}{}{Eldridge}
+{4530}{}{Algernon}
+{4540}{}{Jules}
+{4550}{}{Byrokrat 1}
+{4560}{}{Byrokrat 2}
+{4570}{}{Obchodník 1}
+{4580}{}{Obchodník 2}
+{4590}{}{Stráž 1}
+{4600}{}{Stráž 2}
+{4610}{}{Stráž 3}
+{4620}{}{Stráž 4}
+{4630}{}{Voják 1}
+{4640}{}{Voják 2}
+{4650}{}{Voják 3}
+{4660}{}{Voják 4}
+{4670}{}{Seržant Stark}
+{4680}{}{"Doktor" Andrew}
+{4690}{}{Barman}
+{4700}{}{Střelecká věž}
+{4701}{}{Automaticky se zaměřující otočná střelecká vížka vyzbrojená dvojitým plazmovým kanónem.}
+{4710}{}{Kyberpes}
+{4720}{}{K-9 (úroveň 1)}
+{4730}{}{K-9 (úroveň 2)}
+{4740}{}{Střelecká věž}
+{4750}{}{NCR Ranger NCR}
+{4760}{}{NCR Ranger NCR}
+{4770}{}{Vejce Aliena}
+{4780}{}{Lo Panův strážný}
+{4790}{}{Marjorie}
+{4800}{}{Auto-kanón}
+{4810}{}{Speciální Gecko potvora}
+{4820}{}{Grim Reaper}
+{4830}{}{Frank Horrigan}
+{4831}{}{Presidentův bodyguard}
+{4840}{}{Žoldák – specialista na chladné zbraně}				#pokračovat
+{4850}{}{Žoldák – specialista na chladné zbraně}
+{4860}{}{Žoldák – specialista na chladné zbraně}
+{4870}{}{Žoldák – specialista na chladné zbraně}
+{4880}{}{Žoldák – specialista na vrhací zbraně}
+{4890}{}{Žoldák – specialista na lehké zbraně}
+{4900}{}{Žoldák – specialista na vrhací zbraně}
+{4910}{}{Žoldák – specialista na vrhací zbraně}
+{4920}{}{Žoldák – specialista na chladné zbraně}
+{4930}{}{Žoldák – specialista na chladné zbraně}
+{4940}{}{Žoldák – specialista na chladné zbraně}
+{4950}{}{Žoldák – specialista na chladné zbraně}
+{4960}{}{Žoldák – specialista na těžké zbraně}
+{4970}{}{Žoldák – specialista na těžké zbraně}
+{4980}{}{Žoldák – specialista na těžké zbraně}
+{4990}{}{Žoldák – specialista na energetické zbraně}
+{5000}{}{Žoldák – specialista na energetické zbraně}
+{5010}{}{Mutantí žoldák}
+{5020}{}{Mutantí žoldák}
+{5030}{}{Mutantí žoldák}
+{5040}{}{Ghoulí žoldák – specialista na chladné zbraně}
+{5050}{}{Ghoulí žoldák – specialista na lehké zbraně}
+{5060}{}{Pouštní stopař}
+{5070}{}{Neúnavný chodec}
+{5080}{}{Netopýr}
+{5090}{}{Brouk}
+{5100}{}{Jeskynní krysa}
+{5110}{}{Puma}
+{5120}{}{Kráva}
+{5130}{}{Venušina lidolapka}
+{5140}{}{Pouštní kudlanka}
+{5150}{}{Vrhač trnů}
+{5160}{}{Obří vosa}
+{5170}{}{Mládě aliena}
+{5171}{}{Tenhle alien vypadá stále dost mladě.}
+{5180}{}{Voják NCR}
+{5190}{}{Vojačka NCR}
+{5200}{}{Obří Venušina lidolapka}
+{5210}{}{Zahalená žena}
+{5220}{}{Pes - průzkumník}
+{5230}{}{Brahmína}
+{5231}{}{Brahmin z úkolu hnání brahmín}
+{5240}{}{Matka Kvíky-Kvík}
+{5241}{}{Mocná Matka Kvíky-Kvík, útěk nemá smysl, stejně umřeš, jen budeš navíc unavený.}
+{5250}{}{Pashtshuur}
+{5260}{}{Párač}
+{5270}{}{Houževnatý párač}
+{5280}{}{Matka páračů}
+{5290}{}{Starší párač}
+{5300}{}{Mr. Handy}
+{5310}{}{Robot - opravář}
+{5320}{}{Robomozek}
+{5330}{}{Robot typu "Očko"}
+{5340}{}{Strážný robot}
+{5350}{}{Střelecká věž}
+{5360}{}{Autokanón}
+{5370}{}{Laserová věž}
+{5380}{}{Rebelka}
+{5381}{}{Rebelka}
+{5390}{}{Rebel}
+{5391}{}{Rebel}
+{5400}{}{Rebel}
+{5401}{}{Rebel}
+{5410}{}{Rebelka – specialistka na boj zblízka}
+{5411}{}{Rebelka}
+{5420}{}{Dlouhovlasý rebel}
+{5421}{}{Dlouhovlasý rebel}
+{5430}{}{Holohlavý rebel}
+{5431}{}{Holohlavý rebel}
+{5440}{}{Renegátka}
+{5441}{}{Odpadlice}
+{5450}{}{Renegát}
+{5451}{}{Odpadlík}
+{5460}{}{Houževnatá odpadlice}
+{5461}{}{Houževnatá odpadlice}
+{5470}{}{Houževnatý odpadlík}
+{5471}{}{Houževnatý odpadlík}
+{5480}{}{Holohlavý odpadlík}
+{5481}{}{Holohlavý odpadlík}
+{5490}{}{Vůdcův elitní nightkin}
+{5491}{}{Vůdcův elitní nightkin}
+{5500}{}{Vůdcův elitní supermutant}
+{5501}{}{Vůdcův elitní supermutant}
+{5510}{}{Vůdcův elitní velitel}
+{5511}{}{Vůdcův elitní velitel}
+{5520}{}{Vůdcův elitní houževnatý Nightkin}
+{5521}{}{Vůdcův elitní houževnatý Nightkin}
+{5530}{}{Vůdcův elitní houževnatý Supermutant}
+{5531}{}{Vůdcův elitní houževnatý Supermutant}
+{5540}{}{Šílená bojovnice}
+{5541}{}{Šílená bojovnice}
+{5550}{}{šílený bojovník}
+{5560}{}{Šílená bojovnice}
+{5570}{}{Šílený bojovník}
+{5580}{}{Holohlavý tmavý šílený bojovník}
+{5590}{}{Dlouhovlasý šílený bojovník}
+{5600}{}{Dlouhovlasý houževnatý šílený bojovník}
+{5610}{}{Holohlavý šílený bojovník}
+{5620}{}{Melchiorův párač Deathclaw}
+{5630}{}{Melchiorův ohnivý geckon}
+{5640}{}{Melchiorův kentaur }
+{5650}{}{Melchiorúv floater}
+{5660}{}{Melchior}
+{5670}{}{Fialový člen Dětí Coltu}
+{5671}{}{Mužský člen Dětí Coltu}
+{5680}{}{Modrý člen Dětí Coltu}
+{5690}{}{Hnědý člen Dětí Coltu}
+{5700}{}{Černý člen Dětí Coltu}
+{5710}{}{Písečný člen Dětí Coltu}
+{5720}{}{Neúnavný chodec}
+{5730}{}{Houževnatý neúnavný chodec}
+{5740}{}{Stráž neúnavného chodce}
+{5750}{}{Stráž neúnavného houževnatého chodce}
+{5760}{}{Mr. Handy}
+{5770}{}{Vylepšený Mr. Handy}
+{5780}{}{Robot typ "Mozek"}
+{5790}{}{Přizpůsobivý robot typu "Mozek"}
+{5800}{}{Robot typu "Očko"}
+{5810}{}{Vylepšený robot typu "Očko"}
+{5820}{}{Strážný robot}
+{5830}{}{Opravený strážný robot}
+{5840}{}{Vylepšený strážný robot}
+{5850}{}{Vůdcův krtčí potkan}
+{5860}{}{Zmutovaný krtčí potkan}
+{5870}{}{Zmutovaný prasečí potkan}
+{5880}{}{Zmutovaná krysa}
+{5890}{}{Vůdce karavany}
+{5900}{}{Pouštní lovec}
+{5910}{}{Pouštní lovkyně}
+{5920}{}{Strážný robot Mk. II}
+{5930}{}{Vyjímečný strážní robot}
+{5940}{}{Ničitel krytů}
+{5950}{}{Ničitel krytů}
+{5960}{}{Ničitel krytů}
+{5970}{}{Ničitel krytů}
+{5980}{}{Ničitel krytů}
+{5990}{}{Ničitel krytů}
+{8000}{}{Matka kentaurů}
+{8010}{}{Matka floaterů}
+{8020}{}{Matka Alienů}
+{8030}{}{Otec páračů}
+{8040}{}{Matka ohnivých geckonů}
+{8050}{}{Matka geckonů}
+{8060}{}{Chlápek z agentury R.R.R.R.}
+{8061}{}{Agentura Rick Ron Roy Robbers}
+{8070}{}{Zelenovlasý člen agentury R.R.R.R.}
+{8071}{}{Agentura Rick Ron Roy Robbers}
+{8080}{}{Ženský z agentury R.R.R.R.}
+{8081}{}{Agentura Rick Ron Roy Robbers}
+{8090}{}{Dlouhovlasý chlapík z agentury R.R.R.R.}
+{8091}{}{Agentura Rick Ron Roy Robbers }
+{8100}{}{Holohlavý chlápek z agentury R.R.R.R.}
+{8101}{}{Agentura Rick Ron Roy Robbers}
+{8110}{}{Dlouhovlasý Ronin}
+{8120}{}{Plešatý Ronin}
+{8130}{}{Ronin}
+{8140}{}{Závislý horník}
+{8150}{}{Padlý paladin - vojín}
+{8160}{}{Padlý paladin – seržant}
+{8170}{}{Padlý paladin - vojín}
+{8180}{}{Padlý paladin - ddesátník
+{8190}{}{Padlý paladin - plukovník}
+{8200}{}{Padlý paladin - kapitán}
+{8210}{}{Padlý paladin - vojín}
+{8220}{}{Padlý paladin - seržant}
+{8230}{}{Padlý paladin - vojín}
+{8240}{}{Padlý paladin - desátník}
+{8250}{}{Strážce bedny - NeedlerPistol_APammo}
+{8260}{}{Strážce bedny - HK Caws_fioletowe}
+{8270}{}{Strážce bedny  - Ripper}
+{8280}{}{Strážce bedny  - Laser Rifle}
+{8290}{}{Strážce bedny  - Minigun_APammo}
+{8300}{}{Strážce bedny  - P90_AP}
+{8310}{}{Ghoul z kráteru - Claw}
+{8320}{}{Ghoul z kráteru - HK Caws}
+{8330}{}{Ghoul z kráteru - Assult Rifle}
+{8340}{}{Ghoul z kráteru - FN FAL HPFA}
+{8350}{}{Ghoul z kráteru - 223 pistol}
+{8360}{}{Ghoul z kráteru - SMG}
+{8370}{}{Ghoul z kráteru - Hunting rifle}
+{8380}{}{Ghoul z kráteru - Ripper}
+{8390}{}{Ghoul z kráteru - Combat Shotgun}
+{8400}{}{Ghoul z kráteru - Greas Gun}
+{8410}{}{Ares Mutant - Laser Rifle}
+{8420}{}{Ares Mutant - M60}
+{8430}{}{Ares Mutant - LSW}
+{8440}{}{Ares Mutant - Improved Flamer}
+{8450}{}{Ares Mutant - Plasma Rifle}
+{8460}{}{Ares Mutant - Minigun}
+{8470}{}{Ares Mutant - Avenger}
+{8480}{}{Ares Mutant - MidBoss Gatling Laser}
+{8490}{}{Ares Mutant - Bozar}
+{8500}{}{Ares Mutant - YK Pulse Rifle}
+{8510}{}{Ares Mutant - Boss Vindicator}
+{8520}{}{Ares Mutant - Rocket Launcher}
+{8530}{}{Sběrač z kanálů}
+{8540}{}{Sběrač z kanálů}
+{8550}{}{Sběrač z kanálů}
+{8560}{}{Sběrač z kanálů}
+{8570}{}{Sběrač z kanálů}
+{8580}{}{Sběrač z kanálů}
+{8590}{}{Houževnatý otrokář}
+{8600}{}{Slabý otrokář}
+{8610}{}{Krutý otrokář}
+{8620}{}{Sadistický otrokář}
+{8630}{}{Vůdce otrokářů}
+{8640}{}{Otrokář - veterán}
+{8650}{}{Nevyučený nájezdník}
+{8660}{}{Nájezdník}
+{8670}{}{Ostřílený nájezdník}
+{8680}{}{Vůdce nájezdníků}
+{8690}{}{Odvedenec nájezdníků}
+{8700}{}{Bojový robot Mk.I}
+{8710}{}{Bojový robot Mk.II}
+{8720}{}{"Očko" typ k ochraně základny}
+{8721}{}{Bezpečnostní systém základen typ "Očko"}
+{8730}{}{Údržbářský Robomozek}
+{8740}{}{Prototyp kyborga}
+{8750}{}{Císař}
+{8751}{}{Vůdce kultu.}
+{8760}{}{Železná pěst}
+{8770}{}{Soudce}
+{8780}{}{Vymahač kultu}
+{8790}{}{Zasvěcenec kultu}
+{8800}{}{Psycho nájezdník}
+{8810}{}{Ten Šílený}				#pokračovat
+{8820}{}{Dav}
+{8821}{}{Dozorce Vaultu}
+{8830}{}{Dav}
+{8831}{}{Pavouk!}
+{8840}{}{Dav}
+{8841}{}{Žena v černé kombinéze s vyobrazením lebky}
+{8850}{}{Dav}
+{8851}{}{Muž v černé kombinéze s vyobrazením lebky}
+{8860}{}{Dav}
+{8861}{}{Muž v bojové zbroji Bratrstva}
+{8870}{}{Dav}
+{8871}{}{Žena v bojové zbroji Bratrstva}
+{8880}{}{Dav}
+{8881}{}{Žena v bojové zbroji Enklávy}
+{8890}{}{Dav}
+{8891}{}{Muž v bojové zbroji Enklávy}
+{8900}{}{Dav}
+{8901}{}{Černý muž v kovové zbroji}
+{8910}{}{Dav}
+{8911}{}{Žena v koženém brnění Mk2}
+{8920}{}{Dav}
+{8921}{}{Muž v koženém brnění Mk2}
+{8930}{}{Dav}
+{8931}{}{Člen davu v tvrzené energozbroji}
+{8940}{}{Dav}
+{8941}{}{Muž v policejní uniformě}
+{8950}{}{Dav}
+{8951}{}{Žena v policejní uniformě}
+{8960}{}{Šílený ghoul}
+{8970}{}{Dav}
+{8971}{}{Dlouhovlasý muž v koženém brnění}
+{8980}{}{Dav}
+{8981}{}{Dlouhovlasý muž v kombinéze Vaultu}
+{8990}{}{Dav}
+{8991}{}{Muž v kombinéze Vaultu}
+{9000}{}{Dav}
+{9001}{}{Žena v kombinéze Vaultu}
+{9010}{}{Dav}
+{9011}{}{Dozorce Vaultu}
+{9020}{}{Poník!}
+{9021}{}{Obyvatel Poníkova}
+{18590}{}{Voják Enklávy}
+{18591}{}{Vojáci Enklávy představují základní složku pěchoty Ozbrojených Sil Enklávy (OSE). Jsou těmi nejhouževnatějšími, nejsilnějšími a nejrychlejšími protivníky, které může lidstvo nabídnout.}
+{18600}{}{Voják Enklávy}
+{18601}{}{Vojáci Enklávy představují základní složku pěchoty Ozbrojených Sil Enklávy (OSE). Jsou těmi nejhouževnatějšími, nejsilnějšími a nejrychlejšími protivníky, které může lidstvo nabídnout.}
+{18610}{}{Voják Enklávy}
+{18611}{}{Vojáci Enklávy představují základní složku pěchoty Ozbrojených Sil Enklávy (OSE). Jsou těmi nejhouževnatějšími, nejsilnějšími a nejrychlejšími protivníky, které může lidstvo nabídnout.}
+{18620}{}{Ostřelovač Enklávy}
+{18621}{}{Vojáci Enklávy představují základní složku pěchoty Ozbrojených Sil Enklávy (OSE). Jsou těmi nejhouževnatějšími, nejsilnějšími a nejrychlejšími protivníky, které může lidstvo nabídnout.}
+{18630}{}{Ostřelovač Enklávy}
+{18631}{}{Vojáci Enklávy představují základní složku pěchoty Ozbrojených Sil Enklávy (OSE). Jsou těmi nejhouževnatějšími, nejsilnějšími a nejrychlejšími protivníky, které může lidstvo nabídnout.}
+{18640}{}{Ostřelovač Enklávy}
+{18641}{}{Vojáci Enklávy představují základní složku pěchoty Ozbrojených Sil Enklávy (OSE). Jsou těmi nejhouževnatějšími, nejsilnějšími a nejrychlejšími protivníky, které může lidstvo nabídnout.}
+{18650}{}{Voják Enklávy}
+{18651}{}{Vojáci Enklávy představují základní složku pěchoty Ozbrojených Sil Enklávy (OSE). Jsou těmi nejhouževnatějšími, nejsilnějšími a nejrychlejšími protivníky, které může lidstvo nabídnout.}
+{18660}{}{Vědec Enklávy}
+{18661}{}{Vedci Enklávy jsou zodpovědní za výzkum a vývoj technologií pro Enklávu, jsou u nich kladeny vysoké nároky na znalosti různých oborů.}
+{18670}{}{Technik Enklávy}
+{18671}{}{Technici Enklávy jsou členové technických a údržbářských čet Enklávy.}
+{18680}{}{Velitel Enklávy}
+{18681}{}{Vojáci Enklávy představují základní složku pěchoty Ozbrojených Sil Enklávy (OSE). Jsou těmi nejhouževnatějšími, nejsilnějšími a nejrychlejšími protivníky, které může lidstvo nabídnout.}
+{18690}{}{Vězeň Enklávy}
+{18691}{}{Vězeň na ropné plošině Enklávy}
+{18700}{}{Vězeň Enklávy}
+{18701}{}{Vězeň na ropné plošině Enklávy}
+{18710}{}{Vězeň Enklávy}
+{18711}{}{Vězeň na ropné plošině Enklávy}
+{18720}{}{Vězeň Enklávy}
+{18721}{}{Vězeň na ropné plošině Enklávy}
+{18730}{}{Vězeň Enklávy}
+{18731}{}{Vězeň na ropné plošině Enklávy}
+{18740}{}{Sulik}
+{18741}{}{Čeká na Vyvoleného.}
+{18750}{}{Vic}
+{18751}{}{Čeká na Vyvoleného.}
+{18760}{}{Střelecká věž Enklávy}
+{18761}{}{Střelecké věže Enklávy jsou vybaveny těžkým dvojitým kulometem, který se s lehkostí zakousne i do energozbroje, což značně ztěžuje veškeré snahy dostat se přes jejich ochranu.}
+{18770}{}{Robot Enklávy typ Očko}
+{18771}{}{Obecně vzato, je robot typ Očko vznášedlem šířícím propagandu. Jeho další specializace je pak průzkum a dohled. Charakteristikou robota je velký tlampač v přední části a rádiové antény v jeho zadní části.}
+{18780}{}{Strážný robot Enklávy}
+{18781}{}{je kráčejícím mechanickým monstrem vyzbrojeným kulomety a raketomety bežnými v Nové Kalifornii od roku 2241.}
+{18790}{}{Frank Horrigan}
+{18791}{}{Ultra super mutant energozbroji.}
+{18800}{}{Střelecká věž Enklávy}
+{18801}{}{Střelecké věže Enklávy jsou vybaveny těžkým dvojitým kulometem, který se s lehkostí zakousne i do energozbroje, což značně ztěžuje veškeré snahy dostat se přes jejich ochranu.}
+{18810}{}{Protiletecká vež Enklávy}
+{18811}{}{Střelecké věže Enklávy jsou vybaveny těžkým dvojitým kulometem, který se s lehkostí zakousne i do energozbroje, což značně ztěžuje veškeré snahy dostat se přes jejich ochranu.}
+{18820}{}{Vůdce}
+{18821}{}{Hrozivě zmutovaný mozek stojícím za Armádou Mutantů}
+{18830}{}{Hlídka Bratrstva.}
+{18840}{}{Hlídka Enklávy.}
+{18850}{}{Mutant z NCR.}
+{18860}{}{Vault City Bot.}
+{90210}{}{Strážce mostu}
+{90211}{}{Z nějakého důvodu máš pocit, že by sis měl urychleně hru uložit do nějakého nového slotu.}
+{90220}{}{Šílený ghoul}
+{90230}{}{Šílený ghoul}
+{90240}{}{Šílený ghoul}
+{90250}{}{Šílený ghoul}
+{90260}{}{Prasečí potkan}
+{90270}{}{Prasečí potkan}
+{90280}{}{Krysa}
+{90290}{}{Krysa}
+{90300}{}{Chodící mrtvola}
+{90310}{}{Chodící mrtvola}
+{90320}{}{Chodící mrtvola}
+{90330}{}{Chodící mrtvola}
+{90340}{}{Chodící mrtvola}
+{90350}{}{Chodící mrtvola}
+{90360}{}{Pouštní stopař}
+{90370}{}{Pouštní stopař}
+{90380}{}{Párač}
+{90390}{}{Párač}
+{90400}{}{Matka páračů}
+{90410}{}{Mládě páračů}
+{90420}{}{Alien}
+{90430}{}{Alien}
+{90440}{}{Alien}
+{90450}{}{Alien}
+{90460}{}{Královna Alienů}

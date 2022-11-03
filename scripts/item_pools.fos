@@ -1,0 +1,1428 @@
+//Item pool.fos
+//KompreSor
+//FOnline 3
+
+#include "_macros.fos"
+
+
+
+uint tier3armor()
+{
+	uint pid = PID_PUMP_PARTS;
+	if(week_patch<4)
+	{
+	switch(Random(2,9))
+	{
+            case 2:     pid = PID_CURED_LEATHER_ARMOR; break;
+            case 3:     pid = PID_LEATHER_ARMOR_MK_II; break;
+            case 4:     pid = PID_FIREGECKO_JACKET; break;
+            case 5:     pid = PID_METAL_ARMOR_MK_II; break;
+            case 6:     pid = PID_TESLA_ARMOR; break;
+            case 7:     pid = PID_INFERNO_ARMOR; break;
+            case 8:     pid = PID_METAL_ARMOR_MK_III; break;
+            case 9:     pid = PID_MUT_METAL; break;
+	}
+	}
+	else
+	{
+	switch(Random(1,19))
+	{
+			case 1:     pid = PID_COMBAT_ARMOR_MK_II; break;
+            case 2:     pid = PID_CURED_LEATHER_ARMOR; break;
+            case 3:     pid = PID_LEATHER_ARMOR_MK_II; break;
+            case 4:     pid = PID_FIREGECKO_JACKET; break;
+            case 5:     pid = PID_METAL_ARMOR_MK_II; break;
+            case 6:     pid = PID_TESLA_ARMOR; break;
+            case 7:     pid = PID_INFERNO_ARMOR; break;
+            case 8:     pid = PID_METAL_ARMOR_MK_III; break;
+            case 9:     pid = PID_MUT_METAL; break;
+            case 10:    pid = PID_BROTHERHOOD_COMBAT_ARMOR; break;
+            case 11:    pid = PID_ENCLAVE_COMBAT_ARMOR; break;
+            case 12:    pid = PID_DESERT_COMBAT_ARMOR; break;
+            case 13:    pid = PID_NCR_ARMOR; break;
+            case 14:    pid = PID_CLOTHES_POLICE; break;
+            case 15:    pid = PID_HUBO_ROBE; break;
+            case 16:    pid = PID_FOLLOWER_ROBE; break;
+            case 17:    pid = PID_KEEPBRIGE_ROBE; break;
+			case 18:    pid = PID_RUSSIAN_ARMOR; break;
+			case 19:    pid = PID_RANGER_ARMOR; break;
+	}
+	}
+	return pid;
+}
+
+uint tier3helmet()
+{
+	uint pid = PID_PUMP_PARTS;
+	switch(Random(1,4))
+	{
+			case 1:     pid = PID_COMBAT_HELMET_MK_II; break;
+            case 2:     pid = PID_METAL_HELMET_MK2; break;
+            case 3:     pid = PID_GAS_MASK_PVP; break;
+            case 4:     pid = PID_VC_HELMET; break;
+	}
+	return pid;
+}
+
+uint tier3weapon()
+{
+	uint pid = PID_PUMP_PARTS;
+	switch(Random(1,32))
+	{
+			case 1:     pid = PID_ROCKET_LAUNCHER; break;
+            case 2:     pid = PID_PLASMA_RIFLE; break;
+            case 3:     pid = PID_SUPER_CATTLE_PROD; break;
+            case 4:     pid = PID_SUPER_SLEDGE; break;
+            case 5:     pid = PID_SNIPER_RIFLE; break;
+            case 6:     pid = PID_223_PISTOL; break;
+            case 7:     pid = PID_HK_P90C; break;
+            case 8:     pid = PID_HK_CAWS; break;
+            case 9:     pid = PID_MUT_METAL; break;
+            case 10:    pid = PID_LIGHT_SUPPORT_WEAPON; break;
+            case 11:    pid = PID_AVENGER_MINIGUN; break;
+            case 12:    pid = PID_IMPROVED_FLAMETHROWER; break;
+            case 13:    pid = PID_LASER_RIFLE_EXT_CAP; break;
+            case 14:    pid = PID_WAKIZASHI_BLADE; break;
+            case 15:    pid = PID_INDEPENDENT; break;
+            case 16:    pid = PID_GATLING_LASER; break;
+            case 17:    pid = PID_M16; break;
+			case 18:    pid = PID_EL_ROCKET_LAUNCHER; break;
+			case 19:    pid = PID_MEGA_POWER_FIST; break;
+			case 20:    pid = PID_YK32_PULSE_PISTOL; break;
+			case 21:    pid = PID_GRENADE_LAUNCHER; break;
+			case 22:    pid = PID_PLASMA_SMG; break;
+			case 23:    pid = PID_MAGNETO_LASER_PISTOL; break;
+			case 24:    pid = PID_PLASMA_PISTOL_EXT_CART; break;
+			case 25:    pid = PID_NEEDLER_PISTOL; break;
+			case 26:    pid = PID_KNOCKBACK_RIFLE; break;
+			case 27:    pid = PID_14MM_PISTOL; break;
+			case 28:    pid = PID_PANCOR_JACKHAMMER; break;
+			case 29:    pid = PID_M60; break;
+			case 30:    pid = PID_SOLAR_SCORCHER; break;
+			case  31: pid = PID_LIL_JESUS_WEAPON; break;
+			case  32: pid = PID_RIPPER; break;
+	}	
+	
+	
+	return pid;
+}
+
+uint tier3alien()
+{
+	uint pid = PID_PUMP_PARTS;
+	switch(Random(1,8))
+	{
+			case 1:     pid = PID_FIRE_SMG; break;
+            case 2:     pid = PID_TESLA_GATLING; break;
+            case 3:     pid = PID_LASER_LSW; break;
+            case 4:     pid = PID_ELECTRO_RIFLE; break;
+            case 5:     pid = PID_SNIPER_RIFLE_MK2; break;
+            case 6:     pid = PID_SUPER_DUPER_SLEDGE; break;
+            case 7:     pid = PID_AUTOAIM_ROCKET; break;
+            case 8:     pid = PID_PLASMA_FLAMER; break;
+	}	
+	
+	
+	return pid;
+}
+
+uint tier3bp()
+{
+	uint pid = PID_PUMP_PARTS;
+switch(Random(1,70))
+{		
+	case 1:    pid = PID_BLUEPRINT_14MM_PISTOL; break;
+case 2:    pid = PID_BLUEPRINT_NEEDLER_PISTOL ; break;
+case 3:    pid = PID_BLUEPRINT_223_PISTOL      ; break;
+case 4:    pid = PID_BLUEPRINT_ASSAULT_RIFLE      ; break;
+case 5:    pid = PID_BLUEPRINT_FN_FAL             ; break;
+case 6:    pid = PID_BLUEPRINT_SNIPER_RIFLE      ; break;
+case 7:    pid = PID_BLUEPRINT_P90              ; break;
+case 8:    pid = PID_BLUEPRINT_HK_CAWS      ; break;
+case 9:    pid = PID_BLUEPRINT_PANCOR_JACKHAMMER   ; break;
+case 10:    pid = PID_BLUEPRINT_PLASMA_PISTOL     ; break;
+case 11:    pid = PID_BLUEPRINT_LASER_RIFLE          ; break;
+case 12:    pid = PID_BLUEPRINT_PLASMA_RIFLE     ; break;
+case 13:    pid = PID_BLUEPRINT_MEGA_POWER_FIST    ; break;
+case 14:    pid = PID_BLUEPRINT_SUPER_CATTLE_PROD   ; break;
+case 15:    pid = PID_BLUEPRINT_RIPPER               ; break;
+case 16:    pid = PID_BLUEPRINT_ROCKET_LAUNCHER       ; break;
+case 17:    pid = PID_BLUEPRINT_LIGHT_SUPPORT_WEAPON ; break;
+case 18:    pid = PID_BLUEPRINT_MINIGUN             ; break;
+case 19:    pid = PID_BLUEPRINT_PLASMA_GRENADE       ; break;
+case 20:    pid = PID_BLUEPRINT_DYNAMITE            ; break;
+case 21:    pid = PID_BLUEPRINT_PLASTIC_EXPLOSIVES    ; break;
+case 22:    pid = PID_BLUEPRINT_SUPER_SLEDGE        ; break;
+case 23:    pid = PID_BLUEPRINT_IMPROVED_FLAMETHROWER ; break;
+case 24:    pid = PID_BLUEPRINT_INDEPENDENT       ; break;
+case 25:    pid = PID_BLUEPRINT_AVENGER_MINIGUN      ; break;
+
+case 26:    pid = PID_BLUEPRINT_YK32_PULSE_PISTOL   ; break;
+case 27:    pid = PID_BLUEPRINT_FN_FAL_NIGHT_SCOPE   ; break;
+case 28:    pid = PID_BLUEPRINT_SOLAR_SCORCHER      ; break;
+
+// Blueprints, armours, ST_ARMOR_BLUEPRINTS
+case 29:    pid = PID_BLUEPRINT_METAL_ARMOR_MK_II    ; break;
+case 30:    pid = PID_BLUEPRINT_METAL_ARMOR_MK_III    ; break;
+case 31:    pid = PID_BLUEPRINT_TESLA_ARMOR          ; break;
+case 32:    pid = PID_BLUEPRINT_COMBAT_ARMOR         ; break;
+
+case 33:    pid = PID_BLUEPRINT_COMBAT_ARMOR_MK_II   ; break;
+case 34:    pid = PID_BLUEPRINT_BROTHERHOOD_COMBAT_ARMOR ; break;
+case 35:    pid = PID_BLUEPRINT_ENCLAVE_COMBAT_ARMOR ; break;
+case 36:    pid = PID_BLUEPRINT_DESERT_COMBAT_ARMOR  ; break;
+case 37:    pid = PID_BLUEPRINT_NCR_ARMOR            ; break;
+
+case 38:    pid = PID_BLUEPRINT_FIREGECKO_JACKET 		; break;
+case 39:    pid = PID_BLUEPRINT_INFERNO_ARMOR 			; break;
+case 40:    pid = PID_BLUEPRINT_LAMK2 					; break;
+case 41:    pid = PID_BLUEPRINT_COMBAT_JACKET 		; break;
+case 42:    pid = PID_BLUEPRINT_MUT_ARMOR		; break;
+case 43:    pid = PID_BLUEPRINT_CLOTHES_POLICE	; break;
+case 44:    pid = PID_BLUEPRINT_LASER_SPEAR; break;
+case 45:    pid = PID_BLUEPRINT_PLASMA_SMG; break;
+case 46:    pid = PID_BLUEPRINT_HEALING_NEEDLER_AMMO; break;
+case 47:    pid = PID_BLUEPRINT_EFC	; break;
+
+// Blueprints, misc, ST_MISC_BLUEPRINTS
+case 48:    pid = PID_BLUEPRINT_SUPER_STIMPAK   ; break;
+case 49:    pid = PID_BLUEPRINT_STIMPAK          ; break;
+case 50:    pid = PID_BLUEPRINT_JET          ; break;
+case 51:    pid = PID_BLUEPRINT_BUFFOUT         ; break;
+case 52:    pid = PID_BLUEPRINT_MENTATS          ; break;
+case 53:    pid = PID_BLUEPRINT_PSYCHO        ; break;
+case 54:    pid = PID_BLUEPRINT_RADAWAY          ; break;
+case 55:    pid = PID_BLUEPRINT_RADX           ; break;
+case 56:    pid = PID_BLUEPRINT_PID_HYPO          ; break;
+case 57:    pid = PID_BLUEPRINT_JET_ANTIDOTE        ; break;
+case 58:    pid = PID_BLUEPRINT_SHOTGUN_DRAGON_BREATH_SHELLS ; break;
+case 59:    pid = PID_BLUEPRINT_ROBO_ROCKET_AMMO     ; break;
+case 60:    pid = PID_BLUEPRINT_4_7MM_CASELESS   ; break;
+case 61:    pid = PID_BLUEPRINT_2MM_EC_AMMO      ; break;
+case 62:    pid = PID_BLUEPRINT_PULSE_GRENADE     ; break;
+case 63:    pid = PID_BLUEPRINT_GATLING_LASER    ; break;
+
+//fo3 bp
+case 64:    pid = PID_BLUEPRINT_M16	; break;
+case 65:    pid = PID_BLUEPRINT_EL_ROCKET_LAUNCHER	; break;
+
+case 66:    pid =  PID_BLUEPRINT_SHOCK_GRENADE ; break;
+case 67:    pid = PID_BLUEPRINT_GUM  ; break;
+case 68:    pid = PID_BLUEPRINT_MUTIE  ; break;
+case 69:    pid = PID_BLUEPRINT_VOODOO ; break;
+	case 70:    pid =  PID_BLUEPRINT_SENSOR ; break;
+}
+	
+	return pid;
+}
+
+uint tier3drugs()
+{
+	uint pid = PID_PUMP_PARTS;
+	if(week_patch<4)
+	{
+	switch(Random(1,27))
+	{	
+	//Preparations
+	case 1:    pid = PID_STIMPAK; break;
+	case 2:    pid = PID_RADAWAY; break;
+	case 3:    pid =  PID_ANTIDOTE; break;
+	case 4:    pid =  PID_RAD_X; break;
+	case 5:    pid =  PID_SUPER_STIMPAK; break;
+	case 6:    pid =  PID_JET_ANTIDOTE; break;
+
+//Alcohol
+	case 7:    pid =  PID_NUKA_COLA; break;
+	case 8:    pid =  PID_BEER; break;
+	case 9:    pid =  PID_BOOZE; break;
+	case 10:    pid =  PID_GAMMA_GULP_BEER; break;
+	case 11:    pid =  PID_ROENTGEN_RUM; break;
+	case 12:    pid =  PID_ROT_GUT; break;
+
+//Drug
+	case 13:    pid =  PID_MENTATS; break;
+	case 14:    pid =  PID_BUFFOUT; break;
+	case 15:    pid =  PID_PSYCHO; break;
+	case 16:    pid =  PID_JET; break;
+	case 17:    pid =  PID_GUM; break;
+	case 18:    pid =  PID_MUTIE; break;
+	case 19:    pid =  PID_VOODOO; break;
+	case 20:    pid =  PID_HEALING_POWDER; break;
+//cannibal drug
+	case 21:    pid =  PID_BLOODPACK; break;
+	case 22:    pid =  PID_HEART; break;
+	case 23:    pid =  PID_LIVER; break;
+	case 24:    pid =  PID_BRAIN; break;
+	case 25:    pid =  PID_EAR; break;
+	case 26:    pid =  PID_EYE; break;
+	case 27:    pid =  PID_CIGARETTES; break;
+	}
+	}
+	else	
+	{
+	switch(Random(1,11))
+	{	
+	//Preparations
+	case 1:    pid = PID_STIMPAK; break;
+	case 2:    pid = PID_RADAWAY; break;
+	case 3:    pid =  PID_ANTIDOTE; break;
+	case 4:    pid =  PID_RAD_X; break;
+	case 5:    pid =  PID_NUKA_COLA; break;
+	case 6:    pid =  PID_BEER; break;
+	case 7:    pid =  PID_BOOZE; break;
+	case 8:    pid =  PID_GAMMA_GULP_BEER; break;
+	case 9:    pid =  PID_ROENTGEN_RUM; break;
+	case 10:    pid =  PID_ROT_GUT; break;
+	case 11:    pid =  PID_CIGARETTES; break;
+	}
+	}
+	return pid;
+}
+
+uint tier3ammo()
+{
+	uint pid = PID_PUMP_PARTS;
+		
+	//Bullets
+	if(week_patch<4)
+		return tierlowammo();
+	switch(Random(1,20))
+	{	
+            case 1:    pid =  PID_5MM_AP; break;
+            case 2:    pid =  PID_7_62MM_AMMO; break;
+            case 3:   pid =   PID_10MM_AP; break;
+            case 4:   pid =   PID_14MM_AP; break;
+            case 5:   pid =   PID_223_FMJ; break;
+            case 6:  pid =    PID_SHOTGUN_SHELLS_SLUG; break;
+            case 7:   pid =   PID_SHOTGUN_SHELLS_EMP; break;
+            case 8:  pid =    PID_40MM_GRENADE; break;
+            case 9:  pid =    PID_ROCKET_AP; break;
+            case 10: pid =     PID_EL_ROCKET; break;
+            case 11:  pid =    PID_RAD_ROCKET; break;
+            case 12:  pid =    PID_FLAMETHROWER_FUEL_MK_II; break;
+            case 13:  pid =    PID_SMALL_ENERGY_CELL; break;
+            case 14:  pid =    PID_MICRO_FUSION_CELL; break;
+            case 15:  pid =    PID_HN_NEEDLER_CARTRIDGE; break;
+            case 16:  pid =    PID_HN_AP_NEEDLER_CARTRIDGE; break;
+			case 17:  pid =    PID_MOLOTOV_COCKTAIL; break;
+			case 18:  pid =    PID_FRAG_GRENADE; break;
+			case 19:  pid =    PID_PLASMA_GRENADE; break;
+			case 20:  pid =    PID_SHOCK_GRENADE; break;
+	}
+	
+	return pid;
+}
+
+uint tierlowammo()
+{
+	uint pid = PID_PUMP_PARTS;
+		
+	//Bullets
+	switch(Random(1,13))
+	{	
+            case 1:    pid =  PID_5MM_JHP; break;
+            case 2:    pid =  PID_9MM_AMMO; break;
+            case 3:   pid =   PID_9MM_BALL; break;
+            case 4:   pid =   PID_10MM_JHP; break;
+            case 5:   pid =   PID_44_MAGNUM_JHP; break;
+            case 6:  pid =    PID_45_CALIBER_AMMO; break;
+            case 7:   pid =   PID_SHOTGUN_SHELLS_FLECHETTE; break;
+            case 8:  pid =    PID_SHOTGUN_SHELLS; break;
+            case 9:  pid =    PID_EXPLOSIVE_ROCKET; break;
+            case 10: pid =     PID_FLAMETHROWER_FUEL; break;
+            case 11:  pid =    PID_SEC; break;
+            case 12:  pid =    PID_BBS; break;
+            case 13:  pid =    PID_HN_NEEDLER_CARTRIDGE; break;
+	}
+	
+	return pid;
+}
+
+uint tier4parts()
+{
+	uint pid = PID_PUMP_PARTS;
+		switch(Random(1,37))
+		{	
+				case 1:     pid = PID_ABSORBER; break;
+            case 2:     pid = PID_ADVANCED_SHELL; break;
+            case 3:     pid = PID_CARBON_POLYMER; break;
+            case 4:     pid = PID_CYLINDRICAL_LOCK; break;
+            case 5:     pid = PID_ELECTRIC_AMPLIFIER; break;
+            case 6:     pid = PID_ELECTROMAGNETIC; break;
+            case 7:     pid = PID_HIFLO; break;
+            case 8:     pid = PID_PA_FUEL; break;
+            case 9:     pid = PID_PLASMA_ACCELERATOR; break;
+            case 10:    pid = PID_PLASMA_PARTS; break;
+            case 11:    pid = PID_ROTARY_CHAMBER; break;
+            case 12:    pid = PID_SERVOMOTORS; break;
+            case 13:    pid = PID_PA_SHELL; break;
+            case 14:    pid = PID_BIOGEL_ADV_NEW; break;
+            case 15:    pid = PID_TECH_DELINER; break;
+            case 16:    pid = PID_TECH_ELE_ENGINE   ; break;
+            case 17:    pid = PID_TECH_SEMI_TRIGGER; break;
+            case 18:    pid = PID_TECH_GUN_CONTROL; break;
+            case 19:    pid = PID_TECH_AUTO_TRIGGER; break;
+            case 20:    pid = PID_TECH_MECH_ENGINE; break;
+            case 21:    pid = PID_TECH_SCOPE; break;
+            case 22:    pid = PID_TECH_MICROCHIPS; break;
+            case 23:    pid = PID_TECH_CONDEN; break;
+            case 24:    pid = PID_TECH_TRANSFORMATOR; break;
+            case 25:    pid = PID_TECH_ELE_WIRES; break;
+            case 26:    pid = PID_TECH_PLASMA; break;
+            case 27:    pid = PID_ARM_CERAMIC; break;
+            case 28:    pid = PID_ARM_KEVLAR; break;
+            case 29:    pid = PID_ARM_CARBON; break;
+            case 30:    pid = PID_ARM_GORETEX; break;
+            case 31:    pid = PID_ARM_LEATHER_HIDE; break;
+            case 32:    pid = PID_ARM_POLYMER; break;
+            case 33:    pid = PID_ARM_POLYMER_ADV   ; break;
+            case 34:    pid = PID_ARM_POLYMER_LASER; break;
+            case 35:    pid = PID_ARM_POLYCARBONITE; break;
+            case 36:    pid = PID_ARM_STEEL; break;
+            case 37:    pid = PID_GUNPOWDER3; break;
+		}
+	
+	return pid;
+}
+
+uint tier4bp()
+{
+	uint pid = PID_PUMP_PARTS;
+		switch(Random(1,23))
+		{	
+	     case 1:    pid = PID_BLUEPRINT_BOZAR             ; break;
+         case 2:    pid = PID_BLUEPRINT_M203                 ; break;
+         case 3:    pid = PID_BLUEPRINT_VINDICATOR_MINIGUN   ; break;
+         case 4:    pid = PID_BLUEPRINT_TURBO_PLASMA_RIFLE   ; break;
+         case 5:    pid = PID_BLUEPRINT_YK42B_PULSE_RIFLE    ; break;
+         case 6:    pid = PID_BLUEPRINT_HK_G11               ; break;
+         case 7:    pid = PID_BLUEPRINT_HK_G11E             ; break;
+         case 8:    pid = PID_BLUEPRINT_PK12_GAUSS_PISTOL   ; break;
+         case 9:    pid = PID_BLUEPRINT_M72_GAUSS_RIFLE     ; break;
+         case 10:    pid = PID_BLUEPRINT_POWER_HELMET         ; break;
+         case 11:    pid = PID_BLUEPRINT_HARDENED_POWER_HELMET ; break;
+         case 12:    pid = PID_BLUEPRINT_ADVANCED_POWER_HELMET ; break;
+         case 13:    pid = PID_BLUEPRINT_ADVANCED_POWER_HELMET_MK2 ; break;
+         case 14:    pid = PID_BLUEPRINT_POWERED_ARMOR      ; break;
+         case 15:    pid = PID_BLUEPRINT_HARDENED_POWER_ARMOR ; break;
+         case 16:    pid = PID_BLUEPRINT_ADVANCED_POWER_ARMOR  ; break;
+         case 17:    pid = PID_BLUEPRINT_ADVANCED_POWER_ARMOR_MK2 ; break;
+         case 18:    pid = PID_BLUEPRINT_SAIGA_12          ; break;
+         case 19:    pid = PID_BLUEPRINT_NAPALM ; break;
+         case 20:    pid =  PID_BLUEPRINT_SNEAK_ARMOR  ; break;
+         case 21:    pid =  PID_BLUEPRINT_MEGA_SLEDGE ; break;
+         case 22:    pid =  PID_BLUEPRINT_AK47  ; break;
+         case 23:    pid =  PID_BLUEPRINT_PLASMA_GATLING ; break;
+	}
+	return pid;
+}
+
+uint tier4item()
+{
+	uint pid = PID_PUMP_PARTS;
+	switch(Random(1,25))
+		{		
+	case 1:    pid =  PID_POWER_HELMET ; break;
+	case 2:    pid =   PID_SNEAK_ARMOR ; break;
+	case 3:    pid =   PID_AK47 ; break;
+	case 4:    pid =   PID_MEGA_SLEDGE ; break;
+	case 5:    pid =   PID_APA_HELMET; break;
+	case 6:    pid =  PID_APA_HELMET_MK2 ; break;
+	case 7:    pid =   PID_HARDENED_POWER_HELMET ; break;
+	case 8:    pid =   PID_HK_G11E ; break;
+	case 9:    pid =   PID_POWERED_ARMOR ; break;
+	case 10:    pid =   PID_HARDENED_POWER_ARMOR ; break;
+	case 11:    pid =   PID_HK_G11; break;
+    case 12:    pid =   PID_ADVANCED_POWER_ARMOR ; break;
+	case 13:    pid =   PID_ADVANCED_POWER_ARMOR_MK2 ; break;
+	case 14:    pid =   PID_PK12_GAUSS_PISTOL ; break;
+	case 15:    pid =   PID_M72_GAUSS_RIFLE; break;
+    case 16:    pid =   PID_VINDICATOR_MINIGUN ; break; 
+	case 17:    pid =   PID_BOZAR ; break;
+	case 18:    pid =   PID_ALIEN_LASER_PISTOL ; break;
+	case 19:    pid =   PID_TURBO_PLASMA_RIFLE; break;
+	case 20:    pid =   PID_YK42B_PULSE_RIFLE; break;
+	case 21:    pid =   PID_PLASMA_GATLING ; break;
+	case 22:    pid =   PID_SAIGA12 ; break;
+	case 23:    pid =   PID_M203  ; break;
+	case 24:    pid =   PID_PLASMA_TORCH ; break;
+	case 25:    pid =   PID_NAPALM; break;
+		}
+	return pid;
+}
+
+uint tier4ammo()
+{
+	uint pid = PID_PUMP_PARTS;
+		
+	 switch (Random(3,12))
+            {
+            case 3:     pid =   PID_HYPO; break;
+            case 4:     pid =   PID_MFC_MK2; break;
+            case 5:     pid =   PID_2MM_EC_AMMO; break;
+            case 6:     pid =   PID_4_7MM_CASELESS; break;
+            case 7:     pid =   PID_SHOTGUN_DRAGON_BREATH_SHELLS; break;
+            case 8:     pid =   PID_HN_HEAL_NEEDLER_CARTRIDGE; break;
+			case 9:     pid =   PID_40MM_GRENADE_FIRE; break;
+			case 10:     pid =   PID_40MM_GRENADE_ICE; break;
+			case 11:     pid =   PID_223_AP; break;
+			case 12:     pid =   PID_7_62MM_AP; break;
+            }
+	if(week_patch<8 && pid == PID_HYPO)
+		return PID_HN_HEAL_NEEDLER_CARTRIDGE;
+	return pid;
+}
+
+uint rareitem()
+{
+	uint pid = PID_PUMP_PARTS;
+		switch (Random(1,20))
+            {
+	        case 1:     pid = PID_VAULT_TEC_BOX; break;
+            case 2:     pid = PID_VAULT_TEC_BOX; break;
+            case 3:     pid = PID_MOTION_SENSOR; break;
+            case 4:     pid = PID_STEALTH_BOY; break;
+            case 5:    pid = PID_PULSE_GRENADE; break;
+            case 6:     pid = PID_VAULT_TEC_BOX; break;
+            case 7:     pid = PID_V13_KEY; break;
+            case 8:     pid = PID_HOWITZER_SHELL; break;
+            case 9:     pid = PID_MAP_TO_DUNG1; break;
+            case 10:     pid = PID_SECURITY_CARD; break;
+			case 11:     pid = PID_PIP_BOY_MEDICAL_ENHANCER; break;
+			case 12:     pid = PID_FINGER_LOCK; break;
+			case 13:     pid = PID_WATER_CHIP; break;
+			case 14:     pid = PID_CAR_FUEL_CELL_CONTROLLER; break;
+			case 15:     pid = PID_MAP_EMPTY; break;
+			case 16:     pid = PID_WATTZ_FUSION_CORE; break;
+			case 17:     pid = PID_VYNIL1; break;
+			case 18:     pid = PID_VYNIL2; break;
+			case 19:     pid = PID_VYNIL3; break;
+			case 20:     pid = PID_BLACK_COC_BADGE; break;
+			}
+	
+	return pid;
+}
+
+uint implant()
+{
+	uint pid = PID_PUMP_PARTS;
+		switch (Random(1,8))
+            {
+	        case 1:     pid = PID_IMPLANT_STRENGTH; break;
+            case 2:     pid = PID_IMPLANT_PERCEPTION; break;
+            case 3:     pid = PID_IMPLANT_ENDURANCE; break;
+            case 4:     pid = PID_IMPLANT_CHARISMA; break;
+            case 5:     pid = PID_IMPLANT_INTELLIGENCE; break;
+            case 6:     pid = PID_IMPLANT_AGILITY; break;
+            case 7:     pid = PID_IMPLANT_LUCK; break;
+            case 8:     pid = PID_MAP_TO_DUNG4; break;
+			}
+	return pid;
+}
+
+uint implant_combat()
+{
+	uint pid = PID_PUMP_PARTS;
+		
+	        switch (Random(1,9))
+            {
+            case 1:     pid = PID_IMPLANT_AGRO; break;
+            case 2:     pid = PID_IMPLANT_DRAGON; break;
+            case 3:     pid = PID_IMPLANT_TIGER; break;
+            case 4:     pid = PID_IMPLANT_CLAW; break;
+            case 5:     pid = PID_IMPLANT_TACTICS; break;
+            case 6:     pid = PID_IMPLANT_NEMEAN; break;
+            case 7:     pid = PID_IMPLANT_DERMAL; break;
+            case 8:     pid = PID_IMPLANT_PHOENIX; break;
+            case 9:     pid = PID_MAP_TO_DUNG3; break;
+            }
+	
+	return pid;
+}
+
+uint verti_parts()
+{
+	uint pid = PID_PUMP_PARTS;
+		
+	switch(Random(1,5)) //tier IV
+        {
+        case 1: pid = PID_VERTIBIRD_PLANS; break;
+        case 2: pid = PID_NAVCOM_PARTS; break;
+        case 3: pid = PID_EXCAVATOR_CHIP; break;
+        case 4: pid = PID_MOTIVATOR; break;
+        case 5: pid = PID_CAR_FUEL_INJECTION; break;
+        }
+	
+	return pid;
+}
+
+uint currency()
+{
+	uint pid = PID_PUMP_PARTS;
+		
+	switch(Random(1,4)) //tier IV
+        {
+        case 1: pid = PID_BOS_MONEY; break;
+        case 2: pid = PID_ENCLAVE_MONEY; break;
+        case 3: pid = PID_VC_MONEY; break;
+        case 4: pid = PID_NCR_MONEY; break;
+       // case 5: pid = PID_MA_MONEY; break;
+        }
+	
+	return pid;
+}
+//TODO
+uint low_tier()
+{
+	uint pid = PID_PUMP_PARTS;
+	switch(Random(1,57)) //tier IV
+        {
+	    case  1: pid = PID_LEATHER_JACKET; break;
+        case  2: pid = PID_LEATHER_ARMOR ; break;
+        case  3: pid = PID_METAL_ARMOR ; break;
+        case  4: pid = PID_COMBAT_ARMOR; break;
+        case  5: pid = PID_WORN_ROBE   ; break;
+        case  6: pid = PID_BLUE_ROBE ; break;
+        case  7: pid = PID_RED_ROBE  ; break;
+        case  8: pid = PID_GRAY_ROBE ; break;
+        case  9: pid = PID_ZIP_GUN    ; break;
+        case  10: pid = PID_9MM_MAUSER   ; break;
+        case  11: pid = PID_10MM_PISTOL  ; break;
+        case  12: pid = PID_DESERT_EAGLE   ; break;
+        case  13: pid = PID_DESERT_EAGLE_EXT_MAG    ; break;
+        case  14: pid = PID_44_MAGNUM_REVOLVER   ; break;
+        case  15: pid = PID_44_MAGNUM_SPEEDLOADER; break;
+        case  16: pid = PID_GRENADE_PISTOL	; break;
+        case  17: pid = PID_HUNTING_RIFLE       ; break;
+        case  18: pid = PID_SCOPED_HUNTING_RIFLE  ; break;
+        case  19: pid = PID_SPRINGER_RIFLE      ; break;
+        case  20: pid = PID_ASSAULT_RIFLE     ; break;
+        case  21: pid = PID_ASSAULT_RIFLE_EXT_MAG; break;
+        case  22: pid = PID_FN_FAL        ; break;
+        case  23: pid = PID_FN_FAL_NIGHT_SCOPE  ; break;
+        case  24: pid = PID_FN_FAL_HPFA     ; break;
+        case  25: pid = PID_RED_RYDER_BB_GUN    ; break;
+        case  26: pid = PID_RED_RYDER_LE_BB_GUN  ; break;
+        case  27: pid = PID_JONNY_BB_GUN    ; break;
+        case  28: pid = PID_SHOTGUN      ; break;
+        case  29: pid = PID_SAWED_OFF_SHOTGUN  ; break;
+        case  30: pid = PID_COMBAT_SHOTGUN    ; break;
+        case  31: pid = PID_10MM_SMG        ; break;
+        case  32: pid = PID_TOMMY_GUN           ; break;
+        case  33: pid = PID_GREASE_GUN          ; break;
+        case  34: pid = PID_FLAMER             ; break;
+        case  35: pid = PID_LASER_PISTOL        ; break;
+        case  36: pid = PID_LASER_RIFLE          ; break;
+        case  37: pid = PID_PLASMA_PISTOL       ; break;
+        case  38: pid = PID_KNIFE                ; break;
+        case  39: pid = PID_COMBAT_KNIFE       ; break;
+
+        case  40: pid = PID_SHIV               ; break;
+        case  41: pid = PID_SWITCHBLADE          ; break;
+        case  42: pid = PID_SPEAR               ; break;
+        case  43: pid = PID_SHARP_SPEAR        ; break;
+        case  44: pid = PID_SHARPENED_POLE        ; break;
+        case  45: pid = PID_CLUB                ; break;
+        case  46: pid = PID_CROWBAR                ; break;
+        case  47: pid = PID_WRENCH             ; break;
+        case  48: pid = PID_SLEDGEHAMMER         ; break;
+        case  49: pid = PID_CATTLE_PROD         ; break;
+        case  50: pid = PID_BOXING_GLOVES        ; break;
+        case  51: pid = PID_PLATED_BOXING_GLOVES  ; break;
+        case  52: pid = PID_RING_BOXING_GLOVES      ; break;
+        case  53: pid = PID_RING_PLATED_BOXING_GLOVES ; break;
+        case  54: pid = PID_POWER_FIST               ; break;
+		case  55: pid = PID_MINIGUN            ; break;
+        case  56: pid = PID_BRASS_KNUCKLES        ; break;
+        case  57: pid = PID_SPIKED_KNUCKLES       ; break;
+	}
+	
+	return pid;
+}
+
+uint books()
+{
+	uint pid = PID_PUMP_PARTS;
+	switch(Random(1,16)) //tier IV
+        {
+        case 1: pid = PID_BIG_BOOK_OF_SCIENCE; break;
+        case 2: pid = PID_DEANS_ELECTRONICS; break;
+        case 3: pid = PID_FIRST_AID_BOOK; break;
+        case 4: pid = PID_SCOUT_HANDBOOK; break;
+        case 5: pid = PID_GUNS_AND_BULLETS; break;
+		case 6: pid = PID_BARTER_BOOK; break;
+		case 7: pid = PID_BG_BOOK; break;
+		case 8: pid = PID_DOCTOR_BOOK; break;
+		case 9: pid = PID_EW_BOOK; break;
+		case 10: pid = PID_SNEAK_BOOK; break;
+		case 11: pid = PID_STEAL_BOOK; break;
+		case 12: pid = PID_LOCKPICK_BOOK; break;
+		case 13: pid = PID_THROWING_BOOK; break;
+		case 14: pid = PID_TRAPS_BOOK; break;
+		case 15: pid = PID_CLOSE_COMBAT_BOOK; break;
+				case 16: pid = PID_CATS_PAW; break;
+        }	
+	
+	
+	return pid;
+}
+
+uint mats()
+{
+	uint pid = PID_PUMP_PARTS;
+	switch(Random(1,20)) //tier IV
+        {
+        case 1: pid = PID_METAL_PARTS2; break;
+        case 2: pid = PID_GUNPOWDER2; break;
+        case 3: pid = PID_FIREGECKO_PELT; break;
+        case 4: pid = PID_CHEMICALS; break;
+        case 5: pid = PID_ALLOYS2; break;
+
+		case 6: pid = PID_METAL_PARTS; break;
+		case 7: pid = PID_BRAHMIN_HIDE; break;
+		case 8: pid = PID_ALLOYS; break;
+		case 9: pid = PID_ELECTRONIC_PARTS; break;
+		case 10: pid = PID_CHEMICALS2; break;
+		case 11: pid = PID_FIREWOOD; break;
+		case 12: pid = PID_FLINT; break;
+		case 13: pid = PID_JUNK; break;
+		case 14: pid = PID_EMPTY_JET; break;
+		case 15: pid = PID_GUNPOWDER; break;
+		case 16: pid = PID_GECKO_PELT; break;
+		case 17: pid = PID_GOLDEN_GECKO_PELT; break;
+		case 18: pid = PID_FIBER; break;
+		case 19: pid = PID_REFINED_ORE; break;
+		case 20: pid = PID_BRAHMINSHIT; break;
+        }		
+	
+	
+	return pid;
+}
+
+uint misc()
+{
+	uint pid = PID_PUMP_PARTS;
+	switch(Random(1,118)) //tier IV
+        {	
+					case 1:    pid = PID_BALL_GAG; break;
+                    case 2:   pid = PID_FIBRE2; break;
+                    case 3:    pid = PID_ELECTRONIC_PARTS           ; break;
+                    case 4:    pid = PID_CHEMICALS                ; break;
+                     case 5:   pid = PID_QUESTIONNAIRE                ; break;
+                     case 6:   pid = PID_ELECTRONIC_PARTS          ; break;
+                     case 7:   pid = PID_ALLOYS                       ; break;
+                     case 8:   pid = PID_BRAHMIN_HIDE              ; break;
+                     case 9:   pid = PID_METAL_PARTS            ; break;
+                     case 10:   pid = PID_DAY_PASS2            ; break;
+                     case 11:   pid = PID_BOUNTY_DOG_TAG               ; break;
+                     case 12:   pid = PID_LOST_HILLS_DISK         ; break;
+                     case 13:   pid = PID_BOS_DISK                   ; break;
+                     case 14:   pid = PID_PROCESSED_BOS_DISK   ; break;
+                     case 15:   pid = PID_FIBER                    ; break;
+                     case 16:  pid = PID_ALLOYS2         ; break;
+                     case 17:  pid = PID_CHEMICALS         ; break;
+                     case 18:  pid = PID_FIREGECKO_PELT    ; break;
+                     case 19:  pid = PID_GUNPOWDER2        ; break;
+                     case 20:  pid = PID_FIBRE2          ; break;
+                     case 21:  pid = PID_ORE2           ; break;
+                     case 22:  pid = PID_MINERALS2         ; break;
+                     case 23:  pid = PID_TOBACCO            ; break;
+                     case 24:  pid = PID_METAL_PARTS2        ; break;
+                     case 25:  pid = PID_CAR_REPLACEMENT_PARTS   ; break;
+                     case 26:  pid = PID_ELECTRONIC_PARTS2    ; break;
+                     case 27:  pid = PID_CHEMICALS2         ; break;
+                     case 28:  pid = PID_BARLEY    ; break;
+
+                     case 29:  pid = PID_LOCKPICKS   ; break;
+                     case 30:  pid = PID_LOCK           ; break;
+                     case 31:  pid = PID_FIRST_AID_KIT      ; break;
+                     case 32:  pid = PID_FIELD_MEDIC_KIT  ; break;
+                     case 33:  pid = PID_DOCTORS_BAG   ; break;
+                     case 34:  pid = PID_PARAMEDICS_BAG ; break;
+                     case 35:  pid = PID_SHOVEL ; break;
+                     case 36:  pid = PID_PLANK; break;
+                     case 37: pid = PID_AXE; break;
+					case 38:  pid = PID_WATER_BAG; break;
+                    case 39:   pid = PID_CLOTHES_SCIENTIST1; break;
+                    case 40:   pid = PID_CLOTHES_SCIENTIST2; break;
+                    case 41:   pid = PID_CLOTHES_ELEGANT_SUIT; break;
+                    case 42:   pid = PID_CLOTHES_DOCTOR; break;
+                    case 43:   pid = PID_CLOTHES_FAT1; break;
+                    case 44:   pid = PID_SF_COMBAT_JACKET; break;
+                    case 45:   pid = PID_MORDINO_METAL_JACKET; break;
+					
+					case 46:   pid = PID_SCORPION_EGG; break;
+					case 47:   pid = PID_SCORPION_TAIL; break;
+					case 48:   pid = PID_ROPE; break;
+					case 49:   pid = PID_BROC_FLOWER; break;
+					case 50:   pid = PID_XANDER_ROOT; break;
+					case 51:   pid = PID_MEAT_JERKY; break;
+					case 52:   pid = PID_RADSCORPION_PARTS; break;
+					case 53:   pid = PID_HYPODERMIC_NEEDLE; break;
+					case 54:   pid = PID_EMPTY_JET; break;
+					case 55:   pid = PID_BOTTLE_GLASS; break;
+					case 56:   pid = PID_BOTTLE_EMPTY; break;
+					case 57:   pid = PID_PART_OF_ROPE; break;
+					case 58:   pid = PID_METAL_TRASH; break;
+					case 59:   pid = PID_BONES; break;
+					case 60:   pid = PID_GOLD_TOOTH; break;
+					case 61:   pid = PID_MULTI_TOOL; break;
+					case 62:   pid = PID_LIGHTER; break;
+					case 63:   pid = PID_FLOWER; break;
+					case 64:   pid = PID_WATER_FLASK; break;
+					case 65:   pid = PID_BOX_OF_NOODLES; break;
+					case 66:   pid = PID_FROZEN_DINNER; break;
+					case 67:   pid = PID_RUBBER_BOOTS; break;
+					case 68:   pid = PID_CHEEZY_POOFS; break;
+					case 69:   pid = PID_BLUE_CONDOM; break;
+					case 70:   pid = PID_GREEN_CONDOM; break;
+					case 71:   pid = PID_RED_CONDOM; break;
+					case 72:   pid = PID_COSMETIC_CASE; break;
+					case 73:   pid = PID_DICE; break;
+					case 74:   pid = PID_LOADED_DICE; break;
+					case 75:   pid = PID_DECK_OF_CARDS; break;
+					case 76:   pid = PID_MARKED_DECK_OF_CARDS; break;
+					case 77:   pid = PID_DAISIES; break;
+					case 78:   pid = PID_URN; break;
+
+					case 79:     pid = PID_WIPES; break;
+					case 80:     pid = PID_DRIED_LEAVES; break;
+					case 81:     pid = PID_EMPTY_LIQUOR; break;
+					case 82:     pid = PID_CLEANER; break;
+					case 83:     pid = PID_PIPE; break;
+					case 84:     pid = PID_KETTLE; break;
+					case 85:     pid = PID_SPIRAL; break;
+					case 86:     pid = PID_PLASTIC_BOTTLE; break;
+					case 87:     pid = PID_MONKEY_WRENCH; break;
+					case 88:     pid = PID_TOXIC_MUSHROOM; break;
+					case 89:     pid = PID_CRACKED_GLASSES; break;
+					case 90:     pid = PID_TOY; break;
+					case 91:     pid = PID_SHAMPOO; break;
+					case 92:     pid = PID_SALT; break;
+					case 93:     pid = PID_TIN_ROLL; break;
+					case 94:     pid = PID_METAL_TUBE; break;
+					case 95:     pid = PID_PLUNGER; break;
+					case 96:     pid = PID_CAP; break;
+					case 97:     pid = PID_COWBOY_HAT; break;
+					case 98:     pid = PID_FEDORA_BLACK; break;
+					case 99:     pid = PID_FEDORA_WHITE; break;
+					case 100:    pid = PID_BLACK_GLASSES; break;
+					case 101:    pid = PID_GOLF_CLUB; break;
+					case 102:     pid = PID_BULDER_HAT; break;
+					case 103:     pid = PID_COFEDERATE_HAT; break;
+					case 104:     pid = PID_WEIRD_GLASSES; break;
+					case 105:     pid = PID_FERBA_BLU; break;
+					case 106:     pid = PID_FERBA_EMPTY; break;
+					case 107:     pid = PID_FERBA_YELLOW; break;
+					case 108:     pid = PID_POT; break;
+					case 109:     pid = PID_SPOON; break;
+					case 110:     pid = PID_LEAVES; break;
+					case 111:     pid = PID_SCISSORS; break;
+					case 112:     pid = PID_BOOTS; break;
+					case 113:     pid = PID_PHOTO_CAMERA; break;
+					case 114:     pid = PID_GOLDEN_RING; break;
+					case 115:     pid = PID_NECKLACE; break;
+					case 116:     pid = PID_CATS_PAW; break;
+					case 117:     pid = PID_CATS_PAW_ISSUE_5; break;
+					case 118:     pid = PID_BECKY_BOOK; break;
+				}
+	
+	return pid;
+}
+
+
+
+
+//bools
+
+bool istier3armor(uint pid)
+{
+	switch(pid)
+	{
+			case PID_COMBAT_ARMOR_MK_II:    
+            case PID_CURED_LEATHER_ARMOR:    
+            case PID_LEATHER_ARMOR_MK_II:
+            case PID_FIREGECKO_JACKET:     
+            case PID_METAL_ARMOR_MK_II: 
+            case PID_TESLA_ARMOR:    
+            case PID_INFERNO_ARMOR: 
+            case PID_METAL_ARMOR_MK_III:  
+            case PID_MUT_METAL:        
+            case PID_BROTHERHOOD_COMBAT_ARMOR:
+            case PID_ENCLAVE_COMBAT_ARMOR:       
+            case PID_DESERT_COMBAT_ARMOR:       
+            case PID_NCR_ARMOR:       
+            case PID_CLOTHES_POLICE:       
+            case PID_HUBO_ROBE:       
+            case PID_FOLLOWER_ROBE:       
+            case PID_KEEPBRIGE_ROBE:       
+			case PID_RUSSIAN_ARMOR:       
+			case PID_RANGER_ARMOR: 
+			        case PID_SALVATORIES_ARMOR:
+        case PID_BISHOPS_ARMOR              :
+        case PID_WRITHS_ARMOR              :
+        case PID_MORDINOS_ARMOR     :
+			return true;	
+	}
+	return false;
+}
+
+bool istier3helmet(uint pid)
+{
+	switch(pid)
+	{
+			case PID_COMBAT_HELMET_MK_II:        
+            case PID_METAL_HELMET_MK2:        
+            case PID_GAS_MASK_PVP:        
+            case PID_VC_HELMET:      
+				return true;
+	}
+	return false;
+}
+
+bool istier3weapon(uint pid)
+{
+	switch(pid)
+	{
+			case PID_ROCKET_LAUNCHER:        
+            case PID_PLASMA_RIFLE:        
+            case PID_SUPER_CATTLE_PROD:        
+            case PID_SUPER_SLEDGE:        
+            case PID_SNIPER_RIFLE:        
+            case PID_223_PISTOL:        
+            case PID_HK_P90C:        
+            case PID_HK_CAWS:        
+            case PID_MUT_METAL:        
+            case PID_LIGHT_SUPPORT_WEAPON:       
+            case PID_AVENGER_MINIGUN:       
+            case PID_IMPROVED_FLAMETHROWER:       
+            case PID_LASER_RIFLE_EXT_CAP:       
+            case PID_WAKIZASHI_BLADE:       
+            case PID_INDEPENDENT:       
+            case PID_GATLING_LASER:       
+            case PID_M16:       
+			case PID_EL_ROCKET_LAUNCHER:       
+			case PID_MEGA_POWER_FIST:       
+			case PID_YK32_PULSE_PISTOL:       
+			case PID_GRENADE_LAUNCHER:       
+			case PID_PLASMA_SMG:       
+			case PID_MAGNETO_LASER_PISTOL:       
+			case PID_PLASMA_PISTOL_EXT_CART:       
+			case PID_NEEDLER_PISTOL:       
+			case PID_KNOCKBACK_RIFLE:       
+			case PID_14MM_PISTOL:       
+			case PID_PANCOR_JACKHAMMER:       
+			case PID_M60:       
+			case PID_RIPPER               :
+			case PID_SOLAR_SCORCHER:  
+			case PID_LIL_JESUS_WEAPON:
+			return true;			
+	}	
+	
+	
+	return false;
+}
+
+bool istier3bp(uint pid)
+{
+
+switch(pid)
+{		
+	case PID_BLUEPRINT_14MM_PISTOL:       
+case PID_BLUEPRINT_NEEDLER_PISTOL:        
+case PID_BLUEPRINT_223_PISTOL:             
+case PID_BLUEPRINT_ASSAULT_RIFLE:             
+case PID_BLUEPRINT_FN_FAL:                    
+case PID_BLUEPRINT_SNIPER_RIFLE:             
+case PID_BLUEPRINT_P90:                     
+case PID_BLUEPRINT_HK_CAWS:             
+case PID_BLUEPRINT_PANCOR_JACKHAMMER:          
+case PID_BLUEPRINT_PLASMA_PISTOL:            
+case PID_BLUEPRINT_LASER_RIFLE:                 
+case PID_BLUEPRINT_PLASMA_RIFLE:            
+case PID_BLUEPRINT_MEGA_POWER_FIST:           
+case PID_BLUEPRINT_SUPER_CATTLE_PROD:          
+case PID_BLUEPRINT_RIPPER:                      
+case PID_BLUEPRINT_ROCKET_LAUNCHER:              
+case PID_BLUEPRINT_LIGHT_SUPPORT_WEAPON:        
+case PID_BLUEPRINT_MINIGUN:                    
+case PID_BLUEPRINT_PLASMA_GRENADE:              
+case PID_BLUEPRINT_DYNAMITE:                   
+case PID_BLUEPRINT_PLASTIC_EXPLOSIVES:           
+case PID_BLUEPRINT_SUPER_SLEDGE:               
+case PID_BLUEPRINT_IMPROVED_FLAMETHROWER:        
+case PID_BLUEPRINT_INDEPENDENT:              
+case PID_BLUEPRINT_AVENGER_MINIGUN:             
+
+case PID_BLUEPRINT_YK32_PULSE_PISTOL:          
+case PID_BLUEPRINT_FN_FAL_NIGHT_SCOPE:          
+case PID_BLUEPRINT_SOLAR_SCORCHER:             
+
+// Blueprints, armours, ST_ARMOR_BLUEPRINTS
+case PID_BLUEPRINT_METAL_ARMOR_MK_II:           
+case PID_BLUEPRINT_METAL_ARMOR_MK_III:           
+case PID_BLUEPRINT_TESLA_ARMOR:                 
+case PID_BLUEPRINT_COMBAT_ARMOR:                
+
+case PID_BLUEPRINT_COMBAT_ARMOR_MK_II:          
+case PID_BLUEPRINT_BROTHERHOOD_COMBAT_ARMOR:        
+case PID_BLUEPRINT_ENCLAVE_COMBAT_ARMOR:        
+case PID_BLUEPRINT_DESERT_COMBAT_ARMOR:         
+case PID_BLUEPRINT_NCR_ARMOR:                   
+
+case PID_BLUEPRINT_FIREGECKO_JACKET:       		 
+case PID_BLUEPRINT_INFERNO_ARMOR:       			 
+case PID_BLUEPRINT_LAMK2:       					 
+case PID_BLUEPRINT_COMBAT_JACKET:       		 
+case PID_BLUEPRINT_MUT_ARMOR:      		 
+case PID_BLUEPRINT_CLOTHES_POLICE:      	 
+case PID_BLUEPRINT_LASER_SPEAR:       
+case PID_BLUEPRINT_PLASMA_SMG:       
+case PID_BLUEPRINT_HEALING_NEEDLER_AMMO:       
+case PID_BLUEPRINT_EFC:      	 
+
+// Blueprints, misc, ST_MISC_BLUEPRINTS
+case PID_BLUEPRINT_SUPER_STIMPAK:          
+case PID_BLUEPRINT_STIMPAK:                 
+case PID_BLUEPRINT_JET:                 
+case PID_BLUEPRINT_BUFFOUT:                
+case PID_BLUEPRINT_MENTATS:                 
+case PID_BLUEPRINT_PSYCHO:               
+case PID_BLUEPRINT_RADAWAY:                 
+case PID_BLUEPRINT_RADX:                  
+case PID_BLUEPRINT_PID_HYPO:                 
+case PID_BLUEPRINT_JET_ANTIDOTE:               
+case PID_BLUEPRINT_SHOTGUN_DRAGON_BREATH_SHELLS:        
+case PID_BLUEPRINT_ROBO_ROCKET_AMMO:            
+case PID_BLUEPRINT_4_7MM_CASELESS:          
+case PID_BLUEPRINT_2MM_EC_AMMO:             
+case PID_BLUEPRINT_PULSE_GRENADE:            
+case PID_BLUEPRINT_GATLING_LASER:           
+
+//fo3 bp
+case PID_BLUEPRINT_M16:      	 
+case PID_BLUEPRINT_EL_ROCKET_LAUNCHER:      	 
+
+case PID_BLUEPRINT_SHOCK_GRENADE:         
+case PID_BLUEPRINT_GUM:         
+case PID_BLUEPRINT_MUTIE:         
+case PID_BLUEPRINT_VOODOO:        
+	case PID_BLUEPRINT_SENSOR:    
+return true;	
+}
+	
+	return false;
+}
+
+bool istier3drugs(uint pid)
+{
+	switch(pid)
+	{	
+	//Preparations
+	case PID_STIMPAK:       
+	case PID_RADAWAY:       
+	case PID_ANTIDOTE:        
+	case PID_RAD_X:        
+	case PID_SUPER_STIMPAK:        
+	case PID_JET_ANTIDOTE:        
+
+//Alcohol
+	case PID_NUKA_COLA:        
+	case PID_BEER:        
+	case PID_BOOZE:        
+	case PID_GAMMA_GULP_BEER:        
+	case PID_ROENTGEN_RUM:        
+	case PID_ROT_GUT:        
+
+//Drug
+	case PID_MENTATS:        
+	case PID_BUFFOUT:        
+	case PID_PSYCHO:        
+	case PID_JET:        
+	case PID_GUM:        
+	case PID_MUTIE:        
+	case PID_VOODOO:        
+	case PID_HEALING_POWDER:        
+//cannibal drug
+	case PID_BLOODPACK:        
+	case PID_HEART:        
+	case PID_LIVER:        
+	case PID_BRAIN:        
+	case PID_EAR:        
+	case PID_EYE:        
+	case PID_CIGARETTES:   
+		return true;	
+	}
+	return false;
+}
+
+bool istier3ammo(uint pid)
+{
+		
+	//Bullets
+	switch(pid)
+	{	
+            case PID_5MM_AP:        
+            case PID_7_62MM_AMMO:        
+            case PID_10MM_AP:        
+            case PID_14MM_AP:        
+            case PID_223_FMJ:        
+            case PID_SHOTGUN_SHELLS_SLUG:        
+            case PID_SHOTGUN_SHELLS_EMP:        
+            case PID_40MM_GRENADE:        
+            case PID_ROCKET_AP:        
+            case PID_EL_ROCKET:        
+            case PID_RAD_ROCKET:        
+            case PID_FLAMETHROWER_FUEL_MK_II:        
+            case PID_SMALL_ENERGY_CELL:        
+            case PID_MICRO_FUSION_CELL:        
+            case PID_HN_NEEDLER_CARTRIDGE:        
+            case PID_HN_AP_NEEDLER_CARTRIDGE:        
+			case PID_MOLOTOV_COCKTAIL:        
+			case PID_FRAG_GRENADE:        
+			case PID_PLASMA_GRENADE:        
+			case PID_SHOCK_GRENADE:      
+				return true;
+	}
+	
+	return false;
+}
+
+bool istierlowammo(uint pid)
+{
+		
+	//Bullets
+	switch(pid)
+	{	
+            case PID_5MM_JHP:        
+            case PID_9MM_AMMO:        
+            case PID_9MM_BALL:        
+            case PID_10MM_JHP:        
+            case PID_44_MAGNUM_JHP:        
+            case PID_45_CALIBER_AMMO:        
+            case PID_SHOTGUN_SHELLS_FLECHETTE:        
+            case PID_SHOTGUN_SHELLS:        
+            case PID_EXPLOSIVE_ROCKET:        
+            case PID_FLAMETHROWER_FUEL:        
+            case PID_SEC:        
+            case PID_BBS:        
+            case PID_HN_NEEDLER_CARTRIDGE:  
+				return true;
+	}
+	
+	return false;
+}
+
+bool istier4parts(uint pid)
+{
+		switch(pid)
+		{	
+				case PID_ABSORBER:        
+            case PID_ADVANCED_SHELL:        
+            case PID_CARBON_POLYMER:        
+            case PID_CYLINDRICAL_LOCK:        
+            case PID_ELECTRIC_AMPLIFIER:        
+            case PID_ELECTROMAGNETIC:        
+            case PID_HIFLO:        
+            case PID_PA_FUEL:        
+            case PID_PLASMA_ACCELERATOR:        
+            case PID_PLASMA_PARTS:       
+            case PID_ROTARY_CHAMBER:       
+            case PID_SERVOMOTORS:       
+            case PID_PA_SHELL:       
+            case PID_BIOGEL_ADV_NEW:       
+            case PID_TECH_DELINER:       
+            case PID_TECH_ELE_ENGINE:          
+            case PID_TECH_SEMI_TRIGGER:       
+            case PID_TECH_GUN_CONTROL:       
+            case PID_TECH_AUTO_TRIGGER:       
+            case PID_TECH_MECH_ENGINE:       
+            case PID_TECH_SCOPE:       
+            case PID_TECH_MICROCHIPS:       
+            case PID_TECH_CONDEN:       
+            case PID_TECH_TRANSFORMATOR:       
+            case PID_TECH_ELE_WIRES:       
+            case PID_TECH_PLASMA:       
+            case PID_ARM_CERAMIC:       
+            case PID_ARM_KEVLAR:       
+            case PID_ARM_CARBON:       
+            case PID_ARM_GORETEX:       
+            case PID_ARM_LEATHER_HIDE:       
+            case PID_ARM_POLYMER:       
+            case PID_ARM_POLYMER_ADV:          
+            case PID_ARM_POLYMER_LASER:       
+            case PID_ARM_POLYCARBONITE:       
+            case PID_ARM_STEEL:       
+            case PID_GUNPOWDER3:  return true;     
+		}
+	
+	return false;
+}
+
+bool istier4bp(uint pid)
+{
+		switch(pid)
+		{	
+	     case PID_BLUEPRINT_BOZAR:                    
+         case PID_BLUEPRINT_M203:                        
+         case PID_BLUEPRINT_VINDICATOR_MINIGUN:          
+         case PID_BLUEPRINT_TURBO_PLASMA_RIFLE:          
+         case PID_BLUEPRINT_YK42B_PULSE_RIFLE:           
+         case PID_BLUEPRINT_HK_G11:                      
+         case PID_BLUEPRINT_HK_G11E:                    
+         case PID_BLUEPRINT_PK12_GAUSS_PISTOL:          
+         case PID_BLUEPRINT_M72_GAUSS_RIFLE:            
+         case PID_BLUEPRINT_POWER_HELMET:                
+         case PID_BLUEPRINT_HARDENED_POWER_HELMET:        
+         case PID_BLUEPRINT_ADVANCED_POWER_HELMET:        
+         case PID_BLUEPRINT_ADVANCED_POWER_HELMET_MK2:        
+         case PID_BLUEPRINT_POWERED_ARMOR:             
+         case PID_BLUEPRINT_HARDENED_POWER_ARMOR:        
+         case PID_BLUEPRINT_ADVANCED_POWER_ARMOR:         
+         case PID_BLUEPRINT_ADVANCED_POWER_ARMOR_MK2:        
+         case PID_BLUEPRINT_SAIGA_12:                 
+         case PID_BLUEPRINT_NAPALM:        
+         case PID_BLUEPRINT_SNEAK_ARMOR:          
+         case PID_BLUEPRINT_MEGA_SLEDGE:         
+         case PID_BLUEPRINT_AK47:          
+         case PID_BLUEPRINT_PLASMA_GATLING:     return true;    
+	}
+	return false;
+}
+
+bool istier4item(uint pid)
+{
+	switch(pid)
+		{		
+	case PID_POWER_HELMET:         
+	case PID_SNEAK_ARMOR:          
+	case PID_AK47:          
+	case PID_MEGA_SLEDGE:          
+	case PID_APA_HELMET:         
+	case PID_APA_HELMET_MK2:         
+	case PID_HARDENED_POWER_HELMET:          
+	case PID_HK_G11E:          
+	case PID_POWERED_ARMOR:          
+	case PID_HARDENED_POWER_ARMOR:          
+	case PID_HK_G11:         
+    case PID_ADVANCED_POWER_ARMOR:          
+	case PID_ADVANCED_POWER_ARMOR_MK2:          
+	case PID_PK12_GAUSS_PISTOL:          
+	case PID_M72_GAUSS_RIFLE:         
+    case PID_VINDICATOR_MINIGUN:           
+	case PID_BOZAR:          
+	case PID_ALIEN_LASER_PISTOL:          
+	case PID_TURBO_PLASMA_RIFLE:         
+	case PID_YK42B_PULSE_RIFLE:         
+	case PID_PLASMA_GATLING:          
+	case PID_SAIGA12:          
+	case PID_M203:           
+	case PID_PLASMA_TORCH:          
+	case PID_NAPALM:     return true;    
+		}
+	return false;
+}
+
+bool istier4ammo(uint pid)
+{
+		
+	 switch (pid)
+            {
+            case PID_HYPO:          
+            case PID_MFC_MK2:          
+            case PID_2MM_EC_AMMO:          
+            case PID_4_7MM_CASELESS:          
+            case PID_SHOTGUN_DRAGON_BREATH_SHELLS:          
+            case PID_HN_HEAL_NEEDLER_CARTRIDGE:          
+			case PID_40MM_GRENADE_FIRE:          
+			case PID_40MM_GRENADE_ICE:          
+			case PID_223_AP:          
+			case PID_7_62MM_AP:  return true;        
+            }
+	
+	return false;
+}
+
+bool israreitem(uint pid)
+{
+		switch (pid)
+            {
+	        case PID_VAULT_TEC_BOX:        
+            case PID_MOTION_SENSOR:        
+            case PID_STEALTH_BOY:        
+            case PID_PULSE_GRENADE:       
+            case PID_V13_KEY:        
+            case PID_HOWITZER_SHELL:        
+            case PID_MAP_TO_DUNG1:        
+            case PID_SECURITY_CARD:        
+			case PID_PIP_BOY_MEDICAL_ENHANCER:        
+			case PID_FINGER_LOCK:        
+			case PID_WATER_CHIP:        
+			case PID_CAR_FUEL_CELL_CONTROLLER:        
+			case PID_MAP_EMPTY: 
+			case PID_MAP_TO_DUNG3:
+			case PID_MAP_TO_DUNG4: return true;     
+			}
+	
+	return false;
+}
+
+bool isimplant(uint pid)
+{
+		switch (pid)
+            {
+	        case PID_IMPLANT_STRENGTH:        
+            case PID_IMPLANT_PERCEPTION:        
+            case PID_IMPLANT_ENDURANCE:        
+            case PID_IMPLANT_CHARISMA:        
+            case PID_IMPLANT_INTELLIGENCE:        
+            case PID_IMPLANT_AGILITY:        
+            case PID_IMPLANT_LUCK:        
+            return true;     
+			}
+	return false;
+}
+
+bool isimplant_combat(uint pid)
+{
+
+		
+	        switch (pid)
+            {
+            case PID_IMPLANT_AGRO:        
+            case PID_IMPLANT_DRAGON:        
+            case PID_IMPLANT_TIGER:        
+            case PID_IMPLANT_CLAW:        
+            case PID_IMPLANT_TACTICS:        
+            case PID_IMPLANT_NEMEAN:        
+            case PID_IMPLANT_DERMAL:        
+            case PID_IMPLANT_PHOENIX:        
+            case PID_IMPLANT_EMP:  return true;      
+            }
+	
+	return false;
+}
+
+bool isverti_parts(uint pid)
+{
+		
+	switch(pid) //tier IV
+        {
+        case PID_VERTIBIRD_PLANS:    
+        case PID_NAVCOM_PARTS:    
+        case PID_EXCAVATOR_CHIP:    
+        case PID_MOTIVATOR:    
+        case PID_CAR_FUEL_INJECTION:    return true;
+        }
+	
+	return false;
+}
+
+bool iscurrency(uint pid)
+{
+		
+	switch(pid) //tier IV
+        {
+        case PID_BOS_MONEY:    
+        case PID_ENCLAVE_MONEY:    
+        case PID_VC_MONEY:    
+        case PID_NCR_MONEY:    
+        case PID_MA_MONEY:    
+		case PID_BOTTLE_CAPS:  
+		case PID_DOLLAR: return true;
+        }
+	
+	return false;
+}
+//TODO
+bool islow_tier(uint pid)
+{
+	switch(pid)
+		{
+		        case PID_LEATHER_JACKET        :
+        case PID_LEATHER_ARMOR          :
+        case PID_METAL_ARMOR      :
+        case PID_COMBAT_ARMOR:
+        case PID_WORN_ROBE       :
+        case PID_BLUE_ROBE :
+        case PID_RED_ROBE   :
+        case PID_GRAY_ROBE :
+        case PID_ZIP_GUN      :
+        case PID_9MM_MAUSER    :
+        case PID_10MM_PISTOL   :
+        case PID_DESERT_EAGLE   :
+        case PID_DESERT_EAGLE_EXT_MAG      :
+        case PID_44_MAGNUM_REVOLVER     :
+        case PID_44_MAGNUM_SPEEDLOADER:
+        case PID_GRENADE_PISTOL		:
+        case PID_HUNTING_RIFLE         :
+        case PID_SCOPED_HUNTING_RIFLE        :
+        case PID_SPRINGER_RIFLE       :
+        case PID_ASSAULT_RIFLE         :
+        case PID_ASSAULT_RIFLE_EXT_MAG     :
+        case PID_FN_FAL                   :
+        case PID_FN_FAL_NIGHT_SCOPE       :
+        case PID_FN_FAL_HPFA             :
+        case PID_RED_RYDER_BB_GUN         :
+        case PID_RED_RYDER_LE_BB_GUN     :
+        case PID_JONNY_BB_GUN           :
+        case PID_SHOTGUN                :
+        case PID_SAWED_OFF_SHOTGUN      :
+        case PID_COMBAT_SHOTGUN          :
+        case PID_10MM_SMG              :
+        case PID_TOMMY_GUN                :
+        case PID_GREASE_GUN             :
+        case PID_FLAMER                       :
+        case PID_LASER_PISTOL             :
+        case PID_LASER_RIFLE               :
+        case PID_PLASMA_PISTOL         :
+        case PID_KNIFE                   :
+        case PID_COMBAT_KNIFE             :
+        case PID_LIL_JESUS_WEAPON         :
+        case PID_SHIV                   :
+        case PID_SWITCHBLADE             :
+        case PID_SPEAR                   :
+        case PID_SHARP_SPEAR              :
+        case PID_SHARPENED_POLE            :
+        case PID_CLUB                       :
+        case PID_CROWBAR                  :
+        case PID_WRENCH                    :
+        case PID_SLEDGEHAMMER            :
+        case PID_CATTLE_PROD              :
+        case PID_BOXING_GLOVES           :
+        case PID_PLATED_BOXING_GLOVES    :
+        case PID_RING_BOXING_GLOVES        :
+        case PID_RING_PLATED_BOXING_GLOVES :
+        case PID_POWER_FIST               :
+		case PID_MINIGUN               :
+        case PID_BRASS_KNUCKLES           :
+        case PID_SPIKED_KNUCKLES         :	return true;
+		}
+	return false;
+}
+
+bool isHelmet(uint pid)
+{
+	switch(pid)
+		{
+        case PID_COMBAT_HELMET              :
+        case PID_COMBAT_HELMET_MK_II        :
+        case PID_BROTHERHOOD_HELMET          :
+        case PID_LEATHER_JACKET_HELMET        :
+        case PID_COMBAT_LEATHER_JACKET_HELMET   :
+        case PID_LEATHER_ARMOR_HELMET        :
+        case PID_LEATHER_ARMOR_HELMET_MK2   :
+        case PID_METAL_HELMET              :
+        case PID_METAL_HELMET_MK2           :
+        case PID_TESLA_HELMET            :
+        case PID_ENCLAVE_COMBAT_HELMET       :
+        case PID_ENCLAVE_COMBAT_HELMET_MK2   :
+        case PID_DESERT_COMBAT_HELMET      :
+        case PID_NCR_HELMET               :
+        case PID_GAS_MASK_PVP         :
+        case PID_VC_HELMET             : return true;
+		}
+	return false;
+}
+
+

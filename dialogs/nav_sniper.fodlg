@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+65507 2010 #
+65507 2020 #
+65507 2030 &
+
+[engl]
+{100}{}{Enclave Sniper}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What a... The heck are you doing here?}
+{2010}{}{Ups... I better go. [ Attack ]}
+{2020}{}{Uh... Ehm... [ Attack ]}
+{2030}{}{I AM YOUR DOOM! [ Attack ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What a... The heck are you doing here?}
+{2010}{}{Ups... I better go.}
+{2020}{}{Uh... Ehm...}
+{2030}{}{I AM YOUR DOOM!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What a... The heck are you doing here?}
+{2010}{}{Ups... I better go.}
+{2020}{}{Uh... Ehm...}
+{2030}{}{I AM YOUR DOOM!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What a... The heck are you doing here?}
+{2010}{}{Ups... I better go.}
+{2020}{}{Uh... Ehm...}
+{2030}{}{I AM YOUR DOOM!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What a... The heck are you doing here?}
+{2010}{}{Ups... I better go.}
+{2020}{}{Uh... Ehm...}
+{2030}{}{I AM YOUR DOOM!}
+

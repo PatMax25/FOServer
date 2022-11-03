@@ -1,0 +1,93 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// logging_critter.fos
+//
+
+#include "_macros.fos"
+#include "logging_h.fos"
+#include "utils_h.fos"
+
+void LogAction(Critter& cr, string& s)
+{
+
+}
+
+void _ShowCritter(Critter& cr, Critter& showCrit)
+{
+
+}
+
+void _HideCritter(Critter& cr, Critter& hideCrit)
+{
+
+}
+
+bool _Attacked(Critter& cr, Critter& attacker)
+{
+
+    return false;
+}
+
+bool _Attack(Critter& cr, Critter& target)
+{
+
+    return false;
+}
+
+void _SomeoneStealing(Critter& cr, Critter& fromCr, Critter& thief, bool success, Item& item, uint count)
+{
+
+}
+
+void _SomeoneDied(Critter& cr, Critter& killed, Critter@ killer)
+{
+
+}
+
+void _SomeoneAttack(Critter& cr, Critter& fromCr, Critter& target)
+{
+
+}
+
+string GetOnText(Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+    string text = "on ";
+
+
+    return(text);
+}
+
+string SayHow(int sayType, int possessedId)
+{
+    string str = "";
+
+    return str;
+}
+
+void unsafe_Say(Critter& cr, int sayType, int possessedId, int p2, string@ sayString, array<int>@ param4)
+{
+    // LogAction(cr, GetCritterInfo(cr) + " said \""+sayString+"\" "+SayHow(sayType,possessedId));
+}
+
+void unsafe_Ping(Critter& cr, int sayType, int possessedId, int p2, string@ sayString, array<int>@ param4)
+{
+
+}
+
+void _SomeoneUseSkill(Critter& cr, Critter& fromCr, int skill, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+    
+	
+}
+
+void _DropItem(Critter& cr, Item& item)
+{
+   
+}
+
+void SetCritterEvents(Critter& cr)
+{
+
+}

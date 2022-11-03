@@ -1,0 +1,180 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 #
+10 2010 D _param p ST_BAG_ID = 113 #
+4 2020 D _var p reactor_parker = 0 #
+5 2030 D _var p reactor_parker = 1 D _item p PID_BEER } 1 R _var p reactor_parker = 2 R _param p ST_EXPERIENCE + 450 R _item p PID_BEER - 1 #
+7 2040 D _var p reactor_parker = 2 #
+8 2050 D _var p reactor_parker = 2 #
+0 2060 #
+11 2070 D _var p reactor_parker = 2 @
+4 3000 None 0 #
+0 3010 R _var p reactor_parker = 1 #
+0 3020 @
+5 4000 None 0 #
+3 4010 @
+7 5000 None 0 #
+8 5010 #
+3 5020 @
+8 6000 None 0 #
+9 6010 #
+3 6020 @
+9 7000 None 0 #
+3 7010 @
+10 8000 None 0 @
+11 9000 None 0 #
+3 9010 &
+
+[engl]
+{100}{}{Parker}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo, welcome to Reactor 58. The best settlement in miles around. What is that you want, bud?}
+{2010}{}{[ Reactor Punks ] Yo, Parker. Mind if I get inside?}
+{2020}{}{Hey there. I wish to know about...}
+{2030}{}{Here is your beer.}
+{2040}{}{What's your actual name?}
+{2050}{}{What is this place?}
+{2060}{}{Alright, I will be going.}
+{2070}{}{What is that huge ranch over there about?}
+{3000}{}{Look, bud... Before any questions I would really love to ask you for a favor, alright? The day is hot and I would really love a cold one. How about you bring me some beer first and then we chat?}
+{3010}{}{Alright, I will bring you your beer.}
+{3020}{}{Fuck no. Go and buy it yourself. I am leaving now.}
+{4000}{}{Ah great, that's how you make friends around, bud. [ He gulps from the beer bottle ]}
+{4010}{}{Right, so let's discuss something.}
+{5000}{}{Name's Parker. I am something like a "guard's captain" only I don't command anyone here. These fine men are free to do whatever they want. [ He points at the guards near him ]}
+{5010}{}{And what is this place?}
+{5020}{}{Let's discuss other things.}
+{6000}{}{This is Reactor 58, bud. Once it used to be a small village called Sarmatia, but we decided to change few things around. This is most lovely and attractive place in the entire California. And not only because you can find all sorts of lovely people here, but because it is completely policy free. No NCR, Brotherhood, Enclave or shit like that.}
+{6010}{}{What about the Brotherhood of Steel guy living near that graveyard?}
+{6020}{}{Well said. Let's talk about something else.}
+{7000}{}{Ah that guy... Well he just wanders around his booth outside of our settlement's walls, so we don't mind him. He actually visits our bars every weekend and from what people say, he tips everyone quite well. So we are ok about this guy. He seems to be pretty decent, despite being a Brotherhood knight.}
+{7010}{}{Right, let's switch the topic.}
+{8000}{}{Come in, buddy. People say that Mr. Dork sells some cheap booze today. You got my tip.@@Get in, bud. Did you hear about the 2 lovely ladies from Reno? I heard they are damn hot.@@Aye, my mate. Get in, get in!@@Salute, bud. Anything new in the outside world, eh?}
+{9000}{}{There is some big guy living there. Some "businessman". Our local head has some deal with him, so... All what I can say is that that guy is pretty shady... and has a big house for sure.}
+{9010}{}{Alright, let me ask you one more thing...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo, welcome to Reactor 58. The best settlement in miles around. What is that you want, bud?}
+{2010}{}{[ Reactor Punks ] Yo, Parker. Mind if I get inside?}
+{2020}{}{Hey there. I wish to know about...}
+{2030}{}{Here is your beer.}
+{2040}{}{What's your actual name?}
+{2050}{}{What is this place?}
+{2060}{}{Alright, I will be going.}
+{2070}{}{What is that huge ranch over there about?}
+{3000}{}{Look, bud... Before any question I would really love to ask you for a favour, alright? The day is hot and I would really love a bottle of cold one. How about you bring me some beer first and then we shall chat?}
+{3010}{}{Alright, I will bring you your beer.}
+{3020}{}{Fuck no. Go and buy it yourself. I am leavig now.}
+{4000}{}{Ah great, that's how you make friends around, bud. [ He gulps from the beer bottle ]}
+{4010}{}{Right, so let's discuss something.}
+{5000}{}{Name's Parker. I am something like a "guard's captain" with only difference that I don't command anyone here. These fine men are free to do whatever they want. [ He points at the guards near him ]}
+{5010}{}{And what is this place?}
+{5020}{}{Let's discuss other things.}
+{6000}{}{This is Reactor 58, bud. Once it used to be a small village called Sarmatia, but we decided to change few things around. This is most lovely and attractive place in the entire California. And not only because you can find all sorts of lovely people here, but because it is completely policy free. No NCR, Brotherhood, Enclave or shit like that.}
+{6010}{}{What about Brotherhood of Steel guy living near that graveyard?}
+{6020}{}{Well said. Let's talk about something else.}
+{7000}{}{Ah that guy... Well he just wonders in his booth outside of our settlement's walls, so we don't mind him. He actually visits our bars every weekend and from what people say, he tips everyone quite well. So we are ok about this guy. He seems to be pretty decent, despite being a Brotherhood knight.}
+{7010}{}{Right, let's switch the topic.}
+{8000}{}{Come in, buddy. People say that Mr. Dork sells some cheap booze today. You got my tip.@@Get in, bud. Did you hear about these 2 lovely ladies from Reno? I heard they are damn hot.@@Aye, my mate. Get in, get in!@@Salute, bud. Anything new in the outside world, eh?}
+{9000}{}{There is some big guy living there. Some "businessman". Our local head has some deal with him, so... All what I can say is that that guy is pretty shady... and has a big house for sure.}
+{9010}{}{Alright, let me ask you one more thing...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo, welcome to Reactor 58. The best settlement in miles around. What is that you want, bud?}
+{2010}{}{[ Reactor Punks ] Yo, Parker. Mind if I get inside?}
+{2020}{}{Hey there. I wish to know about...}
+{2030}{}{Here is your beer.}
+{2040}{}{What's your actual name?}
+{2050}{}{What is this place?}
+{2060}{}{Alright, I will be going.}
+{2070}{}{What is that huge ranch over there about?}
+{3000}{}{Look, bud... Before any question I would really love to ask you for a favour, alright? The day is hot and I would really love a bottle of cold one. How about you bring me some beer first and then we shall chat?}
+{3010}{}{Alright, I will bring you your beer.}
+{3020}{}{Fuck no. Go and buy it yourself. I am leavig now.}
+{4000}{}{Ah great, that's how you make friends around, bud. [ He gulps from the beer bottle ]}
+{4010}{}{Right, so let's discuss something.}
+{5000}{}{Name's Parker. I am something like a "guard's captain" with only difference that I don't command anyone here. These fine men are free to do whatever they want. [ He points at the guards near him ]}
+{5010}{}{And what is this place?}
+{5020}{}{Let's discuss other things.}
+{6000}{}{This is Reactor 58, bud. Once it used to be a small village called Sarmatia, but we decided to change few things around. This is most lovely and attractive place in the entire California. And not only because you can find all sorts of lovely people here, but because it is completely policy free. No NCR, Brotherhood, Enclave or shit like that.}
+{6010}{}{What about Brotherhood of Steel guy living near that graveyard?}
+{6020}{}{Well said. Let's talk about something else.}
+{7000}{}{Ah that guy... Well he just wonders in his booth outside of our settlement's walls, so we don't mind him. He actually visits our bars every weekend and from what people say, he tips everyone quite well. So we are ok about this guy. He seems to be pretty decent, despite being a Brotherhood knight.}
+{7010}{}{Right, let's switch the topic.}
+{8000}{}{Come in, buddy. People say that Mr. Dork sells some cheap booze today. You got my tip.@@Get in, bud. Did you hear about these 2 lovely ladies from Reno? I heard they are damn hot.@@Aye, my mate. Get in, get in!@@Salute, bud. Anything new in the outside world, eh?}
+{9000}{}{There is some big guy living there. Some "businessman". Our local head has some deal with him, so... All what I can say is that that guy is pretty shady... and has a big house for sure.}
+{9010}{}{Alright, let me ask you one more thing...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo, welcome to Reactor 58. The best settlement in miles around. What is that you want, bud?}
+{2010}{}{[ Reactor Punks ] Yo, Parker. Mind if I get inside?}
+{2020}{}{Hey there. I wish to know about...}
+{2030}{}{Here is your beer.}
+{2040}{}{What's your actual name?}
+{2050}{}{What is this place?}
+{2060}{}{Alright, I will be going.}
+{2070}{}{What is that huge ranch over there about?}
+{3000}{}{Look, bud... Before any question I would really love to ask you for a favour, alright? The day is hot and I would really love a bottle of cold one. How about you bring me some beer first and then we shall chat?}
+{3010}{}{Alright, I will bring you your beer.}
+{3020}{}{Fuck no. Go and buy it yourself. I am leavig now.}
+{4000}{}{Ah great, that's how you make friends around, bud. [ He gulps from the beer bottle ]}
+{4010}{}{Right, so let's discuss something.}
+{5000}{}{Name's Parker. I am something like a "guard's captain" with only difference that I don't command anyone here. These fine men are free to do whatever they want. [ He points at the guards near him ]}
+{5010}{}{And what is this place?}
+{5020}{}{Let's discuss other things.}
+{6000}{}{This is Reactor 58, bud. Once it used to be a small village called Sarmatia, but we decided to change few things around. This is most lovely and attractive place in the entire California. And not only because you can find all sorts of lovely people here, but because it is completely policy free. No NCR, Brotherhood, Enclave or shit like that.}
+{6010}{}{What about Brotherhood of Steel guy living near that graveyard?}
+{6020}{}{Well said. Let's talk about something else.}
+{7000}{}{Ah that guy... Well he just wonders in his booth outside of our settlement's walls, so we don't mind him. He actually visits our bars every weekend and from what people say, he tips everyone quite well. So we are ok about this guy. He seems to be pretty decent, despite being a Brotherhood knight.}
+{7010}{}{Right, let's switch the topic.}
+{8000}{}{Come in, buddy. People say that Mr. Dork sells some cheap booze today. You got my tip.@@Get in, bud. Did you hear about these 2 lovely ladies from Reno? I heard they are damn hot.@@Aye, my mate. Get in, get in!@@Salute, bud. Anything new in the outside world, eh?}
+{9000}{}{There is some big guy living there. Some "businessman". Our local head has some deal with him, so... All what I can say is that that guy is pretty shady... and has a big house for sure.}
+{9010}{}{Alright, let me ask you one more thing...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yo, welcome to Reactor 58. The best settlement in miles around. What is that you want, bud?}
+{2010}{}{[ Reactor Punks ] Yo, Parker. Mind if I get inside?}
+{2020}{}{Hey there. I wish to know about...}
+{2030}{}{Here is your beer.}
+{2040}{}{What's your actual name?}
+{2050}{}{What is this place?}
+{2060}{}{Alright, I will be going.}
+{2070}{}{What is that huge ranch over there about?}
+{3000}{}{Look, bud... Before any question I would really love to ask you for a favour, alright? The day is hot and I would really love a bottle of cold one. How about you bring me some beer first and then we shall chat?}
+{3010}{}{Alright, I will bring you your beer.}
+{3020}{}{Fuck no. Go and buy it yourself. I am leavig now.}
+{4000}{}{Ah great, that's how you make friends around, bud. [ He gulps from the beer bottle ]}
+{4010}{}{Right, so let's discuss something.}
+{5000}{}{Name's Parker. I am something like a "guard's captain" with only difference that I don't command anyone here. These fine men are free to do whatever they want. [ He points at the guards near him ]}
+{5010}{}{And what is this place?}
+{5020}{}{Let's discuss other things.}
+{6000}{}{This is Reactor 58, bud. Once it used to be a small village called Sarmatia, but we decided to change few things around. This is most lovely and attractive place in the entire California. And not only because you can find all sorts of lovely people here, but because it is completely policy free. No NCR, Brotherhood, Enclave or shit like that.}
+{6010}{}{What about Brotherhood of Steel guy living near that graveyard?}
+{6020}{}{Well said. Let's talk about something else.}
+{7000}{}{Ah that guy... Well he just wonders in his booth outside of our settlement's walls, so we don't mind him. He actually visits our bars every weekend and from what people say, he tips everyone quite well. So we are ok about this guy. He seems to be pretty decent, despite being a Brotherhood knight.}
+{7010}{}{Right, let's switch the topic.}
+{8000}{}{Come in, buddy. People say that Mr. Dork sells some cheap booze today. You got my tip.@@Get in, bud. Did you hear about these 2 lovely ladies from Reno? I heard they are damn hot.@@Aye, my mate. Get in, get in!@@Salute, bud. Anything new in the outside world, eh?}
+{9000}{}{There is some big guy living there. Some "businessman". Our local head has some deal with him, so... All what I can say is that that guy is pretty shady... and has a big house for sure.}
+{9010}{}{Alright, let me ask you one more thing...}
+

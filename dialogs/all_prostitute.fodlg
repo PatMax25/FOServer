@@ -1,0 +1,49 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Prostitute}
+{200}{}{You see a prostitute.}
+{210}{}{You see a… lady of the evening. Her tattered clothes are draped seductively around her body.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{My name's Easy. What's yours?@@Need a little company?@@Let me teach you some things only a woman can teach.@@Need someone to warm your tent?@@Need someone to share your bedroll?@@You've got some hot-rocks there, pal.@@Lookin' for some action?@@Looking for a date?@@Looking for some company?@@Wanna dance?@@New stranger in town, looks like…@@Wanna fly?@@Let me cheer you up!@@Not much of a rhind on you...@@Been walking this street since last night...@@Need a friend for the evening, or even just ten minutes?@@Looking for a good time?@@Looking to go down-town?@@Need a guide around town, sugar?@@You're cute!@@You came here to see me, didn't you?@@I'll take half price if you supply the Jet.@@What, you think there's a better way? Ha!@@Psst, look over here! What do you think? Nice, eh?@@You want one of the classy ones, don't you?@@I hope it's not another one of those raiders!@@I hope the next one is better looking.@@I haven't slept in four days.@@I need a vacation.@@Got any Jet?@@Hey, can you spare a cigarette?@@Hey, you! Come party with me!@@Let's do shots!@@Hey, sailor... let's "negotiate"...
+}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{My name's Easy. What's yours?@@Need a little company?@@Let me teach you some things only a woman can teach.@@Need someone to warm your tent?@@Need someone to share your bedroll?@@Got some hot-rocks there, pal.@@Lookin' for some action?@@Looking for a date?@@Looking for some company?@@Wanna dance?@@New stranger in town, looks like…@@Wanna fly?@@Let me cheer you up, sad clown.@@Too many streetwalkers in this town, not enough chips to go around.@@Been walking this street since last night...@@Need a friend for the evening? Or just ten minutes?@@Looking for a good time?@@Looking to go down-town@@Need a guide around town, sugah?
+}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{My name's Easy. What's yours?@@Need a little company?@@Let me teach you some things only a woman can teach.@@Need someone to warm your tent?@@Need someone to share your bedroll?@@Got some hot-rocks there, pal.@@Lookin' for some action?@@Looking for a date?@@Looking for some company?@@Wanna dance?@@New stranger in town, looks like…@@Wanna fly?@@Let me cheer you up, sad clown.@@Too many streetwalkers in this town, not enough chips to go around.@@Been walking this street since last night...@@Need a friend for the evening? Or just ten minutes?@@Looking for a good time?@@Looking to go down-town@@Need a guide around town, sugah?
+}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{My name's Easy. What's yours?@@Need a little company?@@Let me teach you some things only a woman can teach.@@Need someone to warm your tent?@@Need someone to share your bedroll?@@Got some hot-rocks there, pal.@@Lookin' for some action?@@Looking for a date?@@Looking for some company?@@Wanna dance?@@New stranger in town, looks like…@@Wanna fly?@@Let me cheer you up, sad clown.@@Too many streetwalkers in this town, not enough chips to go around.@@Been walking this street since last night...@@Need a friend for the evening? Or just ten minutes?@@Looking for a good time?@@Looking to go down-town@@Need a guide around town, sugah?
+}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{My name's Easy. What's yours?@@Need a little company?@@Let me teach you some things only a woman can teach.@@Need someone to warm your tent?@@Need someone to share your bedroll?@@Got some hot-rocks there, pal.@@Lookin' for some action?@@Looking for a date?@@Looking for some company?@@Wanna dance?@@New stranger in town, looks like…@@Wanna fly?@@Let me cheer you up, sad clown.@@Too many streetwalkers in this town, not enough chips to go around.@@Been walking this street since last night...@@Need a friend for the evening? Or just ten minutes?@@Looking for a good time?@@Looking to go down-town@@Need a guide around town, sugah?
+}
+

@@ -1,0 +1,78 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p tobacco_water = 1 R _var p tobacco_water = 2 #
+4 2020 #
+0 2030 @
+3 3000 None 0 @
+4 4000 None 0 #
+2 4010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading configurations... Warning! Unable to connect to the central office. ]}
+{2010}{}{[ switch pipes to supply your farm with water ]}
+{2020}{}{[ Read this, Bruce. ]}
+{2030}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{[ Done... ]}
+{4000}{}{[ Bruce, our squad checked the nearby town. It seems like everyone either died or escaped it. I can no longer establish connection with our local HQ, something tells me that they faced the same fate. It is 3 hours till this area will be covered with fallout, I need you to do something for me. Here we will leave some barrels with toxic chems. I need you to add them into the water and switch pipes to supply Los Angeles. Specifically - all Vault Tec Vaults and remaining facilities in the city. ]}
+{4010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading configurations... Warning! Unable to connect to the central office. ]}
+{2010}{}{[ Switch pipes to supply your farm with water. ]}
+{2020}{}{[ Read this, Bruce. ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Done... ]}
+{4000}{}{[ Bruce, our squad checked the nearby town. It seems like everyone either died or escaped it. I can no longer establish connection with our local HQ, something tells me that they faced the same fate. It is 3 hours till this area will be covered with fallout, I need you to do something for me. Here we will leave some barrels with toxic chems. I need you to add them into the water and switch pipes to supply Los Angeles. Specifically - all Vault Tec Vaults and remaining facilities in the city. ]}
+{4010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading configurations... Warning! Unable to connect to the central office. ]}
+{2010}{}{[ Switch pipes to supply your farm with water. ]}
+{2020}{}{[ Read this, Bruce. ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Done... ]}
+{4000}{}{[ Bruce, our squad checked the nearby town. It seems like everyone either died or escaped it. I can no longer establish connection with our local HQ, something tells me that they faced the same fate. It is 3 hours till this area will be covered with fallout, I need you to do something for me. Here we will leave some barrels with toxic chems. I need you to add them into the water and switch pipes to supply Los Angeles. Specifically - all Vault Tec Vaults and remaining facilities in the city. ]}
+{4010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading configurations... Warning! Unable to connect to the central office. ]}
+{2010}{}{[ Switch pipes to supply your farm with water. ]}
+{2020}{}{[ Read this, Bruce. ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Done... ]}
+{4000}{}{[ Bruce, our squad checked the nearby town. It seems like everyone either died or escaped it. I can no longer establish connection with our local HQ, something tells me that they faced the same fate. It is 3 hours till this area will be covered with fallout, I need you to do something for me. Here we will leave some barrels with toxic chems. I need you to add them into the water and switch pipes to supply Los Angeles. Specifically - all Vault Tec Vaults and remaining facilities in the city. ]}
+{4010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Loading configurations... Warning! Unable to connect to the central office. ]}
+{2010}{}{[ Switch pipes to supply your farm with water. ]}
+{2020}{}{[ Read this, Bruce. ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ Done... ]}
+{4000}{}{[ Bruce, our squad checked the nearby town. It seems like everyone either died or escaped it. I can no longer establish connection with our local HQ, something tells me that they faced the same fate. It is 3 hours till this area will be covered with fallout, I need you to do something for me. Here we will leave some barrels with toxic chems. I need you to add them into the water and switch pipes to supply Los Angeles. Specifically - all Vault Tec Vaults and remaining facilities in the city. ]}
+{4010}{}{[ Back ]}
+

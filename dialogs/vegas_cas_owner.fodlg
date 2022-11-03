@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Ricky}
+{200}{}{You see a good looking man.}
+{210}{}{You see Ricky. He is the owner here.}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Have anything on your mind? No? Then stop wasting my time.@@ Go and have some fun downstairs.@@}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Have anything on your mind? No? Then stop wasting my time.@@ Go and have some fun downstairs.@@}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Have anything on your mind? No? Then stop wasting my time.@@ Go and have some fun downstairs.@@}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Have anything on your mind? No? Then stop wasting my time.@@ Go and have some fun downstairs.@@}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{2}
+{2000}{}{Have anything on your mind? No? Then stop wasting my time.@@ Go and have some fun downstairs.@@}
+

@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 #
+4 2010 R _script dialog@r_OpenDoor 2 34 1000 #
+0 2020 @
+4 3000 None 0 &
+
+[engl]
+{100}{}{Terminal}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ System Online ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Oprating... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ System Online ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Oprating... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ System Online ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Oprating... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ System Online ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Oprating... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ System Online ]}
+{2010}{}{[ Open the door ]}
+{2020}{}{[ Exit ]}
+{3000}{}{[ Oprating... ]}
+

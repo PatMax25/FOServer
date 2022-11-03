@@ -1,0 +1,4301 @@
+	//
+// FOnline: 2238
+// Rotators
+//
+// factions_terminal.fos
+//
+
+#include "_macros.fos"
+#include "_colors.fos"
+#include "factions_h.fos"
+#include "factions_bases_h.fos"
+#include "mapdata_h.fos"
+#include "utils_h.fos"
+#include "economy_h.fos"
+#include "dynamic_light_source.fos"
+#include "broadcast_h.fos"
+#include "item_pools_h.fos"
+#include "entire.fos"
+// for faction database terminal
+// most of these functions use faction id stored in map where terminal is
+// map.GetData(MAP_DATA_FACTION), it has to be set in order for terminal to work properly
+// other use LVAR describing faction
+// this sometimes may get messy:/
+
+#define TERMINAL_DIALOG                      (9060)
+
+#define SEND_ERROR_RETURN                    # (cr, error)     { cr.SayMsg(SAY_DIALOG, TEXTMSG_TEXT, error); return; }
+#define IF_NOT_VALID_RETURN                  # (obj, name)  { if(not valid(obj)) { Log("Null value: " + name); return; } }
+
+// msgs
+
+// dlg strs
+#define STR_WRONG_FACTION_NAME               (30)
+#define STR_STATUS                           (10)
+#define STR_RANK                             (20)
+
+#define STR_CHANNEL_CHANGED                  (31)
+#define STR_WRONG_CHANNEL                    (32)
+
+#define STR_PLAYER_HAS_CLAIMED_LEADERSHIP    (40)
+#define STR_YOUVE_CLAIMED_LEADERSHIP         (41)
+#define STR_CHOOSE_ACTION                    (42)
+
+// dialog lines
+#define FORCE_DIALOG_COMPLETED               (15)
+#define FORCE_DIALOG_DB_UPDATED              (22)
+#define FORCE_DIALOG_SHOW_RECORD             (18)
+#define FORCE_DIALOG_ERROR                   (29)
+#define FORCE_DIALOG_CHOOSE_PLAYER           (17)
+#define FORCE_DIALOG_READ_ONLY               (30)
+#define FORCE_DIALOG_SHOW_BASE               (200)
+#define FORCE_DIALOG_FACTION_ADDED           (300)
+
+#define FORCE_DIALOG_MENU_MEMBERS            (5)
+// when you can't promote/demote/expell
+#define FORCE_DIALOG_MEMBEROP_FORBIDDEN      (45)
+// for promote/demote/expel with player name
+#define FORCE_DIALOG_MEMBEROP_OK             (43)
+
+// nodes for news types
+#define FORCE_DIALOG_JOINED                  (110)
+#define FORCE_DIALOG_RESIGNED                (111)
+#define FORCE_DIALOG_EXPELLED                (112)
+#define FORCE_DIALOG_PROMOTED                (113)
+#define FORCE_DIALOG_DEMOTED                 (114)
+#define FORCE_DIALOG_CLAIMED                 (115)
+#define FORCE_DIALOG_LEADER                  (116)
+#define FORCE_DIALOG_OVERTHROWN              (117)
+#define FORCE_DIALOG_NO_NEWS                 (118)
+
+
+import void UpdateBasesVisibility(IFaction@ faction, Critter& player) from "factions";
+import void UpdateOneBaseVisibility(IFaction@ faction, Critter& player, IFactionBase@ base) from "factions";
+import bool AddWalkPlane(Critter& npc, uint priority, uint16 hexX, uint16 hexY, uint8 dir, bool run, uint cut) from "npc_planes";
+import bool AddWalkPlane(Critter& npc, uint priority, int identifier, uint identifierExt, uint16 hexX, uint16 hexY, uint8 dir, bool run, uint cut) from "npc_planes";
+
+import bool   AttackCritter(Critter& attacker, Critter& target, uint minhp) from "npc_common";
+import bool   AttackCritter(Critter& attacker, Critter& target) from "npc_common";
+
+import void _weapon_perk(Item& item, bool firstTime) from "item_level";
+import void _armor_perk(Item& item, bool firstTime) from "item_level";
+
+
+//
+// Gets the faction to whihc terminal belongs
+// using map.GetData(MAP_DATA_FACTION) value
+//
+// USE ONLY WITH TERMINAL!!!
+uint GetTerminalFaction(Critter& player)
+{
+    Map@ map = player.GetMap();
+    if(!valid(map))
+    {
+        Log("ERR: Couldn't obtain map object");
+        return 0;
+    }
+    uint faction = map.GetData(MAP_DATA_FACTION);
+    if(faction <= FACTION_NONE)
+        Log("ERR: Faction id hasn't been assigned to the map");
+    return faction;
+}
+
+// increases the update_seq for given faction database
+// this value is later used for player's data synchronization
+void IncreaseUpdateSeq(uint faction_id)
+{
+    IFaction@ faction = GetFaction(faction_id);
+    faction.UpdateSeq = faction.UpdateSeq + 1;
+}
+
+bool s_Terminal(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if(!player.IsPlayer() || skill != -1 || valid(item))
+        return false;
+
+    uint faction = GetTerminalFaction(player);
+
+    if(faction == 0)
+    {
+        player.Say(SAY_NETMSG, "This terminal seems to be inactive");
+        return false;
+    }
+
+    RunDialog(player, TERMINAL_DIALOG, terminal.HexX, terminal.HexY, false);
+    return true;
+}
+
+
+bool s_terminal(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if(!player.IsPlayer() || skill != -1 || valid(item))
+        return false;
+
+    uint faction = GetTerminalFaction(player);
+
+    if(faction == 0)
+    {
+        player.Say(SAY_NETMSG, "This terminal seems to be inactive");
+        return false;
+    }
+
+    RunDialog(player, TERMINAL_DIALOG, terminal.HexX, terminal.HexY, false);
+    return true;
+}
+
+bool s_TerminalDoor(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if(!player.IsPlayer() || skill != -1 || valid(item))
+        return false;
+
+    uint faction = GetTerminalFaction(player);
+
+    if(faction == 0)
+    {
+        player.Say(SAY_NETMSG, "This terminal seems to be inactive");
+        return false;
+    }
+
+    RunDialog(player, 9062, terminal.HexX, terminal.HexY, false);
+    return true;
+}
+
+bool s_TerminalSettlement(Critter& player, Scenery& terminal, int skill, Item@ item)
+{
+    if(!player.IsPlayer() || skill != -1 || valid(item))
+        return false;
+
+    uint faction = GetTerminalFaction(player);
+
+    if(faction == 0)
+    {
+        player.Say(SAY_NETMSG, "This terminal seems to be inactive");
+        return false;
+    }
+
+    RunDialog(player, 9063, terminal.HexX, terminal.HexY, false);
+    return true;
+}
+//
+// Adds the faction name to the lexem in the welcome screen of the terminal.
+//
+void dlg_TerminalWelcome(Critter& player, Critter@ terminal, string@ text)
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+    uint      faction_id = GetTerminalFaction(player);
+    IFaction@ faction = GetFaction(faction_id);
+    text += "$faction" + faction.Name;
+}
+//
+// Adds the faction name to be used with the lexem 'faction'
+//
+void dlg_FactionName(Critter& player, Critter@ terminal, string@ text)
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+    uint      faction_id = GetTerminalFaction(player);
+    IFaction@ faction = GetFaction(faction_id);
+    text += "$faction" + faction.Name;
+}
+
+//
+// Gets the id of the player with specified name, and store it
+// in the local variable: LVAR_terminal_current, so that it can
+// be later used in other value modifications functions
+//
+// it is used by terminal
+uint dlg_ChoosePlayer(Critter& player, Critter@ terminal, string@ playerName)
+{
+    if(!valid(playerName) || playerName.length() == 0)
+        return 0;
+
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+
+    var = 0;
+
+    uint chosenId = GetPlayerId(playerName);
+    if(chosenId == 0)
+    {
+        player.Say(SAY_DIALOG, "Incorrect name");
+        return 0;
+    }
+
+    uint faction = GetTerminalFaction(player);
+
+    if(!StoredInDB(faction, chosenId))
+    {
+        player.Say(SAY_DIALOG, "Record not found");
+        return 0;
+    }
+
+    var = chosenId;
+    // choose appropriate dialog line
+    return FORCE_DIALOG_SHOW_RECORD;
+}
+//
+// Displays the previously selected player's data (in the terminal)
+//
+void dlg_ShowRecord(Critter& player, Critter@ npc, string@ say)
+{
+    if(IS_DIALOG_GENERATED(say))
+    {
+        GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+        if(!valid(var))
+        {
+            Log("Variable LVAR_terminal_current not defined");
+            return;
+        }
+
+        uint faction = GetTerminalFaction(player);
+
+        uint id = var.GetValue();
+
+        uint storedFaction = GetFaction(faction, id);
+        uint storedRank = GetRank(faction, id);
+        uint storedStatus = GetStatus(faction, id);
+        int8 rep = 0;
+        // GetFactionReputation(faction, id, rep); DISABLED
+        say += GenerateDescription(id, storedFaction, storedRank, storedStatus, 0);
+    }
+}
+//
+// Generates description for record with given data
+//
+string@ GenerateDescription(uint id, uint faction_id, uint rank, uint status, int8 reputation)
+{
+    string say;
+    // for now, player's id instead of name, since we can't retrieve name basing only on player id (well, we can, but only when player is logged in, and that's not the point)
+    say += "$name" + GetSafePlayerName(id);
+    IFaction@ faction = GetFaction(faction_id);
+    say += "$faction" + faction.Name;
+    say += "$rank@msg dlg " + DLGSTR(TERMINAL_DIALOG, STR_RANK + rank) + "@";
+    // if(status == STATUS_ENEMY)
+    // {
+    //    say += "|" + COLOR_RGB(255, 0, 0);
+    // }
+    // else if(status == STATUS_FRIEND)
+    // {
+    //    say += "|" + COLOR_RGB(0, 0, 255);
+    // }
+    say += "$status@msg dlg " + DLGSTR(TERMINAL_DIALOG, STR_STATUS + status) + "@";
+    say += "$reputation" + reputation;
+    return say;
+}
+//
+// Selects member record
+//
+// value:
+// -1: previous member
+//  0: first member in db (this has to be called first)
+//  1: next member
+//
+uint r_SelectMember(Critter& player, Critter@ npc, int value)
+{
+    // this is our currently selected member
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    uint     curr = var.GetValue();
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return FORCE_DIALOG_ERROR;
+    }
+    IFaction@   faction = GetFaction(GetTerminalFaction(player));
+    array<uint> members;
+    int         num = faction.GetMembers(members);
+
+    // default
+    var = members[0];
+
+    if(value == 1)       // fetch next
+    {
+        for(int i = 0; i < num; i++)
+        {
+            if(members[i] == curr)
+            {
+                // give next, or wrap around
+                int idx = i + 1 < num ? i + 1 : 0;
+                var = members[idx];
+                break;
+            }
+        }
+    }
+    else if(value == -1)       // fetch previous
+    {
+        for(int i = 0; i < num; i++)
+        {
+            if(members[i] == curr)
+            {
+                // give previous, or wrap around
+                int idx = i - 1 < 0 ? num - 1 : i - 1;
+                var = members[idx];
+                break;
+            }
+        }
+    }
+    return 0;
+}
+
+//
+// Selects record
+//
+// value:
+// -1: previous member
+//  0: first member in db (this has to be called first)
+//  1: next member
+//
+uint r_SelectRecord(Critter& player, Critter@ npc, int value)
+{
+    // this is our currently selected member
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    uint     curr = var.GetValue();
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+    IFaction@   faction = GetFaction(GetTerminalFaction(player));
+    array<uint> records;
+    int         num = faction.GetRecords(records);
+
+    var = records[0];
+
+    if(value == 1)       // fetch next
+    {
+        for(int i = 0; i < num; i++)
+        {
+            if(records[i] == curr)
+            {
+                // give next, or wrap around
+                int idx = i + 1 < num ? i + 1 : 0;
+                var = records[idx];
+                break;
+            }
+        }
+    }
+    else if(value == -1)       // fetch previous
+    {
+        for(int i = 0; i < num; i++)
+        {
+            if(records[i] == curr)
+            {
+                // give previous, or wrap around
+                int idx = i - 1 < 0 ? num - 1 : i - 1;
+                var = records[idx];
+                break;
+            }
+        }
+    }
+    return 0;
+}
+
+//
+// Checks whenever current record belongs to a member,
+// so other member cannot modify them
+//
+bool IsReadOnly(uint faction, uint id)
+{
+    uint chosenPlayerFaction = GetPlayerFaction(id);
+    DLog("faction: " + faction + ", selected record faction: " + chosenPlayerFaction);
+    // in case player have chosen records of another member of the same faction
+    // we don't allow to modify
+    if(chosenPlayerFaction == faction)
+        return true;
+    else
+        return false;
+}
+
+//
+// Changes the status of the player stored in db
+// Player id was previously chosen, and is stored in the
+// local variable LVAR_terminal_current
+//
+uint r_ModifyStatus(Critter& player, Critter@ npc, int value)
+{
+    // Get stored critter.
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+
+    if(!STATUS_VALID(value))
+    {
+        Log("ERR: Invalid status value");
+        return FORCE_DIALOG_ERROR;
+    }
+
+    uint factionId = GetTerminalFaction(player);
+
+    if(IsReadOnly(factionId, var.GetValue()))
+    {
+        return FORCE_DIALOG_READ_ONLY;
+    }
+    ModifyStatus(factionId, var.GetValue(), value);
+
+    Critter@  cr = GetCritter(var.GetValue());
+    IFaction@ faction = GetFaction(factionId);
+
+    IncreaseUpdateSeq(factionId);
+
+    if(valid(cr))
+        UpdateBasesVisibility(faction, cr);
+    return 0;
+}
+
+//
+// Changes the reputation of the actually selected player
+// with regard to the player operating terminal
+// Player id was previously chosen, and is stored in the
+// local variable LVAR_terminal_current
+//
+//
+void r_ModifyReputation(Critter& player, Critter@ npc, int value)
+{
+    // Get stored critter.
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return;
+    }
+    if(player.Id == uint(var.GetValue()))
+    {
+        player.Say(SAY_DIALOG, "You narcist!!!");
+        return;
+    }
+    // set player - player reputation
+    // SetPlayerReputation(player.Id, var.GetValue(), value); DISABLED
+}
+
+void r_ModifyTag(Critter& player, Critter@ npc, int letter)
+{
+	IFaction@ faction = GetFaction(player.Param[ST_TEAM_ID]);
+	
+	faction.settag(player.Param[CONFIG_4], letter, player.Param[CONFIG_1], player.Param[CONFIG_2], player.Param[CONFIG_3]);
+	
+}
+
+void r_Set_index(Critter& player, Critter@ npc, int index)
+{
+	player.ParamBase[CONFIG_4] = index;
+	
+}
+
+//
+// Changes the rank of the player stored in db
+// Player id was previously chosen, and is stored in the
+// local variable LVAR_terminal_current
+//
+uint r_ModifyRank(Critter& player, Critter@ npc, int value)
+{
+    // Get stored critter.
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+
+    if(!RANK_VALID(value))
+    {
+        Log("ERR: Invalid rank value");
+        return FORCE_DIALOG_ERROR;
+    }
+
+    uint factionId = GetTerminalFaction(player);
+    if(IsReadOnly(factionId, var.GetValue()))
+    {
+        return FORCE_DIALOG_READ_ONLY;
+    }
+    ModifyRank(factionId, var.GetValue(), value);
+
+    Critter@  cr = GetCritter(var.GetValue());
+    IFaction@ faction = GetFaction(factionId);
+
+    IncreaseUpdateSeq(factionId);
+
+    if(valid(cr))
+        UpdateBasesVisibility(faction, cr);
+    return 0;
+}
+
+//
+// Changes the faction of the player stored in db
+// Player id was previously chosen, and is stored in the
+// local variable LVAR_terminal_current
+//
+uint r_ModifyFaction(Critter& player, Critter@ npc, int value)
+{
+    // Get stored critter.
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+
+    if(!FACTION_VALID(value))
+    {
+        Log("ERR: Invalid faction value");
+        return FORCE_DIALOG_ERROR;
+    }
+
+    uint factionId = GetTerminalFaction(player);
+    if(IsReadOnly(factionId, var.GetValue()))
+    {
+        return FORCE_DIALOG_READ_ONLY;
+    }
+
+    ModifyFaction(factionId, var.GetValue(), value);
+
+    Critter@  cr = GetCritter(var.GetValue());
+    IFaction@ faction = GetFaction(factionId);
+    if(valid(cr))
+        UpdateBasesVisibility(faction, cr);
+
+    return 0;
+}
+
+//
+// Changes the faction of the player stored in db
+// faction name has to be entered via Say mode
+// Player id was previously chosen, and is stored in the
+// local variable LVAR_terminal_current
+//
+uint dlg_ModifyFactionByName(Critter& player, Critter@ npc, string@ say)
+{
+    if(!IS_DIALOG_SAY_MODE(say))
+        return 0;
+
+    // Get stored critter.
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+
+    uint faction = GetTerminalFaction(player);
+    if(IsReadOnly(faction, var.GetValue()))
+    {
+        return FORCE_DIALOG_READ_ONLY;
+    }
+    uint modifiedFaction = 0;
+    // get the faction id from the name entered
+    if(!GetFactionId(say, modifiedFaction))
+    {
+        player.SayMsg(SAY_DIALOG, TEXTMSG_DLG, DLGSTR(TERMINAL_DIALOG, STR_WRONG_FACTION_NAME));
+        return 0;
+    }
+
+    ModifyFaction(faction, var.GetValue(), modifiedFaction);
+    return FORCE_DIALOG_DB_UPDATED;
+}
+
+//
+// Invites player to be faction member
+//
+// Params:
+//      player - player that operates the terminal
+//      npc - npc that is performing operation
+//
+uint dlg_Invite(Critter& recruiter, Critter@ npc, string@ playerName)
+{
+    if(!valid(playerName) || playerName.length() == 0)
+        return 0;
+
+    // get player
+    uint initiateId = GetPlayerId(playerName);
+    if(initiateId == 0)
+    {
+        recruiter.Say(SAY_DIALOG, "Player not found");
+        return 0;
+    }
+
+    uint factionId = GetTerminalFaction(recruiter);
+
+    if(IsMemberOffline(factionId, initiateId))
+    {
+        recruiter.Say(SAY_DIALOG, "Already a member");
+        return 0;
+    }
+
+    int res = InvitePlayer(factionId, initiateId);
+    if(res != FD_RESULT_SUCCESS)
+        recruiter.Say(SAY_NETMSG, "ERR: " + FD_Result2String(res));
+    else
+    {
+        // newly invited player record will be currently selected one
+        GameVar@ var = GetLocalVar(LVAR_terminal_current, recruiter.Id);
+        if(!valid(var))
+        {
+            Log("ERR: Variable LVAR_terminal_current not defined");
+        }
+        var = initiateId;
+
+        IFaction@ faction = GetFaction(factionId);
+        Critter@  initiate = GetCritter(initiateId);
+        if(valid(initiate))
+            UpdateBasesVisibility(faction, initiate);
+
+        return FORCE_DIALOG_DB_UPDATED;
+    }
+    return 0;
+}
+
+//
+// Player confirms invitation, thus making himself a member
+//
+void r_ConfirmInvitation(Critter& player, Critter@ npc, int value)
+{
+    uint factionId = GetTerminalFaction(player);
+
+    if(factionId == 0)
+    {
+        Log("ERR: Faction hasn't been stored in map");
+        return;
+    }
+    if(IsMember(factionId, player))
+    {
+        Log("ERR: Already a member");
+        return;
+    }
+
+    //Log("Player.Id: " + player.Id + " is joining the faction:" + factionId);
+    int res = ConfirmInvitation(factionId, player.Id);
+    if(res != FD_RESULT_SUCCESS)
+        Log("ERR: " + FD_Result2String(res));
+    // add 'joined' news
+
+    AddFactionNews(factionId, player.Id, 0, NEWS_JOINED);
+
+    IFaction@ faction = GetFaction(factionId);
+    UpdateBasesVisibility(faction, player);
+}
+
+//
+// Promote member of the faction
+//
+// Params:
+//      player - player that performs operation
+//
+uint dlg_PromoteMember(Critter& player, Critter@ npc, string@ playerName)
+{
+    if(!valid(playerName) || playerName.length() == 0)
+        return 0;
+
+    // get player
+    uint promoteeId = GetPlayerId(playerName);
+    if(promoteeId == 0)
+    {
+        player.Say(SAY_DIALOG, "Player not found");
+        return 0;
+    }
+    if(!IsTheSameFaction(player.Id, promoteeId))
+    {
+        player.Say(SAY_DIALOG, "Not a member");
+        return 0;
+    }
+
+    if(!PromoteMember(player.Id, promoteeId))
+    {
+        player.Say(SAY_DIALOG, "You cannot promote that member");
+    }
+    else
+    {
+        // ok
+        return FORCE_DIALOG_MEMBEROP_OK;
+    }
+    return 0;
+}
+
+//
+// Promotes actually selected member
+//
+uint r_PromoteMember(Critter& player, Critter@ npc, int value)
+{
+    // gets currently selected member
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+
+    if(!PromoteMember(player.Id, var.GetValue()))
+    {
+        return FORCE_DIALOG_MEMBEROP_FORBIDDEN;
+    }
+    return 0;
+}
+
+//
+// Helper func - promotes if it possible, returns false otherwise
+//
+bool PromoteMember(uint promoterId, uint promoteeId)
+{
+    // promoter is at terminal, so we get his faction that way
+    uint promoterFaction = GetPlayerFaction(promoterId);
+    uint promoterRank = GetPlayerRank(promoterId);
+    uint promoteeFaction = GetPlayerFaction(promoteeId);
+    uint promoteeRank = GetPlayerRank(promoteeId);
+
+    if(promoterFaction != promoteeFaction)
+    {
+        Log("ERR: Invalid function call - you should only call it on members");
+        return false;
+    }
+    // one can promote only to the rank below
+    if(promoterRank > promoteeRank + 1)
+    {
+        int res = ChangeRank(promoterFaction, promoteeId, promoteeRank + 1);
+        if(res == FD_RESULT_SUCCESS)
+        {
+            // add news
+            AddFactionNews(promoterFaction, promoterId, promoteeId, NEWS_PROMOTED);
+
+            Critter@ player = GetCritter(promoterId);
+            if(valid(player))
+            {
+                uint      factionId = GetTerminalFaction(player);
+                IFaction@ faction = GetFaction(factionId);
+                Critter@  promotee = GetCritter(promoteeId);
+                if(valid(promotee))
+                    UpdateBasesVisibility(faction, promotee);
+            }
+            return true;
+        }
+        else
+        {
+            Log("ERR: " + FD_Result2String(res));
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+//
+// Demote member of the faction
+//
+// Params:
+//      player - player that performs operation
+//
+uint dlg_DemoteMember(Critter& player, Critter@ npc, string@ playerName)
+{
+    if(!valid(playerName) || playerName.length() == 0)
+        return 0;
+
+    // get player
+    uint demoteeId = GetPlayerId(playerName);
+    if(demoteeId == 0)
+    {
+        player.Say(SAY_DIALOG, "Player not found");
+        return 0;
+    }
+    if(!IsTheSameFaction(player.Id, demoteeId))
+    {
+        player.Say(SAY_DIALOG, "Not a member");
+        return 0;
+    }
+
+    if(!DemoteMember(player.Id, demoteeId))
+    {
+        player.Say(SAY_DIALOG, "You cannot demote that member");
+    }
+    else
+        // ok
+        return FORCE_DIALOG_MEMBEROP_OK;
+    return 0;
+}
+
+//
+// Demotes actually selected member
+//
+uint r_DemoteMember(Critter& player, Critter@ npc, int value)
+{
+    // gets currently selected member
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+
+    if(!DemoteMember(player.Id, var.GetValue()))
+    {
+        return FORCE_DIALOG_MEMBEROP_FORBIDDEN;
+    }
+    return 0;
+}
+//
+// Helper
+//
+bool DemoteMember(uint demoterId, uint demoteeId)
+{
+    // demoter is at terminal
+    uint demoterFaction = GetPlayerFaction(demoterId);
+    uint demoterRank = GetPlayerRank(demoterId);
+    uint demoteeFaction = GetPlayerFaction(demoteeId);
+    uint demoteeRank = GetPlayerRank(demoteeId);
+
+    if(demoterFaction != demoteeFaction)
+    {
+        Log("ERR: Invalid function call - you should only call it on members");
+        return false;
+    }
+    // one can promote only the rank below to at least rank2
+    if(demoterRank > demoteeRank && demoteeRank > 2)
+    {
+        int res = ChangeRank(demoterFaction, demoteeId, demoteeRank - 1);
+        if(res == FD_RESULT_SUCCESS)
+        {
+            // add news
+            AddFactionNews(demoterFaction, demoterId, demoteeId, NEWS_DEMOTED);
+
+            Critter@ player = GetCritter(demoterId);
+            if(valid(player))
+            {
+                uint      factionId = GetTerminalFaction(player);
+                IFaction@ faction = GetFaction(factionId);
+                Critter@  demotee = GetCritter(demoteeId);
+                if(valid(demotee))
+                    UpdateBasesVisibility(faction, demotee);
+            }
+            return true;
+        }
+        else
+        {
+            Log("ERR: " + FD_Result2String(res));
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+
+//
+// Expels member from the faction
+//
+// Params:
+//      player - player that performs operation
+//
+uint dlg_ExpelMember(Critter& player, Critter@ npc, string@ playerName)
+{
+    if(!valid(playerName) || playerName.length() == 0)
+        return 0;
+
+    // get player to be expelled
+    uint exileId = GetPlayerId(playerName);
+    if(exileId == 0)
+    {
+        player.Say(SAY_DIALOG, "Player not found");
+        return 0;
+    }
+    if(!IsTheSameFaction(player.Id, exileId))
+    {
+        player.Say(SAY_DIALOG, "Not a member");
+        return 0;
+    }
+    if(!_ExpelMember(player.Id, exileId))
+    {
+        player.Say(SAY_DIALOG, "You cannot promote that member");
+    }
+    else
+        // ok
+        return FORCE_DIALOG_MEMBEROP_OK;
+    return 0;
+}
+
+//
+// Expels actually selected member
+//
+uint r_ExpelMember(Critter& player, Critter@ npc, int value)
+{
+    // gets currently selected member
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+
+    if(!_ExpelMember(player.Id, var.GetValue()))
+    {
+        return FORCE_DIALOG_MEMBEROP_FORBIDDEN;
+    }
+    else
+        return FORCE_DIALOG_MENU_MEMBERS;
+}
+//
+// Helper
+//
+bool _ExpelMember(uint expellerId, uint exileId)
+{
+    uint faction = GetPlayerFaction(expellerId);
+    uint exileFaction = GetPlayerFaction(exileId);
+
+    if(faction != exileFaction)
+    {
+        Log("ERR: Invalid function call - you should only call it on members");
+        return false;
+    }
+    if(expellerId == exileId)
+    {
+        // player.Say(SAY_DIALOG, "Hint of the day: You don't want it.");
+        return false;
+    }
+    int res = ExpelMember(faction, exileId);
+    if(res == FD_RESULT_SUCCESS)
+    {
+        // add news
+        AddFactionNews(faction, expellerId, exileId, NEWS_EXPELLED);
+
+        Critter@ player = GetCritter(expellerId);
+        if(valid(player))
+        {
+            uint      factionId = GetTerminalFaction(player);
+            IFaction@ faction = GetFaction(factionId);
+            Critter@  exile = GetCritter(exileId);
+            if(valid(exile))
+                UpdateBasesVisibility(faction, exile);
+        }
+        return true;
+    }
+    else
+    {
+        Log("ERR: " + FD_Result2String(res));
+        return false;
+    }
+}
+
+//
+// Resign from membership in the faction
+//
+void r_Resign(Critter& player, Critter@ npc, int value)
+{
+    _Resign(player.Id);
+    uint      factionId = GetTerminalFaction(player);
+    IFaction@ faction = GetFaction(factionId);
+    UpdateBasesVisibility(faction, player);
+
+}
+
+////////////////
+// BASES MGMT
+///////////////
+//
+// Chooses base basing on its name and remembers it's
+//
+uint dlg_ChooseBase(Critter& player, Critter@ terminal, string@ baseName)
+{
+    if(!valid(baseName) || baseName.length() == 0)
+        return 0;
+
+    GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+    if(!valid(var))
+    {
+        Log("Variable LVAR_terminal_current not defined");
+        return 0;
+    }
+
+    var = 0;
+
+    uint          faction = GetTerminalFaction(player);
+    IFactionBase@ base = GetFactionBase(faction, baseName);
+    if(!valid(base))
+    {
+        player.Say(SAY_DIALOG, "Incorrect name");
+        return 0;
+    }
+
+    var = base.Id;
+    // choose appropriate dialog line
+    return FORCE_DIALOG_SHOW_BASE;
+}
+//
+// Displays the previously selected base
+//
+void dlg_ShowBase(Critter& player, Critter@ npc, string@ say)
+{
+    if(IS_DIALOG_GENERATED(say))
+    {
+        GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+        if(!valid(var))
+        {
+            Log("Variable LVAR_terminal_current not defined");
+            return;
+        }
+
+        uint          faction = GetTerminalFaction(player);
+
+        uint          id = var.GetValue();
+        IFactionBase@ base = GetFactionBase(id);
+        Location@     loc = GetLocation(base.LocationId);
+        say += "$name" + base.Name +
+               "$x" + loc.WorldX +
+               "$y" + loc.WorldY +
+               "$recruits_allowed" + (base.IsRankAllowed(1) ? "allowed" : "disallowed") +
+               "$accepted_allowed" + (base.IsRankAllowed(2) ? "allowed" : "disallowed") +
+               "$trusted_allowed" + (base.IsRankAllowed(3) ? "allowed" : "disallowed") +
+               "$important_allowed" + (base.IsRankAllowed(4) ? "allowed" : "disallowed") +
+               "$invited_allowed" + (base.IsStatusAllowed(STATUS_INVITED) ? "allowed" : "disallowed") +
+               "$friends_allowed" + (base.IsStatusAllowed(STATUS_FRIEND) ? "allowed" : "disallowed");
+    }
+}
+//
+// Selects base
+//
+// value:
+// -1: previous base
+//  0: initial
+//  1: next base
+//
+uint r_SelectBase(Critter& player, Critter@ npc, int value)
+{
+    // this is our currently selected base
+    GameVar@             var = GetLocalVar(LVAR_terminal_current, player.Id);
+    uint                 curr = var.GetValue();
+    uint                 faction = GetTerminalFaction(player);
+    array<IFactionBase@> bases;
+    uint                 num = GetFactionBases(faction, bases);
+
+    var = bases[0].Id;
+    // fetch next
+    if(value == 1)
+    {
+        for(int i = 0, iend = bases.length(); i < iend; i++)
+        {
+            if(bases[i].Id == curr)
+            {
+                // give next, or wrap around
+                int idx = i + 1 < iend ? i + 1 : 0;
+                var = bases[idx].Id;
+                break;
+            }
+        }
+    }
+    else if(value == -1)
+    {
+        for(int i = 0, iend = bases.length(); i < iend; i++)
+        {
+            if(bases[i].Id == curr)
+            {
+                // give previous, or wrap around
+                int idx = i - 1 < 0 ? iend - 1 : i - 1;
+                var = bases[idx].Id;
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
+// checks if the rank is allowed/not allowed to access currently selected base
+bool d_BaseRankAllowed(Critter& player, Critter@, int rank, int allowed)
+{
+    GameVar@      var = GetLocalVar(LVAR_terminal_current, player.Id);
+    IFactionBase@ base = GetFactionBase(var.GetValue());
+    if(allowed != 0 && base.IsRankAllowed(rank))
+        return true;
+    if(allowed == 0 && !base.IsRankAllowed(rank))
+        return true;
+    return false;
+}
+// changes the state of allowance of given rank for currently selected base
+void r_BaseRankAllow(Critter& player, Critter@, int rank, int allowed)
+{
+    GameVar@      var = GetLocalVar(LVAR_terminal_current, player.Id);
+    IFactionBase@ base = GetFactionBase(var.GetValue());
+    base.AllowRank(rank, allowed == 0 ? false : true);
+
+    array<Critter@> players;
+    uint            count = GetAllOnlinePlayers(players);
+    uint            factionId = GetTerminalFaction(player);
+    IFaction@       faction = GetFaction(factionId);
+
+    IncreaseUpdateSeq(factionId);
+
+    for(uint i = 0; i < count; i++)
+    {
+        if(valid(players[i]))
+            UpdateOneBaseVisibility(faction, players[i], base);
+    }
+}
+// checks if the status is allowed/not allowed to access currently selected base
+bool d_BaseStatusAllowed(Critter& player, Critter@, int status, int allowed)
+{
+    GameVar@      var = GetLocalVar(LVAR_terminal_current, player.Id);
+    IFactionBase@ base = GetFactionBase(var.GetValue());
+    if(allowed != 0 && base.IsStatusAllowed(status))
+        return true;
+    if(allowed == 0 && !base.IsStatusAllowed(status))
+        return true;
+    return false;
+}
+// allows/disallows given status to access currently selected base
+void r_BaseStatusAllow(Critter& player, Critter@, int status, int allowed)
+{
+    GameVar@      var = GetLocalVar(LVAR_terminal_current, player.Id);
+    IFactionBase@ base = GetFactionBase(var.GetValue());
+    base.AllowStatus(status, allowed == 0 ? false : true);
+
+    array<Critter@> players;
+    uint            count = GetAllOnlinePlayers(players);
+    uint            factionId = GetTerminalFaction(player);
+    IFaction@       faction = GetFaction(factionId);
+
+    IncreaseUpdateSeq(factionId);
+
+    for(uint i = 0; i < count; i++)
+    {
+        if(valid(players[i]))
+            UpdateOneBaseVisibility(faction, players[i], base);
+    }
+}
+
+/////////////////////
+// Factions relations management
+/////////////////////
+
+/**
+ * Selects faction
+ *
+ * @param value:
+ *   -1: previous
+ *    0: initial
+ *    1: next
+ */
+uint r_SelectFaction(Critter& player, Critter@ npc, int value)
+{
+    // this is our currently selected faction
+    GameVar@   var = GetLocalVar(LVAR_terminal_current, player.Id);
+    int        curr = var.GetValue();
+    uint       faction_id = GetTerminalFaction(player);
+    IFaction@  faction = GetFaction(faction_id);
+    array<int> factions;
+    uint       num = faction.GetKnownFactions(factions);
+    if(num < 1)
+        return 0;
+
+    if(value == 0)
+    {
+        var = factions[0];
+    }
+    // fetch next
+    else if(value == 1)
+    {
+        for(int i = 0, iend = factions.length(); i < iend; i++)
+        {
+            if(factions[i] == curr)
+            {
+                // give next, or wrap around
+                int idx = i + 1 < iend ? i + 1 : 0;
+                var = factions[idx];
+                break;
+            }
+        }
+    }
+    else if(value == -1)
+    {
+        for(int i = 0, iend = factions.length(); i < iend; i++)
+        {
+            if(factions[i] == curr)
+            {
+                // give previous, or wrap around
+                int idx = i - 1 < 0 ? iend - 1 : i - 1;
+                var = factions[idx];
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
+/**
+ * Fills the data for dialog node displaying known faction info
+ */
+void dlg_ShowKnownFaction(Critter& player, Critter@, string@ say)
+{
+    if(IS_DIALOG_GENERATED(say))
+    {
+        GameVar@  var = GetLocalVar(LVAR_terminal_current, player.Id);
+        // uint faction_id = GetTerminalFaction(player);
+        IFaction@ faction = GetFaction(var.GetValue());
+        if(valid(faction))
+            say += "$name" + faction.Name;
+        else
+            say += "$nameFaction does not exist";
+    }
+}
+
+/**
+ * Change status for ALL members of the currently selected faction
+ */
+void r_ChangeFactionStatus(Critter& player, Critter@, int status)
+{
+    GameVar@    var = GetLocalVar(LVAR_terminal_current, player.Id);
+    IFaction@   faction = GetFaction(GetTerminalFaction(player));
+    IFaction@   known_faction = GetFaction(var.GetValue());
+    array<uint> members;
+    int         num = known_faction.GetMembers(members);
+    for(int i = 0; i < num; i++)
+    {
+        faction.SetStatus(members[i], status);
+    }
+    player.Say(SAY_DIALOG, "Done");
+}
+
+/**
+ * Adds faction with given name to the list of known factions
+ */
+uint dlg_AddKnownFaction(Critter& player, Critter@, string@ say)
+{
+    if(IS_DIALOG_SAY_MODE(say))
+    {
+        IFaction@ faction = GetFaction(GetTerminalFaction(player));
+        IFaction@ known_faction = GetFaction(say);
+        if(valid(known_faction))
+        {
+            player.Say(SAY_DIALOG, "Adding faction");
+            faction.AddKnownFaction(known_faction.Id);
+            GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+            var = known_faction.Id;
+            DLog("Added faction: " + known_faction.Id);
+            return FORCE_DIALOG_FACTION_ADDED;
+        }
+        else
+        {
+            player.Say(SAY_DIALOG, "Faction does not exist");
+            return 0;
+        }
+    }
+    return 0;
+}
+
+////////////////////////
+// LEADERSHIP CLAIMING
+///////////////////////
+
+//
+// Shows useful info in the miscellaneous section (currently only about leadership)
+//
+void dlg_ShowInfo(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+    uint faction = GetTerminalFaction(player);
+    uint claimId = GetClaimId(faction);
+    if(claimId != 0)
+    {
+        if(claimId == player.Id)
+        {
+            text = DLGSTR(TERMINAL_DIALOG, STR_YOUVE_CLAIMED_LEADERSHIP) +
+                   (ELAPSED_TIME - GetLeaderTime(faction));
+        }
+        else
+        {
+            text = GetSafePlayerName(claimId) +
+                   DLGSTR(TERMINAL_DIALOG, STR_PLAYER_HAS_CLAIMED_LEADERSHIP);
+        }
+    }
+    else
+        text = "$info" + "Good morning!";
+    text += "\n" + DLGSTR(TERMINAL_DIALOG, STR_CHOOSE_ACTION);
+}
+
+//
+// Checks if the player can claim leadership (he has to have highest
+// reputation in the faction to do that), and no one else (including him,
+// did that)
+// and there should be leader existing
+//
+bool d_CanClaimLeadership(Critter& player, Critter@ npc, int value)
+{
+    uint faction = GetTerminalFaction(player);
+    // no claims for them
+    if(IsBigFaction(faction))
+        return false;
+
+    // already claimed
+    if(GetClaimId(faction) != 0)
+    {
+        // check if claim time has passed
+        if(ELAPSED_TIME >= GetClaimTime(faction))
+            return GetClaimId(faction) != player.Id;   // true when some other player wants to do it
+        else
+            return false;
+    }
+    // no leader, player should confirm instead of claiming (but he needs to claim it first in such situation)
+    if(GetLeaderId(faction) == 0)
+        return true;
+
+    uint rank = GetPlayerRank(player.Id);
+    // so it means only 2,3,4 can claim
+    if(rank == RANK_ROOKIE || rank == RANK_LEADER)
+        return false;
+    /*array<uint> members;
+       GetMembers(faction, members);
+        int rep = 0;
+       int res = GetFactionReputation(faction, player.Id, rep);
+       for(uint i = 0; i < members.length(); i++)
+       {
+                int rep2 = 0;
+                GetFactionReputation(faction, members[i], rep2);
+        if(rep < rep2)
+            return false;
+       } DISABLED REPUTATION CHECK*/
+    return true;
+}
+
+//
+// Sets player status as the one who claimed leadership
+//
+void r_ClaimLeadership(Critter& player, Critter@ npc, int value)
+{
+    DLog(GetSafePlayerName(player.Id) + " claims leadership.");
+    uint faction = GetTerminalFaction(player);
+    SetClaimId(faction, player.Id);
+    // one day for leader to react
+    SetLeaderTime(faction, AFTER(REAL_DAY(1)));
+    // 2 days to confirm claimed leadership
+    SetClaimTime(faction, AFTER(REAL_DAY(2)));
+    // override
+    #ifdef __DEBUG__
+    SetLeaderTime(faction, AFTER(REAL_SECOND(10)));
+    SetClaimTime(faction, AFTER(REAL_SECOND(30)));
+    #endif
+
+    // add news
+    AddFactionNews(faction, player.Id, 0, NEWS_CLAIMED);
+}
+
+//
+// Check if player is the one that claimed leadership
+//
+bool d_ClaimedLeadership(Critter& player, Critter@ npc, int value)
+{
+    uint faction = GetTerminalFaction(player);
+    return GetClaimId(faction) == player.Id;
+}
+
+//
+// Cancels leadership claim
+//
+void r_CancelClaim(Critter& player, Critter@ npc, int value)
+{
+    uint faction = GetTerminalFaction(player);
+    SetClaimId(faction, 0);
+    SetLeaderTime(faction, 0);
+    SetClaimTime(faction, 0);
+}
+
+//
+// Checks if the player can confirm leadership (he has to be the one who claimed
+// leadership and there should be no leader in faction)
+//
+bool d_CanConfirmLeadership(Critter& player, Critter@ npc, int value)
+{
+    uint faction = GetTerminalFaction(player);
+    if(GetClaimId(faction) != player.Id)
+        return false;
+    // check if time has passed for the leader to do something
+    // if claimTime == 0 this will be always true, but claimTime != 0 when ClaimId == player.Id (previous condition)
+    if(ELAPSED_TIME >= GetLeaderTime(faction))
+        return true;
+    if(GetLeaderId(faction) != 0)
+        return false;
+    return true;
+}
+
+//
+// Player becomes a leader after succesfull claim
+//
+void r_ConfirmLeadership(Critter& player, Critter@ npc, int value)
+{
+    DLog(GetSafePlayerName(player.Id) + " confirms leadership.");
+    uint faction = GetTerminalFaction(player);
+    int  res;
+    uint leaderId = GetLeaderId(faction);
+    // in case of time-limit, there is no event to demote current leader
+    // it is done when claimee confirms leadership
+    if(leaderId != 0)
+    {
+        DLog("Demoting current leader: " + GetSafePlayerName(leaderId));
+        ChangeRank(faction, leaderId, RANK_ACCEPTED);
+    }
+    else
+        DLog("Current leader resigned earlier");
+    DLog("Promoting new leader: " + GetSafePlayerName(player.Id));
+    ChangeRank(faction, player.Id, RANK_LEADER);
+    SetClaimId(faction, 0);
+    SetClaimTime(faction, 0);
+    // add news
+    AddFactionNews(faction, player.Id, 0, NEWS_LEADER);
+}
+
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+
+//
+// Adds player's records to database
+//
+// Params:
+//      Critter@ player - player that is operating terminal
+//
+uint dlg_AddPlayer(Critter& player, Critter@ terminal, string@ playerName)
+{
+    if(!valid(playerName) || playerName.length() == 0)
+        return 0;
+
+    // get player
+    uint playerToAddId = GetPlayerId(playerName);
+    if(playerToAddId == 0)
+    {
+        player.Say(SAY_DIALOG, "Incorrect name");
+        return 0;
+    }
+
+    uint faction = GetTerminalFaction(player);
+
+    if(faction != FACTION_UNKNOWN && faction != FACTION_NONE)
+    {
+        int res = AddPlayer(faction, playerToAddId);
+        if(res == FD_RESULT_SUCCESS)
+        {
+            // newly added record will be currently selected one
+            GameVar@ var = GetLocalVar(LVAR_terminal_current, player.Id);
+            if(!valid(var))
+            {
+                Log("ERR: Variable LVAR_terminal_current not defined");
+            }
+            var = playerToAddId;
+            // jump to the proper line
+            return FORCE_DIALOG_DB_UPDATED;
+        }
+        else if(res == FD_RESULT_ALREADY_EXISTS)
+            player.Say(SAY_DIALOG, "Person is already filed in the database.");
+        else
+            player.Say(SAY_DIALOG, "ERR: Couldn't add the player to the faction's database.");
+    }
+    else
+        Log("ERR: Unable to determine the player's faction");
+    return 0;
+}
+
+//
+// Removes player from db
+//
+// Params:
+//      playerName - name of the player to
+//
+void dlg_RemovePlayer(Critter& player, Critter@ terminal, string@ playerName)
+{
+    if(!valid(playerName) || playerName.length() == 0)
+        return;
+
+    // get player
+    uint removedId = GetPlayerId(playerName);
+    if(removedId == 0)
+    {
+        player.Say(SAY_DIALOG, "Player not found");
+        return;
+    }
+
+    uint faction = GetTerminalFaction(player);
+    int  res = RemovePlayer(faction, removedId);
+
+    if(res == FD_RESULT_SUCCESS)
+        player.Say(SAY_DIALOG, "Player succesfully removed.");
+    else if(res == FD_RESULT_NOT_FOUND)
+        player.Say(SAY_DIALOG, "Player not found in database.");
+    else
+        player.Say(SAY_DIALOG, "ERR: " + FD_Result2String(res));
+}
+
+//
+// Displays current faction' radio channel
+// allows to modify it (if hi rank)
+//
+void dlg_RadioChannel(Critter& player, Critter@ terminal, string@ say)
+{
+    uint faction = GetTerminalFaction(player);
+    if(IS_DIALOG_GENERATED(say))
+    {
+        // fill 'channel' lexem
+        say += "$channel" + GetFactionRadioChannel(faction);
+    }
+    if(IS_DIALOG_SAY_MODE(say))
+    {
+        // check if rank high enough to change freq
+        if(GetPlayerRank(player.Id) < RANK_IMPORTANT)
+            return;
+
+        int newChannel = 0;
+        if(StrToInt(say, newChannel) && newChannel >= 0 && newChannel < (2 << 16))
+        {
+            SetFactionRadioChannel(faction, uint16(newChannel));
+            player.SayMsg(SAY_DIALOG, TEXTMSG_DLG, DLGSTR(TERMINAL_DIALOG, STR_CHANNEL_CHANGED));
+        }
+        else
+        {
+            player.SayMsg(SAY_DIALOG, TEXTMSG_DLG, DLGSTR(TERMINAL_DIALOG, STR_WRONG_CHANNEL));
+        }
+    }
+}
+
+//
+// Checks whether player is member of the faction
+// to which terminal belongs
+// It is similar to d_IsMember, but this checks faction using map.GetData(MAP_DATA_FACTION)
+// cause we can't get that data from terminal (Scenery object)
+//
+bool d_Terminal_IsMember(Critter& player, Critter@ terminal, int val)
+{
+    uint faction = GetTerminalFaction(player);
+
+    return faction == GetGroupIndex(player);
+}
+bool d_Terminal_NotMember(Critter& player, Critter@ terminal, int val)
+{
+    uint faction = GetTerminalFaction(player);
+
+    return faction != GetGroupIndex(player);
+}
+
+//
+// Checks whether player status in faction db is INVITED
+//
+bool d_IsInvited(Critter& player, Critter@ terminal, int val)
+{
+    uint faction = GetTerminalFaction(player);
+    uint status = STATUS_UNKNOWN;
+
+    return GetStatus(faction, player.Id) == STATUS_INVITED;
+}
+
+//
+// If terminal belongs to (big) NPC faction, invitations aren't allowed
+//
+bool d_InvitationsAllowed(Critter& player, Critter@ terminal, int val)
+{
+    uint faction = GetTerminalFaction(player);
+    return !IsBigFaction(faction);
+}
+
+/////////////
+// NEWS
+/////////////
+
+//
+// Display news info
+// currently viewed news index is stored in player.Param[ST_VAR0] (0 means last news)
+//
+void dlg_ShowNews(Critter& player, Critter@ npc, string@ text)
+{
+    if(!IS_DIALOG_GENERATED(text))
+        return;
+
+    uint   faction = GetTerminalFaction(player);
+    uint   newsCount = GetFactionNewsCount(faction);
+    uint   index = newsCount - player.Param[ST_VAR0] - 1;
+
+    uint   master = 0;
+    uint   slave = 0;
+    uint   type = 0;
+    uint16 year = 0;
+    uint8  month = 0;
+    uint8  day = 0;
+    uint8  hour = 0;
+    uint8  minute = 0;
+
+    if(GetFactionNews(faction, index, master, slave, type,
+                      year, month, day, hour, minute))
+    {
+        // date time
+        text += "$datetime" + day + "/" + month + "/" + year + " at: " + hour + ":" + minute;
+        if(master != 0)
+            text += "$master" + GetSafePlayerName(master);
+        if(slave != 0)
+            text += "$slave" + GetSafePlayerName(slave);
+    }
+    else
+        text = "No news stored";
+}
+
+//
+// Jumps to the next news, and to the proper node to display it
+// previously viewed news is stored in Var0
+//
+uint r_NextNews(Critter& player, Critter@ npc, int val)
+{
+    uint faction = GetTerminalFaction(player);
+    uint newsCount = GetFactionNewsCount(faction);
+    if(newsCount == 0)
+        return 0;
+
+    player.ParamBase[ST_VAR0]--;
+    if(player.Param[ST_VAR0] < 0)
+        player.ParamBase[ST_VAR0] = 0;
+    if(uint(player.Param[ST_VAR0]) >= newsCount)
+        player.ParamBase[ST_VAR0] = newsCount - 1;
+
+    return GoToNewsNode(faction, newsCount - player.Param[ST_VAR0] - 1);
+}
+
+//
+// Jumps to the previous news, and to the proper node to display it
+// previously viewed news is stored in Var0
+//
+uint r_PreviousNews(Critter& player, Critter@ npc, int val)
+{
+    uint faction = GetTerminalFaction(player);
+    uint newsCount = GetFactionNewsCount(faction);
+    if(newsCount == 0)
+        return 0;
+
+    player.ParamBase[ST_VAR0]++;
+    if(player.Param[ST_VAR0] < 0)
+        player.ParamBase[ST_VAR0] = 0;
+    if(uint(player.Param[ST_VAR0]) >= newsCount)
+        player.ParamBase[ST_VAR0] = newsCount - 1;
+
+    return GoToNewsNode(faction, newsCount - player.Param[ST_VAR0] - 1);
+}
+
+//
+// Initializes news index (player.Param[ST_VAR0])
+// and go to the latest news (if any)
+//
+uint r_GoToNews(Critter& player, Critter@ npc, int val)
+{
+    uint faction = GetTerminalFaction(player);
+    uint newsCount = GetFactionNewsCount(faction);
+    DLog("NewsCount: " + newsCount);
+    player.ParamBase[ST_VAR0] = 0;
+
+    if(newsCount > 0)
+    {
+        return GoToNewsNode(faction, newsCount - 1);
+    }
+    return 0;
+}
+
+//
+// Determines where to jump to properly display news
+//
+
+uint GoToNewsNode(uint faction, uint index)
+{
+    uint   type = 0;
+    uint   master = 0, slave = 0;
+    uint16 year;
+    uint8  month, day, hour, minute;
+    if(GetFactionNews(faction, index, master, slave, type, year, month, day, hour, minute))
+    {
+        uint force = 0;
+        DLog("Getting faction news " + index + ": " + master + ", " + slave + ", " + type);
+        switch(type)
+        {
+        case NEWS_JOINED:
+            force = FORCE_DIALOG_JOINED;
+            break;
+        case NEWS_RESIGNED:
+            force = FORCE_DIALOG_RESIGNED;
+            break;
+        case NEWS_EXPELLED:
+            force = FORCE_DIALOG_EXPELLED;
+            break;
+        case NEWS_PROMOTED:
+            force = FORCE_DIALOG_PROMOTED;
+            break;
+        case NEWS_DEMOTED:
+            force = FORCE_DIALOG_DEMOTED;
+            break;
+        case NEWS_CLAIMED:
+            force = FORCE_DIALOG_CLAIMED;
+            break;
+        case NEWS_LEADER:
+            force = FORCE_DIALOG_LEADER;
+            break;
+        case NEWS_OVERTHROWN:
+            force = FORCE_DIALOG_OVERTHROWN;
+            break;
+        }
+        return force;
+    }
+    return 0;
+    // otherwise don't jump at all
+}
+
+/**
+ * Updates faction database to mark it as used now, to delay garbaging.
+ */
+void r_UpdateLastUsed(Critter& player, Critter@ npc)
+{
+    DPlayerLog(player, "Updating faction' last used property");
+    uint faction = GetTerminalFaction(player);
+    UpdateLastUsed(faction);
+}
+
+void r_DeleteBase(Critter& player, Critter@ npc)
+{
+    DeleteLocation(player.GetMap().GetLocation().Id);
+}
+
+
+//faction settlement
+//protoID =22990
+//guards = 422,
+//workers = 417
+// caravaner = 416
+void r_status(Critter& player, Critter@ npc)
+{
+    array<Critter@> workers;
+    uint workerscount = npc.GetMap().GetCritters(417, FIND_ONLY_NPC | FIND_LIFE_AND_KO, workers);
+    array<Critter@> Guards;
+    uint guardcount = npc.GetMap().GetCritters(422, FIND_ONLY_NPC | FIND_LIFE_AND_KO, Guards);
+    array<Critter@> caravaners;
+    uint caravanerscount = npc.GetMap().GetCritters(416, FIND_ONLY_NPC | FIND_LIFE_AND_KO, caravaners);
+    int count2 = npc.Param[ST_BANK1];
+    int income = 500;
+    uint t4count = npc.GetMap().GetCritters(666, FIND_ONLY_NPC | FIND_LIFE_AND_KO, caravaners);
+    //income -= caravanerscount * 5000;
+    income -= t4count * 50000;
+    income += workerscount * 1000;
+    income -= guardcount * 500;
+    player.ShowScreen(SCREEN_CLOSE, 0, "");
+    player.ShowScreen(SCREEN_DIALOGBOX, 0, "");
+    player.Say(SAY_DIALOGBOX_TEXT, "Settlement budget is: " + count2 + "\nSettlement income: " + income + "\nGuards: " + guardcount + "\nWorkers: " + workerscount);
+}
+
+void r_statusgenerator(Critter& player, Critter@ npc)
+{
+    int count = npc.Param[ST_BANK6];
+    player.ShowScreen(SCREEN_CLOSE, 0, "");
+    player.ShowScreen(SCREEN_DIALOGBOX, 0, "");
+    player.Say(SAY_DIALOGBOX_TEXT, "Generator charges: " + count);
+}
+
+void r_delete(Critter& player, Critter@ npc)
+{
+    DeleteNpc(npc);
+}
+
+void Payout(Critter& player, Critter@ npc)
+{
+    if(_CritCountItem(npc, Addpropermoney(npc))<1)
+		return;
+	uint money = _CritCountItem(npc, Addpropermoney(npc)) / 4;
+	//money *= 3;
+	Item@ currency = npc.GetItem(Addpropermoney(npc), -1);
+	currency.SetCount(money);
+	
+	array<Item@> items;
+    uint         n = npc.GetItems(-1, items);
+	MoveItems(items, player);
+}
+
+void Payout_trader(Critter& player, Critter@ npc)
+{
+	Item@ SafeContainer = player.GetMap().AddItem(1, 1, PID_FRIDGE, 1);
+    if(_CritCountItem(npc, Addpropermoney(npc))<1)
+		return;
+	uint money = _CritCountItem(npc, Addpropermoney(npc)) / 4;
+	npc.ParamBase[ST_BANK5] = money;
+	//money *= 3;
+	Item@ currency = npc.GetItem(Addpropermoney(npc), -1);
+	//currency.SetCount(money);
+	SafeContainer.AddItem(Addpropermoney(npc),money,money);
+	array<Item@> items2;
+    SafeContainer.GetItems(Addpropermoney(npc), items2);
+    MoveItems(items2, player);
+	if(valid(currency))
+    {
+        DeleteItem(currency);
+    }
+	if(valid(SafeContainer))
+	{
+		DeleteItem(SafeContainer);
+	}
+	player.AddItem(Addpropermoney(npc), money);
+	npc.ParamBase[ST_BANK5] = 0;
+}
+
+void Pay(Critter& player, Critter@ npc, int cost)
+{
+	Item@ currency = npc.GetItem(Addpropermoney(npc), -1);
+	if(_CritCountItem(npc, Addpropermoney(npc))<1)
+	{
+		npc.AddItem(Addpropermoney(npc),cost);
+		return;
+	}
+	currency.SetCount(currency.GetCount() + cost);
+	
+}
+
+void r_payout(Critter& player, Critter@ npc)
+{
+    array<Item@> items;
+    uint         n = npc.GetItems(-1, items);
+    //MoveItems(items, player);
+    npc.Say(SAY_NORM_ON_HEAD, "I'm sorry everything is in Black Cross Bank");
+}
+
+void r_upgrate(Critter& player, Critter@ npc, int what)
+{
+    Map@ map = player.GetMap();
+    uint16 x, y;
+    x = y = 0;
+    switch(what)
+    {
+    case 1:
+        {
+        map.GetEntireCoords(75, 0, x, y);
+        Item@ it = map.AddItem(x, y, 9914, 1);
+        it.SetScript("workbench@_Advanced");
+        npc.ParamBase[ST_VAR6] = 1;
+        break;
+        }
+    case 2:
+        {
+        map.GetEntireCoords(76, 0, x, y);
+        Item@ it = map.AddItem(x, y, 25447, 1);
+        it.SetScript("workbench@_VCMed");
+        npc.ParamBase[ST_VAR7] = 1;
+        break;
+        }
+    case 3:
+        {
+        map.GetEntireCoords(77, 0, x, y);
+        Item@ it = map.AddItem(x, y, 3189, 1);
+        it.SetScript("workbench@_HiTechSG");
+        npc.ParamBase[ST_VAR8] = 1;
+        break;
+        }
+	case 4:
+        {
+        map.GetEntireCoords(78, 0, x, y);
+        Item@ it = map.AddItem(x, y, 3004, 1); //generator
+        npc.ParamBase[ST_VAR9] = 1;
+        break;
+        }
+    }
+
+}
+
+bool d_canbuild1(Critter& player, Critter@ npc)
+{
+    return(npc.ParamBase[ST_VAR6]<1);
+}
+
+bool d_canbuild2(Critter& player, Critter@ npc)
+{
+    return(npc.ParamBase[ST_VAR7]<1);
+}
+
+bool d_canbuild3(Critter& player, Critter@ npc)
+{
+    return(npc.ParamBase[ST_VAR8]<1);
+}
+
+bool d_canbuild4(Critter& player, Critter@ npc)
+{
+    return(npc.ParamBase[ST_VAR9]<1);
+}
+bool d_generator(Critter& player, Critter@ npc)
+{
+    return(npc.ParamBase[ST_VAR9]!=0);
+}
+bool d_canrecruitworkers(Critter& player, Critter@ npc)
+{
+    Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(417, FIND_ONLY_NPC | FIND_ALL, workers);
+    return(workerscount<30);
+}
+
+bool d_canrecruitguards(Critter& player, Critter@ npc)
+{
+    Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(422, FIND_ONLY_NPC | FIND_ALL, workers);
+    return(workerscount<25);
+}
+
+bool d_canrecruit(Critter& player, Critter@ npc, int npcpid)
+{
+    Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(npcpid, FIND_ONLY_NPC | FIND_ALL, workers);
+    return(workerscount<1);
+}
+
+bool d_canupgrade(Critter& player, Critter@ npc, int npcpid)
+{
+    Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(npcpid, FIND_ONLY_NPC | FIND_ALL, workers);
+    return(workerscount>0);
+}
+
+uint Addpropermoney(Critter@ npc)
+{
+	switch(npc.Param[ST_DESCRIPTION2])
+	{
+	case 0: return PID_BOTTLE_CAPS;
+	case 1: return PID_ENCLAVE_MONEY; 
+	case 2: return PID_BOS_MONEY;
+	case 3: return PID_NCR_MONEY; 
+	case 4: return PID_VC_MONEY; 
+	case 5: return PID_MA_MONEY;
+	}
+	return PID_BOTTLE_CAPS;
+
+}
+
+bool d_canupgradeshop(Critter& player, Critter@ npc)
+{
+    Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(416, FIND_ONLY_NPC | FIND_ALL, workers);
+    switch(workerscount)
+	{
+	case 0: if(_CritCountItem(player,PID_TECH_CONDEN)>0 && _CritCountItem(player,Addpropermoney(npc))>74999) return true;
+	case 1: if(_CritCountItem(player,PID_TECH_TRANSFORMATOR)>0 && _CritCountItem(player,Addpropermoney(npc))>99999) return true;
+	case 2: if(_CritCountItem(player,PID_TECH_ELE_WIRES)>0 &&_CritCountItem(player,PID_TECH_MECH_ENGINE)>0 && _CritCountItem(player,Addpropermoney(npc))>149999) return true;
+	case 3: if(_CritCountItem(player,PID_ARM_CERAMIC)>0 &&_CritCountItem(player,PID_ARM_KEVLAR)>0 && _CritCountItem(player,Addpropermoney(npc))>249999) return true;
+	case 4: if(_CritCountItem(player,PID_ARM_CARBON)>0 &&_CritCountItem(player,PID_ARM_GORETEX)>0 && _CritCountItem(player,PID_ARM_POLYMER)>0 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 5: if(_CritCountItem(player,PID_ARM_POLYCARBONITE)>0 &&_CritCountItem(player,PID_TECH_ELE_ENGINE)>0 && _CritCountItem(player,PID_TECH_MICROCHIPS)>0 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 6: if(_CritCountItem(player,PID_TECH_CONDEN)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 7: if(_CritCountItem(player,PID_TECH_TRANSFORMATOR)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 8: if(_CritCountItem(player,PID_TECH_ELE_WIRES)>1 &&_CritCountItem(player,PID_TECH_MECH_ENGINE)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 9: if(_CritCountItem(player,PID_ARM_CERAMIC)>1 &&_CritCountItem(player,PID_ARM_KEVLAR)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 10: if(_CritCountItem(player,PID_ARM_CARBON)>1 &&_CritCountItem(player,PID_ARM_GORETEX)>1 && _CritCountItem(player,PID_ARM_POLYMER)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 11: if(_CritCountItem(player,PID_ARM_POLYCARBONITE)>1 &&_CritCountItem(player,PID_TECH_ELE_ENGINE)>1 && _CritCountItem(player,PID_TECH_MICROCHIPS)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 12: if(_CritCountItem(player,PID_TECH_CONDEN)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 13: if(_CritCountItem(player,PID_TECH_TRANSFORMATOR)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 14: if(_CritCountItem(player,PID_TECH_ELE_WIRES)>2 &&_CritCountItem(player,PID_TECH_MECH_ENGINE)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 15: if(_CritCountItem(player,PID_ARM_CERAMIC)>2 &&_CritCountItem(player,PID_ARM_KEVLAR)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 16: if(_CritCountItem(player,PID_ARM_CARBON)>2 &&_CritCountItem(player,PID_ARM_GORETEX)>2 && _CritCountItem(player,PID_ARM_POLYMER)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 17: if(_CritCountItem(player,PID_ARM_POLYCARBONITE)>2 &&_CritCountItem(player,PID_TECH_ELE_ENGINE)>2 && _CritCountItem(player,PID_TECH_MICROCHIPS)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 18: if(_CritCountItem(player,PID_TECH_CONDEN)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 19: if(_CritCountItem(player,PID_TECH_TRANSFORMATOR)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 20: if(_CritCountItem(player,PID_TECH_ELE_WIRES)>3 &&_CritCountItem(player,PID_TECH_MECH_ENGINE)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 21: if(_CritCountItem(player,PID_ARM_CERAMIC)>3 &&_CritCountItem(player,PID_ARM_KEVLAR)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 22: if(_CritCountItem(player,PID_ARM_CARBON)>3 &&_CritCountItem(player,PID_ARM_GORETEX)>3 && _CritCountItem(player,PID_ARM_POLYMER)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 23: if(_CritCountItem(player,PID_ARM_POLYCARBONITE)>3 &&_CritCountItem(player,PID_TECH_ELE_ENGINE)>3 && _CritCountItem(player,PID_TECH_MICROCHIPS)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 24: if(_CritCountItem(player,PID_TECH_CONDEN)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 25: if(_CritCountItem(player,PID_TECH_TRANSFORMATOR)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 26: if(_CritCountItem(player,PID_TECH_ELE_WIRES)>4 &&_CritCountItem(player,PID_TECH_MECH_ENGINE)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 27: if(_CritCountItem(player,PID_ARM_CERAMIC)>4 &&_CritCountItem(player,PID_ARM_KEVLAR)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 28: if(_CritCountItem(player,PID_ARM_CARBON)>4 &&_CritCountItem(player,PID_ARM_GORETEX)>4 && _CritCountItem(player,PID_ARM_POLYMER)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 29: if(_CritCountItem(player,PID_ARM_POLYCARBONITE)>4 &&_CritCountItem(player,PID_TECH_ELE_ENGINE)>4 && _CritCountItem(player,PID_TECH_MICROCHIPS)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 30: if(_CritCountItem(player,PID_TECH_CONDEN)>4 && _CritCountItem(player,PID_TECH_TRANSFORMATOR)>4 && _CritCountItem(player,PID_TECH_ELE_WIRES)>4 &&_CritCountItem(player,PID_TECH_MECH_ENGINE)>4 && _CritCountItem(player,PID_ARM_CERAMIC)>4 &&_CritCountItem(player,PID_ARM_KEVLAR)>4 && _CritCountItem(player,PID_ARM_CARBON)>4 &&_CritCountItem(player,PID_ARM_GORETEX)>4 && _CritCountItem(player,PID_ARM_POLYMER)>4 && _CritCountItem(player,PID_ARM_POLYCARBONITE)>4 &&_CritCountItem(player,PID_TECH_ELE_ENGINE)>4 && _CritCountItem(player,PID_TECH_MICROCHIPS)>4 && _CritCountItem(player,Addpropermoney(npc))>2999999) return true;
+	}
+	
+	
+	return false;
+}
+
+bool d_canupgradebanker(Critter& player, Critter@ npc)
+{
+    Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(415, FIND_ONLY_NPC | FIND_ALL, workers);
+    switch(workerscount)
+	{
+	case 0: if(_CritCountItem(player,PID_TECH_DELINER)>0 && _CritCountItem(player,Addpropermoney(npc))>74999) return true;
+	case 1: if(_CritCountItem(player,PID_ARM_LEATHER_HIDE)>0 && _CritCountItem(player,Addpropermoney(npc))>99999) return true;
+	case 2: if(_CritCountItem(player,PID_ARM_POLYMER_ADV)>0 &&_CritCountItem(player,PID_ARM_POLYMER_LASER)>0 && _CritCountItem(player,Addpropermoney(npc))>149999) return true;
+	case 3: if(_CritCountItem(player,PID_ARM_STEEL)>0 &&_CritCountItem(player,PID_ABSORBER)>0 && _CritCountItem(player,Addpropermoney(npc))>249999) return true;
+	case 4: if(_CritCountItem(player,PID_CARBON_POLYMER)>0 &&_CritCountItem(player,PID_CYLINDRICAL_LOCK)>0 && _CritCountItem(player,PID_ELECTRIC_AMPLIFIER)>0 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 5: if(_CritCountItem(player,PID_HIFLO)>0 &&_CritCountItem(player,PID_PLASMA_ACCELERATOR)>0 && _CritCountItem(player,PID_SERVOMOTORS)>0 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 6: if(_CritCountItem(player,PID_TECH_DELINER)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 7: if(_CritCountItem(player,PID_ARM_LEATHER_HIDE)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 8: if(_CritCountItem(player,PID_ARM_POLYMER_ADV)>1 &&_CritCountItem(player,PID_ARM_POLYMER_LASER)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 9: if(_CritCountItem(player,PID_ARM_STEEL)>1 &&_CritCountItem(player,PID_ABSORBER)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 10: if(_CritCountItem(player,PID_CARBON_POLYMER)>1 &&_CritCountItem(player,PID_CYLINDRICAL_LOCK)>1 && _CritCountItem(player,PID_ELECTRIC_AMPLIFIER)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 11: if(_CritCountItem(player,PID_HIFLO)>1 &&_CritCountItem(player,PID_PLASMA_ACCELERATOR)>1 && _CritCountItem(player,PID_SERVOMOTORS)>1 && _CritCountItem(player,Addpropermoney(npc))>349999) return true;
+	case 12: if(_CritCountItem(player,PID_TECH_DELINER)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 13: if(_CritCountItem(player,PID_ARM_LEATHER_HIDE)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 14: if(_CritCountItem(player,PID_ARM_POLYMER_ADV)>2 &&_CritCountItem(player,PID_ARM_POLYMER_LASER)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 15: if(_CritCountItem(player,PID_ARM_STEEL)>2 &&_CritCountItem(player,PID_ABSORBER)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 16: if(_CritCountItem(player,PID_CARBON_POLYMER)>2 &&_CritCountItem(player,PID_CYLINDRICAL_LOCK)>2 && _CritCountItem(player,PID_ELECTRIC_AMPLIFIER)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 17: if(_CritCountItem(player,PID_HIFLO)>2 &&_CritCountItem(player,PID_PLASMA_ACCELERATOR)>2 && _CritCountItem(player,PID_SERVOMOTORS)>2 && _CritCountItem(player,Addpropermoney(npc))>499999) return true;
+	case 18: if(_CritCountItem(player,PID_TECH_DELINER)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 19: if(_CritCountItem(player,PID_ARM_LEATHER_HIDE)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 20: if(_CritCountItem(player,PID_ARM_POLYMER_ADV)>3 &&_CritCountItem(player,PID_ARM_POLYMER_LASER)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 21: if(_CritCountItem(player,PID_ARM_STEEL)>3 &&_CritCountItem(player,PID_ABSORBER)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 22: if(_CritCountItem(player,PID_CARBON_POLYMER)>3 &&_CritCountItem(player,PID_CYLINDRICAL_LOCK)>3 && _CritCountItem(player,PID_ELECTRIC_AMPLIFIER)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 23: if(_CritCountItem(player,PID_HIFLO)>3 &&_CritCountItem(player,PID_PLASMA_ACCELERATOR)>3 && _CritCountItem(player,PID_SERVOMOTORS)>3 && _CritCountItem(player,Addpropermoney(npc))>749999) return true;
+	case 24: if(_CritCountItem(player,PID_TECH_DELINER)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 25: if(_CritCountItem(player,PID_ARM_LEATHER_HIDE)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 26: if(_CritCountItem(player,PID_ARM_POLYMER_ADV)>4 &&_CritCountItem(player,PID_ARM_POLYMER_LASER)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 27: if(_CritCountItem(player,PID_ARM_STEEL)>4 &&_CritCountItem(player,PID_ABSORBER)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 28: if(_CritCountItem(player,PID_CARBON_POLYMER)>4 &&_CritCountItem(player,PID_CYLINDRICAL_LOCK)>4 && _CritCountItem(player,PID_ELECTRIC_AMPLIFIER)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 29: if(_CritCountItem(player,PID_HIFLO)>4 &&_CritCountItem(player,PID_PLASMA_ACCELERATOR)>4 && _CritCountItem(player,PID_SERVOMOTORS)>4 && _CritCountItem(player,Addpropermoney(npc))>999999) return true;
+	case 30: if(_CritCountItem(player,PID_TECH_DELINER)>4 && _CritCountItem(player,PID_ARM_LEATHER_HIDE)>4 && _CritCountItem(player,PID_ARM_POLYMER_ADV)>4 &&_CritCountItem(player,PID_ARM_POLYMER_LASER)>4 && _CritCountItem(player,PID_ARM_STEEL)>4 &&_CritCountItem(player,PID_ABSORBER)>4 && _CritCountItem(player,PID_CARBON_POLYMER)>4 &&_CritCountItem(player,PID_CYLINDRICAL_LOCK)>4 && _CritCountItem(player,PID_ELECTRIC_AMPLIFIER)>4 && _CritCountItem(player,PID_HIFLO)>4 &&_CritCountItem(player,PID_PLASMA_ACCELERATOR)>4 && _CritCountItem(player,PID_SERVOMOTORS)>4 && _CritCountItem(player,Addpropermoney(npc))>2999999) return true;
+	}
+	
+	
+	return false;
+}
+
+void r_upgradeshop(Critter& player, Critter@ npc)
+{
+    Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(416, FIND_ONLY_NPC | FIND_ALL, workers);
+	Item@ currency = player.GetItem(Addpropermoney(npc), -1);
+	Item@ condens = player.GetItem(PID_TECH_CONDEN, -1);
+	Item@ trans = player.GetItem(PID_TECH_TRANSFORMATOR, -1);
+	Item@ wires = player.GetItem(PID_TECH_ELE_WIRES, -1);
+	Item@ engine = player.GetItem(PID_TECH_MECH_ENGINE, -1);
+	Item@ ceramis = player.GetItem(PID_ARM_CERAMIC, -1);
+	Item@ kevlar = player.GetItem(PID_ARM_KEVLAR, -1);
+	Item@ carbon = player.GetItem(PID_ARM_CARBON, -1);
+	Item@ goretex = player.GetItem(PID_ARM_GORETEX, -1);
+	Item@ polymer = player.GetItem(PID_ARM_POLYMER, -1);
+	Item@ polycar = player.GetItem(PID_ARM_POLYCARBONITE, -1);
+	Item@ motor = player.GetItem(PID_TECH_ELE_ENGINE, -1);
+	Item@ microchips = player.GetItem(PID_TECH_MICROCHIPS, -1);
+	
+    switch(workerscount)
+	{
+	case 0: 
+	if(condens.GetCount()>1) 
+		condens.SetCount(condens.GetCount() - 1);
+	else DeleteItem(condens);
+	if(currency.GetCount()>75000)
+		currency.SetCount(currency.GetCount() - 75000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 1:
+	if(trans.GetCount()>1) 
+		trans.SetCount(trans.GetCount() - 1);
+	else DeleteItem(trans);
+	if(currency.GetCount()>100000)
+		currency.SetCount(currency.GetCount() - 100000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 2:
+	if(wires.GetCount()>1) 
+		wires.SetCount(wires.GetCount() - 1);
+	else DeleteItem(wires);
+	if(engine.GetCount()>1) 
+		engine.SetCount(engine.GetCount() - 1);
+	else DeleteItem(engine);
+	if(currency.GetCount()>150000)
+		currency.SetCount(currency.GetCount() - 150000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 3:
+	if(ceramis.GetCount()>1) 
+		ceramis.SetCount(ceramis.GetCount() - 1);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>1) 
+		kevlar.SetCount(kevlar.GetCount() - 1);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>250000)
+		currency.SetCount(currency.GetCount() - 250000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 4:
+	if(carbon.GetCount()>1) 
+		carbon.SetCount(carbon.GetCount() - 1);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>1) 
+		goretex.SetCount(goretex.GetCount() - 1);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>1) 
+		polymer.SetCount(polymer.GetCount() - 1);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 5:
+	if(polycar.GetCount()>1) 
+		polycar.SetCount(polycar.GetCount() - 1);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>1) 
+		motor.SetCount(motor.GetCount() - 1);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>1) 
+		microchips.SetCount(microchips.GetCount() - 1);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 6: 
+	if(condens.GetCount()>2) 
+		condens.SetCount(condens.GetCount() - 2);
+	else DeleteItem(condens);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 7:
+	if(trans.GetCount()>2) 
+		trans.SetCount(trans.GetCount() - 2);
+	else DeleteItem(trans);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 8:
+	if(wires.GetCount()>2) 
+		wires.SetCount(wires.GetCount() - 2);
+	else DeleteItem(wires);
+	if(engine.GetCount()>2) 
+		engine.SetCount(engine.GetCount() - 2);
+	else DeleteItem(engine);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 9:
+	if(ceramis.GetCount()>2) 
+		ceramis.SetCount(ceramis.GetCount() - 2);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>2) 
+		kevlar.SetCount(kevlar.GetCount() - 2);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 10:
+	if(carbon.GetCount()>2) 
+		carbon.SetCount(carbon.GetCount() - 2);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>2) 
+		goretex.SetCount(goretex.GetCount() - 2);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>2) 
+		polymer.SetCount(polymer.GetCount() - 2);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 11:
+	if(polycar.GetCount()>2) 
+		polycar.SetCount(polycar.GetCount() - 2);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>2) 
+		motor.SetCount(motor.GetCount() - 2);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>2) 
+		microchips.SetCount(microchips.GetCount() - 2);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 12: 
+	if(condens.GetCount()>3) 
+		condens.SetCount(condens.GetCount() - 3);
+	else DeleteItem(condens);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 13:
+	if(trans.GetCount()>3) 
+		trans.SetCount(trans.GetCount() - 3);
+	else DeleteItem(trans);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 14:
+	if(wires.GetCount()>3) 
+		wires.SetCount(wires.GetCount() - 3);
+	else DeleteItem(wires);
+	if(engine.GetCount()>3) 
+		engine.SetCount(engine.GetCount() - 3);
+	else DeleteItem(engine);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 15:
+	if(ceramis.GetCount()>3) 
+		ceramis.SetCount(ceramis.GetCount() - 3);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>3) 
+		kevlar.SetCount(kevlar.GetCount() - 3);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 16:
+	if(carbon.GetCount()>3) 
+		carbon.SetCount(carbon.GetCount() - 3);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>3) 
+		goretex.SetCount(goretex.GetCount() - 3);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>3) 
+		polymer.SetCount(polymer.GetCount() - 3);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 17:
+	if(polycar.GetCount()>3) 
+		polycar.SetCount(polycar.GetCount() - 3);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>3) 
+		motor.SetCount(motor.GetCount() - 3);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>3) 
+		microchips.SetCount(microchips.GetCount() - 3);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 18: 
+	if(condens.GetCount()>4) 
+		condens.SetCount(condens.GetCount() - 4);
+	else DeleteItem(condens);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 19:
+	if(trans.GetCount()>4) 
+		trans.SetCount(trans.GetCount() - 4);
+	else DeleteItem(trans);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 20:
+	if(wires.GetCount()>4) 
+		wires.SetCount(wires.GetCount() - 4);
+	else DeleteItem(wires);
+	if(engine.GetCount()>4) 
+		engine.SetCount(engine.GetCount() - 4);
+	else DeleteItem(engine);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	case 21:
+	if(ceramis.GetCount()>4) 
+		ceramis.SetCount(ceramis.GetCount() - 4);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>4) 
+		kevlar.SetCount(kevlar.GetCount() - 4);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 22:
+	if(carbon.GetCount()>4) 
+		carbon.SetCount(carbon.GetCount() - 4);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>4) 
+		goretex.SetCount(goretex.GetCount() - 4);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>4) 
+		polymer.SetCount(polymer.GetCount() - 4);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 23:
+	if(polycar.GetCount()>4) 
+		polycar.SetCount(polycar.GetCount() - 4);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>4) 
+		motor.SetCount(motor.GetCount() - 4);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>4) 
+		microchips.SetCount(microchips.GetCount() - 4);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 24: 
+	if(condens.GetCount()>5) 
+		condens.SetCount(condens.GetCount() - 5);
+	else DeleteItem(condens);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 25:
+	if(trans.GetCount()>5) 
+		trans.SetCount(trans.GetCount() - 5);
+	else DeleteItem(trans);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 26:
+	if(wires.GetCount()>5) 
+		wires.SetCount(wires.GetCount() - 5);
+	else DeleteItem(wires);
+	if(engine.GetCount()>5) 
+		engine.SetCount(engine.GetCount() - 5);
+	else DeleteItem(engine);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 27:
+	if(ceramis.GetCount()>5) 
+		ceramis.SetCount(ceramis.GetCount() - 5);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>5) 
+		kevlar.SetCount(kevlar.GetCount() - 5);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 28:
+	if(carbon.GetCount()>5) 
+		carbon.SetCount(carbon.GetCount() - 5);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>5) 
+		goretex.SetCount(goretex.GetCount() - 5);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>5) 
+		polymer.SetCount(polymer.GetCount() - 5);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 29:
+	if(polycar.GetCount()>5) 
+		polycar.SetCount(polycar.GetCount() - 5);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>5) 
+		motor.SetCount(motor.GetCount() - 5);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>5) 
+		microchips.SetCount(microchips.GetCount() - 5);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	case 30:
+	if(condens.GetCount()>5) 
+		condens.SetCount(condens.GetCount() - 5);
+	if(trans.GetCount()>5) 
+		trans.SetCount(trans.GetCount() - 5);
+	if(wires.GetCount()>5) 
+		wires.SetCount(wires.GetCount() - 5);
+	else DeleteItem(wires);
+	if(engine.GetCount()>5) 
+		engine.SetCount(engine.GetCount() - 5);
+	if(ceramis.GetCount()>5) 
+		ceramis.SetCount(ceramis.GetCount() - 5);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>5) 
+		kevlar.SetCount(kevlar.GetCount() - 5);
+	if(carbon.GetCount()>5) 
+		carbon.SetCount(carbon.GetCount() - 5);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>5) 
+		goretex.SetCount(goretex.GetCount() - 5);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>5) 
+		polymer.SetCount(polymer.GetCount() - 5);
+	if(polycar.GetCount()>5) 
+		polycar.SetCount(polycar.GetCount() - 5);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>5) 
+		motor.SetCount(motor.GetCount() - 5);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>5) 
+		microchips.SetCount(microchips.GetCount() - 5);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>3000000)
+		currency.SetCount(currency.GetCount() - 3000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 2, 0, 5);
+	break;
+	}
+}
+
+void r_upgradebanker(Critter& player, Critter@ npc)
+{
+    Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(415, FIND_ONLY_NPC | FIND_ALL, workers);
+	Item@ currency = player.GetItem(Addpropermoney(npc), -1);
+	Item@ condens = player.GetItem(PID_TECH_DELINER, -1);
+	Item@ trans = player.GetItem(PID_ARM_LEATHER_HIDE, -1);
+	Item@ wires = player.GetItem(PID_ARM_POLYMER_ADV, -1);
+	Item@ engine = player.GetItem(PID_ARM_POLYMER_LASER, -1);
+	Item@ ceramis = player.GetItem(PID_ARM_STEEL, -1);
+	Item@ kevlar = player.GetItem(PID_ABSORBER, -1);
+	Item@ carbon = player.GetItem(PID_CARBON_POLYMER, -1);
+	Item@ goretex = player.GetItem(PID_CYLINDRICAL_LOCK, -1);
+	Item@ polymer = player.GetItem(PID_ELECTRIC_AMPLIFIER, -1);
+	Item@ polycar = player.GetItem(PID_HIFLO, -1);
+	Item@ motor = player.GetItem(PID_PLASMA_ACCELERATOR, -1);
+	Item@ microchips = player.GetItem(PID_SERVOMOTORS, -1);
+	
+    switch(workerscount)
+	{
+	case 0: 
+	if(condens.GetCount()>1) 
+		condens.SetCount(condens.GetCount() - 1);
+	else DeleteItem(condens);
+	if(currency.GetCount()>75000)
+		currency.SetCount(currency.GetCount() - 75000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 1:
+	if(trans.GetCount()>1) 
+		trans.SetCount(trans.GetCount() - 1);
+	else DeleteItem(trans);
+	if(currency.GetCount()>100000)
+		currency.SetCount(currency.GetCount() - 100000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 2:
+	if(wires.GetCount()>1) 
+		wires.SetCount(wires.GetCount() - 1);
+	else DeleteItem(wires);
+	if(engine.GetCount()>1) 
+		engine.SetCount(engine.GetCount() - 1);
+	else DeleteItem(engine);
+	if(currency.GetCount()>150000)
+		currency.SetCount(currency.GetCount() - 150000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 3:
+	if(ceramis.GetCount()>1) 
+		ceramis.SetCount(ceramis.GetCount() - 1);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>1) 
+		kevlar.SetCount(kevlar.GetCount() - 1);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>250000)
+		currency.SetCount(currency.GetCount() - 250000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 4:
+	if(carbon.GetCount()>1) 
+		carbon.SetCount(carbon.GetCount() - 1);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>1) 
+		goretex.SetCount(goretex.GetCount() - 1);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>1) 
+		polymer.SetCount(polymer.GetCount() - 1);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 5:
+	if(polycar.GetCount()>1) 
+		polycar.SetCount(polycar.GetCount() - 1);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>1) 
+		motor.SetCount(motor.GetCount() - 1);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>1) 
+		microchips.SetCount(microchips.GetCount() - 1);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 6: 
+	if(condens.GetCount()>2) 
+		condens.SetCount(condens.GetCount() - 2);
+	else DeleteItem(condens);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 7:
+	if(trans.GetCount()>2) 
+		trans.SetCount(trans.GetCount() - 2);
+	else DeleteItem(trans);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 8:
+	if(wires.GetCount()>2) 
+		wires.SetCount(wires.GetCount() - 2);
+	else DeleteItem(wires);
+	if(engine.GetCount()>2) 
+		engine.SetCount(engine.GetCount() - 2);
+	else DeleteItem(engine);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 9:
+	if(ceramis.GetCount()>2) 
+		ceramis.SetCount(ceramis.GetCount() - 2);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>2) 
+		kevlar.SetCount(kevlar.GetCount() - 2);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 10:
+	if(carbon.GetCount()>2) 
+		carbon.SetCount(carbon.GetCount() - 2);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>2) 
+		goretex.SetCount(goretex.GetCount() - 2);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>2) 
+		polymer.SetCount(polymer.GetCount() - 2);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 11:
+	if(polycar.GetCount()>2) 
+		polycar.SetCount(polycar.GetCount() - 2);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>2) 
+		motor.SetCount(motor.GetCount() - 2);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>2) 
+		microchips.SetCount(microchips.GetCount() - 2);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>350000)
+		currency.SetCount(currency.GetCount() - 350000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 12: 
+	if(condens.GetCount()>3) 
+		condens.SetCount(condens.GetCount() - 3);
+	else DeleteItem(condens);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 13:
+	if(trans.GetCount()>3) 
+		trans.SetCount(trans.GetCount() - 3);
+	else DeleteItem(trans);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 14:
+	if(wires.GetCount()>3) 
+		wires.SetCount(wires.GetCount() - 3);
+	else DeleteItem(wires);
+	if(engine.GetCount()>3) 
+		engine.SetCount(engine.GetCount() - 3);
+	else DeleteItem(engine);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 15:
+	if(ceramis.GetCount()>3) 
+		ceramis.SetCount(ceramis.GetCount() - 3);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>3) 
+		kevlar.SetCount(kevlar.GetCount() - 3);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 16:
+	if(carbon.GetCount()>3) 
+		carbon.SetCount(carbon.GetCount() - 3);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>3) 
+		goretex.SetCount(goretex.GetCount() - 3);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>3) 
+		polymer.SetCount(polymer.GetCount() - 3);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 17:
+	if(polycar.GetCount()>3) 
+		polycar.SetCount(polycar.GetCount() - 3);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>3) 
+		motor.SetCount(motor.GetCount() - 3);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>3) 
+		microchips.SetCount(microchips.GetCount() - 3);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>500000)
+		currency.SetCount(currency.GetCount() - 500000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 18: 
+	if(condens.GetCount()>4) 
+		condens.SetCount(condens.GetCount() - 4);
+	else DeleteItem(condens);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 19:
+	if(trans.GetCount()>4) 
+		trans.SetCount(trans.GetCount() - 4);
+	else DeleteItem(trans);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 20:
+	if(wires.GetCount()>4) 
+		wires.SetCount(wires.GetCount() - 4);
+	else DeleteItem(wires);
+	if(engine.GetCount()>4) 
+		engine.SetCount(engine.GetCount() - 4);
+	else DeleteItem(engine);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	case 21:
+	if(ceramis.GetCount()>4) 
+		ceramis.SetCount(ceramis.GetCount() - 4);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>4) 
+		kevlar.SetCount(kevlar.GetCount() - 4);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 22:
+	if(carbon.GetCount()>4) 
+		carbon.SetCount(carbon.GetCount() - 4);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>4) 
+		goretex.SetCount(goretex.GetCount() - 4);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>4) 
+		polymer.SetCount(polymer.GetCount() - 4);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 23:
+	if(polycar.GetCount()>4) 
+		polycar.SetCount(polycar.GetCount() - 4);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>4) 
+		motor.SetCount(motor.GetCount() - 4);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>4) 
+		microchips.SetCount(microchips.GetCount() - 4);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>750000)
+		currency.SetCount(currency.GetCount() - 750000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 24: 
+	if(condens.GetCount()>5) 
+		condens.SetCount(condens.GetCount() - 5);
+	else DeleteItem(condens);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 25:
+	if(trans.GetCount()>5) 
+		trans.SetCount(trans.GetCount() - 5);
+	else DeleteItem(trans);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 26:
+	if(wires.GetCount()>5) 
+		wires.SetCount(wires.GetCount() - 5);
+	else DeleteItem(wires);
+	if(engine.GetCount()>5) 
+		engine.SetCount(engine.GetCount() - 5);
+	else DeleteItem(engine);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 27:
+	if(ceramis.GetCount()>5) 
+		ceramis.SetCount(ceramis.GetCount() - 5);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>5) 
+		kevlar.SetCount(kevlar.GetCount() - 5);
+	else DeleteItem(kevlar);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 28:
+	if(carbon.GetCount()>5) 
+		carbon.SetCount(carbon.GetCount() - 5);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>5) 
+		goretex.SetCount(goretex.GetCount() - 5);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>5) 
+		polymer.SetCount(polymer.GetCount() - 5);
+	else DeleteItem(polymer);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 29:
+	if(polycar.GetCount()>5) 
+		polycar.SetCount(polycar.GetCount() - 5);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>5) 
+		motor.SetCount(motor.GetCount() - 5);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>5) 
+		microchips.SetCount(microchips.GetCount() - 5);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>1000000)
+		currency.SetCount(currency.GetCount() - 1000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	case 30:
+	if(condens.GetCount()>5) 
+		condens.SetCount(condens.GetCount() - 5);
+	if(trans.GetCount()>5) 
+		trans.SetCount(trans.GetCount() - 5);
+	if(wires.GetCount()>5) 
+		wires.SetCount(wires.GetCount() - 5);
+	else DeleteItem(wires);
+	if(engine.GetCount()>5) 
+		engine.SetCount(engine.GetCount() - 5);
+	if(ceramis.GetCount()>5) 
+		ceramis.SetCount(ceramis.GetCount() - 5);
+	else DeleteItem(ceramis);
+	if(kevlar.GetCount()>5) 
+		kevlar.SetCount(kevlar.GetCount() - 5);
+	if(carbon.GetCount()>5) 
+		carbon.SetCount(carbon.GetCount() - 5);
+	else DeleteItem(carbon);
+	if(goretex.GetCount()>5) 
+		goretex.SetCount(goretex.GetCount() - 5);
+	else DeleteItem(goretex);
+	if(polymer.GetCount()>5) 
+		polymer.SetCount(polymer.GetCount() - 5);
+	if(polycar.GetCount()>5) 
+		polycar.SetCount(polycar.GetCount() - 5);
+	else DeleteItem(polycar);
+	if(motor.GetCount()>5) 
+		motor.SetCount(motor.GetCount() - 5);
+	else DeleteItem(motor);
+	if(microchips.GetCount()>5) 
+		microchips.SetCount(microchips.GetCount() - 5);
+	else DeleteItem(microchips);
+	if(currency.GetCount()>3000000)
+		currency.SetCount(currency.GetCount() - 3000000);
+	else DeleteItem(currency);
+	r_recruit(player,npc, 11, 0, 5);
+	break;
+	}
+}
+
+
+void dlg_Upgradeshop(Critter& player, Critter@ npc, string@ text)
+{
+ Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(416, FIND_ONLY_NPC | FIND_ALL, workers);
+ switch(workerscount)
+ {
+case 0 :  text += ("$cost" + " 1xCapacitors, 75k currency "); break;
+case 1 :  text += ("$cost" + " 1xElectrical transformer, 100k currency "); break;
+case 2 :  text += ("$cost" + " 1xWires, 1x engine, 150k currency "); break;
+case 3 :  text += ("$cost" + " 1xCeramic plate, 1x kevlar, 250k currency "); break;
+case 4 :  text += ("$cost" + " 1xGoretex, 1xcarbon polymer,1xpolymer, 350k currency "); break;
+case 5 :  text += ("$cost" + " 1xpolycarbonate, 1xelectric motor,1xmicrochips, 350k currency "); break;
+case 6 :  text += ("$cost" + " 2xCapacitors, 350k currency "); break;
+case 7 :  text += ("$cost" + " 2xElectrical transformer, 350k currency "); break;
+case 8 :  text += ("$cost" + " 2xWires, 2x engine, 350k currency "); break;
+case 9 :  text += ("$cost" + " 2xCeramic plate, 2x kevlar, 350k currency "); break;
+case 10 :  text += ("$cost" + " 2xGoretex, 2xcarbon polymer,2xpolymer, 350k currency "); break;
+case 11 :  text += ("$cost" + " 2xpolycarbonate, 2xelectric motor,2xmicrochips, 350k currency "); break;
+case 12 :  text += ("$cost" + " 3xCapacitors, 500k currency "); break;
+case 13 :  text += ("$cost" + " 3xElectrical transformer, 500k currency "); break;
+case 14 :  text += ("$cost" + " 3xWires, 3x engine, 500k currency "); break;
+case 15 :  text += ("$cost" + " 3xCeramic plate, 3x kevlar, 500k currency "); break;
+case 16 :  text += ("$cost" + " 3xGoretex, 3xcarbon polymer,3xpolymer, 500k currency "); break;
+case 17 :  text += ("$cost" + " 3xpolycarbonate, 3xelectric motor,3xmicrochips, 500k currency "); break;
+case 18 :  text += ("$cost" + " 4xCapacitors, 750k currency "); break;
+case 19 :  text += ("$cost" + " 4xElectrical transformer, 750k currency "); break;
+case 20 :  text += ("$cost" + " 4xWires, 4x engine, 750k currency "); break;
+case 21 :  text += ("$cost" + " 4xCeramic plate, 4x kevlar, 750k currency "); break;
+case 22 :  text += ("$cost" + " 4xGoretex, 4xcarbon polymer,4xpolymer, 750k currency "); break;
+case 23 :  text += ("$cost" + " 4xpolycarbonate, 4xelectric motor,4xmicrochips, 750k currency "); break;
+case 24 :  text += ("$cost" + " 5xCapacitors, 1kk currency "); break;
+case 25 :  text += ("$cost" + " 5xElectrical transformer, 1kk currency "); break;
+case 26 :  text += ("$cost" + " 5xWires, 5x engine, 1kk currency "); break;
+case 27 :  text += ("$cost" + " 5xCeramic plate, 5x kevlar, 1kk currency "); break;
+case 28 :  text += ("$cost" + " 5xGoretex, 5xcarbon polymer,5xpolymer, 1kk currency "); break;
+case 29 :  text += ("$cost" + " 5xpolycarbonate, 5xelectric motor,5xmicrochips, 1kk currency "); break;
+case 30 :  text += ("$cost" + " 5x capacitors, 5xElectrical transformer,5xWires, 5x engine,5xCeramic plate, 5x kevlar,5xGoretex, 5xcarbon polymer,5xpolymer,5xpolycarbonate, 5xelectric motor,5xmicrochips, 3kk currency "); break;
+
+ case 31 :  text += (" can't Upgrade anymore"); break;
+
+ }
+ 
+}
+
+void dlg_Upgradebanker(Critter& player, Critter@ npc, string@ text)
+{
+	Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(415, FIND_ONLY_NPC | FIND_ALL, workers);
+	switch(workerscount)
+ {
+case 0 :  text += ("$cost" + " 1xDelinker Mechanism, 75k currency "); break;
+case 1 :  text += ("$cost" + " 1xLeather Hide, 100k currency "); break;
+case 2 :  text += ("$cost" + " 1xAdv. Polymers, 1x Glass Polymers, 150k currency "); break;
+case 3 :  text += ("$cost" + " 1xSteel Plate, 1x Absorbers, 250k currency "); break;
+case 4 :  text += ("$cost" + " 1x Carbon Barrels, 1xCylindrical Lock,1xElectric Amplifier, 350k currency "); break;
+case 5 :  text += ("$cost" + " 1xHiflo, 1xPlasma Accelerator,1xServomotors, 350k currency "); break;
+case 6 :  text += ("$cost" + " 2xDelinker Mechanism, 350k currency "); break;
+case 7 :  text += ("$cost" + " 2xLeather Hide, 350k currency "); break;
+case 8 :  text += ("$cost" + " 2xAdv. Polymers, 2x Glass Polymers, 350k currency "); break;
+case 9 :  text += ("$cost" + " 2xSteel Plate, 2x Absorbers, 350k currency "); break;
+case 10 :  text += ("$cost" + " 2x Carbon Barrels, 2xCylindrical Lock,2xElectric Amplifier, 350k currency "); break;
+case 11 :  text += ("$cost" + " 2xHiflo, 2xPlasma Accelerator,2xServomotors, 350k currency "); break;
+case 12 :  text += ("$cost" + " 3xDelinker Mechanism, 500k currency "); break;
+case 13 :  text += ("$cost" + " 3xLeather Hide, 500k currency "); break;
+case 14 :  text += ("$cost" + " 3xAdv. Polymers, 3x Glass Polymers, 500k currency "); break;
+case 15 :  text += ("$cost" + " 3xSteel Plate, 3x Absorbers, 500k currency "); break;
+case 16 :  text += ("$cost" + " 3x Carbon Barrels, 3xCylindrical Lock,3xElectric Amplifier, 500k currency "); break;
+case 17 :  text += ("$cost" + " 3xHiflo, 3xPlasma Accelerator,3xServomotors, 500k currency "); break;
+case 18 :  text += ("$cost" + " 4xDelinker Mechanism, 750k currency "); break;
+case 19 :  text += ("$cost" + " 4xLeather Hide, 750k currency "); break;
+case 20 :  text += ("$cost" + " 4xAdv. Polymers, 4x Glass Polymers, 750k currency "); break;
+case 21 :  text += ("$cost" + " 4xSteel Plate, 4x Absorbers, 750k currency "); break;
+case 22 :  text += ("$cost" + " 4x Carbon Barrels, 4xCylindrical Lock,4xElectric Amplifier, 750k currency "); break;
+case 23 :  text += ("$cost" + " 4xHiflo, 4xPlasma Accelerator,4xServomotors, 750k currency "); break;
+case 24 :  text += ("$cost" + " 5xDelinker Mechanism, 1kk currency "); break;
+case 25 :  text += ("$cost" + " 5xLeather Hide, 1kk currency "); break;
+case 26 :  text += ("$cost" + " 5xAdv. Polymers, 5x Glass Polymers, 1kk currency "); break;
+case 27 :  text += ("$cost" + " 5xSteel Plate, 5x Absorbers, 1kk currency "); break;
+case 28 :  text += ("$cost" + " 5x Carbon Barrels, 5xCylindrical Lock,5xElectric Amplifier, 1kk currency "); break;
+case 29 :  text += ("$cost" + " 5xHiflo, 5xPlasma Accelerator,5xServomotors, 1kk currency "); break;
+case 30 :  text += ("$cost" + " 5x Delinker Mechanism, 5xLeather Hide,5xAdv. Polymers, 5x Glass Polymers,5xSteel Plate, 5x Absorbers,5x Carbon Barrels, 5xCylindrical Lock,5xElectric Amplifier,5xHiflo, 5xPlasma Accelerator,5xServomotors, 3kk currency "); break;
+
+ case 31 :  text += (" can't Upgrade anymore"); break;
+
+ }
+ 
+}
+
+void r_move(Critter& player, Critter@ npc)
+{
+    guardsMoveToFreeHex(npc);
+}
+
+void r_setcurrency(Critter& player, Critter@ npc, int what)
+{
+	switch(what)
+	{
+	case 1: npc.ParamBase[ST_DESCRIPTION2] = 1;  break;
+	case 2: npc.ParamBase[ST_DESCRIPTION2] = 2; break;
+	case 3: npc.ParamBase[ST_DESCRIPTION2] = 3; break;
+	case 4: npc.ParamBase[ST_DESCRIPTION2] = 4; break;
+	case 5: npc.ParamBase[ST_DESCRIPTION2] = 5; break;
+	}
+	
+	for(int i = 0; i < npc.Param[ST_DESCRIPTION2]; i++)
+	{
+	Critter@ worker = AddNpc(npc.GetMap(), 69,0 , i, 0, 0, "", 0, 0, 0, true, 0);
+	}
+}
+void r_restart(Critter& player, Critter@ cr)
+{
+	int generatorCharge = cr.Param[ST_BANK6];
+	if(generatorCharge>0)
+		{
+		SwitchGroupLights(cr.GetMap(), 5, true);
+		changelights(cr,5,0,-1);
+		changelights(cr,5,1,45);
+		}
+	int generatorUse = 100;
+	generatorUse += cr.Param[ST_BANK5] * 50; //turrets
+	generatorUse += cr.Param[ST_BANK4] * 100; //anty sneak
+	generatorCharge -= generatorUse;
+	cr.ParamBase[ST_BANK6] -= generatorUse;
+	if(generatorUse<1)
+	{
+	SwitchGroupLights(cr.GetMap(), 5, false);	
+	}
+}
+	
+void r_recruit(Critter& player, Critter@ npc, int what, int skin, int level)
+{
+    Map@ map = player.GetMap();
+    array<Critter@> workers;
+    uint workerscount = map.GetCritters(417, FIND_ONLY_NPC | FIND_ALL, workers);
+    array<Critter@> Guards;
+    uint guardcount = map.GetCritters(422, FIND_ONLY_NPC | FIND_ALL, Guards);
+    array<Critter@> caravaners;
+    uint caravanerscount = map.GetCritters(416, FIND_ONLY_NPC | FIND_ALL, caravaners);
+	array<Critter@> bankers;
+	uint bankerscount = map.GetCritters(415, FIND_ONLY_NPC | FIND_ALL, bankers);
+	
+    uint8  dir;
+    uint16 x, y;
+    x = y = dir = 0;
+    dir = Random(0, 5);
+    switch(what)
+    {
+    case 1:
+        {
+        if(workerscount>29)
+        {
+        npc.Say(SAY_NORM_ON_HEAD, "We are full, can't take new person for that position");
+        return;
+        }
+        map.GetEntireCoords(5, Random(0,2), x, y); //TODO npc scripts
+        Critter@ worker = AddNpc(map, 417,x , y, dir, 9065, "factions_terminal@worker_init", 0, 0, 0, true, Random(level,level*2));
+        array<int> skins = { 6, 13, 27, 31, 33,  36, 37, 39, 39, 39,  40, 41, 42, 43, 48 };
+        worker.ChangeCrType(skins[Random(0,14)]);
+        map.GetEntireCoords(300, Random(0,175), x, y);
+        AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		worker.ParamBase[ST_REPLICATION_TIME] = 1200;
+		worker.ParamBase[MODE_NO_STEAL] = 1;
+		worker.ParamBase[MODE_NO_LOOT] = 1;
+		worker.ParamBase[MODE_NO_DROP] = 1;
+		worker.ParamBase[MODE_NO_BARTER] = 0;
+		worker.ParamBase[MODE_NO_TALK] = 0;
+        break;
+        }
+    case 2:	
+		{
+        map.GetEntireCoords(6, Random(0,2), x, y); 
+        Critter@ worker = AddNpc(map, 416,x , y, dir, 9067, "", 0, 0, 0, true, Random(level,level*2));
+        array<int> skins = { 6, 13, 27, 31, 33,  36, 37, 39, 39, 39,  40, 41, 42, 43, 48 };
+        worker.ChangeCrType(skins[Random(0,14)]);
+        map.GetEntireCoords(400, Random(0,39), x, y);
+        AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		npc.ParamBase[ST_BANK3] += 1;
+		worker.ParamBase[ST_REPLICATION_TIME] = 1200;
+		}
+        break;
+    case 3:
+        {
+        if(guardcount>24)
+        {
+        npc.Say(SAY_NORM_ON_HEAD, "We are full, can't take new person for that position");
+        return;
+        }
+        map.GetEntireCoords(5, Random(0,2), x, y);
+        Critter@ worker = AddNpc(map, 422,x , y, dir, 9066, "factions_terminal@guard_init", 0, 0, 0, true, level);
+        worker.ChangeCrType(skin);
+        giveres(worker,skin);
+		uint entires = worker.GetMap().CountEntire(150);  
+		bool heisonplace = false;
+		while(!heisonplace)
+		{
+		worker.GetMap().GetEntireCoords(150, Random(0,entires), x, y);
+       // AddWalkPlane(cr, 0, x, y, dir, true, 0);
+		if(map.IsHexPassed(x,y))
+        {
+			AddWalkPlane(worker, 0, x, y, dir, true, 0);
+            worker.SetHomePos(x, y, dir);
+            return;
+        }
+		else worker.GetMap().GetEntireCoords(150, Random(0,entires), x, y);
+		}
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[MODE_DLG_SCRIPT_BARTER] = 1;
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+        break;
+        }
+    case 4:
+        {
+        Critter@ worker = AddNpc(map, 666,0 , 0, dir, 9066, "", 0, 0, 0, true, level);
+        break;
+        }
+    case 5: //caravan master
+        {
+        map.GetEntireCoords(5, Random(0,2), x, y);
+        Critter@ worker = AddNpc(map, 42,x , y, dir, 2541, "", 0, 0, 0, true, level);
+        worker.ChangeCrType(skin);
+        giveres(worker,skin);
+        map.GetEntireCoords(159, 0, x, y);
+        AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		worker.ParamBase[ST_REPLICATION_TIME] = 1200;
+		worker.ParamBase[MODE_NO_STEAL] = 1;
+		worker.ParamBase[MODE_NO_LOOT] = 1;
+		worker.ParamBase[MODE_NO_DROP] = 1;
+		worker.ParamBase[MODE_NO_BARTER] = 1;
+		worker.ParamBase[MODE_NO_TALK] = 0;
+        break;
+        }
+    case 6: //slaver
+        {
+        map.GetEntireCoords(5, Random(0,2), x, y);
+        Critter@ worker = AddNpc(map, 36,x , y, dir, 9068, "", 0, 0, 0, true, level); 
+        worker.ChangeCrType(skin);
+        giveres(worker,skin);
+        map.GetEntireCoords(152, 0, x, y);
+        AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		worker.ParamBase[ST_REPLICATION_TIME] = 1200;
+		worker.ParamBase[MODE_NO_STEAL] = 1;
+		worker.ParamBase[MODE_NO_LOOT] = 1;
+		worker.ParamBase[MODE_NO_DROP] = 1;
+		worker.ParamBase[MODE_NO_BARTER] = 1;
+		worker.ParamBase[MODE_NO_TALK] = 0;
+        break;
+        }
+	case 7: //banker
+        {
+        map.GetEntireCoords(5, Random(0,2), x, y);
+        Critter@ worker = AddNpc(map, 167,x , y, dir, 9300, "factions_terminal@init_banker", 0, 0, 0, true, level); //dialog ID TODO
+        //worker.ChangeCrType(skin);
+        giveres(worker,skin);
+        map.GetEntireCoords(155, 0, x, y);
+        AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = 6;
+		worker.ParamBase[ST_REPLICATION_TIME] = 1200;
+        break;
+        }
+	case 8: //doctor
+        {
+        map.GetEntireCoords(5, Random(0,2), x, y); 
+        Critter@ worker = AddNpc(map, 297,x , y, dir, 9069, "", 0, 0, 0, true, level); 
+       // worker.ChangeCrType(skin);
+        giveres(worker,skin);
+        map.GetEntireCoords(154, 0, x, y);
+        AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		worker.ParamBase[ST_REPLICATION_TIME] = 1200;
+		worker.ParamBase[MODE_NO_STEAL] = 1;
+		worker.ParamBase[MODE_NO_LOOT] = 1;
+		worker.ParamBase[MODE_NO_DROP] = 1;
+		worker.ParamBase[MODE_NO_BARTER] = 1;
+		worker.ParamBase[MODE_NO_TALK] = 0;
+        break;
+        }
+	case 9: //implancioch
+        {
+        map.GetEntireCoords(5, Random(0,2), x, y);
+        Critter@ worker = AddNpc(map, 303,x , y, dir, 9070, "", 0, 0, 0, true, level); //dialog ID TODO
+       // worker.ChangeCrType(skin);
+        giveres(worker,skin);
+        map.GetEntireCoords(160,0, x, y);
+        AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		worker.ParamBase[ST_REPLICATION_TIME] = 1200;
+		worker.ParamBase[MODE_NO_STEAL] = 1;
+		worker.ParamBase[MODE_NO_LOOT] = 1;
+		worker.ParamBase[MODE_NO_DROP] = 1;
+		worker.ParamBase[MODE_NO_BARTER] = 1;
+		worker.ParamBase[MODE_NO_TALK] = 0;
+        break;
+        }
+	case 10: //trader
+        {
+        map.GetEntireCoords(5, Random(0,2), x, y);
+        Critter@ worker = AddNpc(map, 95,x , y, dir, 9064, "factions_terminal@init_trader", 0, 0, 0, true, level); //dialog ID TODO
+       // worker.ChangeCrType(skin);
+        giveres(worker,skin);
+        map.GetEntireCoords(158, 0, x, y);
+        AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		worker.ParamBase[ST_REPLICATION_TIME] = 1200;
+		worker.ParamBase[ST_BANK1] = 1;
+        break;
+        }
+	case 11: //banker upgraders
+        {
+        map.GetEntireCoords(6, Random(0,2), x, y); 
+        Critter@ worker = AddNpc(map, 415,x , y, dir, 9067, "", 0, 0, 0, true, Random(level,level*2));
+        array<int> skins = { 6, 13, 27, 31, 33,  36, 37, 39, 39, 39,  40, 41, 42, 43, 48 };
+        worker.ChangeCrType(skins[Random(0,14)]);
+        map.GetEntireCoords(400, Random(0,60), x, y);
+        AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		worker.ParamBase[ST_REPLICATION_TIME] = 1200;
+		npc.ParamBase[ST_BANK2] += 1;
+		worker.ParamBase[MODE_NO_STEAL] = 1;
+		worker.ParamBase[MODE_NO_LOOT] = 1;
+		worker.ParamBase[MODE_NO_DROP] = 1;
+		worker.ParamBase[MODE_NO_BARTER] = 0;
+		worker.ParamBase[MODE_NO_TALK] = 0;
+        break;
+        }
+	case 12: //turret 1
+        {
+        map.GetEntireCoords(90, 0, x, y);
+        Critter@ worker = AddNpc(map, 480,x , y, dir, 9064, "factions_terminal@guard_init_turret", 0, 421, 0, true, level); //dialog ID TODO
+       // worker.ChangeCrType(skin);
+        giveres(worker,skin);
+       // map.GetEntireCoords(158, 0, x, y);
+       // AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		worker.ParamBase[ST_REPLICATION_TIME] = 600;
+		worker.ParamBase[MODE_UNLIMITED_AMMO] = 1;
+		worker.ParamBase[MODE_NO_STEAL] = 1;
+		worker.ParamBase[MODE_NO_LOOT] = 1;
+		worker.ParamBase[MODE_NO_DROP] = 1;
+		worker.ParamBase[MODE_NO_BARTER] = 0;
+		worker.ParamBase[MODE_NO_TALK] = 0;
+        break;
+		}
+	case 13: //turret 2
+        {
+        map.GetEntireCoords(91, 0, x, y);
+        Critter@ worker = AddNpc(map, 480,x , y, dir, 9064, "factions_terminal@guard_init_turret", 0, 421, 0, true, level); //dialog ID TODO
+       // worker.ChangeCrType(skin);
+        giveres(worker,skin);
+       // map.GetEntireCoords(158, 0, x, y);
+       // AddWalkPlane(worker, 0, x, y, dir, true, 0);
+        worker.SetHomePos(x, y, dir);
+        worker.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+		worker.ParamBase[ST_DESCRIPTION2] = npc.Param[ST_DESCRIPTION2];
+		worker.ParamBase[ST_REPLICATION_TIME] = 600;
+		worker.ParamBase[MODE_UNLIMITED_AMMO] = 1;
+		worker.ParamBase[MODE_NO_STEAL] = 1;
+		worker.ParamBase[MODE_NO_LOOT] = 1;
+		worker.ParamBase[MODE_NO_DROP] = 1;
+		worker.ParamBase[MODE_NO_BARTER] = 0;
+		worker.ParamBase[MODE_NO_TALK] = 0;
+        break;
+		}
+	}
+}
+
+void giveres(Critter@ npc, int skin)
+{
+    int mod = 1;
+    switch(skin)
+    {
+    case 1: { mod = 4; break;}
+    case 71: { mod = 5; break;}
+    case 140: { mod = 3; break;}
+    case 12:  { mod = 1; break;}
+    case 14: { mod = 2; break;}
+	default: mod = 1; break;
+    }
+    npc.ParamBase[ST_NORMAL_ABSORB] = 5 * mod;
+    npc.ParamBase[ST_LASER_ABSORB] = 5 * mod;
+    npc.ParamBase[ST_FIRE_ABSORB] = 5 * mod;
+    npc.ParamBase[ST_PLASMA_ABSORB] = 5 * mod;
+    npc.ParamBase[ST_ELECTRO_ABSORB] = 5 * mod;
+    npc.ParamBase[ST_EXPLODE_ABSORB] = 5 * mod;
+
+    npc.ParamBase[ST_NORMAL_RESIST] = 20 * mod;
+    npc.ParamBase[ST_LASER_RESIST] = 17 * mod;
+    npc.ParamBase[ST_FIRE_RESIST] = 15 * mod;
+    npc.ParamBase[ST_PLASMA_RESIST] = 15 * mod;
+    npc.ParamBase[ST_ELECTRO_RESIST] = 10 * mod;
+    npc.ParamBase[ST_EXPLODE_RESIST] = 10 * mod;
+}
+
+void init_manager(Critter& guard, bool firstTime)
+{
+    if(firstTime)
+    {
+    guard.ParamBase[MODE_NO_BARTER] = 0;
+    guard.ParamBase[MODE_NO_LOOT] = 0;
+    guard.ParamBase[MODE_NO_TALK] = 0;
+    guard.ParamBase[MODE_NO_WALK] = 0;
+    guard.ParamBase[MODE_NO_RUN] = 0;
+    guard.ParamBase[MODE_NO_TALK] = 0;
+    }
+	array<Critter@> crits2;
+	uint m = guard.GetMap().GetCritters(69, FIND_ALL | FIND_ONLY_NPC, crits2);
+	array<Critter@> crits;
+	uint            n = 0;
+	n = guard.GetMap().GetCritters(0, FIND_ALL | FIND_ONLY_NPC, crits);
+    for(uint i = 0; i < n; i++)
+	{
+		if(crits[i].ParamBase[ST_DESCRIPTION2] == 6)
+			continue;
+        crits[i].ParamBase[ST_DESCRIPTION2] = m;
+	}
+    array<uint> values = { guard.Id };
+    CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_income", values, false);
+    //CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_income", values, false);
+}
+
+uint e_income(array<uint>@ values)
+{
+    Critter@ cr = GetCritter(values[0]);
+    Map@ map = cr.GetMap();
+        array<Critter@> workers;
+    uint workerscount = cr.GetMap().GetCritters(417, FIND_ONLY_NPC | FIND_LIFE_AND_KO, workers);
+    array<Critter@> Guards;
+    uint guardcount = cr.GetMap().GetCritters(422, FIND_ONLY_NPC | FIND_LIFE_AND_KO, Guards);
+    array<Critter@> caravaners;
+    uint caravanerscount = cr.GetMap().GetCritters(416, FIND_ONLY_NPC | FIND_LIFE_AND_KO, caravaners);
+
+    uint t4count = cr.GetMap().GetCritters(666, FIND_ONLY_NPC | FIND_LIFE_AND_KO, caravaners);
+    array<Item@> items;
+    int         count = cr.Param[ST_BANK1];
+    int income = 500;
+    income += workerscount * 1000;
+    income -= guardcount * 500;
+    //income -= caravanerscount * 5000;
+    income -= t4count * 50000;
+	count += income;
+	if(count<0)
+    {
+		DeleteLocation(map.GetLocation().Id);
+        return 0;
+    }
+
+	cr.ParamBase[ST_BANK1] += income;
+
+	if(cr.Param[ST_VAR9]>0)
+	{
+	int generatorCharge = cr.Param[ST_BANK6];
+	if(generatorCharge>0)
+		{
+		SwitchGroupLights(map, 5, true);
+		changelights(cr,5,0,-1);
+		changelights(cr,5,1,99);
+		}
+	int generatorUse = 100;
+	generatorUse += cr.Param[ST_BANK5] * 50; //turrets
+	generatorUse += cr.Param[ST_BANK4] * 100; //anty sneak
+	generatorCharge -= generatorUse;
+	cr.ParamBase[ST_BANK6] -= generatorUse;
+	if(generatorUse<1)
+	{
+	SwitchGroupLights(map, 5, false);	
+	}
+	}
+    return REAL_MINUTE(60);
+}
+
+void init_trader(Critter& guard, bool firstTime)
+{
+                array<uint> values = { guard.Id };
+       if(firstTime)
+    {
+
+    guard.ParamBase[MODE_NO_STEAL] = 1;
+    guard.ParamBase[MODE_NO_LOOT] = 1;
+    guard.ParamBase[MODE_NO_DROP] = 1;
+    guard.ParamBase[MODE_NO_BARTER] = 0;
+    guard.ParamBase[MODE_NO_TALK] = 0;
+    guard.ParamBase[MODE_DLG_SCRIPT_BARTER] = 1;
+
+        CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_fill", values, false);
+    }
+
+    CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_fill", values, false);
+
+    //CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_income", values, false);
+}
+
+void init_banker(Critter& guard, bool firstTime)
+{
+                array<uint> values = { guard.Id };
+       if(firstTime)
+    {
+
+    guard.ParamBase[MODE_NO_STEAL] = 1;
+    guard.ParamBase[MODE_NO_LOOT] = 1;
+    guard.ParamBase[MODE_NO_DROP] = 1;
+    guard.ParamBase[MODE_NO_BARTER] = 0;
+    guard.ParamBase[MODE_NO_TALK] = 0;
+    guard.ParamBase[MODE_NO_TALK] = 0;
+    guard.ParamBase[MODE_DLG_SCRIPT_BARTER] = 1;
+
+        CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_fillb", values, false);
+    }
+
+    CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_fillb", values, false);
+
+    //CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_income", values, false);
+}
+
+uint e_fillb(array<uint>@ values)
+{
+	Critter@ cr = GetCritter(values[0]);
+	cr.ParamBase[ST_DESCRIPTION2] = 6;
+	uint ec = 0;
+	uint bc = 0;
+	uint nc = 0;
+	uint vc = 0;
+	uint mc = 0;
+	uint eco = 5;
+	uint bco = 5;
+	uint nco = 5;
+	uint vco = 5;
+	uint mco = 5;
+	array<Item@> eitems;
+    uint         e = 0;
+    e = GetAllItems(PID_ENCLAVE_MONEY, eitems);
+	for(uint i = 0; i < e; i++)
+    {
+	ec += eitems[i].GetCount();
+	}
+	array<Item@> bitems;
+    uint         b = 0;
+    b = GetAllItems(PID_BOS_MONEY, bitems);
+	for(uint i = 0; i < b; i++)
+    {
+	bc += bitems[i].GetCount();
+	}
+	array<Item@> nitems;
+    uint         n = 0;
+    n = GetAllItems(PID_NCR_MONEY, nitems);
+	for(uint i = 0; i < n; i++)
+    {
+	nc += nitems[i].GetCount();
+	}
+	array<Item@> vitems;
+    uint         v = 0;
+    v = GetAllItems(PID_VC_MONEY, vitems);
+	for(uint i = 0; i < v; i++)
+    {
+	vc += vitems[i].GetCount();
+	}
+	array<Item@> mitems;
+    uint         m = 0;
+    m = GetAllItems(PID_MA_MONEY, mitems);
+	for(uint i = 0; i < m; i++)
+    {
+	mc += mitems[i].GetCount();
+	}
+	if(ec<bc) { eco += 5; bco +=1; }
+	if(ec>bc) { eco += 1; bco += 5; }
+	if(ec==bc) { eco += 3; bco += 3; }
+	if(ec<nc) { eco += 5; nco +=1; }
+	if(ec>nc) { eco += 1; nco += 5; }
+	if(ec==nc) { eco += 3; nco += 3; }
+	if(ec<vc) { eco += 5; vco +=1; }
+	if(ec>vc) { eco += 1; vco += 5; }
+	if(ec==vc) { eco += 3; vco += 3; }
+	if(ec<mc) { eco += 5; mco +=1; }
+	if(ec>mc) { eco += 1; mco += 5; }
+	if(ec==mc) { eco += 3; mco += 3; }
+	if(bc<nc) { bco += 5; nco +=1; }
+	if(bc>nc) { bco += 1; nco += 5; }
+	if(bc==nc) { bco += 3; nco += 3; }
+	if(bc<vc) { bco += 5; vco +=1; }
+	if(bc>vc) { bco += 1; vco += 5; }
+	if(bc==vc) { bco += 3; vco += 3; }
+	if(bc<mc) { bco += 5; mco +=1; }
+	if(bc>mc) { bco += 1; mco += 5; }
+	if(bc==mc) { bco += 3; mco += 3; }
+	if(nc<vc) { nco += 5; vco +=1; }
+	if(nc>vc) { nco += 1; vco += 5; }
+	if(nc==vc) { nco += 3; vco += 3; }
+	if(nc<mc) { nco += 5; mco +=1; }
+	if(nc>mc) { nco += 1; mco += 5; }
+	if(nc==mc) { nco += 3; mco += 3; }
+	if(mc<vc) { mco += 5; vco +=1; }
+	if(mc>vc) { mco += 1; vco += 5; }
+	if(mc==vc) { mco += 3; vco += 3; }
+	
+	cr.ParamBase[ST_BANK1] = eco - 1;
+	cr.ParamBase[ST_BANK2] = bco - 1;
+	cr.ParamBase[ST_BANK3] = nco - 1;
+	cr.ParamBase[ST_BANK4] = vco - 1;
+	cr.ParamBase[ST_BANK5] = mco - 1;
+
+
+
+   
+    array<Item@> items;
+    int          count = cr.GetItems(SLOT_INV, items);
+    if(count > 0)
+    {
+        _CritAnimateUse(cr);
+        DeleteItems(items);
+    }
+    array<Critter@> caravaners;
+    uint caravanerscount = cr.GetMap().GetCritters(415, FIND_ONLY_NPC | FIND_LIFE_AND_KO, caravaners);
+	cr.AddItem(PID_BOTTLE_CAPS, 100000 * caravanerscount+1);
+	cr.AddItem(PID_ENCLAVE_MONEY, 25000 * caravanerscount+1);
+	cr.AddItem(PID_BOS_MONEY, 25000 * caravanerscount+1);
+	cr.AddItem(PID_NCR_MONEY, 25000 * caravanerscount+1);
+	cr.AddItem(PID_VC_MONEY, 25000 * caravanerscount+1);
+	cr.AddItem(PID_MA_MONEY, 25000 * caravanerscount+1);
+	
+	return REAL_MINUTE(60);
+}
+uint e_fill(array<uint>@ values)
+{
+    Critter@ item = GetCritter(values[0]);
+    array<Item@> items;
+    int          count = item.GetItems(SLOT_INV, items);
+	uint money = _CritCountItem(item, Addpropermoney(item));
+    if(count > 0)
+    {
+        _CritAnimateUse(item);
+        DeleteItems(items);
+    }
+	item.AddItem(Addpropermoney(item),money);
+    array<Critter@> caravaners;
+    uint caravanerscount = item.GetMap().GetCritters(416, FIND_ONLY_NPC | FIND_LIFE_AND_KO, caravaners);
+    item.ParamBase[SK_BARTER] = 150 - caravanerscount * 5; //better prices for every caravaner
+    for( uint i =1; i <= 10 + (5 * caravanerscount); i++ )
+        {
+    SpawnBuffItem(item, tier3armor());
+        SpawnBuffItem(item, tier3helmet());
+		SpawnBuffItem(item, tier3weapon());
+        item.AddItem(tier3ammo(), Random(20 , 70) * caravanerscount);
+		item.AddItem(tier3drugs(),  Random(1 , 20)  * caravanerscount);
+		}
+    //cream
+    int chanceweak = 0;
+    if(caravanerscount>0)
+        chanceweak = caravanerscount * 3; // max 90%
+    if(Random(1,100) < chanceweak)
+        item.AddItem(tier4ammo(),caravanerscount);
+    int chancekeys = 0;
+    if(caravanerscount>2)
+        chancekeys = (caravanerscount - 3) * 2;
+    if(Random(1,100) < chancekeys)
+        item.AddItem(rareitem(),1);
+    int chancet4part = 0;
+    if(caravanerscount>5)
+        chancet4part = (caravanerscount - 6);
+    if(Random(1,100) < chancet4part)
+        item.AddItem(tier4parts(),1);
+        int chancet4bp = 0;
+        if(caravanerscount>9)
+            chancet4bp = (caravanerscount - 9) * 3;
+        if(Random(0,1000)<chancet4bp)
+			item.AddItem(tier4bp(),1);
+
+    if(Random(0,1000)<chancet4bp)
+        item.AddItem(implant(),1);
+    int chanceimplant = 0;
+    if(caravanerscount>14)
+        chanceimplant = (caravanerscount - 14);
+    if(Random(0,1000)<chanceimplant)
+        item.AddItem(implant_combat(),1);
+    int chanceverti = 0;
+    if(caravanerscount>19)
+        chanceverti = (caravanerscount - 19);
+    if(Random(0,1000)<chanceverti)
+        item.AddItem(verti_parts(), 1);
+    int t4chance = 0;
+    if(caravanerscount>24)
+        t4chance = (caravanerscount - 24) * 5;
+    if(Random(0,10000)<t4chance)
+        item.AddItem(tier4item(), 1);
+    return REAL_MINUTE(60);
+	
+}
+
+import void AddSpecialBonus(Item@ it) from "item_bonus";
+void SpawnBuffItem(Critter& cr, uint pid)
+{
+	array<Critter@> caravaners;
+	uint caravanerscount = cr.GetMap().GetCritters(416, FIND_ONLY_NPC | FIND_LIFE_AND_KO, caravaners);
+    Item@ it = cr.AddItem(pid, 1);
+	if(caravanerscount==0)
+		caravanerscount = 1;
+    it.Val0 += Random(1,50000) * caravanerscount;
+	it.Update();
+	if(it.GetType() == ITEM_TYPE_WEAPON)
+		_weapon_perk(it, false);
+	if(it.GetType() == ITEM_TYPE_ARMOR)
+		_armor_perk(it, false);
+}
+
+void SpawnBuffItem(Critter& cr, uint pid, int, int)
+{
+    Item@ it = cr.AddItem(pid, 1);
+    AddSpecialBonus(it);
+}
+
+void guard_init(Critter& cr, bool firstTime)
+{
+    cr.SetEvent(CRITTER_EVENT_SMTH_ATTACK, "_SomeoneAttacked");
+    cr.SetEvent(CRITTER_EVENT_ATTACKED, "_Attacked");
+    cr.SetEvent(CRITTER_EVENT_IDLE, "_Idle");
+    //cr.SetEvent(CRITTER_EVENT_SMTH_STEALING, "_OnSomeoneSteal");
+
+    _CritUnsetMode(cr, MODE_NO_HOME);
+   // _CritSetExtMode(cr, MODE_EXT_MILITIA);
+    _CritSetMode(cr, MODE_NO_STEAL);
+    _CritSetMode(cr, MODE_NO_DROP);
+    _CritSetMode(cr, MODE_NO_LOOT);
+    _CritSetMode(cr, MODE_NO_KNOCK);
+    _CritUnsetMode(cr, MODE_NO_ENEMY_STACK);
+	cr.ParamBase[MODE_DLG_SCRIPT_BARTER] = 1;
+    cr.ParamBase[ST_REPLICATION_TIME] = 600;
+	cr.ParamBase[ST_TEAM_ID] = cr.GetMap().GetData(MAP_DATA_FACTION);
+    if(firstTime)
+    {
+        guardsMoveToFreeHex(cr);
+
+        cr.ParamBase[PE_BONUS_HTH_ATTACKS] += Random(0, 1);
+        cr.ParamBase[PE_BONUS_RATE_OF_FIRE] = 1;
+        cr.ParamBase[PE_BONUS_RANGED_DAMAGE] += Random(1, 2);
+        cr.ParamBase[PE_BONUS_HTH_DAMAGE] += Random(1, 2);
+        cr.ParamBase[MODE_NO_BARTER] = 0;
+        cr.ParamBase[MODE_NO_TALK] = 0;
+		cr.ParamBase[MODE_DLG_SCRIPT_BARTER] = 1;
+        cr.ParamBase[ST_REPLICATION_TIME] = 600;
+        for(uint i = SK_SMALL_GUNS; i <= SK_THROWING; i++)
+            cr.ParamBase[i] = Random(180, 240);
+            if(cr.GetProtoId() != 422)
+    cr.ParamBase[ST_LEVEL] = Random(45,70);
+        cr.ParamBase[ST_INTELLECT] = Random(7, 10);
+        cr.ParamBase[ST_PERCEPTION] = Random(7, 10);
+        cr.ParamBase[ST_CURRENT_HP] = cr.Param[ST_MAX_LIFE];
+		cr.ParamBase[ST_TEAM_ID] = cr.GetMap().GetData(MAP_DATA_FACTION);
+
+    }
+
+}
+
+void guard_init_turret(Critter& cr, bool firstTime)
+{
+    cr.SetEvent(CRITTER_EVENT_SMTH_ATTACK, "_SomeoneAttacked");
+    cr.SetEvent(CRITTER_EVENT_ATTACKED, "_Attacked");
+    cr.SetEvent(CRITTER_EVENT_IDLE, "_Idle2");
+    //cr.SetEvent(CRITTER_EVENT_SMTH_STEALING, "_OnSomeoneSteal");
+
+    _CritUnsetMode(cr, MODE_NO_HOME);
+   // _CritSetExtMode(cr, MODE_EXT_MILITIA);
+    _CritSetMode(cr, MODE_NO_STEAL);
+    _CritSetMode(cr, MODE_NO_DROP);
+    _CritSetMode(cr, MODE_NO_LOOT);
+    _CritSetMode(cr, MODE_NO_KNOCK);
+    _CritUnsetMode(cr, MODE_NO_ENEMY_STACK);
+    cr.ParamBase[ST_REPLICATION_TIME] = 600;
+    if(firstTime)
+    {
+        guardsMoveToFreeHex(cr);
+
+        cr.ParamBase[PE_BONUS_HTH_ATTACKS] += Random(0, 1);
+        cr.ParamBase[PE_BONUS_RATE_OF_FIRE] = 1;
+        cr.ParamBase[PE_BONUS_RANGED_DAMAGE] += Random(1, 2);
+        cr.ParamBase[PE_BONUS_HTH_DAMAGE] += Random(1, 2);
+        cr.ParamBase[MODE_NO_BARTER] = 0;
+        cr.ParamBase[MODE_NO_TALK] = 0;
+        cr.ParamBase[ST_REPLICATION_TIME] = 600;
+        for(uint i = SK_SMALL_GUNS; i <= SK_THROWING; i++)
+            cr.ParamBase[i] = Random(180, 240);
+            if(cr.GetProtoId() != 422)
+    cr.ParamBase[ST_LEVEL] = Random(45,70);
+        cr.ParamBase[ST_INTELLECT] = Random(7, 10);
+        cr.ParamBase[ST_PERCEPTION] = Random(7, 10);
+        cr.ParamBase[ST_CURRENT_HP] = cr.Param[ST_MAX_LIFE];
+
+    }
+		CreateTimeEvent(AFTER(REAL_MINUTE(1)), "e_generator_check", cr.Id, false);
+}
+
+uint e_generator_check(array<uint>@ values)
+{
+    Critter@ cr = GetCritter(values[0]);
+    if(!valid(cr))
+		{
+		cr.Say(SAY_NORM, "something wrong");
+		return 0;
+		}
+    array<Critter@> leaders;
+    uint caravanerscount = cr.GetMap().GetCritters(279, FIND_ONLY_NPC | FIND_LIFE_AND_KO, leaders);
+	for(uint i = 0; i < caravanerscount; i++)
+	{
+	uint charges = leaders[i].Param[ST_BANK6];
+	if(charges<1)
+		{
+		cr.ParamBase[ST_ACTION_POINTS] = -5;
+		cr.ParamBase[ST_BANK6] = 0;
+		return REAL_MINUTE(10);
+		}
+	if(charges>0)
+		{
+		if(cr.Param[ST_BANK6]<1)
+			{
+			cr.ParamBase[ST_ACTION_POINTS] = 15;
+			cr.ParamBase[ST_BANK6] = 1;
+			}
+		
+		}
+	
+	}
+	
+	return REAL_MINUTE(60);
+}
+
+void guard2_init(Critter& cr, bool firstTime)
+{
+    cr.SetEvent(CRITTER_EVENT_SMTH_ATTACK, "_SomeoneAttacked");
+    cr.SetEvent(CRITTER_EVENT_ATTACKED, "_Attacked");
+    cr.SetEvent(CRITTER_EVENT_IDLE, "_Idle2");
+    //cr.SetEvent(CRITTER_EVENT_SMTH_STEALING, "_OnSomeoneSteal");
+
+    _CritUnsetMode(cr, MODE_NO_HOME);
+   // _CritSetExtMode(cr, MODE_EXT_MILITIA);
+    _CritSetMode(cr, MODE_NO_STEAL);
+    _CritSetMode(cr, MODE_NO_DROP);
+    _CritSetMode(cr, MODE_NO_LOOT);
+    _CritSetMode(cr, MODE_NO_KNOCK);
+    _CritUnsetMode(cr, MODE_NO_ENEMY_STACK);
+    cr.ParamBase[ST_REPLICATION_TIME] = 600;
+    if(firstTime)
+    {
+       // guardsMoveToFreeHex(cr);
+
+        cr.ParamBase[PE_BONUS_HTH_ATTACKS] += Random(0, 1);
+        cr.ParamBase[PE_BONUS_RATE_OF_FIRE] = 1;
+        cr.ParamBase[PE_BONUS_RANGED_DAMAGE] += Random(1, 2);
+        cr.ParamBase[PE_BONUS_HTH_DAMAGE] += Random(1, 2);
+        cr.ParamBase[MODE_NO_BARTER] = 0;
+        cr.ParamBase[MODE_NO_TALK] = 0;
+        cr.ParamBase[ST_REPLICATION_TIME] = 600;
+        for(uint i = SK_SMALL_GUNS; i <= SK_THROWING; i++)
+            cr.ParamBase[i] = Random(180, 240);
+            if(cr.GetProtoId() != 422)
+    cr.ParamBase[ST_LEVEL] = Random(45,70);
+        cr.ParamBase[ST_INTELLECT] = Random(7, 10);
+        cr.ParamBase[ST_PERCEPTION] = Random(7, 10);
+        cr.ParamBase[ST_CURRENT_HP] = cr.Param[ST_MAX_LIFE];
+
+    }
+}
+
+void worker_init(Critter& cr, bool firstTime)
+{
+	cr.SetEvent(CRITTER_EVENT_SMTH_ATTACK, "_SomeoneAttacked");
+    cr.SetEvent(CRITTER_EVENT_ATTACKED, "_Attacked");
+	cr.SetEvent(CRITTER_EVENT_DEAD, "_deupgrade_check");
+    _CritSetMode(cr, MODE_NO_STEAL);
+    _CritSetMode(cr, MODE_NO_DROP);
+    _CritSetMode(cr, MODE_NO_LOOT);
+    _CritSetMode(cr, MODE_NO_KNOCK);
+    _CritUnsetMode(cr, MODE_NO_ENEMY_STACK);
+}
+
+void _deupgrade_check(Critter& mob, Critter@ killer)
+{
+	Map@ map = mob.GetMap();
+	int factionId = map.GetData(MAP_DATA_FACTION);
+	if(killer.IsPlayer() && killer.Param[ST_TEAM_ID] != factionId)
+		killer.ParamBase[FS_BOUNTY] = factionId;
+	
+	
+	if(killer.Param[ST_NPC_ROLE] != 203)
+		return;
+	CreateTimeEvent(AFTER(REAL_SECOND(1)), "deupgrade", mob.Id, false);
+	
+	
+}
+	
+
+void r_fire(Critter& player, Critter@ npc)
+{
+	array<Item@> fire;
+    uint         numlockers = npc.GetMap().GetItems(PID_FIRE_HEX, fire);
+	Item@ currency = player.GetItem(Addpropermoney(npc), -1);
+	if(numlockers == 0)
+	{
+	npc.Say(SAY_NORM_ON_HEAD, "There is no fire");
+	return;
+	}
+	if(_CritCountItem(player, Addpropermoney(npc))<1000)
+	{
+	npc.Say(SAY_NORM_ON_HEAD, "We need 1000 currency to fix this problem");
+	return;
+	}
+	
+	DeleteItem(fire[0]);
+	if(currency.GetCount()>1000)
+		currency.SetCount(currency.GetCount() - 1000);
+	else DeleteItem(currency);
+	
+}
+uint deupgrade(array<uint>@ values)
+{
+	Map@ map = GetCritter(values[0]).GetMap();
+	DeleteNpc(GetCritter(values[0]));
+	array<Critter@> caravaners;
+    uint caravanerscount = map.GetCritters(416, FIND_ONLY_NPC | FIND_ALL, caravaners);
+	array<Critter@> bankers;
+	uint bankerscount = map.GetCritters(415, FIND_ONLY_NPC | FIND_ALL, bankers);
+	array<Critter@> workers;
+    uint workerscount = map.GetCritters(417, FIND_ONLY_NPC | FIND_ALL, workers);
+	//Log("ERROR HERE: 0");
+	uint16 x, y;
+    x = y = 0;
+	for(int i = 0; i < 20; i++)
+	{
+	map.GetEntireCoords(900 + i, 0, x, y);
+	x += Random(0,2);
+	y += Random(0,2);
+    Item@ it = map.AddItem(x, y, PID_FIRE_HEX, 1);
+	}
+	if(workerscount-1>0)
+		{
+		//Log("ERROR HERE: 1 workerscount: " + workerscount);
+		return 0;
+		}
+	//Log("ERROR HERE: 2");
+	bool notcaravaners = false;
+	if(caravanerscount<1)
+		{
+		notcaravaners = true;
+		//Log("ERROR HERE: 3");
+		}
+	//Log("ERROR HERE: 4");
+	bool notbankers = false;
+	if(bankerscount<1)
+		{
+		notbankers = true;
+	//	Log("ERROR HERE: 5");
+		}
+	//Log("ERROR HERE: 6");
+	
+	if(!notcaravaners)
+		{
+		DeleteNpc(caravaners[0]);
+	//	Log("ERROR HERE: 7");
+		}
+	if(!notbankers)
+		{
+		DeleteNpc(bankers[0]);
+	//	Log("ERROR HERE: 8");
+		}
+	//Log("ERROR HERE: 9");
+	if(notcaravaners && notbankers)
+		{
+		DeleteLocation(map.GetLocation().Id);	
+	//	Log("ERROR HERE: 10");
+		}
+	//Log("ERROR HERE: 11");
+	return 0;
+}
+
+void guardsMoveToFreeHex(Critter& cr)
+{
+    uint8  dir = Random(0,5);
+    uint16 x, y;
+    x = y = 0;
+	uint entires = cr.GetMap().CountEntire(150);  
+		bool heisonplace = false;
+		while(!heisonplace)
+		{
+		cr.GetMap().GetEntireCoords(150, Random(0,entires), x, y);
+       // AddWalkPlane(cr, 0, x, y, dir, true, 0);
+		if(cr.GetMap().IsHexPassed(x,y))
+        {
+			AddWalkPlane(cr, 0, x, y, dir, true, 0);
+            cr.SetHomePos(x, y, dir);
+            return;
+        }
+		else cr.GetMap().GetEntireCoords(150, Random(0,entires), x, y);
+		}
+}
+
+void _Idle(Critter& cr)
+{
+	cr.ParamBase[ST_TEAM_ID] = cr.GetMap().GetData(MAP_DATA_FACTION);
+    if(Random(0, 99) == 0)
+        guardsMoveToFreeHex(cr);
+    if(Random(0, 300) == 0)    // Make action seem a bit less "mechanical"
+        ReloadWeapon(cr);
+}
+
+void _Idle2(Critter& cr)
+{
+    if(Random(0, 300) == 0)    // Make action seem a bit less "mechanical"
+        ReloadWeapon(cr);
+}
+
+bool _Attacked(Critter& follower, Critter& attacker)
+{
+    // A friend attacked (maybe an accident?). Don't fire back
+    if(IsFriend(follower, attacker))
+    {
+        follower.ErasePlane(AI_PLANE_ATTACK, true);
+        return true;
+    }
+    return false;
+}
+
+bool IsFriend(Critter& cr, Critter& target)
+{
+    if(target.Param[ST_TEAM_ID] == cr.Param[ST_TEAM_ID])
+        return true;
+    else return false;
+
+}
+
+void _SomeoneAttacked(Critter& cr, Critter& fromCrit, Critter& target)
+{
+	int factionId = cr.GetMap().GetData(MAP_DATA_FACTION);
+    // A friend attacked someone who's not a friend. He must suffer.
+    if(IsFriend(cr, fromCrit) && !(IsFriend(cr, target)))
+        AttackCritter(cr, target, __DeadHitPoints);
+
+    // A friendly was attacked, attack purpotrator.
+    if(IsFriend(cr, target) && !IsFriend(cr, fromCrit))
+        AttackCritter(cr, fromCrit, __DeadHitPoints);
+
+
+    if(!IsFriend(cr, fromCrit))
+        AttackCritter(cr, fromCrit, __DeadHitPoints);
+		
+	array<Critter@> players;
+    uint            num = GetAllOnlinePlayers(players);
+	for(uint i = 0; i < num; i++)
+    {
+	if(players[i].Param[ST_TEAM_ID] != factionId)
+		continue;
+	if(fromCrit.IsPlayer())
+		players[i].Say(SAY_NETMSG, "|" + getfactionprefix(factionId) + " [FACTION]Settlement Guard: " + fromCrit.Name + " started attacking us ");
+	}
+	string factionname;
+    GetFactionNameStr(factionId, factionname);
+	for(uint i = 0; i < num; i++)
+    {
+	if(players[i].GetAccess() != ACCESS_ADMIN)
+		continue;
+	players[i].Say(SAY_NETMSG, "|-65536 " + cr.Name + " attacking in settlement of " + factionname);
+	}
+}
+
+bool d_canlevelup(Critter& player, Critter@ npc)
+{
+    int capssum = _CritCountItem(player, Addpropermoney(npc));
+    return(npc.Param[ST_LEVEL]*5000< capssum);
+}
+import int NextLevelNeedExp(Critter& cr) from "parameters";
+
+void r_canlevelup(Critter& player, Critter@ npc)
+{
+    int capssum = _CritCountItem(player, Addpropermoney(npc));
+    int price = npc.Param[ST_LEVEL]*500;
+    BanksTransferFromCritter(player, price, TRANSACTION_DEFAULT, false);
+    npc.ParamBase[ST_EXPERIENCE] = NextLevelNeedExp(npc);
+}
+import Item@  ArmBestWeapon(Critter& critter) from "npc_common";
+void r_ArmBestWeapon(Critter& player, Critter@ follower)
+{
+    ArmBestWeapon(follower);
+}
+
+void r_faction(Critter& player, Critter@ follower)
+{
+    follower.ParamBase[ST_TEAM_ID] = player.Param[ST_TEAM_ID];
+}
+
+//ST_BANK4
+void map_init(Map& map, bool firstTime)
+{
+    //if(firstTime)
+		//map.SetData(MAP_DATA_FACTION, FACTION_VAULT_CITY); // just for test
+	map.SetEvent(MAP_EVENT_IN_CRITTER, "_OnEnterMap");
+	CreateTimeEvent(AFTER(REAL_MINUTE(Random(1740,1860))), "prepare_raid", map.Id, false); 
+}
+
+uint getfactionprefix(uint factionId)
+{
+
+	switch(factionId)
+	{
+			case 2 : return COLOR_RGB(255, 255, 255);
+			case 3 : return COLOR_RGB(166, 166, 166);
+			case 4 : return COLOR_RGB(255, 0, 102);
+			case 5 : return COLOR_RGB(230, 150, 14);
+			case 6 : return COLOR_RGB(14, 88, 203);
+			case 7 : return COLOR_RGB(255, 0, 0);
+			case 23 : return COLOR_RGB(14, 154, 233);
+			case 44 : return COLOR_RGB(0, 184, 46);
+			case 47 : return COLOR_RGB(255, 255, 0);
+			case 49 : return COLOR_RGB(136, 0, 200);
+			case 51 : return COLOR_RGB(255, 0, 0);
+			case 64 : return COLOR_RGB(0, 255, 255);
+			case 102 : return COLOR_RGB(127, 51, 1);
+			case 113 : return COLOR_RGB(102, 51, 1);
+			case 118 : return COLOR_RGB(255, 0, 0);
+			case 127 : return COLOR_RGB(220,20,60);
+			case 164 : return COLOR_RGB(244,244,244);
+			default: return COLOR_RGB(1, 255, 1);
+	}
+	return COLOR_RGB(1, 255, 1);
+}
+
+void _OnEnterMap(Map& map, Critter& cr)
+{
+	int factionId = map.GetData(MAP_DATA_FACTION);
+	
+	array<Critter@> leaders;
+    uint caravanerscount = cr.GetMap().GetCritters(279, FIND_ONLY_NPC | FIND_LIFE_AND_KO, leaders);
+	if(leaders[0].Param[ST_BANK4] > 0)
+		if(cr.Param[ST_TEAM_ID] != factionId)
+			if(cr.Param[MODE_HIDE] > 0)
+				cr.ParamBase[MODE_HIDE] = 0;
+	int status = GetStatus(factionId, cr.Id);	
+	
+		array<Critter@> Guards;
+		uint guardcount = map.GetCritters(422, FIND_ONLY_NPC | FIND_LIFE_AND_KO, Guards);
+		
+		array<Critter@> Turrets;
+		uint turretcount = map.GetCritters(480, FIND_ONLY_NPC | FIND_LIFE_AND_KO, Guards);
+	if(status == STATUS_ENEMY)
+		{
+		if(guardcount>0)
+			for( uint i = 0; i < guardcount; i++)
+			{
+				AttackCritter(Guards[i], cr, __DeadHitPoints);
+			}
+		if(turretcount>0)
+			for( uint i = 0; i < turretcount; i++)
+			{
+				AttackCritter(Turrets[i], cr, __DeadHitPoints);
+			}	
+		}
+	if(cr.ParamBase[FS_BOUNTY] == factionId)
+		{
+		if(guardcount>0)
+			for( uint i = 0; i < guardcount; i++)
+			{
+			int status = GetStatus(cr.Param[ST_TEAM_ID], cr.Id);	
+			AttackCritter(Guards[i], cr, __DeadHitPoints);
+			}
+		if(turretcount>0)
+			for( uint i = 0; i < turretcount; i++)
+			{
+			AttackCritter(Turrets[i], cr, __DeadHitPoints);
+			}
+		}
+	array<Critter@> players;
+    uint            num = GetAllOnlinePlayers(players);
+	for(uint i = 0; i < num; i++)
+    {
+	if(players[i].Param[ST_TEAM_ID] != factionId)
+		continue;
+	players[i].Say(SAY_NETMSG, "|" + getfactionprefix(factionId) + " [FACTION]Settlement Guard: " + cr.Name + " enter our settlement ");
+	}
+	string factionname;
+    GetFactionNameStr(factionId, factionname);
+	for(uint i = 0; i < num; i++)
+    {
+	if(players[i].GetAccess() != ACCESS_ADMIN)
+		continue;
+	players[i].Say(SAY_NETMSG, "|-1 " + cr.Name + " enter settlement of " + factionname);
+	}
+}
+
+uint prepare_raid(array<uint>@ values)
+{
+	Map@ map = GetMap(values[0]);
+	if(!valid(map))
+		return 0;
+	uint factionId = map.GetData(MAP_DATA_FACTION);
+	IFaction@ faction = GetFaction(factionId);
+	string factionname;
+    GetFactionNameStr(factionId, factionname);
+	string message = "Raiders preparing to raid a " + factionname +" Settlement. %COUNTDOWN% left.";
+	ServerEventCNTSet(message, map.Id + 1, 21, REAL_MINUTE(15));
+	CreateTimeEvent(AFTER(REAL_MINUTE(15)), "raid", map.Id, false); 
+	return REAL_MINUTE(Random(1740,1860));
+}
+import void SpawnMobsRaid(Map& map, int howmany, int whatkind, int whattype) from "mob_dynamic";
+uint raid(array<uint>@ values)
+{
+	Map@ map = GetMap(values[0]);
+	if(!valid(map))
+		return 0;
+	string message = "Faction Settlement has been raided";
+	ServerEventCNTSet(message, map.Id, 21, REAL_SECOND(10));
+	SpawnMobsRaid(map, Random(15,30),Random(1,3),1);	
+	return 0;
+}
+
+bool d_cansettlement(Critter& player, Critter@ npc)
+{
+    if(_CritCountItem(player, PID_BOS_MONEY)>1999999 && _CritCountItem(player, PID_ARM_LEATHER_HIDE)>14 && _CritCountItem(player, PID_FIREWOOD)>24999 && _CritCountItem(player, PID_METAL_PARTS)>9999 && _CritCountItem(player, PID_ALLOYS2)>9999)
+		return true;
+	else return false;
+}
+
+bool d_havefaction(Critter& player, Critter@ npc)
+{
+    if(player.Param[ST_TEAM_ID] > 1)
+		return true;
+	else return false;
+}
+
+void createsettlement(Critter& player, Critter@ npc, int ranczo)
+{
+   array<uint> farmzones = {1000, 1275, 1425, 1001, 925, 1625, 1002,525, 975, 1003, 825, 675, 1004, 1075, 1325, 1005, 975, 1925, 1006, 1375, 1975, 1007, 775, 1475, 1008, 1275, 2025, 1009, 875, 975 };
+   array<uint> ranczozones = { 1100, 1325, 1525, 1001, 1375, 1675, 1102,825, 1825, 1103, 1025, 1625, 1104, 575, 875, 1105, 825, 975, 1106, 1025, 1175, 1107, 1075, 1325, 1108, 725, 1325, 1109, 1225, 2125 };
+   uint bases = 0;
+   Item@ boscash = player.GetItem(PID_BOS_MONEY, -1);
+   Item@ leather_hide = player.GetItem(PID_ARM_LEATHER_HIDE, -1);
+   Item@ wood = player.GetItem(PID_FIREWOOD, -1);
+   Item@ parts = player.GetItem(PID_METAL_PARTS, -1);
+   Item@ alloys = player.GetItem(PID_ALLOYS2, -1);
+	
+
+	if(boscash.GetCount()>2000000) 
+		boscash.SetCount(boscash.GetCount() - 2000000);
+	else DeleteItem(boscash);
+	
+	if(wood.GetCount()>25000) 
+		wood.SetCount(wood.GetCount() - 25000);
+	else DeleteItem(wood);
+	
+	if(leather_hide.GetCount()>15) 
+		leather_hide.SetCount(leather_hide.GetCount() - 15);
+	else DeleteItem(leather_hide);
+	
+	if(parts.GetCount()>10000) 
+		parts.SetCount(parts.GetCount() - 10000);
+	else DeleteItem(parts);
+	
+	if(alloys.GetCount()>10000) 
+		alloys.SetCount(alloys.GetCount() - 10000);
+	else DeleteItem(alloys);
+
+   array<Map@> maps;
+   uint        num = GetAllMaps(0, maps);
+   if(ranczo==0)
+		{
+   for(uint x = 0; x < num; x++)
+		for(uint i = 0; i < farmzones.length(); i++)
+            if(valid(maps[x]))
+                {
+                if(maps[x].GetProtoId() == farmzones[0 + bases] + 2000)
+					{
+					bases += 3;
+					}
+				break;
+				}
+            
+		
+	createbase(farmzones[0 + bases],farmzones[1 + bases],farmzones[2 + bases], player.Param[ST_TEAM_ID]);
+	}
+	if(ranczo==1)
+		{
+   for(uint x = 0; x < num; x++)
+		for(uint i = 0; i < ranczozones.length(); i++)
+            if(valid(maps[x]))
+                {
+                if(maps[x].GetProtoId() == ranczozones[0 + bases] + 2000)
+					{
+					bases += 3;
+					}
+				} 
+		createbase(ranczozones[0 + bases],ranczozones[1 + bases],ranczozones[2 + bases], player.Param[ST_TEAM_ID]);
+		}
+}
+
+void createbase(uint locID, uint x, uint y, uint faction)
+{
+	array<Critter@> players;
+	uint            count = GetAllPlayers(players);
+
+    int id = CreateLocation(locID, x, y, players);
+	
+	Location@ loc = GetLocation(id);
+    Map@ map = loc.GetMapByIndex(0);
+	map.SetData(MAP_DATA_FACTION, faction);
+}
+
+string getsymbol(int letter)
+{
+	switch(letter)
+	{
+	case 0: return "0";
+	case 1: return "1";
+	case 2: return "2";
+	case 3: return "3";
+	case 4: return "4";
+	case 5: return "5";
+	case 6: return "6";
+	case 7: return "7";
+	case 8: return "8";
+	case 9: return "9";
+
+	case 10: return "a";
+	case 11: return "A";
+	case 12: return "b";
+	case 13: return "B";
+	case 14: return "c";
+	case 15: return "C";
+	case 16: return "d";
+	case 17: return "D";
+	case 18: return "e";
+	case 19: return "E";
+
+	case 20: return "f";
+	case 21: return "F";
+	case 22: return "g";
+	case 23: return "G";
+	case 24: return "h";
+	case 25: return "H";
+	case 26: return "i";
+	case 27: return "I";
+	case 28: return "j";
+	case 29: return "J";
+	
+	case 30: return "k";
+	case 31: return "K";
+	case 32: return "l";
+	case 33: return "L";
+	case 34: return "m";
+	case 35: return "M";
+	case 36: return "n";
+	case 37: return "M";
+	case 38: return "o";
+	case 39: return "O";
+	
+	case 40: return "p";
+	case 41: return "P";
+	case 42: return "q";
+	case 43: return "Q";
+	case 44: return "r";
+	case 45: return "R";
+	case 46: return "s";
+	case 47: return "S";
+	case 48: return "t";
+	case 49: return "T";
+	
+	case 50: return "u";
+	case 51: return "U";
+	case 52: return "v";
+	case 53: return "V";
+	case 54: return "w";
+	case 55: return "W";
+	case 56: return "x";
+	case 57: return "X";
+	case 58: return "y";
+	case 59: return "Y";
+	
+	case 60: return "z";
+	case 61: return "Z";
+	case 62: return ".";
+	case 63: return "-";
+	case 64: return "_";
+	case 65: return "!";
+	case 66: return " ";
+	}
+	return "";
+}

@@ -1,0 +1,228 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+6 2020 #
+4 2030 #
+9 2040 D _item p PID_WATTZ_FUSION_CORE } 1 #
+7 2050 #
+8 2060 @
+3 3000 None 0 #
+5 3010 #
+2 3020 @
+4 4000 None 0 #
+6 4010 @
+5 5000 None 0 #
+4 5010 @
+6 6000 None 0 #
+8 6010 #
+2 6020 #
+6 6030 D _item p PID_DOLLAR } 3 R _item p PID_DOLLAR - 3 R _item p PID_STEALTH_BOY + 1 #
+6 6040 D _item p PID_DOLLAR } 2 R _item p PID_DOLLAR - 2 R _item p PID_GEIGER_COUNTER + 1 #
+6 6050 D _item p PID_DOLLAR } 5 R _item p PID_DOLLAR - 5 R _item p PID_MOTION_SENSOR + 1 #
+6 6060 D _item p PID_DOLLAR } 15 R _item p PID_DOLLAR - 15 R _item p PID_FINGER_LOCK + 1 @
+7 7000 None 0 #
+2 7010 @
+8 8000 None 0 @
+9 9000 None 0 #
+9 9010 D _item p PID_WATTZ_FUSION_CORE } 1 R _item p PID_WATTZ_FUSION_CORE - 1 R _item p PID_TECH_MICROCHIPS + 1 #
+9 9020 D _item p PID_WATTZ_FUSION_CORE } 1 R _item p PID_WATTZ_FUSION_CORE - 1 R _item p PID_TECH_CONDEN + 1 #
+9 9030 D _item p PID_WATTZ_FUSION_CORE } 1 R _item p PID_WATTZ_FUSION_CORE - 1 R _item p PID_TECH_TRANSFORMATOR + 1 #
+9 9040 D _item p PID_WATTZ_FUSION_CORE } 1 R _item p PID_WATTZ_FUSION_CORE - 1 R _item p PID_TECH_ELE_WIRES + 1 #
+9 9050 D _item p PID_WATTZ_FUSION_CORE } 1 R _item p PID_WATTZ_FUSION_CORE - 1 R _item p PID_TECH_PLASMA + 1 #
+8 9060 #
+8 9070 &
+
+[engl]
+{100}{}{Cotsford}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{Do you sell any interesting thingies?}
+{2030}{}{I saw some cool looking bots in the hall. Do you sell those?}
+{2040}{}{I have a Fusion Core here with Wattz sign on it. I believe you can find it useful.}
+{2050}{}{Do you have some work for me maybe?}
+{2060}{}{I will be going.}
+{3000}{}{Name's Cotsford. I am an assistant manager here. You are currently located in Wattz Electronics. This place was sponsored and built by a person known as Christopher.}
+{3010}{}{Tell me more about Wattz Electronics.}
+{3020}{}{Let us switch the topic.}
+{4000}{}{Hmm... no. Not yet at least.}
+{4010}{}{Well.., Do you sell anything?}
+{5000}{}{[ He sighs ] Wattz Electronics was a prominent corporation before the Great War, manufacturing many types of electrical devices and electronic products. We are trying to revive the corporation as we believe that the world needs new innovations and technology! In simple words - we are here to make sure general technology returns back to everyone's lives.}
+{5010}{}{Oh cool! Do you sell robots?}
+{6000}{}{For sure. For you we can suggest Stealth Boys for 3 golden dollars, Geiger Counters for 2 golden dollars, Motion Sensors for 5 golden dollars and Finger print locks for 15 golden dollars each.}
+{6010}{}{I may come later.}
+{6020}{}{Let us switch the topic.}
+{6030}{}{Give me 1 Stealth Boy.}
+{6040}{}{Give me 1 Geiger Counter.}
+{6050}{}{Give me 1 Motion Sensor.}
+{6060}{}{Give me 1 Finger print lock.}
+{7000}{}{To be honest... You can help us. You see, our entire plant works on Wattz Fusion Cells, and these things are pretty rare nowadays. The ones we get come from Phoenix and sometimes we recieve none of them in our shipments. [ He makes a weird gesture with his hands ] And of course the plant just stops sometimes as well and we always need power to start our machines. ATOMIC power. If you happen to stuble upon a Fusion Core somewhere, bring them to us. We can gladly exchange them with some rare materials.}
+{7010}{}{I will keep my eyes on searching for these fusion cores. Now let's switch the topic...}
+{8000}{}{Come back soon. Thank you for choosing Wattz Electronics.}
+{9000}{}{Ah, great. We can suggest you Microchips, Capacitors, Electrical Transformer, Wires or Plasma Transformer. Which one do you wish to get for this Fusion Core?}
+{9010}{}{I will take Microchips.}
+{9020}{}{I will take Capacitors.}
+{9030}{}{I will take Electrical Transformer.}
+{9040}{}{I will take Wires.}
+{9050}{}{I will take Plasma Transformer.}
+{9060}{}{On second thought... I will keep it for now. Bye.}
+{9070}{}{I need to go now.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{Do you sell any interesting thingies?}
+{2030}{}{I saw some cool looking bots in the hall. Do you sell those?}
+{2040}{}{I have a Fusion Core here with Wattz sign on it. I believe you can find it useful.}
+{2050}{}{Do you have some work for me maybe?}
+{2060}{}{I will be going.}
+{3000}{}{Name's Cotsford. I am an assistant manager here. And you are currently located in Wattz Electronics. This place was sponsored and built by a person known as Christopher.}
+{3010}{}{Tell me more about Wattz Electronics.}
+{3020}{}{Let us switch the topic.}
+{4000}{}{Hmm... no. Not yet at least.}
+{4010}{}{Well.., Do you sell anything?}
+{5000}{}{[ He sighs ] Wattz Electronics was a prominent corporation before the Great War, manufacturing many types of electrical and electronic products. We are trying to revive the corporation as we believe that the world needs new innovations and... well... and so on and so on. In simple words - we are here to make technologies return back to everyone's lives.}
+{5010}{}{Oh cool! Do you sell robots?}
+{6000}{}{For sure. For you we can suggest Stealth Boys for 3 golden dollars, Geiger Counters for 2 golden dollars, Motion Sensors for 5 golden dollars and Finger print locks for 15 golden dollars each.}
+{6010}{}{I may come later.}
+{6020}{}{Let us switch the topic.}
+{6030}{}{Give me 1 Stealth Boy.}
+{6040}{}{Give me 1 Geiger Counter.}
+{6050}{}{Give me 1 Motion Sensor.}
+{6060}{}{Give me 1 Finger print lock.}
+{7000}{}{To be honest... You can help us. You see, our entire plant works on Wattz Fusion Cells. ANd these things are pretty rare nowadays. The ones we get are coming from Phoenix and sometimes we recieve nothing in our shipments. [ He makes a weird gesture with his hands ] And of course the plant just stops as wel always need power to turn our machines on. ATOMIC power. If you happen to stuble upon a Fusion Core somewhere, bring them to us. We can gladly exchange them on some rare materials.}
+{7010}{}{I will keep my eyes on searching for these fusion cores. Now let's switch the topic...}
+{8000}{}{Come back soon. Thank you for choosing Wattz Electronics.}
+{9000}{}{Ah, great. We can suggest you Microchips, Capacitors, Electrical Transformer, Wires or Plasma Transformer. Which one do you wish to get for this Fusion Core?}
+{9010}{}{I will take Microchips.}
+{9020}{}{I will take Capacitors.}
+{9030}{}{I will take Electrical Transformer.}
+{9040}{}{I will take Wires.}
+{9050}{}{I will take Plasma Transformer.}
+{9060}{}{On the second though... I will keep it for now. Bye.}
+{9070}{}{I need to go now.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{Do you sell any interesting thingies?}
+{2030}{}{I saw some cool looking bots in the hall. Do you sell those?}
+{2040}{}{I have a Fusion Core here with Wattz sign on it. I believe you can find it useful.}
+{2050}{}{Do you have some work for me maybe?}
+{2060}{}{I will be going.}
+{3000}{}{Name's Cotsford. I am an assistant manager here. And you are currently located in Wattz Electronics. This place was sponsored and built by a person known as Christopher.}
+{3010}{}{Tell me more about Wattz Electronics.}
+{3020}{}{Let us switch the topic.}
+{4000}{}{Hmm... no. Not yet at least.}
+{4010}{}{Well.., Do you sell anything?}
+{5000}{}{[ He sighs ] Wattz Electronics was a prominent corporation before the Great War, manufacturing many types of electrical and electronic products. We are trying to revive the corporation as we believe that the world needs new innovations and... well... and so on and so on. In simple words - we are here to make technologies return back to everyone's lives.}
+{5010}{}{Oh cool! Do you sell robots?}
+{6000}{}{For sure. For you we can suggest Stealth Boys for 3 golden dollars, Geiger Counters for 2 golden dollars, Motion Sensors for 5 golden dollars and Finger print locks for 15 golden dollars each.}
+{6010}{}{I may come later.}
+{6020}{}{Let us switch the topic.}
+{6030}{}{Give me 1 Stealth Boy.}
+{6040}{}{Give me 1 Geiger Counter.}
+{6050}{}{Give me 1 Motion Sensor.}
+{6060}{}{Give me 1 Finger print lock.}
+{7000}{}{To be honest... You can help us. You see, our entire plant works on Wattz Fusion Cells. ANd these things are pretty rare nowadays. The ones we get are coming from Phoenix and sometimes we recieve nothing in our shipments. [ He makes a weird gesture with his hands ] And of course the plant just stops as wel always need power to turn our machines on. ATOMIC power. If you happen to stuble upon a Fusion Core somewhere, bring them to us. We can gladly exchange them on some rare materials.}
+{7010}{}{I will keep my eyes on searching for these fusion cores. Now let's switch the topic...}
+{8000}{}{Come back soon. Thank you for choosing Wattz Electronics.}
+{9000}{}{Ah, great. We can suggest you Microchips, Capacitors, Electrical Transformer, Wires or Plasma Transformer. Which one do you wish to get for this Fusion Core?}
+{9010}{}{I will take Microchips.}
+{9020}{}{I will take Capacitors.}
+{9030}{}{I will take Electrical Transformer.}
+{9040}{}{I will take Wires.}
+{9050}{}{I will take Plasma Transformer.}
+{9060}{}{On the second though... I will keep it for now. Bye.}
+{9070}{}{I need to go now.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{Do you sell any interesting thingies?}
+{2030}{}{I saw some cool looking bots in the hall. Do you sell those?}
+{2040}{}{I have a Fusion Core here with Wattz sign on it. I believe you can find it useful.}
+{2050}{}{Do you have some work for me maybe?}
+{2060}{}{I will be going.}
+{3000}{}{Name's Cotsford. I am an assistant manager here. And you are currently located in Wattz Electronics. This place was sponsored and built by a person known as Christopher.}
+{3010}{}{Tell me more about Wattz Electronics.}
+{3020}{}{Let us switch the topic.}
+{4000}{}{Hmm... no. Not yet at least.}
+{4010}{}{Well.., Do you sell anything?}
+{5000}{}{[ He sighs ] Wattz Electronics was a prominent corporation before the Great War, manufacturing many types of electrical and electronic products. We are trying to revive the corporation as we believe that the world needs new innovations and... well... and so on and so on. In simple words - we are here to make technologies return back to everyone's lives.}
+{5010}{}{Oh cool! Do you sell robots?}
+{6000}{}{For sure. For you we can suggest Stealth Boys for 3 golden dollars, Geiger Counters for 2 golden dollars, Motion Sensors for 5 golden dollars and Finger print locks for 15 golden dollars each.}
+{6010}{}{I may come later.}
+{6020}{}{Let us switch the topic.}
+{6030}{}{Give me 1 Stealth Boy.}
+{6040}{}{Give me 1 Geiger Counter.}
+{6050}{}{Give me 1 Motion Sensor.}
+{6060}{}{Give me 1 Finger print lock.}
+{7000}{}{To be honest... You can help us. You see, our entire plant works on Wattz Fusion Cells. ANd these things are pretty rare nowadays. The ones we get are coming from Phoenix and sometimes we recieve nothing in our shipments. [ He makes a weird gesture with his hands ] And of course the plant just stops as wel always need power to turn our machines on. ATOMIC power. If you happen to stuble upon a Fusion Core somewhere, bring them to us. We can gladly exchange them on some rare materials.}
+{7010}{}{I will keep my eyes on searching for these fusion cores. Now let's switch the topic...}
+{8000}{}{Come back soon. Thank you for choosing Wattz Electronics.}
+{9000}{}{Ah, great. We can suggest you Microchips, Capacitors, Electrical Transformer, Wires or Plasma Transformer. Which one do you wish to get for this Fusion Core?}
+{9010}{}{I will take Microchips.}
+{9020}{}{I will take Capacitors.}
+{9030}{}{I will take Electrical Transformer.}
+{9040}{}{I will take Wires.}
+{9050}{}{I will take Plasma Transformer.}
+{9060}{}{On the second though... I will keep it for now. Bye.}
+{9070}{}{I need to go now.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes? May I help you?}
+{2010}{}{Who are you and what is this place?}
+{2020}{}{Do you sell any interesting thingies?}
+{2030}{}{I saw some cool looking bots in the hall. Do you sell those?}
+{2040}{}{I have a Fusion Core here with Wattz sign on it. I believe you can find it useful.}
+{2050}{}{Do you have some work for me maybe?}
+{2060}{}{I will be going.}
+{3000}{}{Name's Cotsford. I am an assistant manager here. And you are currently located in Wattz Electronics. This place was sponsored and built by a person known as Christopher.}
+{3010}{}{Tell me more about Wattz Electronics.}
+{3020}{}{Let us switch the topic.}
+{4000}{}{Hmm... no. Not yet at least.}
+{4010}{}{Well.., Do you sell anything?}
+{5000}{}{[ He sighs ] Wattz Electronics was a prominent corporation before the Great War, manufacturing many types of electrical and electronic products. We are trying to revive the corporation as we believe that the world needs new innovations and... well... and so on and so on. In simple words - we are here to make technologies return back to everyone's lives.}
+{5010}{}{Oh cool! Do you sell robots?}
+{6000}{}{For sure. For you we can suggest Stealth Boys for 3 golden dollars, Geiger Counters for 2 golden dollars, Motion Sensors for 5 golden dollars and Finger print locks for 15 golden dollars each.}
+{6010}{}{I may come later.}
+{6020}{}{Let us switch the topic.}
+{6030}{}{Give me 1 Stealth Boy.}
+{6040}{}{Give me 1 Geiger Counter.}
+{6050}{}{Give me 1 Motion Sensor.}
+{6060}{}{Give me 1 Finger print lock.}
+{7000}{}{To be honest... You can help us. You see, our entire plant works on Wattz Fusion Cells. ANd these things are pretty rare nowadays. The ones we get are coming from Phoenix and sometimes we recieve nothing in our shipments. [ He makes a weird gesture with his hands ] And of course the plant just stops as wel always need power to turn our machines on. ATOMIC power. If you happen to stuble upon a Fusion Core somewhere, bring them to us. We can gladly exchange them on some rare materials.}
+{7010}{}{I will keep my eyes on searching for these fusion cores. Now let's switch the topic...}
+{8000}{}{Come back soon. Thank you for choosing Wattz Electronics.}
+{9000}{}{Ah, great. We can suggest you Microchips, Capacitors, Electrical Transformer, Wires or Plasma Transformer. Which one do you wish to get for this Fusion Core?}
+{9010}{}{I will take Microchips.}
+{9020}{}{I will take Capacitors.}
+{9030}{}{I will take Electrical Transformer.}
+{9040}{}{I will take Wires.}
+{9050}{}{I will take Plasma Transformer.}
+{9060}{}{On the second though... I will keep it for now. Bye.}
+{9070}{}{I need to go now.}
+

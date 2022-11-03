@@ -1,0 +1,189 @@
+//
+// dynamic_light_source.fos
+#define DYNAMIC_LIGHT_MODULE
+#include "dynamic_light_source_h.fos"
+
+
+// for some reason mapped lights on items dont get parsed, probably because cvet, so we are using val0-val4 ( 5 vals ) to determine
+// val0 for colour, 
+// val1 for intensity(use values from -128 to 127) 
+// val2 for light distance
+
+// in case of non buzzing lights val3 is used for groupId
+// val4 to determine if light should be On after init, or not ( USED ONLY ON INIT )
+// dynamic_light_source@_InitLightItem
+void _InitLightItem(Item& item, bool firstTime)
+{
+	item.LightColor 	= item.Val0;
+	item.LightIntensity = item.Val4 > 0 ? int8(item.Val1) : 0;
+	item.LightDistance  = item.Val2;
+	item.Update();
+}
+
+// trapValue for startup time (in MS, to buzz switching),
+// val3 for lightOn duration
+// val4 for lightOff duration
+// dynamic_light_source@_BuzzingLight
+/*void _BuzzingLight(Item& item, bool firstTime)
+{
+	uint[] values = {item.Id};
+	if(firstTime)
+	{
+		//CreateTimeEvent(AFTER(REAL_MS(item.TrapValue)), "e_ReInitBuzzing", values, true); // trapValue yeah lol, double init yeah lol x2
+		return;
+	}
+	_InitLightItem(item, firstTime);
+	item.Update();
+	//CreateTimeEvent(AFTER(REAL_MS(item.Val3)), "e_LightOff", values, true);
+}*/
+
+/*
+uint e_ReInitBuzzing(uint[]@ values)
+{
+	Item@ lights = GetItem(values[0]);
+	if(valid(lights))
+	{
+		lights.TrapValue = 0; // since its a temporary value
+		_BuzzingLight(lights, false);
+		lights.Update();
+	}
+	return 0;
+}
+uint e_LightOn(uint[]@ values)
+{
+	Item@ lights = GetItem(values[0]);
+	if(valid(lights))
+	{
+		lights.LightIntensity = int8(lights.Val1);
+		lights.Update();
+		//CreateTimeEvent(AFTER(REAL_MS(lights.Val3)), "e_LightOff", values, true); 
+	}
+	
+	return 0;
+}
+
+uint e_LightOff(uint[]@ values)
+{
+	Item@ lights = GetItem(values[0]);
+	if(valid(lights))
+	{
+		lights.LightIntensity = 0;
+	//	SETFLAG(lights.LightFlags, 0x40);
+		lights.Update();
+	//	CreateTimeEvent(AFTER(REAL_MS(lights.Val4)), "e_LightOn", values, true); 
+	}
+	return 0;
+}*/
+
+void SwitchGroupLights(Map& map, int groupId, bool on)
+{
+	array<Item@> lights;
+	map.GetItems(PID_ITEM_LIGHT, lights);
+	
+	if(lights.length()>0)
+	{
+		for(uint i = 0, j = lights.length(); i<j ; i++)
+		{
+			if(lights[i].Val3 == groupId)
+			{
+				on ? lights[i].LightIntensity = int8(lights[i].Val1) : lights[i].LightIntensity = 0;
+				lights[i].Update();
+			}
+		}
+	}
+}
+void forcelights(Critter& cr, int groupId, int on, int nono)
+{
+		array<Item@> lights;
+	cr.GetMap().GetItems(PID_ITEM_LIGHT, lights);
+	bool turnOn = false;
+	if(on>0)
+		turnOn = true;
+	if(lights.length()>0)
+	{
+		for(uint i = 0, j = lights.length(); i<j ; i++)
+		{
+			if(lights[i].Val3 == groupId)
+			{
+				turnOn ? lights[i].LightIntensity = int8(lights[i].Val1) : lights[i].LightIntensity = 0;
+				lights[i].Update();
+			}
+		}
+	}
+}
+
+void changelights(Critter& cr, int groupId, int paramId, int paramVal)
+{
+	array<Item@> lights;
+	cr.GetMap().GetItems(PID_ITEM_LIGHT, lights);
+	
+	if(lights.length()>0)
+	{
+		for(uint i = 0, j = lights.length(); i<j ; i++)
+		{
+			if(lights[i].Val3 == groupId)
+			{
+				switch(paramId) // shit
+				{
+					case DYNAMIC_LIGHT_PARAM_COLOR:
+						lights[i].LightColor = paramVal;
+						lights[i].Update();
+						break;
+					case DYNAMIC_LIGHT_PARAM_INTENSITY:
+						lights[i].LightIntensity = int8(paramVal);
+						lights[i].Update();
+						break;
+					case DYNAMIC_LIGHT_PARAM_DISTANCE:
+						lights[i].LightDistance = paramVal;
+						lights[i].Update();
+						break;
+					case DYNAMIC_LIGHT_PARAM_DROP:
+						lights[i].LightColor 	 = lights[i].Val0;
+						lights[i].LightIntensity = int8(lights[i].Val1);
+						lights[i].LightDistance  = lights[i].Val2;
+						lights[i].Update();
+						break;
+				}
+			}
+		}
+	}
+}
+//fo3
+// 0 - color, 1 - intensity, 2 - distance, 3 - back to base
+void ChangeGroupLightsParam(Map& map, int groupId, int paramId, int paramVal)
+{
+	array<Item@> lights;
+	map.GetItems(PID_ITEM_LIGHT, lights);
+	
+	if(lights.length()>0)
+	{
+		for(uint i = 0, j = lights.length(); i<j ; i++)
+		{
+			if(lights[i].Val3 == groupId)
+			{
+				switch(paramId) // shit
+				{
+					case DYNAMIC_LIGHT_PARAM_COLOR:
+						lights[i].LightColor = paramVal;
+						lights[i].Update();
+						break;
+					case DYNAMIC_LIGHT_PARAM_INTENSITY:
+						lights[i].LightIntensity = int8(paramVal);
+						lights[i].Update();
+						break;
+					case DYNAMIC_LIGHT_PARAM_DISTANCE:
+						lights[i].LightDistance = paramVal;
+						lights[i].Update();
+						break;
+					case DYNAMIC_LIGHT_PARAM_DROP:
+						lights[i].LightColor 	 = lights[i].Val0;
+						lights[i].LightIntensity = int8(lights[i].Val1);
+						lights[i].LightDistance  = lights[i].Val2;
+						lights[i].Update();
+						break;
+				}
+			}
+		}
+	}
+}
+

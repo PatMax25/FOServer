@@ -1,0 +1,72 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 #
+4 2010 #
+0 2020 @
+4 3000 None 0 #
+0 3010 #
+0 3020 D _script dialog@d_havepropermoney 1 700 R _script dialog@r_FlushScreen 0  R _script dialog@r_RemoveMoney 1 700 R _param p ST_EXPERIENCE + 150 &
+
+[engl]
+{100}{}{Whore}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hey, who do I see here? I guess you are a lover of high class exotic adventures as well, aren't you? Well, baby, I can show you something very special...}
+{2010}{}{Hey, babe. What do you say we party together?}
+{2020}{}{Back off, dirty bitch!}
+{3000}{}{700 Currency... And you enjoy heaven.}
+{3010}{}{How much?! No! Go fuck yourself!}
+{3020}{}{Well, lets get started...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hey, whome I see here. I guess you are the lover of some high class exotic adventures as well, aren't you? Well, baby, I can show you something very special...}
+{2010}{}{Hey, babe. What do you think about some party togather, eh?}
+{2020}{}{Back off, dirty bitch!}
+{3000}{}{700 Currency... And you enjoy heaven.}
+{3010}{}{How many?! No! You better go fuck yourself!}
+{3020}{}{Lets get started...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hey, whome I see here. I guess you are the lover of some high class exotic adventures as well, aren't you? Well, baby, I can show you something very special...}
+{2010}{}{Hey, babe. What do you think about some party togather, eh?}
+{2020}{}{Back off, dirty bitch!}
+{3000}{}{700 Currency... And you enjoy heaven.}
+{3010}{}{How many?! No! You better go fuck yourself!}
+{3020}{}{Lets get started...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hey, whome I see here. I guess you are the lover of some high class exotic adventures as well, aren't you? Well, baby, I can show you something very special...}
+{2010}{}{Hey, babe. What do you think about some party togather, eh?}
+{2020}{}{Back off, dirty bitch!}
+{3000}{}{700 Currency... And you enjoy heaven.}
+{3010}{}{How many?! No! You better go fuck yourself!}
+{3020}{}{Lets get started...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hey, whome I see here. I guess you are the lover of some high class exotic adventures as well, aren't you? Well, baby, I can show you something very special...}
+{2010}{}{Hey, babe. What do you think about some party togather, eh?}
+{2020}{}{Back off, dirty bitch!}
+{3000}{}{700 Currency... And you enjoy heaven.}
+{3010}{}{How many?! No! You better go fuck yourself!}
+{3020}{}{Lets get started...}
+

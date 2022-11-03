@@ -1,0 +1,9 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Wiedzma;
+@gender = 2;
+@age = 20;
+
+@stats = 31 15 74361 2 1 41 17 25 10 39;
+@kills = 260:355 261:95 263:7 264:6 267:10 268:11 269:27 271:3 273:10 275:7 276:35 284:76;

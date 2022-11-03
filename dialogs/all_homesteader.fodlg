@@ -1,0 +1,56 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+0 2020 &
+
+[engl]
+{100}{}{Homesteader}
+{200}{}{You see a lean, tan, muscular person.}
+{210}{}{You see a thin person who appears to be growing old too quickly, like everyone else these days.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Keep your hands where I can see them! Bandits and worse are everywhere out here, and you smell awfully suspicious. What do you want?}
+{2010}{}{I just wanted to trade for supplies.}
+{2020}{}{I'm just passing through. I'll be on my way. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You just keep your hands where I can see them. We've been plagued by bandits lately, and I think you just might be one of them. What do you want?}
+{2010}{}{I just wanted to trade for supplies.}
+{2020}{}{I'm just passing through. I'll be on my way.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You just keep your hands where I can see them. We've been plagued by bandits lately, and I think you just might be one of them. What do you want?}
+{2010}{}{I just wanted to trade for supplies.}
+{2020}{}{I'm just passing through. I'll be on my way.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You just keep your hands where I can see them. We've been plagued by bandits lately, and I think you just might be one of them. What do you want?}
+{2010}{}{I just wanted to trade for supplies.}
+{2020}{}{I'm just passing through. I'll be on my way.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{You just keep your hands where I can see them. We've been plagued by bandits lately, and I think you just might be one of them. What do you want?}
+{2010}{}{I just wanted to trade for supplies.}
+{2020}{}{I'm just passing through. I'll be on my way.}
+

@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+6 1010 @
+2 2000 None 0 #
+6 2010 @
+4 3000 None 0 #
+6 3010 @
+5 4000 None 0 #
+6 4010 @
+6 5000 None 0 #
+2 5010 #
+4 5020 #
+5 5030 #
+0 5040 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ We set up a camp near the entrance. The surface was infested with infected, but they aren't much of a problem. It looks like the Hubologists have managed to find a sample of the virus. We will try to organise the active outpost here. For now we have connected all the electronics to our hummer's battery. ]}
+{2010}{}{[ Back ]}
+{3000}{}{First group tried to storm the facility today. Nobody returned. Orders from HQ are clear - stand by and wait for reinforcements. And we do...}
+{3010}{}{[ Back ]}
+{4000}{}{The attacks of infected intensify. Today we lost connection with HQ... We are running out of filters and ammo. And the worst one - Anna started coughing today. We are planning to retreat today, we can no longer stay here. The mission is failed.}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... ]}
+{5010}{}{[ Log 1 ]}
+{5020}{}{[ Log 2 ]}
+{5030}{}{[ Log 3 ]}
+{5040}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ We set a camp near the entrance. The surface was infested with infected, but it it wasn't much of the problem. Basing on our status reports, Hubologists managed to find a clear sample of the virus somewhere here. We will try to orginise the active outpost here. For now we connected all electronics to our hummer's battery. ]}
+{2010}{}{[ Back ]}
+{3000}{}{First group tried to storm the facility today. Nobody returned. Orders from HQ are clear - stand by and wait for reinforcements. And we do...}
+{3010}{}{[ Back ]}
+{4000}{}{The attacks of infected intensify. Today we lost connection with HQ... We are running out of filters and ammo. And the worst one - Anna started coughing today. We are planning to retreat today, we can no longer stay here. The mission is failed.}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... ]}
+{5010}{}{[ Log 1 ]}
+{5020}{}{[ Log 2 ]}
+{5030}{}{[ Log 3 ]}
+{5040}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ We set a camp near the entrance. The surface was infested with infected, but it it wasn't much of the problem. Basing on our status reports, Hubologists managed to find a clear sample of the virus somewhere here. We will try to orginise the active outpost here. For now we connected all electronics to our hummer's battery. ]}
+{2010}{}{[ Back ]}
+{3000}{}{First group tried to storm the facility today. Nobody returned. Orders from HQ are clear - stand by and wait for reinforcements. And we do...}
+{3010}{}{[ Back ]}
+{4000}{}{The attacks of infected intensify. Today we lost connection with HQ... We are running out of filters and ammo. And the worst one - Anna started coughing today. We are planning to retreat today, we can no longer stay here. The mission is failed.}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... ]}
+{5010}{}{[ Log 1 ]}
+{5020}{}{[ Log 2 ]}
+{5030}{}{[ Log 3 ]}
+{5040}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ We set a camp near the entrance. The surface was infested with infected, but it it wasn't much of the problem. Basing on our status reports, Hubologists managed to find a clear sample of the virus somewhere here. We will try to orginise the active outpost here. For now we connected all electronics to our hummer's battery. ]}
+{2010}{}{[ Back ]}
+{3000}{}{First group tried to storm the facility today. Nobody returned. Orders from HQ are clear - stand by and wait for reinforcements. And we do...}
+{3010}{}{[ Back ]}
+{4000}{}{The attacks of infected intensify. Today we lost connection with HQ... We are running out of filters and ammo. And the worst one - Anna started coughing today. We are planning to retreat today, we can no longer stay here. The mission is failed.}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... ]}
+{5010}{}{[ Log 1 ]}
+{5020}{}{[ Log 2 ]}
+{5030}{}{[ Log 3 ]}
+{5040}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ We set a camp near the entrance. The surface was infested with infected, but it it wasn't much of the problem. Basing on our status reports, Hubologists managed to find a clear sample of the virus somewhere here. We will try to orginise the active outpost here. For now we connected all electronics to our hummer's battery. ]}
+{2010}{}{[ Back ]}
+{3000}{}{First group tried to storm the facility today. Nobody returned. Orders from HQ are clear - stand by and wait for reinforcements. And we do...}
+{3010}{}{[ Back ]}
+{4000}{}{The attacks of infected intensify. Today we lost connection with HQ... We are running out of filters and ammo. And the worst one - Anna started coughing today. We are planning to retreat today, we can no longer stay here. The mission is failed.}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... ]}
+{5010}{}{[ Log 1 ]}
+{5020}{}{[ Log 2 ]}
+{5030}{}{[ Log 3 ]}
+{5040}{}{[ Exit ]}
+

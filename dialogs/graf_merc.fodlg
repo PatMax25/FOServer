@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Van Graffs merc}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I can't talk with you now.@@The shop is inside, just come in.@@Not now...@@Weclome to Van Graffs.@@We sell the best weapons. Come in and choose one.@@Hey.@@Enjoy our selection.@@Haven't you heard of us? Best weapons in the wastes.@@Van Graffs have everything you need...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I can't talk with you now.@@The shop is inside, just come in.@@Not now...@@Weclome to Van Graffs.@@We sell best weapons. Come in and choose one.@@Hey.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I can't talk with you now.@@The shop is inside, just come in.@@Not now...@@Weclome to Van Graffs.@@We sell best weapons. Come in and choose one.@@Hey.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I can't talk with you now.@@The shop is inside, just come in.@@Not now...@@Weclome to Van Graffs.@@We sell best weapons. Come in and choose one.@@Hey.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{I can't talk with you now.@@The shop is inside, just come in.@@Not now...@@Weclome to Van Graffs.@@We sell best weapons. Come in and choose one.@@Hey.}
+

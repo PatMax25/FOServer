@@ -1,0 +1,433 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+4 1010 D _var p name_mem_npc_player = 1 #
+2 1020 D _var p name_mem_npc_player = 0 @
+2 2000 None 0 #
+3 2010 R _var p name_mem_npc_player = 1 #
+3 2020 R _var p name_mem_npc_player = 1 #
+0 2030 @
+3 3000 None 0 #
+4 3010 #
+4 3020 #
+4 3030 #
+13 3040 @
+4 4000 None 0 #
+5 4010 #
+13 4020 #
+8 4030 D _var p q_rockside_francis = 1 R _item p PID_BEER + 1 R _var p q_rockside_francis = 2 #
+9 4040 #
+10 4050 #
+11 4060 #
+7 4070 #
+14 4080 D _var p q_v99_judith_beer = 1 R _var p q_v99_judith_beer = 2 #
+15 4090 D _var p q_v99_judith_beer = 2 #
+28 4100 D _var p q_rockside_breakit = 1 #
+12 4110 @
+5 5000 None 0 #
+6 5010 #
+13 5020 #
+4 5030 #
+0 5040 @
+6 6000 None 0 #
+4 6010 #
+12 6020 @
+7 7000 None 0 @
+8 8000 None 0 #
+4 8010 #
+0 8020 @
+9 9000 None 0 #
+4 9010 D _script dialog@d_havepropermoney 1 5 R _item p PID_BEER + 1 R _script dialog@r_RemoveMoney 1 5 #
+4 9020 D _script dialog@d_havepropermoney 1 10 R _item p PID_BEER + 2 R _script dialog@r_RemoveMoney 1 10 #
+4 9030 D _script dialog@d_havepropermoney 1 25 R _item p PID_BEER + 5 R _script dialog@r_RemoveMoney 1 25 #
+4 9040 @
+10 10000 None 0 #
+4 10010 D _script dialog@d_havepropermoney 1 10 R _item p PID_NUKA_COLA + 1 R _script dialog@r_RemoveMoney 1 10 #
+4 10020 D _script dialog@d_havepropermoney 1 20 R _item p PID_NUKA_COLA + 2 R _script dialog@r_RemoveMoney 1 20 #
+4 10030 D _script dialog@d_havepropermoney 1 50 R _item p PID_NUKA_COLA + 5 R _script dialog@r_RemoveMoney 1 50 #
+4 10040 @
+11 11000 None 0 #
+4 11010 D _script dialog@d_havepropermoney 1 7 R _item p PID_IGUANA_ON_A_STICK + 1 R _script dialog@r_RemoveMoney 1 7 #
+4 11020 D _script dialog@d_havepropermoney 1 14 R _item p PID_IGUANA_ON_A_STICK + 2 R _script dialog@r_RemoveMoney 1 14 #
+4 11030 D _script dialog@d_havepropermoney 1 35 R _item p PID_IGUANA_ON_A_STICK + 5 R _script dialog@r_RemoveMoney 1 35 #
+4 11040 @
+12 12000 None 0 @
+13 13000 None 0 @
+14 14000 None 0 @
+15 15000 None 0 #
+16 15010 D _script dialog@d_havepropermoney 1 25 R _item p PID_ROENTGEN_RUM + 1 R _script dialog@r_RemoveMoney 1 25 R _var p q_v99_judith_beer = 3 #
+12 15020 @
+16 16000 None 0 @
+20 17000 None 0 @
+21 18000 None 0 @
+22 19000 None 0 @
+24 20000 None 0 @
+26 21000 None 0 #
+27 21010 @
+27 22000 None 0 @
+28 23000 None 0 #
+0 23010 D _script dialog@d_havepropermoney 1 3 R _var p q_rockside_breakit = 3 R _item p PID_BEER + 1 R _script dialog@r_RemoveMoney 1 3 #
+0 23020 &
+
+[engl]
+{100}{}{Cooker}
+{210}{}{Very fat guy with big scars all over his face.He seems to be annoied.}
+{1000}{}{Predialogue installations}
+{1010}{}{Known}
+{1020}{}{Unknown}
+{2000}{}{And who the damn hell are you?}
+{2010}{}{I am @pname@.}
+{2020}{}{My name is @pname@.}
+{2030}{}{Not your's business. [ end dialogue ]}
+{3000}{}{Oh great... Another wanker from the fridge. I am Cooker, proprietor of this magnificent bar and supporter of wankers like you with food and drink.}
+{3010}{}{Well, nice to meet you.}
+{3020}{}{Very good for you.}
+{3030}{}{Great...}
+{3040}{}{Hah! It seems more like you ate somebody instead. [ end dialogue ]}
+{4000}{}{Is there something else you want?}
+{4010}{}{Tell me about yourself.}
+{4020}{}{Really, man, whom did you eat?}
+{4030}{}{I am from Francis. He asks for a bottle of beer.}
+{4040}{}{I'd like to buy some beer.}
+{4050}{}{I'd like to buy some nuka.}
+{4060}{}{I'd like to buy some iguana.}
+{4070}{}{Wanna trade?}
+{4080}{}{I am from Judith, she asks for a bottle of rum.}
+{4090}{}{About that bottle of rum for Judith...}
+{4100}{}{Can you give me a bottle of spoiled beer?}
+{4110}{}{Need to go. [ end dialogue ]}
+{5000}{}{Well, I was born in a small village South of California. I don't remember my parents but I remember the fact that I trully hated everyone in that trash pit, so I ran away from there. Served in a small raider party for a while, but then luckily retired and ended up here.}
+{5010}{}{What happened to your village?}
+{5020}{}{Sad story... Were they all eating people?}
+{5030}{}{I'd like to talk about other things...}
+{5040}{}{Cool, bye. [ end dialogue ]}
+{6000}{}{I have no damn idea what happened with my village, and I don't even care about it.}
+{6010}{}{Great, I want to know something else...}
+{6020}{}{Alright, it's time for me to go. [ end dialogue ]}
+{7000}{}{Do I look like a trader? I don't accept any fucking barter here.}
+{8000}{}{Francis? Ah yeah, yeah... sure... *he takes something from the fridge* Here it is, give it to him.}
+{8010}{}{I want to ask you about one more thing...}
+{8020}{}{Thanks, see ya. [ end dialogue ]}
+{9000}{}{It is 5 local Currency per bottle.}
+{9010}{}{I will take 1.}
+{9020}{}{I will take 2.}
+{9030}{}{I will take 5.}
+{9040}{}{Nevermind...}
+{10000}{}{It is 10 local Currency per bottle.}
+{10010}{}{I will take 1.}
+{10020}{}{I will take 2.}
+{10030}{}{I will take 5.}
+{10040}{}{Nevermind...}
+{11000}{}{It will cost you 7 local Currency.}
+{11010}{}{I will take 1.}
+{11020}{}{I will take 2.}
+{11030}{}{I will take 5.}
+{11040}{}{Nevermind...}
+{12000}{}{Don't waste my time then.}
+{13000}{}{SHUT UP!}
+{14000}{}{Judith, huh? I will not give a single bottle to that bitch because she didn't pay me for the last time.}
+{15000}{}{It costs 25 Currency as it is the only bottle I have left.}
+{15010}{}{I take it.}
+{15020}{}{Nevermind... [ end dialogue ]}
+{16000}{}{Here you are. Now get lost, I have tons of things to do.}
+{17000}{}{Great job. Here is your payment.}
+{18000}{}{Alright, here... bring this to Farton, than come back for another order.}
+{19000}{}{Great, now take this and bring it to Robert. Than come back for the last order. }
+{20000}{}{Alright, now bring this to Julia.}
+{21000}{}{Great... Thanks for help. Here, take this.}
+{21010}{}{As for surroundings... What do you think about making everything in post modern style? [ end dialogue ]}
+{22000}{}{What is "post modern"?}
+{23000}{}{It will cost you 3 Currency.}
+{23010}{}{Here you are.}
+{23020}{}{I will be back later. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Known}
+{1020}{}{Unknown}
+{2000}{}{And who the damn hell are you?}
+{2010}{}{I am @pname@.}
+{2020}{}{My name is @pname@.}
+{2030}{}{Not your's business.}
+{3000}{}{Oh great... Another wanker from fridge. I am Cooker, the one who holds this magnificent bar and supports such wankers as you with food and drink.}
+{3010}{}{Well, nice to meet you.}
+{3020}{}{Very good for you.}
+{3030}{}{Great...}
+{3040}{}{Hah! It seems more like you ate somebody instead.}
+{4000}{}{Is there something else you want?}
+{4010}{}{Tell me about yourself.}
+{4020}{}{Really, man, whom did you eat?}
+{4030}{}{I am from Francis. He asks for a local of beer.}
+{4040}{}{I'd like to buy some beer.}
+{4050}{}{I'd like to buy some nuka,}
+{4060}{}{I'd like to buy some iguana,}
+{4070}{}{Wanna trade?}
+{4080}{}{I am from Judith, she asks for a local of rum.}
+{4090}{}{About that local of rum for Judith...}
+{4100}{}{Can you give me a local of spoiled beer?}
+{4110}{}{Need to go.}
+{5000}{}{Well, I was born in small village on South of California. I don't remember my parents but I remember the fact that I trully hated everyone in that trash pit, so I ran away from there. Served a small raider party, but then decided to retire and ended up here.}
+{5010}{}{What happened to your village?}
+{5020}{}{Sad story... Were they all eating people?}
+{5030}{}{I'd like to talk about other things...}
+{5040}{}{Cool, bye.}
+{6000}{}{I have no damn idea what happened with my village, and I don't even care about it.}
+{6010}{}{Great, I want to know something else...}
+{6020}{}{Alright, it's time for me to go.}
+{7000}{}{Do I look like a trader? I don't accept any fucking barter here.}
+{8000}{}{Francis? Ah yeah, yeah... sure... [he takes something from the fridge] Here it is, give it to him.}
+{8010}{}{I want to ask you about one thing...}
+{8020}{}{Thanks,see ya.}
+{9000}{}{It is 5 local Currency per local.}
+{9010}{}{I will take 1.}
+{9020}{}{I will take 2.}
+{9030}{}{I will take 5.}
+{9040}{}{Nevermind...}
+{10000}{}{It is 10 local Currency per local.}
+{10010}{}{I will take 1.}
+{10020}{}{I will take 2.}
+{10030}{}{I will take 5.}
+{10040}{}{Nevermind...}
+{11000}{}{It will cost you 7 local Currency.}
+{11010}{}{I will take 1.}
+{11020}{}{I will take 2.}
+{11030}{}{I will take 5.}
+{11040}{}{Nevermind...}
+{12000}{}{Don't waste my time then.}
+{13000}{}{SHUT UP!}
+{14000}{}{Judith, huh? I will not give a single local to that bitch because she didn't pay me for the last time.}
+{15000}{}{It costs 25 Currency as it is the only local left so far.}
+{15010}{}{I take it.}
+{15020}{}{Nevermind...}
+{16000}{}{Here you are. Now get lost, I have tonns of things to do.}
+{17000}{}{Great job. Here is your payment.}
+{18000}{}{Alright, here... bring this to Farton, than come back for another order.}
+{19000}{}{Great, now take this and bring it to Robert. Than come back for the last order. }
+{20000}{}{Alright, now bring this to Julia.}
+{21000}{}{Great... Thanks for help. Here, take this.}
+{21010}{}{As for surroundings... What do you think about making everything in post modern style?}
+{22000}{}{What is "post modern"?}
+{23000}{}{It will cost you 3 Currency.}
+{23010}{}{Here you are.}
+{23020}{}{I will be back later.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Known}
+{1020}{}{Unknown}
+{2000}{}{And who the damn hell are you?}
+{2010}{}{I am @pname@.}
+{2020}{}{My name is @pname@.}
+{2030}{}{Not your's business.}
+{3000}{}{Oh great... Another wanker from fridge. I am Cooker, the one who holds this magnificent bar and supports such wankers as you with food and drink.}
+{3010}{}{Well, nice to meet you.}
+{3020}{}{Very good for you.}
+{3030}{}{Great...}
+{3040}{}{Hah! It seems more like you ate somebody instead.}
+{4000}{}{Is there something else you want?}
+{4010}{}{Tell me about yourself.}
+{4020}{}{Really, man, whom did you eat?}
+{4030}{}{I am from Francis. He asks for a local of beer.}
+{4040}{}{I'd like to buy some beer.}
+{4050}{}{I'd like to buy some nuka,}
+{4060}{}{I'd like to buy some iguana,}
+{4070}{}{Wanna trade?}
+{4080}{}{I am from Judith, she asks for a local of rum.}
+{4090}{}{About that local of rum for Judith...}
+{4100}{}{Can you give me a local of spoiled beer?}
+{4110}{}{Need to go.}
+{5000}{}{Well, I was born in small village on South of California. I don't remember my parents but I remember the fact that I trully hated everyone in that trash pit, so I ran away from there. Served a small raider party, but then decided to retire and ended up here.}
+{5010}{}{What happened to your village?}
+{5020}{}{Sad story... Were they all eating people?}
+{5030}{}{I'd like to talk about other things...}
+{5040}{}{Cool, bye.}
+{6000}{}{I have no damn idea what happened with my village, and I don't even care about it.}
+{6010}{}{Great, I want to know something else...}
+{6020}{}{Alright, it's time for me to go.}
+{7000}{}{Do I look like a trader? I don't accept any fucking barter here.}
+{8000}{}{Francis? Ah yeah, yeah... sure... [he takes something from the fridge] Here it is, give it to him.}
+{8010}{}{I want to ask you about one thing...}
+{8020}{}{Thanks,see ya.}
+{9000}{}{It is 5 local Currency per local.}
+{9010}{}{I will take 1.}
+{9020}{}{I will take 2.}
+{9030}{}{I will take 5.}
+{9040}{}{Nevermind...}
+{10000}{}{It is 10 local Currency per local.}
+{10010}{}{I will take 1.}
+{10020}{}{I will take 2.}
+{10030}{}{I will take 5.}
+{10040}{}{Nevermind...}
+{11000}{}{It will cost you 7 local Currency.}
+{11010}{}{I will take 1.}
+{11020}{}{I will take 2.}
+{11030}{}{I will take 5.}
+{11040}{}{Nevermind...}
+{12000}{}{Don't waste my time then.}
+{13000}{}{SHUT UP!}
+{14000}{}{Judith, huh? I will not give a single local to that bitch because she didn't pay me for the last time.}
+{15000}{}{It costs 25 Currency as it is the only local left so far.}
+{15010}{}{I take it.}
+{15020}{}{Nevermind...}
+{16000}{}{Here you are. Now get lost, I have tonns of things to do.}
+{17000}{}{Great job. Here is your payment.}
+{18000}{}{Alright, here... bring this to Farton, than come back for another order.}
+{19000}{}{Great, now take this and bring it to Robert. Than come back for the last order. }
+{20000}{}{Alright, now bring this to Julia.}
+{21000}{}{Great... Thanks for help. Here, take this.}
+{21010}{}{As for surroundings... What do you think about making everything in post modern style?}
+{22000}{}{What is "post modern"?}
+{23000}{}{It will cost you 3 Currency.}
+{23010}{}{Here you are.}
+{23020}{}{I will be back later.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Known}
+{1020}{}{Unknown}
+{2000}{}{And who the damn hell are you?}
+{2010}{}{I am @pname@.}
+{2020}{}{My name is @pname@.}
+{2030}{}{Not your's business.}
+{3000}{}{Oh great... Another wanker from fridge. I am Cooker, the one who holds this magnificent bar and supports such wankers as you with food and drink.}
+{3010}{}{Well, nice to meet you.}
+{3020}{}{Very good for you.}
+{3030}{}{Great...}
+{3040}{}{Hah! It seems more like you ate somebody instead.}
+{4000}{}{Is there something else you want?}
+{4010}{}{Tell me about yourself.}
+{4020}{}{Really, man, whom did you eat?}
+{4030}{}{I am from Francis. He asks for a local of beer.}
+{4040}{}{I'd like to buy some beer.}
+{4050}{}{I'd like to buy some nuka,}
+{4060}{}{I'd like to buy some iguana,}
+{4070}{}{Wanna trade?}
+{4080}{}{I am from Judith, she asks for a local of rum.}
+{4090}{}{About that local of rum for Judith...}
+{4100}{}{Can you give me a local of spoiled beer?}
+{4110}{}{Need to go.}
+{5000}{}{Well, I was born in small village on South of California. I don't remember my parents but I remember the fact that I trully hated everyone in that trash pit, so I ran away from there. Served a small raider party, but then decided to retire and ended up here.}
+{5010}{}{What happened to your village?}
+{5020}{}{Sad story... Were they all eating people?}
+{5030}{}{I'd like to talk about other things...}
+{5040}{}{Cool, bye.}
+{6000}{}{I have no damn idea what happened with my village, and I don't even care about it.}
+{6010}{}{Great, I want to know something else...}
+{6020}{}{Alright, it's time for me to go.}
+{7000}{}{Do I look like a trader? I don't accept any fucking barter here.}
+{8000}{}{Francis? Ah yeah, yeah... sure... [he takes something from the fridge] Here it is, give it to him.}
+{8010}{}{I want to ask you about one thing...}
+{8020}{}{Thanks,see ya.}
+{9000}{}{It is 5 local Currency per local.}
+{9010}{}{I will take 1.}
+{9020}{}{I will take 2.}
+{9030}{}{I will take 5.}
+{9040}{}{Nevermind...}
+{10000}{}{It is 10 local Currency per local.}
+{10010}{}{I will take 1.}
+{10020}{}{I will take 2.}
+{10030}{}{I will take 5.}
+{10040}{}{Nevermind...}
+{11000}{}{It will cost you 7 local Currency.}
+{11010}{}{I will take 1.}
+{11020}{}{I will take 2.}
+{11030}{}{I will take 5.}
+{11040}{}{Nevermind...}
+{12000}{}{Don't waste my time then.}
+{13000}{}{SHUT UP!}
+{14000}{}{Judith, huh? I will not give a single local to that bitch because she didn't pay me for the last time.}
+{15000}{}{It costs 25 Currency as it is the only local left so far.}
+{15010}{}{I take it.}
+{15020}{}{Nevermind...}
+{16000}{}{Here you are. Now get lost, I have tonns of things to do.}
+{17000}{}{Great job. Here is your payment.}
+{18000}{}{Alright, here... bring this to Farton, than come back for another order.}
+{19000}{}{Great, now take this and bring it to Robert. Than come back for the last order. }
+{20000}{}{Alright, now bring this to Julia.}
+{21000}{}{Great... Thanks for help. Here, take this.}
+{21010}{}{As for surroundings... What do you think about making everything in post modern style?}
+{22000}{}{What is "post modern"?}
+{23000}{}{It will cost you 3 Currency.}
+{23010}{}{Here you are.}
+{23020}{}{I will be back later.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Known}
+{1020}{}{Unknown}
+{2000}{}{And who the damn hell are you?}
+{2010}{}{I am @pname@.}
+{2020}{}{My name is @pname@.}
+{2030}{}{Not your's business.}
+{3000}{}{Oh great... Another wanker from fridge. I am Cooker, the one who holds this magnificent bar and supports such wankers as you with food and drink.}
+{3010}{}{Well, nice to meet you.}
+{3020}{}{Very good for you.}
+{3030}{}{Great...}
+{3040}{}{Hah! It seems more like you ate somebody instead.}
+{4000}{}{Is there something else you want?}
+{4010}{}{Tell me about yourself.}
+{4020}{}{Really, man, whom did you eat?}
+{4030}{}{I am from Francis. He asks for a local of beer.}
+{4040}{}{I'd like to buy some beer.}
+{4050}{}{I'd like to buy some nuka,}
+{4060}{}{I'd like to buy some iguana,}
+{4070}{}{Wanna trade?}
+{4080}{}{I am from Judith, she asks for a local of rum.}
+{4090}{}{About that local of rum for Judith...}
+{4100}{}{Can you give me a local of spoiled beer?}
+{4110}{}{Need to go.}
+{5000}{}{Well, I was born in small village on South of California. I don't remember my parents but I remember the fact that I trully hated everyone in that trash pit, so I ran away from there. Served a small raider party, but then decided to retire and ended up here.}
+{5010}{}{What happened to your village?}
+{5020}{}{Sad story... Were they all eating people?}
+{5030}{}{I'd like to talk about other things...}
+{5040}{}{Cool, bye.}
+{6000}{}{I have no damn idea what happened with my village, and I don't even care about it.}
+{6010}{}{Great, I want to know something else...}
+{6020}{}{Alright, it's time for me to go.}
+{7000}{}{Do I look like a trader? I don't accept any fucking barter here.}
+{8000}{}{Francis? Ah yeah, yeah... sure... [he takes something from the fridge] Here it is, give it to him.}
+{8010}{}{I want to ask you about one thing...}
+{8020}{}{Thanks,see ya.}
+{9000}{}{It is 5 local Currency per local.}
+{9010}{}{I will take 1.}
+{9020}{}{I will take 2.}
+{9030}{}{I will take 5.}
+{9040}{}{Nevermind...}
+{10000}{}{It is 10 local Currency per local.}
+{10010}{}{I will take 1.}
+{10020}{}{I will take 2.}
+{10030}{}{I will take 5.}
+{10040}{}{Nevermind...}
+{11000}{}{It will cost you 7 local Currency.}
+{11010}{}{I will take 1.}
+{11020}{}{I will take 2.}
+{11030}{}{I will take 5.}
+{11040}{}{Nevermind...}
+{12000}{}{Don't waste my time then.}
+{13000}{}{SHUT UP!}
+{14000}{}{Judith, huh? I will not give a single local to that bitch because she didn't pay me for the last time.}
+{15000}{}{It costs 25 Currency as it is the only local left so far.}
+{15010}{}{I take it.}
+{15020}{}{Nevermind...}
+{16000}{}{Here you are. Now get lost, I have tonns of things to do.}
+{17000}{}{Great job. Here is your payment.}
+{18000}{}{Alright, here... bring this to Farton, than come back for another order.}
+{19000}{}{Great, now take this and bring it to Robert. Than come back for the last order. }
+{20000}{}{Alright, now bring this to Julia.}
+{21000}{}{Great... Thanks for help. Here, take this.}
+{21010}{}{As for surroundings... What do you think about making everything in post modern style?}
+{22000}{}{What is "post modern"?}
+{23000}{}{It will cost you 3 Currency.}
+{23010}{}{Here you are.}
+{23020}{}{I will be back later.}
+

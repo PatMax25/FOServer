@@ -1,0 +1,88 @@
+//FOnline 3
+//KompreSor
+//Skins for gear
+#include "_macros.fos"
+
+
+void r_skin(Critter& player, Critter@ npc, int item, int Skin)
+{
+	
+	int ItemPid = 1;
+	switch(item)
+	{
+	case 1: ItemPid = PID_METAL_ARMOR_MK_II; break;
+	case 2: ItemPid = PID_223_PISTOL; break;
+	case 3: ItemPid = PID_HUNTING_RIFLE; break;
+	case 4: ItemPid = PID_SNIPER_RIFLE; break;
+	case 5: ItemPid = PID_AVENGER_MINIGUN; break;
+	case 6: ItemPid = PID_LASER_RIFLE_EXT_CAP; break;
+	case 7: ItemPid = PID_PLASMA_RIFLE; break;
+	case 8: ItemPid = PID_DESERT_EAGLE_EXT_MAG; break;
+	case 9: ItemPid = PID_PLASMA_PISTOL_EXT_CART; break;
+	case 10: ItemPid = PID_PLASMA_SMG; break;
+	case 11: ItemPid = PID_M16; break;
+	case 12: ItemPid = PID_INDEPENDENT; break;
+	case 13: ItemPid = PID_CLOTHES_POLICE; break;
+	case 14: ItemPid = PID_VC_HELMET; break;
+	case 15: ItemPid = PID_GRENADE_LAUNCHER; break;
+	case 16: ItemPid = PID_M60; break;
+	case 17: ItemPid = PID_SUPER_CATTLE_PROD; break;
+	case 18: ItemPid = PID_SUPER_SLEDGE; break;
+	case 19: ItemPid = PID_LIGHT_SUPPORT_WEAPON; break;
+	case 20: ItemPid = PID_HK_CAWS; break;
+	case 21: ItemPid = PID_EL_ROCKET_LAUNCHER; break;
+	case 22: ItemPid = PID_BROTHERHOOD_COMBAT_ARMOR; break;
+	case 23: ItemPid = PID_METAL_HELMET_MK2; break;
+	case 24: ItemPid = PID_ENCLAVE_COMBAT_ARMOR; break;
+	case 25: ItemPid = PID_FIREGECKO_JACKET; break;
+	case 26: ItemPid = PID_LEATHER_ARMOR_HELMET_MK2; break;
+	case 27: ItemPid = PID_LIL_JESUS_WEAPON; break;
+	
+	}
+	
+	int SkinPid = 1;
+	switch(Skin)
+	{
+	case 1: SkinPid = PID_MA2_SKIN; break;
+	case 2: SkinPid = PID_BLASTGUN; break;
+	case 3: SkinPid = PID_COILGUN; break;
+	case 4: SkinPid = PID_TURBO_LASER; break;
+	case 5: SkinPid = PID_M14; break;
+	case 6: SkinPid = PID_RAPTOR; break;
+	case 7: SkinPid = PID_DEFENDER; break;
+	case 8: SkinPid = PID_SNIPER_RIFLE_SKIN; break;
+	case 9: SkinPid = PID_LASER_RIFLE_EXT_CAP_SKIN; break;
+	case 10: SkinPid = PID_HUNTING_RIFLE_SKIN; break;
+	case 11: SkinPid = PID_DESERT_EAGLE_EXT_MAG_SKIN; break;
+	case 12: SkinPid = PID_CRUSADER; break;
+	case 13: SkinPid = PID_PLASMA_SMG_SKIN; break;
+	case 14: SkinPid = PID_M16_SKIN; break;
+	case 15: SkinPid = PID_XL_SKIN; break;
+	case 16: SkinPid = PID_VC_ARMOR_SKIN; break;
+	case 17: SkinPid = PID_VC_HELMET_SKIN; break;
+	case 18: SkinPid = PID_GL_SKIN; break;
+	case 19: SkinPid = PID_M60_SKIN; break;
+	case 20: SkinPid = PID_SUPER_CATTLE_PROD_SKIN; break;
+	case 21: SkinPid = PID_SUPER_SLEDGE_SKIN; break;
+	case 22: SkinPid = PID_LSW_SKIN; break;
+	case 23: SkinPid = PID_CAWS_SKIN; break;
+	case 24: SkinPid = PID_EL_ROCKET_SKIN; break;
+	case 25: SkinPid = PID_BA_SKIN; break;
+	case 26: SkinPid = PID_TESLA_HELMET; break;
+	case 27: SkinPid = 27315; break; //defender enclave armor
+	case 28: SkinPid = 27316; break; //Firegecko confident
+	case 29: SkinPid = 27317; break; //vc skin
+	case 30: SkinPid = 27318; break; //leather helmet xd
+	case 31: SkinPid = 27319; break; //mask mk2
+	case 32: SkinPid = 27320; break; //jesus
+	case 33: SkinPid = 27321; break; //sledge
+	}
+	
+	
+	Item@ Realitem = player.GetItem(ItemPid, -1);
+	if(Realitem.CritSlot != SLOT_HAND1)
+	return;
+	
+	Realitem.ChangeProto(SkinPid);
+    Realitem.Update();
+}

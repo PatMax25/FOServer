@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _item p PID_BOTTLE_CAPS } 1000 R _item p PID_BOTTLE_CAPS - 1000 R _script dialog@r_OpenDoor 2 48 15 #
+0 2020 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{Door guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there, mate. You are entering the lovely "Klamath mining" company! If you wish to get in and dig some materials, then you will have to pay 1000 caps. Sorry about it, town laws... Also, don't even try to barter, no traders.}
+{2010}{}{Alright, alright. Here is the money.}
+{2020}{}{I may come later maybe.}
+{3000}{}{Chip-chop, get in, bud.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey yo, mate. You are entering the lovely "Klamath mining" company! If you wish to get in and dig some materials, then you will have to pay 1000 caps. Sorry about it, town laws... Also, don't even try to barter, no traders.}
+{2010}{}{Alright, alright. Here are the money.}
+{2020}{}{I may come later maybe.}
+{3000}{}{Chip-chop, get in, bud.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey yo, mate. You are entering the lovely "Klamath mining" company! If you wish to get in and dig some materials, then you will have to pay 1000 caps. Sorry about it, town laws... Also, don't even try to barter, no traders.}
+{2010}{}{Alright, alright. Here are the money.}
+{2020}{}{I may come later maybe.}
+{3000}{}{Chip-chop, get in, bud.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey yo, mate. You are entering the lovely "Klamath mining" company! If you wish to get in and dig some materials, then you will have to pay 1000 caps. Sorry about it, town laws... Also, don't even try to barter, no traders.}
+{2010}{}{Alright, alright. Here are the money.}
+{2020}{}{I may come later maybe.}
+{3000}{}{Chip-chop, get in, bud.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey yo, mate. You are entering the lovely "Klamath mining" company! If you wish to get in and dig some materials, then you will have to pay 1000 caps. Sorry about it, town laws... Also, don't even try to barter, no traders.}
+{2010}{}{Alright, alright. Here are the money.}
+{2020}{}{I may come later maybe.}
+{3000}{}{Chip-chop, get in, bud.}
+

@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 @
+4 3000 None 0 #
+0 3010 D _script perks@can_class 1 50 R _param p PE_MUTANT = 1 R _script perks@mutant 0  #
+0 3020 &
+
+[engl]
+{100}{}{Mad sciencist}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Huuh?}
+{2010}{}{That's a cool lab, doc. Can you make me a mutant too?}
+{3000}{}{Yesh... But shis requiers som ekshperiesh! Otherwise the operashn will kill ya.}
+{3010}{}{I'm up for that. [ Super Mutant ]}
+{3020}{}{Eh... Fine. I changed my mind. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Huuh?}
+{2010}{}{That's a cool lab, doc. Can you make me a mutant too?}
+{3000}{}{Yesh... But shis requiers som ekshperiesh! Or the operashn will kill ya.}
+{3010}{}{I'm up for that.}
+{3020}{}{Eh... Fine. I changed my mind.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Huuh?}
+{2010}{}{That's a cool lab, doc. Can you make me a mutant too?}
+{3000}{}{Yesh... But shis requiers som ekshperiesh! Or the operashn will kill ya.}
+{3010}{}{I'm up for that.}
+{3020}{}{Eh... Fine. I changed my mind.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Huuh?}
+{2010}{}{That's a cool lab, doc. Can you make me a mutant too?}
+{3000}{}{Yesh... But shis requiers som ekshperiesh! Or the operashn will kill ya.}
+{3010}{}{I'm up for that.}
+{3020}{}{Eh... Fine. I changed my mind.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{has no perk}
+{2000}{}{Huuh?}
+{2010}{}{That's a cool lab, doc. Can you make me a mutant too?}
+{3000}{}{Yesh... But shis requiers som ekshperiesh! Or the operashn will kill ya.}
+{3010}{}{I'm up for that.}
+{3020}{}{Eh... Fine. I changed my mind.}
+

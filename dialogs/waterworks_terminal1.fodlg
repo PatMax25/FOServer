@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 @
+2 2000 None 0 #
+3 2010 #
+2 2020 @
+3 3000 None 0 #
+2 3010 #
+2 3020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{2000}{}{[ ERROR Waterworks. Terminal 16. Welcome, Josh. ]}
+{2010}{}{[ To Leon ]}
+{2020}{}{[ Exit ]}
+{3000}{}{I don't know how to start, but, this is it: Judgement Day has come. It's weird to understand that almost everyone outside of this forgotten town must be dead, but still you're here breathing and without a clue how long you will stay alive. I really regret now that I  missed sunday church, but perhaps I can still wash my sins away by not giving in to my desire of drowning myself. I will try to do my best to protect and stay with my wife and kids in these final days. Forgive me, dear brother, for all bad things that I've done. I'm leaving in the morning, with most of the other folks around here. I hope you won't stay here too long as well. God is not in the buildings or crosses---He's in our hearts, as our papa always said. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{2000}{}{[ ERROR Waterworks. Terminal 16. Welcome, Josh. ]}
+{2010}{}{[ To Leon ]}
+{2020}{}{[ Exit ]}
+{3000}{}{I don't know how to start, but, this is it: Judgement Day has come. It's wierd to understand, that almost everyone outside of this forgotten town are dead, but still, you're here, breathing and without a clue, how long you will stay alive. I really regretting now, that I   missed sunday church--perhaps, I can still wash my sins away, by not giving up to desire of drowning myself, and try to do my best to protect and stay my wife and kids in these last days. Forgive me, dear brother, for all bad things that I've done. I'm leaving in the morning, as most of the folks around here. I hope, you won't stay here too long as well. God is not in the buildings or crosses---He's in our hearts, as our papa always said. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{2000}{}{[ ERROR Waterworks. Terminal 16. Welcome, Josh. ]}
+{2010}{}{[ To Leon ]}
+{2020}{}{[ Exit ]}
+{3000}{}{I don't know how to start, but, this is it: Judgement Day has come. It's wierd to understand, that almost everyone outside of this forgotten town are dead, but still, you're here, breathing and without a clue, how long you will stay alive. I really regretting now, that I   missed sunday church--perhaps, I can still wash my sins away, by not giving up to desire of drowning myself, and try to do my best to protect and stay my wife and kids in these last days. Forgive me, dear brother, for all bad things that I've done. I'm leaving in the morning, as most of the folks around here. I hope, you won't stay here too long as well. God is not in the buildings or crosses---He's in our hearts, as our papa always said. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{2000}{}{[ ERROR Waterworks. Terminal 16. Welcome, Josh. ]}
+{2010}{}{[ To Leon ]}
+{2020}{}{[ Exit ]}
+{3000}{}{I don't know how to start, but, this is it: Judgement Day has come. It's wierd to understand, that almost everyone outside of this forgotten town are dead, but still, you're here, breathing and without a clue, how long you will stay alive. I really regretting now, that I   missed sunday church--perhaps, I can still wash my sins away, by not giving up to desire of drowning myself, and try to do my best to protect and stay my wife and kids in these last days. Forgive me, dear brother, for all bad things that I've done. I'm leaving in the morning, as most of the folks around here. I hope, you won't stay here too long as well. God is not in the buildings or crosses---He's in our hearts, as our papa always said. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{2000}{}{[ ERROR Waterworks. Terminal 16. Welcome, Josh. ]}
+{2010}{}{[ To Leon ]}
+{2020}{}{[ Exit ]}
+{3000}{}{I don't know how to start, but, this is it: Judgement Day has come. It's wierd to understand, that almost everyone outside of this forgotten town are dead, but still, you're here, breathing and without a clue, how long you will stay alive. I really regretting now, that I   missed sunday church--perhaps, I can still wash my sins away, by not giving up to desire of drowning myself, and try to do my best to protect and stay my wife and kids in these last days. Forgive me, dear brother, for all bad things that I've done. I'm leaving in the morning, as most of the folks around here. I hope, you won't stay here too long as well. God is not in the buildings or crosses---He's in our hearts, as our papa always said. }
+{3010}{}{[ Back ]}
+{3020}{}{[ Exit ]}
+

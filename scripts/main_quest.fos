@@ -1,0 +1,100 @@
+//main story line
+//main_quest.fos
+//KompreSor
+//FOnline 3
+
+#include "_macros.fos"
+#include "mapdata_h.fos"
+#include "utils_h.fos"
+
+/*
+PARAM NOTES
+
+MQ_MAIN_PROGRESS 0:
+
+MQ_MAIN_PROGRESS 1: KURIER JOB TAKEN
+	PARAM 1: enclave outpost 0 not done, 1 talked with guard, 2 geckos died, 3 done
+	PARAM 2: bos outpost 0 not done, 1 talked with speech(4 done), 2 talked without speech and didnt pay, 3 talked without speech and pay(5 done)
+	PARAM 3: vc outpost 0 not done, 1 talked with guard, 2 repaired hisself(5 done), 3 talk with mechanic in vault city, 4 talk with guard again(6 done)
+
+MQ_MAIN_PROGRESS 2: First task done, PARAM 10 = PARAM 1 + PARAM 2*10 + PARAM 3*100, RESET(PARAM 1-9)
+	PARAM 1: NCR, 0 not done, 1 talked to guard, 2 given tips, 3 killed bandit, 4 given tips and killed bandit
+
+MQ_MAIN_PROGRESS 3: PARAM 10 += PARAM 1*1000, RESET(PARAM 1-9)
+	PARAM 1: green house, 0 not visited, 1 entered location, 2 talked with guard, PARAM 2 += 1 if use 250% to avoid fight | += 2 if player attack | if there is 0 it means player could avoid guards on sneak, 3 used computer
+	PARAM 3: vacation home 0 not visited, 1 enter location, 2 haked robots, 3 use computer, 4 use computer and hacked robots
+	PARAM 4: gregory base, 0 not visited, 1 enter location, PARAM 1 must be 3 to continue, 2 player honest, 3 start working with gregory, 4 first quest done, 5 second quest done(note player in any time before get PARAM 4=5 can be honest with gregory)
+	PARAM 5: quest nr1(if PARAM 4 = 3), 0 not visited, 1 enter, 2 done, 3 done and hack computer
+	PARAM 6: quest nr2(if PARAM 4 = 4), 1 encounter done, 2 encounters done, 3 encounters done, PARAM 2 += 10 if lockpick car
+	
+MQ_MAIN_PROGRESS 4:	PARAM 11 = PARAM 2*10 + PARAM 4, RESET(PARAM 1-9)
+	PARAM 1: Linda office, 0 not visited, 1 enter, 2 Got job, 3 asked for better reward(need PARAM 11 > 100)
+	PARAM 2: convoy encounter, 0 not visited, 1 enter, 2 robbed, 3 picked cases
+	PARAM 3: FLC, 0 not visited, 1 enter without cases, 2 enter with cases
+	PARAM 4: FLC, 1 fight, 2 lie, 3 truth, 4 truth and get rocket silo pos(need PARAM 11 > 100)
+	PARAM 5: gregory base(PARAM 11 != xx2)(, 1 if(Param 4 = 3) and not payed 50 000 caps, 2 if(Param 4 = 3) and payed 50 000 caps)(PARAM 11 = xx2)(3 talked,4 300 speech, 5 payed 200 000 caps, if(PARAM 6 > 0) 6 200 speech, 7 tell about linda
+	PARAM 6: linda office: if(PARAM 3 = 2) 1 work with linda, 2 remind about reward
+
+MQ_MAIN_PROGRESS 5: PARAM 12 = PARAM 4 + PARAM 5*10
+ 
+*/
+
+
+//init main quest
+void quest_ad(Critter& player)
+{
+	if(player.Param[ST_LEVEL] > 4 && player.Param[MQ_MAIN_PROGRESS] == 0)
+	{
+		CreateTimeEvent(AFTER(REAL_SECOND(Random(3,5))), "e_ad", player.Id, false);
+	}
+}
+
+uint e_ad(array<uint>@ mobdata)
+{
+	string text = "";
+	switch(Random(0,4))
+    {
+    case 0: text = "Need work? Black Cross Department is now hiring couriers to make deliveries all over the wasteland!"; break;
+    case 1: text = "Black Cross Department needs couriers, if you are interested, come to Black Cross Outpost!"; break;
+    case 2: text = "Join Black Cross Department today! Courier positions available!"; break;
+    case 3: text = "Visit Black Cross Outpost for a great job offer. Become a courier today!"; break;
+    case 4: text = "Lack of money? Work for BCD, more details in Black Cross Outpost!"; break;
+    }
+	Critter@ mob = GetCritter(mobdata[0]);
+	if(!valid(mob))
+		return 0;
+	mob.ShowScreen(SCREEN_DIALOGBOX, 0, "");
+	mob.Say(SAY_DIALOGBOX_TEXT, "|0xC95050 " + text);
+	return 0;
+}
+
+
+//Jason quests
+
+void tp_to_jason(Critter& player, Critter@npc, int progress)
+{	
+	int newloc = CreateLocation(LOCATION_mq_jason_bco, player.WorldX, player.WorldY, null);
+    Location@   loc = GetLocation(newloc);
+	array<Map@> maps;
+    loc.GetMaps(maps);
+	if(!valid(maps[0]))
+		return;
+	player.TransitToMap(maps[0].Id, 0);
+	uint16 x = 1;
+	uint16 y = 2;
+	uint aiPack = 0;
+	uint bagId = 0;
+	uint teamIdPack = 0;
+	uint dialog = progress;
+	uint level = 25;
+	uint pid = 888;
+	maps[0].GetEntireCoords(30, 0, x, y);
+	Critter@ Jason = AddNpc(maps[0], pid,x , y, npc.Dir, dialog, "", aiPack, bagId, teamIdPack, true, level);
+	Jason.ChangeCrType(151);
+    Jason.ParamBase[ST_BASE_CRTYPE] = 151;
+	Jason.ParamBase[MODE_INVULNERABLE] = 1;
+	Jason.ParamBase[PE_BONUS_RANGED_DAMAGE] = 999;
+	Jason.AddItem(PID_DESERT_EAGLE_EXT_MAG_SKIN, 1);
+}
+
+//for each each map script, when everything important its done then delete map on leave

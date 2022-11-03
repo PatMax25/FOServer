@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p dialog_dork = 0 #
+3 1020 D _var p dialog_dork = 1 D _var p dialog_robert = 0 @
+2 2000 None 0 @
+3 3000 None 0 #
+0 3010 R _script dialog@r_NinjaKillNpc 1 Anim2DeadBurst R _var p dialog_robert = 1 #
+0 3020 R _script dialog@r_NinjaKillNpc 1 Anim2DeadBurst R _var p dialog_robert = 1 &
+
+[engl]
+{100}{}{Robert}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Talk to Dork.}
+{3000}{}{*his hands are shaking* I... I am sorry... He... He pointed his gun at me... he...}
+{3010}{}{Hey, calm down.}
+{3020}{}{Shit! Just relax everyone!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Talk to Dork.}
+{3000}{}{[ His hands are shaking ] I... I am sorry... He... He pointed his gun at me... he...}
+{3010}{}{Hey, calm down.}
+{3020}{}{Shit! Just relax everyone!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Talk to Dork.}
+{3000}{}{[ His hands are shaking ] I... I am sorry... He... He pointed his gun at me... he...}
+{3010}{}{Hey, calm down.}
+{3020}{}{Shit! Just relax everyone!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Talk to Dork.}
+{3000}{}{[ His hands are shaking ] I... I am sorry... He... He pointed his gun at me... he...}
+{3010}{}{Hey, calm down.}
+{3020}{}{Shit! Just relax everyone!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{2000}{}{Talk to Dork.}
+{3000}{}{[ His hands are shaking ] I... I am sorry... He... He pointed his gun at me... he...}
+{3010}{}{Hey, calm down.}
+{3020}{}{Shit! Just relax everyone!}
+

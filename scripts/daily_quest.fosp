@@ -1,0 +1,1708 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+shared class Entire
+{
+	int Number;
+	uint16 HexX;
+	uint16 HexY;
+	uint8 Direction;
+};
+
+uint ParseEntires(Map&map,array<Entire>&entires,int number)
+{
+	uint oldCount=entires.length();
+	uint count=map.CountEntire(number);
+	entires.resize(oldCount+count);
+	
+	for(uint i=0;i<count;i++)
+	{
+		Entire@ent=entires[oldCount+i];
+		if(map.GetEntireCoords(number,i,ent.HexX,ent.HexY,ent.Direction)==false)
+		return 0;
+		ent.Number=number;
+	}
+	
+	return count;
+}
+
+bool IsEntireFree(uint mappid,int number)
+{
+	Map@map=GetMapByPid(mappid,0);
+	return IsEntireFree(map,number);
+}
+
+bool IsEntireFree(Map&map,int number)
+{
+	uint16 x,y;
+	x=0;
+	y=0;
+	return GetEntireFreeHex(map,number,x,y);
+}
+
+bool GetEntireFreeHex(Map&map,int number,uint16&hx,uint16&hy,uint skip=0)
+{
+	uint count=map.CountEntire(number); 
+	
+	for(uint i=skip;i<count;i++)
+	{
+		if(map.GetEntireCoords(number,i,hx,hy)&&map.IsHexPassed(hx,hy))
+		return true;
+	}
+	
+	if(hx==0||hy==0||hx>=map.GetWidth()-1||hy>=map.GetHeight()-1)
+	return false; 
+	
+	for(uint i=0;i<count;i++)
+	{
+		if(map.GetEntireCoords(number,i,hx,hy))
+		{
+			for(int x=-1;x<=1;x++)
+			{
+				for(int y=-1;y<=1;y++)
+				{
+					if(x==0&&y==0)
+					continue;
+					if(__MapHexagonal)
+					{
+						if((hx%2)==1&&((x==-1&&y==1)||(x==1&&y==1)))
+						continue;
+						if((hx%2)==0&&((x==-1&&y==-1)||(x==1&&y==-1)))
+						continue;
+					}
+					
+					if(map.IsHexPassed(hx+x,hy+y))
+					{
+						hx+=x;
+						hy+=y;
+						return true;
+					}
+				}
+			}
+		}
+	}
+	return false;
+}
+
+bool GetNearEntire(Map&map,int number,uint16&hx,uint16&hy)
+{
+	uint16 hxBase=hx;
+	uint16 hyBase=hy;
+	
+	array<Entire>entires;
+	uint count=ParseEntires(map,entires,number);
+	if(count==0)
+	return false;
+	
+	hx=entires[0].HexX;
+	hy=entires[0].HexY;
+	for(uint i=1;i<count;i++)
+	{
+		Entire@ent=entires[i];
+		if(GetDistantion(hxBase,hyBase,ent.HexX,ent.HexY)<GetDistantion(hxBase,hyBase,hx,hy))
+		{
+			hx=ent.HexX;
+			hy=ent.HexY;
+		}
+	}
+	
+	return true;
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+import bool AddMiscPlane(Critter&npc,uint priority,uint waitMinute,string@funcName)from"npc_planes";
+import bool AddMiscPlane(Critter&npc,uint priority,int identifier,uint identifierExt,uint waitSecond,string@funcName)from"npc_planes";
+import bool AddWalkPlane(Critter&npc,uint priority,uint16 hexX,uint16 hexY,uint8 dir,bool run,uint cut)from"npc_planes";
+import bool AddWalkPlane(Critter&npc,uint priority,int identifier,uint identifierExt,uint16 hexX,uint16 hexY,uint8 dir,bool run,uint cut)from"npc_planes";
+import bool AddAttackPlane(Critter&npc,uint priority,Critter&target)from"npc_planes";
+import bool AddAttackPlane(Critter&npc,uint priority,uint critId)from"npc_planes";
+import bool AddAttackPlane(Critter&npc,uint priority,Critter&target,int minHp)from"npc_planes";
+import bool AddAttackPlane(Critter&npc,uint priority,uint critId,int minHp)from"npc_planes";
+import bool AddAttackPlane(Critter&npc,uint priority,Critter&target,bool run)from"npc_planes";
+import bool AddPickPlane(Critter&npc,uint priority,uint16 hexX,uint16 hexY,uint16 protoId,uint useItemId,bool toOpen)from"npc_planes";
+import bool AddPickPlane(Critter&npc,uint priority,Item@item,uint useItemId,bool toOpen)from"npc_planes";
+import bool AddPickPlane(Critter&npc,uint priority,Item@item,uint useItemId,bool toOpen,bool run)from"npc_planes";
+import bool AddHealCritterPlane(Critter&npc,uint priority,Critter@target,bool run)from"npc_planes";
+import bool AddDoctorCritterPlane(Critter&npc,uint priority,Critter@target,bool run)from"npc_planes";
+
+import uint EraseAttackPlane(Critter&npc,uint priority,Critter&target)from"npc_planes";
+import uint EraseAttackPlane(Critter&npc,uint priority,uint critId)from"npc_planes";                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+import Location@GetLocationOf(Critter&critter)from"utils";
+import string GetLocationName(uint locId)from"utils";
+import string GetLocationName(Location@loc)from"utils";
+import bool ReadPids(array<int>&out pids,bool removeinvalid)from"utils";
+import void ReadDefines(string@fileName,dictionary&items,array<string>@defines)from"utils";
+import bool ParseDefine(const string&in line,string&out spid,int&out id)from"utils";
+import int SkipWhitespaces(const string&in str,int start)from"utils";
+import int SkipNonWhitespaces(const string&in str,int start)from"utils";
+import bool IsParameterTag(string&str)from"utils";
+import string GetParameterString(array<string@>@arr,string&parameter)from"utils";
+import int GetIndexOfString(array<string@>@arr,string&str)from"utils";
+import string GetConcatenatedString(array<string@>@arr,uint startindex,int stopindex)from"utils";
+import string GetConditionOfCritter(Critter@cr)from"utils";
+import string GetExtConditionOfCritter(Critter@cr)from"utils";
+import uint GetAllOnlinePlayers(array<Critter@>&out players)from"utils";
+import uint GetAuthenticatedPlayers(array<Critter@>&out players)from"utils";
+import uint GetAuthenticatedPlayers(array<Critter@>&out players,bool ignorePriviledges)from"utils";
+import uint GetNumberOfPlayersOnline()from"utils";
+import void SetTurnBasedAvailability(Location@loc)from"utils";
+import bool IsGuarded(Map@map)from"utils";
+import bool IsPublic(Map@map)from"utils";
+import bool IsEncounterMap(Map@map)from"utils";
+import bool IsTown(Map@map)from"utils";
+import bool IsDungeon(Map@map)from"utils";
+import bool IsBaseControl(Map@map)from"utils";
+
+import uint GetMapType(Map@map)from"utils";
+import void LockDoor(uint x,uint y,Map@map,uint complexity,uint lockid)from"utils";
+import void UnlockDoor(uint x,uint y,Map@map)from"utils";
+import void ClearContainer(Item@container)from"utils";
+import void MoveItemsCritterToCont(Critter&crFrom,Item&contTo,uint specid)from"utils";
+import string GetCritterInfo(Critter&cr)from"utils";
+import bool AddExpTeam(Critter&critter,int xp)from"utils";
+import void ClearEnemyStack(Critter&critter)from"utils";
+import void ClearEnemyStacksOnMap(Map@map)from"utils";
+import bool IsCurrentEnemy(Critter&cr,uint targetId)from"utils";
+import string@GetSafePlayerName(uint id)from"utils";
+import string GetSafePlayerName(uint id,string&onSuccess,string&onError)from"utils";
+import IDateTime@GetCurrentDateTime()from"utils";
+import string GetCurrentDateTimeString()from"utils";
+import string GetCurrentDateTimeString(bool date,bool time)from"utils";
+import Critter@GetMostSkilled(array<Critter@>@group,int skill)from"utils";
+import string GetAuthString(Critter&player)from"utils";
+import string GetAuthString(int accesslevel)from"utils";
+import bool CanRequestHelp(Critter&player)from"utils";
+import void SetRequestedHelp(Critter&player)from"utils";
+import void SetRequestedHelp(Critter&player,int minutes)from"utils";
+import Critter@GetOnlineGM()from"utils";
+import void Preprocess(Critter&player,string&commandString)from"utils";
+import bool IsHumanoid(Critter@cr)from"utils";
+import uint GetGroupIndex(Critter&cr)from"utils";
+import uint GetGroupIndex(int st)from"utils";
+import void SetGroupIndex(Critter&cr,uint val)from"utils";
+import uint GetGroupRank(Critter&cr)from"utils";
+import void SetGroupRank(Critter&cr,uint val)from"utils";
+import uint GetGroupMode(Critter&cr)from"utils";
+import void SetGroupMode(Critter&cr,uint val)from"utils";
+import void SetGroupInfo(Critter&cr,uint faction,uint rank,uint mode)from"utils";
+import void SetGroupInfoPack(Critter&cr,uint packInfo)from"utils";
+import void ClearEvents(Critter&cr)from"utils";
+
+import int GetGvar(uint gvar)from"utils";
+import void SetGvar(uint gvar,uint value)from"utils";
+import int GetLLvar(Location&location,uint llvar)from"utils";
+import int GetLLvar(uint locationId,uint llvar)from"utils";
+import void SetLLvar(Location&location,uint llvar,uint value)from"utils";
+import int GetLMvar(Map&map,uint llvar)from"utils";
+import int GetLMvar(uint mapId,uint llvar)from"utils";
+import void SetLMvar(Map&map,uint llvar,uint value)from"utils";
+import int GetLIvar(Item&item,uint llvar)from"utils";
+import int GetLIvar(uint itemId,uint llvar)from"utils";
+import void SetLIvar(Item&item,uint llvar,uint value)from"utils";
+import int GetLvar(Critter&critter,uint lvar)from"utils";
+import int GetLvar(uint id,uint lvar)from"utils";
+import void SetLvar(Critter&critter,uint lvar,uint value)from"utils";
+import void SetLvar(uint id,uint lvar,uint value)from"utils";
+import int GetUvar(uint uvar,uint key,uint index)from"utils";
+import void SetUvar(uint uvar,uint key,uint index,uint value)from"utils";
+
+import uint GetContainerValue(Item@container)from"utils";
+import uint BaseItemValue(uint pid,bool ammo)from"utils";
+import uint BaseItemValue(uint pid,uint broken,uint det,bool ammo)from"utils";
+import uint BaseItemValue(Item@item)from"utils";
+import uint BaseItemValue(Item@item,uint proc)from"utils";
+import uint BaseSingleItemValue(Item@item)from"utils";
+import uint BaseSingleItemValue(Item@item,uint proc)from"utils";
+
+import void SetBloodType(Critter@cr)from"utils";
+import string GetBloodType(Critter@cr)from"utils";
+import string GetBloodRandom()from"utils";
+
+import void LogCommandUsage(Critter&player,string&commandString)from"utils";
+import void DropTimeouts(Critter&cr)from"utils";
+
+import bool HasItem(Critter@cr,uint pid)from"utils";
+import bool HasSomeWeapon(Critter@cr)from"utils";
+import uint GetBestWeaponSkill(Critter@cr)from"utils";
+import void GiveBag(uint bag,Critter@cr)from"utils";
+import void SetQuestGarbager(uint time,uint playerid,uint locid,uint var,uint val)from"utils";
+import Critter@AddNpc(Map@map,uint16 pid,uint16 x,uint16 y,uint8 dir,uint dialogId,string&script,uint aiPack,uint bagId,uint teamId,bool isMob,uint level)from"utils";
+import Critter@AddNpc(Map@map,uint16 pid,uint16 x,uint16 y,uint8 dir,uint dialogId,string&script,uint aiPack,uint bagId,uint teamId,uint factionRank,uint factionMode,bool isMob,uint level)from"utils";
+import Critter@AddNpc(Map@map,uint16 pid,uint16 x,uint16 y,uint8 dir,array<int>params,uint dialogId,string&script,uint aiPack,uint bagId,uint teamId,bool isMob,uint level)from"utils";
+import Critter@AddNpc(Map@map,uint16 pid,uint16 x,uint16 y,uint8 dir,array<int>params,uint dialogId,string&script,uint aiPack,uint bagId,uint teamId,uint factionRank,uint factionMode,bool isMob,uint level)from"utils";
+import void AddScore(Critter@cr,uint score,uint points)from"utils";
+
+import bool ReloadWeapon(Critter&cr)from"utils";
+import Item@GetRadio(Critter&cr)from"utils";
+import Item@GetRepairTool(Critter&cr)from"utils";
+import Item@GetEquippedItem(Critter&cr,uint Pid)from"utils";
+import Item@GetEquippedItem(Critter&cr,array<uint>&Pids)from"utils";
+import Item@GetEquippedItemByType(Critter&cr,uint ItemType)from"utils"; 
+
+import bool SkillRoll(Critter@cr,int skill,int bonus)from"utils";
+import int SkillCheck(Critter&cr,int skill,int skillused,Item@item,int bonus)from"utils";
+import string SkillName(uint8 skill)from"utils";
+import void ChangeCrTypeSafe(Critter&cr,uint8 crType)from"utils";
+
+import bool Pickable(Item@item)from"utils";
+
+import void TransferItemsToContOnMap(Critter&cr,Map@map,int entid,int contpid,int itemtypes)from"utils";
+import void TransferItemsFromContOnMap(Critter&cr,Map@map,int entid,int contpid)from"utils";
+
+import string IpToString(uint ip)from"utils";
+
+import void VerboseAction(Critter&cr,string&text)from"utils";
+import void VerboseAction(Critter&cr,Critter&target,string&text)from"utils";
+import void VerboseExperience(Critter&cr,int xpDiff,int levelDiff)from"utils";
+
+import void SetChosenActions(Critter&cr,array<int>&actions)from"utils";
+
+import void HexLine(uint16 x0,uint16 y0,uint16 x1,uint16 y1,array<uint16>@xList,array<uint16>@yList)from"utils";
+import void HexCircle(uint16 x0,uint16 y0,uint16 radius,array<uint16>@xList,array<uint16>@yList)from"utils";
+
+import void StartPersonalDataCleanup()from"utils";
+
+import bool IsPersonalData(Location&location,string&name)from"utils";
+import bool GetPersonalData(Location&location,string&name,array<uint8>&value)from"utils";
+import uint GetPersonalData(Location&location,array<string>&names,array<array<uint8>>&values)from"utils";
+import bool SetPersonalData(Location&location,string&name,array<uint8>&value)from"utils";
+import bool UnsetPersonalData(Location&location,string&name)from"utils";
+
+import bool IsPersonalData(Map&map,string&name)from"utils";
+import bool GetPersonalData(Map&map,string&name,array<uint8>&value)from"utils";
+import uint GetPersonalData(Map&map,array<string>&names,array<array<uint8>>&values)from"utils";
+import bool SetPersonalData(Map&map,string&name,array<uint8>&value)from"utils";
+import bool UnsetPersonalData(Map&map,string&name)from"utils";
+
+import bool IsPersonalData(Critter&critter,string&name)from"utils";
+import bool GetPersonalData(Critter&critter,string&name,array<uint8>&value)from"utils";
+import uint GetPersonalData(Critter&critter,array<string>&names,array<array<uint8>>&values)from"utils";
+import bool SetPersonalData(Critter&critter,string&name,array<uint8>&value)from"utils";
+import bool UnsetPersonalData(Critter&critter,string&name)from"utils";
+
+import bool IsPersonalData(Item&item,string&name)from"utils";
+import bool GetPersonalData(Item&item,string&name,array<uint8>&value)from"utils";
+import uint GetPersonalData(Item&item,array<string>&names,array<array<uint8>>&values)from"utils";
+import bool SetPersonalData(Item&item,string&name,array<uint8>&value)from"utils";
+import bool UnsetPersonalData(Item&item,string&name)from"utils";
+
+import bool FindPreferredGridApprox(Map&map,uint16&hx,uint16&hy)from"utils";           
+
+import bool StrToInt(string@s,uint64&inout val)from"strtoint";
+import bool StrToInt(string@s,uint&inout val)from"strtoint";
+import bool StrToInt(string@s,uint16&inout val)from"strtoint";
+import bool StrToInt(string@s,uint8&inout val)from"strtoint";
+import bool StrToInt(string@s,int64&inout val)from"strtoint";
+import bool StrToInt(string@s,int16&inout val)from"strtoint";
+import bool StrToInt(string@s,int8&inout val)from"strtoint";    
+
+import int FindInArray(array<int>&arr,int value)from"utils";
+import int FindInArray(array<uint>&arr,uint value)from"utils";
+import int FindInArray(array<uint16>&arr,uint16 value)from"utils";
+import int FindInArray(array<uint8>&arr,uint8 value)from"utils";
+import bool FindInArray(array<int>&arr,int id,int&index)from"utils";
+import bool FindInArray(array<uint>&arr,uint id,int&index)from"utils";
+import bool FindInArray(array<uint8>&arr,uint8 id,int&index)from"utils";
+import int FindInArray(array<string>&arr,string&value)from"utils";
+import int FindInArray(array<string@>@arr,string&value)from"utils";
+import bool Present(int what,array<int>&where)from"utils";
+import bool Present(uint what,array<uint>&where)from"utils";
+import bool Present(uint16 what,array<uint16>&where)from"utils";
+import bool Present(string&what,array<string>&where)from"utils";
+import bool Present(string&what,array<string@>@where)from"utils";
+
+import uint CreateLocationForGroup(Critter&player,uint16 pid,uint16 worldX,uint16 worldY,array<Critter@>&)from"utils";
+import bool FindFirstFreeHex(Map@map,uint16&x,uint16&y,uint8 dir,uint16 maxSteps)from"utils";
+import bool FindNearestFreeHex(Map&map,uint16&x,uint16&y,uint radius)from"utils";
+
+import bool GetItemCoordinates(Item&item,uint&mapID,uint16&x,uint16&y)from"utils";
+import bool ItemOnHex(uint16 pid,Map@map,uint16 x,uint16 y)from"utils";
+
+import void PrintCallstack()from"utils";
+import void PrintCallstack(int level)from"utils";
+
+import bool LocationHasCritters(Location&loc,uint findType)from"utils";
+import uint LocationGetCritters(Location&loc,uint findType,array<Critter@>@critters)from"utils";
+import uint LocationGetPlayersAndFollowers(Location&loc,uint findType,array<Critter@>@critters)from"utils";
+import uint MapGetPlayersAndFollowers(Map&map,uint findType,array<Critter@>@critters)from"utils";
+import uint CritterGetPlayersAndFollowers(Critter&critter,bool lookOnMe,uint findType,array<Critter@>@critters)from"utils";
+import bool LocationHasItems(Location&loc,uint16 protoId)from"utils";
+import uint LocationGetItems(Location&loc,uint16 protoId,array<Item@>@items)from"utils";
+import void LocationDeleteItems(Location&loc,uint16 protoId)from"utils";
+
+import bool IsDisposableEncounter(Location@loc)from"utils";
+
+import bool IsT4Item(Item&item)from"utils";
+import bool IsT3Item(Item&item)from"utils";
+import uint16 AddT3Item()from"utils";
+import uint16 AddT4Item()from"utils";
+import uint16 AddImplant()from"utils";
+import uint16 AddT4BP()from"utils";
+import uint16 AddRareAmmo()from"utils";
+import uint16 AddTypicalAmmo()from"utils";
+
+import void SetDeterioration(Item&item)from"utils";  
+
+shared class CPosition
+{
+	uint x;
+	uint y;
+	uint dir;
+};
+
+shared interface IRect
+{
+	bool IsWithin(Critter&cr);
+};
+
+shared class Rect:IRect
+{
+	uint x1;
+	uint y1;
+	uint x2;
+	uint y2;
+	
+	Rect(uint x1,uint y1,uint x2,uint y2)
+	{
+		this.x1=x1;
+		this.y1=y1;
+		this.x2=x2;
+		this.y2=y2;
+	}
+	
+	bool IsWithin(Critter&cr)
+	{
+		return((cr.HexX>=this.x1&&cr.HexX<=this.x2)&&(cr.HexY>=this.y1&&cr.HexY<=this.y2));
+	}
+};
+
+shared interface IDateTime
+{
+	uint16 get_Year();
+	uint16 get_Month();
+	uint16 get_DayOfWeek();
+	uint16 get_Day();
+	uint16 get_Hour();
+	uint16 get_Minute();
+	uint16 get_Second();
+	uint16 get_Milliseconds();
+	string@ToString();
+};                                                                                                                                     
+
+shared interface IBroadcastBuffer
+{
+	string GetString();
+	
+	void SetType(int type);
+	int GetType();
+	void SetTime(int time);
+	int GetTime();
+	void SetSetup(int setup);
+	int GetSetup();
+	void SetMessage(string message);
+	void AppendMessage(string message);
+	string GetMessage();
+	void SetData(array<int>data);
+	
+	void SetStart(int time);
+	void ResetStart();
+	
+	void SetLifetime(int lifetime);
+	
+	void SetFilters(int filters);
+	void SetFilter(int filter);
+	void SetFilter(int filter,int data);
+	void UnsetFilter(int filter);
+	bool Filter(int filter);
+	bool CheckFilters(Critter@player);
+	
+	bool Send(Critter@player);
+	uint SendToAll();
+	
+	void SetGM(int id);
+	void UnsetGM();
+	
+	void ToDelete();
+};  
+
+import void UpdateBroadcast()from"broadcast";
+
+import IBroadcastBuffer@AddBroadcastBuffer(int type,int time,int setup,string&message,array<int>&data,int lifetime,int flags)from"broadcast";
+import void DumpBroadcastBuffer(Critter@player)from"broadcast";
+import uint FindBroadcastBufferByType(int type,array<IBroadcastBuffer@>&buf)from"broadcast";
+import uint FindBroadcastBufferByGM(int id,array<IBroadcastBuffer@>&buf)from"broadcast"; 
+
+import IBroadcastBuffer@Broadcast_Message(string&message,int time,int filters,bool send)from"broadcast";
+import IBroadcastBuffer@Broadcast_Message(string&message,int time,int filters)from"broadcast";
+import IBroadcastBuffer@Broadcast_Message(string&message,int&time)from"broadcast";
+import IBroadcastBuffer@Broadcast_Message(string&message,bool send)from"broadcast";
+import IBroadcastBuffer@Broadcast_Message(string&message)from"broadcast"; 
+
+import void Broadcast_TownControl_Set(string&message,int location,int time,int faction)from"broadcast";
+import void Broadcast_TownControl_Set(int location,int time,int faction,Critter&player)from"broadcast";
+import void Broadcast_TownControl_Stop(int location)from"broadcast"; 
+
+import IBroadcastBuffer@Broadcast_Influence(int location,int time,string&message)from"broadcast"; 
+
+import uint Broadcast_RequestHelp(Critter@player,string&message)from"broadcast";
+import void Broadcast_CheckRequestHelpBuffer(Critter@gm)from"broadcast";
+import void Broadcast_DumpRequestHelpBuffer(Critter@gm)from"broadcast"; 
+
+import void baseControl(string msg,int mapId,uint time)from"broadcast";
+import void baseControlRadio(string msg,uint time,int mapId,uint factionId)from"broadcast"; 
+
+import void ServerEventMSG(uint time,string msg)from"broadcast"; 
+
+import IBroadcastBuffer@GetEventCountDownBuffer(int location,int type)from"broadcast";
+import void ServerEventCNTSet(string message,uint location,uint type,uint time)from"broadcast";
+import void ServerEventCNTSet(uint location,uint type,uint time)from"broadcast";
+import void ServerEventCNTStop(uint location,uint type)from"broadcast";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+import void SetLexem(Item&item,string&lex,string&value)from"lexems";
+
+uint BonusNumber(Item@it)
+{
+	return 0;
+}
+
+void AddBonusOrNot(Item@it)
+{
+	
+	return;
+}
+
+void AddSpecialBonusLow(Item@it)
+{
+	
+	return;
+}
+
+void AddSpecialBonus(Item@it)
+{
+	
+	return;
+}
+
+void AddBonuses(Item@it,string@crafter)
+{
+	if(!it.IsStackable())
+	it.Val0+=Random(1,1000);
+	
+	return;
+}
+import void _weapon_perk(Item&item,bool firstTime)from"item_level";
+import void _armor_perk(Item&item,bool firstTime)from"item_level"; 
+
+void AddBonusHinkley(Item@it)
+{
+	it.Val0=500000;
+	it.Update();
+	if(it.GetType()==(3))
+	_weapon_perk(it,false);
+	
+	if(it.GetType()==(1))
+	_armor_perk(it,false);
+	return;
+}
+
+void AddBonuses(Item@it,int magic)
+{
+	
+	return;
+}
+
+void AddArmorBonus(Item@it,int number)
+{
+	int minRoll=1;
+	int maxRoll=1;
+	
+	uint bonusType=0;
+	uint maxBonusType=(123); 
+	
+	if(it.GetProtoId()>=725&&it.GetProtoId()<=741)maxBonusType=(111);
+	if(it.GetProtoId()==25588||it.GetProtoId()==25589)maxBonusType=(111);
+	
+	do
+	{
+		bonusType=Random(100,maxBonusType);
+	}
+	while(HasBonusAlready(it,bonusType));
+	
+	switch(bonusType)
+	{
+		
+		case(100):{maxRoll=5;break;}
+		case(101):{maxRoll=5;break;}
+		case(102):{maxRoll=5;break;}
+		case(103):{maxRoll=5;break;}
+		case(104):{maxRoll=5;break;}
+		case(105):{maxRoll=10;break;}
+		case(106):{maxRoll=10;break;}
+		case(107):{maxRoll=10;break;}
+		case(108):{maxRoll=10;break;}
+		case(109):{maxRoll=10;break;}
+		case(110):{minRoll=-7;maxRoll=-1;break;}
+		case(111):{minRoll=-7;maxRoll=-1;break;}
+		
+		case(112):break;
+		case(113):{minRoll=10;maxRoll=30;break;}
+		case(114):{minRoll=10;maxRoll=30;break;}
+		case(115):break;
+		case(116):break;
+		case(117):break;
+		case(118):break;
+		case(119):break;
+		case(120):break;
+		case(121):break;
+		case(122):{minRoll=5;maxRoll=20;break;}
+		case(123):{minRoll=1;maxRoll=5;break;}
+		default:break;
+	} 
+	
+	return;
+} 
+
+void AddWeaponBonus(Item@it,int number,bool isCrafting=false)
+{
+	
+	uint minRoll=1;
+	uint maxRoll=1;
+	
+	uint bonusType=0;
+	
+	int skillNum=it.Proto.Weapon_Skill_0;
+	bool isRangeWeapon=(skillNum==(200)||skillNum==(201)||skillNum==(202));
+	
+	do
+	{
+		if(isRangeWeapon)
+		bonusType=Random(100,(106));
+		else
+		bonusType=Random(100,(105));
+	}
+	while(HasBonusAlready(it,bonusType));
+	
+	switch(bonusType)
+	{
+		case(100):{maxRoll=7;break;}
+		case(101):{maxRoll=7;break;}
+		case(102):{minRoll=10;maxRoll=25;break;}
+		case(103):{minRoll=10;maxRoll=25;break;}
+		case(104):{minRoll=5;maxRoll=25;break;}
+		case(106):{minRoll=1;maxRoll=4;break;}
+		case(105):break;
+		default:break;
+	} 
+	
+	uint roll=Random(minRoll,maxRoll);  
+	
+	return;
+} 
+
+bool IsBonusExcluded(bool isCrafting,int bonusType)
+{
+	if(!isCrafting)
+	return false; 
+	
+	return false;
+} 
+
+bool HasBonusAlready(Item@it,int bonusType)
+{
+	
+	return false;
+}  
+
+int checkBonus(Item@it,int bonusType)
+{
+	
+	return 0;
+} 
+
+void AddSpecialBonusEncounterBoss(Item@it)
+{
+	it.Val0=Random(35000,1250000);
+	it.Update();
+	
+	if(it.GetType()==(3))
+	_weapon_perk(it,false);
+	
+	if(it.GetType()==(1))
+	_armor_perk(it,false);
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+shared interface IPolygon
+{
+	IPolygon@AddVertex(uint16 x,uint16 y);
+	IPolygon@AddVertices(array<uint16>&hexes);   
+	
+	bool IsWithin(Critter&cr);
+	bool IsWithin(Item&item);  
+	
+	bool IsWithin(uint16 x,uint16 y);
+};  
+
+import IPolygon@NewPolygon()from"polygon"; 
+
+import IPolygon@LoadShapeFromEntires(Map&map,uint first,uint last)from"polygon";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+const string@FD_Result2String(int res)
+{
+	if(res==(0))
+	return"FD_RESULT_SUCCESS";
+	else if(res==(1))
+	return"FD_RESULT_ALREADY_EXISTS";
+	else if(res==(2))
+	return"FD_RESULT_NOT_FOUND";
+	else if(res==(3))
+	return"FD_RESULT_ANY_DATA_ERROR";
+	else if(res==(4))
+	return"FD_RESULT_INVALID_ARGUMENT";
+	else if(res==(5))
+	return"FD_RESULT_LVAR_ERROR";
+	else if(res==(6))
+	return"FD_RESULT_DB_NOT_FOUND";
+	else if(res==(7))
+	return"FD_RESULT_DB_FULL";
+	else if(res==(8))
+	return"FD_RESULT_DB_EMPTY";
+	else
+	return"FD_Result: Unknown error code";
+}      
+
+import bool IsBigFaction(uint faction)from"factions";
+import bool IsTheSameFaction(uint player1Id,uint player2Id)from"factions";
+import void _Resign(uint playerId)from"factions"; 
+
+import int RegisterFaction(uint id,const string@name,bool playerDriven)from"factions";
+import int RegisterFaction(const string@name,bool playerDriven,uint&out id)from"factions";
+
+import bool RemoveFaction(uint faction)from"factions"; 
+
+import bool GetFactionNameStr(uint faction,string&out name)from"factions";
+import bool GetFactionId(const string@name,uint&out id)from"factions"; 
+
+import bool IsFactionNameFree(const string&)from"factions";
+import bool IsFactionNameValid(const string&)from"factions";
+
+import bool IsGang(uint faction)from"factions";
+
+import uint16 GetFactionRadioChannel(uint faction)from"factions";
+import void SetFactionRadioChannel(uint faction,uint16 channel)from"factions"; 
+
+import int AddPlayer(uint faction,uint id)from"factions";
+import int AddPlayer(uint faction,uint id,uint playerFaction)from"factions";
+import int AddPlayer(uint faction,uint id,uint playerFaction,uint rank)from"factions";
+import int AddPlayer(uint faction,uint id,uint playerFaction,uint rank,uint status)from"factions"; 
+
+import int RemovePlayer(uint faction,uint id)from"factions"; 
+
+import int GetFaction(uint faction,uint id)from"factions";
+import int GetStatus(uint faction,uint id)from"factions";
+import int GetRank(uint faction,uint id)from"factions";
+import bool IsMember(uint faction,Critter&cr)from"factions";
+import bool IsMemberOffline(uint faction,uint id)from"factions";
+import bool StoredInDB(uint faction,uint id)from"factions";
+import uint GetRecordsCount(uint faction)from"factions";
+import uint GetMembersCount(uint faction)from"factions";
+import uint GetMembers(uint faction,array<uint>&ids)from"factions";
+import uint GetLeaderId(uint faction)from"factions";
+import void SetLeaderId(uint faction,uint id)from"factions";
+import uint GetClaimId(uint faction)from"factions";
+import void SetClaimId(uint faction,uint id)from"factions";
+import uint GetLeaderTime(uint faction)from"factions";
+import void SetLeaderTime(uint faction,uint time)from"factions";
+import uint GetClaimTime(uint faction)from"factions";
+import void SetClaimTime(uint faction,uint time)from"factions";
+import uint GetFactionLocationId(uint faction)from"factions";
+import bool GetFactionLocation(uint faction,uint&out locId,uint&out pid,uint&out x,uint&out y)from"factions";
+
+import void GetFactionLocationCoords(uint faction,uint&out x,uint&out y)from"factions";
+
+import uint GetFactionScore(uint faction)from"factions";
+import void ModifyFactionScore(uint faction,int amount)from"factions";
+import void UpdateLastUsed(uint faction)from"factions";
+import uint GetFactionsCount()from"factions"; 
+
+import int GetPrevId(uint faction,uint currId,bool members,uint&out prevId)from"factions";
+import int GetNextId(uint faction,uint currId,bool members,uint&out nextId)from"factions";
+import int GetFirstId(uint faction,bool members,uint&out id)from"factions"; 
+
+import int ModifyRank(uint faction,uint id,uint newRank)from"factions";
+import int ModifyStatus(uint faction,uint id,uint newStatus)from"factions";
+import int ModifyFaction(uint faction,uint id,uint newFaction)from"factions"; 
+
+import int InvitePlayer(uint faction,uint playerId)from"factions";
+import int ConfirmInvitation(uint faction,uint playerId)from"factions";
+import int AddMember(uint faction,uint playerId)from"factions";
+import int AddMember(uint faction,uint playerId,bool applyModifiers)from"factions";
+import int ChangeRank(uint faction,uint playerId,uint newRank)from"factions";
+import int ExpelMember(uint faction,uint playerId)from"factions";
+import int ExpelMember(uint faction,uint playerId,bool applyModifiers)from"factions";
+
+import uint GetPlayerFaction(uint playerId)from"factions";
+import uint GetPlayerRank(uint playerId)from"factions"; 
+
+import void AddFactionNews(uint faction,uint master,uint slave,uint type)from"factions";
+import bool GetFactionNews(uint faction,uint index,uint&out master,uint&out slave,uint&out type,uint16&out year,uint8&out month,uint8&out day,uint8&out hour,uint8&out minute)from"factions";
+import uint GetFactionNewsCount(uint faction)from"factions"; 
+
+import uint CheckFactionBaseCoords(uint x,uint y)from"factions";
+
+import bool SaveFactionData(uint faction)from"factions";
+import bool FactionExists(uint faction)from"factions"; 
+
+import uint GetFactionLog(uint faction,bool fullLog,array<string>&strings,uint begin,uint end)from"factions";   
+
+import void InitFactions()from"factions";
+import void UpdateFactionsInfo(Critter&cr)from"factions";
+import IFaction@GetFaction(int)from"factions";
+import IFaction@GetFaction(const string&)from"factions";
+import IFaction@GetFactionByIdx(int idx)from"factions";
+import void UpdateGroupVars(Critter&player)from"factions";     
+
+shared interface IFaction
+{
+	int get_Id()const;
+	string get_Name()const;
+	int get_StringId()const;
+	string get_Database()const;
+	int get_UpdateSeq()const;
+	void set_UpdateSeq(int);
+	
+	int GetStatus(int id)const;
+	void SetStatus(int id,int status);
+	int GetRank(int id)const;
+	void SetRank(int id,int rank);
+	void settag(int index,int tag,int r,int g,int b);
+	int get_tag(int index);
+	int get_b(int index);
+	int get_r(int index);
+	int get_g(int index);  
+	
+	int GetMembers(array<uint>&)const;
+	int GetRecords(array<uint>&)const;  
+	
+	void AddKnownFaction(int);   
+	
+	int GetKnownFactions(array<int>&)const;
+	void Remove();
+};                    
+
+uint __GetColor(int r,int g,int b,int a=0xFF)
+{
+	r=(((r)>(255))?(255):(((r)<(0))?(0):(r)));
+	g=(((g)>(255))?(255):(((g)<(0))?(0):(g)));
+	b=(((b)>(255))?(255):(((b)<(0))?(0):(b)));
+	a=(((a)>(255))?(255):(((a)<(0))?(0):(a)));
+	return(uint(((a)<<24)|(((r)&0xFF)<<16)|(((g)&0xFF)<<8)|((b)&0xFF)));
+}                                             
+
+import void addbasemap(Critter&player)from"personal_base";
+import void addbasemap(Item&con)from"personal_base";
+import bool LockerClose(Item&item)from"lockers"; 
+
+void SpawnMobs(Critter&cr,int kind,int tier,int howmuch)
+{
+	SpawnMobs(cr.GetMap(),kind,tier,howmuch,howmuch);
+}
+
+void SpawnMobs(Map&map,uint kind,uint tier,int howmuch,uint level)
+{
+	string script="daily_quest@mob_init";
+	uint16 pid=Random(888,889);
+	uint8 dir=Random(0,5);
+	uint dialogId=0;
+	uint aiPack=0;
+	uint bagId=0;
+	uint teamIdPack=0;
+	uint weaponforgroup=1;
+	uint16 x=1;
+	uint16 y=2;
+	uint rushing=0;
+	
+	uint entires=map.CountEntire(150);
+	for(int i=1;i<=howmuch;i++)
+	{
+		map.GetEntireCoords(150,Random(0,entires),x,y);
+		kind*=10;
+		uint mobkind=kind+tier;
+		switch(mobkind)
+		{
+			case 11:pid=Random(5001,5005);
+			if(pid==5001||pid==5002)dialogId=(5000);if(pid==5003||pid==5004)dialogId=(5001);if(pid==5005)dialogId=(5002);break;
+			case 12:pid=Random(5006,5010);
+			if(pid==5006||pid==5007)dialogId=(5020);if(pid==5008||pid==5008)dialogId=(5021);if(pid==5010)dialogId=(5022);break;
+			case 13:pid=Random(5011,5015);
+			if(pid==5011)dialogId=(5050);if(pid==5012)dialogId=(5051);if(pid==5013)dialogId=(5056);if(pid==5014)dialogId=(5022);if(pid==5015)dialogId=(5031);break;
+			case 14:pid=Random(5016,5020);
+			if(pid==5016||pid==5017)dialogId=(5030);if(pid==5018||pid==5019)dialogId=(5031);if(pid==5020)dialogId=(5032);break;
+			case 15:pid=Random(5021,5025);
+			dialogId=(5060);break;
+			case 21:pid=Random(5026,5030);
+			dialogId=(9479);break;
+			case 22:pid=Random(5031,5035);
+			dialogId=(63);break;
+			case 23:pid=Random(5036,5040);
+			dialogId=(43);break;
+			case 24:pid=Random(5041,5045);
+			dialogId=(11004);break;
+			case 25:pid=Random(5046,5050);
+			dialogId=(64);break;
+			case 31:pid=Random(5051,5055);
+			dialogId=(617);break;
+			case 32:pid=Random(5056,5060);
+			dialogId=(617);break;
+			case 33:pid=Random(5061,5065);
+			dialogId=(5059);break;
+			case 34:pid=Random(5066,5070);
+			dialogId=(5059);break;
+			case 35:pid=Random(5071,5075);
+			dialogId=(80);break;
+			case 41:pid=Random(5076,5080);
+			dialogId=(5041);break;
+			case 42:pid=Random(5081,5085);
+			dialogId=(5040);break;
+			case 43:pid=Random(5086,5090);
+			dialogId=(5043);break;
+			case 44:pid=Random(5091,5095);
+			dialogId=(5042);break;
+			case 45:pid=Random(5096,5100);
+			dialogId=6663;break;
+		}
+		if(pid==5010)
+		bagId=552;
+		uint NpcLevel=Random(50,100);
+		Critter@mob=AddNpc(map,pid,x,y,dir,dialogId,script,aiPack,bagId,teamIdPack,true,level); 
+		
+		if(pid>=5026&&pid<=5050||pid>=5096&&pid<=5100||pid==5075)
+		AddMobIteams(mob,0);
+		if(pid>=5051&&pid<=5060||pid>=5081&&pid<=5085||pid==5078||pid==5079)
+		AddMobIteams(mob,1);
+		if(pid>=5066&&pid<=5075||pid>=5086&&pid<=5095||pid==5076||pid==5077)
+		AddMobIteams(mob,2);
+	}
+}
+
+void mob_init(Critter&cr,bool firstTime)
+{
+	cr.SetEvent((16),"_Alert");
+	cr.SetEvent((0),"_MobIdle");
+	cr.SetEvent((15),"mob_dynamic@_DodgeHex");
+	
+	cr.ParamBase[(89)]=215;
+	cr.ParamBase[(84)]=-1; 
+	
+	cr.ParamBase[(302)]+=Random(0,1);
+	cr.ParamBase[(306)]=1;
+	cr.ParamBase[(305)]+=Random(1,2);
+	cr.ParamBase[(303)]+=Random(1,2);
+	cr.ParamBase[(512)]=0;
+	
+	for(uint i=(200);i<=(205);i++)
+	cr.ParamBase[i]=Random(180,240);
+	
+	cr.ParamBase[(4)]=Random(7,10);
+	cr.ParamBase[(1)]=Random(15,20);
+	cr.ParamBase[(72)]=cr.Param[(7)];
+}
+
+void guardsMoveToFreeHex(Critter&cr)
+{
+	uint8 dir=Random(0,5);
+	uint16 x,y;
+	x=y=0;
+	uint entires=cr.GetMap().CountEntire(150);
+	bool heisonplace=false;
+	while(!heisonplace)
+	{
+		cr.GetMap().GetEntireCoords(150,Random(0,entires),x,y);
+		
+		if(cr.GetMap().IsHexPassed(x,y))
+		{
+			AddWalkPlane(cr,0,x,y,dir,true,0);
+			cr.SetHomePos(x,y,dir);
+			return;
+		}
+		else cr.GetMap().GetEntireCoords(150,Random(0,entires),x,y);
+	}
+}
+
+bool _Alert(Critter&mob,Critter&attacker)
+{
+	if(!(@mob!=null))
+	return true;
+	
+	if(!(@attacker!=null))
+	return true;
+	
+	if(attacker.Param[(89)]==215)
+	return true;
+	
+	uint radius=(mob.Param[(0)]+mob.Param[(2)])*2;
+	
+	array<Critter@>mobstoalert;
+	mob.GetMap().GetCrittersHex(mob.HexX,mob.HexY,radius,(0x03)|(0x20),mobstoalert);
+	
+	for(uint8 i=0;i<mobstoalert.length();i++)
+	{
+		if(!(@mobstoalert[i]!=null))continue;
+		if(mobstoalert[i].Param[(89)]==215)
+		{
+			mobstoalert[i].AddEnemyInStack(attacker.Id);
+			AddAttackPlane(mobstoalert[i],0,attacker);
+		}
+		
+	}
+	
+	return false;
+}
+
+void _MobIdle(Critter&mob)
+{
+	if(!(@mob!=null))
+	return;
+	
+	if(!mob.IsLife())
+	{
+		mob.Wait((1000));
+		return;
+	}
+	
+	if(Random(1,250)==1)
+	guardsMoveToFreeHex;
+	
+	array<Critter@>crits;
+	
+	uint num=mob.GetCritters(false,(0x03),crits);
+	
+	uint dist=GetDistance(mob);
+	for(uint i=0;i<num;i++)
+	{
+		
+		if(TryAttack(mob,crits[i]))return;
+		
+	}
+	
+	if(crits.length()>0)
+	{
+		MoveMob(mob,false);
+		mob.Wait((200));
+	}
+	else
+	
+	{
+		MoveMob(mob,false);
+		mob.Wait((200));
+	}
+	
+}
+
+bool TryAttack(Critter&mob,Critter@targetCr)
+{
+	
+	if((targetCr.Param[(89)]!=215))
+	{
+		NpcPlane@plane=mob.GetCurPlane();
+		if(((@plane!=null))&&(plane.Identifier!=(1)))
+		mob.DropPlanes();
+		
+		mob.AddEnemyInStack(targetCr.Id);
+		AddAttackPlane(mob,0,targetCr);
+		return true;
+	}
+	return false;
+}
+
+int GetDistance(Critter&mob)
+{ 
+	
+	int base=__LookNormal+3*mob.Param[(1)];
+	
+	return base/2;
+}
+
+void MoveMob(Critter&mob,bool run)
+{
+	int dist=Random(0,(mob.Param[(89)]%100/10));
+	if(dist==0)
+	{
+		mob.MoveRandom();
+	}
+	else
+	{
+		
+		uint16 hexX=mob.HexX;
+		uint16 hexY=mob.HexY;
+		mob.GetMap().MoveHexByDir(hexX,hexY,Random(0,5),dist);
+		AddWalkPlane(mob,0,hexX,hexY,0xff,run,0);
+	}
+}
+
+void RemoveItems(Critter&mob)
+{
+	array<Item@>items;
+	mob.GetItems(-1,items);
+	for(uint8 i=0;i<items.length();i++)
+	{
+		if((@items[i]!=null))
+		{
+			mob.MoveItem(items[i].Id,1,(0));
+			DeleteItem(items[i]);
+		}
+		
+	}
+	mob.Wait(2000);
+}
+
+void SpawnBuffItem(Critter&cr,uint pid)
+{
+	Item@it=cr.AddItem(pid,1);
+	AddBonusOrNot(it);
+}
+
+void SpawnBuffItem(Item&item,uint pid)
+{
+	Item@it=item.AddItem(pid,1,0);
+	AddBonusOrNot(it);
+}
+
+void AddMobIteams(Critter&item,int mob)
+{
+	if(mob==0)
+	{
+		switch(Random(1,25))
+		{
+			case 1:{SpawnBuffItem(item,(13));item.AddItem((37),Random(5,9));break;}
+			case 2:{SpawnBuffItem(item,(15));item.AddItem((39),Random(2,10));break;}
+			case 3:{SpawnBuffItem(item,(399));item.AddItem((38),Random(2,10));break;}
+			case 4:{SpawnBuffItem(item,(115));break;}
+			case 5:{SpawnBuffItem(item,(143));item.AddItem((34),Random(2,10));break;}
+			case 6:{SpawnBuffItem(item,(241));item.AddItem((34),Random(2,10));break;}
+			case 7:{SpawnBuffItem(item,(296));item.AddItem((30),Random(20,100));break;}
+			case 8:{SpawnBuffItem(item,(268));item.AddItem((575),Random(10,50));break;}
+			case 9:{SpawnBuffItem(item,(355));item.AddItem((34),Random(10,90));break;}
+			case 10:{SpawnBuffItem(item,(143));item.AddItem((34),Random(2,10));break;}
+			case 11:{SpawnBuffItem(item,(389));item.AddItem((36),Random(50,300));break;}
+			case 12:{SpawnBuffItem(item,(400));item.AddItem((382),Random(2,7));break;}
+			case 13:{SpawnBuffItem(item,(401));item.AddItem((39),Random(2,10));break;}
+			case 14:{SpawnBuffItem(item,(522));break;}
+			case 15:{SpawnBuffItem(item,(353));item.AddItem((36),Random(10,500));break;}
+			case 16:{SpawnBuffItem(item,(28));item.AddItem((39),Random(100,500));break;}
+			case 17:{SpawnBuffItem(item,(25566));item.AddItem((36),Random(20,90));break;}
+			case 18:{SpawnBuffItem(item,(25567));item.AddItem((25568),Random(20,70));break;}
+			case 19:{SpawnBuffItem(item,(407));item.AddItem((38),Random(20,100));break;}
+			case 20:{SpawnBuffItem(item,(396));item.AddItem((38),Random(20,100));break;}
+			case 21:{SpawnBuffItem(item,(620));item.AddItem((621),Random(20,70));break;}
+			case 22:{SpawnBuffItem(item,(25582));item.AddItem((38),Random(150,900));break;}
+			case 23:{SpawnBuffItem(item,(402));item.AddItem((38),Random(20,100));break;}
+			case 24:{SpawnBuffItem(item,(406));item.AddItem((38),Random(20,100));break;}
+			case 25:{SpawnBuffItem(item,(388));item.AddItem((361),Random(20,100));break;}
+		}
+	}
+	if(mob==1)
+	{
+		switch(Random(1,6))
+		{
+			case 1:{SpawnBuffItem(item,(143));item.AddItem((34),Random(20,40));break;}
+			case 2:{SpawnBuffItem(item,(268));item.AddItem((575),Random(100,150));break;}
+			case 3:{SpawnBuffItem(item,(143));item.AddItem((34),Random(20,40));break;}
+			case 4:{SpawnBuffItem(item,(353));item.AddItem((36),Random(100,200));break;}
+			case 5:{SpawnBuffItem(item,(25566));item.AddItem((36),Random(100,200));break;}
+			case 6:{SpawnBuffItem(item,(620));item.AddItem((621),Random(20,70));break;}
+		}
+	}
+	if(mob==2)
+	{
+		switch(Random(1,7))
+		{
+			case 1:{SpawnBuffItem(item,(13));item.AddItem((37),Random(5,40));break;}
+			case 2:{SpawnBuffItem(item,(15));item.AddItem((39),Random(20,100));break;}
+			case 3:{SpawnBuffItem(item,(355));item.AddItem((34),Random(150,900));break;}
+			case 4:{SpawnBuffItem(item,(389));item.AddItem((36),Random(500,3000));break;}
+			case 5:{SpawnBuffItem(item,(400));item.AddItem((382),Random(20,70));break;}
+			case 6:{SpawnBuffItem(item,(28));item.AddItem((39),Random(100,500));break;}
+			case 7:{SpawnBuffItem(item,(25567));item.AddItem((25568),Random(20,70));break;}
+		}
+	}
+	if(Random(0,1)==1)
+	item.AddItem((144),Random(0,5));
+	else item.AddItem((40),Random(0,5));
+	
+	for(int i=1;i<=Random(2,10);i++)
+	{
+		switch(Random(1,164))
+		{
+			case 1:item.AddItem((9750),1);break;
+			case 2:item.AddItem((9751),1);break;
+			case 3:item.AddItem((9752),1);break;
+			case 4:item.AddItem((9753),1);break;
+			case 5:item.AddItem((9754),1);break;
+			case 6:item.AddItem((9755),1);break;
+			case 7:item.AddItem((9756),1);break;
+			case 8:item.AddItem((9757),1);break;
+			case 9:item.AddItem((9758),1);break;
+			case 10:item.AddItem((9759),1);break;
+			case 11:item.AddItem((9760),1);break;
+			case 12:item.AddItem((9761),1);break;
+			case 13:item.AddItem((9762),1);break;
+			case 14:item.AddItem((9763),1);break;
+			case 15:item.AddItem((9764),1);break;
+			case 16:item.AddItem((9765),1);break;
+			case 17:item.AddItem((9766),1);break;
+			case 18:item.AddItem((9767),1);break;
+			case 19:item.AddItem((9768),1);break;
+			case 20:item.AddItem((9769),1);break;
+			case 21:item.AddItem((9770),1);break;
+			case 22:item.AddItem((9771),1);break;
+			case 23:item.AddItem((9772),1);break;
+			case 24:item.AddItem((9773),1);break;
+			case 25:item.AddItem((9774),1);break;
+			case 26:item.AddItem((9780),1);break;
+			case 27:item.AddItem((9781),1);break;
+			case 28:item.AddItem((9783),1);break;
+			case 29:item.AddItem((9784),1);break;
+			case 30:item.AddItem((9785),1);break;
+			case 31:item.AddItem((9786),1);break;
+			case 32:item.AddItem((9787),1);break;
+			case 33:item.AddItem((9790),1);break;
+			case 34:item.AddItem((9791),1);break;
+			case 35:item.AddItem((9792),1);break;
+			case 36:item.AddItem((9793),1);break;
+			case 37:item.AddItem((9794),1);break;
+			case 38:item.AddItem((9795),1);break;
+			case 39:item.AddItem((9796),1);break;
+			case 40:item.AddItem((9797),1);break;
+			case 41:item.AddItem((9799),1);break;
+			case 42:item.AddItem((9827),1);break;
+			case 43:item.AddItem((9832),1);break;
+			case 44:item.AddItem((9834),1);break;
+			case 45:item.AddItem((9835),1);break;
+			case 46:item.AddItem((9836),1);break;
+			case 47:item.AddItem((9837),1);break;
+			case 48:item.AddItem((9838),1);break;
+			case 49:item.AddItem((9840),1);break;
+			case 50:item.AddItem((9841),1);break;
+			case 51:item.AddItem((9843),1);break;
+			case 52:item.AddItem((9844),1);break;
+			case 53:item.AddItem((9845),1);break;
+			case 54:item.AddItem((9846),1);break;
+			case 55:item.AddItem((9847),1);break;
+			case 56:item.AddItem((9848),1);break;
+			case 57:item.AddItem((9849),1);break;
+			case 58:item.AddItem((9857),1);break;
+			case 59:item.AddItem((9853),1);break;
+			case 60:item.AddItem((9854),1);break;
+			case 61:item.AddItem((9856),1);break;
+			case 62:item.AddItem((9858),1);break;
+			case 63:item.AddItem((9860),1);break;
+			case 64:item.AddItem((9859),1);break;
+			
+			case 65:item.AddItem((470),1);break;
+			case 66:item.AddItem((433),1);break;
+			
+			case 67:item.AddItem((9632),1);break;
+			case 68:item.AddItem((1801),1);break;
+			case 69:item.AddItem((9629),1);break;  
+			
+			case 70:item.AddItem((761),1);break;
+			case 71:item.AddItem((239),1);break;
+			case 72:item.AddItem((9654),1);break;
+			case 73:item.AddItem((752),1);break;
+			case 74:item.AddItem((524),1);break;
+			case 75:item.AddItem((778),1);break;
+			case 76:item.AddItem((25547),1);break;
+			case 77:item.AddItem((22095),1);break;
+			case 78:item.AddItem((25549),1);break;
+			case 79:item.AddItem((240),1);break;
+			case 80:item.AddItem((380),1);break;
+			case 81:item.AddItem((381),1);break;
+			case 82:item.AddItem((25551),1);break;
+			case 83:item.AddItem((25550),1);break;
+			
+			case 84:item.AddItem((733),1);break;
+			case 85:item.AddItem((726),1);break;
+			case 86:item.AddItem((25588),1);break;
+			case 87:item.AddItem((25589),1);break;
+			case 88:item.AddItem((600),1);break;
+			
+			case 89:item.AddItem((1800),1);break;
+			case 90:item.AddItem((1801),1);break;
+			case 91:item.AddItem((1802),1);break;
+			case 92:item.AddItem((1803),1);break;
+			case 93:item.AddItem((1804),1);break;
+			case 94:item.AddItem((1805),1);break;
+			case 95:item.AddItem((1806),1);break;
+			case 96:item.AddItem((1807),1);break;
+			case 97:item.AddItem((1808),1);break;
+			case 98:item.AddItem((1809),1);break;
+			
+			case 99:item.AddItem((1824),1);break;
+			case 100:item.AddItem((9627),1);break;
+			case 101:item.AddItem((9628),1);break;
+			case 102:item.AddItem((9629),1);break;
+			case 103:item.AddItem((9630),1);break;
+			case 104:item.AddItem((9631),1);break;
+			case 105:item.AddItem((9632),1);break;
+			case 106:item.AddItem((9633),1);break;
+			case 107:item.AddItem((9634),1);break;
+			case 108:item.AddItem((9635),1);break;
+			case 109:item.AddItem((9653),1);break;
+			case 110:item.AddItem((9681),1);break;
+			case 111:item.AddItem((9918),1);break;
+			case 112:item.AddItem((9919),1);break;
+			case 113:item.AddItem((9921),1);break;
+			
+			case 114:item.AddItem((75),1);break;
+			case 115:item.AddItem((308),1);break;
+			case 116:item.AddItem((412),1);break;
+			case 117:item.AddItem((84),1);break;
+			case 118:item.AddItem((410),1);break;
+			case 119:item.AddItem((549),1);break; 
+			
+			case 120:item.AddItem((47),1);break;
+			case 121:item.AddItem((408),1);break;
+			case 122:item.AddItem((91),1);break;
+			case 123:item.AddItem((409),1);break;
+			case 124:item.AddItem((428),1);break;
+			case 125:item.AddItem((440),1);break;
+			
+			case 126:item.AddItem((289),1);break;
+			case 127:item.AddItem((297),1);break;
+			case 128:item.AddItem((543),1);break;
+			
+			case 129:item.AddItem((52),1);break;
+			case 130:item.AddItem((207),1);break;
+			case 131:item.AddItem((54),1);break;
+			case 132:item.AddItem((100),1);break;
+			case 133:item.AddItem((59),1);break;
+			case 134:item.AddItem((100),1);break;
+			case 135:item.AddItem((605),1);break; 
+			
+			case 136:item.AddItem((73),1);break;
+			case 137:item.AddItem((76),1);break;
+			case 138:item.AddItem((80),1);break;
+			case 139:item.AddItem((86),1);break;
+			case 140:item.AddItem((102),1);break;
+			case 141:item.AddItem((225),1);break;
+			case 142:item.AddItem((228),1);break;
+			case 143:item.AddItem((237),1);break;
+			case 144:item.AddItem((331),1);break;
+			case 145:item.AddItem((471),1);break;
+			case 146:item.AddItem((22050),1);break;
+			case 147:item.AddItem((25557),1);break;
+			case 148:item.AddItem((25558),1);break;
+			case 149:item.AddItem((25559),1);break;
+			case 150:item.AddItem((25560),1);break;
+			case 151:item.AddItem((25561),1);break;
+			case 152:item.AddItem((25562),1);break;
+			case 153:item.AddItem((25563),1);break;
+			case 154:item.AddItem((25564),1);break;
+			case 155:item.AddItem((25565),1);break; 
+			
+			case 156:item.AddItem((764),1);break;
+			case 157:item.AddItem((765),1);break;
+			case 158:item.AddItem((766),1);break;
+			case 159:item.AddItem((770),1);break;
+			case 160:item.AddItem((773),1);break;
+			case 161:item.AddItem((775),1);break;
+			case 162:item.AddItem((776),1);break;
+			case 163:if(Random(1,55)==55)item.AddItem((25571),1);break;
+			
+			case 164:item.AddItem((9831),1);break;
+		}
+	}
+	if(dropchance(5*doubleloot))
+	addbasemap(item);
+}
+
+void SpawnLoot(Critter&cr,int kind,int tier,int howmuch)
+{
+	SpawnLoot(cr.GetMap());
+}
+
+void SpawnLoot(Map&map)
+{
+	uint16 x=1;
+	uint16 y=2;
+	for(int i=1;i<=10;i++)
+	{
+		map.GetEntireCoords(10,i,x,y);
+		if(Random(1,5)==1)
+		{
+			Item@box1=map.AddItem(x,y,Random(130,131),1);
+			addloot(box1);
+			LockerClose(box1);
+		}
+		map.GetEntireCoords(11,i,x,y);
+		if(Random(1,5)==1)
+		{
+			int pid=134;
+			switch(Random(1,3))
+			{
+				case 1:pid=134;break;
+				case 2:pid=135;break;
+				case 3:pid=189;break;
+			}
+			
+			Item@box2=map.AddItem(x,y,pid,1);
+			addloot(box2);
+			LockerClose(box2);
+		}
+		map.GetEntireCoords(12,i,x,y);
+		if(Random(1,5)==1)
+		{
+			Item@box3=map.AddItem(x,y,Random(128,129),1);
+			addloot(box3);
+			LockerClose(box3);
+		}
+		map.GetEntireCoords(13,i,x,y);
+		if(Random(1,5)==1)
+		{
+			int pid=134;
+			switch(Random(1,3))
+			{
+				case 1:pid=132;break;
+				case 2:pid=133;break;
+				case 3:pid=188;break;
+			}
+			Item@box4=map.AddItem(x,y,pid,1);
+			addloot(box4);
+			LockerClose(box4);
+		}
+		map.GetEntireCoords(14,i,x,y);
+		if(Random(1,5)==1)
+		{
+			Item@box5=map.AddItem(x,y,Random(367,368),1);
+			addloot(box5);
+			LockerClose(box5);
+		}
+		map.GetEntireCoords(15,i,x,y);
+		if(Random(1,5)==1)
+		{
+			Item@box6=map.AddItem(x,y,Random(369,370),1);
+			addloot(box6);
+			LockerClose(box6);
+		}
+		map.GetEntireCoords(16,i,x,y);
+		if(Random(1,5)==1)
+		{
+			Item@box7=map.AddItem(x,y,Random(197,204),1);
+			addloot(box7);
+			LockerClose(box7);
+		}
+	}
+}
+void addloot(Item&item)
+{
+	if(Random(1,14)==14)
+	{
+		switch(Random(1,25))
+		{
+			case 1:{SpawnBuffItem(item,(13));item.AddItem((37),5,40);break;}
+			case 2:{SpawnBuffItem(item,(15));item.AddItem((39),20,100);break;}
+			case 3:{SpawnBuffItem(item,(399));item.AddItem((38),20,100);break;}
+			case 4:{SpawnBuffItem(item,(115));break;}
+			case 5:{SpawnBuffItem(item,(143));item.AddItem((34),20,100);break;}
+			case 6:{SpawnBuffItem(item,(241));item.AddItem((34),20,100);break;}
+			case 7:{SpawnBuffItem(item,(296));item.AddItem((30),200,1000);break;}
+			case 8:{SpawnBuffItem(item,(268));item.AddItem((575),100,500);break;}
+			case 9:{SpawnBuffItem(item,(355));item.AddItem((34),150,900);break;}
+			case 10:{SpawnBuffItem(item,(143));item.AddItem((34),20,100);break;}
+			case 11:{SpawnBuffItem(item,(389));item.AddItem((36),500,3000);break;}
+			case 12:{SpawnBuffItem(item,(400));item.AddItem((382),20,70);break;}
+			case 13:{SpawnBuffItem(item,(401));item.AddItem((39),20,100);break;}
+			case 14:{SpawnBuffItem(item,(522));break;}
+			case 15:{SpawnBuffItem(item,(353));item.AddItem((36),100,500);break;}
+			case 16:{SpawnBuffItem(item,(28));item.AddItem((39),100,500);break;}
+			case 17:{SpawnBuffItem(item,(25566));item.AddItem((36),20,90);break;}
+			case 18:{SpawnBuffItem(item,(25567));item.AddItem((25568),20,70);break;}
+			case 19:{SpawnBuffItem(item,(407));item.AddItem((38),20,100);break;}
+			case 20:{SpawnBuffItem(item,(396));item.AddItem((38),20,100);break;}
+			case 21:{SpawnBuffItem(item,(620));item.AddItem((621),20,70);break;}
+			case 22:{SpawnBuffItem(item,(25582));item.AddItem((38),150,900);break;}
+			case 23:{SpawnBuffItem(item,(402));item.AddItem((38),20,100);break;}
+			case 24:{SpawnBuffItem(item,(406));item.AddItem((38),20,100);break;}
+			case 25:{SpawnBuffItem(item,(388));item.AddItem((361),20,100);break;}
+		}
+	}
+	if(Random(0,7)==1)
+	item.AddItem((144),0,5);
+	
+	for(int i=1;i<=Random(7,10);i++)
+	{
+		switch(Random(1,163))
+		{
+			case 1:item.AddItem((9750),1,0);break;
+			case 2:item.AddItem((9751),1,0);break;
+			case 3:item.AddItem((9752),1,0);break;
+			case 4:item.AddItem((9753),1,0);break;
+			case 5:item.AddItem((9754),1,0);break;
+			case 6:item.AddItem((9755),1,0);break;
+			case 7:item.AddItem((9756),1,0);break;
+			case 8:item.AddItem((9757),1,0);break;
+			case 9:item.AddItem((9758),1,0);break;
+			case 10:item.AddItem((9759),1,0);break;
+			case 11:item.AddItem((9760),1,0);break;
+			case 12:item.AddItem((9761),1,0);break;
+			case 13:item.AddItem((9762),1,0);break;
+			case 14:item.AddItem((9763),1,0);break;
+			case 15:item.AddItem((9764),1,0);break;
+			case 16:item.AddItem((9765),1,0);break;
+			case 17:item.AddItem((9766),1,0);break;
+			case 18:item.AddItem((9767),1,0);break;
+			case 19:item.AddItem((9768),1,0);break;
+			case 20:item.AddItem((9769),1,0);break;
+			case 21:item.AddItem((9770),1,0);break;
+			case 22:item.AddItem((9771),1,0);break;
+			case 23:item.AddItem((9772),1,0);break;
+			case 24:item.AddItem((9773),1,0);break;
+			case 25:item.AddItem((9774),1,0);break;
+			case 26:item.AddItem((9780),1,0);break;
+			case 27:item.AddItem((9781),1,0);break;
+			case 28:item.AddItem((9783),1,0);break;
+			case 29:item.AddItem((9784),1,0);break;
+			case 30:item.AddItem((9785),1,0);break;
+			case 31:item.AddItem((9786),1,0);break;
+			case 32:item.AddItem((9787),1,0);break;
+			case 33:item.AddItem((9790),1,0);break;
+			case 34:item.AddItem((9791),1,0);break;
+			case 35:item.AddItem((9792),1,0);break;
+			case 36:item.AddItem((9793),1,0);break;
+			case 37:item.AddItem((9794),1,0);break;
+			case 38:item.AddItem((9795),1,0);break;
+			case 39:item.AddItem((9796),1,0);break;
+			case 40:item.AddItem((9797),1,0);break;
+			case 41:item.AddItem((9799),1,0);break;
+			case 42:item.AddItem((9827),1,0);break;
+			case 43:item.AddItem((9832),1,0);break;
+			case 44:item.AddItem((9834),1,0);break;
+			case 45:item.AddItem((9835),1,0);break;
+			case 46:item.AddItem((9836),1,0);break;
+			case 47:item.AddItem((9837),1,0);break;
+			case 48:item.AddItem((9838),1,0);break;
+			case 49:item.AddItem((9840),1,0);break;
+			case 50:item.AddItem((9841),1,0);break;
+			case 51:item.AddItem((9843),1,0);break;
+			case 52:item.AddItem((9844),1,0);break;
+			case 53:item.AddItem((9845),1,0);break;
+			case 54:item.AddItem((9846),1,0);break;
+			case 55:item.AddItem((9847),1,0);break;
+			case 56:item.AddItem((9848),1,0);break;
+			case 57:item.AddItem((9849),1,0);break;
+			case 58:item.AddItem((9857),1,0);break;
+			case 59:item.AddItem((9853),1,0);break;
+			case 60:item.AddItem((9854),1,0);break;
+			case 61:item.AddItem((9856),1,0);break;
+			case 62:item.AddItem((9858),1,0);break;
+			case 63:item.AddItem((9860),1,0);break;
+			case 64:item.AddItem((9859),1,0);break;
+			
+			case 65:item.AddItem((470),1,0);break;
+			case 66:item.AddItem((433),1,0);break;
+			
+			case 67:item.AddItem((9632),1,0);break;
+			case 68:item.AddItem((1801),1,0);break;
+			case 69:item.AddItem((9629),1,0);break;  
+			
+			case 70:item.AddItem((761),1,0);break;
+			case 71:item.AddItem((239),1,0);break;
+			case 72:item.AddItem((9654),1,0);break;
+			case 73:item.AddItem((752),1,0);break;
+			case 74:item.AddItem((524),1,0);break;
+			case 75:item.AddItem((778),1,0);break;
+			case 76:item.AddItem((25547),1,0);break;
+			case 77:item.AddItem((22095),1,0);break;
+			case 78:item.AddItem((25549),1,0);break;
+			case 79:item.AddItem((240),1,0);break;
+			case 80:item.AddItem((380),1,0);break;
+			case 81:item.AddItem((381),1,0);break;
+			case 82:item.AddItem((25551),1,0);break;
+			case 83:item.AddItem((25550),1,0);break;
+			
+			case 84:item.AddItem((733),1,0);break;
+			case 85:item.AddItem((726),1,0);break;
+			case 86:item.AddItem((25588),1,0);break;
+			case 87:item.AddItem((25589),1,0);break;
+			case 88:item.AddItem((600),1,0);break;
+			
+			case 89:item.AddItem((1800),1,0);break;
+			case 90:item.AddItem((1801),1,0);break;
+			case 91:item.AddItem((1802),1,0);break;
+			case 92:item.AddItem((1803),1,0);break;
+			case 93:item.AddItem((1804),1,0);break;
+			case 94:item.AddItem((1805),1,0);break;
+			case 95:item.AddItem((1806),1,0);break;
+			case 96:item.AddItem((1807),1,0);break;
+			case 97:item.AddItem((1808),1,0);break;
+			case 98:item.AddItem((1809),1,0);break;
+			
+			case 99:item.AddItem((1824),1,0);break;
+			case 100:item.AddItem((9627),1,0);break;
+			case 101:item.AddItem((9628),1,0);break;
+			case 102:item.AddItem((9629),1,0);break;
+			case 103:item.AddItem((9630),1,0);break;
+			case 104:item.AddItem((9631),1,0);break;
+			case 105:item.AddItem((9632),1,0);break;
+			case 106:item.AddItem((9633),1,0);break;
+			case 107:item.AddItem((9634),1,0);break;
+			case 108:item.AddItem((9635),1,0);break;
+			case 109:item.AddItem((9653),1,0);break;
+			case 110:item.AddItem((9681),1,0);break;
+			case 111:item.AddItem((9918),1,0);break;
+			case 112:item.AddItem((9919),1,0);break;
+			case 113:item.AddItem((9921),1,0);break;
+			
+			case 114:item.AddItem((75),1,0);break;
+			case 115:item.AddItem((308),1,0);break;
+			case 116:item.AddItem((412),1,0);break;
+			case 117:item.AddItem((84),1,0);break;
+			case 118:item.AddItem((410),1,0);break;
+			case 119:item.AddItem((549),1,0);break; 
+			
+			case 120:item.AddItem((47),1,0);break;
+			case 121:item.AddItem((408),1,0);break;
+			case 122:item.AddItem((91),1,0);break;
+			case 123:item.AddItem((409),1,0);break;
+			case 124:item.AddItem((428),1,0);break;
+			case 125:item.AddItem((440),1,0);break;
+			
+			case 126:item.AddItem((289),1,0);break;
+			case 127:item.AddItem((297),1,0);break;
+			case 128:item.AddItem((543),1,0);break;
+			
+			case 129:item.AddItem((52),1,0);break;
+			case 130:item.AddItem((207),1,0);break;
+			case 131:item.AddItem((54),1,0);break;
+			case 132:item.AddItem((210),1,0);break;
+			case 133:item.AddItem((59),1,0);break;
+			case 134:item.AddItem((208),1,0);break;
+			case 135:item.AddItem((605),1,0);break; 
+			
+			case 136:item.AddItem((73),1,0);break;
+			case 137:item.AddItem((76),1,0);break;
+			case 138:item.AddItem((80),1,0);break;
+			case 139:item.AddItem((86),1,0);break;
+			case 140:item.AddItem((102),1,0);break;
+			case 141:item.AddItem((225),1,0);break;
+			case 142:item.AddItem((228),1,0);break;
+			case 143:item.AddItem((237),1,0);break;
+			case 144:item.AddItem((331),1,0);break;
+			case 145:item.AddItem((471),1,0);break;
+			case 146:item.AddItem((22050),1,0);break;
+			case 147:item.AddItem((25557),1,0);break;
+			case 148:item.AddItem((25558),1,0);break;
+			case 149:item.AddItem((25559),1,0);break;
+			case 150:item.AddItem((25560),1,0);break;
+			case 151:item.AddItem((25561),1,0);break;
+			case 152:item.AddItem((25562),1,0);break;
+			case 153:item.AddItem((25563),1,0);break;
+			case 154:item.AddItem((25564),1,0);break;
+			case 155:item.AddItem((25565),1,0);break; 
+			
+			case 156:item.AddItem((764),1,0);break;
+			case 157:item.AddItem((765),1,0);break;
+			case 158:item.AddItem((766),1,0);break;
+			case 159:item.AddItem((770),1,0);break;
+			case 160:item.AddItem((773),1,0);break;
+			case 161:item.AddItem((775),1,0);break;
+			case 162:item.AddItem((776),1,0);break;
+			case 163:if(Random(1,55)==55)item.AddItem((25571),1,0);break;
+		}
+	}
+	
+	if(dropchance(25*doubleloot))
+	addbasemap(item);
+} 
+
+void map_init(Map&map,bool firstTime)
+{
+	map.SetEvent((6),"_OnEnterMap");
+} 
+
+void init_quest(Critter&player,Critter@npc)
+{
+	GameVar@farmloc=GetLocalVar((62018),player.Id);
+	if(player.Param[(77)]<50)
+	{
+		player.Say((11),"I can't read it, maybe on 50 level I will");
+		return;
+	}
+	if(farmloc.GetValue()==0)
+	{
+		Critter@[]crits={player};
+		int loc=CreateLocation(Random(900,909),Random(1600,1800),Random(1850,2200),crits);
+		Location@location=GetLocation(loc);
+		GameVar@locidv=GetLocalVar((62017),player.Id);
+		locidv=loc;
+		location.Color=((uint(((120)<<24)|(((255)&0xFF)<<16)|(((128)&0xFF)<<8)|((0)&0xFF))));
+		location.Update();
+		farmloc=1;
+		array<Map@>maps;
+		location.GetMaps(maps);
+		SpawnMobs(maps[0],Random(1,4),Random(1,5),Random(6,23),Random(1,30));
+		SpawnLoot(maps[0]);
+		
+		SetQuestGarbager(1440,player.Id,loc,(62017),0);
+		uint[]values={player.Id,npc.Id};
+		CreateTimeEvent(((__FullSecond)+(((24)*__TimeMultiplier*3600))),"e_reset_quest_var",values,true);
+		player.Say((11),"I saw interesing place on his map.");
+	}
+	else
+	{
+		player.Say((11),"I was in that place, but I'm sure tommorow he will have another map.");
+	}
+}
+
+uint e_reset_quest_var(array<uint>@values)
+{
+	GameVar@var=GetLocalVar((62018),values[0]);
+	var=0;
+	
+	GameVar@var0=GetLocalVar((62017),values[0]);
+	var0=0;
+	return 0;
+}
+
+void _OnEnterMap(Map&map,Critter&cr)
+{
+	if(cr.IsPlayer())
+	{
+		Location@loc=map.GetLocation();
+		if((@loc!=null)&&!cr.IsKnownLoc(true,loc.Id))
+		{
+			cr.SetKnownLoc(true,loc.Id);
+			cr.Say((11),"You note coordinates of this location in your PipBoy.");
+		}
+	}
+}

@@ -1,0 +1,66 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_BOTTLE_CAPS + 800 #
+0 2020 #
+4 2030 D _item p PID_DOLLAR } 3 R _item p PID_DOLLAR - 3 R _item p PID_BOTTLE_CAPS + 2400 @
+4 3000 None 0 &
+
+[engl]
+{100}{}{Currency manager}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings, FLC currency manager Natalia Volkovsky. Here you can legally exchange small amounts of dollars for Currency. We excange 1 dollar for every 800 Currency.}
+{2010}{}{I want to exchange 1 dollar for 800 Currency.}
+{2020}{}{Not interested.}
+{2030}{}{I want to exchange 3 dollars for 2400 Currency.}
+{3000}{}{Here you go.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings, FLC currency manager Natalia Volkovsky. Here you can legaly exchange small amounts of dollars on Currency. We excange 1 dollar in 800 Currency.}
+{2010}{}{I want to exchange 1 dollar in 800 Currency.}
+{2020}{}{Not interested.}
+{2030}{}{I want to exchange 3 dollars in 2400 Currency.}
+{3000}{}{Here you go.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings, FLC currency manager Natalia Volkovsky. Here you can legaly exchange small amounts of dollars on Currency. We excange 1 dollar in 800 Currency.}
+{2010}{}{I want to exchange 1 dollar in 800 Currency.}
+{2020}{}{Not interested.}
+{2030}{}{I want to exchange 3 dollars in 2400 Currency.}
+{3000}{}{Here you go.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings, FLC currency manager Natalia Volkovsky. Here you can legaly exchange small amounts of dollars on Currency. We excange 1 dollar in 800 Currency.}
+{2010}{}{I want to exchange 1 dollar in 800 Currency.}
+{2020}{}{Not interested.}
+{2030}{}{I want to exchange 3 dollars in 2400 Currency.}
+{3000}{}{Here you go.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greetings, FLC currency manager Natalia Volkovsky. Here you can legaly exchange small amounts of dollars on Currency. We excange 1 dollar in 800 Currency.}
+{2010}{}{I want to exchange 1 dollar in 800 Currency.}
+{2020}{}{Not interested.}
+{2030}{}{I want to exchange 3 dollars in 2400 Currency.}
+{3000}{}{Here you go.}
+

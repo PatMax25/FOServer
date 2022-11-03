@@ -1,0 +1,151 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+5 2020 D _var p q_v99_woods = 0 #
+6 2030 D _var p q_v99_woods = 2 D _item p PID_FIREWOOD } 3 #
+0 2040 @
+3 3000 None 0 #
+4 3010 #
+2 3020 @
+4 4000 None 0 @
+5 5000 None 0 #
+9 5010 R _var p q_v99_woods = 1 R _item p PID_FIREWOOD + 3 #
+0 5020 @
+6 6000 None 0 #
+7 6010 D _item p PID_FIREWOOD } 3 R _var p q_v99_woods = 3 @
+7 7000 None 0 #
+8 7010 D _item p PID_FIREWOOD } 3 R _item p PID_FIREWOOD - 3 R _param p ST_EXPERIENCE + 120 R _item p PID_BOTTLE_CAPS + 50 #
+0 7020 D _item p PID_FIREWOOD } 3 R _item p PID_FIREWOOD - 3 R _param p ST_EXPERIENCE + 120 @
+8 8000 None 0 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{Agnes}
+{200}{}{You see a very agressively looking person.}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Yeah? What do you need?}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help?}
+{2030}{}{I am from Lukas. He said that he doesn't need it.}
+{2040}{}{Nothing. See ya. [ end dialogue ]}
+{3000}{}{Agnes here - worth to fear. The fuck you want?}
+{3010}{}{What the...}
+{3020}{}{Fine, lets talk about something else.}
+{4000}{}{Get rekt, scum... I don't waste my time on such trash as you.}
+{5000}{}{Listen, I need this damn pile of wood to be dragged to that greenskin bastard - Boris. He asked for it.}
+{5010}{}{Alright, I will do it.}
+{5020}{}{No way! See ya, dude. [ end dialogue ]}
+{6000}{}{What does "he-said-that-he-doesn't-need-it" mean? I remember correctly that that idiot asked me to drag this pile to him today! Get this shit back and tell him to stop drinking during his post!}
+{6010}{}{Also he said that it is the third time you send somebody to carry this pile of wood to him... You do it every time after getting high.}
+{7000}{}{Oh... Oh right, right... Of course. Fine, give this pile back to me. You are free to go.}
+{7010}{}{What about my payment?}
+{7020}{}{[ give pile of wood back to Agnes and leave ]}
+{8000}{}{Ah yeah, yeah. Here, take this and get fucking out.}
+{9000}{}{Move your ass then!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Yeah? What do you need?}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help?}
+{2030}{}{I am from Lukas. He said that he doesn't need it.}
+{2040}{}{Nothing. See ya.}
+{3000}{}{Agnes here - worth to fear. The fuck you want?}
+{3010}{}{What a...}
+{3020}{}{Fine, lets talk about something else.}
+{4000}{}{Get rekt, scum... I don't waste my time on such trash as you.}
+{5000}{}{Listen, I need this damn pile of wood to be dragged to that greenskin bastard - Boris. He asked for it.}
+{5010}{}{Alright, I will do it.}
+{5020}{}{No way! See ya, dude.}
+{6000}{}{What does "he-said-that-he-doesn't-need-it" mean? I remember correctly that that idiot asked me to dragg this pile to him today! Get this shit back and tell him to stop drinking during his post!}
+{6010}{}{Also he said that it is a third time you send somebody to carry this pile of woods to him... You do it every time after getting high.}
+{7000}{}{Ouh... Oh right, right... Of course. Fine, give this pile back to me. You are free to go.}
+{7010}{}{What about my payment?}
+{7020}{}{[ Give pile of wood back to Agnes and leave ]}
+{8000}{}{Ah yeah, yeah. Here, take this and get fucking out.}
+{9000}{}{Move your ass than,}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Yeah? What do you need?}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help?}
+{2030}{}{I am from Lukas. He said that he doesn't need it.}
+{2040}{}{Nothing. See ya.}
+{3000}{}{Agnes here - worth to fear. The fuck you want?}
+{3010}{}{What a...}
+{3020}{}{Fine, lets talk about something else.}
+{4000}{}{Get rekt, scum... I don't waste my time on such trash as you.}
+{5000}{}{Listen, I need this damn pile of wood to be dragged to that greenskin bastard - Boris. He asked for it.}
+{5010}{}{Alright, I will do it.}
+{5020}{}{No way! See ya, dude.}
+{6000}{}{What does "he-said-that-he-doesn't-need-it" mean? I remember correctly that that idiot asked me to dragg this pile to him today! Get this shit back and tell him to stop drinking during his post!}
+{6010}{}{Also he said that it is a third time you send somebody to carry this pile of woods to him... You do it every time after getting high.}
+{7000}{}{Ouh... Oh right, right... Of course. Fine, give this pile back to me. You are free to go.}
+{7010}{}{What about my payment?}
+{7020}{}{[ Give pile of wood back to Agnes and leave ]}
+{8000}{}{Ah yeah, yeah. Here, take this and get fucking out.}
+{9000}{}{Move your ass than,}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Yeah? What do you need?}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help?}
+{2030}{}{I am from Lukas. He said that he doesn't need it.}
+{2040}{}{Nothing. See ya.}
+{3000}{}{Agnes here - worth to fear. The fuck you want?}
+{3010}{}{What a...}
+{3020}{}{Fine, lets talk about something else.}
+{4000}{}{Get rekt, scum... I don't waste my time on such trash as you.}
+{5000}{}{Listen, I need this damn pile of wood to be dragged to that greenskin bastard - Boris. He asked for it.}
+{5010}{}{Alright, I will do it.}
+{5020}{}{No way! See ya, dude.}
+{6000}{}{What does "he-said-that-he-doesn't-need-it" mean? I remember correctly that that idiot asked me to dragg this pile to him today! Get this shit back and tell him to stop drinking during his post!}
+{6010}{}{Also he said that it is a third time you send somebody to carry this pile of woods to him... You do it every time after getting high.}
+{7000}{}{Ouh... Oh right, right... Of course. Fine, give this pile back to me. You are free to go.}
+{7010}{}{What about my payment?}
+{7020}{}{[ Give pile of wood back to Agnes and leave ]}
+{8000}{}{Ah yeah, yeah. Here, take this and get fucking out.}
+{9000}{}{Move your ass than,}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{2000}{}{Yeah? What do you need?}
+{2010}{}{Who are you?}
+{2020}{}{Do you need some help?}
+{2030}{}{I am from Lukas. He said that he doesn't need it.}
+{2040}{}{Nothing. See ya.}
+{3000}{}{Agnes here - worth to fear. The fuck you want?}
+{3010}{}{What a...}
+{3020}{}{Fine, lets talk about something else.}
+{4000}{}{Get rekt, scum... I don't waste my time on such trash as you.}
+{5000}{}{Listen, I need this damn pile of wood to be dragged to that greenskin bastard - Boris. He asked for it.}
+{5010}{}{Alright, I will do it.}
+{5020}{}{No way! See ya, dude.}
+{6000}{}{What does "he-said-that-he-doesn't-need-it" mean? I remember correctly that that idiot asked me to dragg this pile to him today! Get this shit back and tell him to stop drinking during his post!}
+{6010}{}{Also he said that it is a third time you send somebody to carry this pile of woods to him... You do it every time after getting high.}
+{7000}{}{Ouh... Oh right, right... Of course. Fine, give this pile back to me. You are free to go.}
+{7010}{}{What about my payment?}
+{7020}{}{[ Give pile of wood back to Agnes and leave ]}
+{8000}{}{Ah yeah, yeah. Here, take this and get fucking out.}
+{9000}{}{Move your ass than,}
+

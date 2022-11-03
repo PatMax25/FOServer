@@ -1,0 +1,13 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = bonobo;
+@gender = 0;
+@age = 25;
+
+@special = 10 5 5 5 5 5 5;
+@xp = 1 0 1000;
+@life = 75 75 0 0 0 0 0 0 0;
+@stats = 15 7 144575 5 0 25 10 10 3 5;
+@skills = 25 10 10 60 50 20 20 15 20 20 15 20 20 15 25 20 25 20 0;
+@perks = 301;

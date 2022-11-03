@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Doctor Velix}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treatment is only for NCR army memebers!@@Get out of here, we don't heal just everyone.@@I don't have time for this, get out of here!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treatment is only for NCR army memebers!@@Get out of here, we don't heal just everyone.@@I don't have time for this, get out of here!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treatment is only for NCR army memebers!@@Get out of here, we don't heal just everyone.@@I don't have time for this, get out of here!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treatment is only for NCR army memebers!@@Get out of here, we don't heal just everyone.@@I don't have time for this, get out of here!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Treatment is only for NCR army memebers!@@Get out of here, we don't heal just everyone.@@I don't have time for this, get out of here!}
+

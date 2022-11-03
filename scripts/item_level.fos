@@ -1,0 +1,2403 @@
+//Fonline 3
+//KompreSor
+//Item perks
+
+#include "_macros.fos"
+
+array<uint> Weapon_perks = { 
+WP_BRD, WP_BONUS_DAMAGE, WP_ATTACK, WP_SCOPED, WP_BETTER_CRIT, 
+WP_FAST_TRIGGER, WP_AMMO, WP_SLAYER, WP_DESTROYER, WP_KNOCKBACK, 
+WP_LONG_RANGE, WP_PENETRATE, WP_CHIP_SHOT, WP_MORE_CRIT, WP_KILLING, WP_BONUS_SPEED};//15  (5)
+
+array<uint> Weapon_perks_melee = { 
+WP_SMASHER, WP_BONUS_DAMAGE, WP_ATTACK, WP_BETTER_CRIT, WP_FAST_TRIGGER, 
+WP_BROF, WP_SLAYER, WP_KNOCKBACK,  WP_PENETRATE, WP_POISON, 
+WP_FROZEN, WP_LIFE_STEAL, WP_CHIP_SHOT, WP_MORE_CRIT, WP_KILLING, WP_SPIKED};//15
+
+array<uint> Armor_perks = { AP_GAIN_ST, AP_GAIN_PE, AP_GAIN_EN, AP_GAIN_CH, AP_GAIN_IN, AP_GAIN_AG, AP_GAIN_LK, AP_CURED, AP_LASER_REF, AP_TERMAL, AP_DEFENSE, AP_PLATE, AP_MIRROR, AP_TESLA_ADDITION, AP_SHOCK, AP_FIREGECKO, AP_FORCE, AP_REGEN, AP_FTG, AP_HEAVY, AP_UTILITY, AP_BONUS_MOVE, AP_STONEWALL, AP_SPEED, AP_SKIN, AP_SURR, AP_TACTICAL, AP_GLOVES, AP_DEF_BELT};//26
+
+array<uint> Wep_legend_perks = { WP_LEG_KO, WP_LEG_BRD, WP_LEG_SNIPER, WP_LEG_BH, WP_LEG_BBB };
+
+array<uint> Armor_legend_perks = { AP_LEG_GIFTED, AP_LEG_ADV_DEF, AP_LEG_REGEN, AP_LEG_PA, AP_LEG_ANTY_CRIT};
+
+
+void _weapon_perk(Item& item, bool firstTime)
+{
+	bool is_a_melee = false;
+	if(item.Proto.Weapon_Skill_0 == SK_MELEE_WEAPONS || item.Proto.Weapon_Skill_0 == SK_UNARMED)
+		is_a_melee = true;
+	
+	
+	switch(item.Proto.ProtoId)
+		{
+		case PID_ZIP_GUN:
+			if(item.Val0 > 10000) GetPerk( item, WP_BROF,1);
+			if(item.Val0 > 75000) GetPerk( item, WP_BROF,2);
+			if(item.Val0 > 150000) GetPerk( item, WP_FASTER_RELOAD,3); break;
+
+		case PID_9MM_MAUSER:
+			if(item.Val0 > 10000) GetPerk( item, WP_ACCURATE,1);
+			if(item.Val0 > 75000) GetPerk( item, WP_ATTACK,2);
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_10MM_PISTOL:
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+			if(item.Val0 > 75000) GetPerk( item, WP_MORE_CRIT,2);
+			if(item.Val0 > 150000) GetPerk( item, WP_MORE_CRIT,3); break;
+
+		case PID_14MM_PISTOL:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_PENETRATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_CHIP_SHOT,3); break;
+
+		case PID_DESERT_EAGLE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BONUS_DAMAGE,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BONUS_DAMAGE,3); break;
+
+		case PID_DESERT_EAGLE_EXT_MAG:
+		case PID_DESERT_EAGLE_EXT_MAG_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_FAST_TRIGGER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_KILLING,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_FAST_TRIGGER,3); break;
+
+		case PID_223_PISTOL:
+		case PID_RAPTOR:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_SPEED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BONUS_SPEED,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_44_MAGNUM_REVOLVER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_44_MAGNUM_SPEEDLOADER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_FASTER_RELOAD,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_NEEDLER_PISTOL:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_PENETRATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BONUS_DAMAGE,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_POISON,3); break;
+
+		case PID_GRENADE_PISTOL:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_FAST_TRIGGER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SLAYER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BROF,3); break;
+
+		case PID_10MM_SMG:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_MORE_CRIT,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_KILLING,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BROF,3); break;
+
+		case PID_HK_P90C:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_ATTACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BRD,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MORE_CRIT,3); break;
+
+		case PID_TOMMY_GUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FAST_TRIGGER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_KILLING,3); break;
+
+		case PID_GREASE_GUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BRD,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MORE_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MORE_CRIT,3); break;
+
+
+
+		case PID_HUNTING_RIFLE:
+		case PID_HUNTING_RIFLE_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_LONG_RANGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_ATTACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MORE_CRIT,3); break;
+
+		case PID_SCOPED_HUNTING_RIFLE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_ACCURATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_LONG_RANGE,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BONUS_DAMAGE,3); break;
+
+		case PID_SPRINGER_RIFLE: //pipe rifle
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_ATTACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_ASSAULT_RIFLE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_LONG_RANGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BONUS_DAMAGE,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_ASSAULT_RIFLE_EXT_MAG:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_LONG_RANGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_ATTACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SCOPED,3); break;
+
+		case PID_SNIPER_RIFLE:
+		case PID_SNIPER_RIFLE_SKIN:
+		case PID_M14:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_LONG_RANGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SCOPED,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_FN_FAL:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BRD,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BRD,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MORE_CRIT,3); break;
+
+		case PID_FN_FAL_NIGHT_SCOPE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_ACCURATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_ATTACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SCOPED,3); break;
+
+		case PID_FN_FAL_HPFA:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_ACCURATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_LONG_RANGE,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_FAST_TRIGGER,3); break;
+
+		case PID_RED_RYDER_BB_GUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SCOPED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_RED_RYDER_LE_BB_GUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_SPEED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BONUS_SPEED,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BONUS_SPEED,3); break;
+
+		case PID_JONNY_BB_GUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MORE_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BROF,3); break;
+
+		case PID_INDEPENDENT:
+		case PID_XL_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BRD,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BROF,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MORE_CRIT,3); break;
+
+		case PID_GRENADE_LAUNCHER:
+		case PID_GL_SKIN:
+		case PID_DESTRUCTOR:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SCOPED,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_FAST_TRIGGER,3); break;
+
+
+
+
+
+		case PID_SHOTGUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_KNOCKBACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MORE_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SLAYER,3); break;
+
+		case PID_SAWED_OFF_SHOTGUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_ACCURATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_KNOCKBACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_KILLING,3); break;
+
+		case PID_COMBAT_SHOTGUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_PENETRATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_KNOCKBACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_FAST_TRIGGER,3); break;
+
+		case PID_HK_CAWS:
+		case PID_CAWS_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_PENETRATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_KNOCKBACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MORE_CRIT,3); break;
+
+		case PID_PANCOR_JACKHAMMER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_SPEED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_KNOCKBACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BONUS_SPEED,3); break;
+
+		case PID_M16:
+		case PID_M16_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SCOPED,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+
+
+		case PID_FLAMER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_MORE_CRIT,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SLAYER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BROF,3); break;
+
+		case PID_IMPROVED_FLAMETHROWER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FAST_TRIGGER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SLAYER,3); break;
+
+		case PID_ROCKET_LAUNCHER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_LONG_RANGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_ATTACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SCOPED,3); break;
+
+		case PID_MINIGUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_ACCURATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BRD,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BRD,3); break;
+
+		case PID_AVENGER_MINIGUN:
+		case PID_CRUSADER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_ACCURATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MORE_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BRD,3); break;
+
+		case PID_LIGHT_SUPPORT_WEAPON:
+		case PID_LSW_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SCOPED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FAST_TRIGGER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BONUS_SPEED,3); break;
+
+		case PID_M60:
+		case PID_M60_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_FAST_TRIGGER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BROF,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BROF,3); break;
+
+
+
+
+
+		case PID_LASER_PISTOL:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SLAYER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_KILLING,3); break;
+
+		case PID_MAGNETO_LASER_PISTOL:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_SPEED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_KILLING,3); break;
+
+		case PID_SOLAR_SCORCHER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_MORE_CRIT,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SLAYER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_LASER_RIFLE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_LONG_RANGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FAST_TRIGGER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_LASER_RIFLE_EXT_CAP:
+		case PID_LASER_RIFLE_EXT_CAP_SKIN:
+		case PID_COILGUN:
+		case PID_TURBO_LASER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_LONG_RANGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_KILLING,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_GATLING_LASER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_ATTACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SLAYER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SCOPED,3); break;
+
+		case PID_PLASMA_PISTOL:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BETTER_CRIT,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BONUS_DAMAGE,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+		case PID_PLASMA_PISTOL_EXT_CART:
+		case PID_DEFENDER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_MORE_CRIT,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_PLASMA_RIFLE:
+		case PID_BLASTGUN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_CHIP_SHOT,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+
+
+
+
+		case PID_PLASMA_SMG:
+		case PID_PLASMA_SMG_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_FAST_TRIGGER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MORE_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BRD,3); break;
+
+		case PID_YK32_PULSE_PISTOL:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_PENETRATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MCD,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MCD,3); break;
+
+		case PID_EL_ROCKET_LAUNCHER:
+		case PID_EL_ROCKET_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SLAYER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FAST_TRIGGER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BONUS_DAMAGE,3); break;
+
+		case PID_KNIFE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FAST_TRIGGER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_FAST_TRIGGER,3); break;
+
+		case PID_COMBAT_KNIFE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SLAYER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_POISON,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_KILLING,3); break;
+
+		case PID_LIL_JESUS_WEAPON:
+		case 27320:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_DAMAGE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_POISON,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_KILLING,3); break;
+
+		case PID_SHIV:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SLAYER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SLAYER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SLAYER,3); break;
+
+		case PID_SWITCHBLADE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_PENETRATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_POISON,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_LIFE_STEAL,3); break;
+
+
+
+
+
+		case PID_WAKIZASHI_BLADE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_PENETRATE,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_CLUB:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_FAST_TRIGGER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_POISON,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BROF,3); break;
+
+		case PID_CROWBAR:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SPIKED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MORE_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MORE_CRIT,3); break;
+
+		case PID_WRENCH:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_ATTACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_ATTACK,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_ATTACK,3); break;
+
+		case PID_SLEDGEHAMMER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_KNOCKBACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_LIFE_STEAL,3); break;
+
+		case PID_SUPER_SLEDGE:
+		case PID_SUPER_SLEDGE_SKIN:
+		case 27321:
+		case PID_GOLF_CLUB:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_KNOCKBACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SLAYER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_CATTLE_PROD:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_MORE_CRIT,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FAST_TRIGGER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_LIFE_STEAL,3); break;
+
+		case PID_SUPER_CATTLE_PROD:
+		case PID_SUPER_CATTLE_PROD_SKIN:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_MORE_CRIT,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BETTER_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_LIFE_STEAL,3); break;
+
+
+
+
+
+		case PID_RIPPER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SPIKED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SPIKED,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BETTER_CRIT,3); break;
+
+		case PID_BOXING_GLOVES:
+
+		case PID_PLATED_BOXING_GLOVES:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_KNOCKBACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SMASHER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_LIFE_STEAL,3); break;
+
+		case PID_RING_BOXING_GLOVES:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_KNOCKBACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SMASHER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_LIFE_STEAL,3); break;
+
+		case PID_POWER_FIST:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SMASHER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FAST_TRIGGER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_LIFE_STEAL,3); break;
+
+		case PID_BRASS_KNUCKLES:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SLAYER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SMASHER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BROF,3); break;
+
+		case PID_SPIKED_KNUCKLES:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SPIKED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MORE_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SMASHER,3); break;
+
+		case PID_MEGA_POWER_FIST:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SMASHER,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SMASHER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_FAST_TRIGGER,3); break;
+		case PID_KNOCKBACK_RIFLE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_KNOCKBACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_LONG_RANGE,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SCOPED,3); break;
+		case PID_FIRE_SMG:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_KILLING,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_BROF,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SLAYER,3); break;
+		case PID_TESLA_GATLING:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_BONUS_SPEED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FAST_TRIGGER,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_FAST_TRIGGER,3); break;
+		case PID_LASER_LSW:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SCOPED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SCOPED,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_SCOPED,3); break;
+		case PID_ELECTRO_RIFLE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SCOPED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MCD,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MCD,3); break;
+		case PID_SNIPER_RIFLE_MK2:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SCOPED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_SCOPED,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MCD,3); break;
+		case PID_SUPER_DUPER_SLEDGE:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_KNOCKBACK,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_LIFE_STEAL,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_LIFE_STEAL,3); break;
+		case PID_AUTOAIM_ROCKET:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_POISON,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_AMMO,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_BROF,3); break;
+		case PID_PLASMA_FLAMER:
+
+			if(item.Val0 > 10000) GetPerk( item, WP_SCOPED,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_FROZEN,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_KILLING,3); break;
+		
+			
+		case PID_ROBO_ROCKET_LAUNCHER:
+		case PID_DEATHCLAW_CLAW_1:
+		case PID_DEATHCLAW_CLAW_2:
+		case PID_FIRE_GECKO_FLAME_WEAPON:
+		case PID_WEAK_FLAME_BREATH:
+		case PID_SPECIAL_BOXER_WEAPON:
+		case PID_GUN_TURRET_WEAPON:
+		case PID_EYEBALL_FIST_1:
+		case PID_EYEBALL_FIST_2:
+		case PID_DUAL_MINIGUN:
+		case PID_HEAVY_DUAL_MINIGUN:
+		case PID_END_BOSS_KIFE:
+		case PID_END_BOSS_PLASMA_GUN:
+		case PID_BAN_HAMMER:
+		case PID_HOLY_SPEAR:
+		case PID_DUAL_LASER_CANNON:
+			if(item.Val0 > 10000) GetPerk( item, WP_MORE_CRIT,1);
+
+			if(item.Val0 > 75000) GetPerk( item, WP_MORE_CRIT,2);
+
+			if(item.Val0 > 150000) GetPerk( item, WP_MORE_CRIT,3); 
+			
+			if(item.Val0 > 1000000) GetPerk( item, WP_MORE_CRIT,4); break;
+			
+		default:
+			if(item.Val0 > 10000) GetPerk( item, is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)],1);
+
+			if(item.Val0 > 75000) GetPerk( item, is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)],2);
+
+			if(item.Val0 > 150000) GetPerk( item, is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)],3); break;
+
+}
+
+	if(item.Val0 > 1000000) 
+	{
+	GetPerk( item, 1,4);
+	}
+	if(item.Val0 > 5000000) GetPerk( item, is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)],5);
+	
+	if(item.Val1 == 7 && item.Val0 < 50000000 && item.Val2 < 99 && item.Val2 > 110)
+		{
+		item.Val2 = 0;
+		item.Val1 = 5;
+		item.Update();
+		}
+	if(item.Val0 > 50000000) GetPerk( item, Wep_legend_perks[Random(0,4)],7);
+
+}
+
+void _armor_perk(Item& item, bool firstTime)
+{
+	if(item.GetProtoId()>=725 && item.GetProtoId()<=741) return;
+	if(item.GetProtoId()==25588 || item.GetProtoId()==25589) return;
+	switch(item.Proto.ProtoId)
+		{
+		case PID_LEATHER_ARMOR_MK_II:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_SNEAKY,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_GAIN_LK,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_LASER_REF,3); break;
+
+		case PID_CURED_LEATHER_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_GAIN_PE,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_GLOVES,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_GLOVES,3); break;
+
+		case PID_FIREGECKO_JACKET:
+		case 27316:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_BONUS_MOVE,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_GAIN_AG,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_GLOVES,3); break;
+
+		case PID_METAL_ARMOR_MK_II:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_GAIN_ST,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_FTG,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_HEAVY,3); break;
+
+		case PID_METAL_ARMOR_MK_III:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_STONEWALL,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_TACTICAL,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_DEFENSE,3); break;
+
+		case PID_INFERNO_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_EXPLOSIVE_BELT,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_GAIN_EN,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_GLOVES,3); break;
+			
+		case PID_RUSSIAN_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_LASER_REF,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_CURED,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_REGEN,3); break;
+			
+		case PID_RANGER_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_SURR,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_SPEED,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_GAIN_AG,3); break;
+			
+
+		case PID_MUT_METAL:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_TERMINATOR,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_DEF_BELT,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_SKIN,3); break;
+
+		case PID_TESLA_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_TESLA_ATAK,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_CURED,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_CURED,3); break;
+
+		case PID_COMBAT_ARMOR_MK_II:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_PLATE,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_SPEED,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_GAIN_EN,3); break;
+
+		case PID_BROTHERHOOD_COMBAT_ARMOR:
+		case PID_BA_SKIN:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_LETHAL,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_FORCE,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_SKIN,3); break;
+
+		case PID_CLOTHES_POLICE:
+		case PID_VC_ARMOR_SKIN:
+		case 27317:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_STONEWALL,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_HEAVY,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_CURED,3); break;
+
+		case PID_NCR_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_DEFENSE,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_GLOVES,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_BONUS_MOVE,3); break;
+
+		case PID_ENCLAVE_COMBAT_ARMOR:
+		case 27315:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_FIREGECKO,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_UTILITY,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_FORCE,3); break;
+
+		case PID_HUBO_ROBE:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_DEFENSE,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_SNEAKY,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_SKIN,3); break;
+
+		case PID_FOLLOWER_ROBE:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_REGEN,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_DEF_BELT,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_SHOCK,3); break;
+
+		case PID_DESERT_COMBAT_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_LETHAL,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_GAIN_LK,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_DEF_BELT,3); break;
+
+		case PID_KEEPBRIGE_ROBE:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_SHOCK,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_TERMAL,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_CURED,3); break;
+		case PID_SNEAK_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_SNEAKY,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_SNEAKY,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_SNEAKY,3); break;
+		case PID_SALVATORIES_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_REGEN,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_GAIN_EN,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_TESLA_ATAK,3); break;
+		case PID_BISHOPS_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_HEAVY,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_HEAVY,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_HEAVY,3); break;
+		case PID_MORDINOS_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_PLATE,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_FORCE,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_TERMAL,3); break;
+		case PID_WRITHS_ARMOR:
+
+			if(item.Val0 > 15000) GetPerk( item, AP_SPEED,1);
+
+			if(item.Val0 > 100000) GetPerk( item, AP_SPEED,2);
+
+			if(item.Val0 > 200000) GetPerk( item, AP_SPEED,3); break;
+
+		default:
+
+			if(item.Val0 > 15000) GetPerk( item, Armor_perks[Random(0,26)],1);
+
+			if(item.Val0 > 100000) GetPerk( item, Armor_perks[Random(0,26)],2);
+
+			if(item.Val0 > 200000) GetPerk( item, Armor_perks[Random(0,26)],3); break;
+
+	}
+	
+	if(item.Val0 > 1250000) 
+	{
+	GetPerk( item, 1,4);
+	}
+	if(item.Val0 > 6000000) GetPerk( item, Armor_perks[Random(0,26)],5);
+	if(item.Val1 == 7 && item.Val0 < 50000000 && item.Val2 < 99 && item.Val2 > 110)
+		{
+		item.Val2 = 0;
+		item.Val1 = 5;
+		item.Update();
+		}
+	if(item.Val0 > 50000000) GetPerk( item, Armor_legend_perks[Random(0,4)],7);
+
+}
+
+/*
+
+val0 – exp
+
+val1 – weapon level
+
+val2 – 4th perk
+
+val3 – 5th perk
+
+val4 – Better Crit perk
+
+val5 – more crit perk
+
+*/
+
+void GetPerk(Item& item, uint bonus, uint level)
+{
+	bool is_a_melee = false;
+	if(item.Proto.Weapon_Skill_0 == SK_MELEE_WEAPONS || item.Proto.Weapon_Skill_0 == SK_UNARMED)
+		is_a_melee = true;
+	if(level == 1 && item.Val6 != 0)
+		return;
+	if(level == 2 && item.Val7 != 0)
+		return;
+	if(level == 3 && item.Val8 != 0)
+		return;
+	if(level == 4 && item.Val5 != 0)
+		return;
+	if(level == 5 && item.Val4 != 0)
+		return;
+	Critter@ cr = GetCritter(item.CritId);
+	if(level == 7 && item.Val2 > 99 && item.Val2 < 110)
+		return;
+	switch(level)
+	{
+	case 1: item.Val6 = bonus; break;
+	case 2: item.Val7 = bonus; break;
+	case 3: item.Val8 = bonus; break;
+	case 4: 
+	{
+	if(valid(cr) && cr.IsPlayer())
+		{
+		cr.ParamBase[ST_ITEM_UP] = item.Id; 
+		RunDialog(cr, 9302, cr.HexX, cr.HexY, true); 
+		}
+	else 
+		{
+		if(item.GetType() == ITEM_TYPE_ARMOR)
+			item.Val5 = Armor_perks[Random(0,26)];
+		if(item.GetType() == ITEM_TYPE_WEAPON)
+			item.Val5 = is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)];
+		}
+	break;
+	}
+	case 5: item.Val4 = bonus; break;
+	case 6: item.Val3 = bonus; break;
+	case 7: item.Val2 = bonus; break;
+	}
+	item.Val1 = level;
+	
+	item.Update();
+}
+bool d_isArmor(Critter& player, Critter@ npc)
+{
+	Item@ item = GetItem(player.Param[ST_ITEM_UP]);
+	if(!valid(item))
+		return false;
+	if(item.GetType() == ITEM_TYPE_ARMOR)
+		return true;
+	return false;
+
+}
+
+bool d_isWeapon(Critter& player, Critter@ npc)
+{
+	Item@ item = GetItem(player.Param[ST_ITEM_UP]);
+	if(!valid(item))
+		return false;
+	if(item.GetType() == ITEM_TYPE_WEAPON)
+		return true;
+	return false;
+
+}
+
+bool d_isMelee(Critter& player, Critter@ npc)
+{
+	Item@ item = GetItem(player.Param[ST_ITEM_UP]);
+	if(!valid(item))
+		return false;
+	if(item.GetType() != ITEM_TYPE_WEAPON)
+		return false;
+	if(item.Proto.Weapon_Skill_0 == SK_MELEE_WEAPONS || item.Proto.Weapon_Skill_0 == SK_UNARMED)
+		return true;
+	return false;
+
+}
+
+bool d_isMeleeno(Critter& player, Critter@ npc)
+{
+	Item@ item = GetItem(player.Param[ST_ITEM_UP]);
+	if(!valid(item))
+		return false;
+	if(item.GetType() != ITEM_TYPE_WEAPON)
+		return false;
+	if(item.Proto.Weapon_Skill_0 != SK_MELEE_WEAPONS || item.Proto.Weapon_Skill_0 != SK_UNARMED)
+		return true;
+	return false;
+
+}
+
+void r_perk_4(Critter& player, Critter@ npc, int PerkID)
+{
+	Item@ item = GetItem(player.Param[ST_ITEM_UP]);
+	if(!valid(item))
+		return;
+	if(item.Val5 !=0)
+	{
+	player.Say(SAY_NETMSG, "Perk its already choosen");
+	return;
+	}
+	item.Val5 = PerkID;
+	item.Update();
+   
+}
+
+void r_perk_armor(Critter& player, Critter@ npc, int PerkID)
+{
+}
+
+void r_perk_weapon(Critter& player, Critter@ npc, int PerkID)
+{
+   
+}
+//upgrade parts
+void parts_init(Item& item, bool firstTime)
+{
+   // item.SetEvent(ITEM_EVENT_USE, "_UseOn");
+    item.LockerComplexity = Random(50, 100);
+}
+//movent to main.fos
+ bool _UseOn(Item& item, Critter& player, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+	/*
+    if(!valid(onItem))
+	{
+		//player.Say(SAY_NETMSG, "1");
+        return false;
+	}
+	if(onItem.IsStackable())
+	{
+		//player.Say(SAY_NETMSG, "3");
+		return false;
+	}
+     if(item.GetCount() > 1)
+        item.SetCount(item.GetCount() - 1);
+    else
+        DeleteItem(item);
+	//	player.Say(SAY_NETMSG, "4");
+   
+	if(onItem.GetType() == ITEM_TYPE_WEAPON)
+	{
+	
+	//	player.Say(SAY_NETMSG, "6");
+		onItem.Val0 += Random(7500,15000);
+    onItem.Update();
+	_weapon_perk(onItem, false);
+	}
+	if(onItem.GetType() == ITEM_TYPE_ARMOR)
+	{
+	//	player.Say(SAY_NETMSG, "7");
+		onItem.Val0 += Random(7500,15000);
+    onItem.Update();
+	_armor_perk(onItem, false);
+	}
+	*/
+	//	player.Say(SAY_NETMSG, "8");
+    return true;
+}
+
+
+
+void r_upgrade_armor(Critter& player, Critter@ npc, int PerkID)
+{
+	Item@ item = player.GetItem(0, SLOT_ARMOR);
+	if(item.Val3 !=0)
+	{
+	player.Say(SAY_NETMSG, "Armor is already upgraded");
+	return;
+	}
+    if(item.GetType() != ITEM_TYPE_ARMOR)
+	{
+	player.Say(SAY_NETMSG, "Can't upgrade this item");
+	return;
+	}
+	item.Val3 = PerkID;
+	item.Update();
+   
+}
+
+void r_upgrade_weapon(Critter& player, Critter@ npc, int PerkID)
+{
+	Item@ item = player.GetItem(0, SLOT_HAND1);
+	if(item.Val3 !=0)
+	{
+	player.Say(SAY_NETMSG, "Weapon is already upgraded");
+	return;
+	}
+	if(item.IsStackable())
+	{
+	player.Say(SAY_NETMSG, "Can't upgrade this item");
+	return;
+	}
+    if(item.GetType() != ITEM_TYPE_WEAPON)
+	{
+	player.Say(SAY_NETMSG, "Can't upgrade this item");
+	return;
+	}
+	item.Val3 = PerkID;
+	item.Update();
+   
+}
+//perk rerolls
+
+bool d_wearing_armor(Critter& player, Critter@ npc)
+{
+	Item@ item = player.GetItem(0, SLOT_ARMOR);
+	if(!valid(item))
+		return false;
+	return true;
+}
+
+bool d_have_perk(Critter& player, Critter@ npc,int perk)
+{
+	uint type = SLOT_HAND1;
+	if(perk<8)
+		type = SLOT_ARMOR;
+	Item@ item = player.GetItem(0, type);
+	if(!valid(item))
+		return false;
+		
+	switch(perk)
+	{
+	case 1: if(item.Val0 >= 15000) return true; break;
+	case 2: if(item.Val0 >= 100000) return true; break;
+	case 3: if(item.Val0 >= 200000) return true; break;
+	case 4: if(item.Val0 >= 1250000) return true; break;
+	case 5: if(item.Val0 >= 6000000) return true; break;
+	
+	case 8: if(item.Val0 >= 10000) return true; break;
+	case 9: if(item.Val0 >= 75000) return true; break;
+	case 10: if(item.Val0 >= 150000) return true; break;
+	case 11: if(item.Val0 >= 1000000) return true; break;
+	case 12: if(item.Val0 >= 5000000) return true; break;
+	case 6:
+	case 13: if(item.Val0 >= 50000000) return true; break;
+	case 7:
+	case 14: if(item.Val3 > 0) return true; break;
+	}
+	return false;
+}
+
+	
+void r_roll_perk(Critter& player, Critter@ npc,int perk)
+{
+
+	uint type = SLOT_HAND1;
+	if(perk<8)
+		type = SLOT_ARMOR;
+	Item@ item = player.GetItem(0, type);
+	if(!valid(item))
+		return;
+	bool is_a_melee = false;
+	if(type == SLOT_HAND1)
+		if(item.Proto.Weapon_Skill_0 == SK_MELEE_WEAPONS || item.Proto.Weapon_Skill_0 == SK_UNARMED)
+			is_a_melee = true;	
+	switch(perk)
+	{
+	case 1: item.Val6 = Armor_perks[Random(0,26)]; break;
+	case 2: item.Val7 = Armor_perks[Random(0,26)]; break;
+	case 3: item.Val8 = Armor_perks[Random(0,26)]; break;
+	case 4: item.Val5 = Armor_perks[Random(0,26)]; break;
+	case 5: item.Val4 = Armor_perks[Random(0,26)]; break;
+	case 6: item.Val2 = Armor_legend_perks[Random(0,4)]; break;
+	case 7: item.Val3 = Armor_perks[Random(0,26)]; break;
+	
+	case 8: item.Val6 = is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)]; break;
+	case 9: item.Val7 = is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)]; break;
+	case 10: item.Val8 = is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)]; break;
+	case 11: item.Val5 = is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)]; break;
+	case 12: item.Val4 = is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)]; break;
+	case 13: item.Val2 = Wep_legend_perks[Random(0,4)]; break;
+	case 14: item.Val3 = is_a_melee ? Weapon_perks_melee[Random(0,15)] : Weapon_perks[Random(0,15)]; break;
+	}
+	item.Update();
+	return;
+}
+
+bool d_wearing_weapon(Critter& player, Critter@ npc)
+{
+	Item@ item = player.GetItem(0, SLOT_HAND1);
+	if(!valid(item))
+		return false;
+		
+	if(item.IsStackable())
+	{
+	player.Say(SAY_NETMSG, "Can't upgrade this item");
+	return false;
+	}
+    if(item.GetType() != ITEM_TYPE_WEAPON)
+	{
+	player.Say(SAY_NETMSG, "Can't upgrade this item");
+	return false;
+	}
+	return true;
+}
+
+#include "lexems_h.fos"
+
+void perks_info(Critter& player, Critter@ npc, string@ text)
+{
+	string@ perk1 = "Perk name not found";
+	string@ perk2 = "Perk name not found";
+	string@ perk3 = "Perk name not found";
+	string@ perk4 = "Perk name not found";
+	string@ perk5 = "Perk name not found";
+	string@ perk6 = "Perk name not found";
+	string@ perk7 = "Perk name not found";
+	string@ perk8  = "Perk name not found";
+	string@ perk9 = "Perk name not found";
+	string@ perk10  = "Perk name not found";
+	string@ perk11 = "Perk name not found";
+	string@ perk12 = "Perk name not found";
+	string@ perk13 = "Perk name not found";
+	string@ perk14 = "Perk name not found";
+	Item@ item = player.GetItem(0, SLOT_ARMOR);
+	Item@ armor = player.GetItem(0, SLOT_HAND1);
+	if(valid(item))
+		{
+
+		if(item.Val6>0 || item.Val3>0)
+			{
+			switch(item.Val6)
+				{
+				case 1: perk1 = "Bonus Ranged Damage "; break;
+				case 2: perk1 = "Bonus Damage "; break;
+				case 3: perk1 = "Bonus Attack "; break;
+				case 4: perk1 = "Scoped "; break;
+				case 5: perk1 = "Better Critical "; break;
+				case 6: perk1 = "Fast Trigger "; break;
+				case 7: perk1 = "Ammo Upgrade "; break;
+				case 8: perk1 = "Bonus Rate of Fire "; break;
+				case 9: perk1 = "Slayer "; break;
+				case 10: perk1 = "Destroyer "; break;
+				case 11: perk1 = "Knockback "; break;
+				case 12: perk1 = "Long Range "; break;
+				case 13: perk1 = "Penetrate "; break;
+				case 14: perk1 = "Poisoned "; break;
+				case 15: perk1 = "Frozen Queen "; break;
+				case 16: perk1 = "Killing Spree "; break;
+				case 17: perk1 = "Life Steal "; break;
+				case 18: perk1 = "Chip Shot "; break;
+				case 19: perk1 = "Gain Strength "; break;
+				case 20: perk1 = "Gain Perception "; break;
+				case 21: perk1 = "Gain Endurance "; break;
+				case 22: perk1 = "Gain Charisma "; break;
+				case 23: perk1 = "Gain Intelligence "; break;
+				case 24: perk1 = "Gain Agility "; break;
+				case 25: perk1 = "Gain Luck "; break;
+				case 26: perk1 = "Cured "; break;
+				case 27: perk1 = "Laser Reflector "; break;
+				case 28: perk1 = "Anty-Termal System "; break;
+				case 29: perk1 = "Defense Enhancement "; break;
+				case 30: perk1 = "Advanced Plate "; break;
+				case 31: perk1 = "Mirror System "; break;
+				case 32: perk1 = "Tesla Addition "; break;
+				case 33: perk1 = "Shock Protection "; break;
+				case 34: perk1 = "Firegeckon's Enhancement"; break;
+				case 35: perk1 = "Special Force Bonus "; break;
+				case 36: perk1 = "Regeneration "; break;
+				case 37: perk1 = "Fill The Gaps "; break;
+				case 38: perk1 = "Heavy "; break;
+				case 39: perk1 = "Utility "; break;
+				case 40: perk1 = "Bonus Move "; break;
+				case 41: perk1 = "Heavy Stonewall "; break;
+				case 42: perk1 = "Terminator "; break;
+				case 43: perk1 = "Explosive Belt "; break;
+				case 44: perk1 = "Tesla Attacker"; break;
+				case 45: perk1 = "Speed Mechanism "; break;
+				case 46: perk1 = "Sneaky "; break;
+				case 47: perk1 = "More Criticals "; break;
+				case 48: perk1 = "Lethal Protection "; break;
+				case 100: perk1 = "Enhancement Knockout "; break;
+				case 101: perk1 = "More Bonus Damage "; break;
+				case 102: perk1 = "Sniper "; break;
+				case 103: perk1 = "Bounty Hunter "; break;
+				case 104: perk1 = "Bonus Bullets Damage "; break;
+				case 105: perk1 = "Gifted"; break;
+				case 106: perk1 = "Advanced Defense "; break;
+				case 107: perk1 = "Super Regen "; break;
+				case 108: perk1 = "Powered "; break;
+				case 109: perk1 = "Anty-Crit "; break;
+				case 59: perk1 = "Iron Skin "; break;
+				case 60: perk1 = "Survivalist "; break;
+				case 61: perk1 = "Strategic Improvement "; break;
+				case 62: perk1 = "Smasher! "; break;
+				case 63: perk1 = "Integrated Gloves "; break;
+				case 64: perk1 = "Defensive Belt "; break;
+				case 65: perk1 = "Spiked "; break;
+				case 66: perk1 = "More Critical Damage "; break;
+				case 67: perk1 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val7>0)
+			{
+			switch(item.Val7)
+				{
+				case 1: perk2 = "Bonus Ranged Damage "; break;
+				case 2: perk2 = "Bonus Damage "; break;
+				case 3: perk2 = "Bonus Attack "; break;
+				case 4: perk2 = "Scoped "; break;
+				case 5: perk2 = "Better Critical "; break;
+				case 6: perk2 = "Fast Trigger "; break;
+				case 7: perk2 = "Ammo Upgrade "; break;
+				case 8: perk2 = "Bonus Rate of Fire "; break;
+				case 9: perk2 = "Slayer "; break;
+				case 10: perk2 = "Destroyer "; break;
+				case 11: perk2 = "Knockback "; break;
+				case 12: perk2 = "Long Range "; break;
+				case 13: perk2 = "Penetrate "; break;
+				case 14: perk2 = "Poisoned "; break;
+				case 15: perk2 = "Frozen Queen "; break;
+				case 16: perk2 = "Killing Spree "; break;
+				case 17: perk2 = "Life Steal "; break;
+				case 18: perk2 = "Chip Shot "; break;
+				case 19: perk2 = "Gain Strength "; break;
+				case 20: perk2 = "Gain Perception "; break;
+				case 21: perk2 = "Gain Endurance "; break;
+				case 22: perk2 = "Gain Charisma "; break;
+				case 23: perk2 = "Gain Intelligence "; break;
+				case 24: perk2 = "Gain Agility "; break;
+				case 25: perk2 = "Gain Luck "; break;
+				case 26: perk2 = "Cured "; break;
+				case 27: perk2 = "Laser Reflector "; break;
+				case 28: perk2 = "Anty-Termal System "; break;
+				case 29: perk2 = "Defense Enhancement "; break;
+				case 30: perk2 = "Advanced Plate "; break;
+				case 31: perk2 = "Mirror System "; break;
+				case 32: perk2 = "Tesla Addition "; break;
+				case 33: perk2 = "Shock Protection "; break;
+				case 34: perk2 = "Firegeckon's Enhancement"; break;
+				case 35: perk2 = "Special Force Bonus "; break;
+				case 36: perk2 = "Regeneration "; break;
+				case 37: perk2 = "Fill The Gaps "; break;
+				case 38: perk2 = "Heavy "; break;
+				case 39: perk2 = "Utility "; break;
+				case 40: perk2 = "Bonus Move "; break;
+				case 41: perk2 = "Heavy Stonewall "; break;
+				case 42: perk2 = "Terminator "; break;
+				case 43: perk2 = "Explosive Belt "; break;
+				case 44: perk2 = "Tesla Attacker"; break;
+				case 45: perk2 = "Speed Mechanism "; break;
+				case 46: perk2 = "Sneaky "; break;
+				case 47: perk2 = "More Criticals "; break;
+				case 48: perk2 = "Lethal Protection "; break;
+				case 100: perk2 = "Enhancement Knockout "; break;
+				case 101: perk2 = "More Bonus Damage "; break;
+				case 102: perk2 = "Sniper "; break;
+				case 103: perk2 = "Bounty Hunter "; break;
+				case 104: perk2 = "Bonus Bullets Damage "; break;
+				case 105: perk2 = "Gifted"; break;
+				case 106: perk2 = "Advanced Defense "; break;
+				case 107: perk2 = "Super Regen "; break;
+				case 108: perk2 = "Powered "; break;
+				case 109: perk2 = "Anty-Crit "; break;
+				case 59: perk2 = "Iron Skin "; break;
+				case 60: perk2 = "Survivalist "; break;
+				case 61: perk2 = "Strategic Improvement "; break;
+				case 62: perk2 = "Smasher! "; break;
+				case 63: perk2 = "Integrated Gloves "; break;
+				case 64: perk2 = "Defensive Belt "; break;
+				case 65: perk2 = "Spiked "; break;
+				case 66: perk2 = "More Critical Damage "; break;
+				case 67: perk2 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val8>0)
+			{
+			switch(item.Val8)
+				{
+				case 1: perk3 = "Bonus Ranged Damage "; break;
+				case 2: perk3 = "Bonus Damage "; break;
+				case 3: perk3 = "Bonus Attack "; break;
+				case 4: perk3 = "Scoped "; break;
+				case 5: perk3 = "Better Critical "; break;
+				case 6: perk3 = "Fast Trigger "; break;
+				case 7: perk3 = "Ammo Upgrade "; break;
+				case 8: perk3 = "Bonus Rate of Fire "; break;
+				case 9: perk3 = "Slayer "; break;
+				case 10: perk3 = "Destroyer "; break;
+				case 11: perk3 = "Knockback "; break;
+				case 12: perk3 = "Long Range "; break;
+				case 13: perk3 = "Penetrate "; break;
+				case 14: perk3 = "Poisoned "; break;
+				case 15: perk3 = "Frozen Queen "; break;
+				case 16: perk3 = "Killing Spree "; break;
+				case 17: perk3 = "Life Steal "; break;
+				case 18: perk3 = "Chip Shot "; break;
+				case 19: perk3 = "Gain Strength "; break;
+				case 20: perk3 = "Gain Perception "; break;
+				case 21: perk3 = "Gain Endurance "; break;
+				case 22: perk3 = "Gain Charisma "; break;
+				case 23: perk3 = "Gain Intelligence "; break;
+				case 24: perk3 = "Gain Agility "; break;
+				case 25: perk3 = "Gain Luck "; break;
+				case 26: perk3 = "Cured "; break;
+				case 27: perk3 = "Laser Reflector "; break;
+				case 28: perk3 = "Anty-Termal System "; break;
+				case 29: perk3 = "Defense Enhancement "; break;
+				case 30: perk3 = "Advanced Plate "; break;
+				case 31: perk3 = "Mirror System "; break;
+				case 32: perk3 = "Tesla Addition "; break;
+				case 33: perk3 = "Shock Protection "; break;
+				case 34: perk3 = "Firegeckon's Enhancement"; break;
+				case 35: perk3 = "Special Force Bonus "; break;
+				case 36: perk3 = "Regeneration "; break;
+				case 37: perk3 = "Fill The Gaps "; break;
+				case 38: perk3 = "Heavy "; break;
+				case 39: perk3 = "Utility "; break;
+				case 40: perk3 = "Bonus Move "; break;
+				case 41: perk3 = "Heavy Stonewall "; break;
+				case 42: perk3 = "Terminator "; break;
+				case 43: perk3 = "Explosive Belt "; break;
+				case 44: perk3 = "Tesla Attacker"; break;
+				case 45: perk3 = "Speed Mechanism "; break;
+				case 46: perk3 = "Sneaky "; break;
+				case 47: perk3 = "More Criticals "; break;
+				case 48: perk3 = "Lethal Protection "; break;
+				case 100: perk3 = "Enhancement Knockout "; break;
+				case 101: perk3 = "More Bonus Damage "; break;
+				case 102: perk3 = "Sniper "; break;
+				case 103: perk3 = "Bounty Hunter "; break;
+				case 104: perk3 = "Bonus Bullets Damage "; break;
+				case 105: perk3 = "Gifted"; break;
+				case 106: perk3 = "Advanced Defense "; break;
+				case 107: perk3 = "Super Regen "; break;
+				case 108: perk3 = "Powered "; break;
+				case 109: perk3 = "Anty-Crit "; break;
+				case 59: perk3 = "Iron Skin "; break;
+				case 60: perk3 = "Survivalist "; break;
+				case 61: perk3 = "Strategic Improvement "; break;
+				case 62: perk3 = "Smasher! "; break;
+				case 63: perk3 = "Integrated Gloves "; break;
+				case 64: perk3 = "Defensive Belt "; break;
+				case 65: perk3 = "Spiked "; break;
+				case 66: perk3 = "More Critical Damage "; break;
+				case 67: perk3 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val5>0)
+			{
+			switch(item.Val5)
+				{
+				case 1: perk4 = "Bonus Ranged Damage "; break;
+				case 2: perk4 = "Bonus Damage "; break;
+				case 3: perk4 = "Bonus Attack "; break;
+				case 4: perk4 = "Scoped "; break;
+				case 5: perk4 = "Better Critical "; break;
+				case 6: perk4 = "Fast Trigger "; break;
+				case 7: perk4 = "Ammo Upgrade "; break;
+				case 8: perk4 = "Bonus Rate of Fire "; break;
+				case 9: perk4 = "Slayer "; break;
+				case 10: perk4 = "Destroyer "; break;
+				case 11: perk4 = "Knockback "; break;
+				case 12: perk4 = "Long Range "; break;
+				case 13: perk4 = "Penetrate "; break;
+				case 14: perk4 = "Poisoned "; break;
+				case 15: perk4 = "Frozen Queen "; break;
+				case 16: perk4 = "Killing Spree "; break;
+				case 17: perk4 = "Life Steal "; break;
+				case 18: perk4 = "Chip Shot "; break;
+				case 19: perk4 = "Gain Strength "; break;
+				case 20: perk4 = "Gain Perception "; break;
+				case 21: perk4 = "Gain Endurance "; break;
+				case 22: perk4 = "Gain Charisma "; break;
+				case 23: perk4 = "Gain Intelligence "; break;
+				case 24: perk4 = "Gain Agility "; break;
+				case 25: perk4 = "Gain Luck "; break;
+				case 26: perk4 = "Cured "; break;
+				case 27: perk4 = "Laser Reflector "; break;
+				case 28: perk4 = "Anty-Termal System "; break;
+				case 29: perk4 = "Defense Enhancement "; break;
+				case 30: perk4 = "Advanced Plate "; break;
+				case 31: perk4 = "Mirror System "; break;
+				case 32: perk4 = "Tesla Addition "; break;
+				case 33: perk4 = "Shock Protection "; break;
+				case 34: perk4 = "Firegeckon's Enhancement"; break;
+				case 35: perk4 = "Special Force Bonus "; break;
+				case 36: perk4 = "Regeneration "; break;
+				case 37: perk4 = "Fill The Gaps "; break;
+				case 38: perk4 = "Heavy "; break;
+				case 39: perk4 = "Utility "; break;
+				case 40: perk4 = "Bonus Move "; break;
+				case 41: perk4 = "Heavy Stonewall "; break;
+				case 42: perk4 = "Terminator "; break;
+				case 43: perk4 = "Explosive Belt "; break;
+				case 44: perk4 = "Tesla Attacker"; break;
+				case 45: perk4 = "Speed Mechanism "; break;
+				case 46: perk4 = "Sneaky "; break;
+				case 47: perk4 = "More Criticals "; break;
+				case 48: perk4 = "Lethal Protection "; break;
+				case 100: perk4 = "Enhancement Knockout "; break;
+				case 101: perk4 = "More Bonus Damage "; break;
+				case 102: perk4 = "Sniper "; break;
+				case 103: perk4 = "Bounty Hunter "; break;
+				case 104: perk4 = "Bonus Bullets Damage "; break;
+				case 105: perk4 = "Gifted"; break;
+				case 106: perk4 = "Advanced Defense "; break;
+				case 107: perk4 = "Super Regen "; break;
+				case 108: perk4 = "Powered "; break;
+				case 109: perk4 = "Anty-Crit "; break;
+				case 59: perk4 = "Iron Skin "; break;
+				case 60: perk4 = "Survivalist "; break;
+				case 61: perk4 = "Strategic Improvement "; break;
+				case 62: perk4 = "Smasher! "; break;
+				case 63: perk4 = "Integrated Gloves "; break;
+				case 64: perk4 = "Defensive Belt "; break;
+				case 65: perk4 = "Spiked "; break;
+				case 66: perk4 = "More Critical Damage "; break;
+				case 67: perk4 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val4>0)
+			{
+			switch(item.Val4)
+				{
+				case 1: perk5 = "Bonus Ranged Damage "; break;
+				case 2: perk5 = "Bonus Damage "; break;
+				case 3: perk5 = "Bonus Attack "; break;
+				case 4: perk5 = "Scoped "; break;
+				case 5: perk5 = "Better Critical "; break;
+				case 6: perk5 = "Fast Trigger "; break;
+				case 7: perk5 = "Ammo Upgrade "; break;
+				case 8: perk5 = "Bonus Rate of Fire "; break;
+				case 9: perk5 = "Slayer "; break;
+				case 10: perk5 = "Destroyer "; break;
+				case 11: perk5 = "Knockback "; break;
+				case 12: perk5 = "Long Range "; break;
+				case 13: perk5 = "Penetrate "; break;
+				case 14: perk5 = "Poisoned "; break;
+				case 15: perk5 = "Frozen Queen "; break;
+				case 16: perk5 = "Killing Spree "; break;
+				case 17: perk5 = "Life Steal "; break;
+				case 18: perk5 = "Chip Shot "; break;
+				case 19: perk5 = "Gain Strength "; break;
+				case 20: perk5 = "Gain Perception "; break;
+				case 21: perk5 = "Gain Endurance "; break;
+				case 22: perk5 = "Gain Charisma "; break;
+				case 23: perk5 = "Gain Intelligence "; break;
+				case 24: perk5 = "Gain Agility "; break;
+				case 25: perk5 = "Gain Luck "; break;
+				case 26: perk5 = "Cured "; break;
+				case 27: perk5 = "Laser Reflector "; break;
+				case 28: perk5 = "Anty-Termal System "; break;
+				case 29: perk5 = "Defense Enhancement "; break;
+				case 30: perk5 = "Advanced Plate "; break;
+				case 31: perk5 = "Mirror System "; break;
+				case 32: perk5 = "Tesla Addition "; break;
+				case 33: perk5 = "Shock Protection "; break;
+				case 34: perk5 = "Firegeckon's Enhancement"; break;
+				case 35: perk5 = "Special Force Bonus "; break;
+				case 36: perk5 = "Regeneration "; break;
+				case 37: perk5 = "Fill The Gaps "; break;
+				case 38: perk5 = "Heavy "; break;
+				case 39: perk5 = "Utility "; break;
+				case 40: perk5 = "Bonus Move "; break;
+				case 41: perk5 = "Heavy Stonewall "; break;
+				case 42: perk5 = "Terminator "; break;
+				case 43: perk5 = "Explosive Belt "; break;
+				case 44: perk5 = "Tesla Attacker"; break;
+				case 45: perk5 = "Speed Mechanism "; break;
+				case 46: perk5 = "Sneaky "; break;
+				case 47: perk5 = "More Criticals "; break;
+				case 48: perk5 = "Lethal Protection "; break;
+				case 100: perk5 = "Enhancement Knockout "; break;
+				case 101: perk5 = "More Bonus Damage "; break;
+				case 102: perk5 = "Sniper "; break;
+				case 103: perk5 = "Bounty Hunter "; break;
+				case 104: perk5 = "Bonus Bullets Damage "; break;
+				case 105: perk5 = "Gifted"; break;
+				case 106: perk5 = "Advanced Defense "; break;
+				case 107: perk5 = "Super Regen "; break;
+				case 108: perk5 = "Powered "; break;
+				case 109: perk5 = "Anty-Crit "; break;
+				case 59: perk5 = "Iron Skin "; break;
+				case 60: perk5 = "Survivalist "; break;
+				case 61: perk5 = "Strategic Improvement "; break;
+				case 62: perk5 = "Smasher! "; break;
+				case 63: perk5 = "Integrated Gloves "; break;
+				case 64: perk5 = "Defensive Belt "; break;
+				case 65: perk5 = "Spiked "; break;
+				case 66: perk5 = "More Critical Damage "; break;
+				case 67: perk5 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val3>0)
+			{
+			switch(item.Val3)
+				{
+				case 1: perk6 = "Bonus Ranged Damage "; break;
+				case 2: perk6 = "Bonus Damage "; break;
+				case 3: perk6 = "Bonus Attack "; break;
+				case 4: perk6 = "Scoped "; break;
+				case 5: perk6 = "Better Critical "; break;
+				case 6: perk6 = "Fast Trigger "; break;
+				case 7: perk6 = "Ammo Upgrade "; break;
+				case 8: perk6 = "Bonus Rate of Fire "; break;
+				case 9: perk6 = "Slayer "; break;
+				case 10: perk6 = "Destroyer "; break;
+				case 11: perk6 = "Knockback "; break;
+				case 12: perk6 = "Long Range "; break;
+				case 13: perk6 = "Penetrate "; break;
+				case 14: perk6 = "Poisoned "; break;
+				case 15: perk6 = "Frozen Queen "; break;
+				case 16: perk6 = "Killing Spree "; break;
+				case 17: perk6 = "Life Steal "; break;
+				case 18: perk6 = "Chip Shot "; break;
+				case 19: perk6 = "Gain Strength "; break;
+				case 20: perk6 = "Gain Perception "; break;
+				case 21: perk6 = "Gain Endurance "; break;
+				case 22: perk6 = "Gain Charisma "; break;
+				case 23: perk6 = "Gain Intelligence "; break;
+				case 24: perk6 = "Gain Agility "; break;
+				case 25: perk6 = "Gain Luck "; break;
+				case 26: perk6 = "Cured "; break;
+				case 27: perk6 = "Laser Reflector "; break;
+				case 28: perk6 = "Anty-Termal System "; break;
+				case 29: perk6 = "Defense Enhancement "; break;
+				case 30: perk6 = "Advanced Plate "; break;
+				case 31: perk6 = "Mirror System "; break;
+				case 32: perk6 = "Tesla Addition "; break;
+				case 33: perk6 = "Shock Protection "; break;
+				case 34: perk6 = "Firegeckon's Enhancement"; break;
+				case 35: perk6 = "Special Force Bonus "; break;
+				case 36: perk6 = "Regeneration "; break;
+				case 37: perk6 = "Fill The Gaps "; break;
+				case 38: perk6 = "Heavy "; break;
+				case 39: perk6 = "Utility "; break;
+				case 40: perk6 = "Bonus Move "; break;
+				case 41: perk6 = "Heavy Stonewall "; break;
+				case 42: perk6 = "Terminator "; break;
+				case 43: perk6 = "Explosive Belt "; break;
+				case 44: perk6 = "Tesla Attacker"; break;
+				case 45: perk6 = "Speed Mechanism "; break;
+				case 46: perk6 = "Sneaky "; break;
+				case 47: perk6 = "More Criticals "; break;
+				case 48: perk6 = "Lethal Protection "; break;
+				case 100: perk6 = "Enhancement Knockout "; break;
+				case 101: perk6 = "More Bonus Damage "; break;
+				case 102: perk6 = "Sniper "; break;
+				case 103: perk6 = "Bounty Hunter "; break;
+				case 104: perk6 = "Bonus Bullets Damage "; break;
+				case 105: perk6 = "Gifted"; break;
+				case 106: perk6 = "Advanced Defense "; break;
+				case 107: perk6 = "Super Regen "; break;
+				case 108: perk6 = "Powered "; break;
+				case 109: perk6 = "Anty-Crit "; break;
+				case 59: perk6 = "Iron Skin "; break;
+				case 60: perk6 = "Survivalist "; break;
+				case 61: perk6 = "Strategic Improvement "; break;
+				case 62: perk6 = "Smasher! "; break;
+				case 63: perk6 = "Integrated Gloves "; break;
+				case 64: perk6 = "Defensive Belt "; break;
+				case 65: perk6 = "Spiked "; break;
+				case 66: perk6 = "More Critical Damage "; break;
+				case 67: perk6 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(item.Val2>48)
+			{
+			switch(item.Val2)
+				{
+				case 1: perk7 = "Bonus Ranged Damage "; break;
+				case 2: perk7 = "Bonus Damage "; break;
+				case 3: perk7 = "Bonus Attack "; break;
+				case 4: perk7 = "Scoped "; break;
+				case 5: perk7 = "Better Critical "; break;
+				case 6: perk7 = "Fast Trigger "; break;
+				case 7: perk7 = "Ammo Upgrade "; break;
+				case 8: perk7 = "Bonus Rate of Fire "; break;
+				case 9: perk7 = "Slayer "; break;
+				case 10: perk7 = "Destroyer "; break;
+				case 11: perk7 = "Knockback "; break;
+				case 12: perk7 = "Long Range "; break;
+				case 13: perk7 = "Penetrate "; break;
+				case 14: perk7 = "Poisoned "; break;
+				case 15: perk7 = "Frozen Queen "; break;
+				case 16: perk7 = "Killing Spree "; break;
+				case 17: perk7 = "Life Steal "; break;
+				case 18: perk7 = "Chip Shot "; break;
+				case 19: perk7 = "Gain Strength "; break;
+				case 20: perk7 = "Gain Perception "; break;
+				case 21: perk7 = "Gain Endurance "; break;
+				case 22: perk7 = "Gain Charisma "; break;
+				case 23: perk7 = "Gain Intelligence "; break;
+				case 24: perk7 = "Gain Agility "; break;
+				case 25: perk7 = "Gain Luck "; break;
+				case 26: perk7 = "Cured "; break;
+				case 27: perk7 = "Laser Reflector "; break;
+				case 28: perk7 = "Anty-Termal System "; break;
+				case 29: perk7 = "Defense Enhancement "; break;
+				case 30: perk7 = "Advanced Plate "; break;
+				case 31: perk7 = "Mirror System "; break;
+				case 32: perk7 = "Tesla Addition "; break;
+				case 33: perk7 = "Shock Protection "; break;
+				case 34: perk7 = "Firegeckon's Enhancement"; break;
+				case 35: perk7 = "Special Force Bonus "; break;
+				case 36: perk7 = "Regeneration "; break;
+				case 37: perk7 = "Fill The Gaps "; break;
+				case 38: perk7 = "Heavy "; break;
+				case 39: perk7 = "Utility "; break;
+				case 40: perk7 = "Bonus Move "; break;
+				case 41: perk7 = "Heavy Stonewall "; break;
+				case 42: perk7 = "Terminator "; break;
+				case 43: perk7 = "Explosive Belt "; break;
+				case 44: perk7 = "Tesla Attacker"; break;
+				case 45: perk7 = "Speed Mechanism "; break;
+				case 46: perk7 = "Sneaky "; break;
+				case 47: perk7 = "More Criticals "; break;
+				case 48: perk7 = "Lethal Protection "; break;
+				case 100: perk7 = "Enhancement Knockout "; break;
+				case 101: perk7 = "More Bonus Damage "; break;
+				case 102: perk7 = "Sniper "; break;
+				case 103: perk7 = "Bounty Hunter "; break;
+				case 104: perk7 = "Bonus Bullets Damage "; break;
+				case 105: perk7 = "Gifted"; break;
+				case 106: perk7 = "Advanced Defense "; break;
+				case 107: perk7 = "Super Regen "; break;
+				case 108: perk7 = "Powered "; break;
+				case 109: perk7 = "Anty-Crit "; break;
+				case 59: perk7 = "Iron Skin "; break;
+				case 60: perk7 = "Survivalist "; break;
+				case 61: perk7 = "Strategic Improvement "; break;
+				case 62: perk7 = "Smasher! "; break;
+				case 63: perk7 = "Integrated Gloves "; break;
+				case 64: perk7 = "Defensive Belt "; break;
+				case 65: perk7 = "Spiked "; break;
+				case 66: perk7 = "More Critical Damage "; break;
+				case 67: perk7 = "Bonus Attack Speed "; break;
+				}
+			}
+	}
+	
+	if(valid(armor))
+	{
+	if(armor.Val6>0 || armor.Val3>0)
+			{
+			switch(armor.Val6)
+				{
+				case 1: perk8 = "Bonus Ranged Damage "; break;
+				case 2: perk8 = "Bonus Damage "; break;
+				case 3: perk8 = "Bonus Attack "; break;
+				case 4: perk8 = "Scoped "; break;
+				case 5: perk8 = "Better Critical "; break;
+				case 6: perk8 = "Fast Trigger "; break;
+				case 7: perk8 = "Ammo Upgrade "; break;
+				case 8: perk8 = "Bonus Rate of Fire "; break;
+				case 9: perk8 = "Slayer "; break;
+				case 10: perk8 = "Destroyer "; break;
+				case 11: perk8 = "Knockback "; break;
+				case 12: perk8 = "Long Range "; break;
+				case 13: perk8 = "Penetrate "; break;
+				case 14: perk8 = "Poisoned "; break;
+				case 15: perk8 = "Frozen Queen "; break;
+				case 16: perk8 = "Killing Spree "; break;
+				case 17: perk8 = "Life Steal "; break;
+				case 18: perk8 = "Chip Shot "; break;
+				case 19: perk8 = "Gain Strength "; break;
+				case 20: perk8 = "Gain Perception "; break;
+				case 21: perk8 = "Gain Endurance "; break;
+				case 22: perk8 = "Gain Charisma "; break;
+				case 23: perk8 = "Gain Intelligence "; break;
+				case 24: perk8 = "Gain Agility "; break;
+				case 25: perk8 = "Gain Luck "; break;
+				case 26: perk8 = "Cured "; break;
+				case 27: perk8 = "Laser Reflector "; break;
+				case 28: perk8 = "Anty-Termal System "; break;
+				case 29: perk8 = "Defense Enhancement "; break;
+				case 30: perk8 = "Advanced Plate "; break;
+				case 31: perk8 = "Mirror System "; break;
+				case 32: perk8 = "Tesla Addition "; break;
+				case 33: perk8 = "Shock Protection "; break;
+				case 34: perk8 = "Firegeckon's Enhancement"; break;
+				case 35: perk8 = "Special Force Bonus "; break;
+				case 36: perk8 = "Regeneration "; break;
+				case 37: perk8 = "Fill The Gaps "; break;
+				case 38: perk8 = "Heavy "; break;
+				case 39: perk8 = "Utility "; break;
+				case 40: perk8 = "Bonus Move "; break;
+				case 41: perk8 = "Heavy Stonewall "; break;
+				case 42: perk8 = "Terminator "; break;
+				case 43: perk8 = "Explosive Belt "; break;
+				case 44: perk8 = "Tesla Attacker"; break;
+				case 45: perk8 = "Speed Mechanism "; break;
+				case 46: perk8 = "Sneaky "; break;
+				case 47: perk8 = "More Criticals "; break;
+				case 48: perk8 = "Lethal Protection "; break;
+				case 100: perk8 = "Enhancement Knockout "; break;
+				case 101: perk8 = "More Bonus Damage "; break;
+				case 102: perk8 = "Sniper "; break;
+				case 103: perk8 = "Bounty Hunter "; break;
+				case 104: perk8 = "Bonus Bullets Damage "; break;
+				case 105: perk8 = "Gifted"; break;
+				case 106: perk8 = "Advanced Defense "; break;
+				case 107: perk8 = "Super Regen "; break;
+				case 108: perk8 = "Powered "; break;
+				case 109: perk8 = "Anty-Crit "; break;
+				case 59: perk8 = "Iron Skin "; break;
+				case 60: perk8 = "Survivalist "; break;
+				case 61: perk8 = "Strategic Improvement "; break;
+				case 62: perk8 = "Smasher! "; break;
+				case 63: perk8 = "Integrated Gloves "; break;
+				case 64: perk8 = "Defensive Belt "; break;
+				case 65: perk8 = "Spiked "; break;
+				case 66: perk8 = "More Critical Damage "; break;
+				case 67: perk8 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(armor.Val7>0)
+			{
+			switch(armor.Val7)
+				{
+				case 1: perk9 = "Bonus Ranged Damage "; break;
+				case 2: perk9 = "Bonus Damage "; break;
+				case 3: perk9 = "Bonus Attack "; break;
+				case 4: perk9 = "Scoped "; break;
+				case 5: perk9 = "Better Critical "; break;
+				case 6: perk9 = "Fast Trigger "; break;
+				case 7: perk9 = "Ammo Upgrade "; break;
+				case 8: perk9 = "Bonus Rate of Fire "; break;
+				case 9: perk9 = "Slayer "; break;
+				case 10: perk9 = "Destroyer "; break;
+				case 11: perk9 = "Knockback "; break;
+				case 12: perk9 = "Long Range "; break;
+				case 13: perk9 = "Penetrate "; break;
+				case 14: perk9 = "Poisoned "; break;
+				case 15: perk9 = "Frozen Queen "; break;
+				case 16: perk9 = "Killing Spree "; break;
+				case 17: perk9 = "Life Steal "; break;
+				case 18: perk9 = "Chip Shot "; break;
+				case 19: perk9 = "Gain Strength "; break;
+				case 20: perk9 = "Gain Perception "; break;
+				case 21: perk9 = "Gain Endurance "; break;
+				case 22: perk9 = "Gain Charisma "; break;
+				case 23: perk9 = "Gain Intelligence "; break;
+				case 24: perk9 = "Gain Agility "; break;
+				case 25: perk9 = "Gain Luck "; break;
+				case 26: perk9 = "Cured "; break;
+				case 27: perk9 = "Laser Reflector "; break;
+				case 28: perk9 = "Anty-Termal System "; break;
+				case 29: perk9 = "Defense Enhancement "; break;
+				case 30: perk9 = "Advanced Plate "; break;
+				case 31: perk9 = "Mirror System "; break;
+				case 32: perk9 = "Tesla Addition "; break;
+				case 33: perk9 = "Shock Protection "; break;
+				case 34: perk9 = "Firegeckon's Enhancement"; break;
+				case 35: perk9 = "Special Force Bonus "; break;
+				case 36: perk9 = "Regeneration "; break;
+				case 37: perk9 = "Fill The Gaps "; break;
+				case 38: perk9 = "Heavy "; break;
+				case 39: perk9 = "Utility "; break;
+				case 40: perk9 = "Bonus Move "; break;
+				case 41: perk9 = "Heavy Stonewall "; break;
+				case 42: perk9 = "Terminator "; break;
+				case 43: perk9 = "Explosive Belt "; break;
+				case 44: perk9 = "Tesla Attacker"; break;
+				case 45: perk9 = "Speed Mechanism "; break;
+				case 46: perk9 = "Sneaky "; break;
+				case 47: perk9 = "More Criticals "; break;
+				case 48: perk9 = "Lethal Protection "; break;
+				case 100: perk9 = "Enhancement Knockout "; break;
+				case 101: perk9 = "More Bonus Damage "; break;
+				case 102: perk9 = "Sniper "; break;
+				case 103: perk9 = "Bounty Hunter "; break;
+				case 104: perk9 = "Bonus Bullets Damage "; break;
+				case 105: perk9 = "Gifted"; break;
+				case 106: perk9 = "Advanced Defense "; break;
+				case 107: perk9 = "Super Regen "; break;
+				case 108: perk9 = "Powered "; break;
+				case 109: perk9 = "Anty-Crit "; break;
+				case 59: perk9 = "Iron Skin "; break;
+				case 60: perk9 = "Survivalist "; break;
+				case 61: perk9 = "Strategic Improvement "; break;
+				case 62: perk9 = "Smasher! "; break;
+				case 63: perk9 = "Integrated Gloves "; break;
+				case 64: perk9 = "Defensive Belt "; break;
+				case 65: perk9 = "Spiked "; break;
+				case 66: perk9 = "More Critical Damage "; break;
+				case 67: perk9 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(armor.Val8>0)
+			{
+			switch(armor.Val8)
+				{
+				case 1: perk10 = "Bonus Ranged Damage "; break;
+				case 2: perk10 = "Bonus Damage "; break;
+				case 3: perk10 = "Bonus Attack "; break;
+				case 4: perk10 = "Scoped "; break;
+				case 5: perk10 = "Better Critical "; break;
+				case 6: perk10 = "Fast Trigger "; break;
+				case 7: perk10 = "Ammo Upgrade "; break;
+				case 8: perk10 = "Bonus Rate of Fire "; break;
+				case 9: perk10 = "Slayer "; break;
+				case 10: perk10 = "Destroyer "; break;
+				case 11: perk10 = "Knockback "; break;
+				case 12: perk10 = "Long Range "; break;
+				case 13: perk10 = "Penetrate "; break;
+				case 14: perk10 = "Poisoned "; break;
+				case 15: perk10 = "Frozen Queen "; break;
+				case 16: perk10 = "Killing Spree "; break;
+				case 17: perk10 = "Life Steal "; break;
+				case 18: perk10 = "Chip Shot "; break;
+				case 19: perk10 = "Gain Strength "; break;
+				case 20: perk10 = "Gain Perception "; break;
+				case 21: perk10 = "Gain Endurance "; break;
+				case 22: perk10 = "Gain Charisma "; break;
+				case 23: perk10 = "Gain Intelligence "; break;
+				case 24: perk10 = "Gain Agility "; break;
+				case 25: perk10 = "Gain Luck "; break;
+				case 26: perk10 = "Cured "; break;
+				case 27: perk10 = "Laser Reflector "; break;
+				case 28: perk10 = "Anty-Termal System "; break;
+				case 29: perk10 = "Defense Enhancement "; break;
+				case 30: perk10 = "Advanced Plate "; break;
+				case 31: perk10 = "Mirror System "; break;
+				case 32: perk10 = "Tesla Addition "; break;
+				case 33: perk10 = "Shock Protection "; break;
+				case 34: perk10 = "Firegeckon's Enhancement"; break;
+				case 35: perk10 = "Special Force Bonus "; break;
+				case 36: perk10 = "Regeneration "; break;
+				case 37: perk10 = "Fill The Gaps "; break;
+				case 38: perk10 = "Heavy "; break;
+				case 39: perk10 = "Utility "; break;
+				case 40: perk10 = "Bonus Move "; break;
+				case 41: perk10 = "Heavy Stonewall "; break;
+				case 42: perk10 = "Terminator "; break;
+				case 43: perk10 = "Explosive Belt "; break;
+				case 44: perk10 = "Tesla Attacker"; break;
+				case 45: perk10 = "Speed Mechanism "; break;
+				case 46: perk10 = "Sneaky "; break;
+				case 47: perk10 = "More Criticals "; break;
+				case 48: perk10 = "Lethal Protection "; break;
+				case 100: perk10 = "Enhancement Knockout "; break;
+				case 101: perk10 = "More Bonus Damage "; break;
+				case 102: perk10 = "Sniper "; break;
+				case 103: perk10 = "Bounty Hunter "; break;
+				case 104: perk10 = "Bonus Bullets Damage "; break;
+				case 105: perk10 = "Gifted"; break;
+				case 106: perk10 = "Advanced Defense "; break;
+				case 107: perk10 = "Super Regen "; break;
+				case 108: perk10 = "Powered "; break;
+				case 109: perk10 = "Anty-Crit "; break;
+				case 59: perk10 = "Iron Skin "; break;
+				case 60: perk10 = "Survivalist "; break;
+				case 61: perk10 = "Strategic Improvement "; break;
+				case 62: perk10 = "Smasher! "; break;
+				case 63: perk10 = "Integrated Gloves "; break;
+				case 64: perk10 = "Defensive Belt "; break;
+				case 65: perk10 = "Spiked "; break;
+				case 66: perk10 = "More Critical Damage "; break;
+				case 67: perk10 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(armor.Val5>0)
+			{
+			switch(armor.Val5)
+				{
+				case 1: perk11 = "Bonus Ranged Damage "; break;
+				case 2: perk11 = "Bonus Damage "; break;
+				case 3: perk11 = "Bonus Attack "; break;
+				case 4: perk11 = "Scoped "; break;
+				case 5: perk11 = "Better Critical "; break;
+				case 6: perk11 = "Fast Trigger "; break;
+				case 7: perk11 = "Ammo Upgrade "; break;
+				case 8: perk11 = "Bonus Rate of Fire "; break;
+				case 9: perk11 = "Slayer "; break;
+				case 10: perk11 = "Destroyer "; break;
+				case 11: perk11 = "Knockback "; break;
+				case 12: perk11 = "Long Range "; break;
+				case 13: perk11 = "Penetrate "; break;
+				case 14: perk11 = "Poisoned "; break;
+				case 15: perk11 = "Frozen Queen "; break;
+				case 16: perk11 = "Killing Spree "; break;
+				case 17: perk11 = "Life Steal "; break;
+				case 18: perk11 = "Chip Shot "; break;
+				case 19: perk11 = "Gain Strength "; break;
+				case 20: perk11 = "Gain Perception "; break;
+				case 21: perk11 = "Gain Endurance "; break;
+				case 22: perk11 = "Gain Charisma "; break;
+				case 23: perk11 = "Gain Intelligence "; break;
+				case 24: perk11 = "Gain Agility "; break;
+				case 25: perk11 = "Gain Luck "; break;
+				case 26: perk11 = "Cured "; break;
+				case 27: perk11 = "Laser Reflector "; break;
+				case 28: perk11 = "Anty-Termal System "; break;
+				case 29: perk11 = "Defense Enhancement "; break;
+				case 30: perk11 = "Advanced Plate "; break;
+				case 31: perk11 = "Mirror System "; break;
+				case 32: perk11 = "Tesla Addition "; break;
+				case 33: perk11 = "Shock Protection "; break;
+				case 34: perk11 = "Firegeckon's Enhancement"; break;
+				case 35: perk11 = "Special Force Bonus "; break;
+				case 36: perk11 = "Regeneration "; break;
+				case 37: perk11 = "Fill The Gaps "; break;
+				case 38: perk11 = "Heavy "; break;
+				case 39: perk11 = "Utility "; break;
+				case 40: perk11 = "Bonus Move "; break;
+				case 41: perk11 = "Heavy Stonewall "; break;
+				case 42: perk11 = "Terminator "; break;
+				case 43: perk11 = "Explosive Belt "; break;
+				case 44: perk11 = "Tesla Attacker"; break;
+				case 45: perk11 = "Speed Mechanism "; break;
+				case 46: perk11 = "Sneaky "; break;
+				case 47: perk11 = "More Criticals "; break;
+				case 48: perk11 = "Lethal Protection "; break;
+				case 100: perk11 = "Enhancement Knockout "; break;
+				case 101: perk11 = "More Bonus Damage "; break;
+				case 102: perk11 = "Sniper "; break;
+				case 103: perk11 = "Bounty Hunter "; break;
+				case 104: perk11 = "Bonus Bullets Damage "; break;
+				case 105: perk11 = "Gifted"; break;
+				case 106: perk11 = "Advanced Defense "; break;
+				case 107: perk11 = "Super Regen "; break;
+				case 108: perk11 = "Powered "; break;
+				case 109: perk11 = "Anty-Crit "; break;
+				case 59: perk11 = "Iron Skin "; break;
+				case 60: perk11 = "Survivalist "; break;
+				case 61: perk11 = "Strategic Improvement "; break;
+				case 62: perk11 = "Smasher! "; break;
+				case 63: perk11 = "Integrated Gloves "; break;
+				case 64: perk11 = "Defensive Belt "; break;
+				case 65: perk11 = "Spiked "; break;
+				case 66: perk11 = "More Critical Damage "; break;
+				case 67: perk11 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(armor.Val4>0)
+			{
+			switch(armor.Val4)
+				{
+				case 1: perk12 = "Bonus Ranged Damage "; break;
+				case 2: perk12 = "Bonus Damage "; break;
+				case 3: perk12 = "Bonus Attack "; break;
+				case 4: perk12 = "Scoped "; break;
+				case 5: perk12 = "Better Critical "; break;
+				case 6: perk12 = "Fast Trigger "; break;
+				case 7: perk12 = "Ammo Upgrade "; break;
+				case 8: perk12 = "Bonus Rate of Fire "; break;
+				case 9: perk12 = "Slayer "; break;
+				case 10: perk12 = "Destroyer "; break;
+				case 11: perk12 = "Knockback "; break;
+				case 12: perk12 = "Long Range "; break;
+				case 13: perk12 = "Penetrate "; break;
+				case 14: perk12 = "Poisoned "; break;
+				case 15: perk12 = "Frozen Queen "; break;
+				case 16: perk12 = "Killing Spree "; break;
+				case 17: perk12 = "Life Steal "; break;
+				case 18: perk12 = "Chip Shot "; break;
+				case 19: perk12 = "Gain Strength "; break;
+				case 20: perk12 = "Gain Perception "; break;
+				case 21: perk12 = "Gain Endurance "; break;
+				case 22: perk12 = "Gain Charisma "; break;
+				case 23: perk12 = "Gain Intelligence "; break;
+				case 24: perk12 = "Gain Agility "; break;
+				case 25: perk12 = "Gain Luck "; break;
+				case 26: perk12 = "Cured "; break;
+				case 27: perk12 = "Laser Reflector "; break;
+				case 28: perk12 = "Anty-Termal System "; break;
+				case 29: perk12 = "Defense Enhancement "; break;
+				case 30: perk12 = "Advanced Plate "; break;
+				case 31: perk12 = "Mirror System "; break;
+				case 32: perk12 = "Tesla Addition "; break;
+				case 33: perk12 = "Shock Protection "; break;
+				case 34: perk12 = "Firegeckon's Enhancement"; break;
+				case 35: perk12 = "Special Force Bonus "; break;
+				case 36: perk12 = "Regeneration "; break;
+				case 37: perk12 = "Fill The Gaps "; break;
+				case 38: perk12 = "Heavy "; break;
+				case 39: perk12 = "Utility "; break;
+				case 40: perk12 = "Bonus Move "; break;
+				case 41: perk12 = "Heavy Stonewall "; break;
+				case 42: perk12 = "Terminator "; break;
+				case 43: perk12 = "Explosive Belt "; break;
+				case 44: perk12 = "Tesla Attacker"; break;
+				case 45: perk12 = "Speed Mechanism "; break;
+				case 46: perk12 = "Sneaky "; break;
+				case 47: perk12 = "More Criticals "; break;
+				case 48: perk12 = "Lethal Protection "; break;
+				case 100: perk12 = "Enhancement Knockout "; break;
+				case 101: perk12 = "More Bonus Damage "; break;
+				case 102: perk12 = "Sniper "; break;
+				case 103: perk12 = "Bounty Hunter "; break;
+				case 104: perk12 = "Bonus Bullets Damage "; break;
+				case 105: perk12 = "Gifted"; break;
+				case 106: perk12 = "Advanced Defense "; break;
+				case 107: perk12 = "Super Regen "; break;
+				case 108: perk12 = "Powered "; break;
+				case 109: perk12 = "Anty-Crit "; break;
+				case 59: perk12 = "Iron Skin "; break;
+				case 60: perk12 = "Survivalist "; break;
+				case 61: perk12 = "Strategic Improvement "; break;
+				case 62: perk12 = "Smasher! "; break;
+				case 63: perk12 = "Integrated Gloves "; break;
+				case 64: perk12 = "Defensive Belt "; break;
+				case 65: perk12 = "Spiked "; break;
+				case 66: perk12 = "More Critical Damage "; break;
+				case 67: perk12 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(armor.Val3>0)
+			{
+			switch(armor.Val3)
+				{
+				case 1: perk13 = "Bonus Ranged Damage "; break;
+				case 2: perk13 = "Bonus Damage "; break;
+				case 3: perk13 = "Bonus Attack "; break;
+				case 4: perk13 = "Scoped "; break;
+				case 5: perk13 = "Better Critical "; break;
+				case 6: perk13 = "Fast Trigger "; break;
+				case 7: perk13 = "Ammo Upgrade "; break;
+				case 8: perk13 = "Bonus Rate of Fire "; break;
+				case 9: perk13 = "Slayer "; break;
+				case 10: perk13 = "Destroyer "; break;
+				case 11: perk13 = "Knockback "; break;
+				case 12: perk13 = "Long Range "; break;
+				case 13: perk13 = "Penetrate "; break;
+				case 14: perk13 = "Poisoned "; break;
+				case 15: perk13 = "Frozen Queen "; break;
+				case 16: perk13 = "Killing Spree "; break;
+				case 17: perk13 = "Life Steal "; break;
+				case 18: perk13 = "Chip Shot "; break;
+				case 19: perk13 = "Gain Strength "; break;
+				case 20: perk13 = "Gain Perception "; break;
+				case 21: perk13 = "Gain Endurance "; break;
+				case 22: perk13 = "Gain Charisma "; break;
+				case 23: perk13 = "Gain Intelligence "; break;
+				case 24: perk13 = "Gain Agility "; break;
+				case 25: perk13 = "Gain Luck "; break;
+				case 26: perk13 = "Cured "; break;
+				case 27: perk13 = "Laser Reflector "; break;
+				case 28: perk13 = "Anty-Termal System "; break;
+				case 29: perk13 = "Defense Enhancement "; break;
+				case 30: perk13 = "Advanced Plate "; break;
+				case 31: perk13 = "Mirror System "; break;
+				case 32: perk13 = "Tesla Addition "; break;
+				case 33: perk13 = "Shock Protection "; break;
+				case 34: perk13 = "Firegeckon's Enhancement"; break;
+				case 35: perk13 = "Special Force Bonus "; break;
+				case 36: perk13 = "Regeneration "; break;
+				case 37: perk13 = "Fill The Gaps "; break;
+				case 38: perk13 = "Heavy "; break;
+				case 39: perk13 = "Utility "; break;
+				case 40: perk13 = "Bonus Move "; break;
+				case 41: perk13 = "Heavy Stonewall "; break;
+				case 42: perk13 = "Terminator "; break;
+				case 43: perk13 = "Explosive Belt "; break;
+				case 44: perk13 = "Tesla Attacker"; break;
+				case 45: perk13 = "Speed Mechanism "; break;
+				case 46: perk13 = "Sneaky "; break;
+				case 47: perk13 = "More Criticals "; break;
+				case 48: perk13 = "Lethal Protection "; break;
+				case 100: perk13 = "Enhancement Knockout "; break;
+				case 101: perk13 = "More Bonus Damage "; break;
+				case 102: perk13 = "Sniper "; break;
+				case 103: perk13 = "Bounty Hunter "; break;
+				case 104: perk13 = "Bonus Bullets Damage "; break;
+				case 105: perk13 = "Gifted"; break;
+				case 106: perk13 = "Advanced Defense "; break;
+				case 107: perk13 = "Super Regen "; break;
+				case 108: perk13 = "Powered "; break;
+				case 109: perk13 = "Anty-Crit "; break;
+				case 59: perk13 = "Iron Skin "; break;
+				case 60: perk13 = "Survivalist "; break;
+				case 61: perk13 = "Strategic Improvement "; break;
+				case 62: perk13 = "Smasher! "; break;
+				case 63: perk13 = "Integrated Gloves "; break;
+				case 64: perk13 = "Defensive Belt "; break;
+				case 65: perk13 = "Spiked "; break;
+				case 66: perk13 = "More Critical Damage "; break;
+				case 67: perk13 = "Bonus Attack Speed "; break;
+				}
+			}
+			if(armor.Val2>48)
+			{
+			switch(armor.Val2)
+				{
+				case 1: perk14 = "Bonus Ranged Damage "; break;
+				case 2: perk14 = "Bonus Damage "; break;
+				case 3: perk14 = "Bonus Attack "; break;
+				case 4: perk14 = "Scoped "; break;
+				case 5: perk14 = "Better Critical "; break;
+				case 6: perk14 = "Fast Trigger "; break;
+				case 7: perk14 = "Ammo Upgrade "; break;
+				case 8: perk14 = "Bonus Rate of Fire "; break;
+				case 9: perk14 = "Slayer "; break;
+				case 10: perk14 = "Destroyer "; break;
+				case 11: perk14 = "Knockback "; break;
+				case 12: perk14 = "Long Range "; break;
+				case 13: perk14 = "Penetrate "; break;
+				case 14: perk14 = "Poisoned "; break;
+				case 15: perk14 = "Frozen Queen "; break;
+				case 16: perk14 = "Killing Spree "; break;
+				case 17: perk14 = "Life Steal "; break;
+				case 18: perk14 = "Chip Shot "; break;
+				case 19: perk14 = "Gain Strength "; break;
+				case 20: perk14 = "Gain Perception "; break;
+				case 21: perk14 = "Gain Endurance "; break;
+				case 22: perk14 = "Gain Charisma "; break;
+				case 23: perk14 = "Gain Intelligence "; break;
+				case 24: perk14 = "Gain Agility "; break;
+				case 25: perk14 = "Gain Luck "; break;
+				case 26: perk14 = "Cured "; break;
+				case 27: perk14 = "Laser Reflector "; break;
+				case 28: perk14 = "Anty-Termal System "; break;
+				case 29: perk14 = "Defense Enhancement "; break;
+				case 30: perk14 = "Advanced Plate "; break;
+				case 31: perk14 = "Mirror System "; break;
+				case 32: perk14 = "Tesla Addition "; break;
+				case 33: perk14 = "Shock Protection "; break;
+				case 34: perk14 = "Firegeckon's Enhancement"; break;
+				case 35: perk14 = "Special Force Bonus "; break;
+				case 36: perk14 = "Regeneration "; break;
+				case 37: perk14 = "Fill The Gaps "; break;
+				case 38: perk14 = "Heavy "; break;
+				case 39: perk14 = "Utility "; break;
+				case 40: perk14 = "Bonus Move "; break;
+				case 41: perk14 = "Heavy Stonewall "; break;
+				case 42: perk14 = "Terminator "; break;
+				case 43: perk14 = "Explosive Belt "; break;
+				case 44: perk14 = "Tesla Attacker"; break;
+				case 45: perk14 = "Speed Mechanism "; break;
+				case 46: perk14 = "Sneaky "; break;
+				case 47: perk14 = "More Criticals "; break;
+				case 48: perk14 = "Lethal Protection "; break;
+				case 100: perk14 = "Enhancement Knockout "; break;
+				case 101: perk14 = "More Bonus Damage "; break;
+				case 102: perk14 = "Sniper "; break;
+				case 103: perk14 = "Bounty Hunter "; break;
+				case 104: perk14 = "Bonus Bullets Damage "; break;
+				case 105: perk14 = "Gifted"; break;
+				case 106: perk14 = "Advanced Defense "; break;
+				case 107: perk14 = "Super Regen "; break;
+				case 108: perk14 = "Powered "; break;
+				case 109: perk14 = "Anty-Crit "; break;
+				case 59: perk14 = "Iron Skin "; break;
+				case 60: perk14 = "Survivalist "; break;
+				case 61: perk14 = "Strategic Improvement "; break;
+				case 62: perk14 = "Smasher! "; break;
+				case 63: perk14 = "Integrated Gloves "; break;
+				case 64: perk14 = "Defensive Belt "; break;
+				case 65: perk14 = "Spiked "; break;
+				case 66: perk14 = "More Critical Damage "; break;
+				case 67: perk14 = "Bonus Attack Speed "; break;
+				}
+			}
+		}
+	//SetLexem(player, "$perk1", "" + perk1);	
+	text += ("$perk1" +  "" + perk1);
+	//SetLexem(player, "$perk2",  "" + perk2);	
+	text += ("$perk2" +  "" + perk2);
+	//SetLexem(player, "$perk3",  "" + perk3);	
+	text += ("$perk3" +  "" + perk3);
+//	SetLexem(player, "$perk4",  "" + perk4);	
+	text += ("$perk4" +  "" + perk4);
+//	SetLexem(player, "$perk5",  "" + perk5);	
+	text += ("$perk5" +  "" + perk5);
+//	SetLexem(player, "$perk6",  "" + perk7);	
+	text += ("$perk6" +  "" + perk7);
+//	SetLexem(player, "$perk7",  "" + perk6);	
+	text += ("$perk7" +  "" + perk6);
+	
+	//SetLexem(player, "$perk8",  "" + perk8);	
+	text += ("$perk8" +  "" + perk8);
+//	SetLexem(player, "$perk9",  "" + perk9);	
+	text += ("$perk9" +  "" + perk9);
+//	SetLexem(player, "$perk10",  "" + perk10);	
+	text += ("$perk10" +  "" + perk10);
+//	SetLexem(player, "$perk11",  "" + perk11);	
+	text += ("$perk11" +  "" + perk11);
+//	SetLexem(player, "$perk12",  "" + perk12);	
+	text += ("$perk12" +  "" + perk12);
+//	SetLexem(player, "$perk13",  "" + perk14);	
+	text += ("$perk13" +  "" + perk14);
+//	SetLexem(player, "$perk14",  "" + perk13);	
+	text += ("$perk14" +  "" + perk13);
+
+
+}
+
+

@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+2 2010 D _item p PID_BOTTLE_FULL } 6 D _var p farm_cabbage_water = 0 R _item p PID_BOTTLE_FULL - 6 R _var p farm_cabbage_water = 1 R _script dialog@r_cd_quest 2 1440 566 #
+2 2020 D _var p farm_cabbage = 0 D _var p farm_cabbage_water = 1 R _var p farm_cabbage = 1 R _script dialog@r_cd_quest 2 240 565 R _item p PID_CABBAGE + 5 #
+0 2030 &
+
+[engl]
+{100}{}{Farm-Tronic Bot}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic Mobile Bot 7B. This unit is in charge of monitoring Cabbage growing. This farm production is 5 cabbage every 4 hours. Watering is required once every 24 hours and takes 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Water Cabbage ]}
+{2020}{}{[ Collect Cabbage ]}
+{2030}{}{[ Exit ]}
+
+[czec]
+{100}{}{Farm-Tronic Bot}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic Mobile Bot 7B. This unit is in charge of monitoring Cabbage growing. This farm production is 5 cabbage every 4 hours. Watering required once per 24 hours and needs 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Water Cabbage ]}
+{2020}{}{[ Collect Cabbage ]}
+{2030}{}{[ Exit ]}
+
+[pols]
+{100}{}{Farm-Tronic Bot}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic Mobile Bot 7B. This unit is in charge of monitoring Cabbage growing. This farm production is 5 cabbage every 4 hours. Watering required once per 24 hours and needs 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Water Cabbage ]}
+{2020}{}{[ Collect Cabbage ]}
+{2030}{}{[ Exit ]}
+
+[span]
+{100}{}{Farm-Tronic Bot}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic Mobile Bot 7B. This unit is in charge of monitoring Cabbage growing. This farm production is 5 cabbage every 4 hours. Watering required once per 24 hours and needs 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Water Cabbage ]}
+{2020}{}{[ Collect Cabbage ]}
+{2030}{}{[ Exit ]}
+
+[russ]
+{100}{}{Farm-Tronic Bot}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic Mobile Bot 7B. This unit is in charge of monitoring Cabbage growing. This farm production is 5 cabbage every 4 hours. Watering required once per 24 hours and needs 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Water Cabbage ]}
+{2020}{}{[ Collect Cabbage ]}
+{2030}{}{[ Exit ]}
+

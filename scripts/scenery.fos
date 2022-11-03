@@ -1,0 +1,66 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// scenery.fos
+//
+
+#include "_macros.fos"
+#include "dynamic_light_source_h.fos"
+
+bool s_Dialog(Critter& player, Scenery& scenery, int skill, Item@ item, int dialogId)
+{
+    if(skill == -1 && !valid(item))
+    {
+        return RunDialog(player, dialogId, scenery.HexX, scenery.HexY, false);
+    }
+    return false;
+}
+
+
+// param0 for groupId, param1 for off/on state
+bool s_SwitchLightGroup(Critter& player, Scenery& scenery, int skill, Item@ item, int groupId, int toOn)
+{
+	bool on = toOn > 0;
+	Map@ currentMap = player.GetMap();
+	if(valid(currentMap))
+		SwitchGroupLights(currentMap, groupId, on);
+	
+	return true;
+}
+
+bool s_Switcher(Critter& player, Scenery& scenery, int skill, Item@ item, int groupId)
+{
+	array<Item@> lights;
+	player.GetMap().GetItems(PID_ITEM_LIGHT, lights);
+	bool on = true;
+	if(lights[0].Val4 > 0)
+		{
+		on = false;
+		lights[0].Val4 = 0;
+		}
+	else lights[0].Val4 = 1;
+	Map@ currentMap = player.GetMap();
+	if(valid(currentMap))
+		SwitchGroupLights(currentMap, groupId, on);
+	
+	return true;
+}
+
+// param0 for group, param1 for paramId, param2 for value
+// paramid is
+// 0 - color
+// 1 - intensity
+// 2 - distance
+// 3 - drop to base ( param2 not used )
+bool s_ChangeLightGroupParam(Critter& player, Scenery& scenery, int skill, Item@ item, int groupId, int paramId, int paramVal)
+{
+	Map@ currentMap = player.GetMap();
+	if(valid(currentMap))
+	{
+		ChangeGroupLightsParam(currentMap, groupId, paramId, paramVal);
+	}
+	
+	return true;
+}
+

@@ -1,0 +1,15 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Frydek;
+@gender = 0;
+@age = 30;
+
+@special = 6 2 5 10 6 10 1;
+@xp = 15 106150 120000;
+@life = 106 106 0 0 0 0 0 0 0;
+@stats = 50 11 110600 2 0 30 32 6 4 1;
+@skills = 45 20 144 157 52 40 16 13 35 22 30 22 24 18 50 40 5 22 97;
+@traits = 557 565;
+@perks = 301 304 437;
+@kills = 260 267:7;

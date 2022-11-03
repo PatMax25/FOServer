@@ -1,0 +1,102 @@
+[comment]
+Common dialog for each faction's mainframe used to manage players' database.
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+4 1010 D _param p ST_TEAM_ID = 4 #
+100 1020 D _param p ST_TEAM_ID ! 4 @
+4 2000 factions_terminal@dlg_FactionName 0 #
+0 2010 R _script dialog@r_OpenDoor 2 150 10 #
+0 2020 R _script dialog@r_CloseDoor 1 150 #
+0 2030 @
+100 3000 None 0 &
+
+[engl]
+{100}{}{error}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{*BEEP* [ Welcome to Master Army Door Control ]}
+{2010}{}{[ Open Door ]}
+{2020}{}{[ Close Door ]}
+{2030}{}{[ Exit ] [ end dialogue ]}
+{3000}{}{Access Denied
+}
+{100000000}{}{Unknown}
+{100000001}{}{None}
+{100000002}{}{Brotherhood of Steel}
+{100000003}{}{Enclave}
+{100000004}{}{The Unity}
+{100000005}{}{New California Republic}
+{100000006}{}{Vault City}
+{100000010}{}{Unknown}
+{100000011}{}{Friend}
+{100000012}{}{Neutral}
+{100000013}{}{Enemy}
+{100000014}{}{Invited}
+{100000015}{}{Claimed leadership.}
+{100000020}{}{Unknown}
+{100000021}{}{New member}
+{100000022}{}{Accepted member}
+{100000023}{}{Trusted member}
+{100000024}{}{Important member}
+{100000025}{}{Leader}
+{100000030}{}{You've entered wrong faction name.}
+{100000031}{}{Channel changed.}
+{100000032}{}{Wrong channel.}
+{100000040}{}{ has claimed leadership.}
+{100000041}{}{You have claimed leadership - time left: }
+{100000042}{}{Choose the action you want to perform:}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{*BEEP* Welcome to @lex faction@ Door Control}
+{2010}{}{Open Door}
+{2020}{}{Close Door Now}
+{2030}{}{Log off the terminal.}
+{3000}{}{Access Denied
+}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{*BEEP* Welcome to @lex faction@ Door Control}
+{2010}{}{Open Door}
+{2020}{}{Close Door Now}
+{2030}{}{Log off the terminal.}
+{3000}{}{Access Denied
+}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{*BEEP* Welcome to @lex faction@ Door Control}
+{2010}{}{Open Door}
+{2020}{}{Close Door Now}
+{2030}{}{Log off the terminal.}
+{3000}{}{Access Denied
+}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{*BEEP* Welcome to @lex faction@ Door Control}
+{2010}{}{Open Door}
+{2020}{}{Close Door Now}
+{2030}{}{Log off the terminal.}
+{3000}{}{Access Denied
+}
+

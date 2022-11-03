@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+5 2020 #
+0 2030 @
+4 3000 None 0 #
+2 3010 @
+5 4000 None 0 #
+2 4010 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome USER 3478. Let God be mercy to you ]}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Note 2 ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ After my diary was stolen, I decided to start a new one. Depressive thoughts are haunting me more often, so I should continue my notes, as a way to cope with them---my last therapist magazine recommended that, though such "unworthy" literature is prohibited here... Anyway, I'm fine for now. Brother Paul has invited me for a new series of Sunday meetings after the morning prayer, but I have a strange feeling about that... There were no messages from Pastor Charles about such a thing... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ That's my last note in a diary. All my fears come true, one by one, and now I'm certain that there's no God around here except their wicked unholy and blasphemous... THING. No time, no way to escape. I'm so frightened... To stay here--means slow and horrible death. Go out and... fight them... do I have any chances? At least... They won't get my soul. ]}
+{4010}{}{[ Back ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome USER 3478. Let the God be mercy to you ]}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Note 2 ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ After my diary  had been stolen, I decided to start a new one. Depressive thoughts are haunting me more often, so I should continue my notes, as a way to cope with them---my last therapist magazine recommended that, though such "unworthy" literature is prohibited here... Anyway, I'm fine for now. Brother Paul has invited me for a new Sunday meetings after the morning prayer, but I have a strange feeling about that... There was no messages from Pastor Charles about such thing... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ That's my last note in a diary. All my fears come true, one by one, and now I'm certain, that there's no God around here except their wicked unholy and blasphemous... THING. No time, no way to escape. I'm so frightened... To stay here--means slow and horrible death. Go out and... fight them... do I have any chances? Or at least... They won't get my soul. ]}
+{4010}{}{[ Back ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome USER 3478. Let the God be mercy to you ]}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Note 2 ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ After my diary  had been stolen, I decided to start a new one. Depressive thoughts are haunting me more often, so I should continue my notes, as a way to cope with them---my last therapist magazine recommended that, though such "unworthy" literature is prohibited here... Anyway, I'm fine for now. Brother Paul has invited me for a new Sunday meetings after the morning prayer, but I have a strange feeling about that... There was no messages from Pastor Charles about such thing... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ That's my last note in a diary. All my fears come true, one by one, and now I'm certain, that there's no God around here except their wicked unholy and blasphemous... THING. No time, no way to escape. I'm so frightened... To stay here--means slow and horrible death. Go out and... fight them... do I have any chances? Or at least... They won't get my soul. ]}
+{4010}{}{[ Back ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome USER 3478. Let the God be mercy to you ]}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Note 2 ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ After my diary  had been stolen, I decided to start a new one. Depressive thoughts are haunting me more often, so I should continue my notes, as a way to cope with them---my last therapist magazine recommended that, though such "unworthy" literature is prohibited here... Anyway, I'm fine for now. Brother Paul has invited me for a new Sunday meetings after the morning prayer, but I have a strange feeling about that... There was no messages from Pastor Charles about such thing... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ That's my last note in a diary. All my fears come true, one by one, and now I'm certain, that there's no God around here except their wicked unholy and blasphemous... THING. No time, no way to escape. I'm so frightened... To stay here--means slow and horrible death. Go out and... fight them... do I have any chances? Or at least... They won't get my soul. ]}
+{4010}{}{[ Back ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome USER 3478. Let the God be mercy to you ]}
+{2010}{}{[ Note 1 ]}
+{2020}{}{[ Note 2 ]}
+{2030}{}{[ Leave ]}
+{3000}{}{[ After my diary  had been stolen, I decided to start a new one. Depressive thoughts are haunting me more often, so I should continue my notes, as a way to cope with them---my last therapist magazine recommended that, though such "unworthy" literature is prohibited here... Anyway, I'm fine for now. Brother Paul has invited me for a new Sunday meetings after the morning prayer, but I have a strange feeling about that... There was no messages from Pastor Charles about such thing... ]}
+{3010}{}{[ Back ]}
+{4000}{}{[ That's my last note in a diary. All my fears come true, one by one, and now I'm certain, that there's no God around here except their wicked unholy and blasphemous... THING. No time, no way to escape. I'm so frightened... To stay here--means slow and horrible death. Go out and... fight them... do I have any chances? Or at least... They won't get my soul. ]}
+{4010}{}{[ Back ]}
+

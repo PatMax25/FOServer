@@ -1,0 +1,380 @@
+                                                                                            
+
+import uint GetRealItemsWeight(Critter&critter)from"mutual";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;                                              
+
+const uint BloodFlags=(0x00000002)+(0x00000004)+(0x00000010)+(0x00000008)+(0x00080000)+(0x00100000)+(0x00001000)+(0x00000040);
+
+funcdef void BloodItemCallback(Item&blood);
+
+array<BloodItemCallback@>BloodInitCallbacks={@BloodGenericInit,@BloodAcidInit,@BloodOilInit}; 
+
+array<array<array<array<uint>>>>EpicBlood=
+{
+	{
+		{
+			
+			{
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodfresh01.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodnormal01.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redblooddecay01.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodfresh02.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodnormal02.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redblooddecay02.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodfresh03.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodnormal03.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redblooddecay03.png"))
+			}
+			
+		},
+		
+		{
+			
+			{
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodfresh04.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodnormal04.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redblooddecay04.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodfresh05.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodnormal05.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redblooddecay05.png"))
+			}, 
+			
+			{
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodfresh06.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodnormal06.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redblooddecay06.png"))
+			}
+		},
+		
+		{
+			
+			{
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodfresh07.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodnormal07.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redblooddecay07.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodfresh08.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodnormal08.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redblooddecay08.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodfresh09.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redbloodnormal09.png")),
+				(GetStrHash("art\\items\\blood\\red\\"+"redblooddecay09.png"))
+			}
+			
+		} 
+		
+	},
+	
+	{
+		{
+			
+			{
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodfresh01.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodnormal01.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidblooddecay01.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodfresh02.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodnormal02.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidblooddecay02.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodfresh03.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodnormal03.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidblooddecay03.png"))
+			}
+			
+		},
+		
+		{
+			
+			{
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodfresh04.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodnormal04.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidblooddecay04.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodfresh05.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodnormal05.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidblooddecay05.png"))
+			}, 
+			
+			{
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodfresh06.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodnormal06.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidblooddecay06.png"))
+			}
+		},
+		
+		{
+			
+			{
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodfresh07.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodnormal07.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidblooddecay07.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodfresh08.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodnormal08.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidblooddecay08.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodfresh09.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidbloodnormal09.png")),
+				(GetStrHash("art\\items\\blood\\acid\\"+"acidblooddecay09.png"))
+			}
+			
+		} 
+		
+	},
+	
+	{
+		{
+			
+			{
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodfresh01.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodnormal01.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilblooddecay01.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodfresh02.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodnormal02.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilblooddecay02.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodfresh03.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodnormal03.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilblooddecay03.png"))
+			}
+			
+		},
+		
+		{
+			
+			{
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodfresh04.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodnormal04.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilblooddecay04.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodfresh05.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodnormal05.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilblooddecay05.png"))
+			}, 
+			
+			{
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodfresh06.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodnormal06.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilblooddecay06.png"))
+			}
+		},
+		
+		{
+			
+			{
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodfresh07.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodnormal07.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilblooddecay07.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodfresh08.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodnormal08.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilblooddecay08.png"))
+			},
+			
+			{
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodfresh09.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilbloodnormal09.png")),
+				(GetStrHash("art\\items\\blood\\oil\\"+"oilblooddecay09.png"))
+			}
+			
+		} 
+		
+	}
+	
+};        
+
+int GetBloodType(Critter&cr)
+{
+	int body_type=cr.Param[(67)];
+	int blood_type=(-1);
+	
+	switch(body_type)
+	{
+		case(16):
+		blood_type=(1);
+		break;
+		case(10):
+		blood_type=(2);
+		break;
+		default:
+		blood_type=(0);
+		break;
+	}
+	if(cr.Param[(347)]>0)
+	blood_type=(2);
+	if(cr.GetProtoId()==1484)
+	blood_type=(2);
+	if(cr.GetProtoId()==1485)
+	blood_type=(-1);
+	return blood_type;
+} 
+
+Item@BloodCreate(Critter&creature,int bloodSize)
+{
+	
+	if(bloodSize<(0)||bloodSize>(2))
+	return null;
+	
+	Map@creatureMap=creature.GetMap();
+	if((@creatureMap!=null))
+	{
+		
+		int bloodType=GetBloodType(creature);
+		if(bloodType!=(-1))
+		{
+			Item@blood=creatureMap.AddItem(creature.HexX,creature.HexY,(20014),1);
+			if((@blood!=null))
+			{
+				
+				int bloodSet=Random((0),(2));
+				int bloodState=(0);
+				
+				blood.PicMap=EpicBlood[bloodType][bloodSize][bloodSet][bloodState];
+				
+				(blood.Val0=bloodType);
+				(blood.Val1=bloodSize);
+				(blood.Val2=bloodSet);
+				(blood.Val3=bloodState);
+				
+				blood.Flags=BloodFlags;
+				BloodInitCallbacks[bloodType](blood);
+				blood.Update();
+				
+				array<uint>values={blood.Id};
+				CreateTimeEvent(((__FullSecond)+(((10)*__TimeMultiplier))),"e_BloodDry",values,true);
+				return blood;
+			}
+		}
+		return null;
+	}
+	return null;
+} 
+
+Item@BloodCreateByDamage(Critter&creature,int damage,int dmgType)
+{
+	int size=-1;
+	int percent=((damage*100)/creature.Param[(7)]); 
+	
+	if(dmgType==(4)||dmgType==(5))
+	return null;
+	if(percent<(8))
+	return null;
+	else if(percent>=(25))
+	{
+		size=(2);
+	}
+	else if(percent<(25)&&percent>=(18))
+	{
+		size=(1);
+	}
+	else if(percent<=(18)&&percent>=(8))
+	{
+		size=(0);
+	}
+	return BloodCreate(creature,size);
+} 
+
+uint e_BloodDry(array<uint>@values)
+{
+	Item@blood=GetItem(values[0]);
+	if((@blood!=null))
+	{
+		int bloodState=(blood.Val3);
+		
+		if(bloodState>=(2))
+		{
+			DeleteItem(blood);
+			return 0;
+		}
+		
+		else
+		{
+			bloodState++;
+			(blood.Val3=bloodState);
+			blood.PicMap=EpicBlood[(blood.Val0)][(blood.Val1)][(blood.Val2)][bloodState];
+			blood.Update();
+			return((10)*__TimeMultiplier);
+		}
+	}
+	return 0;
+}
+
+void BloodGenericInit(Item&blood)
+{
+	
+}
+
+void BloodAcidInit(Item&blood)
+{
+	
+}
+
+void BloodOilInit(Item&blood)
+{
+	
+}  
+

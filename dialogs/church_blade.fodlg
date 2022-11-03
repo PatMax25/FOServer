@@ -1,0 +1,84 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p dialog_robert = 0 D _var p dialog_dork = 0 #
+3 1020 D _var p dialog_dork = 1 D _var p dialog_robert = 0 #
+4 1030 D _var p dialog_dork = 1 D _var p dialog_robert = 1 @
+2 2000 None 0 @
+3 3000 None 0 @
+4 4000 None 0 #
+65507 4010 #
+65507 4020 #
+65507 4030 &
+
+[engl]
+{100}{}{Blade}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{You better chat with Dork.}
+{3000}{}{HOLY SHIT, ROBERT! WHAT HAVE YOU DONE?!}
+{4000}{}{F-fuck! They went insane! They were fucking insane! And you... You! Who the fuck are you!? *he points his gun at you*}
+{4010}{}{Hey, slow down, I mean no harm!}
+{4020}{}{I am your death! You gonna join your friends here very shortly!}
+{4030}{}{What a... You all here are insane!}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{You better chat with Dork.}
+{3000}{}{HOLY SHIT, ROBERT! WHAT HAVE YOU DONE?!}
+{4000}{}{F-fuck! They went insane! They were fucking insane! And you... You! Who the fuck are you!? [ He points his gun at you ]}
+{4010}{}{Hey, slow down, I mean no harm!}
+{4020}{}{I am your death! You gonna join your friends here very shortly!}
+{4030}{}{What a... You all here are insane!}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{You better chat with Dork.}
+{3000}{}{HOLY SHIT, ROBERT! WHAT HAVE YOU DONE?!}
+{4000}{}{F-fuck! They went insane! They were fucking insane! And you... You! Who the fuck are you!? [ He points his gun at you ]}
+{4010}{}{Hey, slow down, I mean no harm!}
+{4020}{}{I am your death! You gonna join your friends here very shortly!}
+{4030}{}{What a... You all here are insane!}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{You better chat with Dork.}
+{3000}{}{HOLY SHIT, ROBERT! WHAT HAVE YOU DONE?!}
+{4000}{}{F-fuck! They went insane! They were fucking insane! And you... You! Who the fuck are you!? [ He points his gun at you ]}
+{4010}{}{Hey, slow down, I mean no harm!}
+{4020}{}{I am your death! You gonna join your friends here very shortly!}
+{4030}{}{What a... You all here are insane!}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{2000}{}{You better chat with Dork.}
+{3000}{}{HOLY SHIT, ROBERT! WHAT HAVE YOU DONE?!}
+{4000}{}{F-fuck! They went insane! They were fucking insane! And you... You! Who the fuck are you!? [ He points his gun at you ]}
+{4010}{}{Hey, slow down, I mean no harm!}
+{4020}{}{I am your death! You gonna join your friends here very shortly!}
+{4030}{}{What a... You all here are insane!}
+

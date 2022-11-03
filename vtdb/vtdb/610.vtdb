@@ -1,0 +1,15 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = DzejoV;
+@gender = 0;
+@age = 30;
+
+@special = 5 1 10 1 8 10 5;
+@xp = 2 1009 3000;
+@life = 22 85 0 0 0 0 0 0 0;
+@stats = 30 10 87950 1 0 50 20 2 6 5;
+@skills = 45 20 20 60 50 40 18 14 35 21 30 21 32 24 5 4 25 36 29;
+@traits = 557 560;
+@perks = 301;
+@kills = 266:3;

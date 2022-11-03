@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Citizen}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Yes?@@Our mayor is one of the greatest men ever!@@Hmh?@@Are you new here?@@Be careful with those freaks from the military base.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Yes?@@Our mayor is one of the greatest men ever!@@Hmh?@@Are you new here?@@Be careful with those freaks from military base.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Yes?@@Our mayor is one of the greatest men ever!@@Hmh?@@Are you new here?@@Be careful with those freaks from military base.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Yes?@@Our mayor is one of the greatest men ever!@@Hmh?@@Are you new here?@@Be careful with those freaks from military base.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello.@@Yes?@@Our mayor is one of the greatest men ever!@@Hmh?@@Are you new here?@@Be careful with those freaks from military base.}
+

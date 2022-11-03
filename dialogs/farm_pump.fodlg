@@ -1,0 +1,174 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 #
+2 2020 D _var p farm_water = 0 D _var p farm_recharge = 1 R _var p farm_water = 1 R _item p PID_BOTTLE_FULL + 30 R _script dialog@r_cd_quest 2 180 571 #
+2 2030 D _var p farm_recharge = 0 D _item p PID_MICRO_FUSION_CELL } 250 R _var p farm_recharge = 1 R _item p PID_MICRO_FUSION_CELL - 250 R _script dialog@r_cd_quest 2 600 572 #
+2 2040 D _item p PID_CHEMICALS } 12 D _var p farm_recharge = 1 R _item p PID_CHEMICALS - 12 R _item p PID_MILK + 1 #
+0 2050 #
+5 2060 D _item p PID_MUNUFACTURE_MATRIX } 1 D _var p nuka_matrix2 = 0 R _item p PID_MUNUFACTURE_MATRIX - 1 R _var p nuka_matrix2 = 1 #
+5 2070 D _var p nuka_matrix2 = 1 #
+6 2080 D _item p PID_MATRIX_STIMPAK } 1 D _var p stimpak_matrix2 = 0 R _var p stimpak_matrix2 = 1 R _item p PID_MATRIX_STIMPAK - 1 #
+6 2090 D _var p stimpak_matrix2 = 1 @
+3 3000 None 0 #
+2 3010 D _var p name_mem_npc_player = 0 D _item p PID_OIL_CAN } 1 R _var p name_mem_npc_player = 1 R _item p PID_OIL_CAN - 1 #
+0 3020 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+5 5010 D _item p PID_CHEMICALS } 2 D _item p PID_MICRO_FUSION_CELL } 5 R _item p PID_CHEMICALS - 2 R _item p PID_MICRO_FUSION_CELL - 5 R _item p PID_NUKA_COLA + 1 R _param p ST_EXPERIENCE + 25 #
+5 5020 D _item p PID_CHEMICALS } 2 D _item p PID_CHEMICALS2 } 1 D _item p PID_MICRO_FUSION_CELL } 7 R _item p PID_CHEMICALS2 - 1 R _item p PID_CHEMICALS - 2 R _item p PID_MICRO_FUSION_CELL - 7 R _item p PID_NUKA_COLA_QUEST + 1 R _param p ST_EXPERIENCE + 40 #
+0 5030 @
+6 6000 None 0 #
+6 6010 D _item p PID_CHEMICALS } 1 D _item p PID_MICRO_FUSION_CELL } 2 R _item p PID_STIMPAK + 1 R _param p ST_EXPERIENCE + 30 R _item p PID_CHEMICALS - 1 R _item p PID_MICRO_FUSION_CELL - 2 #
+6 6020 D _item p PID_CHEMICALS } 1 D _item p PID_CHEMICALS2 } 1 D _item p PID_MICRO_FUSION_CELL } 3 R _item p PID_SUPER_STIMPAK + 1 R _param p ST_EXPERIENCE + 40 R _item p PID_CHEMICALS - 1 R _item p PID_CHEMICALS2 - 1 R _item p PID_MICRO_FUSION_CELL - 3 #
+0 6030 &
+
+[engl]
+{100}{}{Pump}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a Pump Machine. The note near the control pannel says: "Can pump 30 bottles of water every 3 hours. Requires a charge of 250 MFC every 10 hours. It can also filter basic chemicals into the milk. Just insert 12 Chemicals into it. Can you believe it? Dear Janna, it cost me a LOT of money to get this crap working, please keep it clean and watch for sand getting inside the control pannel. If this thing appears to be broken due to the sand - then use an Oil Can. Have fun. ]}
+{2010}{}{[ Status ]}
+{2020}{}{[ Pump some water ]}
+{2030}{}{[ Recharge the machine ]}
+{2040}{}{[ Create milk ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Insert a Nuka Cola Manufacture Matrix ]}
+{2070}{}{[ Load Nuka Production option ]}
+{2080}{}{[ Insert Stimpak Manufacture Matrix ]}
+{2090}{}{[ Load Stimpak production option ]}
+{3000}{}{[ Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism. ]}
+{3010}{}{[ Fix the machine ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Status: Online. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... Matrix confirmed. Options: Simple Nuka Cola [ 2 chemicals, 5 MFC ], Nuka Cola Special [  2 chemicals, 1 advanced chemicals, 7 MFC ]}
+{5010}{}{[ Produce 1 Nuka Cola ]}
+{5020}{}{[ Produce 1 Nuka Cola Special ]}
+{5030}{}{[ Exit ]}
+{6000}{}{[ Loading... Matrix confirmed. Options: Stimpak - 1 chemicals, 2 MFCs ; Super Stimpak - 1 chemicals, 1 advanced chamicals, 1 hypodermic, 3 MFCs ]}
+{6010}{}{[ Produce 1 Stimpak ]}
+{6020}{}{[ Produce 1 Super Stimpak ]}
+{6030}{}{[ Exit ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic 9000. This unit is in charge of monitoring Nukie mushrooms growing. Each flower bed production - 6 Nukes every 8 hours. Watering requires once per 24 hours and need 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Status ]}
+{2020}{}{[ Pump some water ]}
+{2030}{}{[ Recharge the machine ]}
+{2040}{}{[ Create milk ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Insert a Nuka Cola Manufacture Matrix ]}
+{2070}{}{[ Load Nuka Production option ]}
+{2080}{}{[ Insert Stimpak Manufacture Matrix ]}
+{2090}{}{[ Load Stimpak production option ]}
+{3000}{}{Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism.}
+{3010}{}{[ Fix the machine ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Status: Online. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... Matrix confirmed. Options: Simple Nuka Cola [ 2 Fruits, 1 chemicals, 5 MFC ], Nuka Cola Special [ 3 Fruits, 1 chemicals, 1 advanced chemicals, 10 MFC ]}
+{5010}{}{[ Produce 1 Nuka Cola ]}
+{5020}{}{[ Produce 1 Nuka Cola Special ]}
+{5030}{}{[ Exit ]}
+{6000}{}{[ Loading... Matrix confirmed. Options: Stimpak - 1 chemicals, Super Stimpak - 1 chemicals, 1 advanced chamicals, 1 hypodermic. ]}
+{6010}{}{[ Produce 1 Stimpak ]}
+{6020}{}{[ Produce 1 Super Stimpak ]}
+{6030}{}{[ Exit ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic 9000. This unit is in charge of monitoring Nukie mushrooms growing. Each flower bed production - 6 Nukes every 8 hours. Watering requires once per 24 hours and need 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Status ]}
+{2020}{}{[ Pump some water ]}
+{2030}{}{[ Recharge the machine ]}
+{2040}{}{[ Create milk ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Insert a Nuka Cola Manufacture Matrix ]}
+{2070}{}{[ Load Nuka Production option ]}
+{2080}{}{[ Insert Stimpak Manufacture Matrix ]}
+{2090}{}{[ Load Stimpak production option ]}
+{3000}{}{Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism.}
+{3010}{}{[ Fix the machine ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Status: Online. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... Matrix confirmed. Options: Simple Nuka Cola [ 2 Fruits, 1 chemicals, 5 MFC ], Nuka Cola Special [ 3 Fruits, 1 chemicals, 1 advanced chemicals, 10 MFC ]}
+{5010}{}{[ Produce 1 Nuka Cola ]}
+{5020}{}{[ Produce 1 Nuka Cola Special ]}
+{5030}{}{[ Exit ]}
+{6000}{}{[ Loading... Matrix confirmed. Options: Stimpak - 1 chemicals, Super Stimpak - 1 chemicals, 1 advanced chamicals, 1 hypodermic. ]}
+{6010}{}{[ Produce 1 Stimpak ]}
+{6020}{}{[ Produce 1 Super Stimpak ]}
+{6030}{}{[ Exit ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic 9000. This unit is in charge of monitoring Nukie mushrooms growing. Each flower bed production - 6 Nukes every 8 hours. Watering requires once per 24 hours and need 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Status ]}
+{2020}{}{[ Pump some water ]}
+{2030}{}{[ Recharge the machine ]}
+{2040}{}{[ Create milk ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Insert a Nuka Cola Manufacture Matrix ]}
+{2070}{}{[ Load Nuka Production option ]}
+{2080}{}{[ Insert Stimpak Manufacture Matrix ]}
+{2090}{}{[ Load Stimpak production option ]}
+{3000}{}{Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism.}
+{3010}{}{[ Fix the machine ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Status: Online. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... Matrix confirmed. Options: Simple Nuka Cola [ 2 Fruits, 1 chemicals, 5 MFC ], Nuka Cola Special [ 3 Fruits, 1 chemicals, 1 advanced chemicals, 10 MFC ]}
+{5010}{}{[ Produce 1 Nuka Cola ]}
+{5020}{}{[ Produce 1 Nuka Cola Special ]}
+{5030}{}{[ Exit ]}
+{6000}{}{[ Loading... Matrix confirmed. Options: Stimpak - 1 chemicals, Super Stimpak - 1 chemicals, 1 advanced chamicals, 1 hypodermic. ]}
+{6010}{}{[ Produce 1 Stimpak ]}
+{6020}{}{[ Produce 1 Super Stimpak ]}
+{6030}{}{[ Exit ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Welcome to Farm-o-Tronic 9000. This unit is in charge of monitoring Nukie mushrooms growing. Each flower bed production - 6 Nukes every 8 hours. Watering requires once per 24 hours and need 6 bottles of water. Choose the option. ]}
+{2010}{}{[ Status ]}
+{2020}{}{[ Pump some water ]}
+{2030}{}{[ Recharge the machine ]}
+{2040}{}{[ Create milk ]}
+{2050}{}{[ Exit ]}
+{2060}{}{[ Insert a Nuka Cola Manufacture Matrix ]}
+{2070}{}{[ Load Nuka Production option ]}
+{2080}{}{[ Insert Stimpak Manufacture Matrix ]}
+{2090}{}{[ Load Stimpak production option ]}
+{3000}{}{Status: Offline. Possible malfunction due to the sand issue. Please use Oil Can to fix the mechanism.}
+{3010}{}{[ Fix the machine ]}
+{3020}{}{[ Exit ]}
+{4000}{}{[ Status: Online. ]}
+{4010}{}{[ Back ]}
+{5000}{}{[ Loading... Matrix confirmed. Options: Simple Nuka Cola [ 2 Fruits, 1 chemicals, 5 MFC ], Nuka Cola Special [ 3 Fruits, 1 chemicals, 1 advanced chemicals, 10 MFC ]}
+{5010}{}{[ Produce 1 Nuka Cola ]}
+{5020}{}{[ Produce 1 Nuka Cola Special ]}
+{5030}{}{[ Exit ]}
+{6000}{}{[ Loading... Matrix confirmed. Options: Stimpak - 1 chemicals, Super Stimpak - 1 chemicals, 1 advanced chamicals, 1 hypodermic. ]}
+{6010}{}{[ Produce 1 Stimpak ]}
+{6020}{}{[ Produce 1 Super Stimpak ]}
+{6030}{}{[ Exit ]}
+

@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 D _var p a51_power = 1 #
+0 2020 #
+6 2030 D _var p a51_power = 2 @
+3 3000 None 0 #
+4 3010 D _var p a51_power = 1 D _param p SK_SCIENCE } 90 R _var p a51_power = 2 #
+0 3020 #
+5 3030 D _param p SK_SCIENCE < 90 @
+4 4000 None 0 @
+5 5000 None 0 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ POWER TERMINAL [ ERROR ] ]}
+{2010}{}{[ STATUS ]}
+{2020}{}{[ EXIT ]}
+{2030}{}{[ STATUS ]}
+{3000}{}{[ STATUS: POWER IS OFF ]}
+{3010}{}{[ RESTART THE GENERATOR ]}
+{3020}{}{[ EXIT ]}
+{3030}{}{[ RESTART THE GENERATOR ]}
+{4000}{}{[ RESTARTING... ]}
+{5000}{}{[ ERROR ]}
+{6000}{}{[ STATUS: POWER IS ON ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ POWER TERMINAL [ ERROR ] ]}
+{2010}{}{[ STATUS ]}
+{2020}{}{[ EXIT ]}
+{2030}{}{[ STATUS ]}
+{3000}{}{[ STATUS: POWER IS OFF ]}
+{3010}{}{[ RESTART THE GENERATOR ]}
+{3020}{}{[ EXIT ]}
+{3030}{}{[ RESTART THE GENERATOR ]}
+{4000}{}{[ RESTARTING... ]}
+{5000}{}{[ ERROR ]}
+{6000}{}{[ STATUS: POWER IS ON ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ POWER TERMINAL [ ERROR ] ]}
+{2010}{}{[ STATUS ]}
+{2020}{}{[ EXIT ]}
+{2030}{}{[ STATUS ]}
+{3000}{}{[ STATUS: POWER IS OFF ]}
+{3010}{}{[ RESTART THE GENERATOR ]}
+{3020}{}{[ EXIT ]}
+{3030}{}{[ RESTART THE GENERATOR ]}
+{4000}{}{[ RESTARTING... ]}
+{5000}{}{[ ERROR ]}
+{6000}{}{[ STATUS: POWER IS ON ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ POWER TERMINAL [ ERROR ] ]}
+{2010}{}{[ STATUS ]}
+{2020}{}{[ EXIT ]}
+{2030}{}{[ STATUS ]}
+{3000}{}{[ STATUS: POWER IS OFF ]}
+{3010}{}{[ RESTART THE GENERATOR ]}
+{3020}{}{[ EXIT ]}
+{3030}{}{[ RESTART THE GENERATOR ]}
+{4000}{}{[ RESTARTING... ]}
+{5000}{}{[ ERROR ]}
+{6000}{}{[ STATUS: POWER IS ON ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ POWER TERMINAL [ ERROR ] ]}
+{2010}{}{[ STATUS ]}
+{2020}{}{[ EXIT ]}
+{2030}{}{[ STATUS ]}
+{3000}{}{[ STATUS: POWER IS OFF ]}
+{3010}{}{[ RESTART THE GENERATOR ]}
+{3020}{}{[ EXIT ]}
+{3030}{}{[ RESTART THE GENERATOR ]}
+{4000}{}{[ RESTARTING... ]}
+{5000}{}{[ ERROR ]}
+{6000}{}{[ STATUS: POWER IS ON ]}
+

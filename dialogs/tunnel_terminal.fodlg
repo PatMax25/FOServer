@@ -1,0 +1,54 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 R _script dialog@dlg_OpenDoor 1 500 R _script dialog@dlg_OpenDoor 1 501 @
+3 3000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! RADIATION LEAK DETECTED! THE FACILITY IS UNDER LOCKDOWN ]}
+{2010}{}{[ DEACTIVATE THE LOCKDOWN PROTOCOL ]}
+{3000}{}{[ REBOOTING... *ERROR* FOR *ERROR* MINUTES ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! RADIATION LEAK DETECTED! THE FACILITY IS UNDER LOCKDOWN ]}
+{2010}{}{[ DEACTIVATE THE LOCKDOWN PROTOCOLE ]}
+{3000}{}{[ REBOOTING... ERROR FOR ERROR MINUTES ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! RADIATION LEAK DETECTED! THE FACILITY IS UNDER LOCKDOWN ]}
+{2010}{}{[ DEACTIVATE THE LOCKDOWN PROTOCOLE ]}
+{3000}{}{[ REBOOTING... ERROR FOR ERROR MINUTES ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! RADIATION LEAK DETECTED! THE FACILITY IS UNDER LOCKDOWN ]}
+{2010}{}{[ DEACTIVATE THE LOCKDOWN PROTOCOLE ]}
+{3000}{}{[ REBOOTING... ERROR FOR ERROR MINUTES ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ WARNING! RADIATION LEAK DETECTED! THE FACILITY IS UNDER LOCKDOWN ]}
+{2010}{}{[ DEACTIVATE THE LOCKDOWN PROTOCOLE ]}
+{3000}{}{[ REBOOTING... ERROR FOR ERROR MINUTES ]}
+

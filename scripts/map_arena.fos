@@ -1,0 +1,183 @@
+//
+// FOnline: 2238
+// Rotators
+//
+// map_arena.fos
+//
+
+#include "_macros.fos"
+#include "_maps.fos"
+#include "follower_common_h.fos"
+#include "messages_h.fos"
+#include "minigames_h.fos"
+#include "npc_common_h.fos"
+#include "npc_roles_h.fos"
+#include "utils_h.fos"
+
+#define  ARENA_DOOR_DIALOG    (10806)
+
+import void ProcessArena(Map& map) from "arena";
+import void InitArenas(Map& map) from "arena";
+import void InitLobby(Map& map) from "arena";
+import void MakeItemsUseless(Critter& cr) from "arena";
+import void RestoreItems(Critter& cr) from "arena";
+import bool IsInsideArena(Critter& cr) from "arena";
+void map_init(Map& map, bool firstTime)
+{
+    map.SetEvent(MAP_EVENT_OUT_CRITTER, "arena@_OnOutCritter");
+    map.SetEvent(MAP_EVENT_IN_CRITTER, "arena@_OnInCritter");
+    map.SetEvent(MAP_EVENT_LOOP_0, "_Arenas");
+	map.SetEvent(MAP_EVENT_CRITTER_DEAD, "_DeadCritter");
+    map.SetLoopTime(0, 4500);
+    InitArenas(map);
+    InitLobby(map);
+}
+
+void RemoveSuperStims(Critter& cr)
+{
+    Item@ ss = cr.GetItem(PID_SUPER_STIMPAK, -1);
+    if(valid(ss))
+    {
+        DeleteItem(ss);
+    }
+}
+
+void RemoveFAKit(Critter& cr)
+{
+    Item@ fa = cr.GetItem(PID_FIELD_MEDIC_KIT, -1);
+    if(valid(fa))
+    {
+        DeleteItem(fa);
+    }
+}
+
+import void _weapon_perk(Item& item, bool firstTime) from "item_level";
+import void _armor_perk(Item& item, bool firstTime) from "item_level";
+void _DeadCritter(Map& map, Critter& cr, Critter@ killer)
+{
+	if(cr.IsPlayer())
+	{
+	cr.TransitToMap(map.Id, 403, 205, 3, false);
+	cr.ToLife();
+   // Heal(cr);
+	cr.ParamBase[ST_VAR6] = 0;
+	ClearEnemyStacksOnMap(map);
+    if(cr.Timeout[TO_REPLICATION] > 0)
+        _SetTimeout(cr, TO_REPLICATION, 0);
+        if(cr.IsDead())
+        cr.ToLife();
+    cr.ParamBase[ST_CURRENT_HP] = cr.Param[ST_MAX_LIFE];
+    int damages = cr.Param[ST_VAR8];
+    if(damages & CRIPPLED_EYE != 0)
+        cr.DamageBase[DAMAGE_EYE] = 1;
+    else
+        cr.DamageBase[DAMAGE_EYE] = 0;
+    if(damages & CRIPPLED_RIGHT_ARM != 0)
+        cr.DamageBase[DAMAGE_RIGHT_ARM] = 1;
+    else
+        cr.DamageBase[DAMAGE_RIGHT_ARM] = 0;
+    if(damages & CRIPPLED_LEFT_ARM != 0)
+        cr.DamageBase[DAMAGE_LEFT_ARM] = 1;
+    else
+        cr.DamageBase[DAMAGE_LEFT_ARM] = 0;
+    if(damages & CRIPPLED_RIGHT_LEG != 0)
+        cr.DamageBase[DAMAGE_RIGHT_LEG] = 1;
+    else
+        cr.DamageBase[DAMAGE_RIGHT_LEG] = 0;
+    if(damages & CRIPPLED_LEFT_LEG != 0)
+        cr.DamageBase[DAMAGE_LEFT_LEG] = 1;
+    else
+        cr.DamageBase[DAMAGE_LEFT_LEG] = 0;
+	
+	cr.ParamBase[ST_RADIATION_LEVEL] = 0;
+	cr.ParamBase[ST_POISONING_LEVEL] = 0;
+    cr.ParamBase[ST_VAR6] = 0;
+    if(cr.Timeout[TO_REPLICATION] > 0)
+        _SetTimeout(cr, TO_REPLICATION, 0);
+    MakeItemsUseless(cr);
+    RemoveSuperStims(cr);
+	RemoveFAKit(cr);
+    RestoreItems(cr);
+    UnsetMinigame(cr);
+	array<Item@> items;
+    uint         n = killer.GetItemsByType(ITEM_TYPE_WEAPON, items);
+	for(uint i = 0; i < n; i++)
+    {
+	items[i].Val0 += Random(100000,250000);
+	_weapon_perk(items[i], false);
+	items[i].Update();
+	}
+	array<Item@> items2;
+    uint         U = killer.GetItemsByType(ITEM_TYPE_ARMOR, items);
+	for(uint i = 0; i < U; i++)
+    {
+	items2[i].Val0 += Random(200000,500000);
+	_armor_perk(items2[i], false);
+	items2[i].Update();
+	}
+	array<Critter@> crits;
+    uint u = cr.GetMap().GetCritters(0, FIND_LIFE_AND_KO, crits);
+	uint expmultip = 0;
+	for(uint i = 0; i < u; i++)
+		if(IsInsideArena(crits[i]))
+			expmultip++;
+	
+	if(cr.GetUID(0) != killer.GetUID(0) && cr.GetUID(1) != killer.GetUID(1) && cr.GetUID(2) != killer.GetUID(2) && cr.GetUID(3) != killer.GetUID(3) && cr.GetUID(4) != killer.GetUID(4))
+		killer.ParamBase[ST_EXPERIENCE] += 250*expmultip*(GetGvar(GVAR_experience_multipler_kill))*(GetGvar(GVAR_experience_multipler));
+		
+	cr.ParamBase[ST_NPC_ROLE] = 0;
+	}
+}
+
+void _Arenas(Map& map)
+{
+    ProcessArena(map);
+}
+
+void _Door(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE_ON_ME, "_UseItemOnDoor");
+    item.SetEvent(ITEM_EVENT_SKILL, "_UseSkillOnDoor");
+}
+
+bool _UseItemOnDoor(Item& item, Critter& crit, Item@ usedItem)
+{
+    return true;
+}
+
+bool _UseSkillOnDoor(Item& item, Critter& crit, int skill)
+{
+    if(skill == -1)
+    {
+        crit.ParamBase[ST_VAR9] = item.Val0;
+        RunDialog(crit, ARENA_DOOR_DIALOG, item.HexX, item.HexY, false);
+    }
+    return true;
+}
+
+/*void t_Nearby(Critter& critter, Scenery& trigger, bool entered, uint8 dir)
+   {
+        if(!critter.IsPlayer() || !entered) return;
+    if (dir == 2 || dir == 3 || dir == 4) return;
+
+        Critter@ cr = critter.GetMap().GetNpc(ROLE_ARENA_GUARD_TALK, FIND_LIFE | FIND_ONLY_NPC, 1);
+        if(!valid(cr)) // if guard is dead
+        @cr=critter.GetMap().GetNpc(ROLE_ARENA_GUARD_TALK, FIND_LIFE | FIND_ONLY_NPC, 0);
+    if(valid(cr))
+    {
+        if(HasIllegalItems(critter)||(GetNumberOfFollowingFollowersOfPlayer(critter)>0))
+            cr.Say(SAY_NORM_ON_HEAD, (HasIllegalItems(critter)?"You may not bring weapons or drugs here!":"")+(GetNumberOfFollowingFollowersOfPlayer(critter)>0?" Followers are not allowed in here, let them wait outside!":""));
+        else
+            cr.Say(SAY_NORM_ON_HEAD, "Welcome!");
+    }
+   }
+
+   void t_Enter(Critter& cr, Scenery& trigger, bool entered, uint8 dir)
+   {
+    if(_CritHasExtMode(cr, MODE_EXT_GUARD))
+        return;
+    if(_CritHasExtMode(cr, MODE_EXT_FOLLOWER))
+        cr.SendMessage(MSG_ATTACK_ME, 0, MESSAGE_TO_WHO_SEES_ME);
+    if(HasIllegalItems(cr))
+        cr.SendMessage(MSG_ATTACK_ME, 0, MESSAGE_TO_WHO_SEES_ME);
+   }*/

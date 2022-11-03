@@ -1,0 +1,44 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Technician}
+{200}{}{You see a Technician.}
+{210}{}{He's still watching a computer monitor. Good job!}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Production process looks really good today.@@Ahhh, more gas bubbles...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Producion proccess looks really good today.@@Ahhh, more gas bubbles...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Producion proccess looks really good today.@@Ahhh, more gas bubbles...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Producion proccess looks really good today.@@Ahhh, more gas bubbles...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Producion proccess looks really good today.@@Ahhh, more gas bubbles...}
+

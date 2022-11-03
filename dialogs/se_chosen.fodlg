@@ -1,0 +1,102 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+2 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 #
+0 4020 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 &
+
+[engl]
+{100}{}{Chosen One}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello there. Didn't expect anyone here.}
+{2010}{}{Hey. Who are you?}
+{2020}{}{Great. Need to go now.}
+{3000}{}{Me? Oh... Well, people should actually know me around.}
+{3010}{}{Are you searching for something?}
+{4000}{}{Nah, I had enough of searching for something. Imagine searching for a freaking suitcase all around California.}
+{4010}{}{So... What happened here?}
+{4020}{}{Alright. See you.}
+{5000}{}{I was driving my Highwayman with my dear companions and here it is... [ he points to the lamp post ] We crashed.}
+{5010}{}{I see. Well, will be going now.}
+{6000}{}{Now... Need to fix this crap...}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello there. Didn't expect anyone here.}
+{2010}{}{Hey. Who are you?}
+{2020}{}{Great. Need to go now.}
+{3000}{}{Me? Oh... Well, people should actually know me around.}
+{3010}{}{Are you searching for something?}
+{4000}{}{Nah, I had enough of searching for something. Imagine searching for a freaking suitcase all around California.}
+{4010}{}{So... What happened here?}
+{4020}{}{Alright. See you.}
+{5000}{}{I was driving my Highway with my dear companions and here it is... [ he points on the lamp post ] We crashed.}
+{5010}{}{I see. Well, will be going now.}
+{6000}{}{Now... Need to fix this crap...}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello there. Didn't expect anyone here.}
+{2010}{}{Hey. Who are you?}
+{2020}{}{Great. Need to go now.}
+{3000}{}{Me? Oh... Well, people should actually know me around.}
+{3010}{}{Are you searching for something?}
+{4000}{}{Nah, I had enough of searching for something. Imagine searching for a freaking suitcase all around California.}
+{4010}{}{So... What happened here?}
+{4020}{}{Alright. See you.}
+{5000}{}{I was driving my Highway with my dear companions and here it is... [ he points on the lamp post ] We crashed.}
+{5010}{}{I see. Well, will be going now.}
+{6000}{}{Now... Need to fix this crap...}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello there. Didn't expect anyone here.}
+{2010}{}{Hey. Who are you?}
+{2020}{}{Great. Need to go now.}
+{3000}{}{Me? Oh... Well, people should actually know me around.}
+{3010}{}{Are you searching for something?}
+{4000}{}{Nah, I had enough of searching for something. Imagine searching for a freaking suitcase all around California.}
+{4010}{}{So... What happened here?}
+{4020}{}{Alright. See you.}
+{5000}{}{I was driving my Highway with my dear companions and here it is... [ he points on the lamp post ] We crashed.}
+{5010}{}{I see. Well, will be going now.}
+{6000}{}{Now... Need to fix this crap...}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Oh hello there. Didn't expect anyone here.}
+{2010}{}{Hey. Who are you?}
+{2020}{}{Great. Need to go now.}
+{3000}{}{Me? Oh... Well, people should actually know me around.}
+{3010}{}{Are you searching for something?}
+{4000}{}{Nah, I had enough of searching for something. Imagine searching for a freaking suitcase all around California.}
+{4010}{}{So... What happened here?}
+{4020}{}{Alright. See you.}
+{5000}{}{I was driving my Highway with my dear companions and here it is... [ he points on the lamp post ] We crashed.}
+{5010}{}{I see. Well, will be going now.}
+{6000}{}{Now... Need to fix this crap...}
+

@@ -1,0 +1,253 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p vegas_guvert = 0 #
+10 1020 D _var p vegas_guvert = 4 #
+2 1030 D _var p vegas_guvert = 1 #
+2 1040 D _var p vegas_guvert = 2 #
+2 1050 D _var p vegas_guvert = 3 @
+2 2000 None 0 #
+65506 2010 #
+0 2020 #
+3 2030 D _var p vegas_guvert = 0 #
+9 2040 D _var p vegas_guvert = 1 D _item p PID_TALISMAN } 1 R _item p PID_TALISMAN - 1 R _var p vegas_guvert = 2 R _param p ST_EXPERIENCE + 4500 R _item p PID_COFFEE + 1 R _item p PID_DOLLAR + 10 R _item p PID_DOCTOR_BOOK + 2 R _item p PID_COWBOY_HAT + 1 #
+11 2050 @
+3 3000 None 0 #
+4 3010 D _param p TRAIT_CHEM_RESISTANT = 0 #
+5 3020 D _param p TRAIT_CHEM_RESISTANT = 1 #
+8 3030 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+0 5010 #
+6 5020 @
+6 6000 None 0 #
+7 6010 D _var p vegas_guvert = 0 R _var p vegas_guvert = 1 #
+0 6020 @
+7 7000 None 0 @
+8 8000 None 0 #
+65507 8010 #
+2 8020 @
+9 9000 None 0 #
+2 9010 @
+10 10000 None 0 @
+11 11000 None 0 #
+11 11010 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_LIVER + 3 #
+11 11020 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_HEART + 3 #
+11 11030 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_EYE + 3 #
+11 11040 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_EAR + 3 #
+11 11050 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_BRAIN + 3 #
+11 11060 D _item p PID_DOLLAR } 1 R _item p PID_DOLLAR - 1 R _item p PID_BLOODPACK + 2 &
+
+[engl]
+{100}{}{Gurvert}
+{200}{}{He has a very fancy mask on his face.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{1050}{}{Answer text}
+{2000}{}{Welcome to Burlesque. How may I serve you today?}
+{2010}{}{Show me what you have. [ Barter ]}
+{2020}{}{Later maybe. [ end dialogue ]}
+{2030}{}{A fancy mask you have. What does it mean?}
+{2040}{}{All done. Here is his amulet you've been asking for.}
+{2050}{}{I wish to see some of your exclusive stock.}
+{3000}{}{Ah, this means that I belong to one very unique and... let's say... elite sociaty of true gourmets.}
+{3010}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty"? I am gourmet too, you know.}
+{3020}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty"? I am gourmet too, you know.}
+{3030}{}{Oh I got it. Cannibals, aren't you? And what if I tell local police forces about it?}
+{4000}{}{You? Oh-ho-ho, don't be silly. I can clearly say you are far from being a gourmet.}
+{4010}{}{Fine, you got me. Let's switch the topic.}
+{5000}{}{Yes, there is something in you... My sociaty provides the best food for the people like we are. However, in order to become a part of our sociaty you will need to prove yourself.}
+{5010}{}{Oh fuck no. I am not a run-around-do-me-a-favour guy. I am leaving.}
+{5020}{}{I am all in ears.}
+{6000}{}{There is small stinky tribe living not far from Vegas. They placed their tent city just on the route of our "secret" supply lines. Get rid of them and bring me the amulet of their "leader". It shouldn't be a big problem for you since these barbarians are armed only with spears and rocks.}
+{6010}{}{Alright. I will take the task.}
+{6020}{}{No, I will not kill innocent people. I am off with this.}
+{7000}{}{I will be waiting for your results.}
+{8000}{}{[ He smirks ] Nobody will believe you, my dear. The sheriff is a good member of our sociaty and if you try to speak about it... Oh well... You might end up as our dish then.}
+{8010}{}{[ Attack ] You do not dare threatening me, stupid asshole. I gotta punch this lovely mask off your face now, don't move...}
+{8020}{}{Alright... You people are serious. Let's switch the topic.}
+{9000}{}{Outstanding job. Now you can be our proud member. Sorry, I have no mask for you, but you don't really seem to need it. Now you can buy some of our "exclusive" dishes from us. Everything for just 1 golden dollar.}
+{9010}{}{Great. Let's switch the topic.}
+{10000}{}{It was a big mistake for you to come here.}
+{11000}{}{What would you like to purchase?}
+{11010}{}{[ 3 Livers ]}
+{11020}{}{[ 3 Hearts ]}
+{11030}{}{[ 3 Eyes ]}
+{11040}{}{[ 3 Ears ]}
+{11050}{}{[ 3 Brains ]}
+{11060}{}{[ 2 Bloodpacks ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{1050}{}{Answer text}
+{2000}{}{Welcome to Burlesque. How may I serve you today?}
+{2010}{}{Show me what you have. [ Barter ]}
+{2020}{}{Later maybe. [ end dialogue ]}
+{2030}{}{A fancy mask you have. What does it mean?}
+{2040}{}{All done. Here is his amulet you've been asking for.}
+{2050}{}{I wish to see some of your exclusive stock.}
+{3000}{}{Ah, this means that I belong to one very unique and... let's say... elite sociaty of true gourmets.}
+{3010}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty". I am gourmet too, you know.}
+{3020}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty". I am gourmet too, you know.}
+{3030}{}{Oh I got it. Cannibals, aren't you? And what if I tell local police forces about it?}
+{4000}{}{You? Oh-ho-ho, don't be silly. I can clearly say you are far from being a gourmet.}
+{4010}{}{Fine, you got me. Let's switch the topic.}
+{5000}{}{Yes, there is something in you... My sociaty provides the best food for the people like we are. However, in order to become a part of our sociaty you will need to prove yourself.}
+{5010}{}{Oh fuck no. I am not a run-around-do-me-a-favour guy. I leaving.}
+{5020}{}{I am all in ears.}
+{6000}{}{There is small stinky tribe living not far from Vegas. They placed their tent city just on the route of our "secret" supply lines. Get rid of them and bring me the amulet of their "leader". It shouldn't be a big problem for you since these barbarians are armed only with spears and rocks.}
+{6010}{}{Alright. I will take the task.}
+{6020}{}{No, I will not kill innocent people. I am off.}
+{7000}{}{I will be waiting for your results.}
+{8000}{}{[ He smirks ] Nobody will believe you, my dear. The sheriff is a good member of our sociaty and if you try to speak about it... Oh well... You might end up as our dish then.}
+{8010}{}{[ Attack ] You do not dare threatening me, stupid asshole. I got punch this lovely mask off your face no, don't move...}
+{8020}{}{Alright... You people are serious. Let's switch the topic.}
+{9000}{}{Outstanding job. Now you can be our proud member. Sorry, I have no mask for you, but you don't really seem to need it. Now you can buy some of our "exclusive" dishes from us. Everything for just 1 golden dollar.}
+{9010}{}{Great. Let's switch the topic.}
+{10000}{}{It was a big mistake for you to come here.}
+{11000}{}{What would you like to purchase?}
+{11010}{}{[ 3 Livers ]}
+{11020}{}{[ 3 Hearts ]}
+{11030}{}{[ 3 Eyes ]}
+{11040}{}{[ 3 Ears ]}
+{11050}{}{[ 3 Brains ]}
+{11060}{}{[ 2 Bloodpacks ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{1050}{}{Answer text}
+{2000}{}{Welcome to Burlesque. How may I serve you today?}
+{2010}{}{Show me what you have. [ Barter ]}
+{2020}{}{Later maybe. [ end dialogue ]}
+{2030}{}{A fancy mask you have. What does it mean?}
+{2040}{}{All done. Here is his amulet you've been asking for.}
+{2050}{}{I wish to see some of your exclusive stock.}
+{3000}{}{Ah, this means that I belong to one very unique and... let's say... elite sociaty of true gourmets.}
+{3010}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty". I am gourmet too, you know.}
+{3020}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty". I am gourmet too, you know.}
+{3030}{}{Oh I got it. Cannibals, aren't you? And what if I tell local police forces about it?}
+{4000}{}{You? Oh-ho-ho, don't be silly. I can clearly say you are far from being a gourmet.}
+{4010}{}{Fine, you got me. Let's switch the topic.}
+{5000}{}{Yes, there is something in you... My sociaty provides the best food for the people like we are. However, in order to become a part of our sociaty you will need to prove yourself.}
+{5010}{}{Oh fuck no. I am not a run-around-do-me-a-favour guy. I leaving.}
+{5020}{}{I am all in ears.}
+{6000}{}{There is small stinky tribe living not far from Vegas. They placed their tent city just on the route of our "secret" supply lines. Get rid of them and bring me the amulet of their "leader". It shouldn't be a big problem for you since these barbarians are armed only with spears and rocks.}
+{6010}{}{Alright. I will take the task.}
+{6020}{}{No, I will not kill innocent people. I am off.}
+{7000}{}{I will be waiting for your results.}
+{8000}{}{[ He smirks ] Nobody will believe you, my dear. The sheriff is a good member of our sociaty and if you try to speak about it... Oh well... You might end up as our dish then.}
+{8010}{}{[ Attack ] You do not dare threatening me, stupid asshole. I got punch this lovely mask off your face no, don't move...}
+{8020}{}{Alright... You people are serious. Let's switch the topic.}
+{9000}{}{Outstanding job. Now you can be our proud member. Sorry, I have no mask for you, but you don't really seem to need it. Now you can buy some of our "exclusive" dishes from us. Everything for just 1 golden dollar.}
+{9010}{}{Great. Let's switch the topic.}
+{10000}{}{It was a big mistake for you to come here.}
+{11000}{}{What would you like to purchase?}
+{11010}{}{[ 3 Livers ]}
+{11020}{}{[ 3 Hearts ]}
+{11030}{}{[ 3 Eyes ]}
+{11040}{}{[ 3 Ears ]}
+{11050}{}{[ 3 Brains ]}
+{11060}{}{[ 2 Bloodpacks ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{1050}{}{Answer text}
+{2000}{}{Welcome to Burlesque. How may I serve you today?}
+{2010}{}{Show me what you have. [ Barter ]}
+{2020}{}{Later maybe. [ end dialogue ]}
+{2030}{}{A fancy mask you have. What does it mean?}
+{2040}{}{All done. Here is his amulet you've been asking for.}
+{2050}{}{I wish to see some of your exclusive stock.}
+{3000}{}{Ah, this means that I belong to one very unique and... let's say... elite sociaty of true gourmets.}
+{3010}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty". I am gourmet too, you know.}
+{3020}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty". I am gourmet too, you know.}
+{3030}{}{Oh I got it. Cannibals, aren't you? And what if I tell local police forces about it?}
+{4000}{}{You? Oh-ho-ho, don't be silly. I can clearly say you are far from being a gourmet.}
+{4010}{}{Fine, you got me. Let's switch the topic.}
+{5000}{}{Yes, there is something in you... My sociaty provides the best food for the people like we are. However, in order to become a part of our sociaty you will need to prove yourself.}
+{5010}{}{Oh fuck no. I am not a run-around-do-me-a-favour guy. I leaving.}
+{5020}{}{I am all in ears.}
+{6000}{}{There is small stinky tribe living not far from Vegas. They placed their tent city just on the route of our "secret" supply lines. Get rid of them and bring me the amulet of their "leader". It shouldn't be a big problem for you since these barbarians are armed only with spears and rocks.}
+{6010}{}{Alright. I will take the task.}
+{6020}{}{No, I will not kill innocent people. I am off.}
+{7000}{}{I will be waiting for your results.}
+{8000}{}{[ He smirks ] Nobody will believe you, my dear. The sheriff is a good member of our sociaty and if you try to speak about it... Oh well... You might end up as our dish then.}
+{8010}{}{[ Attack ] You do not dare threatening me, stupid asshole. I got punch this lovely mask off your face no, don't move...}
+{8020}{}{Alright... You people are serious. Let's switch the topic.}
+{9000}{}{Outstanding job. Now you can be our proud member. Sorry, I have no mask for you, but you don't really seem to need it. Now you can buy some of our "exclusive" dishes from us. Everything for just 1 golden dollar.}
+{9010}{}{Great. Let's switch the topic.}
+{10000}{}{It was a big mistake for you to come here.}
+{11000}{}{What would you like to purchase?}
+{11010}{}{[ 3 Livers ]}
+{11020}{}{[ 3 Hearts ]}
+{11030}{}{[ 3 Eyes ]}
+{11040}{}{[ 3 Ears ]}
+{11050}{}{[ 3 Brains ]}
+{11060}{}{[ 2 Bloodpacks ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{1020}{}{Answer text}
+{1030}{}{Answer text}
+{1040}{}{Answer text}
+{1050}{}{Answer text}
+{2000}{}{Welcome to Burlesque. How may I serve you today?}
+{2010}{}{Show me what you have. [ Barter ]}
+{2020}{}{Later maybe. [ end dialogue ]}
+{2030}{}{A fancy mask you have. What does it mean?}
+{2040}{}{All done. Here is his amulet you've been asking for.}
+{2050}{}{I wish to see some of your exclusive stock.}
+{3000}{}{Ah, this means that I belong to one very unique and... let's say... elite sociaty of true gourmets.}
+{3010}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty". I am gourmet too, you know.}
+{3020}{}{[ Cannibal ] Interesting... May I become a part of your "sociaty". I am gourmet too, you know.}
+{3030}{}{Oh I got it. Cannibals, aren't you? And what if I tell local police forces about it?}
+{4000}{}{You? Oh-ho-ho, don't be silly. I can clearly say you are far from being a gourmet.}
+{4010}{}{Fine, you got me. Let's switch the topic.}
+{5000}{}{Yes, there is something in you... My sociaty provides the best food for the people like we are. However, in order to become a part of our sociaty you will need to prove yourself.}
+{5010}{}{Oh fuck no. I am not a run-around-do-me-a-favour guy. I leaving.}
+{5020}{}{I am all in ears.}
+{6000}{}{There is small stinky tribe living not far from Vegas. They placed their tent city just on the route of our "secret" supply lines. Get rid of them and bring me the amulet of their "leader". It shouldn't be a big problem for you since these barbarians are armed only with spears and rocks.}
+{6010}{}{Alright. I will take the task.}
+{6020}{}{No, I will not kill innocent people. I am off.}
+{7000}{}{I will be waiting for your results.}
+{8000}{}{[ He smirks ] Nobody will believe you, my dear. The sheriff is a good member of our sociaty and if you try to speak about it... Oh well... You might end up as our dish then.}
+{8010}{}{[ Attack ] You do not dare threatening me, stupid asshole. I got punch this lovely mask off your face no, don't move...}
+{8020}{}{Alright... You people are serious. Let's switch the topic.}
+{9000}{}{Outstanding job. Now you can be our proud member. Sorry, I have no mask for you, but you don't really seem to need it. Now you can buy some of our "exclusive" dishes from us. Everything for just 1 golden dollar.}
+{9010}{}{Great. Let's switch the topic.}
+{10000}{}{It was a big mistake for you to come here.}
+{11000}{}{What would you like to purchase?}
+{11010}{}{[ 3 Livers ]}
+{11020}{}{[ 3 Hearts ]}
+{11030}{}{[ 3 Eyes ]}
+{11040}{}{[ 3 Ears ]}
+{11050}{}{[ 3 Brains ]}
+{11060}{}{[ 2 Bloodpacks ]}
+

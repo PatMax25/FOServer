@@ -1,0 +1,123 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 D _var p q_bh_max = 0 #
+5 2020 #
+0 2030 #
+7 2040 D _var p q_bh_max = 3 R _item p PID_BOTTLE_CAPS + 2600 R _param p ST_EXPERIENCE + 3000 R _script dialog@r_cd_quest 2 500 526 R _var p q_bh_max = 4 @
+4 3000 None 0 #
+0 3010 #
+0 3020 R _var p q_bh_max = 1 @
+5 4000 None 0 #
+2 4010 @
+6 5000 None 0 @
+7 6000 None 0 #
+0 6010 #
+0 6020 &
+
+[engl]
+{100}{}{Max}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{I am looking for a job. Do you have any?}
+{2020}{}{What is Vault City doing here?}
+{2030}{}{Nah, I will go now.}
+{2040}{}{I did your task.}
+{3000}{}{Well, we need one thing to be done. I need you to get inside the mine and download the data from our terminal there. It will be standing near the pump machine. Then you should get that data to the Centurion 3500. It must be around here. Give the data to him. Also... You will need a password in order to download whole data into Centurion. It is 17987768144. You better remember it - it is a pass for outsiders, otherwise the robot may think that you are a danger.}
+{3010}{}{Not interested in such crap!}
+{3020}{}{Sure, I will do it.}
+{4000}{}{Council thinks it is a good idea to build a small settlement here. So we try to make one...}
+{4010}{}{I see. One more question...}
+{5000}{}{Yeah... See you.}
+{6000}{}{Great. By the way... It always requires updates, so... You can always return back and go for another ride if you wish. Here is your payment.}
+{6010}{}{Yeah... sure.}
+{6020}{}{Nah, fuck this.}
+
+[czec]
+{100}{}{Max}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{I am looking for a job. Do you have any?}
+{2020}{}{What is Vault City doing here?}
+{2030}{}{Nah, I will go now.}
+{2040}{}{I did your task.}
+{3000}{}{Well, we need one thing to be done. I need you to get inside the mine and download the data from our terminal there. It will be standing near the pump machine. Then you should get that data to the Centurion 3500. It must be around here. Give the data to him. Also... You will need a password in order to download whole data into Centurion. It is 17987768144. You better remember it - it is a pass for outsiders, otherwise the robot may think that you are a danger.}
+{3010}{}{Not interested in such crap!}
+{3020}{}{Sure, I will do it.}
+{4000}{}{Council thinks it is a good idea to build a small settlement here. So we try to make one...}
+{4010}{}{I see. One more question...}
+{5000}{}{Yeah... See you.}
+{6000}{}{Great. By the way... It always requires updates, so... You can always return back and go for another ride if you wish. Here is your payment.}
+{6010}{}{Yeah... sure.}
+{6020}{}{Nah, fuck this.}
+
+
+[pols]
+{100}{}{Max}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{I am looking for a job. Do you have any?}
+{2020}{}{What is Vault City doing here?}
+{2030}{}{Nah, I will go now.}
+{2040}{}{I did your task.}
+{3000}{}{Well, we need one thing to be done. I need you to get inside the mine and download the data from our terminal there. It will be standing near the pump machine. Then you should get that data to the Centurion 3500. It must be around here. Give the data to him. Also... You will need a password in order to download whole data into Centurion. It is 17987768144. You better remember it - it is a pass for outsiders, otherwise the robot may think that you are a danger.}
+{3010}{}{Not interested in such crap!}
+{3020}{}{Sure, I will do it.}
+{4000}{}{Council thinks it is a good idea to build a small settlement here. So we try to make one...}
+{4010}{}{I see. One more question...}
+{5000}{}{Yeah... See you.}
+{6000}{}{Great. By the way... It always requires updates, so... You can always return back and go for another ride if you wish. Here is your payment.}
+{6010}{}{Yeah... sure.}
+{6020}{}{Nah, fuck this.}
+
+
+[span]
+{100}{}{Max}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{I am looking for a job. Do you have any?}
+{2020}{}{What is Vault City doing here?}
+{2030}{}{Nah, I will go now.}
+{2040}{}{I did your task.}
+{3000}{}{Well, we need one thing to be done. I need you to get inside the mine and download the data from our terminal there. It will be standing near the pump machine. Then you should get that data to the Centurion 3500. It must be around here. Give the data to him. Also... You will need a password in order to download whole data into Centurion. It is 17987768144. You better remember it - it is a pass for outsiders, otherwise the robot may think that you are a danger.}
+{3010}{}{Not interested in such crap!}
+{3020}{}{Sure, I will do it.}
+{4000}{}{Council thinks it is a good idea to build a small settlement here. So we try to make one...}
+{4010}{}{I see. One more question...}
+{5000}{}{Yeah... See you.}
+{6000}{}{Great. By the way... It always requires updates, so... You can always return back and go for another ride if you wish. Here is your payment.}
+{6010}{}{Yeah... sure.}
+{6020}{}{Nah, fuck this.}
+
+[russ]
+{100}{}{Max}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. Can I help you?}
+{2010}{}{I am looking for a job. Do you have any?}
+{2020}{}{What is Vault City doing here?}
+{2030}{}{Nah, I will go now.}
+{2040}{}{I did your task.}
+{3000}{}{Well, we need one thing to be done. I need you to get inside the mine and download the data from our terminal there. It will be standing near the pump machine. Then you should get that data to the Centurion 3500. It must be around here. Give the data to him. Also... You will need a password in order to download whole data into Centurion. It is 17987768144. You better remember it - it is a pass for outsiders, otherwise the robot may think that you are a danger.}
+{3010}{}{Not interested in such crap!}
+{3020}{}{Sure, I will do it.}
+{4000}{}{Council thinks it is a good idea to build a small settlement here. So we try to make one...}
+{4010}{}{I see. One more question...}
+{5000}{}{Yeah... See you.}
+{6000}{}{Great. By the way... It always requires updates, so... You can always return back and go for another ride if you wish. Here is your payment.}
+{6010}{}{Yeah... sure.}
+{6020}{}{Nah, fuck this.}
+
+

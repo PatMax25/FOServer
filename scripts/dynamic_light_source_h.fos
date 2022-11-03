@@ -1,0 +1,20 @@
+//fo3 
+#ifndef DYNAMIC_LIGHT_H
+#define DYNAMIC_LIGHT_H
+
+#define DYNAMIC_LIGHT_PARAM_COLOR		(0)
+#define DYNAMIC_LIGHT_PARAM_INTENSITY	(1)
+#define DYNAMIC_LIGHT_PARAM_DISTANCE	(2)
+#define DYNAMIC_LIGHT_PARAM_DROP		(3)
+
+#ifndef DYNAMIC_LIGHT_MODULE
+import void SwitchGroupLights(Map& map, int groupId, bool on) from "dynamic_light_source";
+import void ChangeGroupLightsParam(Map& map, int groupId, int paramId, int paramVal) from "dynamic_light_source";
+#endif
+
+#ifdef DYNAMIC_LIGHT_MODULE
+#include "_macros.fos"
+#include "_time.fos"
+#endif
+
+#endif

@@ -1,0 +1,134 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+4 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 @
+3 3000 None 0 #
+4 3010 R _var p name_mem_npc_player = 1 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{William}
+{200}{}{This is William. Just William...}
+{210}{}{This guy looks so strange... What happened with his skin?}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{2000}{}{Wha... What? Who are you?}
+{2010}{}{Hey, I am...}
+{3000}{}{Oh damn... I... I know your face, yeah...You are one of the residents, aren't you?}
+{3010}{}{Wait, I...}
+{4000}{}{What do you need?}
+{4010}{}{Who are you?}
+{5000}{}{I am Anderson... William Anderson, team Gamma technician. At least I was once.}
+{5010}{}{Vault technicians? What... happened to you? And what happened to the Vault?}
+{6000}{}{Well, it was 2170... or 2178? I don't remember... I was a member of the Vault technician team...}
+{6010}{}{Well, I guess...}
+{7000}{}{They did it, I tell you! It was their fault... Their fault... I still remember Alex... His face... Poor bastard Alex got his face taken off him... Poor bastard Alex... Poor bastard Alex...}
+{7010}{}{Great, I...}
+{8000}{}{Doc had no choice, I tell you. he had to awake you all... Poor Doc... Poor bastard Doc...}
+{8010}{}{Eeh... You know, I better go now. [ end dialogue ]}
+{9000}{}{Yeah, yeah... You all say this.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{2000}{}{Wha... What? Who are you?}
+{2010}{}{Hey, I am...}
+{3000}{}{Oh damn... I... I know your face, yeah...You are one of the residents, aren't you?}
+{3010}{}{Wait, I...}
+{4000}{}{What do you need?}
+{4010}{}{Who are you?}
+{5000}{}{I am Anderson... William Anderson, team Gamma technician. At least I was once.}
+{5010}{}{Vault technicians? What... happened to you? And what happened to the Vault?}
+{6000}{}{Well, it was 2170... or 2178? I don't remember... I was a member of the Vault technician team...}
+{6010}{}{Well, I guess...}
+{7000}{}{They did it, I tell you! It was their fault... Their fault... I still remember Alex... His face... Poor bastard Alex got his face taken off him... Poor bastard Alex... Poor bastard Alex...}
+{7010}{}{Great, I...}
+{8000}{}{Doc had no choice, I tell you. he had to awake you all... Poor Doc... Poor bastard Doc...}
+{8010}{}{Eeh... You know, I better go now.}
+{9000}{}{Yeah, yeah... You all say such.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{2000}{}{Wha... What? Who are you?}
+{2010}{}{Hey, I am...}
+{3000}{}{Oh damn... I... I know your face, yeah...You are one of the residents, aren't you?}
+{3010}{}{Wait, I...}
+{4000}{}{What do you need?}
+{4010}{}{Who are you?}
+{5000}{}{I am Anderson... William Anderson, team Gamma technician. At least I was once.}
+{5010}{}{Vault technicians? What... happened to you? And what happened to the Vault?}
+{6000}{}{Well, it was 2170... or 2178? I don't remember... I was a member of the Vault technician team...}
+{6010}{}{Well, I guess...}
+{7000}{}{They did it, I tell you! It was their fault... Their fault... I still remember Alex... His face... Poor bastard Alex got his face taken off him... Poor bastard Alex... Poor bastard Alex...}
+{7010}{}{Great, I...}
+{8000}{}{Doc had no choice, I tell you. he had to awake you all... Poor Doc... Poor bastard Doc...}
+{8010}{}{Eeh... You know, I better go now.}
+{9000}{}{Yeah, yeah... You all say such.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{2000}{}{Wha... What? Who are you?}
+{2010}{}{Hey, I am...}
+{3000}{}{Oh damn... I... I know your face, yeah...You are one of the residents, aren't you?}
+{3010}{}{Wait, I...}
+{4000}{}{What do you need?}
+{4010}{}{Who are you?}
+{5000}{}{I am Anderson... William Anderson, team Gamma technician. At least I was once.}
+{5010}{}{Vault technicians? What... happened to you? And what happened to the Vault?}
+{6000}{}{Well, it was 2170... or 2178? I don't remember... I was a member of the Vault technician team...}
+{6010}{}{Well, I guess...}
+{7000}{}{They did it, I tell you! It was their fault... Their fault... I still remember Alex... His face... Poor bastard Alex got his face taken off him... Poor bastard Alex... Poor bastard Alex...}
+{7010}{}{Great, I...}
+{8000}{}{Doc had no choice, I tell you. he had to awake you all... Poor Doc... Poor bastard Doc...}
+{8010}{}{Eeh... You know, I better go now.}
+{9000}{}{Yeah, yeah... You all say such.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{ }
+{1020}{}{ }
+{2000}{}{Wha... What? Who are you?}
+{2010}{}{Hey, I am...}
+{3000}{}{Oh damn... I... I know your face, yeah...You are one of the residents, aren't you?}
+{3010}{}{Wait, I...}
+{4000}{}{What do you need?}
+{4010}{}{Who are you?}
+{5000}{}{I am Anderson... William Anderson, team Gamma technician. At least I was once.}
+{5010}{}{Vault technicians? What... happened to you? And what happened to the Vault?}
+{6000}{}{Well, it was 2170... or 2178? I don't remember... I was a member of the Vault technician team...}
+{6010}{}{Well, I guess...}
+{7000}{}{They did it, I tell you! It was their fault... Their fault... I still remember Alex... His face... Poor bastard Alex got his face taken off him... Poor bastard Alex... Poor bastard Alex...}
+{7010}{}{Great, I...}
+{8000}{}{Doc had no choice, I tell you. he had to awake you all... Poor Doc... Poor bastard Doc...}
+{8010}{}{Eeh... You know, I better go now.}
+{9000}{}{Yeah, yeah... You all say such.}
+

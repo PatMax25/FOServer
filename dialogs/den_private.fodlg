@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Soldier}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Watch yourself.@@You better find a mask somewhere, it is not safe to breathe.@@This is a true hell...@@Yesterday we had to burn another pile of corpses...@@Don't go to the South side- it is infested.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Watch yourself.@@You better find a mask somewhere, it is not safe to breath.@@This is a true hell...@@Yesterday we had to burn another pile of corpses...@@Don't go to the South side- it is infested.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Watch yourself.@@You better find a mask somewhere, it is not safe to breath.@@This is a true hell...@@Yesterday we had to burn another pile of corpses...@@Don't go to the South side- it is infested.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Watch yourself.@@You better find a mask somewhere, it is not safe to breath.@@This is a true hell...@@Yesterday we had to burn another pile of corpses...@@Don't go to the South side- it is infested.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Watch yourself.@@You better find a mask somewhere, it is not safe to breath.@@This is a true hell...@@Yesterday we had to burn another pile of corpses...@@Don't go to the South side- it is infested.}
+

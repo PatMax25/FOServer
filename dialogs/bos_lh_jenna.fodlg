@@ -1,0 +1,110 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+2 1010 D _var n name_mem_npc_player = 0 #
+3 1020 D _var n name_mem_npc_player = 1 @
+2 2000 None 0 #
+4 2010 R _var n name_mem_npc_player = 1 #
+0 2020 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 R _var n acquaintance = 1 #
+0 4020 @
+5 5000 None 0 #
+0 5010 &
+
+[engl]
+{100}{}{Jenna}
+{200}{}{You see a Jenna, Knight of the Brotherhood of Steel.}
+{210}{}{You see a woman in Brotherhood Combat Armor. Judging by the tools in front of her she's currently repairing a suit of Power Armor.}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello, I'm Jenna, are you one of our new in-takes?}
+{2010}{}{That's right, I'm familiarizing myself with the Bunker and its personnel. I had a few questions, would you mind answering them?}
+{2020}{}{I think I'm in the wrong place. [ end dialogue ]}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin', sorry to disturb you. [ end dialogue ]}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{Ah, nothing. Sorry. [ end dialogue ]}
+{5000}{}{I'm working on the Armor from the Brotherhood's stores. Some of it needs repairing... we're always having encounters with hostile mutants and other wasteland scum.}
+{5010}{}{Okay, I think I'll leave you to your work then. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello, I'm Jenna, are you one of our new in-take?}
+{2010}{}{That's right, I'm familiarizing myself with the Bunker and its personel. I had a few questions if you don't mind answering them.}
+{2020}{}{I think I'm in the wrong place.}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin, sorry to disturb you.}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{Ah, nothing. Sorry.}
+{5000}{}{I'm working on the Armor from the Brotherhood's stores. Some of it needs repairing after our latest encounters with the Mutants.}
+{5010}{}{Okay, I think I'll leave you to your work then.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello, I'm Jenna, are you one of our new in-take?}
+{2010}{}{That's right, I'm familiarizing myself with the Bunker and its personel. I had a few questions if you don't mind answering them.}
+{2020}{}{I think I'm in the wrong place.}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin, sorry to disturb you.}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{Ah, nothing. Sorry.}
+{5000}{}{I'm working on the Armor from the Brotherhood's stores. Some of it needs repairing after our latest encounters with the Mutants.}
+{5010}{}{Okay, I think I'll leave you to your work then.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello, I'm Jenna, are you one of our new in-take?}
+{2010}{}{That's right, I'm familiarizing myself with the Bunker and its personel. I had a few questions if you don't mind answering them.}
+{2020}{}{I think I'm in the wrong place.}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin, sorry to disturb you.}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{Ah, nothing. Sorry.}
+{5000}{}{I'm working on the Armor from the Brotherhood's stores. Some of it needs repairing after our latest encounters with the Mutants.}
+{5010}{}{Okay, I think I'll leave you to your work then.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown member}
+{1020}{}{Known member}
+{2000}{}{Hello, I'm Jenna, are you one of our new in-take?}
+{2010}{}{That's right, I'm familiarizing myself with the Bunker and its personel. I had a few questions if you don't mind answering them.}
+{2020}{}{I think I'm in the wrong place.}
+{3000}{}{Hello again. What brings you here this time?}
+{3010}{}{Just wanted to ask you something...}
+{3020}{}{Nothin, sorry to disturb you.}
+{4000}{}{Sure, why not?}
+{4010}{}{What are you doing here?}
+{4020}{}{Ah, nothing. Sorry.}
+{5000}{}{I'm working on the Armor from the Brotherhood's stores. Some of it needs repairing after our latest encounters with the Mutants.}
+{5010}{}{Okay, I think I'll leave you to your work then.}
+

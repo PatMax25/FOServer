@@ -1,0 +1,325 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 D _var p name_mem_npc_player = 0 #
+7 1020 D _var p name_mem_npc_player = 1 @
+2 2000 None 0 #
+3 2010 #
+13 2020 D _var p q_rockside_francis2 = 2 #
+0 2030 @
+3 3000 None 0 #
+4 3010 R _var p name_mem_npc_player = 1 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+8 5010 #
+9 5020 #
+7 5030 @
+6 6000 None 0 @
+7 7000 None 0 #
+5 7010 #
+11 7020 D _var p q_v99_radios = 2 R _item p PID_BOTTLE_CAPS + 10 R _var p q_v99_radios = 3 R _item p PID_9MM_AMMO + 10 R _param p ST_EXPERIENCE + 350 #
+10 7030 D _var p q_v99_radios = 0 #
+13 7040 D _var p q_rockside_francis2 = 2 #
+16 7050 D _var p rockside_captain = 1 R _var p rockside_captain = 2 R _item p PID_ZIP_GUN + 1 #
+0 7060 @
+8 8000 None 0 #
+6 8010 D _item p PID_BOTTLE_CAPS } 10 R _item p PID_BOTTLE_CAPS - 10 R _item p PID_9MM_AMMO + 10 #
+6 8020 D _item p PID_BOTTLE_CAPS } 20 R _item p PID_BOTTLE_CAPS - 20 R _item p PID_9MM_AMMO + 20 #
+6 8030 D _item p PID_BOTTLE_CAPS } 30 R _item p PID_BOTTLE_CAPS - 30 R _item p PID_9MM_AMMO + 30 #
+0 8040 @
+9 9000 None 0 #
+6 9010 D _item p PID_BOTTLE_CAPS } 10 R _item p PID_BOTTLE_CAPS - 10 R _item p PID_10MM_JHP + 10 #
+6 9020 D _item p PID_BOTTLE_CAPS } 20 R _item p PID_BOTTLE_CAPS - 20 R _item p PID_10MM_JHP + 20 #
+6 9030 D _item p PID_BOTTLE_CAPS } 30 R _item p PID_BOTTLE_CAPS - 30 R _item p PID_10MM_JHP + 30 #
+0 9040 @
+10 10000 None 0 #
+0 10010 R _var p q_v99_radios = 1 R _item p PID_RADIO + 3 #
+12 10020 #
+0 10030 @
+11 11000 None 0 @
+12 12000 None 0 #
+0 12010 R _var p q_v99_radios = 1 R _item p PID_RADIO + 3 #
+0 12020 @
+13 13000 None 0 #
+14 13010 #
+0 13020 @
+14 14000 None 0 #
+0 14010 D _item p PID_BOTTLE_CAPS } 5 R _var p q_rockside_francis2 = 3 R _item p PID_BOTTLE_CAPS - 5 R _item p PID_OIL_CAN + 1 #
+15 14020 D _var p q_v99_radios = 3 R _var p q_rockside_francis2 = 3 R _item p PID_OIL_CAN + 1 #
+0 14030 @
+15 15000 None 0 @
+16 16000 None 0 &
+
+[engl]
+{100}{}{Watcher}
+{200}{}{Watcher}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{What?}
+{2010}{}{Tell me about yourself.}
+{2020}{}{I am from Miguel. He asks for Oil.}
+{2030}{}{Nothing. [ end dialogue ]}
+{3000}{}{Listen, I have tons of work to do and completely no time for chit chatting.}
+{3010}{}{Alright, so who are you then?}
+{4000}{}{I am a local watcher, watching the supplies of our organization.}
+{4010}{}{Oh great. Maybe you can give me some things from the supplies?}
+{5000}{}{I can sell you some ammo, 9mm and 10mm JHP. I can sell you packs of 10, 20, and 30 bullets for 10, 20, and 30 caps.}
+{5010}{}{I need 9mm.}
+{5020}{}{I need 10mm.}
+{5030}{}{I don't need anything now.}
+{6000}{}{Here you go...}
+{7000}{}{What do you need again?}
+{7010}{}{I'd like to buy some stuff from you.}
+{7020}{}{Hey, I brought the radios to Miguel the mechanic.}
+{7030}{}{Hello again. Do you need some help?}
+{7040}{}{I am from Miguel. He asks for Oil.}
+{7050}{}{I am from Rogers. He asks for a new weapon.}
+{7060}{}{Nothing. [ end dialogue ]}
+{8000}{}{How many?}
+{8010}{}{10}
+{8020}{}{20}
+{8030}{}{30}
+{8040}{}{Nevermind. [ end dialogue ]}
+{9000}{}{How many?}
+{9010}{}{10}
+{9020}{}{20}
+{9030}{}{30}
+{9040}{}{Nevermind. [ end dialogue ]}
+{10000}{}{Well... yeah. I need some help. Recently one of our groups found an old military storage from which we got several boxes filled with radios. So today I gave some of those radios to our guards and guess what? None of them are working! I collected them all back and now I need them to be repaired, so I just want you to get these radios to Miguel the mechanic, ok?}
+{10010}{}{Alright, I will do it. [ end dialogue ]}
+{10020}{}{Who is Miguel?}
+{10030}{}{No, I am not a courier. [ end dialogue ]}
+{11000}{}{Aha... thanks.}
+{12000}{}{Mechanic is the guy who repairs stuff here. He is our local "Mr. Fixit". You can find him in the crafting room.}
+{12010}{}{Fine, I will do it. [ end dialogue ]}
+{12020}{}{No way, I am out of this. [ end dialogue ]}
+{13000}{}{Sure. It will cost you 5 caps.}
+{13010}{}{5 caps?!}
+{13020}{}{Screw you. [ end dialogue ]}
+{14000}{}{Yes. We don't give extra for free. So it will be 5 caps.}
+{14010}{}{Fine... Here are your 5 caps. [ end dialogue ]}
+{14020}{}{Hey, you remember me helping you with the radios, don't you?}
+{14030}{}{I have no money for now. [ end dialogue ]}
+{15000}{}{Hmh... Fine. Here is your Oil.}
+{16000}{}{Hmh... Fine. Give him this thing.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{What?}
+{2010}{}{Tell me about yourself.}
+{2020}{}{I am from Miguel. He asks for Oil.}
+{2030}{}{Nothing.}
+{3000}{}{Listen, I have tonns of work to do and completely no time for chit chatting.}
+{3010}{}{Alright, so who are you than?}
+{4000}{}{I am a local watcher, watching supplies of our organisation.}
+{4010}{}{Oh great. Maybe you can give me some things from supplies?}
+{5000}{}{I can sell you some ammo. 9mm and 10mm JHP ammo. Can sell you only packs out of 10, 20 and 30 bullets for 10, 20 and 30 caps.}
+{5010}{}{I need 9mm.}
+{5020}{}{I need 10mm.}
+{5030}{}{I don't need anything now.}
+{6000}{}{Here you go...}
+{7000}{}{What do you need again?}
+{7010}{}{I'd like to buy some stuff from you.}
+{7020}{}{Hey, I've brought radios to Mechanic.}
+{7030}{}{Hello again. Do you need some help?}
+{7040}{}{I am from Miguel. He asks for Oil.}
+{7050}{}{I am from Rogers. He asks for a new weapon.}
+{7060}{}{Nothing.}
+{8000}{}{How many?}
+{8010}{}{10}
+{8020}{}{20}
+{8030}{}{30}
+{8040}{}{Nevermind.}
+{9000}{}{How many?}
+{9010}{}{10}
+{9020}{}{20}
+{9030}{}{30}
+{9040}{}{Nevermind.}
+{10000}{}{Well... yeah. I need some help. Recently one of our groups found an old military storage from which we got several boxes filled with radios. So today I gave some of those radios to our guards and guess what? None of them working! I collected them all back and now I need them to be repaired. So I just want you to get these radios to Mechanic, ok?}
+{10010}{}{Alright, I will do it.}
+{10020}{}{Who is Mechanic?}
+{10030}{}{No, I am not a courier.}
+{11000}{}{Aha... thanks.}
+{12000}{}{Mechanic is a guy who repair stuff here. He is our local "mr. fixit". You can find him in the crafting room.}
+{12010}{}{Fine, I will do it.}
+{12020}{}{No way I am out of it.}
+{13000}{}{Sure. It will cost you 5 caps.}
+{13010}{}{5 caps?!}
+{13020}{}{Screw you.}
+{14000}{}{Yes. We don't give extra for free. So it will be 5 caps.}
+{14010}{}{Fine... Here are your 5 caps.}
+{14020}{}{Hey, you remember me helping you with radios, don't you?}
+{14030}{}{I have no money for now.}
+{15000}{}{Hmh... Fine. Here is your Oil.}
+{16000}{}{Hmh... Fine.Give him this thing.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{What?}
+{2010}{}{Tell me about yourself.}
+{2020}{}{I am from Miguel. He asks for Oil.}
+{2030}{}{Nothing.}
+{3000}{}{Listen, I have tonns of work to do and completely no time for chit chatting.}
+{3010}{}{Alright, so who are you than?}
+{4000}{}{I am a local watcher, watching supplies of our organisation.}
+{4010}{}{Oh great. Maybe you can give me some things from supplies?}
+{5000}{}{I can sell you some ammo. 9mm and 10mm JHP ammo. Can sell you only packs out of 10, 20 and 30 bullets for 10, 20 and 30 caps.}
+{5010}{}{I need 9mm.}
+{5020}{}{I need 10mm.}
+{5030}{}{I don't need anything now.}
+{6000}{}{Here you go...}
+{7000}{}{What do you need again?}
+{7010}{}{I'd like to buy some stuff from you.}
+{7020}{}{Hey, I've brought radios to Mechanic.}
+{7030}{}{Hello again. Do you need some help?}
+{7040}{}{I am from Miguel. He asks for Oil.}
+{7050}{}{I am from Rogers. He asks for a new weapon.}
+{7060}{}{Nothing.}
+{8000}{}{How many?}
+{8010}{}{10}
+{8020}{}{20}
+{8030}{}{30}
+{8040}{}{Nevermind.}
+{9000}{}{How many?}
+{9010}{}{10}
+{9020}{}{20}
+{9030}{}{30}
+{9040}{}{Nevermind.}
+{10000}{}{Well... yeah. I need some help. Recently one of our groups found an old military storage from which we got several boxes filled with radios. So today I gave some of those radios to our guards and guess what? None of them working! I collected them all back and now I need them to be repaired. So I just want you to get these radios to Mechanic, ok?}
+{10010}{}{Alright, I will do it.}
+{10020}{}{Who is Mechanic?}
+{10030}{}{No, I am not a courier.}
+{11000}{}{Aha... thanks.}
+{12000}{}{Mechanic is a guy who repair stuff here. He is our local "mr. fixit". You can find him in the crafting room.}
+{12010}{}{Fine, I will do it.}
+{12020}{}{No way I am out of it.}
+{13000}{}{Sure. It will cost you 5 caps.}
+{13010}{}{5 caps?!}
+{13020}{}{Screw you.}
+{14000}{}{Yes. We don't give extra for free. So it will be 5 caps.}
+{14010}{}{Fine... Here are your 5 caps.}
+{14020}{}{Hey, you remember me helping you with radios, don't you?}
+{14030}{}{I have no money for now.}
+{15000}{}{Hmh... Fine. Here is your Oil.}
+{16000}{}{Hmh... Fine.Give him this thing.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{What?}
+{2010}{}{Tell me about yourself.}
+{2020}{}{I am from Miguel. He asks for Oil.}
+{2030}{}{Nothing.}
+{3000}{}{Listen, I have tonns of work to do and completely no time for chit chatting.}
+{3010}{}{Alright, so who are you than?}
+{4000}{}{I am a local watcher, watching supplies of our organisation.}
+{4010}{}{Oh great. Maybe you can give me some things from supplies?}
+{5000}{}{I can sell you some ammo. 9mm and 10mm JHP ammo. Can sell you only packs out of 10, 20 and 30 bullets for 10, 20 and 30 caps.}
+{5010}{}{I need 9mm.}
+{5020}{}{I need 10mm.}
+{5030}{}{I don't need anything now.}
+{6000}{}{Here you go...}
+{7000}{}{What do you need again?}
+{7010}{}{I'd like to buy some stuff from you.}
+{7020}{}{Hey, I've brought radios to Mechanic.}
+{7030}{}{Hello again. Do you need some help?}
+{7040}{}{I am from Miguel. He asks for Oil.}
+{7050}{}{I am from Rogers. He asks for a new weapon.}
+{7060}{}{Nothing.}
+{8000}{}{How many?}
+{8010}{}{10}
+{8020}{}{20}
+{8030}{}{30}
+{8040}{}{Nevermind.}
+{9000}{}{How many?}
+{9010}{}{10}
+{9020}{}{20}
+{9030}{}{30}
+{9040}{}{Nevermind.}
+{10000}{}{Well... yeah. I need some help. Recently one of our groups found an old military storage from which we got several boxes filled with radios. So today I gave some of those radios to our guards and guess what? None of them working! I collected them all back and now I need them to be repaired. So I just want you to get these radios to Mechanic, ok?}
+{10010}{}{Alright, I will do it.}
+{10020}{}{Who is Mechanic?}
+{10030}{}{No, I am not a courier.}
+{11000}{}{Aha... thanks.}
+{12000}{}{Mechanic is a guy who repair stuff here. He is our local "mr. fixit". You can find him in the crafting room.}
+{12010}{}{Fine, I will do it.}
+{12020}{}{No way I am out of it.}
+{13000}{}{Sure. It will cost you 5 caps.}
+{13010}{}{5 caps?!}
+{13020}{}{Screw you.}
+{14000}{}{Yes. We don't give extra for free. So it will be 5 caps.}
+{14010}{}{Fine... Here are your 5 caps.}
+{14020}{}{Hey, you remember me helping you with radios, don't you?}
+{14030}{}{I have no money for now.}
+{15000}{}{Hmh... Fine. Here is your Oil.}
+{16000}{}{Hmh... Fine.Give him this thing.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{-}
+{1020}{}{-}
+{2000}{}{What?}
+{2010}{}{Tell me about yourself.}
+{2020}{}{I am from Miguel. He asks for Oil.}
+{2030}{}{Nothing.}
+{3000}{}{Listen, I have tonns of work to do and completely no time for chit chatting.}
+{3010}{}{Alright, so who are you than?}
+{4000}{}{I am a local watcher, watching supplies of our organisation.}
+{4010}{}{Oh great. Maybe you can give me some things from supplies?}
+{5000}{}{I can sell you some ammo. 9mm and 10mm JHP ammo. Can sell you only packs out of 10, 20 and 30 bullets for 10, 20 and 30 caps.}
+{5010}{}{I need 9mm.}
+{5020}{}{I need 10mm.}
+{5030}{}{I don't need anything now.}
+{6000}{}{Here you go...}
+{7000}{}{What do you need again?}
+{7010}{}{I'd like to buy some stuff from you.}
+{7020}{}{Hey, I've brought radios to Mechanic.}
+{7030}{}{Hello again. Do you need some help?}
+{7040}{}{I am from Miguel. He asks for Oil.}
+{7050}{}{I am from Rogers. He asks for a new weapon.}
+{7060}{}{Nothing.}
+{8000}{}{How many?}
+{8010}{}{10}
+{8020}{}{20}
+{8030}{}{30}
+{8040}{}{Nevermind.}
+{9000}{}{How many?}
+{9010}{}{10}
+{9020}{}{20}
+{9030}{}{30}
+{9040}{}{Nevermind.}
+{10000}{}{Well... yeah. I need some help. Recently one of our groups found an old military storage from which we got several boxes filled with radios. So today I gave some of those radios to our guards and guess what? None of them working! I collected them all back and now I need them to be repaired. So I just want you to get these radios to Mechanic, ok?}
+{10010}{}{Alright, I will do it.}
+{10020}{}{Who is Mechanic?}
+{10030}{}{No, I am not a courier.}
+{11000}{}{Aha... thanks.}
+{12000}{}{Mechanic is a guy who repair stuff here. He is our local "mr. fixit". You can find him in the crafting room.}
+{12010}{}{Fine, I will do it.}
+{12020}{}{No way I am out of it.}
+{13000}{}{Sure. It will cost you 5 caps.}
+{13010}{}{5 caps?!}
+{13020}{}{Screw you.}
+{14000}{}{Yes. We don't give extra for free. So it will be 5 caps.}
+{14010}{}{Fine... Here are your 5 caps.}
+{14020}{}{Hey, you remember me helping you with radios, don't you?}
+{14030}{}{I have no money for now.}
+{15000}{}{Hmh... Fine. Here is your Oil.}
+{16000}{}{Hmh... Fine.Give him this thing.}
+

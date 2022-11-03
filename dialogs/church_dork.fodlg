@@ -1,0 +1,108 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+65507 2010 #
+3 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+0 6010 R _var p dialog_dork = 1 R _script dialog@r_NinjaKillNpc 1 Anim2DeadBloodyBurst #
+0 6020 R _var p dialog_dork = 1 R _script dialog@r_NinjaKillNpc 1 Anim2DeadBloodyBurst &
+
+[engl]
+{100}{}{Dork}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey who the... Who the hell are you?}
+{2010}{}{Your death! Prepare to die! [ Attack ]}
+{2020}{}{No, who the hell are YOU?}
+{3000}{}{Name's Dork. The guy in fancy pants is Robert and this one in the armor is Blade. We have a situation here, so you better leave.}
+{3010}{}{What is happening here?}
+{4000}{}{*he gets interrupted by Blade* Dork, we must stop this nonsense... *Dork starts screaming* Nonsense?! It is true what people say about these swamps! *he turns to you* We are traders from Junktown, several days ago we packed our stuff and decided to take a long trip to San Francisco to sell our goods... However on our way here our driver - Ronald, drank too much and crashed into the tree... of course, right in these fucking swamps! Poor bastard flew through the front window and got his head smashed. We tried to leave the car, but in all this panic we got split and...}
+{4010}{}{Hey, relax people, it is...}
+{5000}{}{*Robert starts speaking* Dork, this is bullshit... Brain worms are just stupid legends made up by idiots in the bars. *Dork starts screaming again* WELL SAY IT TO MY BROTHER WHO WAS FOUND IN ONE OF THESE SWAMPS WITH HIS HEAD OFF! It is not a legend! }
+{5010}{}{Brain worms?}
+{6000}{}{Brain worms! After we were split up, we eventually managed to meet up in this church a bit later and one of us surely has this worm inside... And we are not getting anywhere unless we find out who exactly! I saw how Blade fell in the bushes and... Oh Robert! And where the hell have you been, huh?! *he starts swinging his gun*}
+{6010}{}{I came for a book... }
+{6020}{}{How about we calm down a bit?}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey who the... Who the hell are you?}
+{2010}{}{Your death! Prepare to die!}
+{2020}{}{And who the hell are you, people?}
+{3000}{}{Name's Dork. The guy in fancy pants is Robert and this one in the armor is Blade. We have a situation here, so you better leave.}
+{3010}{}{What is happening here?}
+{4000}{}{[ He gets interrupted by Blade ] Dork, we must stop this nonsense... [ Dork starts screaming ] Nonsense?! It is true what people about these swamps! [ He turns to you ] We are traders from Junktown, several days ago we packed our stuff and decided to take a long trip to San Francisco to sell our goods... However on our way here our driver - Ronald, drank too much and crashed the tree... And of course he crashed right in these fucking swamps! Poor bastard flew through the front window and got his head smashed. We tried to leave the car, but in all this panic we got split and...}
+{4010}{}{Hey, relax people, it is...}
+{5000}{}{[ Robert starts speaking ] Dork, this is bullshit... Brain worms are just stupid legends made up by idiots in the bars. [ Dork starts screaming again ] WELL SAY IT TO MY BROTHER WHO WAS FOUND ON ONE OF THESE SWAMPS WITH HiS HEAD OFF! It is not a legend! }
+{5010}{}{Brain worms?}
+{6000}{}{Brain worms! Afterwe had gotten split, we eventually managed to meet up in this church a bit later and one of us surely has this worm inside. And we are not getting anywhere unless we find out who exactly! I saw how Blade fell in the bushes and... Oh Robert! And where the hell have you been, huh?! [ He starts swining his gun ]}
+{6010}{}{I came for a book...}
+{6020}{}{How about we calm down a bit?}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey who the... Who the hell are you?}
+{2010}{}{Your death! Prepare to die!}
+{2020}{}{And who the hell are you, people?}
+{3000}{}{Name's Dork. The guy in fancy pants is Robert and this one in the armor is Blade. We have a situation here, so you better leave.}
+{3010}{}{What is happening here?}
+{4000}{}{[ He gets interrupted by Blade ] Dork, we must stop this nonsense... [ Dork starts screaming ] Nonsense?! It is true what people about these swamps! [ He turns to you ] We are traders from Junktown, several days ago we packed our stuff and decided to take a long trip to San Francisco to sell our goods... However on our way here our driver - Ronald, drank too much and crashed the tree... And of course he crashed right in these fucking swamps! Poor bastard flew through the front window and got his head smashed. We tried to leave the car, but in all this panic we got split and...}
+{4010}{}{Hey, relax people, it is...}
+{5000}{}{[ Robert starts speaking ] Dork, this is bullshit... Brain worms are just stupid legends made up by idiots in the bars. [ Dork starts screaming again ] WELL SAY IT TO MY BROTHER WHO WAS FOUND ON ONE OF THESE SWAMPS WITH HiS HEAD OFF! It is not a legend! }
+{5010}{}{Brain worms?}
+{6000}{}{Brain worms! Afterwe had gotten split, we eventually managed to meet up in this church a bit later and one of us surely has this worm inside. And we are not getting anywhere unless we find out who exactly! I saw how Blade fell in the bushes and... Oh Robert! And where the hell have you been, huh?! [ He starts swining his gun ]}
+{6010}{}{I came for a book...}
+{6020}{}{How about we calm down a bit?}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey who the... Who the hell are you?}
+{2010}{}{Your death! Prepare to die!}
+{2020}{}{And who the hell are you, people?}
+{3000}{}{Name's Dork. The guy in fancy pants is Robert and this one in the armor is Blade. We have a situation here, so you better leave.}
+{3010}{}{What is happening here?}
+{4000}{}{[ He gets interrupted by Blade ] Dork, we must stop this nonsense... [ Dork starts screaming ] Nonsense?! It is true what people about these swamps! [ He turns to you ] We are traders from Junktown, several days ago we packed our stuff and decided to take a long trip to San Francisco to sell our goods... However on our way here our driver - Ronald, drank too much and crashed the tree... And of course he crashed right in these fucking swamps! Poor bastard flew through the front window and got his head smashed. We tried to leave the car, but in all this panic we got split and...}
+{4010}{}{Hey, relax people, it is...}
+{5000}{}{[ Robert starts speaking ] Dork, this is bullshit... Brain worms are just stupid legends made up by idiots in the bars. [ Dork starts screaming again ] WELL SAY IT TO MY BROTHER WHO WAS FOUND ON ONE OF THESE SWAMPS WITH HiS HEAD OFF! It is not a legend! }
+{5010}{}{Brain worms?}
+{6000}{}{Brain worms! Afterwe had gotten split, we eventually managed to meet up in this church a bit later and one of us surely has this worm inside. And we are not getting anywhere unless we find out who exactly! I saw how Blade fell in the bushes and... Oh Robert! And where the hell have you been, huh?! [ He starts swining his gun ]}
+{6010}{}{I came for a book...}
+{6020}{}{How about we calm down a bit?}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey who the... Who the hell are you?}
+{2010}{}{Your death! Prepare to die!}
+{2020}{}{And who the hell are you, people?}
+{3000}{}{Name's Dork. The guy in fancy pants is Robert and this one in the armor is Blade. We have a situation here, so you better leave.}
+{3010}{}{What is happening here?}
+{4000}{}{[ He gets interrupted by Blade ] Dork, we must stop this nonsense... [ Dork starts screaming ] Nonsense?! It is true what people about these swamps! [ He turns to you ] We are traders from Junktown, several days ago we packed our stuff and decided to take a long trip to San Francisco to sell our goods... However on our way here our driver - Ronald, drank too much and crashed the tree... And of course he crashed right in these fucking swamps! Poor bastard flew through the front window and got his head smashed. We tried to leave the car, but in all this panic we got split and...}
+{4010}{}{Hey, relax people, it is...}
+{5000}{}{[ Robert starts speaking ] Dork, this is bullshit... Brain worms are just stupid legends made up by idiots in the bars. [ Dork starts screaming again ] WELL SAY IT TO MY BROTHER WHO WAS FOUND ON ONE OF THESE SWAMPS WITH HiS HEAD OFF! It is not a legend! }
+{5010}{}{Brain worms?}
+{6000}{}{Brain worms! Afterwe had gotten split, we eventually managed to meet up in this church a bit later and one of us surely has this worm inside. And we are not getting anywhere unless we find out who exactly! I saw how Blade fell in the bushes and... Oh Robert! And where the hell have you been, huh?! [ He starts swining his gun ]}
+{6010}{}{I came for a book...}
+{6020}{}{How about we calm down a bit?}
+

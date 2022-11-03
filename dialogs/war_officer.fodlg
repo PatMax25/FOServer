@@ -1,0 +1,648 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 cheats@dlg_Spawn_forces_cost_show 0 #
+0 2010 D _param n SK_SPEECH = 300 R _script cheats@dlg_Teleport 1 1 #
+0 2020 D _param n SK_SPEECH = 150 R _script cheats@dlg_Teleport 1 2 #
+0 2030 D _param n SK_SPEECH = 200 R _script cheats@dlg_Teleport 1 0 #
+4 2040 D _script dialog@d_havepropermoney 1 1000 R _script dialog@r_RemoveMoney 1 1000 R _script cheats@dlg_Repair_Gear 0  #
+2 2050 D _script dialog@d_havepropermoney 1 2500 R _script dialog@r_RemoveMoney 1 2500 R _script cheats@dlg_Upgrate_Armor 0  #
+2 2060 D _script dialog@d_havepropermoney 1 2500 R _script dialog@r_RemoveMoney 1 2500 R _script cheats@dlg_Upgrate_Weapon 0  #
+2 2070 D _param n SK_SPEECH = 300 D _script cheats@dlg_Spawn_forces_cost 0  R _script cheats@dlg_Spawn_forces 1 1 #
+2 2080 D _param n SK_SPEECH = 150 D _script cheats@dlg_Spawn_forces_cost 0  R _script cheats@dlg_Spawn_forces 1 2 #
+2 2090 D _param n SK_SPEECH = 200 D _script cheats@dlg_Spawn_forces_cost 0  R _script cheats@dlg_Spawn_forces 1 0 #
+2 2100 D _param n SK_SPEECH = 300 D _script cheats@dlg_Spawn_forces_cost_special 0  D _param p ST_UNSPENT_PERKS > 99999 R _script cheats@dlg_Spawn_forcesboss 1 1 #
+2 2110 D _param n SK_SPEECH = 150 D _script cheats@dlg_Spawn_forces_cost_special 0  D _param p ST_UNSPENT_PERKS > 99999 R _script cheats@dlg_Spawn_forcesboss 1 2 #
+2 2120 D _param n SK_SPEECH = 200 D _script cheats@dlg_Spawn_forces_cost_special 0  D _param p ST_UNSPENT_PERKS > 99999 R _script cheats@dlg_Spawn_forcesboss 1 0 #
+0 2130 D _param n SK_SPEECH = 250 R _script cheats@dlg_Teleport 1 4 #
+2 2140 D _param n SK_SPEECH = 250 D _script cheats@dlg_Spawn_forces_cost 0  R _script cheats@dlg_Spawn_forces 1 4 #
+2 2150 D _param n SK_SPEECH = 250 D _script cheats@dlg_Spawn_forces_cost_special 0  D _param p ST_UNSPENT_PERKS > 99999 R _script cheats@dlg_Spawn_forcesboss 1 4 #
+65506 2160 #
+9 2170 #
+5 2180 D _param p ST_NPC_ROLE < 215 #
+7 2190 #
+6 2200 #
+3 2210 @
+3 3000 None 0 #
+0 3010 R _script cheats@dlg_Teleport 1 3 #
+65505 3020 @
+4 4000 None 0 @
+5 5000 None 0 #
+65506 5010 #
+4 5020 D _script dialog@d_havepropermoney 1 50000 D _item p PID_HIFLO > 0 D _item p PID_PA_SHELL > 0 D _item p PID_PA_FUEL > 0 D _item p PID_ARM_POLYMER_ADV > 4 R _item p PID_HIFLO - 1 R _item p PID_PA_SHELL - 1 R _item p PID_PA_FUEL - 1 R _item p PID_ARM_POLYMER_ADV - 5 R _item p PID_POWERED_ARMOR + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5030 D _script dialog@d_havepropermoney 1 50000 D _item p PID_POWERED_ARMOR > 0 D _item p PID_PA_SHELL > 0 D _item p PID_SERVOMOTORS > 0 D _item p PID_PA_FUEL > 0 D _item p PID_ARM_POLYMER_ADV > 10 R _item p PID_POWERED_ARMOR - 1 R _item p PID_PA_SHELL - 1 R _item p PID_SERVOMOTORS - 1 R _item p PID_PA_FUEL - 1 R _item p PID_ARM_POLYMER_ADV - 11 R _item p PID_HARDENED_POWER_ARMOR + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5040 D _script dialog@d_havepropermoney 1 50000 D _item p PID_ADVANCED_SHELL > 1 D _item p PID_ARM_CERAMIC > 3 D _item p PID_PA_FUEL > 1 D _item p PID_ARM_POLYMER > 11 D _item p PID_ARM_POLYMER_LASER > 9 D _item p PID_ARM_POLYCARBONITE > 0 D _item p PID_ARM_STEEL > 5 R _item p PID_ADVANCED_SHELL - 2 R _item p PID_ARM_CERAMIC - 4 R _item p PID_PA_FUEL - 2 R _item p PID_ARM_POLYMER - 12 R _item p PID_ARM_POLYMER_LASER - 10 R _item p PID_ARM_POLYCARBONITE - 1 R _item p PID_ARM_STEEL - 6 R _item p PID_ADVANCED_POWER_ARMOR + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5050 D _script dialog@d_havepropermoney 1 50000 D _item p PID_PA_FUEL > 1 D _item p PID_ADVANCED_SHELL > 3 D _item p PID_ADVANCED_POWER_ARMOR > 0 D _item p PID_ARM_KEVLAR > 2 D _item p PID_ARM_POLYMER_LASER > 20 D _item p PID_ARM_CARBON > 14 D _item p PID_ARM_POLYMER_ADV > 10 D _item p PID_ARM_GORETEX > 3 R _item p PID_ADVANCED_POWER_ARMOR - 1 R _item p PID_ARM_KEVLAR - 3 R _item p PID_ARM_POLYMER_LASER - 21 R _item p PID_ARM_CARBON - 15 R _item p PID_ARM_POLYMER_ADV - 11 R _item p PID_ARM_GORETEX - 4 R _item p PID_ADVANCED_SHELL - 4 R _item p PID_PA_FUEL - 2 R _item p PID_ADVANCED_POWER_ARMOR_MK2 + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5060 D _script dialog@d_havepropermoney 1 50000 D _item p PID_ARM_CERAMIC > 3 D _item p PID_ARM_POLYMER > 1 R _item p PID_ARM_POLYMER - 2 R _item p PID_ARM_CERAMIC - 4 R _item p PID_APA_HELMET + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5070 D _script dialog@d_havepropermoney 1 50000 D _item p PID_ARM_GORETEX > 6 D _item p PID_ARM_CARBON > 4 D _item p PID_APA_HELMET > 0 R _item p PID_ARM_CARBON - 5 R _item p PID_ARM_GORETEX - 7 R _item p PID_APA_HELMET - 1 R _item p PID_APA_HELMET_MK2 + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5080 D _script dialog@d_havepropermoney 1 50000 D _item p PID_ARM_STEEL > 2 D _item p PID_ARM_CARBON > 2 R _item p PID_ARM_STEEL - 3 R _item p PID_ARM_CARBON - 3 R _item p PID_POWER_HELMET + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5090 D _script dialog@d_havepropermoney 1 50000 D _item p PID_POWER_HELMET > 0 D _item p PID_ARM_GORETEX > 3 D _item p PID_CARBON_POLYMER > 1 R _item p PID_ARM_GORETEX - 4 R _item p PID_CARBON_POLYMER - 2 R _item p PID_POWER_HELMET - 1 R _item p PID_HARDENED_POWER_HELMET + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5100 D _script dialog@d_havepropermoney 1 50000 D _item p PID_TECH_AUTO_TRIGGER > 0 D _item p PID_TECH_MECH_ENGINE > 1 D _item p PID_TECH_PLASMA > 2 D _item p PID_ELECTRIC_AMPLIFIER > 0 R _item p PID_TECH_PLASMA - 3 R _item p PID_TECH_MECH_ENGINE - 2 R _item p PID_TECH_AUTO_TRIGGER - 1 R _item p PID_ELECTRIC_AMPLIFIER - 1 R _item p PID_PK12_GAUSS_PISTOL + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5110 D _script dialog@d_havepropermoney 1 50000 D _item p PID_TECH_AUTO_TRIGGER > 1 D _item p PID_TECH_CONDEN > 0 D _item p PID_TECH_TRANSFORMATOR > 1 D _item p PID_CARBON_POLYMER > 0 D _item p PID_ABSORBER > 0 D _item p PID_TECH_ELE_ENGINE > 1 R _item p PID_TECH_CONDEN - 1 R _item p PID_TECH_TRANSFORMATOR - 2 R _item p PID_TECH_AUTO_TRIGGER - 2 R _item p PID_CARBON_POLYMER - 1 R _item p PID_TECH_ELE_ENGINE - 2 R _item p PID_ABSORBER - 1 R _item p PID_M72_GAUSS_RIFLE + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5120 D _script dialog@d_havepropermoney 1 50000 D _item p PID_CYLINDRICAL_LOCK > 1 D _item p PID_TECH_SEMI_TRIGGER > 0 D _item p PID_TECH_MICROCHIPS > 0 D _item p PID_ARM_KEVLAR > 0 R _item p PID_ARM_KEVLAR - 1 R _item p PID_TECH_MICROCHIPS - 1 R _item p PID_TECH_SEMI_TRIGGER - 1 R _item p PID_CYLINDRICAL_LOCK - 2 R _item p PID_AK47 + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5130 D _script dialog@d_havepropermoney 1 50000 D _item p PID_TECH_DELINER > 0 D _item p PID_TECH_GUN_CONTROL > 1 D _item p PID_TECH_MICROCHIPS > 0 D _item p PID_ARM_CARBON > 2 R _item p PID_ARM_CARBON - 3 R _item p PID_TECH_MICROCHIPS - 1 R _item p PID_TECH_GUN_CONTROL - 2 R _item p PID_TECH_DELINER - 1 R _item p PID_SAIGA12 + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5140 D _script dialog@d_havepropermoney 1 50000 D _item p PID_TECH_DELINER > 0 D _item p PID_TECH_ELE_ENGINE > 0 D _item p PID_ELECTRIC_AMPLIFIER > 0 D _item p PID_TECH_CONDEN > 0 R _item p PID_TECH_CONDEN - 1 R _item p PID_ELECTRIC_AMPLIFIER - 1 R _item p PID_TECH_ELE_ENGINE - 1 R _item p PID_TECH_DELINER - 1 R _item p PID_HK_G11 + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5150 D _script dialog@d_havepropermoney 1 50000 D _item p PID_TECH_SCOPE > 0 D _item p PID_TECH_MICROCHIPS > 0 D _item p PID_HK_G11 > 0 R _item p PID_HK_G11 - 1 R _item p PID_TECH_MICROCHIPS - 1 R _item p PID_TECH_SCOPE - 1 R _item p PID_HK_G11E + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5160 D _script dialog@d_havepropermoney 1 50000 D _item p PID_ABSORBER > 1 D _item p PID_ROTARY_CHAMBER > 0 D _item p PID_TECH_DELINER > 1 D _item p PID_ARM_CARBON > 3 R _item p PID_ARM_CARBON - 4 R _item p PID_TECH_DELINER - 2 R _item p PID_ROTARY_CHAMBER - 1 R _item p PID_ABSORBER - 2 R _item p PID_VINDICATOR_MINIGUN + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5170 D _script dialog@d_havepropermoney 1 50000 D _item p PID_CARBON_POLYMER > 0 D _item p PID_TECH_SCOPE > 0 D _item p PID_TECH_MICROCHIPS > 5 D _item p PID_TECH_GUN_CONTROL > 2 R _item p PID_TECH_GUN_CONTROL - 3 R _item p PID_TECH_MICROCHIPS - 6 R _item p PID_TECH_SCOPE - 1 R _item p PID_CARBON_POLYMER - 1 R _item p PID_BOZAR + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5180 D _script dialog@d_havepropermoney 1 50000 D _item p PID_TECH_GUN_CONTROL > 3 D _item p PID_TECH_SEMI_TRIGGER > 0 D _item p PID_TECH_MECH_ENGINE > 2 R _item p PID_TECH_MECH_ENGINE - 3 R _item p PID_TECH_SEMI_TRIGGER - 1 R _item p PID_TECH_GUN_CONTROL - 4 R _item p PID_M203 + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5190 D _script dialog@d_havepropermoney 1 50000 D _item p PID_ELECTROMAGNETIC > 0 D _item p PID_PLASMA_PARTS > 0 D _item p PID_TECH_TRANSFORMATOR > 4 D _item p PID_TECH_ELE_WIRES > 1 R _item p PID_TECH_ELE_WIRES - 2 R _item p PID_TECH_TRANSFORMATOR - 5 R _item p PID_PLASMA_PARTS - 1 R _item p PID_ELECTROMAGNETIC - 1 R _item p PID_TURBO_PLASMA_RIFLE + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5200 D _script dialog@d_havepropermoney 1 50000 D _item p PID_ROTARY_CHAMBER > 0 D _item p PID_PLASMA_ACCELERATOR > 1 D _item p PID_TECH_MECH_ENGINE > 0 D _item p PID_TECH_ELE_WIRES > 2 D _item p PID_TECH_PLASMA > 1 D _item p PID_ARM_POLYCARBONITE > 0 R _item p PID_TECH_ELE_WIRES - 3 R _item p PID_TECH_MECH_ENGINE - 1 R _item p PID_PLASMA_ACCELERATOR - 2 R _item p PID_ROTARY_CHAMBER - 1 R _item p PID_TECH_PLASMA - 2 R _item p PID_ARM_POLYCARBONITE - 1 R _item p PID_PLASMA_GATLING + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5210 D _script dialog@d_havepropermoney 1 50000 D _item p PID_ELECTROMAGNETIC > 0 D _item p PID_TECH_CONDEN > 2 D _item p PID_TECH_TRANSFORMATOR > 0 D _item p PID_TECH_ELE_WIRES > 2 D _item p PID_PLASMA_ACCELERATOR > 0 D _item p PID_TECH_PLASMA > 0 R _item p PID_TECH_PLASMA - 1 R _item p PID_TECH_TRANSFORMATOR - 1 R _item p PID_TECH_ELE_WIRES - 3 R _item p PID_TECH_CONDEN - 3 R _item p PID_PLASMA_ACCELERATOR - 1 R _item p PID_ELECTROMAGNETIC - 1 R _item p PID_YK42B_PULSE_RIFLE + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5220 D _script dialog@d_havepropermoney 1 50000 D _item p PID_ARM_KEVLAR > 1 D _item p PID_CARBON_POLYMER > 0 D _item p PID_SERVOMOTORS > 1 R _item p PID_SERVOMOTORS - 2 R _item p PID_ARM_KEVLAR - 2 R _item p PID_CARBON_POLYMER - 1 R _item p PID_MEGA_SLEDGE + 1 R _script dialog@r_RemoveMoney 1 50000 #
+4 5230 D _script dialog@d_havepropermoney 1 50000 #
+2 5240 @
+6 6000 None 0 #
+4 6010 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 1 #
+4 6020 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 2 #
+4 6030 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 3 #
+4 6040 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 4 #
+4 6050 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 5 #
+4 6060 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 6 #
+4 6070 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 9 #
+4 6080 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 11 #
+4 6090 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 16 #
+4 6100 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 17 #
+4 6110 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 18 #
+4 6120 D _script dialog@d_havepropermoney 1 50000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_weapon 1 47 #
+2 6130 @
+7 7000 None 0 #
+4 7010 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 19 #
+4 7020 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 20 #
+4 7030 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 21 #
+4 7040 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 24 #
+4 7050 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 25 #
+4 7060 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 26 #
+4 7070 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 27 #
+4 7080 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 28 #
+4 7090 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 29 #
+4 7100 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 30 #
+4 7110 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 31 #
+4 7120 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 32 #
+4 7130 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 33 #
+4 7140 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 34 #
+4 7150 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 35 #
+4 7160 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 36 #
+4 7170 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 37 #
+4 7180 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 38 #
+4 7190 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 39 #
+4 7200 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 40 #
+4 7210 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 41 #
+4 7220 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 45 #
+4 7230 D _script dialog@d_havepropermoney 1 75000 R _script dialog@r_RemoveMoney 1 75000 R _script item_level@r_upgrade_armor 1 48 #
+2 7240 @
+8 8000 None 0 #
+4 8010 D _script dialog@d_havepropermoney 1 50000 D _item p PID_PLASMA_PARTS > 0 D _item p PID_PLASMA_ACCELERATOR > 1 D _item p PID_TECH_PLASMA > 2 R _item p PID_TECH_PLASMA - 3 R _item p PID_PLASMA_ACCELERATOR - 2 R _item p PID_PLASMA_PARTS - 1 R _item p PID_PLASMA_TORCH + 1 R _script dialog@r_RemoveMoney 1 50000 #
+2 8020 @
+9 9000 None 0 #
+10 9010 #
+2 9020 @
+10 10000 None 0 #
+11 10010 #
+2 10020 @
+11 11000 None 0 #
+3 11010 #
+2 11020 &
+
+[engl]
+{100}{}{Officer}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{Soldier! I can send you to the front, or I can sell you new gear or upgrade it, also you can call forces for @lex cost@ or special forces for @lex special@$}
+{2010}{}{I want to join the battle}
+{2020}{}{I want to join the battle}
+{2030}{}{I want to join the battle}
+{2040}{}{Repair my gear[1000$]}
+{2050}{}{Upgrade my Armor[2500$]}
+{2060}{}{Upgrade my Weapon [2500$]}
+{2070}{}{Call extra forces [@lex cost@$]}
+{2080}{}{Call extra forces [@lex cost@$]}
+{2090}{}{Call extra forces [@lex cost@$]}
+{2100}{}{Call Special forces[@lex special@$]}
+{2110}{}{Call Special forces[@lex special@$]}
+{2120}{}{Call Special forces[@lex special@$]}
+{2130}{}{I Want to Join The Battle}
+{2140}{}{Call extra forces}
+{2150}{}{Call special forces}
+{2160}{}{I want to buy something}
+{2170}{}{I want to leave this event}
+{2180}{}{I need special gear, do you have something?}
+{2190}{}{Would you install something on my armor to make it more effective}
+{2200}{}{Would you install something on my Weapon to make it more effective}
+{2210}{}{I want to leave this event}
+{3000}{}{Are you sure? You won't get reward and you wont get any XP}
+{3010}{}{Yes, I'm Sure}
+{3020}{}{No... wait}
+{4000}{}{Done!}
+{5000}{}{To craft special gear you need rare parts which you can buy from me, also I need from you 50 000 currency}
+{5010}{}{Let me buy something}
+{5020}{}{Power Armor}
+{5030}{}{Hardened Power Armor}
+{5040}{}{Advanced Power Armor}
+{5050}{}{Advanced Power Armor MK II}
+{5060}{}{Advanced Power Helmet}
+{5070}{}{Advanced Power Helmet MK II}
+{5080}{}{Power Helmet}
+{5090}{}{Hardened Power Helmet}
+{5100}{}{Gauss Pistol}
+{5110}{}{Gauss Rifle}
+{5120}{}{AK 47}
+{5130}{}{Saiga-12}
+{5140}{}{H&K G11}
+{5150}{}{H&K G11E}
+{5160}{}{Vindicator Minigun}
+{5170}{}{Bozar}
+{5180}{}{M203}
+{5190}{}{Turbo Plasma Rifle}
+{5200}{}{Plasma Gatling}
+{5210}{}{Pulse Rifle}
+{5220}{}{Mega Sledge}
+{5230}{}{Plasma Torch?}
+{5240}{}{Nevermind}
+{6000}{}{Yes, for 75 000 currency I will make it more fancy}
+{6010}{}{Bonus Ranged Damage}
+{6020}{}{Bonus Damage}
+{6030}{}{Bonus Attack}
+{6040}{}{Scoped}
+{6050}{}{Better Critical}
+{6060}{}{Fast Trigger}
+{6070}{}{Slayer}
+{6080}{}{Knockback}
+{6090}{}{Killing Spree}
+{6100}{}{Life Steal}
+{6110}{}{Chip Shot}
+{6120}{}{More Criticals}
+{6130}{}{Nevermind}
+{7000}{}{Yes, for 75 000 currency i will make it more fancy}
+{7010}{}{Gain Strength}
+{7020}{}{Gain Perception}
+{7030}{}{Gain Endurance}
+{7040}{}{Gain Agility}
+{7050}{}{Gain Luck}
+{7060}{}{Cured}
+{7070}{}{Laser Reflector}
+{7080}{}{Anty-Termal System}
+{7090}{}{Defense Enhancement}
+{7100}{}{Advanced Plate}
+{7110}{}{Mirror System}
+{7120}{}{Tesla Addition}
+{7130}{}{Shock Protection}
+{7140}{}{Firegeckon's Enhancement}
+{7150}{}{Special Force Bonus}
+{7160}{}{Regeneration}
+{7170}{}{Fill The Gaps}
+{7180}{}{Heavy}
+{7190}{}{Utility}
+{7200}{}{Bonus Move}
+{7210}{}{Heavy Stonewall}
+{7220}{}{Speed Mechanism}
+{7230}{}{Lethal Protection}
+{7240}{}{Nevermind}
+{8000}{}{To craft it you need Unique plasma parts, 2x Plasma Accelerator and 3x Plasma Transformer}
+{8010}{}{Sure}
+{8020}{}{Maybe other time}
+{9000}{}{Please confirm me that you want to leave The Event!}
+{9010}{}{Yes I confirm}
+{9020}{}{no sorry}
+{10000}{}{Are you 100% sure!?}
+{10010}{}{|-65536 100% sure to leave event!}
+{10020}{}{no sorry}
+{11000}{}{YOU WILL LEAVE EVENT FOR SERIOUS?!}
+{11010}{}{|-65536 YES SIR I WANT LEAVE EVENT}
+{11020}{}{no sorry}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{What is it, you, wasteland shit?}
+{2010}{}{I want to join the battle}
+{2020}{}{I want to join the battle}
+{2030}{}{I want to join the battle}
+{2040}{}{Repair my gear}
+{2050}{}{Upgrate my Armor[2500$]}
+{2060}{}{Upgrate my Weapon[2500$]}
+{2070}{}{Call extra forces[5000$]}
+{2080}{}{Call extra forces[5000$]}
+{2090}{}{Call extra forces[5000$]}
+{2100}{}{Call Special forces[50000$]}
+{2110}{}{Call Special forces[50000$]}
+{2120}{}{Call Special forces[50000$]}
+{2130}{}{I Want to Join The Battle}
+{2140}{}{Call extra forces}
+{2150}{}{Call special forces}
+{2160}{}{I want to buy something}
+{2170}{}{I want to leave this event}
+{2180}{}{I need special gear, do you have something?}
+{2190}{}{would you install something to my armor to make it more effective}
+{2200}{}{would you install something to my Weapon  to make it more effective}
+{2210}{}{I want to leave this event}
+{3000}{}{Are you sure? You wont get reward and you wont get reward}
+{3010}{}{Yes, I'm Sure}
+{3020}{}{No... wait}
+{4000}{}{Done!}
+{5000}{}{To craft special gear you need rare parts which you can buy from me, also need from you 50 000 currency}
+{5010}{}{Let me buy something}
+{5020}{}{Power Armor}
+{5030}{}{Hardened Power Armor}
+{5040}{}{Advanced Power Armor}
+{5050}{}{Advanced Power Armor MK II}
+{5060}{}{Advanced Power Helmet}
+{5070}{}{Advanced Power Helmet MK II}
+{5080}{}{Power Helmet}
+{5090}{}{Hardened Power Helmet}
+{5100}{}{Gauss Pistol}
+{5110}{}{Gauss Rifle}
+{5120}{}{AK 47}
+{5130}{}{Saiga-12}
+{5140}{}{H&K G11}
+{5150}{}{H&K G11E}
+{5160}{}{Vindicator Minigun}
+{5170}{}{Bozar}
+{5180}{}{M203}
+{5190}{}{Turbo Plasma Rifle}
+{5200}{}{Plasma Gatling}
+{5210}{}{Pulse Rifle}
+{5220}{}{Mega Sledge}
+{5230}{}{Plasma Torch?}
+{5240}{}{Nevermind}
+{6000}{}{Yes, for 75 000 currency i will make it more fancy}
+{6010}{}{Bonus Ranged Damage}
+{6020}{}{Bonus Damage}
+{6030}{}{Bonus Attack}
+{6040}{}{Scoped}
+{6050}{}{Better Critical}
+{6060}{}{Fast Trigger}
+{6070}{}{Slayer}
+{6080}{}{Knockback}
+{6090}{}{Killing Spree}
+{6100}{}{Life Steal}
+{6110}{}{Chip Shot}
+{6120}{}{More Criticals}
+{6130}{}{Nevermind}
+{7000}{}{Yes, for 75 000 currency i will make it more fancy}
+{7010}{}{Gain Strength}
+{7020}{}{Gain Perception}
+{7030}{}{Gain Endurance}
+{7040}{}{Gain Agility}
+{7050}{}{Gain Luck}
+{7060}{}{Cured}
+{7070}{}{Laser Reflector}
+{7080}{}{Anty-Termal System}
+{7090}{}{Defense Enhancement}
+{7100}{}{Advanced Plate}
+{7110}{}{Mirror System}
+{7120}{}{Tesla Addition}
+{7130}{}{Shock Protection}
+{7140}{}{Firegeckon's Enhancement}
+{7150}{}{Special Force Bonus}
+{7160}{}{Regeneration}
+{7170}{}{Fill The Gaps}
+{7180}{}{Heavy}
+{7190}{}{Utility}
+{7200}{}{Bonus Move}
+{7210}{}{Heavy Stonewall}
+{7220}{}{Speed Mechanism}
+{7230}{}{Lethal Protection}
+{7240}{}{Nevermind}
+{8000}{}{For craft it you need Unique plasma parts, 2x Plasma Accelerator and 3x Plasma Transformer}
+{8010}{}{Sure}
+{8020}{}{Maybe other time}
+{9000}{}{Please confirm me that you want leave The Event!}
+{9010}{}{Yes in confirm10}
+{9020}{}{no sorry}
+{10000}{}{Are you 100% sure!?}
+{10010}{}{|-65536 100% sure to leave event!}
+{10020}{}{no sorry}
+{11000}{}{YOU WILL LEAVE EVENT FOR SERIOUS?!}
+{11010}{}{|-65536 YES SIR I WANT LEAVE EVENT}
+{11020}{}{no sorry}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{What is it, you, wasteland shit?}
+{2010}{}{I want to join the battle}
+{2020}{}{I want to join the battle}
+{2030}{}{I want to join the battle}
+{2040}{}{Repair my gear}
+{2050}{}{Upgrate my Armor[2500$]}
+{2060}{}{Upgrate my Weapon[2500$]}
+{2070}{}{Call extra forces[5000$]}
+{2080}{}{Call extra forces[5000$]}
+{2090}{}{Call extra forces[5000$]}
+{2100}{}{Call Special forces[50000$]}
+{2110}{}{Call Special forces[50000$]}
+{2120}{}{Call Special forces[50000$]}
+{2130}{}{I Want to Join The Battle}
+{2140}{}{Call extra forces}
+{2150}{}{Call special forces}
+{2160}{}{I want to buy something}
+{2170}{}{I want to leave this event}
+{2180}{}{I need special gear, do you have something?}
+{2190}{}{would you install something to my armor to make it more effective}
+{2200}{}{would you install something to my Weapon  to make it more effective}
+{2210}{}{I want to leave this event}
+{3000}{}{Are you sure? You wont get reward and you wont get reward}
+{3010}{}{Yes, I'm Sure}
+{3020}{}{No... wait}
+{4000}{}{Done!}
+{5000}{}{To craft special gear you need rare parts which you can buy from me, also need from you 50 000 currency}
+{5010}{}{Let me buy something}
+{5020}{}{Power Armor}
+{5030}{}{Hardened Power Armor}
+{5040}{}{Advanced Power Armor}
+{5050}{}{Advanced Power Armor MK II}
+{5060}{}{Advanced Power Helmet}
+{5070}{}{Advanced Power Helmet MK II}
+{5080}{}{Power Helmet}
+{5090}{}{Hardened Power Helmet}
+{5100}{}{Gauss Pistol}
+{5110}{}{Gauss Rifle}
+{5120}{}{AK 47}
+{5130}{}{Saiga-12}
+{5140}{}{H&K G11}
+{5150}{}{H&K G11E}
+{5160}{}{Vindicator Minigun}
+{5170}{}{Bozar}
+{5180}{}{M203}
+{5190}{}{Turbo Plasma Rifle}
+{5200}{}{Plasma Gatling}
+{5210}{}{Pulse Rifle}
+{5220}{}{Mega Sledge}
+{5230}{}{Plasma Torch?}
+{5240}{}{Nevermind}
+{6000}{}{Yes, for 75 000 currency i will make it more fancy}
+{6010}{}{Bonus Ranged Damage}
+{6020}{}{Bonus Damage}
+{6030}{}{Bonus Attack}
+{6040}{}{Scoped}
+{6050}{}{Better Critical}
+{6060}{}{Fast Trigger}
+{6070}{}{Slayer}
+{6080}{}{Knockback}
+{6090}{}{Killing Spree}
+{6100}{}{Life Steal}
+{6110}{}{Chip Shot}
+{6120}{}{More Criticals}
+{6130}{}{Nevermind}
+{7000}{}{Yes, for 75 000 currency i will make it more fancy}
+{7010}{}{Gain Strength}
+{7020}{}{Gain Perception}
+{7030}{}{Gain Endurance}
+{7040}{}{Gain Agility}
+{7050}{}{Gain Luck}
+{7060}{}{Cured}
+{7070}{}{Laser Reflector}
+{7080}{}{Anty-Termal System}
+{7090}{}{Defense Enhancement}
+{7100}{}{Advanced Plate}
+{7110}{}{Mirror System}
+{7120}{}{Tesla Addition}
+{7130}{}{Shock Protection}
+{7140}{}{Firegeckon's Enhancement}
+{7150}{}{Special Force Bonus}
+{7160}{}{Regeneration}
+{7170}{}{Fill The Gaps}
+{7180}{}{Heavy}
+{7190}{}{Utility}
+{7200}{}{Bonus Move}
+{7210}{}{Heavy Stonewall}
+{7220}{}{Speed Mechanism}
+{7230}{}{Lethal Protection}
+{7240}{}{Nevermind}
+{8000}{}{For craft it you need Unique plasma parts, 2x Plasma Accelerator and 3x Plasma Transformer}
+{8010}{}{Sure}
+{8020}{}{Maybe other time}
+{9000}{}{Please confirm me that you want leave The Event!}
+{9010}{}{Yes in confirm10}
+{9020}{}{no sorry}
+{10000}{}{Are you 100% sure!?}
+{10010}{}{|-65536 100% sure to leave event!}
+{10020}{}{no sorry}
+{11000}{}{YOU WILL LEAVE EVENT FOR SERIOUS?!}
+{11010}{}{|-65536 YES SIR I WANT LEAVE EVENT}
+{11020}{}{no sorry}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{What is it, you, wasteland shit?}
+{2010}{}{I want to join the battle}
+{2020}{}{I want to join the battle}
+{2030}{}{I want to join the battle}
+{2040}{}{Repair my gear}
+{2050}{}{Upgrate my Armor[2500$]}
+{2060}{}{Upgrate my Weapon[2500$]}
+{2070}{}{Call extra forces[5000$]}
+{2080}{}{Call extra forces[5000$]}
+{2090}{}{Call extra forces[5000$]}
+{2100}{}{Call Special forces[50000$]}
+{2110}{}{Call Special forces[50000$]}
+{2120}{}{Call Special forces[50000$]}
+{2130}{}{I Want to Join The Battle}
+{2140}{}{Call extra forces}
+{2150}{}{Call special forces}
+{2160}{}{I want to buy something}
+{2170}{}{I want to leave this event}
+{2180}{}{I need special gear, do you have something?}
+{2190}{}{would you install something to my armor to make it more effective}
+{2200}{}{would you install something to my Weapon  to make it more effective}
+{2210}{}{I want to leave this event}
+{3000}{}{Are you sure? You wont get reward and you wont get reward}
+{3010}{}{Yes, I'm Sure}
+{3020}{}{No... wait}
+{4000}{}{Done!}
+{5000}{}{To craft special gear you need rare parts which you can buy from me, also need from you 50 000 currency}
+{5010}{}{Let me buy something}
+{5020}{}{Power Armor}
+{5030}{}{Hardened Power Armor}
+{5040}{}{Advanced Power Armor}
+{5050}{}{Advanced Power Armor MK II}
+{5060}{}{Advanced Power Helmet}
+{5070}{}{Advanced Power Helmet MK II}
+{5080}{}{Power Helmet}
+{5090}{}{Hardened Power Helmet}
+{5100}{}{Gauss Pistol}
+{5110}{}{Gauss Rifle}
+{5120}{}{AK 47}
+{5130}{}{Saiga-12}
+{5140}{}{H&K G11}
+{5150}{}{H&K G11E}
+{5160}{}{Vindicator Minigun}
+{5170}{}{Bozar}
+{5180}{}{M203}
+{5190}{}{Turbo Plasma Rifle}
+{5200}{}{Plasma Gatling}
+{5210}{}{Pulse Rifle}
+{5220}{}{Mega Sledge}
+{5230}{}{Plasma Torch?}
+{5240}{}{Nevermind}
+{6000}{}{Yes, for 75 000 currency i will make it more fancy}
+{6010}{}{Bonus Ranged Damage}
+{6020}{}{Bonus Damage}
+{6030}{}{Bonus Attack}
+{6040}{}{Scoped}
+{6050}{}{Better Critical}
+{6060}{}{Fast Trigger}
+{6070}{}{Slayer}
+{6080}{}{Knockback}
+{6090}{}{Killing Spree}
+{6100}{}{Life Steal}
+{6110}{}{Chip Shot}
+{6120}{}{More Criticals}
+{6130}{}{Nevermind}
+{7000}{}{Yes, for 75 000 currency i will make it more fancy}
+{7010}{}{Gain Strength}
+{7020}{}{Gain Perception}
+{7030}{}{Gain Endurance}
+{7040}{}{Gain Agility}
+{7050}{}{Gain Luck}
+{7060}{}{Cured}
+{7070}{}{Laser Reflector}
+{7080}{}{Anty-Termal System}
+{7090}{}{Defense Enhancement}
+{7100}{}{Advanced Plate}
+{7110}{}{Mirror System}
+{7120}{}{Tesla Addition}
+{7130}{}{Shock Protection}
+{7140}{}{Firegeckon's Enhancement}
+{7150}{}{Special Force Bonus}
+{7160}{}{Regeneration}
+{7170}{}{Fill The Gaps}
+{7180}{}{Heavy}
+{7190}{}{Utility}
+{7200}{}{Bonus Move}
+{7210}{}{Heavy Stonewall}
+{7220}{}{Speed Mechanism}
+{7230}{}{Lethal Protection}
+{7240}{}{Nevermind}
+{8000}{}{For craft it you need Unique plasma parts, 2x Plasma Accelerator and 3x Plasma Transformer}
+{8010}{}{Sure}
+{8020}{}{Maybe other time}
+{9000}{}{Please confirm me that you want leave The Event!}
+{9010}{}{Yes in confirm10}
+{9020}{}{no sorry}
+{10000}{}{Are you 100% sure!?}
+{10010}{}{|-65536 100% sure to leave event!}
+{10020}{}{no sorry}
+{11000}{}{YOU WILL LEAVE EVENT FOR SERIOUS?!}
+{11010}{}{|-65536 YES SIR I WANT LEAVE EVENT}
+{11020}{}{no sorry}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{trying to enter}
+{2000}{}{What is it, you, wasteland shit?}
+{2010}{}{I want to join the battle}
+{2020}{}{I want to join the battle}
+{2030}{}{I want to join the battle}
+{2040}{}{Repair my gear}
+{2050}{}{Upgrate my Armor[2500$]}
+{2060}{}{Upgrate my Weapon[2500$]}
+{2070}{}{Call extra forces[5000$]}
+{2080}{}{Call extra forces[5000$]}
+{2090}{}{Call extra forces[5000$]}
+{2100}{}{Call Special forces[50000$]}
+{2110}{}{Call Special forces[50000$]}
+{2120}{}{Call Special forces[50000$]}
+{2130}{}{I Want to Join The Battle}
+{2140}{}{Call extra forces}
+{2150}{}{Call special forces}
+{2160}{}{I want to buy something}
+{2170}{}{I want to leave this event}
+{2180}{}{I need special gear, do you have something?}
+{2190}{}{would you install something to my armor to make it more effective}
+{2200}{}{would you install something to my Weapon  to make it more effective}
+{2210}{}{I want to leave this event}
+{3000}{}{Are you sure? You wont get reward and you wont get reward}
+{3010}{}{Yes, I'm Sure}
+{3020}{}{No... wait}
+{4000}{}{Done!}
+{5000}{}{To craft special gear you need rare parts which you can buy from me, also need from you 50 000 currency}
+{5010}{}{Let me buy something}
+{5020}{}{Power Armor}
+{5030}{}{Hardened Power Armor}
+{5040}{}{Advanced Power Armor}
+{5050}{}{Advanced Power Armor MK II}
+{5060}{}{Advanced Power Helmet}
+{5070}{}{Advanced Power Helmet MK II}
+{5080}{}{Power Helmet}
+{5090}{}{Hardened Power Helmet}
+{5100}{}{Gauss Pistol}
+{5110}{}{Gauss Rifle}
+{5120}{}{AK 47}
+{5130}{}{Saiga-12}
+{5140}{}{H&K G11}
+{5150}{}{H&K G11E}
+{5160}{}{Vindicator Minigun}
+{5170}{}{Bozar}
+{5180}{}{M203}
+{5190}{}{Turbo Plasma Rifle}
+{5200}{}{Plasma Gatling}
+{5210}{}{Pulse Rifle}
+{5220}{}{Mega Sledge}
+{5230}{}{Plasma Torch?}
+{5240}{}{Nevermind}
+{6000}{}{Yes, for 75 000 currency i will make it more fancy}
+{6010}{}{Bonus Ranged Damage}
+{6020}{}{Bonus Damage}
+{6030}{}{Bonus Attack}
+{6040}{}{Scoped}
+{6050}{}{Better Critical}
+{6060}{}{Fast Trigger}
+{6070}{}{Slayer}
+{6080}{}{Knockback}
+{6090}{}{Killing Spree}
+{6100}{}{Life Steal}
+{6110}{}{Chip Shot}
+{6120}{}{More Criticals}
+{6130}{}{Nevermind}
+{7000}{}{Yes, for 75 000 currency i will make it more fancy}
+{7010}{}{Gain Strength}
+{7020}{}{Gain Perception}
+{7030}{}{Gain Endurance}
+{7040}{}{Gain Agility}
+{7050}{}{Gain Luck}
+{7060}{}{Cured}
+{7070}{}{Laser Reflector}
+{7080}{}{Anty-Termal System}
+{7090}{}{Defense Enhancement}
+{7100}{}{Advanced Plate}
+{7110}{}{Mirror System}
+{7120}{}{Tesla Addition}
+{7130}{}{Shock Protection}
+{7140}{}{Firegeckon's Enhancement}
+{7150}{}{Special Force Bonus}
+{7160}{}{Regeneration}
+{7170}{}{Fill The Gaps}
+{7180}{}{Heavy}
+{7190}{}{Utility}
+{7200}{}{Bonus Move}
+{7210}{}{Heavy Stonewall}
+{7220}{}{Speed Mechanism}
+{7230}{}{Lethal Protection}
+{7240}{}{Nevermind}
+{8000}{}{For craft it you need Unique plasma parts, 2x Plasma Accelerator and 3x Plasma Transformer}
+{8010}{}{Sure}
+{8020}{}{Maybe other time}
+{9000}{}{Please confirm me that you want leave The Event!}
+{9010}{}{Yes in confirm10}
+{9020}{}{no sorry}
+{10000}{}{Are you 100% sure!?}
+{10010}{}{|-65536 100% sure to leave event!}
+{10020}{}{no sorry}
+{11000}{}{YOU WILL LEAVE EVENT FOR SERIOUS?!}
+{11010}{}{|-65536 YES SIR I WANT LEAVE EVENT}
+{11020}{}{no sorry}
+

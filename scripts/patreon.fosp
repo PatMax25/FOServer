@@ -1,0 +1,213 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
+int week_patch=1;
+int doubleloot=1;
+bool dropchance(float chance)
+{
+	if(chance==0)
+	return false;
+	if(Random(0,100)<chance)
+	return true;
+	
+	return false;
+	
+}
+
+bool can_tc_modoc=false;
+bool can_tc_klamath=false;
+bool can_tc_gecko=false;
+bool can_tc_bh=false;
+bool can_tc_redding=false;
+bool can_tc_den=false;
+bool can_tc_necro=false;
+bool can_tc_reno=false;
+
+uint when_tc_modoc=0;
+uint when_tc_klamath=0;
+uint when_tc_gecko=0;
+uint when_tc_bh=0;
+uint when_tc_redding=0;
+uint when_tc_den=0;
+uint when_tc_necro=0;
+uint when_tc_reno=0;        
+
+void pat_reward(Critter&player,Critter@npc,int kind,int type)
+{
+	
+}
+
+void pat_status(Critter&player,Critter@npc)
+{
+	player.Say((11),"Code: "+player.Param[(1001)]);
+	player.Say((11),"Tier: "+player.Param[(1002)]);
+	player.Say((11),"Skin left: "+player.Param[(1004)]);
+	player.Say((11),"Colored Items left: "+player.Param[(1005)]);
+	player.Say((11),"Renames for Items left: "+player.Param[(1006)]);
+	player.Say((11),"Mine Machines: "+player.Param[(1010)]);
+}
+
+void pat_extra_stats(Critter&player,Critter@npc)
+{
+	player.Say((11),"Action Points for Turnbase: "+player.Param[(87)]);
+	uint16 range=20+3*player.Param[(1)]+6*player.Param[(315)]+11*player.Param[(337)]+11*player.Param[(340)]+player.Param[(353)]>0?player.Param[(14)]:0;
+	player.Say((11),"FoV: "+range);
+	player.Say((11),"Faction Id: "+player.Param[(106)]);
+	int runTime=player.Param[(118)];
+	int time=(200-runTime)/2;
+	player.Say((11),"Movement Speed: "+time);
+	int val=1700;
+	val-=player.Param[(12)]*8;
+	val-=player.Param[(5)]*8;
+	val-=player.Param[(557)]*40;
+	val-=player.Param[(325)]*40;
+	val-=player.Param[(328)]*40;
+	if((@player.GetItem((1),0)!=null))
+	if((((player.GetItem((1),0).Flags)&((0x00000080)))!=0))
+	val-=player.Param[(350)]*240;
+	if(player.Param[(350)]>0&&player.Param[(307)]>0&&player.Param[(407)]>0&&player.Param[(349)]>0)
+	val-=120;
+	val/=8;
+	player.Say((11),"Attack Speed: "+val);
+	int extraroll=0;
+	int roll=0;
+	if(player.Param[(322)]>0)
+	extraroll+=25;
+	if(player.Param[(556)]>0)
+	extraroll-=20;
+	if(player.Param[(446)]>0)
+	extraroll+=33;
+	if(player.Param[(326)]>0)
+	extraroll+=10;
+	if(player.Param[(353)]>0)
+	roll+=player.Param[(14)];
+	int rangefov=range;
+	rangefov/=10;
+	if(player.Param[(353)]>0)
+	roll+=rangefov;
+	if(player.Param[(309)]>0&&player.Param[(424)]>0&&player.Param[(391)]>0)
+	roll+=10;
+	if(player.Param[(310)]>1)
+	roll+=40;
+	if(player.Param[(300)]>0)
+	extraroll+=5;
+	if(player.Param[(310)]>0)
+	extraroll+=5*player.Param[(310)];
+	
+	if(player.Param[(557)]>0)
+	extraroll-=35;
+	if(player.Param[(395)]>0)
+	extraroll+=1;
+	player.Say((11),"Critical Power: "+roll);
+	player.Say((11),"Critical Power Bonus: "+extraroll+"%");
+	int flat_damage=player.Param[(4)];
+	if(player.Param[(398)]!=0)
+	flat_damage+=15;
+	if(player.Param[(557)]!=0)
+	flat_damage+=5;
+	if(player.Param[(556)]!=0)
+	flat_damage+=2;
+	if(player.Param[(395)]!=0)
+	flat_damage+=1;
+	if(player.Param[(407)]>0)
+	flat_damage*=1.25;
+	player.Say((11),"Flat Damage: "+flat_damage);
+	float damage_reduction=0;
+	if(player.Param[(345)]>0)
+	damage_reduction+=150;
+	if(player.Param[(329)]>2)
+	damage_reduction+=50;
+	if(player.Param[(2)]>19)
+	damage_reduction+=50;
+	damage_reduction+=player.Param[(2)];
+	damage_reduction/=10;
+	player.Say((11),"Damage Reduction: "+damage_reduction+"%");
+}
+bool pat_skin_left(Critter&player,Critter@npc)
+{
+	if(player.Param[(1002)]>3)
+	return true;
+	if(player.Param[(1004)]>0)
+	return true;
+	
+	return false;
+}
+array<int>allowed_skins={8,9,15,19,24,26,27,28,29,31,33,35,36,37,39,38,40,41,42,44,43,45,48,55,56,57,61,62,63,64,67,68,72,73,76,77,78,79,80,81,82,83,86,87,88,89,91,92,93,94,95,98,103,104,110,119,126,128,405,406,407,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,444,445,446,447,448,449,450,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,468,471,472,473,474,476,477,478,479,480,481,482,483,484,485,69};
+uint dlg_Skins(Critter&player,Critter@npc,string@text)
+{
+	int Skin_id=0;
+	if(!StrToInt(text,Skin_id))
+	return uint(-1);
+	if(Skin_id<0)
+	return uint(-1);
+	if(Skin_id>1000)
+	return uint(-1);
+	bool skin_allowed=false;
+	for(uint i=0;i<allowed_skins.length();i++)
+	{
+		if(Skin_id!=allowed_skins[i])
+		continue;
+		skin_allowed=true;
+	}
+	if(skin_allowed)
+	{
+		player.ChangeCrType(Skin_id);
+		player.ParamBase[(112)]=Skin_id;
+		if(player.Param[(1002)]!=4||player.Param[(1002)]!=5)
+		player.ParamBase[(1004)]-=1;
+	}
+	if(!skin_allowed)
+	{
+		player.Say((11),"Wrong Skin Id");
+	}
+	return uint(-1);
+}
+bool pat_check(Critter&player,Critter@npc)
+{
+	
+	uint16 second=0;
+	uint16 minute=0;
+	uint16 hour=0;
+	uint16 d=0;
+	uint16 month=0;
+	uint16 a,c,g;
+	GetTime(a,month,c,d,hour,minute,second,g);
+	if(player.Param[(1001)]==0)
+	{
+		player.Say((11),"You are not Patreon, or didnt use command ~patreon_access yourcode");
+		return false;
+		
+	}
+	if(player.Param[(1003)]!=month)
+	{
+		player.Say((11),"Your Patreon may expired, ask for new code");
+		return false;
+		
+	}
+	if(player.Param[(1003)]==month)
+	{
+		player.Say((11),"Access granted");
+		return true;
+		
+	}
+	return false;
+} 
+
+void pat_lose_access_on_reroll(Critter&player)
+{
+	file f;
+	f.open("logs/pat/"+player.Param[(1001)]+"_id.txt","w");
+	f.writeString("used");
+	f.close();
+	file s;
+	s.open("logs/pat/"+player.Param[(1001)]+"_skins.txt","w");
+	s.writeString(""+player.Param[(1004)]);
+	s.close();
+	file n;
+	n.open("logs/pat/"+player.Param[(1001)]+"_names.txt","w");
+	n.writeString(""+player.Param[(1006)]);
+	n.close();
+	file c;
+	c.open("logs/pat/"+player.Param[(1001)]+"_colors.txt","w");
+	c.writeString(""+player.Param[(1005)]);
+	c.close();
+}

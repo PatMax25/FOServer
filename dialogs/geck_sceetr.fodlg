@@ -1,0 +1,147 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+3 1010 D _var n name_mem_npc_player = 0 R _var n name_mem_npc_player = 1 #
+4 1020 R _var n name_mem_npc_player = 1 @
+2 2000 None 0 @
+3 3000 None 0 #
+5 3010 R _var n acquaintance = 1 #
+90 3020 D _var p q_necro_gecko = 1 D _script dialog@d_HasHoloInfo 1 43 D or D _var p q_necro_gecko = 1 D _script dialog@d_HasHolodisk 1 43 #
+0 3030 @
+4 4000 None 0 #
+5 4010 R _var n acquaintance = 1 #
+90 4020 D _var p q_necro_gecko = 1 D _script dialog@d_HasHolodisk 1 43 D or D _var p q_necro_gecko = 1 D _script dialog@d_HasHoloInfo 1 43 #
+0 4030 @
+5 5000 None 0 #
+4 5010 #
+0 5020 @
+90 6000 None 0 #
+91 6010 @
+91 7000 None 0 #
+92 7010 R _var p q_necro_gecko = 2 R _script dialog@r_GiveHolodisk 1 44 @
+92 8000 None 0 &
+
+[engl]
+{100}{}{Skeeter}
+{200}{}{You see a ghoul wearing old, grease-stained clothing.}
+{210}{}{You see Skeeter, the Ghoul Gadgeteer.}
+{210}{}{You see a grubby but intelligent-looking ghoul, wearing greasy overalls with a micrometer sticking out of his pocket.}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Known}
+{2000}{}{Just don't touch anything - you might hurt yourself.@@You can watch. You might even learn something, but I doubt it.@@Well, ain't you something special.@@Are you just pretending to be dumb, or are you really that stupid?}
+{3000}{}{Hello there, I'm Skeeter.}
+{3010}{}{What do you do here?}
+{3020}{}{Elmer in Necropolis sent me with this.}
+{3030}{}{Uh, I was just looking around. Goodbye. [ end dialogue ]}
+{4000}{}{Whatcha lookin' fer?}
+{4010}{}{What do you do here?}
+{4020}{}{Elmer in Necropolis sent me with this.}
+{4030}{}{Uh, I was just looking around. Goodbye. [ end dialogue ]}
+{5000}{}{Mostly I jist sorta tinker with things. Take 'em apart an try to put 'em all back t'gether' mostly. Make 'em work better' sometimes. Keepin' myself outta trouble. Know what I mean?}
+{5010}{}{I guess. Let me ask you something else.}
+{5020}{}{Well, I think I better go do something myself. Goodbye. [ end dialogue ]}
+{6000}{}{Just like we have problems with VC, the fellas down in Necropolis have their own problems. They're asking for any assistance we can give. I can't promise anything, but I'm gonna try my hardest.}
+{6010}{}{[ continue ]}
+{7000}{}{If we can manage, we'll send some ghouls to help them defend, or at the very least, send them some supplies. I've put all this information on this holodisk. Bring it back to Necropolis..}
+{7010}{}{I'll do that. Thanks Skeeter.}
+{8000}{}{Good luck.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Known}
+{2000}{}{Just don't touch anything - you might hurt yourself.@@You can watch. You might even learn something, but I doubt it.@@Well, ain't you something special.@@Are you just pretending to be dumb, or are you really that stupid?}
+{3000}{}{Hello there, I'm Skeeter.}
+{3010}{}{What do you do here?}
+{3020}{}{Elmer in Necropolis sent me with this.}
+{3030}{}{Uh, I was just looking around. Goodbye.}
+{4000}{}{Whatcha lookin' fer?}
+{4010}{}{What do you do here?}
+{4020}{}{Elmer in Necropolis sent me with this.}
+{4030}{}{Uh, I was just looking around. Goodbye.}
+{5000}{}{Mostly I jist sorta tinker with things. Take 'em apart an try to put 'em all back t'gether' mostly. Make 'em work better' sometimes. Keepin' myself outta trouble. Know what I mean?}
+{5010}{}{I guess. Let me ask you something else.}
+{5020}{}{Well, I think I better go do something myself. Goodbye.}
+{6000}{}{Just like we have problems with VC, the fellas down in Necropolis have their own problems. They're asking for any assistance we can give. I can't promise anything, but I'm gonna try my hardest.}
+{6010}{}{[continue]}
+{7000}{}{If we can manage, we'll send some ghouls to help them defend, or at the very least, send them some supplies. I've put all this information on this holodisk. Bring it back to Necropolis..}
+{7010}{}{I'll do that. Thanks Skeeter.}
+{8000}{}{Good luck.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Known}
+{2000}{}{Just don't touch anything - you might hurt yourself.@@You can watch. You might even learn something, but I doubt it.@@Well, ain't you something special.@@Are you just pretending to be dumb, or are you really that stupid?}
+{3000}{}{Hello there, I'm Skeeter.}
+{3010}{}{What do you do here?}
+{3020}{}{Elmer in Necropolis sent me with this.}
+{3030}{}{Uh, I was just looking around. Goodbye.}
+{4000}{}{Whatcha lookin' fer?}
+{4010}{}{What do you do here?}
+{4020}{}{Elmer in Necropolis sent me with this.}
+{4030}{}{Uh, I was just looking around. Goodbye.}
+{5000}{}{Mostly I jist sorta tinker with things. Take 'em apart an try to put 'em all back t'gether' mostly. Make 'em work better' sometimes. Keepin' myself outta trouble. Know what I mean?}
+{5010}{}{I guess. Let me ask you something else.}
+{5020}{}{Well, I think I better go do something myself. Goodbye.}
+{6000}{}{Just like we have problems with VC, the fellas down in Necropolis have their own problems. They're asking for any assistance we can give. I can't promise anything, but I'm gonna try my hardest.}
+{6010}{}{[continue]}
+{7000}{}{If we can manage, we'll send some ghouls to help them defend, or at the very least, send them some supplies. I've put all this information on this holodisk. Bring it back to Necropolis..}
+{7010}{}{I'll do that. Thanks Skeeter.}
+{8000}{}{Good luck.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Known}
+{2000}{}{Just don't touch anything - you might hurt yourself.@@You can watch. You might even learn something, but I doubt it.@@Well, ain't you something special.@@Are you just pretending to be dumb, or are you really that stupid?}
+{3000}{}{Hello there, I'm Skeeter.}
+{3010}{}{What do you do here?}
+{3020}{}{Elmer in Necropolis sent me with this.}
+{3030}{}{Uh, I was just looking around. Goodbye.}
+{4000}{}{Whatcha lookin' fer?}
+{4010}{}{What do you do here?}
+{4020}{}{Elmer in Necropolis sent me with this.}
+{4030}{}{Uh, I was just looking around. Goodbye.}
+{5000}{}{Mostly I jist sorta tinker with things. Take 'em apart an try to put 'em all back t'gether' mostly. Make 'em work better' sometimes. Keepin' myself outta trouble. Know what I mean?}
+{5010}{}{I guess. Let me ask you something else.}
+{5020}{}{Well, I think I better go do something myself. Goodbye.}
+{6000}{}{Just like we have problems with VC, the fellas down in Necropolis have their own problems. They're asking for any assistance we can give. I can't promise anything, but I'm gonna try my hardest.}
+{6010}{}{[continue]}
+{7000}{}{If we can manage, we'll send some ghouls to help them defend, or at the very least, send them some supplies. I've put all this information on this holodisk. Bring it back to Necropolis..}
+{7010}{}{I'll do that. Thanks Skeeter.}
+{8000}{}{Good luck.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Unknown}
+{1020}{}{Known}
+{2000}{}{Just don't touch anything - you might hurt yourself.@@You can watch. You might even learn something, but I doubt it.@@Well, ain't you something special.@@Are you just pretending to be dumb, or are you really that stupid?}
+{3000}{}{Hello there, I'm Skeeter.}
+{3010}{}{What do you do here?}
+{3020}{}{Elmer in Necropolis sent me with this.}
+{3030}{}{Uh, I was just looking around. Goodbye.}
+{4000}{}{Whatcha lookin' fer?}
+{4010}{}{What do you do here?}
+{4020}{}{Elmer in Necropolis sent me with this.}
+{4030}{}{Uh, I was just looking around. Goodbye.}
+{5000}{}{Mostly I jist sorta tinker with things. Take 'em apart an try to put 'em all back t'gether' mostly. Make 'em work better' sometimes. Keepin' myself outta trouble. Know what I mean?}
+{5010}{}{I guess. Let me ask you something else.}
+{5020}{}{Well, I think I better go do something myself. Goodbye.}
+{6000}{}{Just like we have problems with VC, the fellas down in Necropolis have their own problems. They're asking for any assistance we can give. I can't promise anything, but I'm gonna try my hardest.}
+{6010}{}{[continue]}
+{7000}{}{If we can manage, we'll send some ghouls to help them defend, or at the very least, send them some supplies. I've put all this information on this holodisk. Bring it back to Necropolis..}
+{7010}{}{I'll do that. Thanks Skeeter.}
+{8000}{}{Good luck.}
+

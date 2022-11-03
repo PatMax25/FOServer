@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Doctor}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We lost another one...@@Don't wander around too much.@@You better stay out of this place.@@I can't take it anymore!@@They all just die...@@Be careful in South disctricts.@@The plague is horrid...@@Not much I can do most of the time.@@Palliative care for most of them.@@Painkillers are the best I can do here in many cases.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We lost another one...@@Don't wander around too much.@@You better stay out of this place.@@I can't take it anymore!@@They all just die...@@Be careful in South disctricts.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We lost another one...@@Don't wander around too much.@@You better stay out of this place.@@I can't take it anymore!@@They all just die...@@Be careful in South disctricts.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We lost another one...@@Don't wander around too much.@@You better stay out of this place.@@I can't take it anymore!@@They all just die...@@Be careful in South disctricts.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{We lost another one...@@Don't wander around too much.@@You better stay out of this place.@@I can't take it anymore!@@They all just die...@@Be careful in South disctricts.}
+

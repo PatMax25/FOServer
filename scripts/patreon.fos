@@ -1,0 +1,189 @@
+#include "_macros.fos"
+
+/*file f;
+       f.open("logs/gms/"+player.Name+".log", "a");
+       f.writeString(GetCurrentDateTimeString()+" log call: "+s);
+       f.close();*/
+	   
+	   
+void pat_reward(Critter& player, Critter@ npc, int kind, int type)
+{
+    
+}
+
+void pat_status(Critter& player, Critter@ npc)
+{
+    player.Say(SAY_NETMSG, "Code: " + player.Param[PAT_CODE]);
+	player.Say(SAY_NETMSG, "Tier: " + player.Param[PAT_TIER]);
+	player.Say(SAY_NETMSG, "Skin left: " + player.Param[PAT_SKINS]);
+	player.Say(SAY_NETMSG, "Colored Items left: " + player.Param[PAT_COLORS_ITEM]);
+	player.Say(SAY_NETMSG, "Renames for Items left: " + player.Param[PAT_RENAME_ITEM]);
+	player.Say(SAY_NETMSG, "Mine Machines: " + player.Param[PAT_MINE]);
+}
+
+void pat_extra_stats(Critter& player, Critter@ npc)
+{
+    player.Say(SAY_NETMSG, "Action Points for Turnbase: " + player.Param[ST_MAX_MOVE_AP]);
+	uint16 range = 20 + 3 * player.Param[ST_PERCEPTION] + 6 * player.Param[PE_SHARPSHOOTER] + 11 * player.Param[PE_TACTICAL] + 11 * player.Param[PE_TACTICAL2] + player.Param[PE_HUNTER]>0 ? player.Param[ST_CRITICAL_CHANCE] : 0;
+	player.Say(SAY_NETMSG, "FoV: " + range);
+	player.Say(SAY_NETMSG, "Faction Id: " + player.Param[ST_TEAM_ID]);
+	int runTime = player.Param[ST_RUN_TIME];
+	int time = (200 - runTime) / 2;
+	player.Say(SAY_NETMSG, "Movement Speed: " + time);
+	int val = 1700;
+	val -= player.Param[ST_SEQUENCE] * 8; // 1% per sequence
+	val -= player.Param[ST_AGILITY] * 8; // 1% per ag
+	val -= player.Param[TRAIT_FAST_SHOT] * 40; // 5%
+	val -= player.Param[PE_CLAW] * 40; // 5%
+	val -= player.Param[PE_CLAW2] * 40; // 5%
+	if( valid(player.GetItem(SLOT_HAND1, 0)))
+	if(FLAG(player.GetItem(SLOT_HAND1, 0).Flags,ITEM_TWO_HANDS))
+		val -= player.Param[PE_COWBOY] * 240; //30% 
+	if(player.Param[PE_COWBOY] > 0 && player.Param[PE_EARLIER_SEQUENCE] > 0  && player.Param[PE_WEAPON_HANDLING] > 0 && player.Param[PE_QUICK_POCKETS] > 0)
+		val -= 120; //15%	
+	val /= 8;
+	player.Say(SAY_NETMSG, "Attack Speed: " + val);
+	int extraroll = 0;
+	int roll = 0;
+	if(player.Param[PE_BETTER_CRITICALS] > 0)        // +20 with ranged
+					extraroll += 25;
+    if(player.Param[TRAIT_HEAVY_HANDED] > 0)        // -20 with hth
+                    extraroll -= 20;
+    if(player.Param[PE_HTH_CRITICALS] > 0)           // +25 with hth/melee
+                    extraroll += 33;
+     if(player.Param[PE_SILENT_DEATH] > 0)   
+                extraroll += 10;
+     if(player.Param[PE_HUNTER] > 0)
+                roll += player.Param[ST_CRITICAL_CHANCE];
+	int rangefov = range;
+	rangefov /= 10;
+			if(player.Param[PE_HUNTER]>0)
+				roll += rangefov;
+			if(player.Param[PE_MORE_CRITICALS]>0 && player.Param[PE_EVEN_MORE_CRITICALS]>0 && player.Param[PE_GAIN_LUCK]>0)
+				roll += 10;
+			if(player.Param[PE_AGRO2] > 1)
+                roll += 40;
+            if(player.Param[PE_AGRO] > 0)
+                extraroll += 5;
+            if(player.Param[PE_AGRO2] > 0)
+                extraroll += 5 * player.Param[PE_AGRO2];
+			
+            if(player.Param[TRAIT_FAST_SHOT] > 0)        // +20 with ranged
+                    extraroll -= 35;
+		if(player.Param[PE_SOLDIER] > 0)
+			extraroll += 1;
+	player.Say(SAY_NETMSG, "Critical Power: " + roll);
+	player.Say(SAY_NETMSG, "Critical Power Bonus: " + extraroll+"%");
+	int flat_damage = player.Param[ST_INTELLECT];
+	if(player.Param[PE_LIVING_ANATOMY] != 0)
+            flat_damage += 15;  
+	if(player.Param[TRAIT_FAST_SHOT] != 0)
+            flat_damage += 5;
+    if(player.Param[TRAIT_HEAVY_HANDED] != 0)
+            flat_damage += 2;
+	if(player.Param[PE_SOLDIER] != 0)
+            flat_damage += 1;
+	if(player.Param[PE_WEAPON_HANDLING] > 0)
+			flat_damage *= 1.25;
+	player.Say(SAY_NETMSG, "Flat Damage: " + flat_damage);
+	float damage_reduction = 0;
+	if(player.Param[PE_MUTANT] > 0)
+            damage_reduction += 150;
+	if(player.Param[PE_LIFEGIVER] > 2)
+            damage_reduction += 50;
+	if(player.Param[ST_ENDURANCE] > 19)
+            damage_reduction += 50;
+	damage_reduction += player.Param[ST_ENDURANCE];
+	damage_reduction /=10;
+	player.Say(SAY_NETMSG, "Damage Reduction: " + damage_reduction+"%");
+}
+bool pat_skin_left(Critter& player, Critter@ npc)
+{
+	if(player.Param[PAT_TIER]>3)
+		return true;
+	if(player.Param[PAT_SKINS]>0)
+		return true;
+		
+	return false;
+}
+array<int> allowed_skins = { 8, 9, 15, 19, 24, 26, 27, 28, 29, 31, 33, 35, 36, 37, 39, 38, 40, 41, 42, 44, 43, 45, 48, 55, 56, 57, 61, 62, 63, 64, 67, 68, 72, 73, 76, 77, 78, 79, 80, 81, 82, 83, 86, 87, 88, 89, 91, 92, 93, 94, 95, 98, 103, 104, 110, 119, 126, 128, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 444, 445, 446, 447, 448, 449, 450, 	451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 468, 471, 472, 473, 474, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 69 };
+uint dlg_Skins(Critter& player, Critter@ npc, string@ text)
+{
+	int Skin_id = 0;
+	if(!StrToInt(text, Skin_id))
+        return DIALOG_END;
+	    if(Skin_id<0)
+        return DIALOG_END;  
+	if(Skin_id>1000)
+        return DIALOG_END;
+	bool skin_allowed = false;
+	for(uint	i = 0; i < allowed_skins.length(); i++)
+		{
+		if(Skin_id != allowed_skins[i])
+			continue;
+		skin_allowed = true;
+		}
+	if(skin_allowed)
+		{
+    player.ChangeCrType(Skin_id);
+	player.ParamBase[ST_BASE_CRTYPE] = Skin_id;
+	if(player.Param[PAT_TIER] != 4 || player.Param[PAT_TIER] != 5)
+		player.ParamBase[PAT_SKINS] -= 1;
+		}
+	if(!skin_allowed)
+	{
+	player.Say(SAY_NETMSG, "Wrong Skin Id");
+	}
+	return DIALOG_END;
+}
+bool pat_check(Critter& player, Critter@ npc)
+{
+
+	uint16 second = 0;
+    uint16 minute = 0;
+    uint16 hour = 0;
+	uint16 d = 0;
+	uint16 month = 0;
+    uint16 a, c, g;
+    GetTime(a, month, c, d, hour, minute, second, g);
+	if(player.Param[PAT_CODE] == 0)
+		{
+		player.Say(SAY_NETMSG, "You are not Patreon, or didnt use command ~patreon_access yourcode");
+		return false;
+		
+		}
+	if(player.Param[PAT_MONTH] != month)
+		{
+		player.Say(SAY_NETMSG, "Your Patreon may expired, ask for new code");
+		return false;
+		
+		}
+	if(player.Param[PAT_MONTH] == month)
+		{
+		player.Say(SAY_NETMSG, "Access granted");
+		return true;
+		
+		}
+    return false;
+}
+
+
+void pat_lose_access_on_reroll(Critter& player) //export
+{
+    file f;
+    f.open("logs/pat/"+player.Param[PAT_CODE]+"_id.txt", "w");
+	f.writeString("used");
+    f.close();
+	file s;
+    s.open("logs/pat/"+player.Param[PAT_CODE]+"_skins.txt", "w");
+	s.writeString("" + player.Param[PAT_SKINS]);
+    s.close();
+	file n;
+    n.open("logs/pat/"+player.Param[PAT_CODE]+"_names.txt", "w");
+	n.writeString("" + player.Param[PAT_RENAME_ITEM]);
+    n.close();
+	file c;
+    c.open("logs/pat/"+player.Param[PAT_CODE]+"_colors.txt", "w");
+	c.writeString("" + player.Param[PAT_COLORS_ITEM]);
+    c.close();
+}

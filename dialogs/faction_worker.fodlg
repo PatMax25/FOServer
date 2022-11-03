@@ -1,0 +1,354 @@
+[comment]
+Common dialog for each faction's mainframe used to manage players' database.
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 0 #
+200 1010 D _script factions_terminal@d_Terminal_IsMember 1 0 R _script factions_terminal@r_UpdateLastUsed 0  #
+100 1020 D _script factions_terminal@d_Terminal_NotMember 1 0 @
+4 2000 factions_terminal@dlg_FactionName 0 #
+0 2010 R _script factions_terminal@r_status 0  #
+65506 2020 #
+0 2030 D _var p factions_player_rank } 4 R _script factions_terminal@r_payout 0  #
+5 2040 @
+100 3000 None 0 @
+5 4000 None 0 #
+0 4010 D _script dialog@d_havepropermoney 1 200000 D _item p PID_FIREWOOD } 500 R _script dialog@r_RemoveMoney 1 200000 R _item p PID_FIREWOOD - 500 R _script factions_terminal@r_recruit 3 1 0 10 #
+0 4020 D _script dialog@d_havepropermoney 1 150000 R _script dialog@r_RemoveMoney 1 150000 R _script factions_terminal@r_recruit 3 2 0 20 @
+6 5000 None 0 #
+7 5010 #
+8 5020 #
+9 5030 #
+10 5040 #
+11 5050 @
+7 6000 None 0 #
+12 6010 D _script dialog@d_havepropermoney 1 100000 R _script factions_terminal@r_recruit 3 3 12 5 R _script dialog@r_RemoveMoney 1 100000 #
+12 6020 D _script dialog@d_havepropermoney 1 150000 R _script factions_terminal@r_recruit 3 3 12 15 R _script dialog@r_RemoveMoney 1 150000 #
+12 6030 D _script dialog@d_havepropermoney 1 250000 R _script factions_terminal@r_recruit 3 3 12 30 R _script dialog@r_RemoveMoney 1 250000 #
+12 6040 D _script dialog@d_havepropermoney 1 500000 R _script factions_terminal@r_recruit 3 3 12 50 R _script dialog@r_RemoveMoney 1 500000 #
+6 6050 @
+8 7000 None 0 #
+12 7010 D _script dialog@d_havepropermoney 1 125000 R _script factions_terminal@r_recruit 3 3 14 5 R _script dialog@r_RemoveMoney 1 125000 #
+12 7020 D _script dialog@d_havepropermoney 1 175000 R _script factions_terminal@r_recruit 3 3 14 15 R _script dialog@r_RemoveMoney 1 175000 #
+12 7030 D _script dialog@d_havepropermoney 1 275000 R _script factions_terminal@r_recruit 3 3 14 30 R _script dialog@r_RemoveMoney 1 275000 #
+12 7040 D _script dialog@d_havepropermoney 1 525000 R _script factions_terminal@r_recruit 3 3 14 50 R _script dialog@r_RemoveMoney 1 525000 #
+6 7050 @
+9 8000 None 0 #
+12 8010 D _script dialog@d_havepropermoney 1 150000 R _script factions_terminal@r_recruit 3 3 140 5 R _script dialog@r_RemoveMoney 1 150000 #
+12 8020 D _script dialog@d_havepropermoney 1 200000 R _script factions_terminal@r_recruit 3 3 140 15 R _script dialog@r_RemoveMoney 1 200000 #
+12 8030 D _script dialog@d_havepropermoney 1 300000 R _script factions_terminal@r_recruit 3 3 140 30 R _script dialog@r_RemoveMoney 1 300000 #
+12 8040 D _script dialog@d_havepropermoney 1 550000 R _script factions_terminal@r_recruit 3 3 140 50 R _script dialog@r_RemoveMoney 1 550000 #
+6 8050 @
+10 9000 None 0 #
+12 9010 D _script dialog@d_havepropermoney 1 600000 R _script factions_terminal@r_recruit 3 3 1 5 R _script dialog@r_RemoveMoney 1 600000 #
+12 9020 D _script dialog@d_havepropermoney 1 650000 R _script factions_terminal@r_recruit 3 3 1 15 R _script dialog@r_RemoveMoney 1 650000 #
+12 9030 D _script dialog@d_havepropermoney 1 750000 R _script factions_terminal@r_recruit 3 3 1 30 R _script dialog@r_RemoveMoney 1 750000 #
+12 9040 D _script dialog@d_havepropermoney 1 1000000 R _script factions_terminal@r_recruit 3 3 1 50 R _script dialog@r_RemoveMoney 1 1000000 #
+6 9050 @
+11 10000 None 0 #
+12 10010 D _script dialog@d_havepropermoney 1 1100000 R _script factions_terminal@r_recruit 3 3 71 5 R _script dialog@r_RemoveMoney 1 1100000 #
+12 10020 D _script dialog@d_havepropermoney 1 1150000 R _script factions_terminal@r_recruit 3 3 71 15 R _script dialog@r_RemoveMoney 1 1150000 #
+12 10030 D _script dialog@d_havepropermoney 1 1250000 R _script factions_terminal@r_recruit 3 3 71 30 R _script dialog@r_RemoveMoney 1 1250000 #
+12 10040 R _script factions_terminal@r_recruit 3 3 71 50 R _script factions_terminal@r_recruit 3 3 71 50 R _script dialog@r_RemoveMoney 1 1500000 #
+6 10050 @
+12 11000 None 0 @
+200 12000 None 0 &
+
+[engl]
+{100}{}{Farmer}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{Hello @lex faction@ Member, How can I help you?}
+{2010}{}{Check Status}
+{2020}{}{I want add Currency to the settlement budget}
+{2030}{}{I want pay out Currency}
+{2040}{}{Let's talk about recruiting}
+{3000}{}{I don't know you
+}
+{4000}{}{Ok then, do we need more workers? If yes we need to build houses for them so need 500 wood for that. Also bringing here educated farmers will cost us 200 000 Currency. Workers will raise our income for 1000 Currency. What kind of guards depends what armor we wanna get for them and their level of experience. If we wanna get more stuff in our store, We should think about hiring a caravan crew, they cost 150 000 Currency, and they will take from our income 5000 Currency.}
+{4010}{}{Get me a worker.}
+{4020}{}{Hire Caravan Crew}
+{5000}{}{First lets talk about his armor, we have 5 armors: leather no extra costs, metal armor 25 000 Currency, combat armor 50 000 Currency, power armor 500 000 Currency and adv armor it's 1 000 000 Currency, remember We will have to pay him 500 Currency from our income also.}
+{5010}{}{Leather}
+{5020}{}{Metal}
+{5030}{}{Combat}
+{5040}{}{Power}
+{5050}{}{APA}
+{6000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{6010}{}{level 1}
+{6020}{}{level 2}
+{6030}{}{level 3}
+{6040}{}{level 4}
+{6050}{}{i change mind about armor}
+{7000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{7010}{}{level 1}
+{7020}{}{level 2}
+{7030}{}{level 3}
+{7040}{}{level 4}
+{7050}{}{i change mind about armor}
+{8000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{8010}{}{level 1}
+{8020}{}{level 2}
+{8030}{}{level 3}
+{8040}{}{level 4}
+{8050}{}{i change mind about armor}
+{9000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{9010}{}{level 1}
+{9020}{}{level 2}
+{9030}{}{level 3}
+{9040}{}{level 4}
+{9050}{}{i change mind about armor}
+{10000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{10010}{}{level 1}
+{10020}{}{level 2}
+{10030}{}{level 3}
+{10040}{}{level 4}
+{10050}{}{i change mind about armor}
+{11000}{}{Remember to give him gun and ammo}
+{12000}{}{I'm keep working partner}
+{100000000}{}{Unknown}
+{100000001}{}{None}
+{100000002}{}{Brotherhood of Steel}
+{100000003}{}{Enclave}
+{100000004}{}{The Unity}
+{100000005}{}{New California Republic}
+{100000006}{}{Vault City}
+{100000010}{}{Unknown}
+{100000011}{}{Friend}
+{100000012}{}{Neutral}
+{100000013}{}{Enemy}
+{100000014}{}{Invited}
+{100000015}{}{Claimed leadership.}
+{100000020}{}{Unknown}
+{100000021}{}{New member}
+{100000022}{}{Accepted member}
+{100000023}{}{Trusted member}
+{100000024}{}{Important member}
+{100000025}{}{Leader}
+{100000030}{}{You've entered wrong faction name.}
+{100000031}{}{Channel changed.}
+{100000032}{}{Wrong channel.}
+{100000040}{}{ has claimed leadership.}
+{100000041}{}{You have claimed leadership - time left: }
+{100000042}{}{Choose the action you want to perform:}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{Hello @lex faction@ Member, How can I help you?}
+{2010}{}{Check Status}
+{2020}{}{I want add Currency to settlement budget}
+{2030}{}{i want pay out Currency}
+{2040}{}{Let's talk about recruiting}
+{3000}{}{I don't know you
+}
+{4000}{}{Ok then, do we need more workers? If yes we need build houses for them so need 500 wood for that. Also bring here educated farmer will cost us 200 000 Currency. Worker will rise our income for 1000 Currency. About guards depends what armor we wanna get for him and his level of experience. If we wanna get more stuff in our store, We should think about hire a caravan crew, they cost 150 000 Currency, and they will take from our income 5000 Currency.}
+{4010}{}{Get me a worker.}
+{4020}{}{Hire Caravan Crew}
+{5000}{}{First lets talk about his armor, we have 5 armors: leather no extra costs, metal armor 25 000 Currency, combat armor 50 000 Currency, power armor 500 000 Currency and adv armor it's 1 000 000 Currency, remember We will have to pay him 500 Currency from our income also.}
+{5010}{}{Leather}
+{5020}{}{Metal}
+{5030}{}{Combat}
+{5040}{}{Power}
+{5050}{}{APA}
+{6000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{6010}{}{level 1}
+{6020}{}{level 2}
+{6030}{}{level 3}
+{6040}{}{level 4}
+{6050}{}{i change mind about armor}
+{7000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{7010}{}{level 1}
+{7020}{}{level 2}
+{7030}{}{level 3}
+{7040}{}{level 4}
+{7050}{}{i change mind about armor}
+{8000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{8010}{}{level 1}
+{8020}{}{level 2}
+{8030}{}{level 3}
+{8040}{}{level 4}
+{8050}{}{i change mind about armor}
+{9000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{9010}{}{level 1}
+{9020}{}{level 2}
+{9030}{}{level 3}
+{9040}{}{level 4}
+{9050}{}{i change mind about armor}
+{10000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{10010}{}{level 1}
+{10020}{}{level 2}
+{10030}{}{level 3}
+{10040}{}{level 4}
+{10050}{}{i change mind about armor}
+{11000}{}{Remember to give him gun and ammo}
+{12000}{}{I'm keep working partner}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{Hello @lex faction@ Member, How can I help you?}
+{2010}{}{Check Status}
+{2020}{}{I want add Currency to settlement budget}
+{2030}{}{i want pay out Currency}
+{2040}{}{Let's talk about recruiting}
+{3000}{}{I don't know you
+}
+{4000}{}{Ok then, do we need more workers? If yes we need build houses for them so need 500 wood for that. Also bring here educated farmer will cost us 200 000 Currency. Worker will rise our income for 1000 Currency. About guards depends what armor we wanna get for him and his level of experience. If we wanna get more stuff in our store, We should think about hire a caravan crew, they cost 150 000 Currency, and they will take from our income 5000 Currency.}
+{4010}{}{Get me a worker.}
+{4020}{}{Hire Caravan Crew}
+{5000}{}{First lets talk about his armor, we have 5 armors: leather no extra costs, metal armor 25 000 Currency, combat armor 50 000 Currency, power armor 500 000 Currency and adv armor it's 1 000 000 Currency, remember We will have to pay him 500 Currency from our income also.}
+{5010}{}{Leather}
+{5020}{}{Metal}
+{5030}{}{Combat}
+{5040}{}{Power}
+{5050}{}{APA}
+{6000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{6010}{}{level 1}
+{6020}{}{level 2}
+{6030}{}{level 3}
+{6040}{}{level 4}
+{6050}{}{i change mind about armor}
+{7000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{7010}{}{level 1}
+{7020}{}{level 2}
+{7030}{}{level 3}
+{7040}{}{level 4}
+{7050}{}{i change mind about armor}
+{8000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{8010}{}{level 1}
+{8020}{}{level 2}
+{8030}{}{level 3}
+{8040}{}{level 4}
+{8050}{}{i change mind about armor}
+{9000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{9010}{}{level 1}
+{9020}{}{level 2}
+{9030}{}{level 3}
+{9040}{}{level 4}
+{9050}{}{i change mind about armor}
+{10000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{10010}{}{level 1}
+{10020}{}{level 2}
+{10030}{}{level 3}
+{10040}{}{level 4}
+{10050}{}{i change mind about armor}
+{11000}{}{Remember to give him gun and ammo}
+{12000}{}{I'm keep working partner}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{Hello @lex faction@ Member, How can I help you?}
+{2010}{}{Check Status}
+{2020}{}{I want add Currency to settlement budget}
+{2030}{}{i want pay out Currency}
+{2040}{}{Let's talk about recruiting}
+{3000}{}{I don't know you
+}
+{4000}{}{Ok then, do we need more workers? If yes we need build houses for them so need 500 wood for that. Also bring here educated farmer will cost us 200 000 Currency. Worker will rise our income for 1000 Currency. About guards depends what armor we wanna get for him and his level of experience. If we wanna get more stuff in our store, We should think about hire a caravan crew, they cost 150 000 Currency, and they will take from our income 5000 Currency.}
+{4010}{}{Get me a worker.}
+{4020}{}{Hire Caravan Crew}
+{5000}{}{First lets talk about his armor, we have 5 armors: leather no extra costs, metal armor 25 000 Currency, combat armor 50 000 Currency, power armor 500 000 Currency and adv armor it's 1 000 000 Currency, remember We will have to pay him 500 Currency from our income also.}
+{5010}{}{Leather}
+{5020}{}{Metal}
+{5030}{}{Combat}
+{5040}{}{Power}
+{5050}{}{APA}
+{6000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{6010}{}{level 1}
+{6020}{}{level 2}
+{6030}{}{level 3}
+{6040}{}{level 4}
+{6050}{}{i change mind about armor}
+{7000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{7010}{}{level 1}
+{7020}{}{level 2}
+{7030}{}{level 3}
+{7040}{}{level 4}
+{7050}{}{i change mind about armor}
+{8000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{8010}{}{level 1}
+{8020}{}{level 2}
+{8030}{}{level 3}
+{8040}{}{level 4}
+{8050}{}{i change mind about armor}
+{9000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{9010}{}{level 1}
+{9020}{}{level 2}
+{9030}{}{level 3}
+{9040}{}{level 4}
+{9050}{}{i change mind about armor}
+{10000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{10010}{}{level 1}
+{10020}{}{level 2}
+{10030}{}{level 3}
+{10040}{}{level 4}
+{10050}{}{i change mind about armor}
+{11000}{}{Remember to give him gun and ammo}
+{12000}{}{I'm keep working partner}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{member}
+{1020}{}{non-member}
+{2000}{}{Hello @lex faction@ Member, How can I help you?}
+{2010}{}{Check Status}
+{2020}{}{I want add Currency to settlement budget}
+{2030}{}{i want pay out Currency}
+{2040}{}{Let's talk about recruiting}
+{3000}{}{I don't know you
+}
+{4000}{}{Ok then, do we need more workers? If yes we need build houses for them so need 500 wood for that. Also bring here educated farmer will cost us 200 000 Currency. Worker will rise our income for 1000 Currency. About guards depends what armor we wanna get for him and his level of experience. If we wanna get more stuff in our store, We should think about hire a caravan crew, they cost 150 000 Currency, and they will take from our income 5000 Currency.}
+{4010}{}{Get me a worker.}
+{4020}{}{Hire Caravan Crew}
+{5000}{}{First lets talk about his armor, we have 5 armors: leather no extra costs, metal armor 25 000 Currency, combat armor 50 000 Currency, power armor 500 000 Currency and adv armor it's 1 000 000 Currency, remember We will have to pay him 500 Currency from our income also.}
+{5010}{}{Leather}
+{5020}{}{Metal}
+{5030}{}{Combat}
+{5040}{}{Power}
+{5050}{}{APA}
+{6000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{6010}{}{level 1}
+{6020}{}{level 2}
+{6030}{}{level 3}
+{6040}{}{level 4}
+{6050}{}{i change mind about armor}
+{7000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{7010}{}{level 1}
+{7020}{}{level 2}
+{7030}{}{level 3}
+{7040}{}{level 4}
+{7050}{}{i change mind about armor}
+{8000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{8010}{}{level 1}
+{8020}{}{level 2}
+{8030}{}{level 3}
+{8040}{}{level 4}
+{8050}{}{i change mind about armor}
+{9000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{9010}{}{level 1}
+{9020}{}{level 2}
+{9030}{}{level 3}
+{9040}{}{level 4}
+{9050}{}{i change mind about armor}
+{10000}{}{Now about his experience, I will say it in simple words, level 1 its 100 000 Currency, level 2 it's 150 000, level 3 its 250 000, and level 4 it's 500 000}
+{10010}{}{level 1}
+{10020}{}{level 2}
+{10030}{}{level 3}
+{10040}{}{level 4}
+{10050}{}{i change mind about armor}
+{11000}{}{Remember to give him gun and ammo}
+{12000}{}{I'm keep working partner}
+

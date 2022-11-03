@@ -1,0 +1,16 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = emzet;
+@gender = 0;
+@age = 18;
+
+@special = 2 10 5 5 4 10 4;
+@xp = 2 1169 3000;
+@life = 70 70 0 0 0 0 0 0 0;
+@stats = 0 11 53975 1 0 25 10 20 13 14;
+@skills = 51 37 20 54 44 40 28 25 35 30 36 36 16 12 25 20 20 18 0;
+@traits = 550 554;
+@perks = 301;
+@reputation = 632:-125 689:13 690:109;
+@kills = 265:4 267:14;

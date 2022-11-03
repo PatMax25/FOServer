@@ -1,0 +1,8 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Kaktus;
+@gender = 0;
+@age = 21;
+
+@life = 106 106 0 0 0 0 0 0 0;

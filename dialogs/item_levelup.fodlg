@@ -1,0 +1,318 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+0 3010 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 1 #
+0 3020 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 2 #
+0 3030 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 3 #
+0 3040 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 4 #
+0 3050 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 5 #
+0 3060 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 6 #
+0 3070 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 9 #
+0 3080 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 12 #
+0 3090 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 13 #
+0 3100 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 14 #
+0 3110 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 16 #
+0 3120 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 17 #
+0 3130 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 18 #
+0 3140 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 19 #
+0 3150 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 20 #
+0 3160 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 21 #
+0 3170 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 22 #
+0 3180 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 23 #
+0 3190 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 24 #
+0 3200 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 25 #
+0 3210 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 26 #
+0 3220 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 27 #
+0 3230 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 28 #
+0 3240 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 29 #
+0 3250 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 30 #
+0 3260 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 31 #
+0 3270 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 32 #
+0 3280 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 33 #
+0 3290 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 34 #
+0 3300 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 35 #
+0 3310 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 36 #
+0 3320 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 37 #
+0 3330 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 38 #
+0 3340 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 39 #
+0 3350 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 40 #
+0 3360 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 41 #
+0 3370 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 45 #
+0 3380 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 46 #
+0 3390 D _script item_level@d_isWeapon 0  R _script item_level@r_perk_4 1 47 #
+0 3400 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 48 #
+0 3410 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 59 #
+0 3420 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 60 #
+0 3430 D _script item_level@d_isArmor 0  R _script item_level@r_perk_4 1 61 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Your Gear Updated!}
+{2010}{}{Choose Perk}
+{2020}{}{Do it Later}
+{3000}{}{Choose Perk}
+{3010}{}{Bonus Ranged Damage}
+{3020}{}{Bonus Damage}
+{3030}{}{Bonus Attack}
+{3040}{}{Scoped}
+{3050}{}{Better Critical}
+{3060}{}{Fast Trigger}
+{3070}{}{Slayer}
+{3080}{}{Long Range}
+{3090}{}{Penetrate}
+{3100}{}{Poisoned}
+{3110}{}{Killing Spree}
+{3120}{}{Life Steal}
+{3130}{}{Chip Shot}
+{3140}{}{Gain Strength}
+{3150}{}{Gain Perception}
+{3160}{}{Gain Endurance}
+{3170}{}{Gain Charisma}
+{3180}{}{Gain Intelligence}
+{3190}{}{Gain Agility}
+{3200}{}{Gain Luck}
+{3210}{}{Cured}
+{3220}{}{Laser Reflector}
+{3230}{}{Anti-Thermal System}
+{3240}{}{Defense Enhancement}
+{3250}{}{Advanced Plate}
+{3260}{}{Mirror System}
+{3270}{}{Tesla Addition}
+{3280}{}{Shock Protection}
+{3290}{}{Firegecko's Enhancement}
+{3300}{}{Special Force Bonus}
+{3310}{}{Regeneration}
+{3320}{}{Fill The Gaps}
+{3330}{}{Heavy}
+{3340}{}{Utility}
+{3350}{}{Bonus Move}
+{3360}{}{Heavy Stonewall}
+{3370}{}{Speed Mechanism}
+{3380}{}{Sneaky}
+{3390}{}{More Criticals}
+{3400}{}{Lethal Protection}
+{3410}{}{Iron Skin}
+{3420}{}{Survivalist}
+{3430}{}{Strategic Improvement}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ POWER TERMINAL 1. ]}
+{2010}{}{[ STATUS ]}
+{2020}{}{[ EXIT ]}
+{3000}{}{[ STATUS: POWER IS OFF ]}
+{3010}{}{Bonus Ranged Damage}
+{3020}{}{Bonus Damage}
+{3030}{}{Bonus Attack}
+{3040}{}{Scoped}
+{3050}{}{Better Critical}
+{3060}{}{Fast Trigger}
+{3070}{}{Slayer}
+{3080}{}{Long Range}
+{3090}{}{Penetrate}
+{3100}{}{Poisoned}
+{3110}{}{Killing Spree}
+{3120}{}{Life Steal}
+{3130}{}{Chip Shot}
+{3140}{}{Gain Strength}
+{3150}{}{Gain Perception}
+{3160}{}{Gain Endurance}
+{3170}{}{Gain Charisma}
+{3180}{}{Gain Intelligence}
+{3190}{}{Gain Agility}
+{3200}{}{Gain Luck}
+{3210}{}{Cured}
+{3220}{}{Laser Reflector}
+{3230}{}{Anty-Termal System}
+{3240}{}{Defense Enhancement}
+{3250}{}{Advanced Plate}
+{3260}{}{Mirror System}
+{3270}{}{Tesla Addition}
+{3280}{}{Shock Protection}
+{3290}{}{Firegeckon's Enhancemen}
+{3300}{}{Special Force Bonus}
+{3310}{}{Regeneration}
+{3320}{}{Fill The Gaps}
+{3330}{}{Heavy}
+{3340}{}{Utility}
+{3350}{}{Bonus Move}
+{3360}{}{Heavy Stonewall}
+{3370}{}{Speed Mechanism}
+{3380}{}{Sneaky}
+{3390}{}{More Criticals}
+{3400}{}{Lethal Protection}
+{3410}{}{Iron Skin}
+{3420}{}{Survivalist}
+{3430}{}{Strategic Improvement}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ POWER TERMINAL 1. ]}
+{2010}{}{[ STATUS ]}
+{2020}{}{[ EXIT ]}
+{3000}{}{[ STATUS: POWER IS OFF ]}
+{3010}{}{Bonus Ranged Damage}
+{3020}{}{Bonus Damage}
+{3030}{}{Bonus Attack}
+{3040}{}{Scoped}
+{3050}{}{Better Critical}
+{3060}{}{Fast Trigger}
+{3070}{}{Slayer}
+{3080}{}{Long Range}
+{3090}{}{Penetrate}
+{3100}{}{Poisoned}
+{3110}{}{Killing Spree}
+{3120}{}{Life Steal}
+{3130}{}{Chip Shot}
+{3140}{}{Gain Strength}
+{3150}{}{Gain Perception}
+{3160}{}{Gain Endurance}
+{3170}{}{Gain Charisma}
+{3180}{}{Gain Intelligence}
+{3190}{}{Gain Agility}
+{3200}{}{Gain Luck}
+{3210}{}{Cured}
+{3220}{}{Laser Reflector}
+{3230}{}{Anty-Termal System}
+{3240}{}{Defense Enhancement}
+{3250}{}{Advanced Plate}
+{3260}{}{Mirror System}
+{3270}{}{Tesla Addition}
+{3280}{}{Shock Protection}
+{3290}{}{Firegeckon's Enhancemen}
+{3300}{}{Special Force Bonus}
+{3310}{}{Regeneration}
+{3320}{}{Fill The Gaps}
+{3330}{}{Heavy}
+{3340}{}{Utility}
+{3350}{}{Bonus Move}
+{3360}{}{Heavy Stonewall}
+{3370}{}{Speed Mechanism}
+{3380}{}{Sneaky}
+{3390}{}{More Criticals}
+{3400}{}{Lethal Protection}
+{3410}{}{Iron Skin}
+{3420}{}{Survivalist}
+{3430}{}{Strategic Improvement}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ POWER TERMINAL 1. ]}
+{2010}{}{[ STATUS ]}
+{2020}{}{[ EXIT ]}
+{3000}{}{[ STATUS: POWER IS OFF ]}
+{3010}{}{Bonus Ranged Damage}
+{3020}{}{Bonus Damage}
+{3030}{}{Bonus Attack}
+{3040}{}{Scoped}
+{3050}{}{Better Critical}
+{3060}{}{Fast Trigger}
+{3070}{}{Slayer}
+{3080}{}{Long Range}
+{3090}{}{Penetrate}
+{3100}{}{Poisoned}
+{3110}{}{Killing Spree}
+{3120}{}{Life Steal}
+{3130}{}{Chip Shot}
+{3140}{}{Gain Strength}
+{3150}{}{Gain Perception}
+{3160}{}{Gain Endurance}
+{3170}{}{Gain Charisma}
+{3180}{}{Gain Intelligence}
+{3190}{}{Gain Agility}
+{3200}{}{Gain Luck}
+{3210}{}{Cured}
+{3220}{}{Laser Reflector}
+{3230}{}{Anty-Termal System}
+{3240}{}{Defense Enhancement}
+{3250}{}{Advanced Plate}
+{3260}{}{Mirror System}
+{3270}{}{Tesla Addition}
+{3280}{}{Shock Protection}
+{3290}{}{Firegeckon's Enhancemen}
+{3300}{}{Special Force Bonus}
+{3310}{}{Regeneration}
+{3320}{}{Fill The Gaps}
+{3330}{}{Heavy}
+{3340}{}{Utility}
+{3350}{}{Bonus Move}
+{3360}{}{Heavy Stonewall}
+{3370}{}{Speed Mechanism}
+{3380}{}{Sneaky}
+{3390}{}{More Criticals}
+{3400}{}{Lethal Protection}
+{3410}{}{Iron Skin}
+{3420}{}{Survivalist}
+{3430}{}{Strategic Improvement}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ POWER TERMINAL 1. ]}
+{2010}{}{[ STATUS ]}
+{2020}{}{[ EXIT ]}
+{3000}{}{[ STATUS: POWER IS OFF ]}
+{3010}{}{Bonus Ranged Damage}
+{3020}{}{Bonus Damage}
+{3030}{}{Bonus Attack}
+{3040}{}{Scoped}
+{3050}{}{Better Critical}
+{3060}{}{Fast Trigger}
+{3070}{}{Slayer}
+{3080}{}{Long Range}
+{3090}{}{Penetrate}
+{3100}{}{Poisoned}
+{3110}{}{Killing Spree}
+{3120}{}{Life Steal}
+{3130}{}{Chip Shot}
+{3140}{}{Gain Strength}
+{3150}{}{Gain Perception}
+{3160}{}{Gain Endurance}
+{3170}{}{Gain Charisma}
+{3180}{}{Gain Intelligence}
+{3190}{}{Gain Agility}
+{3200}{}{Gain Luck}
+{3210}{}{Cured}
+{3220}{}{Laser Reflector}
+{3230}{}{Anty-Termal System}
+{3240}{}{Defense Enhancement}
+{3250}{}{Advanced Plate}
+{3260}{}{Mirror System}
+{3270}{}{Tesla Addition}
+{3280}{}{Shock Protection}
+{3290}{}{Firegeckon's Enhancemen}
+{3300}{}{Special Force Bonus}
+{3310}{}{Regeneration}
+{3320}{}{Fill The Gaps}
+{3330}{}{Heavy}
+{3340}{}{Utility}
+{3350}{}{Bonus Move}
+{3360}{}{Heavy Stonewall}
+{3370}{}{Speed Mechanism}
+{3380}{}{Sneaky}
+{3390}{}{More Criticals}
+{3400}{}{Lethal Protection}
+{3410}{}{Iron Skin}
+{3420}{}{Survivalist}
+{3430}{}{Strategic Improvement}
+

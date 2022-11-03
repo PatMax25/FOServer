@@ -1,0 +1,144 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+9 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+6 5010 @
+6 6000 None 0 #
+7 6010 #
+0 6020 @
+7 7000 None 0 #
+8 7010 @
+8 8000 None 0 #
+9 8010 @
+9 9000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. Welcome to Centropolis. [ He sighs ]}
+{2010}{}{Who are you?}
+{2020}{}{Centropolis?}
+{2030}{}{Great. I will be going.}
+{3000}{}{Daniels, my name is Daniels. I am a guard here. I guard the entrance of Centropolis, usually from the crazies in the city ruins.}
+{3010}{}{So... you mentioned some Centropolis...}
+{4000}{}{Yes, this is the only "city" within the city of San Diego that still has some sane beings living there.}
+{4010}{}{Well that really seems to be so... But who are you all, people?}
+{5000}{}{We were citizens of this city long time ago... Most of us lived here long before the War. We are the last one of our kind who survived the neverending storm and managed to rebuild at least a small part of the city.}
+{5010}{}{You sound as if you have something else to say.}
+{6000}{}{[ He stays silent for a while, then he whispers ] We are not free here, our lives belong to the Tower... They... They ruled this place long before our arrival, long before Centropolis...}
+{6010}{}{The Tower?}
+{6020}{}{Yeah, nice to hear all that. Now let me in, ghoul.}
+{7000}{}{[ He points towards a huge Skyscraper standing not far from your position. ] This place is called The Tower. Before 2077 it used to be a premium Hotel building and it was the only skyscraper that survived atomic blasts. So did the residents of that damn Tower...}
+{7010}{}{But what exactly do they do to you?}
+{8000}{}{We really shouldn't discuss it. Tower wathes and controls everything here... And tower makes sure to deal with the ones who disagree with their point of view. Just so you know... Don't listen to these fucks, calling themselves "loyalists" - they are just Tower agents. In fact Tower gives us nothing, it only sucks us dry...}
+{8010}{}{But I wish to know more...}
+{9000}{}{As I said, we shouldn't talk too much about it. Just get in... You don't want Civil Defence to suspect us of something.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. Welcome to Centropolis. [ He sighs ]}
+{2010}{}{Who are you?}
+{2020}{}{Centropolis?}
+{2030}{}{Great. I will be going.}
+{3000}{}{Daniels, my name is Daniels. I am a guard here. Guarding the entrance of Centropolis from crazies in the city ruins.}
+{3010}{}{So... you mentioned some Centropolis...}
+{4000}{}{Yes, this is the only "city" within the city of San Diego that still has some sane beings living there.}
+{4010}{}{Well that really seems to be so... But who are you all, people?}
+{5000}{}{We were citizens of this city long time ago... Most of us lived here long before the War. We are the last one of our kind who survived the neverending storm and managed to rebuild at least a small part of the city.}
+{5010}{}{You sound as if you have something else to say.}
+{6000}{}{[ He stays silent for a while, then he whispers ] We are not free here, our lives belong to the Tower... They... They ruled this place long before our arrive, long before Centropolis...}
+{6010}{}{The Tower?}
+{6020}{}{Yeah, nice to hear all that. Now let me in, ghoul.}
+{7000}{}{[ He points towards a huge Skyscraper standing not far from your position. ] This place is called The Tower. Before 2077 it used to be a premium Hotel building and it was the only skyscraper that survived atomic blasts. So did the residents of that damn Tower...}
+{7010}{}{But what exactly do they do to you?}
+{8000}{}{We shouldn't really discuss it. Tower wathes and controls everything here... And tower makes sure to deal with the ones who disagree with their point of view. Just for you to know... Don't listen to these fucks, calling themselves "loyalists", they are just Tower agents. In fact Tower gives us nothing, it only sucks us dry...}
+{8010}{}{But I wish to know more...}
+{9000}{}{As I said, we shouldn't talk too much about it. Just get in... You don't want Civil Defence to suspect us in something.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. Welcome to Centropolis. [ He sighs ]}
+{2010}{}{Who are you?}
+{2020}{}{Centropolis?}
+{2030}{}{Great. I will be going.}
+{3000}{}{Daniels, my name is Daniels. I am a guard here. Guarding the entrance of Centropolis from crazies in the city ruins.}
+{3010}{}{So... you mentioned some Centropolis...}
+{4000}{}{Yes, this is the only "city" within the city of San Diego that still has some sane beings living there.}
+{4010}{}{Well that really seems to be so... But who are you all, people?}
+{5000}{}{We were citizens of this city long time ago... Most of us lived here long before the War. We are the last one of our kind who survived the neverending storm and managed to rebuild at least a small part of the city.}
+{5010}{}{You sound as if you have something else to say.}
+{6000}{}{[ He stays silent for a while, then he whispers ] We are not free here, our lives belong to the Tower... They... They ruled this place long before our arrive, long before Centropolis...}
+{6010}{}{The Tower?}
+{6020}{}{Yeah, nice to hear all that. Now let me in, ghoul.}
+{7000}{}{[ He points towards a huge Skyscraper standing not far from your position. ] This place is called The Tower. Before 2077 it used to be a premium Hotel building and it was the only skyscraper that survived atomic blasts. So did the residents of that damn Tower...}
+{7010}{}{But what exactly do they do to you?}
+{8000}{}{We shouldn't really discuss it. Tower wathes and controls everything here... And tower makes sure to deal with the ones who disagree with their point of view. Just for you to know... Don't listen to these fucks, calling themselves "loyalists", they are just Tower agents. In fact Tower gives us nothing, it only sucks us dry...}
+{8010}{}{But I wish to know more...}
+{9000}{}{As I said, we shouldn't talk too much about it. Just get in... You don't want Civil Defence to suspect us in something.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. Welcome to Centropolis. [ He sighs ]}
+{2010}{}{Who are you?}
+{2020}{}{Centropolis?}
+{2030}{}{Great. I will be going.}
+{3000}{}{Daniels, my name is Daniels. I am a guard here. Guarding the entrance of Centropolis from crazies in the city ruins.}
+{3010}{}{So... you mentioned some Centropolis...}
+{4000}{}{Yes, this is the only "city" within the city of San Diego that still has some sane beings living there.}
+{4010}{}{Well that really seems to be so... But who are you all, people?}
+{5000}{}{We were citizens of this city long time ago... Most of us lived here long before the War. We are the last one of our kind who survived the neverending storm and managed to rebuild at least a small part of the city.}
+{5010}{}{You sound as if you have something else to say.}
+{6000}{}{[ He stays silent for a while, then he whispers ] We are not free here, our lives belong to the Tower... They... They ruled this place long before our arrive, long before Centropolis...}
+{6010}{}{The Tower?}
+{6020}{}{Yeah, nice to hear all that. Now let me in, ghoul.}
+{7000}{}{[ He points towards a huge Skyscraper standing not far from your position. ] This place is called The Tower. Before 2077 it used to be a premium Hotel building and it was the only skyscraper that survived atomic blasts. So did the residents of that damn Tower...}
+{7010}{}{But what exactly do they do to you?}
+{8000}{}{We shouldn't really discuss it. Tower wathes and controls everything here... And tower makes sure to deal with the ones who disagree with their point of view. Just for you to know... Don't listen to these fucks, calling themselves "loyalists", they are just Tower agents. In fact Tower gives us nothing, it only sucks us dry...}
+{8010}{}{But I wish to know more...}
+{9000}{}{As I said, we shouldn't talk too much about it. Just get in... You don't want Civil Defence to suspect us in something.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hey there. Welcome to Centropolis. [ He sighs ]}
+{2010}{}{Who are you?}
+{2020}{}{Centropolis?}
+{2030}{}{Great. I will be going.}
+{3000}{}{Daniels, my name is Daniels. I am a guard here. Guarding the entrance of Centropolis from crazies in the city ruins.}
+{3010}{}{So... you mentioned some Centropolis...}
+{4000}{}{Yes, this is the only "city" within the city of San Diego that still has some sane beings living there.}
+{4010}{}{Well that really seems to be so... But who are you all, people?}
+{5000}{}{We were citizens of this city long time ago... Most of us lived here long before the War. We are the last one of our kind who survived the neverending storm and managed to rebuild at least a small part of the city.}
+{5010}{}{You sound as if you have something else to say.}
+{6000}{}{[ He stays silent for a while, then he whispers ] We are not free here, our lives belong to the Tower... They... They ruled this place long before our arrive, long before Centropolis...}
+{6010}{}{The Tower?}
+{6020}{}{Yeah, nice to hear all that. Now let me in, ghoul.}
+{7000}{}{[ He points towards a huge Skyscraper standing not far from your position. ] This place is called The Tower. Before 2077 it used to be a premium Hotel building and it was the only skyscraper that survived atomic blasts. So did the residents of that damn Tower...}
+{7010}{}{But what exactly do they do to you?}
+{8000}{}{We shouldn't really discuss it. Tower wathes and controls everything here... And tower makes sure to deal with the ones who disagree with their point of view. Just for you to know... Don't listen to these fucks, calling themselves "loyalists", they are just Tower agents. In fact Tower gives us nothing, it only sucks us dry...}
+{8010}{}{But I wish to know more...}
+{9000}{}{As I said, we shouldn't talk too much about it. Just get in... You don't want Civil Defence to suspect us in something.}
+

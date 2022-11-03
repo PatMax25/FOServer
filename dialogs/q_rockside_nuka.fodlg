@@ -1,0 +1,132 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+4 2010 D _param p ST_LUCK } 6 D _var p v99_nuka_machine_cheat = 0 #
+3 2020 D _param p ST_LUCK < 6 #
+5 2030 D _var p v99_nuka_machine_cheat = 0 D _param p ST_INTELLECT } 6 #
+7 2040 D _var p q_rockside_boris = 3 #
+0 2050 @
+3 3000 None 0 #
+0 3010 @
+4 4000 None 0 #
+6 4010 R _var p v99_nuka_machine_cheat = 1 R _item p PID_NUKA_COLA + 1 R _param p ST_EXPERIENCE + 150 @
+5 5000 None 0 #
+6 5010 R _item p PID_NUKA_COLA + 1 R _var p v99_nuka_machine_cheat = 1 R _param p ST_EXPERIENCE + 150 @
+6 6000 None 0 @
+7 7000 None 0 #
+0 7010 R _var p q_rockside_boris = 4 R _item p PID_BLUE_CONDOM + 1 R _item p PID_BLUEPRINT_STIMPAK + 1 R _item p PID_BOTTLE_CAPS + 50 R _item p PID_BUFFOUT + 1 R _item p PID_10MM_JHP + 20 R _param p ST_EXPERIENCE + 200 #
+0 7020 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{*in front of you is a nuka cola machine... on the left corner you can see a slot with a lever, and a sign near this hole says that the machine takes only five dollar coins*}
+{2010}{}{[ kick the machine with your leg ]}
+{2020}{}{[ kick the machine with your leg ]}
+{2030}{}{[ try to outwit the machine ]}
+{2040}{}{[ check behind the machine ]}
+{2050}{}{[ leave ] [ end dialogue ]}
+{3000}{}{*you kick the machine with your leg, but it seems it did nothing*}
+{3010}{}{Damn it!}
+{4000}{}{*you kick the machine hard with your leg and after few seconds a bottle falls out of it*}
+{4010}{}{[ take the bottle ]}
+{5000}{}{*after long contemplation you manage to finally outwit the machine... after a few minutes a bottle falls out of it!..*}
+{5010}{}{[ take the bottle ]}
+{6000}{}{Thank you for your purchase!}
+{7000}{}{*you see a hidden pack with different scrap behind the machine*}
+{7010}{}{[ pull the pack out ] [ end dialogue ]}
+{7020}{}{[ leave ] [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a nuka cola mashine. On the left corner you can see hole, a sign near this hole says that mashine takes only five dollars coins. ]}
+{2010}{}{[Hit the mashine with your leg.]}
+{2020}{}{[Hit the mashine with your leg.]}
+{2030}{}{[Try to outwit the mashine.]}
+{2040}{}{[ Check behind the mashine. ]}
+{2050}{}{[Leave]}
+{3000}{}{[ You hit the mashine with your leg, but seems it did nothing. ]}
+{3010}{}{Damn it!}
+{4000}{}{[ You hit the mashine with your leg and after few seconds a local falls out of it. ]}
+{4010}{}{[Take the local.]}
+{5000}{}{[ After long examination you have managed to find a way how to outwit the mashine.After few more minutes a local falls out of it. ]}
+{5010}{}{[Take the local.]}
+{6000}{}{Thank you for your purchase!}
+{7000}{}{[ You see a hidden pack with different scrap behind the mashine. ]}
+{7010}{}{[ Pull the pack out. ]}
+{7020}{}{[ Leave ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a nuka cola mashine. On the left corner you can see hole, a sign near this hole says that mashine takes only five dollars coins. ]}
+{2010}{}{[Hit the mashine with your leg.]}
+{2020}{}{[Hit the mashine with your leg.]}
+{2030}{}{[Try to outwit the mashine.]}
+{2040}{}{[ Check behind the mashine. ]}
+{2050}{}{[Leave]}
+{3000}{}{[ You hit the mashine with your leg, but seems it did nothing. ]}
+{3010}{}{Damn it!}
+{4000}{}{[ You hit the mashine with your leg and after few seconds a local falls out of it. ]}
+{4010}{}{[Take the local.]}
+{5000}{}{[ After long examination you have managed to find a way how to outwit the mashine.After few more minutes a local falls out of it. ]}
+{5010}{}{[Take the local.]}
+{6000}{}{Thank you for your purchase!}
+{7000}{}{[ You see a hidden pack with different scrap behind the mashine. ]}
+{7010}{}{[ Pull the pack out. ]}
+{7020}{}{[ Leave ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a nuka cola mashine. On the left corner you can see hole, a sign near this hole says that mashine takes only five dollars coins. ]}
+{2010}{}{[Hit the mashine with your leg.]}
+{2020}{}{[Hit the mashine with your leg.]}
+{2030}{}{[Try to outwit the mashine.]}
+{2040}{}{[ Check behind the mashine. ]}
+{2050}{}{[Leave]}
+{3000}{}{[ You hit the mashine with your leg, but seems it did nothing. ]}
+{3010}{}{Damn it!}
+{4000}{}{[ You hit the mashine with your leg and after few seconds a local falls out of it. ]}
+{4010}{}{[Take the local.]}
+{5000}{}{[ After long examination you have managed to find a way how to outwit the mashine.After few more minutes a local falls out of it. ]}
+{5010}{}{[Take the local.]}
+{6000}{}{Thank you for your purchase!}
+{7000}{}{[ You see a hidden pack with different scrap behind the mashine. ]}
+{7010}{}{[ Pull the pack out. ]}
+{7020}{}{[ Leave ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ This is a nuka cola mashine. On the left corner you can see hole, a sign near this hole says that mashine takes only five dollars coins. ]}
+{2010}{}{[Hit the mashine with your leg.]}
+{2020}{}{[Hit the mashine with your leg.]}
+{2030}{}{[Try to outwit the mashine.]}
+{2040}{}{[ Check behind the mashine. ]}
+{2050}{}{[Leave]}
+{3000}{}{[ You hit the mashine with your leg, but seems it did nothing. ]}
+{3010}{}{Damn it!}
+{4000}{}{[ You hit the mashine with your leg and after few seconds a local falls out of it. ]}
+{4010}{}{[Take the local.]}
+{5000}{}{[ After long examination you have managed to find a way how to outwit the mashine.After few more minutes a local falls out of it. ]}
+{5010}{}{[Take the local.]}
+{6000}{}{Thank you for your purchase!}
+{7000}{}{[ You see a hidden pack with different scrap behind the mashine. ]}
+{7010}{}{[ Pull the pack out. ]}
+{7020}{}{[ Leave ]}
+

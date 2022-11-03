@@ -1,0 +1,126 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+65506 2010 #
+4 2020 #
+0 2030 @
+4 3000 None 0 #
+5 3010 #
+6 3020 #
+7 3030 #
+2 3040 @
+5 4000 None 0 #
+4 4010 @
+6 5000 None 0 #
+4 5010 @
+7 6000 None 0 #
+4 6010 &
+
+[engl]
+{100}{}{Rose}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Nice to see you in "Rose's Aid". I am selling out some Legion supplies. Wanna take a look?}
+{2010}{}{Show me your stock.}
+{2020}{}{So you belong to this organization... What can you tell me about this "Legion" thing? You don't seem to be locals.}
+{2030}{}{I will be going.}
+{3000}{}{We came from very distant lands - from Arizona. Once it was our home. Legion was the strongest organization in the entire Sonora. We brought peace to many settlements and tribes and formed a powerful army. Our final destination was Phoenix - the jewel of the Sonora. We were damn close to conquering the city, but then... Then the great Cold came, it destroyed our crops, and dropped our best men. Our army became so weak, that the scum from the Consortium not only kicked us out from the town streets, but even started to plan an assault on our capital. We had no other choice, but to take "The Roman Glory" [ she waves somewhere towards the entrance to the camp ] and fly here. It was our only chance to survive.}
+{3010}{}{"The Roman Glory"? What is it?}
+{3020}{}{What can you tell me about this "Consortium"?}
+{3030}{}{Never heard of Phoenix. Is it yet another town?}
+{3040}{}{Let's switch the topic.}
+{4000}{}{We found it not far away from the old ruins of Mesa. It took an old airship, a pretty big one, to deliver the entire army. We used it to escape Arizona and come here.}
+{4010}{}{I have one more question.}
+{5000}{}{Cowardly dogs. Something tells me that the arrival of the Great Colonel is somehow connected to them. Too many coincedences... Anyway, they are the current hosts of Phoenix. They can now proudly call themselves winners of the Phoenix War. But what I say is that we will certainly return back one day. Watch us becoming stronger and soon we will take Phoenix back in our hands.}
+{5010}{}{I have one more question.}
+{6000}{}{The biggest city I've ever seen. And trust me, I've seen a lot of towns, settlements and cities. Even the pride of the locals - so called Vegas, as you name it, the shining diamond of the West, is just a village compared with Phoenix.}
+{6010}{}{I have one more question.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{What do you sell?}
+{2020}{}{What can you tell me about this "Legion" thing?}
+{2030}{}{I will be going.}
+{3000}{}{We came from very distant lands - from Arizona. Once it was our home. Legion was the strongest organization in the entire Sonora. We brougth the peace to many settlements and tribes and formed a powerful army. Our final destination was Phoenix - the jewel of Sonor. And what I say is that we were damn close to conqure the city, but then... Then the great Cold came, it destroyed our crops, and banged down our best men. Our army became so weak, that these scums from the Consortium not only kicked us out from the town streets, but even started to plan an assault on our capital camps. We had no other choice, but to take "The Roman Glory" [ she points waves somewhere towards the entrance to the camp ] and fly here. It was our only chance to survive.}
+{3010}{}{"The Roman Glory"? What is it?}
+{3020}{}{What can you tell me about this "Consortium"?}
+{3030}{}{Never heard of Phoenix. Is it yet another town?}
+{3040}{}{Let's switch the topic.}
+{4000}{}{We found it not far away from old ruins of Mesa. It is an oldairship, pretty big one, to deliver the entire army. We used it to escape Arizona and come here.}
+{4010}{}{I have one more question.}
+{5000}{}{Cowardish dogs. Something tells me that the arrival of the Great Col is somehow connected to them. Too many coincedences... Anyway, they are the current hosts of Phoenix. They can now proudly call themselves winners of the Phoenix War. But what I say is that we will certainly return back one day. Watch us becoming stronger and soon we will take Phoenix back in our hands.}
+{5010}{}{I have one more question.}
+{6000}{}{The biggest city I've ever seen. And trust me, I've seen a lot of towns, settlements and cities. Even the pride of locals - so called Vegas, as you name it, the shining diamon of the West, is just a village in compare with Phoenix.}
+{6010}{}{I have one more question.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{What do you sell?}
+{2020}{}{What can you tell me about this "Legion" thing?}
+{2030}{}{I will be going.}
+{3000}{}{We came from very distant lands - from Arizona. Once it was our home. Legion was the strongest organization in the entire Sonora. We brougth the peace to many settlements and tribes and formed a powerful army. Our final destination was Phoenix - the jewel of Sonor. And what I say is that we were damn close to conqure the city, but then... Then the great Cold came, it destroyed our crops, and banged down our best men. Our army became so weak, that these scums from the Consortium not only kicked us out from the town streets, but even started to plan an assault on our capital camps. We had no other choice, but to take "The Roman Glory" [ she points waves somewhere towards the entrance to the camp ] and fly here. It was our only chance to survive.}
+{3010}{}{"The Roman Glory"? What is it?}
+{3020}{}{What can you tell me about this "Consortium"?}
+{3030}{}{Never heard of Phoenix. Is it yet another town?}
+{3040}{}{Let's switch the topic.}
+{4000}{}{We found it not far away from old ruins of Mesa. It is an oldairship, pretty big one, to deliver the entire army. We used it to escape Arizona and come here.}
+{4010}{}{I have one more question.}
+{5000}{}{Cowardish dogs. Something tells me that the arrival of the Great Col is somehow connected to them. Too many coincedences... Anyway, they are the current hosts of Phoenix. They can now proudly call themselves winners of the Phoenix War. But what I say is that we will certainly return back one day. Watch us becoming stronger and soon we will take Phoenix back in our hands.}
+{5010}{}{I have one more question.}
+{6000}{}{The biggest city I've ever seen. And trust me, I've seen a lot of towns, settlements and cities. Even the pride of locals - so called Vegas, as you name it, the shining diamon of the West, is just a village in compare with Phoenix.}
+{6010}{}{I have one more question.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{What do you sell?}
+{2020}{}{What can you tell me about this "Legion" thing?}
+{2030}{}{I will be going.}
+{3000}{}{We came from very distant lands - from Arizona. Once it was our home. Legion was the strongest organization in the entire Sonora. We brougth the peace to many settlements and tribes and formed a powerful army. Our final destination was Phoenix - the jewel of Sonor. And what I say is that we were damn close to conqure the city, but then... Then the great Cold came, it destroyed our crops, and banged down our best men. Our army became so weak, that these scums from the Consortium not only kicked us out from the town streets, but even started to plan an assault on our capital camps. We had no other choice, but to take "The Roman Glory" [ she points waves somewhere towards the entrance to the camp ] and fly here. It was our only chance to survive.}
+{3010}{}{"The Roman Glory"? What is it?}
+{3020}{}{What can you tell me about this "Consortium"?}
+{3030}{}{Never heard of Phoenix. Is it yet another town?}
+{3040}{}{Let's switch the topic.}
+{4000}{}{We found it not far away from old ruins of Mesa. It is an oldairship, pretty big one, to deliver the entire army. We used it to escape Arizona and come here.}
+{4010}{}{I have one more question.}
+{5000}{}{Cowardish dogs. Something tells me that the arrival of the Great Col is somehow connected to them. Too many coincedences... Anyway, they are the current hosts of Phoenix. They can now proudly call themselves winners of the Phoenix War. But what I say is that we will certainly return back one day. Watch us becoming stronger and soon we will take Phoenix back in our hands.}
+{5010}{}{I have one more question.}
+{6000}{}{The biggest city I've ever seen. And trust me, I've seen a lot of towns, settlements and cities. Even the pride of locals - so called Vegas, as you name it, the shining diamon of the West, is just a village in compare with Phoenix.}
+{6010}{}{I have one more question.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Come closer! Come closer! All kind of tools and materials for you and your entire family!}
+{2010}{}{What do you sell?}
+{2020}{}{What can you tell me about this "Legion" thing?}
+{2030}{}{I will be going.}
+{3000}{}{We came from very distant lands - from Arizona. Once it was our home. Legion was the strongest organization in the entire Sonora. We brougth the peace to many settlements and tribes and formed a powerful army. Our final destination was Phoenix - the jewel of Sonor. And what I say is that we were damn close to conqure the city, but then... Then the great Cold came, it destroyed our crops, and banged down our best men. Our army became so weak, that these scums from the Consortium not only kicked us out from the town streets, but even started to plan an assault on our capital camps. We had no other choice, but to take "The Roman Glory" [ she points waves somewhere towards the entrance to the camp ] and fly here. It was our only chance to survive.}
+{3010}{}{"The Roman Glory"? What is it?}
+{3020}{}{What can you tell me about this "Consortium"?}
+{3030}{}{Never heard of Phoenix. Is it yet another town?}
+{3040}{}{Let's switch the topic.}
+{4000}{}{We found it not far away from old ruins of Mesa. It is an oldairship, pretty big one, to deliver the entire army. We used it to escape Arizona and come here.}
+{4010}{}{I have one more question.}
+{5000}{}{Cowardish dogs. Something tells me that the arrival of the Great Col is somehow connected to them. Too many coincedences... Anyway, they are the current hosts of Phoenix. They can now proudly call themselves winners of the Phoenix War. But what I say is that we will certainly return back one day. Watch us becoming stronger and soon we will take Phoenix back in our hands.}
+{5010}{}{I have one more question.}
+{6000}{}{The biggest city I've ever seen. And trust me, I've seen a lot of towns, settlements and cities. Even the pride of locals - so called Vegas, as you name it, the shining diamon of the West, is just a village in compare with Phoenix.}
+{6010}{}{I have one more question.}
+

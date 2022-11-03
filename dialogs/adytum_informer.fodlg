@@ -1,0 +1,60 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+3 1010 @
+3 2000 None 0 #
+4 2010 @
+4 3000 None 0 #
+0 3010 &
+
+[engl]
+{100}{}{Guard}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?}
+{2010}{}{Is Weffer here?}
+{3000}{}{No, Weffer moved to Vegas a while back. You'd be better off searching for him there.}
+{3010}{}{Thanks! [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?}
+{2010}{}{Is Weffer here?}
+{3000}{}{No, Weffer moved to Vegas not so long go. You better search for him there.}
+{3010}{}{Thanks! [ end dialogue ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?}
+{2010}{}{Is Weffer here?}
+{3000}{}{No, Weffer moved to Vegas not so long go. You better search for him there.}
+{3010}{}{Thanks! [ end dialogue ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?}
+{2010}{}{Is Weffer here?}
+{3000}{}{No, Weffer moved to Vegas not so long go. You better search for him there.}
+{3010}{}{Thanks! [ end dialogue ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Yes?}
+{2010}{}{Is Weffer here?}
+{3000}{}{No, Weffer moved to Vegas not so long go. You better search for him there.}
+{3010}{}{Thanks! [ end dialogue ]}
+

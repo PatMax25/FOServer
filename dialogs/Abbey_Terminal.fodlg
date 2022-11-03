@@ -1,0 +1,227 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+5 2030 #
+6 2040 #
+7 2050 #
+8 2060 #
+9 2070 R _script dialog@r_PlaySound 1 24 #
+10 2080 #
+14 2090 D _var p q_lh_darius = 1 R _var p q_lh_darius = 2 @
+3 3000 None 0 #
+2 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+2 6010 @
+7 7000 None 0 #
+2 7010 @
+8 8000 None 0 #
+2 8010 @
+9 9000 None 0 #
+2 9010 R _script dialog@r_FlushScreen 0  @
+10 10000 None 0 #
+15 10010 R _script dialog@r_FlushScreen 0  R _script dialog@r_KillNpc 1 Anim2DeadExplode R _script dialog@r_PlaySound 1 25 #
+15 10020 R _script dialog@r_FlushScreen 0  R _script dialog@r_KillNpc 1 Anim2DeadExplode R _script dialog@r_PlaySound 1 25 #
+15 10030 R _script dialog@r_FlushScreen 0  R _script dialog@r_KillNpc 1 Anim2DeadExplode R _script dialog@r_PlaySound 1 25 #
+15 10040 R _script dialog@r_FlushScreen 0  R _script dialog@r_KillNpc 1 Anim2DeadExplode R _script dialog@r_PlaySound 1 25 @
+14 11000 None 0 @
+15 12000 None 0 &
+
+[engl]
+{100}{}{Mr. Handy}
+{210}{}{This Handy seems to be redone to work as a field terminal.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ ROBCO Terminal #3476. Welcome. ]}
+{2010}{}{[ Expedition log. Day 1 ]}
+{2020}{}{[ Expedition log. Day 2 ]}
+{2030}{}{[ Expedition log. Day 3 ]}
+{2040}{}{[ Expedition log. Day 5 ]}
+{2050}{}{[ Expedition log. Whatever ]}
+{2060}{}{[ Expedition? Day ??? ]}
+{2070}{}{[ HELP ME ]}
+{2080}{}{[ He doesn't ]}
+{2090}{}{[ Copy the entire data ]}
+{3000}{}{This is Scribe Roy reporting in. We have arrived at the designated coordinates. The party of robots sent here earlier did an excellent job rebuilding an outpost in one of the ruined houses and collecting initial data, so our job should be much easier. There are 6 of us here now - me, Scribe Alexis, Paladin Graham, Knight Rensky, Knight Lektor and Senior Paladin Romex. The place is filled with disgusting rats and other rodents of unusual size, but they have not presented a large threat. We managed to activate the generator, and now we have an access to this terminal in which I will make notes about our expedition status. I will make updates every day until new orders are received.}
+{3010}{}{[ Back ]}
+{4000}{}{This place is so silent. You know how they say - deadly silent? Not even wind can be heard here, though it is located high in the mountains. I took a walk around the complex today. It seems like the place used to be some... pre war Church or somthing. We managed to break the lock of the library door inside of the central building, where I found, among many other things, some barely coherent old notes about this place. The people who used to live here before called this place the "Abbey", but where are these people now? There is evidence of others living here even more recently.}
+{4010}{}{[ Back ]}
+{5000}{}{Rensky is missing. Graham told me that he found his bed empty when he didn't show up for the normal night shift change. We searched through the whole place but couldn't find him. Also, something strange is definitely happening with Alexis. She has become completely obsessed with some "book" she wishes to find here... hopefully it's just because of the stress. I guess we all are just getting nervous and tired here, trying to accomplish our mission. Why is this place so silent? I can't stand this silence... }
+{5010}{}{[ Back ]}
+{6000}{}{Whispers... I keep hearing whispers. What is it? Somebody is whispering, whispering somewhere... somewhere under us. I don't understand anything. We found Rensky, he... He hanged himself on a tree not far from the Abbey after he writing a note in blood from his own wrists. The note was "God doesn't see this place". My head hurts today... None of this seems real. Also... yeah... Also Alexis went missing today. With everything else, I almost forgot. We heard her screams but... We couldn't understand where she was.}
+{6010}{}{[ Back ]}
+{7000}{}{Lektor blew his head off with the shotgun today, poor bastard. He said he heard something at night and then... Hm... Who is Lektor again? Fuck, my head hurts... Mentats aren't helping this time. For some reason I tried to talk with... with HQ? Yeah, with them... Talk about... About *silence and a strange whisper and hiss... static is all you hear*.}
+{7010}{}{[ Back ]}
+{8000}{}{I tried to eat some holy book from the Abbey today. I must admit, it was delicious with blood from Graham. Yeah... haha. Damn, he didn't mind when the Great Him asked us to cut his arm off. WHAT AM I DOING?! Agh... Anyway, was a WONDERFUL day. Our radio tried to call for some Roy guy, it was so annoying that we decided to smash it off. SILENCE MUST NOT BE DISTURBED. For His brothers... wait. HELP ME! GET ME OUT OF HERE!!!!... }
+{8010}{}{[ Y... r... ? ]}
+{9000}{}{What a wondurful day. Full of silence and nothing else... Graham didn't make a single move today by the way... Strange guy,I guess he is just tired after yesterdays hm... meal? Yes, true, true... Why do I even use this terminal again? Oh whatever. I saw Romex today. He was standing on his knees in the corner. Guess he was praying... Strange, didn't know that he is a believer. He is... Wait... My head... MY HEAD...}
+{9010}{}{[ RUN ]}
+{10000}{}{God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! THEY ARE COMING! OUH FUR KTLAH [ Error ]}
+{10010}{}{[ Smile ]}
+{10020}{}{[ Smile ]}
+{10030}{}{[ Smile ]}
+{10040}{}{[ Smile ]}
+{11000}{}{Loading... Done...}
+{12000}{}{God doesn't see this place.}
+
+[czec]
+{100}{}{Mr. Handy}
+{210}{}{This Handy seems to be redone to work as a field terminal.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ ROBCO Terminal #3476. Welcome. ]}
+{2010}{}{[ Expedition log. Day 1 ]}
+{2020}{}{[ Expedition log. Day 2 ]}
+{2030}{}{[ Expedition log. Day 3 ]}
+{2040}{}{[ Expedition log. Day 5 ]}
+{2050}{}{[ Expedition log. Whatever ]}
+{2060}{}{[ Expedition? Day ??? ]}
+{2070}{}{[ HELP ME ]}
+{2080}{}{[ He doesn't ]}
+{2090}{}{[ Copy the entire data ]}
+{3000}{}{This is Scribe Roy reporting in. We have arrived at the designated coordinates. The party of robots sent here earlier did an excellent job rebuilding an outpost in one of the ruined houses and collecting initial data, so our job should be much easier. There are 6 of us here now - me, Scribe Alexis, Paladin Graham, Knight Rensky, Knight Lektor and Senior Paladin Romex. The place is filled with disgusting rats and other rodents of unusual size, but they have not presented a large threat. We managed to activate the generator, and now we have an access to this terminal in which I will make notes about our expedition status. I will make updates every day until new orders are received.}
+{3010}{}{[ Back ]}
+{4000}{}{This place is so silent. You know how they say - deadly silent? Not even wind can be heard here, though it is located high in the mountains. I took a walk around the complex today. It seems like the place used to be some... pre war Church or somthing. We managed to break the lock of the library door inside of the central building, where I found, among many other things, some barely coherent old notes about this place. The people who used to live here before called this place the "Abbey", but where are these people now? There is evidence of others living here even more recently.}
+{4010}{}{[ Back ]}
+{5000}{}{Rensky is missing. Graham told me that he found his bed empty when he didn't show up for the normal night shift change. We searched through the whole place but couldn't find him. Also, something strange is definitely happening with Alexis. She has become completely obsessed with some "book" she wishes to find here... hopefully it's just because of the stress. I guess we all are just getting nervous and tired here, trying to accomplish our mission. Why is this place so silent? I can't stand this silence... }
+{5010}{}{[ Back ]}
+{6000}{}{Whispers... I keep hearing whispers. What is it? Somebody is whispering, whispering somewhere... somewhere under us. I don't understand anything. We found Rensky, he... He hanged himself on a tree not far from the Abbey after he writing a note in blood from his own wrists. The note was "God doesn't see this place". My head hurts today... None of this seems real. Also... yeah... Also Alexis went missing today. With everything else, I almost forgot. We heard her screams but... We couldn't understand where she was.}
+{6010}{}{[ Back ]}
+{7000}{}{Lektor blew his head off with the shotgun today, poor bastard. He said he heard something at night and then... Hm... Who is Lektor again? Fuck, my head hurts... Mentats aren't helping this time. For some reason I tried to talk with... with HQ? Yeah, with them... Talk about... About *silence and a strange whisper and hiss... static is all you hear*.}
+{7010}{}{[ Back ]}
+{8000}{}{I tried to eat some holy book from the Abbey today. I must admit, it was delicious with blood from Graham. Yeah... haha. Damn, he didn't mind when the Great Him asked us to cut his arm off. WHAT AM I DOING?! Agh... Anyway, was a WONDERFUL day. Our radio tried to call for some Roy guy, it was so annoying that we decided to smash it off. SILENCE MUST NOT BE DISTURBED. For His brothers... wait. HELP ME! GET ME OUT OF HERE!!!!... }
+{8010}{}{[ Y... r... ? ]}
+{9000}{}{What a wondurful day. Full of silence and nothing else... Graham didn't make a single move today by the way... Strange guy,I guess he is just tired after yesterdays hm... meal? Yes, true, true... Why do I even use this terminal again? Oh whatever. I saw Romex today. He was standing on his knees in the corner. Guess he was praying... Strange, didn't know that he is a believer. He is... Wait... My head... MY HEAD...}
+{9010}{}{[ RUN ]}
+{10000}{}{God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! THEY ARE COMING! OUH FUR KTLAH [ Error ]}
+{10010}{}{[ Smile ]}
+{10020}{}{[ Smile ]}
+{10030}{}{[ Smile ]}
+{10040}{}{[ Smile ]}
+{11000}{}{Loading... Done...}
+{12000}{}{God doesn't see this place.}
+
+[pols]
+{100}{}{Mr. Handy}
+{210}{}{This Handy seems to be redone to work as a field terminal.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ ROBCO Terminal #3476. Welcome. ]}
+{2010}{}{[ Expedition log. Day 1 ]}
+{2020}{}{[ Expedition log. Day 2 ]}
+{2030}{}{[ Expedition log. Day 3 ]}
+{2040}{}{[ Expedition log. Day 5 ]}
+{2050}{}{[ Expedition log. Whatever ]}
+{2060}{}{[ Expedition? Day ??? ]}
+{2070}{}{[ HELP ME ]}
+{2080}{}{[ He doesn't ]}
+{2090}{}{[ Copy the entire data ]}
+{3000}{}{This is Scribe Roy reporting in. We have arrived at the designated coordinates. The party of robots sent here earlier did an excellent job rebuilding an outpost in one of the ruined houses and collecting initial data, so our job should be much easier. There are 6 of us here now - me, Scribe Alexis, Paladin Graham, Knight Rensky, Knight Lektor and Senior Paladin Romex. The place is filled with disgusting rats and other rodents of unusual size, but they have not presented a large threat. We managed to activate the generator, and now we have an access to this terminal in which I will make notes about our expedition status. I will make updates every day until new orders are received.}
+{3010}{}{[ Back ]}
+{4000}{}{This place is so silent. You know how they say - deadly silent? Not even wind can be heard here, though it is located high in the mountains. I took a walk around the complex today. It seems like the place used to be some... pre war Church or somthing. We managed to break the lock of the library door inside of the central building, where I found, among many other things, some barely coherent old notes about this place. The people who used to live here before called this place the "Abbey", but where are these people now? There is evidence of others living here even more recently.}
+{4010}{}{[ Back ]}
+{5000}{}{Rensky is missing. Graham told me that he found his bed empty when he didn't show up for the normal night shift change. We searched through the whole place but couldn't find him. Also, something strange is definitely happening with Alexis. She has become completely obsessed with some "book" she wishes to find here... hopefully it's just because of the stress. I guess we all are just getting nervous and tired here, trying to accomplish our mission. Why is this place so silent? I can't stand this silence... }
+{5010}{}{[ Back ]}
+{6000}{}{Whispers... I keep hearing whispers. What is it? Somebody is whispering, whispering somewhere... somewhere under us. I don't understand anything. We found Rensky, he... He hanged himself on a tree not far from the Abbey after he writing a note in blood from his own wrists. The note was "God doesn't see this place". My head hurts today... None of this seems real. Also... yeah... Also Alexis went missing today. With everything else, I almost forgot. We heard her screams but... We couldn't understand where she was.}
+{6010}{}{[ Back ]}
+{7000}{}{Lektor blew his head off with the shotgun today, poor bastard. He said he heard something at night and then... Hm... Who is Lektor again? Fuck, my head hurts... Mentats aren't helping this time. For some reason I tried to talk with... with HQ? Yeah, with them... Talk about... About *silence and a strange whisper and hiss... static is all you hear*.}
+{7010}{}{[ Back ]}
+{8000}{}{I tried to eat some holy book from the Abbey today. I must admit, it was delicious with blood from Graham. Yeah... haha. Damn, he didn't mind when the Great Him asked us to cut his arm off. WHAT AM I DOING?! Agh... Anyway, was a WONDERFUL day. Our radio tried to call for some Roy guy, it was so annoying that we decided to smash it off. SILENCE MUST NOT BE DISTURBED. For His brothers... wait. HELP ME! GET ME OUT OF HERE!!!!... }
+{8010}{}{[ Y... r... ? ]}
+{9000}{}{What a wondurful day. Full of silence and nothing else... Graham didn't make a single move today by the way... Strange guy,I guess he is just tired after yesterdays hm... meal? Yes, true, true... Why do I even use this terminal again? Oh whatever. I saw Romex today. He was standing on his knees in the corner. Guess he was praying... Strange, didn't know that he is a believer. He is... Wait... My head... MY HEAD...}
+{9010}{}{[ RUN ]}
+{10000}{}{God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! THEY ARE COMING! OUH FUR KTLAH [ Error ]}
+{10010}{}{[ Smile ]}
+{10020}{}{[ Smile ]}
+{10030}{}{[ Smile ]}
+{10040}{}{[ Smile ]}
+{11000}{}{Loading... Done...}
+{12000}{}{God doesn't see this place.}
+
+[span]
+{100}{}{Mr. Handy}
+{210}{}{This Handy seems to be redone to work as a field terminal.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ ROBCO Terminal #3476. Welcome. ]}
+{2010}{}{[ Expedition log. Day 1 ]}
+{2020}{}{[ Expedition log. Day 2 ]}
+{2030}{}{[ Expedition log. Day 3 ]}
+{2040}{}{[ Expedition log. Day 5 ]}
+{2050}{}{[ Expedition log. Whatever ]}
+{2060}{}{[ Expedition? Day ??? ]}
+{2070}{}{[ HELP ME ]}
+{2080}{}{[ He doesn't ]}
+{2090}{}{[ Copy the entire data ]}
+{3000}{}{This is Scribe Roy reporting in. We have arrived at the designated coordinates. The party of robots sent here earlier did an excellent job rebuilding an outpost in one of the ruined houses and collecting initial data, so our job should be much easier. There are 6 of us here now - me, Scribe Alexis, Paladin Graham, Knight Rensky, Knight Lektor and Senior Paladin Romex. The place is filled with disgusting rats and other rodents of unusual size, but they have not presented a large threat. We managed to activate the generator, and now we have an access to this terminal in which I will make notes about our expedition status. I will make updates every day until new orders are received.}
+{3010}{}{[ Back ]}
+{4000}{}{This place is so silent. You know how they say - deadly silent? Not even wind can be heard here, though it is located high in the mountains. I took a walk around the complex today. It seems like the place used to be some... pre war Church or somthing. We managed to break the lock of the library door inside of the central building, where I found, among many other things, some barely coherent old notes about this place. The people who used to live here before called this place the "Abbey", but where are these people now? There is evidence of others living here even more recently.}
+{4010}{}{[ Back ]}
+{5000}{}{Rensky is missing. Graham told me that he found his bed empty when he didn't show up for the normal night shift change. We searched through the whole place but couldn't find him. Also, something strange is definitely happening with Alexis. She has become completely obsessed with some "book" she wishes to find here... hopefully it's just because of the stress. I guess we all are just getting nervous and tired here, trying to accomplish our mission. Why is this place so silent? I can't stand this silence... }
+{5010}{}{[ Back ]}
+{6000}{}{Whispers... I keep hearing whispers. What is it? Somebody is whispering, whispering somewhere... somewhere under us. I don't understand anything. We found Rensky, he... He hanged himself on a tree not far from the Abbey after he writing a note in blood from his own wrists. The note was "God doesn't see this place". My head hurts today... None of this seems real. Also... yeah... Also Alexis went missing today. With everything else, I almost forgot. We heard her screams but... We couldn't understand where she was.}
+{6010}{}{[ Back ]}
+{7000}{}{Lektor blew his head off with the shotgun today, poor bastard. He said he heard something at night and then... Hm... Who is Lektor again? Fuck, my head hurts... Mentats aren't helping this time. For some reason I tried to talk with... with HQ? Yeah, with them... Talk about... About *silence and a strange whisper and hiss... static is all you hear*.}
+{7010}{}{[ Back ]}
+{8000}{}{I tried to eat some holy book from the Abbey today. I must admit, it was delicious with blood from Graham. Yeah... haha. Damn, he didn't mind when the Great Him asked us to cut his arm off. WHAT AM I DOING?! Agh... Anyway, was a WONDERFUL day. Our radio tried to call for some Roy guy, it was so annoying that we decided to smash it off. SILENCE MUST NOT BE DISTURBED. For His brothers... wait. HELP ME! GET ME OUT OF HERE!!!!... }
+{8010}{}{[ Y... r... ? ]}
+{9000}{}{What a wondurful day. Full of silence and nothing else... Graham didn't make a single move today by the way... Strange guy,I guess he is just tired after yesterdays hm... meal? Yes, true, true... Why do I even use this terminal again? Oh whatever. I saw Romex today. He was standing on his knees in the corner. Guess he was praying... Strange, didn't know that he is a believer. He is... Wait... My head... MY HEAD...}
+{9010}{}{[ RUN ]}
+{10000}{}{God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! THEY ARE COMING! OUH FUR KTLAH [ Error ]}
+{10010}{}{[ Smile ]}
+{10020}{}{[ Smile ]}
+{10030}{}{[ Smile ]}
+{10040}{}{[ Smile ]}
+{11000}{}{Loading... Done...}
+{12000}{}{God doesn't see this place.}
+
+[russ]
+{100}{}{Mr. Handy}
+{210}{}{This Handy seems to be redone to work as a field terminal.}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ ROBCO Terminal #3476. Welcome. ]}
+{2010}{}{[ Expedition log. Day 1 ]}
+{2020}{}{[ Expedition log. Day 2 ]}
+{2030}{}{[ Expedition log. Day 3 ]}
+{2040}{}{[ Expedition log. Day 5 ]}
+{2050}{}{[ Expedition log. Whatever ]}
+{2060}{}{[ Expedition? Day ??? ]}
+{2070}{}{[ HELP ME ]}
+{2080}{}{[ He doesn't ]}
+{2090}{}{[ Copy the entire data ]}
+{3000}{}{This is Scribe Roy reporting in. We have arrived at the designated coordinates. The party of robots sent here earlier did an excellent job rebuilding an outpost in one of the ruined houses and collecting initial data, so our job should be much easier. There are 6 of us here now - me, Scribe Alexis, Paladin Graham, Knight Rensky, Knight Lektor and Senior Paladin Romex. The place is filled with disgusting rats and other rodents of unusual size, but they have not presented a large threat. We managed to activate the generator, and now we have an access to this terminal in which I will make notes about our expedition status. I will make updates every day until new orders are received.}
+{3010}{}{[ Back ]}
+{4000}{}{This place is so silent. You know how they say - deadly silent? Not even wind can be heard here, though it is located high in the mountains. I took a walk around the complex today. It seems like the place used to be some... pre war Church or somthing. We managed to break the lock of the library door inside of the central building, where I found, among many other things, some barely coherent old notes about this place. The people who used to live here before called this place the "Abbey", but where are these people now? There is evidence of others living here even more recently.}
+{4010}{}{[ Back ]}
+{5000}{}{Rensky is missing. Graham told me that he found his bed empty when he didn't show up for the normal night shift change. We searched through the whole place but couldn't find him. Also, something strange is definitely happening with Alexis. She has become completely obsessed with some "book" she wishes to find here... hopefully it's just because of the stress. I guess we all are just getting nervous and tired here, trying to accomplish our mission. Why is this place so silent? I can't stand this silence... }
+{5010}{}{[ Back ]}
+{6000}{}{Whispers... I keep hearing whispers. What is it? Somebody is whispering, whispering somewhere... somewhere under us. I don't understand anything. We found Rensky, he... He hanged himself on a tree not far from the Abbey after he writing a note in blood from his own wrists. The note was "God doesn't see this place". My head hurts today... None of this seems real. Also... yeah... Also Alexis went missing today. With everything else, I almost forgot. We heard her screams but... We couldn't understand where she was.}
+{6010}{}{[ Back ]}
+{7000}{}{Lektor blew his head off with the shotgun today, poor bastard. He said he heard something at night and then... Hm... Who is Lektor again? Fuck, my head hurts... Mentats aren't helping this time. For some reason I tried to talk with... with HQ? Yeah, with them... Talk about... About *silence and a strange whisper and hiss... static is all you hear*.}
+{7010}{}{[ Back ]}
+{8000}{}{I tried to eat some holy book from the Abbey today. I must admit, it was delicious with blood from Graham. Yeah... haha. Damn, he didn't mind when the Great Him asked us to cut his arm off. WHAT AM I DOING?! Agh... Anyway, was a WONDERFUL day. Our radio tried to call for some Roy guy, it was so annoying that we decided to smash it off. SILENCE MUST NOT BE DISTURBED. For His brothers... wait. HELP ME! GET ME OUT OF HERE!!!!... }
+{8010}{}{[ Y... r... ? ]}
+{9000}{}{What a wondurful day. Full of silence and nothing else... Graham didn't make a single move today by the way... Strange guy,I guess he is just tired after yesterdays hm... meal? Yes, true, true... Why do I even use this terminal again? Oh whatever. I saw Romex today. He was standing on his knees in the corner. Guess he was praying... Strange, didn't know that he is a believer. He is... Wait... My head... MY HEAD...}
+{9010}{}{[ RUN ]}
+{10000}{}{God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! God doesn't see this place! THEY ARE COMING! OUH FUR KTLAH [ Error ]}
+{10010}{}{[ Smile ]}
+{10020}{}{[ Smile ]}
+{10030}{}{[ Smile ]}
+{10040}{}{[ Smile ]}
+{11000}{}{Loading... Done...}
+{12000}{}{God doesn't see this place.}
+

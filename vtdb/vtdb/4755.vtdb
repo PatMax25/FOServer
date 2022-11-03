@@ -1,0 +1,15 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Komandir_Vlad;
+@gender = 0;
+@age = 21;
+
+@special = 4 7 2 5 7 10 5;
+@xp = 8 30672 36000;
+@life = 64 70 0 0 0 0 0 0 0;
+@stats = 60 10 76625 1 0 10 24 14 2 5;
+@skills = 105 26 32 58 48 40 28 19 35 30 36 27 34 100 30 80 25 23 0;
+@perks = 301 330 354 429;
+@reputation = 605:-60 613:61 620:108 634:37 687:36 690:104;
+@kills = 264:6 266:4 267:34 271:2 275:6 277:48;

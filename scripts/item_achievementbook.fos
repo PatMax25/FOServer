@@ -1,0 +1,533 @@
+//
+// FOnline: Reloaded
+// Kilgore
+//
+// item_achievementbook.fos
+//
+
+#include "_macros.fos"
+#include "_defines.fos"
+#include "MsgStr.h"
+#include "lexems_h.fos"
+
+import void       ClearEvents(Critter& cr) from "utils";
+import int NextLevelNeedExp(Critter& cr) from "parameters";
+
+void _InitBook(Item& item, bool firstTime)
+{
+    item.SetEvent(ITEM_EVENT_USE,   "_TentUse");
+}
+
+bool _TentUse(Item& item, Critter& cr, Critter@ onCritter, Item@ onItem, Scenery@ onScenery)
+{
+    if(valid(onCritter) || valid(onItem) || valid(onScenery))
+    {
+        cr.SayMsg(SAY_NETMSG, TEXTMSG_GAME, STR_USE_NOTHING);
+        return(true);
+    }
+
+    if(valid(cr))
+    {
+		if((item.Val1==0) && cr.Param[ST_LEVEL]>1)
+		{
+			cr.Say(SAY_NETMSG, "|0xFF4400 You must be level 1 to open this book.");
+			return(true);		
+		}
+		else if(item.Val1==0) // No owner assigned yet, assigning the book to it's user + first time use
+		{
+			item.Val1=cr.Id;
+			cr.ParamBase[EXP_BLOCKED] = 1;
+			cr.Say(SAY_NETMSG, "Book assigned to " + cr.Name + ".");
+			cr.ParamBase[ST_EXPERIENCE]=NextLevelNeedExp(cr);
+			if(item.Val0<2) 
+				DeleteItem(item);
+			else 
+			{ 
+				item.Val0--;
+				cr.Say(SAY_NETMSG, item.Val0 + " levels remaining.");
+			}
+			item.Update();
+			return(true);
+		}
+		else if(uint(item.Val1)!=cr.Id) // Wrong user
+		{
+			cr.Say(SAY_NETMSG, "|0xFF4400 It is not your book.");
+			return(true);
+		}
+		else if(uint(item.Val1)==cr.Id) // Proper user, processing the book
+		{
+			int level = cr.Param[ST_LEVEL];
+			uint skillPoints = 5 + cr.ParamBase[ST_INTELLECT] * 2;
+            if(cr.Trait[TRAIT_SKILLED] != 0)
+                skillPoints += 5;
+            skillPoints += cr.Param[PE_EDUCATED] * 2;
+			
+			if(item.Val0+level!=item.Val2) 
+			{
+				cr.Say(SAY_NETMSG, "|0xFF4400 You cannot use this book anymore.");
+				return(true);
+			}
+			
+			int perkUp = 3;
+			//if( (cr.Param[ST_UNSPENT_SKILL_POINTS] + skillPoints) > 99)				// Preventing over 99 skill points 
+			//{
+			//	cr.Say(SAY_NETMSG, "|0xFF4400 Spend your remaining skill points.");
+			//	return(true);
+			//}
+			if( ( ((level+1) % perkUp == 0 && level < 24) || level == 29 ) && cr.Param[ST_UNSPENT_PERKS]!=0 )		// Preventing perk loss
+			{
+				cr.Say(SAY_NETMSG, "|0xFF4400 Choose your perk.");
+				return(true);
+			}
+			uint exp = 0;
+			uint lvl = cr.Param[ST_LEVEL];
+			if(cr.Param[PE_CHOSEN] > 0 || cr.Param[PE_DEATHCLAW] > 0 || cr.Param[PE_MUTANT] > 0 || cr.Param[PE_KILLER] > 0 || cr.Param[PE_PRIEST] > 0 || cr.Param[PE_HUNTER] > 0 || cr.Param[PE_ASSASIN] > 0 || cr.Param[PE_SOLDIER] > 0 || cr.Param[PE_RANDOM] > 0 || cr.Param[PE_SNIPER] > 0 || cr.Param[PE_INFANTRY] > 0 || cr.Param[PE_CYBORG] > 0 || cr.Param[PE_PARAMEDIC] > 0 || cr.Param[PE_LEADER] > 0 || cr.Param[PE_ALIEN] > 0 || cr.Param[PE_MASTER] > 0 || cr.Param[PE_WRECKER] > 0 || cr.Param[PE_CLONE] > 0)
+				{
+				exp = NUMERICAL_NUMBER(item.Val2-1) * 1000;
+				if(cr.Param[EXP_BLOCKED]>0)
+				{
+				
+				cr.ParamBase[ST_EXPERIENCE]=exp;
+				DeleteItem(item);
+				return true;
+				}
+				
+				}
+			
+
+			cr.ParamBase[ST_EXPERIENCE]=NextLevelNeedExp(cr);
+			if(item.Val0<2) 
+				DeleteItem(item);
+			else 
+			{ 
+				item.Val0--;
+				cr.Say(SAY_NETMSG, item.Val0 + " levels remaining.");
+				item.Update();				
+			}
+		}
+    }
+    return(true);
+}
+//demands
+bool reroll_check_special(Critter& player, Critter@npc, int special, int plus)
+{
+	if(player.Param[ST_REROLL_SPECIAL] < 1 && plus>0)
+		return false;
+	if(player.Param[ST_REROLL_ST + special] < 2 && plus==0)
+		return false;
+	if(player.Param[ST_REROLL_ST + special] > 9 && plus==1)
+		return false;
+	if(special==4 && player.Param[ST_REROLL_TRAIT] == 1)
+		return false;
+	if(special==4 && player.Param[ST_REROLL_TRAIT2] == 1)
+		return false;
+	
+	return true;
+}
+
+bool reroll_check_trait(Critter& player, Critter@npc, int trait)
+{
+	if(player.Param[ST_REROLL_TRAIT] == 1 && player.Param[ST_REROLL_IN] < 3) //bonehead
+		return false;
+	if(player.Param[ST_REROLL_TRAIT2] == 1 && player.Param[ST_REROLL_IN] < 3) //bonehead
+		return false;
+	if(player.Param[ST_REROLL_TRAIT] == trait)
+		return false;
+	if(player.Param[ST_REROLL_TRAIT2] == trait)
+		return false;
+	
+	return true;
+}
+
+bool reroll_check_ready(Critter& player, Critter@npc)
+{
+	if(player.Param[ST_REROLL_SPECIAL] != 0 && player.Param[EXP_BLOCKED]==0)
+		return false;
+	
+	return true;
+}
+bool check_cost(Critter& cr, Critter@npc)
+{
+
+	uint his_money = _CritCountItem(cr, PID_BOTTLE_CAPS) + _CritCountItem(cr, PID_BOS_MONEY) + _CritCountItem(cr, PID_ENCLAVE_MONEY) + _CritCountItem(cr, PID_VC_MONEY) + _CritCountItem(cr, PID_NCR_MONEY) + _CritCountItem(cr, PID_MA_MONEY);
+	uint cost = 1000 * cr.Param[ST_LEVEL];
+	if(cr.Param[SK_BARTER]>149)
+		cost = 10000;
+	if(his_money >= cost)
+		return true;
+	
+	return false;
+
+}
+//results
+void reroll_add_special(Critter& player, Critter@npc, int special, int plus)
+{
+	if(plus>0)
+		{
+		player.ParamBase[ST_REROLL_ST + special] += 1;
+		player.ParamBase[ST_REROLL_SPECIAL]--;
+		}
+	if(plus==0)
+		{
+		player.ParamBase[ST_REROLL_ST + special] -= 1;
+		player.ParamBase[ST_REROLL_SPECIAL]++;
+		}
+}
+
+void reroll_add_trait(Critter& player, Critter@npc, int trait, int trait2)
+{
+	if(trait2>0)
+		player.ParamBase[ST_REROLL_TRAIT2] = trait;
+	else player.ParamBase[ST_REROLL_TRAIT] = trait;
+}
+
+void reroll_add_restart(Critter& player, Critter@npc)
+{
+
+	player.ParamBase[ST_REROLL_ST] = 5;
+	player.ParamBase[ST_REROLL_PE] = 5;
+	player.ParamBase[ST_REROLL_EN] = 5;
+	player.ParamBase[ST_REROLL_CH] = 5;
+	player.ParamBase[ST_REROLL_IN] = 5;
+	player.ParamBase[ST_REROLL_AG] = 5;
+	player.ParamBase[ST_REROLL_LK] = 5;
+	player.ParamBase[ST_REROLL_SPECIAL] = 5;
+	player.ParamBase[ST_REROLL_TRAIT2] = 0;
+	player.ParamBase[ST_REROLL_TRAIT] = 0;
+	
+}
+
+void reroll_add_restart_only_traits(Critter& player, Critter@npc)
+{
+
+	player.ParamBase[ST_REROLL_TRAIT2] = 0;
+	player.ParamBase[ST_REROLL_TRAIT] = 0;	
+}
+
+void reroll_add_restart_only_special(Critter& player, Critter@npc)
+{
+	player.ParamBase[ST_REROLL_ST] = 5;
+	player.ParamBase[ST_REROLL_PE] = 5;
+	player.ParamBase[ST_REROLL_EN] = 5;
+	player.ParamBase[ST_REROLL_CH] = 5;
+	player.ParamBase[ST_REROLL_IN] = 5;
+	player.ParamBase[ST_REROLL_AG] = 5;
+	player.ParamBase[ST_REROLL_LK] = 5;
+}
+//uint his_money = _CritCountItem(cr, PID_BOTTLE_CAPS) + _CritCountItem(cr, PID_BOS_MONEY) + _CritCountItem(cr, PID_ENCLAVE_MONEY) + _CritCountItem(cr, PID_VC_MONEY) + _CritCountItem(cr, PID_NCR_MONEY) + _CritCountItem(cr, PID_MA_MONEY);
+void reroll_take_cost(Critter& player, Critter@npc)
+{
+	uint cost = 1000 * player.Param[ST_LEVEL];
+	if(player.Param[SK_BARTER]>149)
+		cost = 10000;
+	Item@ currency = player.GetItem(PID_BOTTLE_CAPS, -1);
+	Item@ currency2 = player.GetItem(PID_BOS_MONEY, -1);
+	Item@ currency3 = player.GetItem(PID_ENCLAVE_MONEY, -1);
+	Item@ currency4 = player.GetItem(PID_VC_MONEY, -1);
+	Item@ currency5 = player.GetItem(PID_NCR_MONEY, -1);
+	Item@ currency6 = player.GetItem(PID_MA_MONEY, -1);
+	if(valid(currency))
+	DeleteItem(currency);
+	if(valid(currency2))
+	DeleteItem(currency2);
+	if(valid(currency3))
+	DeleteItem(currency3);
+	if(valid(currency4))
+	DeleteItem(currency4);
+	if(valid(currency5))
+	DeleteItem(currency5);
+	if(valid(currency6))
+	DeleteItem(currency6);
+}
+import void reroll_comapanion(Critter& cr) from "companion";
+void reroll_init(Critter& player, Critter@npc)
+{
+	int crType = 69;
+	if(player.Param[ST_GENDER]>0)
+		crType = 4;
+	for(int i = 0; i < 9; i++)
+		player.ParamBase[PARAM_CLASS_1 + i] = 0;
+		
+	for(uint i = FOLLOWER_BEGIN; i <= FOLLOWER_END; i++)
+    {
+        if(player.Followers[i] != 0)
+        {
+            Critter@ cr = GetCritter(player.Followers[i]);
+
+            player.FollowersBase[i] = 0;
+            if(valid(cr))
+            {
+                // If deletion fails, it's still not a normal follower
+				reroll_comapanion(cr);
+                cr.ParamBase[ST_FREE_BARTER_PLAYER] = 0;
+                cr.ParamBase[ST_DIALOG_ID] = 9321;
+                cr.FollowerVarBase[FV_MASTER] = 0;
+                ClearEvents(cr);
+                _CritUnsetExtMode(cr, MODE_EXT_FOLLOWER);
+                cr.SetScript("");
+            }
+        }
+    }
+	if(player.Param[PE_MUTANT]>0 || player.Param[PE_DEATHCLAW]>0)
+		{
+		player.ChangeCrType(crType);
+        player.ParamBase[ST_BASE_CRTYPE] = crType;
+		}
+	player.ParamBase[ST_DESCRIPTION1] = 0;	
+	//special
+	uint tokens = 0;
+			if(player.Param[PE_NEMEAN_ARMOR]>0) {player.AddItem(PID_IMPLANT_NEMEAN, player.Param[PE_NEMEAN_ARMOR]); tokens += player.Param[PE_NEMEAN_ARMOR]; }
+			if(player.Param[PE_IMP_STRENGTH]>0) {player.AddItem(PID_IMPLANT_STRENGTH, player.Param[PE_IMP_STRENGTH]);tokens += player.Param[PE_IMP_STRENGTH]; }
+			if(player.Param[PE_IMP_ENDURANCE]>0) {player.AddItem(PID_IMPLANT_ENDURANCE, player.Param[PE_IMP_ENDURANCE]);tokens += player.Param[PE_IMP_ENDURANCE]; }
+			if(player.Param[PE_IMP_PERCEPTION]>0) {player.AddItem(PID_IMPLANT_PERCEPTION, player.Param[PE_IMP_PERCEPTION]);tokens += player.Param[PE_IMP_PERCEPTION]; }
+			if(player.Param[PE_IMP_CHARISMA]>0) {player.AddItem(PID_IMPLANT_CHARISMA, player.Param[PE_IMP_CHARISMA]);tokens += player.Param[PE_IMP_CHARISMA]; }
+			if(player.Param[PE_IMP_INTELLIGENCE]>0) {player.AddItem(PID_IMPLANT_INTELLIGENCE, player.Param[PE_IMP_INTELLIGENCE]);tokens += player.Param[PE_IMP_INTELLIGENCE]; }
+			if(player.Param[PE_IMP_AGILITY]>0) {player.AddItem(PID_IMPLANT_AGILITY, player.Param[PE_IMP_AGILITY]);tokens += player.Param[PE_IMP_AGILITY]; }
+			if(player.Param[PE_IMP_LUCK]>0) {player.AddItem(PID_IMPLANT_LUCK, player.Param[PE_IMP_LUCK]);tokens += player.Param[PE_IMP_LUCK]; }
+			if(player.Param[PE_DERMAL_IMPACT]>0) {player.AddItem(PID_IMPLANT_DERMAL, player.Param[PE_DERMAL_IMPACT]);tokens += player.Param[PE_DERMAL_IMPACT]; }
+			if(player.Param[PE_DERMAL_IMPACT_ENH]>0) {player.AddItem(PID_IMPLANT_DERMAL, player.Param[PE_DERMAL_IMPACT_ENH]);tokens += player.Param[PE_DERMAL_IMPACT_ENH]; }
+			if(player.Param[PE_PHOENIX_IMPLANTS]>0) {player.AddItem(PID_IMPLANT_PHOENIX, player.Param[PE_PHOENIX_IMPLANTS]);tokens += player.Param[PE_PHOENIX_IMPLANTS]; }
+			if(player.Param[PE_PHOENIX_IMPLANTS_ENH]>0) {player.AddItem(PID_IMPLANT_PHOENIX, player.Param[PE_PHOENIX_IMPLANTS_ENH]);tokens += player.Param[PE_PHOENIX_IMPLANTS_ENH]; }
+			if(player.Param[PE_AGRO]>0) {player.AddItem(PID_IMPLANT_AGRO, player.Param[PE_AGRO]);tokens += player.Param[PE_AGRO]; }
+			if(player.Param[PE_AGRO2]>0) {player.AddItem(PID_IMPLANT_AGRO, player.Param[PE_AGRO2]);tokens += player.Param[PE_AGRO2]; }
+			if(player.Param[PE_DRAGON]>0) {player.AddItem(PID_IMPLANT_DRAGON, player.Param[PE_DRAGON]);tokens += player.Param[PE_DRAGON]; }
+			if(player.Param[PE_DRAGON2]>0) {player.AddItem(PID_IMPLANT_DRAGON, player.Param[PE_DRAGON2]);tokens += player.Param[PE_DRAGON2]; }
+			if(player.Param[PE_TIGER]>0) {player.AddItem(PID_IMPLANT_TIGER, player.Param[PE_TIGER]);tokens += player.Param[PE_TIGER]; }
+			if(player.Param[PE_TIGER2]>0) {player.AddItem(PID_IMPLANT_TIGER, player.Param[PE_TIGER2]);tokens += player.Param[PE_TIGER2]; }
+			if(player.Param[PE_CLAW]>0) {player.AddItem(PID_IMPLANT_CLAW, player.Param[PE_CLAW]);tokens += player.Param[PE_CLAW]; }
+			if(player.Param[PE_CLAW2]>0) {player.AddItem(PID_IMPLANT_CLAW, player.Param[PE_CLAW2]);tokens += player.Param[PE_CLAW2]; }
+			if(player.Param[PE_TACTICAL]>0) {player.AddItem(PID_IMPLANT_TACTICS, player.Param[PE_TACTICAL]);tokens += player.Param[PE_TACTICAL]; }
+			if(player.Param[PE_TACTICAL2]>0) {player.AddItem(PID_IMPLANT_TACTICS, player.Param[PE_TACTICAL2]);tokens += player.Param[PE_TACTICAL2]; }
+			if(player.Param[PE_EMP_IMPLANT]>0) {player.AddItem(PID_IMPLANT_EMP, player.Param[PE_EMP_IMPLANT]);tokens += player.Param[PE_EMP_IMPLANT]; }
+	if(tokens>0 && player.Param[PE_CYBORG]==0)
+		player.AddItem(PID_IMPLANT_TOKEN, tokens);
+	//traits
+	for(uint i = 300; i < 566; i++)
+		player.ParamBase[i] = 0;
+	//new traits
+	switch(player.Param[ST_REROLL_TRAIT])
+	{
+	case 1: player.ParamBase[TRAIT_BONEHEAD] = 1; break;
+	case 2: player.ParamBase[TRAIT_SKILLED] = 1; break;
+	case 3: player.ParamBase[TRAIT_LONER] = 1; break;
+	case 4: player.ParamBase[TRAIT_FAST_METABOLISM] = 1; break;
+	case 5: player.ParamBase[TRAIT_BRUISER] = 1; break;
+	case 6: player.ParamBase[TRAIT_SMALL_FRAME] = 1; break;
+	case 7: player.ParamBase[TRAIT_ONE_HANDER] = 1; break;
+	case 8: player.ParamBase[TRAIT_FINESSE] = 1; break;
+	case 9: player.ParamBase[TRAIT_KAMIKAZE] = 1; break;
+	case 10: player.ParamBase[TRAIT_HEAVY_HANDED] = 1; break;
+	case 11: player.ParamBase[TRAIT_FAST_SHOT] = 1; break;
+	case 12: player.ParamBase[TRAIT_BLOODY_MESS] = 1; break;
+	case 13: player.ParamBase[TRAIT_JINXED] = 1; break;
+	case 14: player.ParamBase[TRAIT_GOOD_NATURED] = 1; break;
+	case 15: player.ParamBase[TRAIT_CHEM_RELIANT] = 1; break;
+	case 16: player.ParamBase[TRAIT_CHEM_RESISTANT] = 1; break;	
+	default:  break;	
+	}
+	switch(player.Param[ST_REROLL_TRAIT2])
+	{
+	case 1: player.ParamBase[TRAIT_BONEHEAD] = 1; break;
+	case 2: player.ParamBase[TRAIT_SKILLED] = 1; break;
+	case 3: player.ParamBase[TRAIT_LONER] = 1; break;
+	case 4: player.ParamBase[TRAIT_FAST_METABOLISM] = 1; break;
+	case 5: player.ParamBase[TRAIT_BRUISER] = 1; break;
+	case 6: player.ParamBase[TRAIT_SMALL_FRAME] = 1; break;
+	case 7: player.ParamBase[TRAIT_ONE_HANDER] = 1; break;
+	case 8: player.ParamBase[TRAIT_FINESSE] = 1; break;
+	case 9: player.ParamBase[TRAIT_KAMIKAZE] = 1; break;
+	case 10: player.ParamBase[TRAIT_HEAVY_HANDED] = 1; break;
+	case 11: player.ParamBase[TRAIT_FAST_SHOT] = 1; break;
+	case 12: player.ParamBase[TRAIT_BLOODY_MESS] = 1; break;
+	case 13: player.ParamBase[TRAIT_JINXED] = 1; break;
+	case 14: player.ParamBase[TRAIT_GOOD_NATURED] = 1; break;
+	case 15: player.ParamBase[TRAIT_CHEM_RELIANT] = 1; break;
+	case 16: player.ParamBase[TRAIT_CHEM_RESISTANT] = 1; break;	
+	default:  break;	
+	}
+	
+	player.ParamBase[ST_STRENGTH] = player.Param[ST_REROLL_ST];
+	player.ParamBase[ST_START_ST] = player.Param[ST_REROLL_ST] + player.ParamBase[TRAIT_SKILLED];
+	player.ParamBase[ST_PERCEPTION] = player.Param[ST_REROLL_PE];
+	player.ParamBase[ST_START_PE] = player.Param[ST_REROLL_PE] + player.ParamBase[TRAIT_SKILLED];
+	player.ParamBase[ST_ENDURANCE] = player.Param[ST_REROLL_EN];
+	player.ParamBase[ST_START_EN] = player.Param[ST_REROLL_EN] + player.ParamBase[TRAIT_SKILLED];
+	player.ParamBase[ST_CHARISMA] = player.Param[ST_REROLL_CH];
+	player.ParamBase[ST_START_CH] = player.Param[ST_REROLL_CH] + player.ParamBase[TRAIT_SKILLED];
+	player.ParamBase[ST_AGILITY] = player.Param[ST_REROLL_AG];
+	player.ParamBase[ST_START_AG] = player.Param[ST_REROLL_AG] + player.ParamBase[TRAIT_SKILLED];
+	player.ParamBase[ST_INTELLECT] = player.Param[ST_REROLL_IN];
+	player.ParamBase[ST_START_IN] = player.Param[ST_REROLL_IN] + player.ParamBase[TRAIT_SKILLED];
+	player.ParamBase[ST_LUCK] = player.Param[ST_REROLL_LK];
+	player.ParamBase[ST_START_LK] = player.Param[ST_REROLL_LK] + player.ParamBase[TRAIT_SKILLED];
+	//skills
+		int blodymess = 0;
+	if(player.Param[TRAIT_BLOODY_MESS] != 0)
+		blodymess = 20;
+    player.ParamBase[SK_SMALL_GUNS] = 5 + 4 * player.ParamBase[ST_AGILITY] - blodymess;
+    player.ParamBase[SK_BIG_GUNS] = 0 + 2 * player.ParamBase[ST_AGILITY] - blodymess;
+    player.ParamBase[SK_ENERGY_WEAPONS] = 0 + 2 * player.ParamBase[ST_AGILITY] - blodymess;
+    player.ParamBase[SK_UNARMED] = 30 + 2 * (player.ParamBase[ST_AGILITY] + player.ParamBase[ST_STRENGTH]) - blodymess;
+    player.ParamBase[SK_LEARNING] = 0 + 6 * player.ParamBase[ST_INTELLECT] - blodymess;
+    player.ParamBase[SK_THROWING] = 0 + 4 * player.ParamBase[ST_AGILITY] - blodymess;
+    player.ParamBase[SK_FIRST_AID] = 0 + 2 * (player.ParamBase[ST_PERCEPTION] + player.ParamBase[ST_INTELLECT]) - blodymess;
+    player.ParamBase[SK_DOCTOR] = 5 + player.ParamBase[ST_PERCEPTION] + player.ParamBase[ST_INTELLECT] - blodymess;
+    player.ParamBase[SK_SNEAK] = 5 + 3 * player.ParamBase[ST_AGILITY] - blodymess;
+    player.ParamBase[SK_LOCKPICK] = 10 + player.ParamBase[ST_PERCEPTION] + player.ParamBase[ST_AGILITY] - blodymess;
+    player.ParamBase[SK_ENGINE] = 0 + 4 * player.ParamBase[ST_INTELLECT] - blodymess;
+    player.ParamBase[SK_TRAPS] = 10 + player.ParamBase[ST_PERCEPTION] + player.ParamBase[ST_AGILITY] - blodymess;
+    player.ParamBase[SK_SCIENCE] = 0 + 4 * player.ParamBase[ST_INTELLECT] - blodymess;
+    player.ParamBase[SK_REPAIR] = 0 + 3 * player.ParamBase[ST_INTELLECT] - blodymess;
+    player.ParamBase[SK_SPEECH] = 0 + 5 * player.ParamBase[ST_CHARISMA] - blodymess;
+    player.ParamBase[SK_BARTER] = 0 + 4 * player.ParamBase[ST_CHARISMA] - blodymess;
+    player.ParamBase[SK_CRAFTING] = 5 + 3 * player.ParamBase[ST_INTELLECT] - blodymess;
+    player.ParamBase[SK_OUTDOORSMAN] = 0 + 2 * (player.ParamBase[ST_ENDURANCE] + player.ParamBase[ST_INTELLECT]) - blodymess;
+	
+	
+	
+	//implants
+	
+	//perks
+	
+	
+	
+	//quests var //TODO snakeater, fort seth, any other support perk which testers wont be able to take
+	array<Critter@> critters;
+	uint num = GetAllNpc(0,critters);
+	for(uint i = 0; i < num; i++)
+		{
+		GameVar@ var=GetUnicumVar((2015),player.Id,critters[i].Id);
+		var = 0;
+		GameVar@ acquaintance=GetUnicumVar(UVAR_acquaintance, player.Id,critters[i].Id);
+		acquaintance = 0;
+		}
+	player.ParamBase[MARSHAL] = 0;
+	GameVar@ var2=GetUnicumVar((2015),player.Id,5002861); //marshal
+	var2 = 0;
+	GameVar@ snak=GetLocalVar(LVAR_q_jt_sneakeater_perk, player.Id);
+	snak = 0;
+	GameVar@ seth_julian=GetLocalVar(LVAR_seth_julian, player.Id);
+	seth_julian = 0;
+	
+	GameVar@ q_ncr_explorer_perk=GetLocalVar(LVAR_q_ncr_explorer_perk, player.Id);
+	q_ncr_explorer_perk = 0;
+	
+	//books
+	array<uint> books_pid = { PID_BIG_BOOK_OF_SCIENCE, PID_DEANS_ELECTRONICS, PID_FIRST_AID_BOOK, PID_SCOUT_HANDBOOK, PID_BARTER_BOOK, PID_GUNS_AND_BULLETS, PID_BG_BOOK, PID_DOCTOR_BOOK, PID_EW_BOOK, PID_SNEAK_BOOK, PID_STEAL_BOOK, PID_LOCKPICK_BOOK, PID_THROWING_BOOK, PID_TRAPS_BOOK, PID_CLOSE_COMBAT_BOOK };
+	array<uint> books_var = { LVAR_Book_Science, LVAR_Book_Repair, LVAR_Book_FirstAid, LVAR_Book_Outdoorsman, LVAR_Book_Barter, LVAR_Book_SmallGuns, LVAR_bg_book, LVAR_doctor_book, LVAR_ew_book, LVAR_sneak_book, LVAR_steal_book, LVAR_lockpick_book, LVAR_throwing_book, LVAR_traps_book, LVAR_close_combat_book };
+	array<uint> books_caps = { SK_SCIENCE_CAP, SK_REPAIR_CAP, SK_FIRST_AID_CAP, SK_OUTDOORSMAN_CAP, SK_BARTER_CAP, SK_SMALL_GUNS_CAP, SK_BIG_GUNS_CAP, SK_DOCTOR_CAP, SK_ENERGY_WEAPONS_CAP, SK_SNEAK_CAP, SK_CRAFTING_CAP, SK_LOCKPICK_CAP, SK_THROWING_CAP, SK_TRAPS_CAP, SK_UNARMED_CAP };
+	for(uint i = 0; i < 15; i++)
+	{
+	uint bookcount = 0;
+	GameVar@ book1=GetLocalVar(books_var[i], player.Id);
+	bookcount = book1.GetValue();
+	if(player.Param[books_caps[i]]>0)
+		bookcount += player.Param[books_caps[i]]/10;
+	if(bookcount>0)
+		player.AddItem(books_pid[i], bookcount);
+	book1 = 0;
+	player.ParamBase[books_caps[i]] = 0;
+	}
+	//level book
+	if(player.Param[ST_LEVEL]>1)
+	{
+	Item@ hintbook = player.AddItem(PID_BOOK_OF_ACHIEVEMENT, 1);
+	hintbook.Val0 = player.Param[ST_LEVEL]-1;
+	hintbook.Val2 = player.Param[ST_LEVEL];
+	hintbook.Update();
+	}
+	player.ParamBase[ST_LEVEL] = 1;
+	player.ParamBase[PE_AWARENESS] = 1;
+	player.ParamBase[ST_EXPERIENCE] = 0;
+	player.ParamBase[ST_UNSPENT_PERKS] = 0;
+	player.ParamBase[ST_UNSPENT_SKILL_POINTS] = 0;
+	player.ParamBase[ST_CURRENT_HP] = 1;
+	player.ParamBase[ST_CURRENT_AP] = 1;
+	player.ParamBase[EXP_BLOCKED] = 1;
+	player.ParamBase[ST_TENT_MAPS] = 0;
+	//todo war event
+}
+
+//info
+void reroll_cost(Critter& player, Critter@ npc, string@ text)
+{
+	uint cost = 1000 * player.Param[ST_LEVEL];
+	if(player.Param[SK_BARTER]>149)
+		cost = 10000;
+	SetLexem(player, "$reroll", "" + cost);	
+	text += ("$reroll" + "" + cost);
+}
+void reroll_info(Critter& player, Critter@ npc, string@ text)
+{
+	SetLexem(player, "$st", "" + player.ParamBase[ST_REROLL_ST]);	
+	text += ("$st" + "" + player.ParamBase[ST_REROLL_ST]);
+	
+	SetLexem(player, "$pe", "" + player.ParamBase[ST_REROLL_PE]);	
+	text += ("$pe" + "" + player.ParamBase[ST_REROLL_PE]);
+	
+	SetLexem(player, "$en", "" + player.ParamBase[ST_REROLL_EN]);	
+	text += ("$en" + "" + player.ParamBase[ST_REROLL_EN]);
+	
+	SetLexem(player, "$ch", "" + player.ParamBase[ST_REROLL_CH]);	
+	text += ("$ch" + "" + player.ParamBase[ST_REROLL_CH]);
+	
+	SetLexem(player, "$in", "" + player.ParamBase[ST_REROLL_IN]);	
+	text += ("$in" + "" + player.ParamBase[ST_REROLL_IN]);
+	
+	SetLexem(player, "$ag", "" + player.ParamBase[ST_REROLL_AG]);	
+	text += ("$ag" + "" + player.ParamBase[ST_REROLL_AG]);
+	
+	SetLexem(player, "$lk", "" + player.ParamBase[ST_REROLL_LK]);	
+	text += ("$lk" + "" + player.ParamBase[ST_REROLL_LK]);
+	
+	SetLexem(player, "$free", "" + player.ParamBase[ST_REROLL_SPECIAL]);	
+	text += ("$free" + "" + player.ParamBase[ST_REROLL_SPECIAL]);
+	string trait = "Free";
+	switch(player.Param[ST_REROLL_TRAIT])
+	{
+	case 1: trait = "Bonehead"; break;
+	case 2: trait = "Gifted"; break;
+	case 3: trait = "Loner"; break;
+	case 4: trait = "Fast Metabolism"; break;
+	case 5: trait = "Bruiser"; break;
+	case 6: trait = "Small Frame"; break;
+	case 7: trait = "One Hander"; break;
+	case 8: trait = "Finesse"; break;
+	case 9: trait = "Kamikaze"; break;
+	case 10: trait = "Heavy Handed"; break;
+	case 11: trait = "Fast Shot"; break;
+	case 12: trait = "Bloody Mess"; break;
+	case 13: trait = "Jinxed"; break;
+	case 14: trait = "Good Natured"; break;
+	case 15: trait = "Chem Reliant"; break;
+	case 16: trait = "Cannibal"; break;	
+	default:  trait = "Free"; break;	
+	}
+	SetLexem(player, "$tr", trait);	
+	text += ("$tr" + trait);
+	
+	string trait2 = "Free";
+	switch(player.Param[ST_REROLL_TRAIT2])
+	{
+	case 1: trait2 = "Bonehead"; break;
+	case 2: trait2 = "Gifted"; break;
+	case 3: trait2 = "Loner"; break;
+	case 4: trait2 = "Fast Metabolism"; break;
+	case 5: trait2 = "Bruiser"; break;
+	case 6: trait2 = "Small Frame"; break;
+	case 7: trait2 = "One Hander"; break;
+	case 8: trait2 = "Finesse"; break;
+	case 9: trait2 = "Kamikaze"; break;
+	case 10: trait2 = "Heavy Handed"; break;
+	case 11: trait2 = "Fast Shot"; break;
+	case 12: trait2 = "Bloody Mess"; break;
+	case 13: trait2 = "Jinxed"; break;
+	case 14: trait2 = "Good Natured"; break;
+	case 15: trait2 = "Chem Reliant"; break;
+	case 16: trait2 = "Cannibal"; break;	
+	default:  trait2 = "Free"; break;	
+	}
+	SetLexem(player, "$tr2", trait2);	
+	text += ("$tr2" + trait2);
+	
+}

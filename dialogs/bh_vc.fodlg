@@ -1,0 +1,42 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Vault City Citizen}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you want?@@Damn mutants...@@Not now, alright?@@Hey! Don't touch me!@@Good day.@@Hello.@@You seem to be out of here.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you want?@@Damn mutants...@@Not now, alright?@@Hey! Don't touch me!@@Good day.@@Hello.@@You seem to be out of here.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you want?@@Damn mutants...@@Not now, alright?@@Hey! Don't touch me!@@Good day.@@Hello.@@You seem to be out of here.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you want?@@Damn mutants...@@Not now, alright?@@Hey! Don't touch me!@@Good day.@@Hello.@@You seem to be out of here.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{What do you want?@@Damn mutants...@@Not now, alright?@@Hey! Don't touch me!@@Good day.@@Hello.@@You seem to be out of here.}
+

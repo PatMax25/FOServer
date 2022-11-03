@@ -1,0 +1,96 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 D _item p PID_MICRO_FUSION_CELL } 70 R _item p PID_MICRO_FUSION_CELL - 70 #
+0 2030 @
+3 3000 None 0 @
+4 4000 None 0 #
+5 4010 D _item p PID_MICRO_FUSION_CELL = 0 R _var p x7_generator = 1 #
+0 4020 R _script dialog@r_ToDead 1 Anim2DeadPulse #
+0 4030 @
+5 5000 None 0 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Warning! No energy. Critical generator failure. Please insert energy cells. ]}
+{2010}{}{[ hit the power unit ]}
+{2020}{}{[ insert energy cells ]}
+{2030}{}{[ leave ] [ end dialogue ]}
+{3000}{}{*that did nothing*}
+{4000}{}{[ Bzzt... Power 3%. Commands? ]}
+{4010}{}{[ transfer energy to the main elevator ]}
+{4020}{}{[ try to restart all generators ]}
+{4030}{}{[ Exit ] [ end dialogue ]}
+{5000}{}{[ Proceeding... ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Warning! No energy. Critical generator failure. Please insert energy cells. ]}
+{2010}{}{[ Hit the power unit ]}
+{2020}{}{[ Insert energy cells ]}
+{2030}{}{[ Close ]}
+{3000}{}{[ That did nothing ]}
+{4000}{}{[ Bzzt... Power 3%. Commands? ]}
+{4010}{}{[ Transfer energy to the main elevator ]}
+{4020}{}{[ Try to restart all generators ]}
+{4030}{}{[ Close ]}
+{5000}{}{[ Proceeding... ]}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Warning! No energy. Critical generator failure. Please insert energy cells. ]}
+{2010}{}{[ Hit the power unit ]}
+{2020}{}{[ Insert energy cells ]}
+{2030}{}{[ Close ]}
+{3000}{}{[ That did nothing ]}
+{4000}{}{[ Bzzt... Power 3%. Commands? ]}
+{4010}{}{[ Transfer energy to the main elevator ]}
+{4020}{}{[ Try to restart all generators ]}
+{4030}{}{[ Close ]}
+{5000}{}{[ Proceeding... ]}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Warning! No energy. Critical generator failure. Please insert energy cells. ]}
+{2010}{}{[ Hit the power unit ]}
+{2020}{}{[ Insert energy cells ]}
+{2030}{}{[ Close ]}
+{3000}{}{[ That did nothing ]}
+{4000}{}{[ Bzzt... Power 3%. Commands? ]}
+{4010}{}{[ Transfer energy to the main elevator ]}
+{4020}{}{[ Try to restart all generators ]}
+{4030}{}{[ Close ]}
+{5000}{}{[ Proceeding... ]}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Warning! No energy. Critical generator failure. Please insert energy cells. ]}
+{2010}{}{[ Hit the power unit ]}
+{2020}{}{[ Insert energy cells ]}
+{2030}{}{[ Close ]}
+{3000}{}{[ That did nothing ]}
+{4000}{}{[ Bzzt... Power 3%. Commands? ]}
+{4010}{}{[ Transfer energy to the main elevator ]}
+{4020}{}{[ Try to restart all generators ]}
+{4030}{}{[ Close ]}
+{5000}{}{[ Proceeding... ]}
+

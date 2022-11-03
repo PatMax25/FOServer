@@ -1,0 +1,162 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+4 2020 #
+6 2030 D _var p wow_ryan = 0 #
+0 2040 #
+8 2050 D _var p wow_ryan = 2 R _var p wow_ryan = 3 R _item p PID_RED_RYDER_LE_BB_GUN + 1 R _item p PID_STIMPAK + 10 R _item p PID_TICKET + 1 R _item p PID_FIRST_AID_KIT + 1 R _item p PID_BOTTLE_CAPS + 700 R _param p ST_EXPERIENCE + 1500 R _param p SK_REPAIR + 5 #
+9 2060 D _var p wow_foxlove = 1 @
+3 3000 None 0 #
+4 3010 #
+0 3020 @
+4 4000 None 0 #
+5 4010 @
+5 5000 None 0 #
+2 5010 @
+6 6000 None 0 #
+7 6010 D _var p wow_ryan = 0 R _var p wow_ryan = 1 #
+2 6020 @
+7 7000 None 0 @
+8 8000 None 0 @
+9 9000 None 0 #
+0 9010 &
+
+[engl]
+{100}{}{Ryan}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Hey there. I am new here. Who are you?}
+{2020}{}{What can you tell me about this settlement?}
+{2030}{}{What is this thing you are working on?}
+{2040}{}{Nothing. Bye.}
+{2050}{}{I did it. The bus is working again.}
+{2060}{}{Hello. Foxlove lost one of his robots. have you seen any missing machines around?}
+{3000}{}{Name's Ryan. I am a local mechanic, fixing things here and there.}
+{3010}{}{Can you tell me more about this place?}
+{3020}{}{I see. I will be going then.}
+{4000}{}{Not much, I am kinda a newcomer here myself. Used to work together with T-Ray in Reno before. The locals say this is some old military camp which is now controlled by ex soldiers of eeeh... United... Something of America.}
+{4010}{}{Why did you leave New Reno?}
+{5000}{}{Because of Currency of course. The locals here are alright and willing to pay a lot for skilled mechanics.}
+{5010}{}{I see. I wish to ask you about something else.}
+{6000}{}{A piece of shit on wheels, I tell ya. I have to fix this thing up, but I don't have the important equipment I need around.}
+{6010}{}{Maybe I can fix it up?}
+{6020}{}{Well, bad luck. I wish to talk about other things,}
+{7000}{}{Sure, you can try it out. If you succeed - I will personally pay you.}
+{8000}{}{You did it? Great job! Here is payment, as promised.}
+{9000}{}{Nah, haven't seen any robots in the camp. You better check around the trading post. That's where Arvi holds his robots.}
+{9010}{}{Trading Outpost... Got it.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Hey there. I am new here. Who are you?}
+{2020}{}{What can you tell me about this settlement?}
+{2030}{}{What is this thing you are working on?}
+{2040}{}{Nothing. Bye.}
+{2050}{}{I did it. The bus is working again.}
+{2060}{}{Hello. Foxlove lost one of his robots. have you seen any missing machines around?}
+{3000}{}{Name's Ryan. I am a local mechanic, fixing things here and there.}
+{3010}{}{Can you tell me more about this place?}
+{3020}{}{I see. I will be going then.}
+{4000}{}{Not much, I am kinda a newcomer here myself. Used to work together with T-Ray in Reno before. Basing on locals, this is some old military camp which is now controlled by ex soldiers of eeeh... United... Something of America.}
+{4010}{}{Why did you leave New Reno?}
+{5000}{}{Because of Currency of course. Locals are alright willing to pay a lot for skilled mechanics.}
+{5010}{}{I see. I wish to ask you about something else.}
+{6000}{}{A piece of shit on wheels, I tell ya. I have a task to fix this thing up, but I don't have important equipment around.}
+{6010}{}{Maybe I can fix it up?}
+{6020}{}{Well, bad luck. I wish to talk about other things,}
+{7000}{}{Sure, you can try it out. If you succeed - I will personally pay you.}
+{8000}{}{You did it? Great job! Here is a payment, as promised.}
+{9000}{}{Nah, haven't seen any robots in the camp. You better check around the trading post. That's where Arvi holds his robots.}
+{9010}{}{Trading Outpost... Got it.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Hey there. I am new here. Who are you?}
+{2020}{}{What can you tell me about this settlement?}
+{2030}{}{What is this thing you are working on?}
+{2040}{}{Nothing. Bye.}
+{2050}{}{I did it. The bus is working again.}
+{2060}{}{Hello. Foxlove lost one of his robots. have you seen any missing machines around?}
+{3000}{}{Name's Ryan. I am a local mechanic, fixing things here and there.}
+{3010}{}{Can you tell me more about this place?}
+{3020}{}{I see. I will be going then.}
+{4000}{}{Not much, I am kinda a newcomer here myself. Used to work together with T-Ray in Reno before. Basing on locals, this is some old military camp which is now controlled by ex soldiers of eeeh... United... Something of America.}
+{4010}{}{Why did you leave New Reno?}
+{5000}{}{Because of Currency of course. Locals are alright willing to pay a lot for skilled mechanics.}
+{5010}{}{I see. I wish to ask you about something else.}
+{6000}{}{A piece of shit on wheels, I tell ya. I have a task to fix this thing up, but I don't have important equipment around.}
+{6010}{}{Maybe I can fix it up?}
+{6020}{}{Well, bad luck. I wish to talk about other things,}
+{7000}{}{Sure, you can try it out. If you succeed - I will personally pay you.}
+{8000}{}{You did it? Great job! Here is a payment, as promised.}
+{9000}{}{Nah, haven't seen any robots in the camp. You better check around the trading post. That's where Arvi holds his robots.}
+{9010}{}{Trading Outpost... Got it.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Hey there. I am new here. Who are you?}
+{2020}{}{What can you tell me about this settlement?}
+{2030}{}{What is this thing you are working on?}
+{2040}{}{Nothing. Bye.}
+{2050}{}{I did it. The bus is working again.}
+{2060}{}{Hello. Foxlove lost one of his robots. have you seen any missing machines around?}
+{3000}{}{Name's Ryan. I am a local mechanic, fixing things here and there.}
+{3010}{}{Can you tell me more about this place?}
+{3020}{}{I see. I will be going then.}
+{4000}{}{Not much, I am kinda a newcomer here myself. Used to work together with T-Ray in Reno before. Basing on locals, this is some old military camp which is now controlled by ex soldiers of eeeh... United... Something of America.}
+{4010}{}{Why did you leave New Reno?}
+{5000}{}{Because of Currency of course. Locals are alright willing to pay a lot for skilled mechanics.}
+{5010}{}{I see. I wish to ask you about something else.}
+{6000}{}{A piece of shit on wheels, I tell ya. I have a task to fix this thing up, but I don't have important equipment around.}
+{6010}{}{Maybe I can fix it up?}
+{6020}{}{Well, bad luck. I wish to talk about other things,}
+{7000}{}{Sure, you can try it out. If you succeed - I will personally pay you.}
+{8000}{}{You did it? Great job! Here is a payment, as promised.}
+{9000}{}{Nah, haven't seen any robots in the camp. You better check around the trading post. That's where Arvi holds his robots.}
+{9010}{}{Trading Outpost... Got it.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello. What is it?}
+{2010}{}{Hey there. I am new here. Who are you?}
+{2020}{}{What can you tell me about this settlement?}
+{2030}{}{What is this thing you are working on?}
+{2040}{}{Nothing. Bye.}
+{2050}{}{I did it. The bus is working again.}
+{2060}{}{Hello. Foxlove lost one of his robots. have you seen any missing machines around?}
+{3000}{}{Name's Ryan. I am a local mechanic, fixing things here and there.}
+{3010}{}{Can you tell me more about this place?}
+{3020}{}{I see. I will be going then.}
+{4000}{}{Not much, I am kinda a newcomer here myself. Used to work together with T-Ray in Reno before. Basing on locals, this is some old military camp which is now controlled by ex soldiers of eeeh... United... Something of America.}
+{4010}{}{Why did you leave New Reno?}
+{5000}{}{Because of Currency of course. Locals are alright willing to pay a lot for skilled mechanics.}
+{5010}{}{I see. I wish to ask you about something else.}
+{6000}{}{A piece of shit on wheels, I tell ya. I have a task to fix this thing up, but I don't have important equipment around.}
+{6010}{}{Maybe I can fix it up?}
+{6020}{}{Well, bad luck. I wish to talk about other things,}
+{7000}{}{Sure, you can try it out. If you succeed - I will personally pay you.}
+{8000}{}{You did it? Great job! Here is a payment, as promised.}
+{9000}{}{Nah, haven't seen any robots in the camp. You better check around the trading post. That's where Arvi holds his robots.}
+{9010}{}{Trading Outpost... Got it.}
+

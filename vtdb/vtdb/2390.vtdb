@@ -1,0 +1,8 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Oryaw;
+@gender = 0;
+@age = 21;
+
+@stats = 1 10 140800 2 16 50 20 14 11 10;

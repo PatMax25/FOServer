@@ -1,0 +1,180 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+5 2020 #
+0 2030 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+2 4010 @
+5 5000 None 0 #
+5 5010 D _item p PID_NCR_MONEY } 15 R _item p PID_NCR_MONEY - 15 R _item p PID_BROC_FLOWER + 1 #
+5 5020 D _item p PID_NCR_MONEY } 15 R _item p PID_NCR_MONEY - 15 R _item p PID_XANDER_ROOT + 1 #
+2 5030 #
+5 5040 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT1 + 1 #
+5 5050 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT2 + 1 #
+5 5060 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT3 + 1 #
+5 5070 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT4 + 1 #
+5 5080 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT5 + 1 #
+5 5090 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT6 + 1 #
+5 5100 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT7 + 1 #
+5 5110 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT8 + 1 #
+5 5120 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT9 + 1 #
+5 5130 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT10 + 1 #
+5 5140 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT11 + 1 #
+5 5150 D _item p PID_NCR_MONEY } 1000 R _item p PID_NCR_MONEY - 1000 R _item p PID_BASE_PLANT12 + 1 &
+
+[engl]
+{100}{}{Flowers trader}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Wish to buy some plants?}
+{2010}{}{Do you sell any flowers?}
+{2020}{}{What do you have in your stock?}
+{2030}{}{Not interested. Bye.}
+{3000}{}{Only broc flowers unfortunately. Other flowers we're sold out of.}
+{3010}{}{And who bought the last pair of flowers?}
+{4000}{}{Some guy from Hawthorne if I remember correctly.}
+{4010}{}{Alright, let's talk about something else.}
+{5000}{}{Selling Broc flowers and Xander roots. 15 bucks per one. We also sell all sort of decorative plants. 1000 NCR bucks per one.}
+{5010}{}{I will buy a Broc flower.}
+{5020}{}{I will buy a Xander root.}
+{5030}{}{Let's switch the topic.}
+{5040}{}{I will buy a floor plant 1.}
+{5050}{}{I will buy a floor plant 2.}
+{5060}{}{I will buy a table plant 1.}
+{5070}{}{I will buy a table plant 2.}
+{5080}{}{I will buy a table plant 3.}
+{5090}{}{I will buy a big floor plant 1.}
+{5100}{}{I will buy a big floor plant 2.}
+{5110}{}{I will buy a big floor plant 3.}
+{5120}{}{I will buy a big floor plant 4.}
+{5130}{}{I will buy a big floor plant 5.}
+{5140}{}{I will buy a big floor plant 6.}
+{5150}{}{I will buy a big floor plant 7.}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Wish to buy some plants?}
+{2010}{}{Do you sell any flowers?}
+{2020}{}{What do you have in your stock?}
+{2030}{}{Not interested. Bye.}
+{3000}{}{Only broc flowers unfortunately. Other flowers were sold of.}
+{3010}{}{And who bought the last pair of flowers?}
+{4000}{}{Some guy from Hawthorne if I remember correctly.}
+{4010}{}{Alright, let's talk about something else.}
+{5000}{}{Selling Broc flowers and Xander roots. 15 bucks per one.}
+{5010}{}{I will buy a Broc flower.}
+{5020}{}{I will buy a Xander root.}
+{5030}{}{Let's switch the topic.}
+{5040}{}{Let's switch the topic.}
+{5050}{}{I will buy a floor plant 2.}
+{5060}{}{I will buy a table plant 1.}
+{5070}{}{I will buy a table plant 2.}
+{5080}{}{I will buy a table plant 3.}
+{5090}{}{I will buy a big floor plant 1.}
+{5100}{}{I will buy a big floor plant 2.}
+{5110}{}{I will buy a big floor plant 3.}
+{5120}{}{I will buy a big floor plant 4.}
+{5130}{}{I will buy a big floor plant 5.}
+{5140}{}{I will buy a big floor plant 6.}
+{5150}{}{I will buy a big floor plant 7.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Wish to buy some plants?}
+{2010}{}{Do you sell any flowers?}
+{2020}{}{What do you have in your stock?}
+{2030}{}{Not interested. Bye.}
+{3000}{}{Only broc flowers unfortunately. Other flowers were sold of.}
+{3010}{}{And who bought the last pair of flowers?}
+{4000}{}{Some guy from Hawthorne if I remember correctly.}
+{4010}{}{Alright, let's talk about something else.}
+{5000}{}{Selling Broc flowers and Xander roots. 15 bucks per one.}
+{5010}{}{I will buy a Broc flower.}
+{5020}{}{I will buy a Xander root.}
+{5030}{}{Let's switch the topic.}
+{5040}{}{Let's switch the topic.}
+{5050}{}{I will buy a floor plant 2.}
+{5060}{}{I will buy a table plant 1.}
+{5070}{}{I will buy a table plant 2.}
+{5080}{}{I will buy a table plant 3.}
+{5090}{}{I will buy a big floor plant 1.}
+{5100}{}{I will buy a big floor plant 2.}
+{5110}{}{I will buy a big floor plant 3.}
+{5120}{}{I will buy a big floor plant 4.}
+{5130}{}{I will buy a big floor plant 5.}
+{5140}{}{I will buy a big floor plant 6.}
+{5150}{}{I will buy a big floor plant 7.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Wish to buy some plants?}
+{2010}{}{Do you sell any flowers?}
+{2020}{}{What do you have in your stock?}
+{2030}{}{Not interested. Bye.}
+{3000}{}{Only broc flowers unfortunately. Other flowers were sold of.}
+{3010}{}{And who bought the last pair of flowers?}
+{4000}{}{Some guy from Hawthorne if I remember correctly.}
+{4010}{}{Alright, let's talk about something else.}
+{5000}{}{Selling Broc flowers and Xander roots. 15 bucks per one.}
+{5010}{}{I will buy a Broc flower.}
+{5020}{}{I will buy a Xander root.}
+{5030}{}{Let's switch the topic.}
+{5040}{}{Let's switch the topic.}
+{5050}{}{I will buy a floor plant 2.}
+{5060}{}{I will buy a table plant 1.}
+{5070}{}{I will buy a table plant 2.}
+{5080}{}{I will buy a table plant 3.}
+{5090}{}{I will buy a big floor plant 1.}
+{5100}{}{I will buy a big floor plant 2.}
+{5110}{}{I will buy a big floor plant 3.}
+{5120}{}{I will buy a big floor plant 4.}
+{5130}{}{I will buy a big floor plant 5.}
+{5140}{}{I will buy a big floor plant 6.}
+{5150}{}{I will buy a big floor plant 7.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Hello there. Wish to buy some plants?}
+{2010}{}{Do you sell any flowers?}
+{2020}{}{What do you have in your stock?}
+{2030}{}{Not interested. Bye.}
+{3000}{}{Only broc flowers unfortunately. Other flowers were sold of.}
+{3010}{}{And who bought the last pair of flowers?}
+{4000}{}{Some guy from Hawthorne if I remember correctly.}
+{4010}{}{Alright, let's talk about something else.}
+{5000}{}{Selling Broc flowers and Xander roots. 15 bucks per one.}
+{5010}{}{I will buy a Broc flower.}
+{5020}{}{I will buy a Xander root.}
+{5030}{}{Let's switch the topic.}
+{5040}{}{Let's switch the topic.}
+{5050}{}{I will buy a floor plant 2.}
+{5060}{}{I will buy a table plant 1.}
+{5070}{}{I will buy a table plant 2.}
+{5080}{}{I will buy a table plant 3.}
+{5090}{}{I will buy a big floor plant 1.}
+{5100}{}{I will buy a big floor plant 2.}
+{5110}{}{I will buy a big floor plant 3.}
+{5120}{}{I will buy a big floor plant 4.}
+{5130}{}{I will buy a big floor plant 5.}
+{5140}{}{I will buy a big floor plant 6.}
+{5150}{}{I will buy a big floor plant 7.}
+

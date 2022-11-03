@@ -1,0 +1,365 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 #
+3 2010 #
+0 2020 @
+3 3000 None 0 #
+4 3010 @
+4 4000 None 0 #
+5 4010 #
+6 4020 #
+2 4030 @
+5 5000 None 0 #
+4 5010 #
+2 5020 @
+6 6000 None 0 #
+7 6010 #
+2 6020 @
+7 7000 None 0 #
+8 7010 #
+2 7020 @
+8 8000 None 0 #
+9 8010 #
+2 8020 @
+9 9000 None 0 #
+12 9010 #
+11 9020 #
+11 9030 #
+11 9040 #
+11 9050 #
+11 9060 #
+11 9070 #
+11 9080 #
+11 9090 #
+11 9100 #
+11 9110 #
+11 9120 #
+11 9130 #
+11 9140 @
+10 10000 None 0 #
+11 10010 R _script base@setMode 1 1 #
+11 10020 R _script base@setMode 1 2 #
+11 10030 R _script base@setMode 1 3 #
+11 10040 @
+11 11000 None 0 #
+6 11010 #
+2 11020 @
+12 12000 None 0 #
+10 12010 R _script base@place 1 1300 #
+10 12020 R _script base@place 1 1301 #
+10 12030 R _script base@place 1 1302 #
+10 12040 R _script base@place 1 1303 #
+10 12050 R _script base@place 1 1304 #
+10 12060 R _script base@place 1 1305 #
+10 12070 R _script base@place 1 1306 #
+10 12080 R _script base@place 1 1307 #
+10 12090 R _script base@place 1 1308 #
+10 12100 R _script base@place 1 1309 &
+
+[engl]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Information}
+{4020}{}{Build}
+{4030}{}{logout}
+{5000}{}{Welcome to BuildBox 3, this application in your pipboy will help you build something from materials you can find here. [Each built object costs Engineering skill permanently!]}
+{5010}{}{back}
+{5020}{}{logout}
+{6000}{}{...Loading....}
+{6010}{}{wait}
+{6020}{}{logout}
+{7000}{}{....Loading...}
+{7010}{}{wait}
+{7020}{}{logout}
+{8000}{}{...Loading...}
+{8010}{}{wait}
+{8020}{}{logout}
+{9000}{}{select a category}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{blood}
+{9120}{}{metal misc}
+{9130}{}{boxes}
+{9140}{}{signs}
+{10000}{}{Choose extra abilities}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Can't shoot through and walk on it}
+{10040}{}{without abilities}
+{11000}{}{Done}
+{11010}{}{continue}
+{11020}{}{logout}
+{12000}{}{Choose object}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Information}
+{4020}{}{Build}
+{4030}{}{logout}
+{5000}{}{Welcome to BuildBox 3, this application in your pipboy will help you build something from materials you can find here. [Each built object costs Engineering skill permanently!]}
+{5010}{}{back}
+{5020}{}{logout}
+{6000}{}{...Loading....}
+{6010}{}{wait}
+{6020}{}{logout}
+{7000}{}{....Loading...}
+{7010}{}{wait}
+{7020}{}{logout}
+{8000}{}{...Loading...}
+{8010}{}{wait}
+{8020}{}{logout}
+{9000}{}{select a category}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{blood}
+{9120}{}{metal misc}
+{9130}{}{boxes}
+{9140}{}{signs}
+{10000}{}{Choose extra abilities}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Can't shoot through and walk on it}
+{10040}{}{without abilities}
+{11000}{}{Done}
+{11010}{}{continue}
+{11020}{}{logout}
+{12000}{}{Choose object}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Information}
+{4020}{}{Build}
+{4030}{}{logout}
+{5000}{}{Welcome to BuildBox 3, this application in your pipboy will help you build something from materials you can find here. [Each built object costs Engineering skill permanently!]}
+{5010}{}{back}
+{5020}{}{logout}
+{6000}{}{...Loading....}
+{6010}{}{wait}
+{6020}{}{logout}
+{7000}{}{....Loading...}
+{7010}{}{wait}
+{7020}{}{logout}
+{8000}{}{...Loading...}
+{8010}{}{wait}
+{8020}{}{logout}
+{9000}{}{select a category}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{blood}
+{9120}{}{metal misc}
+{9130}{}{boxes}
+{9140}{}{signs}
+{10000}{}{Choose extra abilities}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Can't shoot through and walk on it}
+{10040}{}{without abilities}
+{11000}{}{Done}
+{11010}{}{continue}
+{11020}{}{logout}
+{12000}{}{Choose object}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Information}
+{4020}{}{Build}
+{4030}{}{logout}
+{5000}{}{Welcome to BuildBox 3, this application in your pipboy will help you build something from materials you can find here. [Each built object costs Engineering skill permanently!]}
+{5010}{}{back}
+{5020}{}{logout}
+{6000}{}{...Loading....}
+{6010}{}{wait}
+{6020}{}{logout}
+{7000}{}{....Loading...}
+{7010}{}{wait}
+{7020}{}{logout}
+{8000}{}{...Loading...}
+{8010}{}{wait}
+{8020}{}{logout}
+{9000}{}{select a category}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{blood}
+{9120}{}{metal misc}
+{9130}{}{boxes}
+{9140}{}{signs}
+{10000}{}{Choose extra abilities}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Can't shoot through and walk on it}
+{10040}{}{without abilities}
+{11000}{}{Done}
+{11010}{}{continue}
+{11020}{}{logout}
+{12000}{}{Choose object}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{system initializing...}
+{2010}{}{Login}
+{2020}{}{Turn off}
+{3000}{}{authentication required}
+{3010}{}{Password ************}
+{4000}{}{authentication token accepted, choose action}
+{4010}{}{Information}
+{4020}{}{Build}
+{4030}{}{logout}
+{5000}{}{Welcome to BuildBox 3, this application in your pipboy will help you build something from materials you can find here. [Each built object costs Engineering skill permanently!]}
+{5010}{}{back}
+{5020}{}{logout}
+{6000}{}{...Loading....}
+{6010}{}{wait}
+{6020}{}{logout}
+{7000}{}{....Loading...}
+{7010}{}{wait}
+{7020}{}{logout}
+{8000}{}{...Loading...}
+{8010}{}{wait}
+{8020}{}{logout}
+{9000}{}{select a category}
+{9010}{}{Wooden misc}
+{9020}{}{chairs}
+{9030}{}{stone misc}
+{9040}{}{tables}
+{9050}{}{beds}
+{9060}{}{lamps}
+{9070}{}{hi-tech}
+{9080}{}{mats}
+{9090}{}{junk}
+{9100}{}{flags}
+{9110}{}{blood}
+{9120}{}{metal misc}
+{9130}{}{boxes}
+{9140}{}{signs}
+{10000}{}{Choose extra abilities}
+{10010}{}{Can't walk on it}
+{10020}{}{Can't shoot through}
+{10030}{}{Can't shoot through and walk on it}
+{10040}{}{without abilities}
+{11000}{}{Done}
+{11010}{}{continue}
+{11020}{}{logout}
+{12000}{}{Choose object}
+{12010}{}{long planks}
+{12020}{}{long planks 2}
+{12030}{}{pole}
+{12040}{}{pole 2}
+{12050}{}{tree}
+{12060}{}{well}
+{12070}{}{support pole 1}
+{12080}{}{support pole 2}
+{12090}{}{support pole 3}
+{12100}{}{support pole 4}

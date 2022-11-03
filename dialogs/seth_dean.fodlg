@@ -1,0 +1,108 @@
+[comment]
+
+
+[data]
+lang=engl czec pols span russ
+
+[dialog]
+&
+1 1000 None 1 #
+6 1010 @
+6 2000 None 0 #
+7 2010 #
+9 2020 #
+0 2030 @
+7 3000 None 0 #
+8 3010 D _item p PID_COMBAT_ARMOR } 1 D _script dialog@d_havepropermoney 1 550 R _script dialog@r_RemoveMoney 1 550 R _item p PID_COMBAT_ARMOR - 1 R _item p PID_NCR_ARMOR + 1 #
+8 3020 D _item p PID_COMBAT_HELMET } 1 D _script dialog@d_havepropermoney 1 350 R _script dialog@r_RemoveMoney 1 350 R _item p PID_COMBAT_HELMET - 1 R _item p PID_NCR_HELMET + 1 #
+0 3030 @
+8 4000 None 0 @
+9 5000 None 0 #
+0 5010 D _item p PID_NCR_MONEY } 100 R _item p PID_NCR_MONEY - 100 R _item p PID_RANGER_HAT + 1 #
+0 5020 &
+
+[engl]
+{100}{}{Officer Dean Domino}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greeting, soldier. What is it?}
+{2010}{}{I want to repaint my combat armor.}
+{2020}{}{Do you have anything special?}
+{2030}{}{Nothing. I better go. [ end dialogue ]}
+{3000}{}{You will need to bring me a combat armor or a combat helmet. It will cost you 550 Currency for repainting a combat armor and 350 Currency for repainting a combat helmet.}
+{3010}{}{Here is a combat armor.}
+{3020}{}{Here is a combat helmet.}
+{3030}{}{Later maybe... [ end dialogue ]}
+{4000}{}{Here you go.}
+{5000}{}{Well, I have Ranger hats here. Can give you one for 100 NCR scripts.}
+{5010}{}{I'll take one. [ end dialogue ]}
+{5020}{}{Nah, not interested. [ end dialogue ]}
+
+[czec]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greeting, soldier. What is it?}
+{2010}{}{I want to repaint my combat armor.}
+{2020}{}{Do you have anything special?}
+{2030}{}{Nothing. I better go.}
+{3000}{}{You will need to bring me a combat armor or a combat helmet. It will cost you 550 Currency for repainting a combat armor and 350 Currency for repainting a combat helmet.}
+{3010}{}{Here is a combat armor.}
+{3020}{}{Here is a combat helmet.}
+{3030}{}{Later maybe...}
+{4000}{}{Here you go.}
+{5000}{}{Well, I have Ranger hats here. Can give you one for 100 NCR scripts.}
+{5010}{}{I take one.}
+{5020}{}{Nah, not interested.}
+
+[pols]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greeting, soldier. What is it?}
+{2010}{}{I want to repaint my combat armor.}
+{2020}{}{Do you have anything special?}
+{2030}{}{Nothing. I better go.}
+{3000}{}{You will need to bring me a combat armor or a combat helmet. It will cost you 550 Currency for repainting a combat armor and 350 Currency for repainting a combat helmet.}
+{3010}{}{Here is a combat armor.}
+{3020}{}{Here is a combat helmet.}
+{3030}{}{Later maybe...}
+{4000}{}{Here you go.}
+{5000}{}{Well, I have Ranger hats here. Can give you one for 100 NCR scripts.}
+{5010}{}{I take one.}
+{5020}{}{Nah, not interested.}
+
+[span]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greeting, soldier. What is it?}
+{2010}{}{I want to repaint my combat armor.}
+{2020}{}{Do you have anything special?}
+{2030}{}{Nothing. I better go.}
+{3000}{}{You will need to bring me a combat armor or a combat helmet. It will cost you 550 Currency for repainting a combat armor and 350 Currency for repainting a combat helmet.}
+{3010}{}{Here is a combat armor.}
+{3020}{}{Here is a combat helmet.}
+{3030}{}{Later maybe...}
+{4000}{}{Here you go.}
+{5000}{}{Well, I have Ranger hats here. Can give you one for 100 NCR scripts.}
+{5010}{}{I take one.}
+{5020}{}{Nah, not interested.}
+
+[russ]
+{100}{}{none}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{Greeting, soldier. What is it?}
+{2010}{}{I want to repaint my combat armor.}
+{2020}{}{Do you have anything special?}
+{2030}{}{Nothing. I better go.}
+{3000}{}{You will need to bring me a combat armor or a combat helmet. It will cost you 550 Currency for repainting a combat armor and 350 Currency for repainting a combat helmet.}
+{3010}{}{Here is a combat armor.}
+{3020}{}{Here is a combat helmet.}
+{3030}{}{Later maybe...}
+{4000}{}{Here you go.}
+{5000}{}{Well, I have Ranger hats here. Can give you one for 100 NCR scripts.}
+{5010}{}{I take one.}
+{5020}{}{Nah, not interested.}
+

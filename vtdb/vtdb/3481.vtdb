@@ -1,0 +1,8 @@
+/* Generated automagically, DO NOT EDIT */
+
+@version = 2;
+@name = Steel Brother;
+@gender = 0;
+@age = 39;
+
+@special = 6 6 10 1 8 8 1;

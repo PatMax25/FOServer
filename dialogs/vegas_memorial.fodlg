@@ -1,0 +1,18 @@
+[comment]
+
+
+[data]
+lang=engl
+
+[dialog]
+&
+1 1000 None 1 #
+2 1010 @
+2 2000 None 0 &
+
+[engl]
+{100}{}{Memorial}
+{1000}{}{Predialogue installations}
+{1010}{}{Answer text}
+{2000}{}{[ Memorial to Hoover Dam: They died to make the desert bloom - 1935. ]}
+
