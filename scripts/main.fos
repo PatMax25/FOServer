@@ -1287,16 +1287,16 @@ uint e_as(array<uint>@ mobdata)
 uint get_as(Critter& cr)
 {
 	int val = 1700;
-	val -= cr.Param[ST_SEQUENCE] * 8; // 1% per sequence
-	val -= cr.Param[ST_AGILITY] * 8; // 1% per ag
-	val -= cr.Param[TRAIT_FAST_SHOT] * 40; // 5%
-	val -= cr.Param[PE_CLAW] * 40; // 5%
-	val -= cr.Param[PE_CLAW2] * 40; // 5%
-	if( valid(cr.GetItem(SLOT_HAND1, 0)))
-	if(FLAG(cr.GetItem(SLOT_HAND1, 0).Flags,ITEM_TWO_HANDS))
-		val -= cr.Param[PE_COWBOY] * 240; //30% 
-	if(cr.Param[PE_COWBOY] > 0 && cr.Param[PE_EARLIER_SEQUENCE] > 0  && cr.Param[PE_WEAPON_HANDLING] > 0 && cr.Param[PE_QUICK_POCKETS] > 0)
-		val -= 120; //15%	
+	//val -= cr.Param[ST_SEQUENCE] * 8; // 1% per sequence
+	//val -= cr.Param[ST_AGILITY] * 8; // 1% per ag
+	//val -= cr.Param[TRAIT_FAST_SHOT] * 40; // 5%
+	//val -= cr.Param[PE_CLAW] * 40; // 5%
+	//val -= cr.Param[PE_CLAW2] * 40; // 5%
+	//if( valid(cr.GetItem(SLOT_HAND1, 0)))
+	//if(FLAG(cr.GetItem(SLOT_HAND1, 0).Flags,ITEM_TWO_HANDS))
+	//	val -= cr.Param[PE_COWBOY] * 240; //30% 
+	//if(cr.Param[PE_COWBOY] > 0 && cr.Param[PE_EARLIER_SEQUENCE] > 0  && cr.Param[PE_WEAPON_HANDLING] > 0 && cr.Param[PE_QUICK_POCKETS] > 0)
+	//	val -= 120; //15%	
 		
 	return val;
 }

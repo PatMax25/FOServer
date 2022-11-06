@@ -4749,16 +4749,7 @@ uint e_as(array<uint>@mobdata)
 uint get_as(Critter&cr)
 {
 	int val=1700;
-	val-=cr.Param[(12)]*8;
-	val-=cr.Param[(5)]*8;
-	val-=cr.Param[(557)]*40;
-	val-=cr.Param[(325)]*40;
-	val-=cr.Param[(328)]*40;
-	if((@cr.GetItem((1),0)!=null))
-	if((((cr.GetItem((1),0).Flags)&((0x00000080)))!=0))
-	val-=cr.Param[(350)]*240;
-	if(cr.Param[(350)]>0&&cr.Param[(307)]>0&&cr.Param[(407)]>0&&cr.Param[(349)]>0)
-	val-=120;
+
 	
 	return val;
 }  
