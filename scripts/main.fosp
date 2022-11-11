@@ -4748,8 +4748,7 @@ uint e_as(array<uint>@mobdata)
 
 uint get_as(Critter&cr)
 {
-	int val=1700;
-
+	int val=1700;          
 	
 	return val;
 }  

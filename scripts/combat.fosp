@@ -6763,7 +6763,7 @@ void ApplyDamage(AttackStruct&attack,Critter&target,int rounds,bool isCritical,b
 		if((@realWeapon!=null)&&realWeapon.Val5==(9))flat_damage+=7;
 		if((@realWeapon!=null)&&realWeapon.Val6==(9))flat_damage+=7;
 		if((@realWeapon!=null)&&realWeapon.Val7==(9))flat_damage+=7;
-		if((@realWeapon!=null)&&realWeapon.Val8==(9))flat_damage+=7; 
+		if((@realWeapon!=null)&&realWeapon.Val8==(9))flat_damage+=7;  
 		
 		if((attack.Attacker.Param[(553)]!=0&&((@realWeapon!=null)&&!(((realWeapon.Flags)&((0x00000080)))!=0))&&!realWeapon.IsStackable())||attack.Attacker.Param[(553)]!=0&&attack.Attacker.Param[(345)]!=0)
 		dmgmulti+=15;

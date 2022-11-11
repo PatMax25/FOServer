@@ -125,9 +125,9 @@ bool start()
         // Recomendation message
         Message(GetMsgStr(TEXTMSG_GAME, STR_INVALID_RESOLUTION));
     }*/
-	Message("Welcome to FOnline: 3! Thanks and have fun!");
-	Message("|-1 Welcome in |" + COLOR_RGB(255,255,0) + " Season 4");
-	Message("|-9270822 Join discord: https://discord.gg/Bg6JWsD" + LoadSprite("discord.png", int(PT_ART_INTRFACE)));
+	Message("Welcome to FOnline: TECH! Thanks and have fun!");
+	Message("|-1 Welcome in |" + COLOR_RGB(255,255,0) + " ALFA");
+	Message("|-9270822 Join discord: soon" + LoadSprite("discord.png", int(PT_ART_INTRFACE)));
     // Additional dat files
 
     InitializeGame();

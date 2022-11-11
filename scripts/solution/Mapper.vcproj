@@ -180,6 +180,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\json.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\mapper_autowall.fos"
 				>
 			</File>
@@ -193,6 +197,10 @@
 			</File>
 			<File
 				RelativePath="..\mapper_main.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\mapper_menu.fos"
 				>
 			</File>
 			<File
@@ -299,6 +307,30 @@
 			</File>
 			<File
 				RelativePath="..\itempid.h"
+				>
+			</File>
+			<File
+				RelativePath="..\json_export.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_misc.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_parser.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_tokenizer.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_values.fos"
 				>
 			</File>
 			<File

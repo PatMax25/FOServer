@@ -3420,7 +3420,9 @@ bool critter_check_move_item(Critter&cr,Item&item,uint8 toSlot,Item@itemSwap)
 		return true;
 	}
 	
-	bool handsSwap=((fromSlot==(1)&&toSlot==(2))||(fromSlot==(2)&&toSlot==(1)));   
+	bool handsSwap=((fromSlot==(1)&&toSlot==(2))||(fromSlot==(2)&&toSlot==(1)));
+	if((@itemSwap!=null)&&!handsSwap)
+	return false; 
 	
 	if(toSlot==(1))
 	{
@@ -3917,8 +3919,8 @@ void speedboost(Critter&cr)
 	if(cr.Param[(385)]>0&&cr.Param[(444)]>0&&cr.Param[(443)]>0)
 	val/=2; 
 	
-	int realval=500000/val;
-	cr.ParamBase[(1108)]=(((val)>(20000))?(20000):(((val)<(1))?(1):(val))); 
+	int realval=500000/1700;
+	cr.ParamBase[(1108)]=1700; 
 	
 	if(!(@map!=null))
 	return;

@@ -2741,6 +2741,7 @@ void ApplyDamage(AttackStruct& attack, Critter& target, int rounds, bool isCriti
         if(valid(realWeapon) && realWeapon.Val6 == WP_SLAYER) flat_damage += 7;
         if(valid(realWeapon) && realWeapon.Val7 == WP_SLAYER) flat_damage += 7;
         if(valid(realWeapon) && realWeapon.Val8 == WP_SLAYER) flat_damage += 7;
+    
         //druto
 		
         if((attack.Attacker.Param[TRAIT_ONE_HANDER] != 0 && (valid(realWeapon) && !FLAG(realWeapon.Flags, ITEM_TWO_HANDS)) && !realWeapon.IsStackable()) || attack.Attacker.Param[TRAIT_ONE_HANDER] != 0 && attack.Attacker.Param[PE_MUTANT] != 0)

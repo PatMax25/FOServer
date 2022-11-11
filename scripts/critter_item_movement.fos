@@ -120,8 +120,8 @@ bool critter_check_move_item(Critter& cr, Item& item, uint8 toSlot, Item@ itemSw
     }
     // If busy, then allow only hands item swapping
     bool handsSwap = ((fromSlot == SLOT_HAND1 && toSlot == SLOT_HAND2) || (fromSlot == SLOT_HAND2 && toSlot == SLOT_HAND1));
-   // if(valid(itemSwap) && !handsSwap)
-    //    return false;
+    if(valid(itemSwap) && !handsSwap)
+        return false;
 
     // Weapon animation
     if(toSlot == SLOT_HAND1)
@@ -671,8 +671,8 @@ void speedboost(Critter& cr)
 				val /= 2;
 	
 				
-	int realval = 500000 / val;
-	cr.ParamBase[ST_ATTACK_SPEED]=CLAMP(val,1,20000);	//Formula
+	int realval = 500000 / 1700;
+	cr.ParamBase[ST_ATTACK_SPEED]=1700;	//Formula
 	
 	
     if(!valid(map))

@@ -180,6 +180,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\client_access.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\client_anti_cheat.fos"
 				>
 			</File>
@@ -196,11 +200,27 @@
 				>
 			</File>
 			<File
+				RelativePath="..\client_critter_onhead.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\client_cutscene.fos"
 				>
 			</File>
 			<File
 				RelativePath="..\client_dev_menu.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\client_drawing.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\client_fef.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\client_fixboy.fos"
 				>
 			</File>
 			<File
@@ -256,6 +276,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\client_screen_chat.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\client_screens.fos"
 				>
 			</File>
@@ -288,7 +312,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\fo2077_client_screen_gameinfo.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\foart.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\hexshot.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\hexthrow.fos"
 				>
 			</File>
 			<File
@@ -296,7 +332,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\json.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\lexems.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_events.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\mutual.fos"
 				>
 			</File>
 			<File
@@ -333,6 +381,10 @@
 			</File>
 			<File
 				RelativePath="..\time.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\wait_time.fos"
 				>
 			</File>
 		</Filter>
@@ -426,7 +478,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\client_access_h.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\client_anti_cheat_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\client_drawing_h.fos"
 				>
 			</File>
 			<File
@@ -463,6 +523,10 @@
 			</File>
 			<File
 				RelativePath="..\client_keybinds_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\client_screen_gameinfo_h.fos"
 				>
 			</File>
 			<File
@@ -530,6 +594,30 @@
 				>
 			</File>
 			<File
+				RelativePath="..\json_export.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_misc.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_parser.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_tokenizer.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_values.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\lexems_h.fos"
 				>
 			</File>
@@ -539,6 +627,10 @@
 			</File>
 			<File
 				RelativePath="..\msgstr.h"
+				>
+			</File>
+			<File
+				RelativePath="..\mutual_h.fos"
 				>
 			</File>
 			<File
@@ -573,6 +665,10 @@
 				RelativePath="..\strtoint_h.fos"
 				>
 			</File>
+			<File
+				RelativePath="..\wait_time_h.fos"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Disabled"
@@ -585,6 +681,10 @@
 			</File>
 			<File
 				RelativePath="..\client_screen_test.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\fo2077_client_screen_tag.fos"
 				>
 			</File>
 			<File

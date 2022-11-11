@@ -2535,9 +2535,9 @@ import void InitPepegeConfig(int screen)from"client_container_addons";
 bool start()
 {    
 	
-	Message("Welcome to FOnline: 3! Thanks and have fun!");
-	Message("|-1 Welcome in |"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((0)&0xFF)))+" Season 4");
-	Message("|-9270822 Join discord: https://discord.gg/Bg6JWsD"+LoadSprite("discord.png",int((4)))); 
+	Message("Welcome to FOnline: TECH! Thanks and have fun!");
+	Message("|-1 Welcome in |"+(uint((0xFF<<24)|(((255)&0xFF)<<16)|(((255)&0xFF)<<8)|((0)&0xFF)))+" ALFA");
+	Message("|-9270822 Join discord: soon"+LoadSprite("discord.png",int((4)))); 
 	
 	InitializeGame();
 	

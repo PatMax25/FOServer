@@ -43,7 +43,9 @@ bool critter_check_move_item(CritterCl&cr,ItemCl&item,uint8 toSlot,ItemCl@itemSw
 		return true;
 	}
 	
-	bool handsSwap=((fromSlot==(1)&&toSlot==(2))||(fromSlot==(2)&&toSlot==(1)));   
+	bool handsSwap=((fromSlot==(1)&&toSlot==(2))||(fromSlot==(2)&&toSlot==(1)));
+	if((@itemSwap!=null)&&!handsSwap)
+	return false; 
 	
 	if(toSlot==(1))
 	{

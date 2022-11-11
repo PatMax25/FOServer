@@ -284,7 +284,7 @@ void CommenceHexShoting(Critter&cr,Map&map,Item&item,uint16 tx,uint16 ty)
 		if(!map.IsTurnBased()&&map.IsTurnBasedAvailability())
 		map.BeginTurnBased(cr);
 		uint[]values={map.Id,tx,ty,pid,cr.Id,item.AmmoPid};
-		e_HexShotExplode(values);
+		CreateTimeEvent(((__FullSecond)+(((0)*__TimeMultiplier))),"e_HexShotExplode",values,false);
 		if((@item!=null)&&cr.Param[(522)]==0&&cr.Param[(359)]==0)
 		item.AmmoCount-=1;
 		item.Update();

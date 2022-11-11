@@ -196,11 +196,27 @@
 				>
 			</File>
 			<File
+				RelativePath="..\base.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\base_control.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\billboards.fos"
 				>
 			</File>
 			<File
+				RelativePath="..\blood.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\blueprints.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\books.fos"
 				>
 			</File>
 			<File
@@ -264,6 +280,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\chat_server_scripts.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\cheats.fos"
 				>
 			</File>
@@ -273,6 +293,10 @@
 			</File>
 			<File
 				RelativePath="..\combat.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\common_guard.fos"
 				>
 			</File>
 			<File
@@ -308,6 +332,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\daily_quest.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\debug.fos"
 				>
 			</File>
@@ -336,6 +364,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\dungeon.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\dynamic_light_source.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\economy.fos"
 				>
 			</File>
@@ -357,6 +393,14 @@
 			</File>
 			<File
 				RelativePath="..\encounter_guard.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\event_encounter.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\event_flc_robbery.fos"
 				>
 			</File>
 			<File
@@ -408,6 +452,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\fire_hexes.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\fix_boy.fos"
 				>
 			</File>
@@ -429,6 +477,10 @@
 			</File>
 			<File
 				RelativePath="..\followers_menu.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\food.fos"
 				>
 			</File>
 			<File
@@ -472,7 +524,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\hexshot.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\hexthrow.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\hub_guard.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\item_achievementbook.fos"
 				>
 			</File>
 			<File
@@ -488,11 +552,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\item_bonus.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\item_brahmin_dung.fos"
 				>
 			</File>
 			<File
 				RelativePath="..\item_dogtags.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\item_dungeon_map.fos"
 				>
 			</File>
 			<File
@@ -505,6 +577,10 @@
 			</File>
 			<File
 				RelativePath="..\item_holodisk.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\item_level.fos"
 				>
 			</File>
 			<File
@@ -524,6 +600,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\item_pools.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\item_radio.fos"
 				>
 			</File>
@@ -537,6 +617,10 @@
 			</File>
 			<File
 				RelativePath="..\item_tent.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json.fos"
 				>
 			</File>
 			<File
@@ -576,11 +660,31 @@
 				>
 			</File>
 			<File
+				RelativePath="..\main_quest.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_abbey.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_area51.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\map_arena.fos"
 				>
 			</File>
 			<File
 				RelativePath="..\map_ares.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_barter_ground.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_bhcave.fos"
 				>
 			</File>
 			<File
@@ -612,7 +716,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\map_dungeon.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\map_encounter.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_events.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_farm.fos"
 				>
 			</File>
 			<File
@@ -640,6 +756,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\map_hawthorne.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\map_hub.fos"
 				>
 			</File>
@@ -652,7 +772,15 @@
 				>
 			</File>
 			<File
+				RelativePath="..\map_klam_toxic.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\map_klamath.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_labx7.fos"
 				>
 			</File>
 			<File
@@ -724,6 +852,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\map_raiders_hideout.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\map_raiders_south.fos"
 				>
 			</File>
@@ -745,6 +877,18 @@
 			</File>
 			<File
 				RelativePath="..\map_sad.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_saltlake.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_se_howitzer.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_se_secret_shelter.fos"
 				>
 			</File>
 			<File
@@ -772,11 +916,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\map_slavery_vault.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\map_starter.fos"
 				>
 			</File>
 			<File
 				RelativePath="..\map_talchem.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_temple.fos"
 				>
 			</File>
 			<File
@@ -788,7 +940,27 @@
 				>
 			</File>
 			<File
+				RelativePath="..\map_tunnel.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_ul_waterworks.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\map_vault13.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_vault14.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_vault15.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_vaultx.fos"
 				>
 			</File>
 			<File
@@ -797,6 +969,14 @@
 			</File>
 			<File
 				RelativePath="..\map_vcity_hq.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_vegas.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\map_verti.fos"
 				>
 			</File>
 			<File
@@ -824,6 +1004,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\mob_dynamic.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\mob_wave.fos"
 				>
 			</File>
@@ -840,6 +1024,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\mutual.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\name_colorizing.fos"
 				>
 			</File>
@@ -853,6 +1041,10 @@
 			</File>
 			<File
 				RelativePath="..\ncr_guard_prison.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\newtagskill.fos"
 				>
 			</File>
 			<File
@@ -892,6 +1084,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\patreon.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\patrolnodes.fos"
 				>
 			</File>
@@ -901,6 +1097,10 @@
 			</File>
 			<File
 				RelativePath="..\perks.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\personal_base.fos"
 				>
 			</File>
 			<File
@@ -1013,6 +1213,10 @@
 			</File>
 			<File
 				RelativePath="..\prospects.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\q_enclave.fos"
 				>
 			</File>
 			<File
@@ -1180,6 +1384,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\skins.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\slaverun.fos"
 				>
 			</File>
@@ -1200,11 +1408,15 @@
 				>
 			</File>
 			<File
-				RelativePath="..\sleepiness.fos"
+				RelativePath="..\spawner_container.fos"
 				>
 			</File>
 			<File
-				RelativePath="..\spawner_container.fos"
+				RelativePath="..\spawner_pve.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\spawner_pvp.fos"
 				>
 			</File>
 			<File
@@ -1221,6 +1433,10 @@
 			</File>
 			<File
 				RelativePath="..\talchem.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\teslarecharge.fos"
 				>
 			</File>
 			<File
@@ -1280,6 +1496,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\wait_time.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\wandering_ghoul.fos"
 				>
 			</File>
@@ -1313,6 +1533,10 @@
 			</File>
 			<File
 				RelativePath="..\worldmap_players.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\zc.fos"
 				>
 			</File>
 		</Filter>
@@ -1376,6 +1600,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\_client_defines.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\_colors.fos"
 				>
 			</File>
@@ -1408,6 +1636,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\_msgstr.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\_npc_pids.fos"
 				>
 			</File>
@@ -1437,6 +1669,14 @@
 			</File>
 			<File
 				RelativePath="..\backend_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\base_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\blood_h.fos"
 				>
 			</File>
 			<File
@@ -1500,11 +1740,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\chosen_actions_h.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\combat_h.fos"
 				>
 			</File>
 			<File
 				RelativePath="..\combat_msg.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\companion.fos"
 				>
 			</File>
 			<File
@@ -1549,6 +1797,14 @@
 			</File>
 			<File
 				RelativePath="..\drugs_data.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\dynamic_light_source.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\dynamic_light_source_h.fos"
 				>
 			</File>
 			<File
@@ -1612,6 +1868,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\flags_h.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\foart_2238.fos"
 				>
 			</File>
@@ -1625,6 +1885,10 @@
 			</File>
 			<File
 				RelativePath="..\foart_server.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\follower.fos"
 				>
 			</File>
 			<File
@@ -1660,6 +1924,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\item_bonus.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\item_dogtags_h.fos"
 				>
 			</File>
@@ -1676,7 +1944,35 @@
 				>
 			</File>
 			<File
+				RelativePath="..\item_pools_h.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\itempid.h"
+				>
+			</File>
+			<File
+				RelativePath="..\json_export.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_misc.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_parser.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_tokenizer.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\json_values.fos"
 				>
 			</File>
 			<File
@@ -1689,6 +1985,10 @@
 			</File>
 			<File
 				RelativePath="..\linetracer_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\lockers.fos"
 				>
 			</File>
 			<File
@@ -1716,7 +2016,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\minigames.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\minigames_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\mob_dynamic.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\mob_dynamic_h.fos"
 				>
 			</File>
 			<File
@@ -1737,6 +2049,10 @@
 			</File>
 			<File
 				RelativePath="..\multihex_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\mutual_h.fos"
 				>
 			</File>
 			<File
@@ -1908,6 +2224,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\triggers.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\triggers_funcs.fos"
 				>
 			</File>
@@ -1916,11 +2236,19 @@
 				>
 			</File>
 			<File
+				RelativePath="..\utils.fos"
+				>
+			</File>
+			<File
 				RelativePath="..\utils_for_array.fos"
 				>
 			</File>
 			<File
 				RelativePath="..\utils_h.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\wait_time_h.fos"
 				>
 			</File>
 			<File
@@ -1941,6 +2269,10 @@
 			</File>
 			<File
 				RelativePath="..\weather_rain_table.fos"
+				>
+			</File>
+			<File
+				RelativePath="..\workbench.fos"
 				>
 			</File>
 			<File
