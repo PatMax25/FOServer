@@ -347,7 +347,6 @@ int to_hit(CritterCl&chosen,CritterCl&target,ProtoItem&weapon,uint8 weaponMode)
 	ItemCl@realWeapon=chosen.GetItem(0,(1));
 	ProtoItem@ammo=null;
 	
-	
 	if(realWeapon.GetType()==(3)&&((use)==0?weapon.Weapon_Round_0:((use)==1?weapon.Weapon_Round_1:((use)==2?weapon.Weapon_Round_2:0)))>0)
 	{
 		if(realWeapon.AmmoCount==0)
